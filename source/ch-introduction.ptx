@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction</title>
+
+    \chapter{Introduction}
+    <introduction>
+    <p> We rely heavily on electronics in our daily lives. Some examples include:
+        <ul>
+            <li> digital clocks </li>
+            <li> phones </li>
+            <li> computers </li>
+            <li> appliances. </li>
+        </ul>
+        This course serves as a survey of electronics principles and design. We will not focus much on the physics 
+        principles behind electronic components, but will instead focus on the rules governing circuit design and behavior. 
+    </p>
+    </introduction>
+
+<section xml:id="sec-introduction-review" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Review from Introductory Physics</title>
+  
+    <p> 
+        Electrical devices are powered by electricity, and this electricity characterizes the movement of charges 
+        (which we call <term>current</term>) through a circuit. These charges move due to <term>voltage</term> differences 
+        applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must 
+        first establish what voltage and current are.
+    </p>
+
+    <p>
+        In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a 
+        vector field which we call the <term> electric field</term> (which has SI units of V/m). The electric field created 
+        by a point charge <m>Q</m> can be written as
+        <me>
+            \vec{E}=\frac{Q}{4\pi\varepsilon_0 r^2}\vec{r}.
+        </me>
+        While the electric field is a useful construct, it is sometimes convenient to represent this space modification using a 
+        scalar field which we call the <term>electric potential</term> (with SI units of Volts). For a point charge <m>Q</m>, 
+        the electric potential
+        <me>
+        V(\vec{r})=\frac{Q}{4\pi\varepsilon_0 r}.
+        </me>
+        When dealing with circuits, we often use the term <term>voltage</term> for this scalar field. The relationship linking these 
+        two representations is described by
+        <me>
+        \vec{E}=-\nabla V = -\left[\frac{\partial V}{\partial x}\hat{x} + \frac{\partial V}{\partial y}\hat{y} + 
+        \frac{\partial V}{\partial z}\hat{z}\right].
+        </me>
+        While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the 
+        behavior of electrical circuits. The SI unit for voltage is, conveniently, the Volt.
+    </p>
+    
+    <p>
+        <term>Current</term> represents the movement of charge through circuit components. More precisely, current is the amount 
+        of charge passing by some point in a circuit per unit time, or
+        <me>
+            I=\frac{dQ}{dt}.
+        </me>
+    </p>
+
+    <p>
+        <!--% [DON'T USE THIS BLOCK OF TEXT] The voltage can also be used to determine the amount of energy needed to move a charged particle through a region 
+        of space containing other charged particles
+        %\begin{align*}
+        %\Delta U_\text{elec} = q\Delta V
+        %\end{align*}
+        %Here, $\Delta U_\text{elec}$ is the energy change that results as an object with charge $q$ moves through a potential 
+        difference of $\Delta V$.-->
+        
+        In order to read circuit schematics, we will need to establish definitions for symbols that are commonly used. 
+        <xref ref="circuit-symbols" /> provides common symbols that will be used in the first several chapters.
+    </p>
+    
+    <table xml:id="circuit-symbols"> 
+            <title> Circuit Symbols </title>
+            <tabular halign="center" width="70%">
+                <row header="yes" bottom="minor" >
+                    <cell>Symbol</cell><cell>Name</cell><cell>SI Units</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) -- (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>wire</cell><cell></cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="50%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) to [battery] (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>Battery</cell><cell>Volt (V)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="50%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) to [sinusoidal voltage source] (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>AC voltage source</cell><cell>Volt (V)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="50%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) to [american current source] (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>DC current source</cell><cell>Ampere (A)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="50%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) to [R] (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>Resistor</cell><cell>Ohm (<m>\Omega</m>)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="50%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) to [C] (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>Capacitor</cell><cell>Farad (F)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="50%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) to [inductor] (2,0);
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>Inductor</cell><cell>Henry (H)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="25%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) node[ground] {};
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>Ground</cell><cell></cell>
+                </row>
+                <row>
+                    <cell>
+                        <image width="25%"><latex-image >
+                        \begin{circuitikz}
+                        \draw (0,0) node[sground] {};
+                        \end{circuitikz}
+                        </latex-image></image>
+                    </cell><cell>Common</cell><cell></cell>
+                </row>
+            </tabular>
+        </table>
+        <p>
+                
+        We must explain the + and - terminals on the battery!
+        
+    </p>
+  
+  </section>
+
+
+
+
+
+
+
+
+</chapter>

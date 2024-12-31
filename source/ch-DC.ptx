@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-dc" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>DC Circuits</title>
+
+    \chapter{Introduction}
+    <introduction>
+    <p> In this chapter, we will start our analysis of circuits by examining the behavior of circuits in which voltages and 
+        currents are independent of time, and circuits that contain resistors, voltage sources, and/or current sources. We will 
+        call these DC (or direct current) circuits.
+    </p>
+    <p>
+        Define voltage sources (or provide examples): batteries, power supplies
+        Define or provide examples of current sources.
+        Define resistors and ohmic components. 
+    </p>
+    </introduction>
+
+
+
+
+<xi:include href="sec-dc-kirchhoff.ptx" />
+
+<xi:include href="sec-dc-voltage-source-symbol.ptx" />
+
+<xi:include href="sec-dc-series_parallel.ptx" />
+
+<xi:include href="sec-dc-analysis.ptx" />
+
+<xi:include href="sec-dc-superposition.ptx" />
+
+<xi:include href="sec-dc-thevenin.ptx" />
+
+<xi:include href="sec-dc-batteries.ptx" />
+
+<xi:include href="sec-dc-uses.ptx" />
+
+</chapter>

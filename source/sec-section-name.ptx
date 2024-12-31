@@ -3,6 +3,6 @@
 <section xml:id="sec-section-name" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Section Title</title>
 
-  <p> Text of section. </p>
+  <p> Text of section. testing math: <m>\alpha^2 + \beta^4</m> </p>
 
 </section>

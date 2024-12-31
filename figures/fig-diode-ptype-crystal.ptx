@@ -1,0 +1,37 @@
+\begin{tikzpicture}                          
+    \def\nx{5} % Number of crystal x locations
+    \def\ny{3} % Number of crystal y locations
+    \def\R{0.4cm} % Nucleus separation
+    \def\re{0.05} % Electron size
+    \def\dsep{.1cm} % Electron separation
+    \def\c{red} % Color of central nucleus and electrons
+    \def\cc{blue} % Color of extra electron or hole in doped semiconductor
+                                            
+    % CRYSTAL
+    \foreach \ix in {0, ..., \inteval{\nx-1}}
+        {
+        \foreach \iy  in {0, ..., \inteval{\ny-1}}
+            {
+            \def\x{{2*\ix*\R}}
+            \def\y{{2*\iy*\R}}
+            \draw (\x,\y) coordinate(a);
+            \pgfmathparse{and(\ix==floor(\nx/2),\iy==floor(\ny/2))} \pgfmathresult    
+            \ifnum\pgfmathresult=1 % Central Atom
+                \draw (a) node[color=\c2,scale=1.4] {B};
+                \draw[very thick, color=\cc] ([xshift=\dsep, yshift=\R] a) circle (\re);
+                \fill[color=\c] ([xshift=\R, yshift=-\dsep] a) circle (\re);
+                \fill[color=\c] ([xshift=-\dsep, yshift=-\R] a) circle (\re);
+                \fill[color=\c] ([xshift=-\R, yshift=\dsep] a) circle (\re);
+            \else % All other atoms
+                \draw (a) node[color=black,scale=1.4] {Si};
+                \fill ([xshift=\dsep, yshift=\R] a) circle (\re);
+                \fill ([xshift=\R, yshift=-\dsep] a) circle (\re);
+                \fill ([xshift=-\dsep, yshift=-\R] a) circle (\re);
+                \fill ([xshift=-\R, yshift=\dsep] a) circle (\re);
+            \fi
+            }
+        }
+                        
+    % EXAMPLE FUNCTIONALITY
+    %\foreach \i/\No [evaluate={\r=\R+\i*\a;}] in {1/2, 2/4, 3/6}{ }
+\end{tikzpicture}

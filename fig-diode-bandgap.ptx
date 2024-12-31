@@ -1,0 +1,82 @@
+\usetikzlibrary {patterns,patterns.meta}
+\usetikzlibrary {arrows.meta}
+\begin{tikzpicture}
+    
+        
+        \def\h{2}
+        \def\w{2}
+        
+        %------- Conductor ----------------
+        \def\hloc{0}
+        \def\vsep{-.5}
+        \draw[thick, color=red]
+            ({\hloc},{\vsep/2} ) rectangle ({\hloc+\w},{\vsep/2+\h/2});
+        \draw[thick, color=blue, pattern={Lines[angle=+45,distance={3pt}]}, pattern color=blue] 
+            ({\hloc},{-\vsep/2} ) rectangle ({\hloc+\w},{-\vsep/2+-\h/2}); 
+        
+
+        %------- Semiconductor (T=0) ----------------
+        \def\hloc{\w+.5}
+        \def\vsep{.25}
+        \draw[thick, color=red]
+            ({\hloc},{\vsep/2} ) rectangle ({\hloc+\w},{\vsep/2+\h/2});
+        \draw[thick, color=blue, pattern={Lines[angle=+45,distance={3pt}]}, pattern color=blue] 
+            ({\hloc},{-\vsep/2} ) rectangle ({\hloc+\w},{-\vsep/2+-\h/2});
+
+        %------- Semiconductor (T>0) ----------------
+        \def\hloc{2*\w+1.0}
+        \def\vsep{.25}
+        \draw[thick, color=red]
+            ({\hloc},{\vsep/2} ) rectangle ({\hloc+\w},{\vsep/2+\h/2});
+        \draw[thick, color=blue] 
+            ({\hloc},{-\vsep/2} ) rectangle ({\hloc+\w},{-\vsep/2+-\h/2});
+        \fill[thick, pattern={Lines[angle=+45,distance={3pt}]}, pattern color=blue] 
+            ({\hloc},{-\vsep/2-.25} ) rectangle ({\hloc+\w},{-\vsep/2+-\h/2}); 
+        \fill[thick, pattern={Lines[angle=+45,distance={3pt}]}, pattern color=blue]
+            ({\hloc},{\vsep/2} ) rectangle ({\hloc+\w},{\vsep/2+.25});
+         
+        
+         %------- Insulator ----------------
+        \def\hloc{3*\w+1.5}
+        \def\vsep{1}
+        \draw[thick, color=black] ({\hloc},{.5+\vsep/2+\h/2} ) 
+                --({\hloc+\w},{.5+\vsep/2+\h/2})
+                node[scale=1, midway, above] {Insulator};
+        \draw[thick, color=red]
+            ({\hloc},{\vsep/2} ) rectangle ({\hloc+\w},{\vsep/2+\h/2});
+        \draw[thick, color=blue, pattern={Lines[angle=+45,distance={3pt}]}, pattern color=blue] 
+            ({\hloc},{-\vsep/2} ) rectangle ({\hloc+\w},{-\vsep/2+-\h/2});
+
+        \draw[thick, color=red, ->] ({\hloc+2*\w},{\vsep/2+\h/4} ) -- ({\hloc+\w},{\vsep/2+\h/4})
+                node[scale=1, midway, above, align=center] {Conducting\\Band};
+        
+        \draw[thick, color=blue, ->] ({\hloc+2*\w},{-\vsep/2-\h/4} ) -- ({\hloc+\w},{-\vsep/2-\h/4})
+                node[scale=1, midway, above, align=center] {Valence\\Band};
+        
+        \draw[color=black] ({\hloc+\w/2},0) node {Band Gap};
+
+        %---------- Labels ----------------
+        \def\hloc{0}
+        \draw[thick, color=black] ({\hloc},{.5+\vsep/2+\h/2} ) 
+                --({\hloc+\w},{.5+\vsep/2+\h/2})
+                node[scale=1, midway, above] {Conductor};
+
+        \def\hloc{\w+.5}
+        \draw[thick, color=black] ({\hloc},{.5+\vsep/2+\h/2} ) 
+                -- ({\hloc+\w},{.5+\vsep/2+\h/2})
+                node[scale=1, midway, above, align=center] {Semiconductor\\(T=0 K)};
+        
+        \def\hloc{2*\w+1.0}
+        \draw[thick, color=black] 
+                ({\hloc},{.5+\vsep/2+\h/2} ) 
+                -- ({\hloc+\w},{.5+\vsep/2+\h/2})
+                node[scale=1, midway, above, align=center] {Semiconductor\\(T>0 K)};
+        
+
+         
+
+        
+        
+        
+        
+\end{tikzpicture}

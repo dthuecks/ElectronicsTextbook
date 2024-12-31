@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-thevenin">
+    <title>Input and Output Impedance</title>
+
+    <p>
+        Let's revisit Thevenin's theorem and Norton's theorem. Both of these theorems remain valid when working with AC signals as long as we substitute impedances for resistances. Here, we'll focus our attention on the usefulness of Thevenin's theorem.
+    </p> 
+    <p>
+        Thevenin's theorem states that the output voltage and current characteristics of a complicated circuit are identical to output characteristics of a simplified Thevenin-equivalent circuit (<xref ref="ac-thevenin-eq"/>) for proper choice of Thevenin voltage and impedance.
+
+    </p>
+    <figure xml:id="ac-thevenin-eq">
+    <image width="50%"><latex-image>
+        \begin{circuitikz}
+            % Thevenin Equivalent Circuit
+                        \draw (0,0) coordinate(start);
+                        \draw   (start) coordinate (a) to [sinusoidal voltage source, l_=$\tilde{V}_{th}$] ++ (0,-2) coordinate (b);
+                        \draw   (a)   to [european resistor, -o, i>=$\tilde{I}_\text{ext}$, l=$Z_{th}$] ++ (3,0) coordinate (va);
+                        \draw   (b) to [short, -o] ++ (3,0) coordinate (vb);
+                        \draw   ([yshift=-1cm] va) node[centered]{\text{$\tilde{V}_\text{ext}$}};
+        \end{circuitikz}
+    </latex-image></image>
+            
+    </figure>
+    <p>
+        Here, we provide an example demonstrating the importance of Thevenin's theorem. 
+        <figure xml:id="ac-voltagesource-thevenin">
+            <caption>An LRC circuit connected to a function generator. </caption>
+            <image width="50%"><latex-image>
+                \begin{circuitikz}[scale=0.75, american voltages, american currents,dbx/.style={dashed, draw}]
+                % Function Generator Equivalent Circuit
+                \draw (0,0) coordinate(start);
+                \draw ([yshift=6cm] start) coordinate (a) 
+                                to[sinusoidal voltage source, l^=$\tilde{V}_\text{int}$] ++ (0,-6) 
+                                to[short, -o] ++ (5,0) coordinate (b);
+                \draw (a)       to[european resistor, -o, l_=$Z_\text{int}$] ++ (5,0);
+                \draw ([xshift=4.75cm, yshift=3.0cm] start) 
+                                node{\text{$\tilde{V}_\text{gen}$}};
+
+                \draw[dbx] (-.75,-.25) -- ++(0,6.75) -- ++(4.5,0) -- ++(0,-6.75) -- ++(-4.5,0) -- cycle;
+                \draw ([xshift=1.5cm, yshift=6.75cm] start) 
+                                node{\text{Function Generator}};
+
+                % Load Equivalent Circuit
+                \draw ([xshift=5.5cm, yshift=6cm] start) 
+                                to[short, o-] ++ (2,0)
+                                to[L, l2^=$L$ and \SI{4}{\milli\henry}, l2 halign=c] ++(0,-2)
+                                to[C, l2^=$C$ and \SI{100}{\micro\farad}, l2 halign=c] ++(0,-2) coordinate(a)
+                                to[R,l2^=$R$ and \SI{50}{\ohm}, l2 halign=c] ++(0,-2) coordinate(b)
+                                to[short,-o] ++(-2,0);
+                    \draw (a)   to[short, -o] ++ (3,0);
+                    \draw (b)   to[short, -o] ++ (3,0);
+                    \draw([xshift=3cm, yshift=1cm] b)
+                                node{\text{$\tilde{V}_\text{out}$}};
+                    \draw[dbx] (6.0,-.25) -- ++(0,6.75) -- ++(4.0,0) -- ++(0,-6.75) -- ++(-4.0,0) -- cycle;
+                    \draw ([xshift=8cm, yshift=6.75cm] start) 
+                                node{\text{Load Circuit}};
+                \end{circuitikz}
+            </latex-image></image>
+        </figure>
+    </p>
+    <p>
+        The complicated internal circuitry of a function generator will be equivalent to a single internal voltage source <m>\tilde{V}_\text{int}</m> and a single internal impedance <m>Z_\text{int}</m>. This internal impedance can be found on specification sheets for modern function generators, often labeled as <term>output impedance</term>. Most commonly, function generators have an output impedance of <m>50\Omega</m>, though some (like those built into prototyping boards) may have output impedances up to several hundred ohms. 
+    </p>
+    <p>
+        The input impedance characterizes a circuit's output voltage and current characteristics based on the <term>load</term> that is applied across the output. A circuit's <term>input impedance</term> characterizes how hard the circuit is to drive and is equivalent to the load circuit's <m>Z_{th}</m>.  
+    </p> 
+    <p>
+        Let's use the example in <xref ref="ac-voltagesource-thevenin"/> to illustrate the meanings associated with the descriptions above. In this case, the load circuit is an inductor, a capacitor, and a resistor in series, so that
+        <me>
+            Z_\text{load}=Z_R + Z_C + Z_R = R + i\left(i\omega L - \frac{1}{\omega C}\right)
+        </me>.
+        Now, if the load circuit is connected across the output of the function generator, we end up with a voltage-divider circuit as seen in <xref ref="sec-dc-kirchhoff"/>. This means we can use that chapter's result while replacing resistances with impedances, so      
+        <me>
+            \tilde{V}_\text{gen} = \frac{Z_\text{load}}{Z_\text{int} + Z_
+            \text{load}} \tilde{V}_\text{int} 
+        </me>.
+        We find that <m>Z_\text{load}</m> is minimized when <m>Z_C + Z_L = 0</m> which occurs when <m>\omega = \omega_0 = \frac{1}{\sqrt{LC}}</m>. We draw the following conclusions:
+        <ul>
+            <li>
+                <p>
+                    For signal frequencies far from the resonant frequency <m>\omega_0</m>, <m>\left| Z_\text{load} \right| \gg \left| Z_\text{int}\right|</m> meaning that <m>\tilde{V}_\text{supply}\approx\tilde{V}_\text{gen}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    When <m>\omega\approx\omega_0</m>, we will find that <m>\tilde{V}_\text{supply}</m> and <m>\tilde{V}_\text{gen}</m> are very different if <m>Z_\text{load}\lesssim R</m>
+                </p>
+            </li>
+        </ul>
+        We demonstrate this behavior by plotting the signal being produced at the output of the function generator <m>V_\text{gen}</m> as a function of frequency For the parameters specified in <xref ref="ac-voltagesource-thevenin"/>.
+        <sage language="python">
+            <input>
+            import numpy as np
+            import scipy.linalg as linalg
+            import matplotlib.pyplot as plt
+
+            f = np.logspace(0,6,1000)
+            w = 2*np.pi * f
+            Vin = 1 # Volts
+            R, C, L = [50, 1e-4, 4e-3] # Ohms, Farads, Henrys
+            Z_load = 50 + 1j/(w*C) - 1j*w*L;
+            R_out = 50;
+            Gv = abs(Z_load / (R_out+Z_load));
+            phi = np.angle(Z_load / (R_out+Z_load));
+
+            plt.semilogx(f,Gv)
+            plt.xlabel('Frequency (Hz)');
+            plt.ylabel('$V_\\text{gen} / V_\\text{int}$');
+            
+            plt.show()
+            </input>
+            <output></output>
+            </sage>
+            <image>
+            <sageplot>
+            import numpy as np
+            import scipy.linalg as linalg
+            import matplotlib.pyplot as plt
+
+            f = np.logspace(0,6,1000)
+            w = 2*np.pi * f
+            Vin = 1 # Volts
+            R, C, L = [50, 1e-4, 4e-3] # Ohms, Farads, Henrys
+            Z_load = 50 + 1j/(w*C) - 1j*w*L;
+            R_out = 50;
+            Gv = abs(Z_load / (R_out+Z_load));
+            phi = np.angle(Z_load / (R_out+Z_load));
+
+            list_plot(list(zip(f,Gv)), scale='semilogx', axes_labels=['Frequency (Hz)','$V_{gen}/V_{int}$'], frame=True)
+            
+            </sageplot>
+            </image> 
+                 
+        </p>
+        <p>
+            Now, this has important consequences. First, extra care must be taken if one were to be studying voltage gain <m>V_\text{out}/V_\text{gen}</m> and phase properties of the pictured load circuit. If one were to trust the signal amplitude displayed on the function generator for <m>V_\text{gen}</m> when calculating voltage gain values, these values would be grossly incorrect for frequencies near the resonance frequency because both <m>V_\text{gen}</m> and <m>V_{in}</m> vary with frequency.
+        </p>
+        <p>
+            These concepts also impact the design of oscilloscopes. If we want to use an oscilloscope to measure the voltage output of a function generator, we want the oscilloscope to have a very high impedance <m>\left(Z_{\text{osc}_\text{input}}\gg Z_\text{int}\right)</m> so that the oscilloscope leaves the function generator output voltage <m>V_\text{gen}</m> unchanged across all frequencies.
+        </p>
+        <p>
+            So, input and output impedances for circuits is an important consideration when determining how a load circuit will impact the behavior of the driving circuit. We determine Thevenin equivalent circuit values for both the driving and load circuits in order to determine the input and output impedances of these circuits. Input and output impedances are also critical to consider when working at high frequencies (MHz and above). At these high frequencies, impedance matching (or matching input and output impedances of linked circuits) is needed to miminize signal reflections and maximize power transfer. This text will limit it's treatment to sub-MHz frequencies and will not treat these effects.
+        </p>
+        
+        
+    
+
+    
+</section>

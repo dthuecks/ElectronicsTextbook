@@ -1,0 +1,45 @@
+\begin{tikzpicture}                          
+    \def\nx{7} % Number of dot x locations
+    \def\ny{5} % Number of dot y locations
+    \def\sep{1cm} % dot separation
+    \def\re{0.1} % Electron size
+    \def\c{blue} % Color of central nucleus and electrons
+    
+                                            
+    % CRYSTAL
+    \foreach \ix in {0, ..., \inteval{\nx-1}}
+        {
+        \foreach \iy  in {0, ..., \inteval{\ny-1}}
+            {
+            \def\x{{\ix*\sep}}
+            \def\y{{\iy*\sep}}
+            \draw (\x,\y) coordinate(a);
+            \pgfmathparse{and(\ix==(\nx-2),\iy==floor(\ny/2))} \pgfmathresult    
+            \ifnum\pgfmathresult=1 % Central Atom
+                \draw[ultra thick, color=\c] (a) circle (\re);
+            \else % All other atoms
+                \fill (a) circle (\re);
+            \fi
+            }
+        }
+        \draw[-latex, ultra thick, red] ({(\nx-3)},{floor(\ny/2)+1.5*\re}) arc
+            [start angle=160, end angle=20, x radius={\sep/2}, y radius = {\sep/2}] 
+            node[midway, below] {$1$};
+        \draw[-latex, ultra thick, red] ({(\nx-4)},{floor(\ny/2)-1.5*\re}) arc
+            [start angle=200, end angle=340, x radius={\sep/2}, y radius = {\sep/2}] 
+            node[midway, above] {$2$};
+        \draw[-latex, ultra thick, red] ({(\nx-5)},{floor(\ny/2)+1.5*\re}) arc
+            [start angle=160, end angle=20, x radius={\sep/2}, y radius = {\sep/2}] 
+            node[midway, below] {$3$};
+        \draw[-latex, ultra thick, red] ({(\nx-6)},{floor(\ny/2)-1.5*\re}) arc
+            [start angle=200, end angle=340, x radius={\sep/2}, y radius = {\sep/2}] 
+            node[midway, above] {$4$};
+        
+        \draw ([xshift={-0.5*\sep}] 0,-\re) -- ([xshift={-0.5*\sep}, yshift={(\ny-1)*\sep}] 0,\re)
+                node[above, scale=1.5] {$-V$};
+        \draw ([xshift={(\nx-0.5)*\sep}] 0,-\re) -- ([xshift={(\nx-.5)*\sep}, yshift={(\ny-1)*\sep}] 0,\re)
+                node[above, scale=1.5] {$+V$};
+                        
+    % EXAMPLE FUNCTIONALITY
+    %\foreach \i/\No [evaluate={\r=\R+\i*\a;}] in {1/2, 2/4, 3/6}{ }
+\end{tikzpicture}

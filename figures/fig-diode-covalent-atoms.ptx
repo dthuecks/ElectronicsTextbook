@@ -1,0 +1,47 @@
+\usetikzlibrary {patterns,patterns.meta}
+\usetikzlibrary {arrows.meta}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis line style={draw=none}, tick style={draw=none},
+        xmin=-15,xmax=15,
+        ymin=-5,ymax=5,
+        xticklabels=\empty,
+        yticklabels=\empty,
+        samples=1000,
+        ]
+        \def\sep{1.5}
+        \def\spac{.3}
+        \def\nMAX{6}
+        \def\thick{.05}            
+        \addplot[color=black, domain=.2:\sep/2]{2*log10(x)};
+        \addplot[color=black, domain=-2:-.2]{2*log10(-(x)};
+        \addplot[color=black, domain=\sep+.2:\sep+2]{2*log10(x-\sep)};
+        \addplot[color=black, domain=\sep/2:\sep-.2]{2*log10(-(x-\sep)};                    
+        \foreach \m in {0,..., 1}
+            \foreach \n in {0, ..., \inteval{\nMAX-3}}
+                {
+                    \addplot[solid, color=blue] coordinates {({\m*\sep-10^((-1.25+\n*\spac)/2)},{(-1.25+\n*\spac)})({\m*\sep+10^((-1.25+\n*\spac)/2)},{(-1.25+\n*\spac)})};
+                }
+                    
+        \draw[color=blue, pattern={Lines[angle=+45,distance={3pt/6}]}, pattern color=blue] 
+            ({-10^((-1.25+(\nMAX-2)*\spac)/2)},{(-1.25+(\nMAX-2)*\spac)-\thick}) rectangle 
+            ({\sep+10^((-1.25+(\nMAX-2)*\spac)/2)},{(-1.25+(\nMAX-2)*\spac)+\thick});  
+
+        \draw[color=red, pattern={Lines[angle=-45,distance={3pt/6}]}, pattern color=red] 
+            ({-10^((-1.25+(\nMAX-1)*\spac)/2)},{(-1.25+(\nMAX-1)*\spac)-\thick}) rectangle 
+            ({\sep+10^((-1.25+(\nMAX-1)*\spac)/2)},{(-1.25+(\nMAX-1)*\spac)+\thick});
+
+        \draw[color=red, pattern={Lines[angle=-45,distance={3pt/6}]}, pattern color=red] 
+            ({-10^((-1.25+(\nMAX)*\spac)/2)},{(-1.25+(\nMAX)*\spac)-\thick}) rectangle 
+            ({\sep+10^((-1.25+(\nMAX)*\spac)/2)},{(-1.25+(\nMAX)*\spac)+\thick});  
+        
+        \draw[-{Latex[length=1mm]}, color=black] (-1.5,-1.25) -- (-1.5, -.25)
+                    node[scale=0.3, midway, above, align=center, rotate=90] {increasing\\ energy};
+        \draw[-{Latex[length=0.5mm]}, color=blue] ({\sep+10^((-1.25+4*\spac)/2)+2},{(-1.25+4*\spac)}) 
+                    -- ({\sep+10^((-1.25+4*\spac)/2)+0.2},{(-1.25+4*\spac)})
+                    node[scale=0.3, midway, below, align=center] {Valence\\Band};
+        \draw[-{Latex[length=0.5mm]}, color=red] ({\sep+10^((-1.25+5*\spac)/2)+3.5},{(-1.25+5*\spac)})   
+                    -- ({\sep+10^((-1.25+5*\spac)/2)+0.2},{(-1.25+5*\spac)})
+                    node[scale=0.3, midway, above, align=center] {Conducting\\Band};
+    \end{axis}
+\end{tikzpicture}

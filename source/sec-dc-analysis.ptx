@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Circuit Analysis Methods</title>
+
+    <introduction>
+    <p>
+        In the following sections, we will analyze the DC circuit found in <xref ref="dc-solve-circuit" />  using a variety 
+        of different methods. Each of these methods can be useful in different circumstances, so these exercises are meant 
+        to introduce you to a variety of tools that will remain in your circuit-analysis toolbox for future use.  
+        <figure xml:id="dc-solve-circuit">
+            <caption>
+                The circuit that will be analyzed using multiple different methods over the course of the following sections.
+            </caption>
+            <image><latex-image>
+                \begin{circuitikz}
+                    % ORIGINAL CIRCUIT
+                    \draw   (0,0)   coordinate(start);
+                    \draw   (0,4)   coordinate (a);
+                    \draw    (a)    to [battery, l2_=$V_b$ and \SI{24}{V}, l2 halign=c] (start);
+                    \draw    (a)    to [R, l=$R_1$, a=\SI{3}{\kilo\ohm}] ++ (4,0) coordinate (b)
+                                    to [R,*-*, l2_=$R_2$ and \SI{1}{\kilo\ohm}, l2 halign=c] ++ (0,-4) coordinate (c)
+                                    to [R, l=$R_4$, a=\SI{5}{\kilo\ohm}] (start);
+                    \draw    (b)    to [short,-] ++(3,0) coordinate (d)
+                                    to [R, l2_=$R_3$ and \SI{2}{\kilo\ohm}, l2 halign=c] ++ (0,-4) coordinate (e)
+                                    to [short] (c);
+                \end{circuitikz}
+            </latex-image></image>
+        </figure>
+    </p>
+    </introduction>
+
+<subsection xml:id="subsec-dc-analysis-reduction">
+    <title>Analysis: Circuit Reduction</title>
+    <p>
+        In the method of circuit reduction, we use the rules of series and parallel resistors to find all currents 
+        present in the circuit. We will start by drawing the circuit and labeling all currents as in 
+        <xref ref="dc-reduction-circuit"/>a.
+        <figure xml:id="dc-reduction-circuit">
+            <caption>Circuit reduction for <xref ref="dc-solve-circuit"/>.</caption>
+            <image><latex-image>
+                \begin{circuitikz}[scale=0.75]
+                    % ORIGINAL CIRCUIT
+                    \draw   (0,0)   coordinate(start);
+                    \draw   (0,4)   coordinate (a);
+                    \draw    (a)    to [battery, l2^=$V_b$ and \SI{24}{V}, l2 halign=c] (start);
+                    \draw    (a)    to [R, l=$R_1$, a=\SI{3}{\kilo\ohm}, i>=$I_1$] ++ (4,0) coordinate (b)
+                                    to [R,*-*, l2_=$R_2$ and \SI{1}{\kilo\ohm}, l2 halign=c,i>_=$I_2$] ++ (0,-4) coordinate (c)
+                                    to [R, l=$R_4$, a=\SI{5}{\kilo\ohm}, i>_=$I_1$] (start);
+                    \draw    (b)    to [short,-, i_>=$I_3$] ++(3,0) coordinate (d)
+                                    to [R, l2_=$R_3$ and \SI{2}{\kilo\ohm}, l2 halign=c] ++ (0,-4) coordinate (e)
+                                    to [short] (c);
+                    \draw (b) node[yshift=1mm,label={A}] {};
+                    \draw (c) node[yshift=-7mm,label={B}] {};
+
+                    \draw[->] (7.5,2) to (8.5,2);
+
+                    \draw   (9.5,0)   coordinate(start);
+                    \draw   (9.5,4)   coordinate (a);
+                    \draw    (a)    to [battery, l^=$V_b$] (start);
+                    \draw    (a)    to [R, l=$R_1$, i>=$I_1$] ++ (4,0) coordinate (b)
+                                    to [R, l_=$R_{23}$, i>=$I_1$ ] ++ (0,-4) coordinate (c)
+                                    to [R, l=$R_4$, i>_=$I_1$] (start);
+
+                    \draw[->] (14,2) to (15.5,2);
+
+                    \draw   (16.5,0)   coordinate(start);
+                    \draw   (16.5,4)   coordinate (a);
+                    \draw    (a)    to [battery, l^=$V_b$] (start);
+                    \draw    (a)    to [short, i>=$I_1$] ++ (4,0) coordinate (b)
+                                    to [R, l_=$R_{\text{tot}}$, i>=$I_1$ ] ++ (0,-4) coordinate (c)
+                                    to [short, i>_=$I_1$] (start);
+                \end{circuitikz}
+            </latex-image></image>
+        </figure>
+        In our first simplification, we note that <m>R_2</m> and <m>R_3</m> are in parallel, so
+        <me>
+            R_{23}=\left(\frac{1}{R_2}+\frac{1}{R_3}\right)^{-1} = 666.67\Omega
+        </me>.
+        With that simplification done, we now find that <m>R_1</m>, <m>R_{23}</m>, and <m>R_4</m> are in series, so
+        <me>
+            R_\text{tot}=R_1 + R_{23} + R_4 = 8666.67\Omega
+        </me>.
+        Ohm's law can be used to find <m>I_1</m>
+        <me>
+            V_b = I_1 R_\text{tot} \rightarrow I_1 = \frac{\left(\Delta V\right)_\text{tot}}{R_\text{tot}} = 2.77\text{ mA}
+        </me>
+        where <m>\left(\Delta V\right)_\text{tot}</m> is the voltage change across <m>R_\text{tot}</m>. We must also 
+        check the direction of <m>I_1</m>. When examining a circuit, you must sometimes guess at the directions of 
+        currents. If you guess correctly and the guessed current direction flows from high to low potential, then your 
+        value for current will be positive. If you guessed incorrectly at the outset, you will instead find that the 
+        value for current will be negative. In this situation, we note that the <m>I_1</m> direction pictured does indeed 
+        pass through <m>R_\text{tot}</m> from high to low potential given how <m>R_\text{tot}</m> terminals are connected 
+        directly to battery terminals. Thus, the value that we calculate for <m>I_1</m> should be positive. So, 
+        <m>I_1 = 2.77\text{ mA}</m>.
+    </p>
+
+    <p>
+        Now, in order to find currents <m>I_2</m> and <m>I_3</m>, we'll have to find the voltage changes across 
+        <m>R_2</m> and <m>R_3</m>. We can do this by taking our calculated value for <m>I_1</m> and using Ohm's 
+        Law in <xref ref="dc-reduction-circuit"/>(left). Thus, we find that
+        <md>
+            <mrow> \Delta V_1 \amp = V_{b+} - V_A </mrow>
+            <mrow> \Delta V_4\amp = V_B - V_{b-}</mrow>
+        </md>.
+        In other words,
+        <md>
+            <mrow>V_A \amp = V_{b+} - \Delta V_1 </mrow>
+            <mrow>V_B \amp = V_{b-} + \Delta V_4</mrow>
+        </md>
+        so that
+        <md>
+            <mrow>\Delta V_2 = \Delta V_3 \amp = V_A - V_B</mrow>
+            <mrow> \amp =  \left(V_{b+} - \Delta V_1\right) - \left(V_{b-} + \Delta V_4\right)</mrow>
+            <mrow> \amp = \left(V_{b+} - V_{b-}\right) - \Delta V_1 - \Delta V_4</mrow>
+            <mrow> \amp = \Delta V_b - \Delta V_1 - \Delta V_4</mrow>
+            <mrow> \amp = V_b - I_1 R_1 - I_1 R_4 = 1.85\text{V}</mrow>
+        </md>.
+        Once we have <m>\Delta V_2=\Delta V_3</m>, we can use Ohm's law to find <m>I_2</m> and <m>I_3</m>
+        <md>
+            <mrow>I_2 \amp = \frac{\Delta V_2}{R_2} = 1.85\text{mA}</mrow>
+            <mrow>I_3 \amp = \frac{\Delta V_3}{R_3} = 0.925\text{mA}</mrow>
+        </md>.
+        If we define <m>V_{b-}=0</m>, then
+        <md>
+            <mrow>V_{b+} \amp = 24\text{V}</mrow>
+            <mrow>V_A \amp = V_{b+}-I_1 R_1 = 15.69\text{V}</mrow>
+            <mrow>V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}</mrow>
+        </md>.
+
+    </p>    
+</subsection>
+
+<subsection xml:id="subsec-dc-analysis-branch">
+    <title>Analysis: Branch Method</title>
+    <p>
+        In the <term>branch method</term>, we perform the following steps:
+        <ol>
+            <li> Draw the circuit. </li>
+            <li> Define a current for each circuit segment that may have a different current. Use your intuition to try 
+                to guess the correct directions for the currents. Don't worry about guessing wrong. It is just important to 
+                clearly identify your assumed direction for each current. </li>
+            <li> Write out KCL equations at nodes. Remove duplicate or redundant equations. Note that the number of independent 
+                KCL equations is one fewer than the number of junctions present in the circuit.</li>
+            <li> Write down KVL equations for enough loops to include all circuit components at least once. </li>
+            <li> Solve the system of KCL and KVL equations for all unknown currents. If you were wrong in your initial 
+                guesses for any current directions, those currents will just come out with negative values. </li>
+            <li> Use Ohm's law to find voltage changes through each resistor and use those changes to find the voltage at 
+                any point of interest in the circuit. </li>
+        </ol>
+        To analyze the circuit in <xref ref="dc-solve-circuit"/> using the mesh method, we draw the circuit and define 
+        currents as in <xref ref="dc-branch-circuit" />.
+        <figure xml:id="dc-branch-circuit">
+            <caption>Branch method circuit analysis.</caption>
+            <image><latex-image>
+                \begin{circuitikz}[scale=0.75]
+                    % ORIGINAL CIRCUIT
+                    \draw   (0,0)   coordinate(start);
+                    \draw   (0,4)   coordinate (a);
+                    \draw    (a)    to [battery, l2^=$V_b$ and \SI{24}{V}, l2 halign=c] (start);
+                    \draw    (a)    to [R, l=$R_1$, a=\SI{3}{\kilo\ohm}, i>=$I_1$] ++ (6,0) coordinate (b)
+                                    to [R,*-*, l2_=$R_2$ and \SI{1}{\kilo\ohm}, l2 halign=c,i>_=$I_2$] ++ (0,-4) coordinate (c)
+                                    to [R, l=$R_4$, a=\SI{5}{\kilo\ohm}, i>_=$I_1$] (start);
+                    \draw    (b)    to [short,-, i_>=$I_3$] ++(6,0) coordinate (d)
+                                    to [R, l2_=$R_3$ and \SI{2}{\kilo\ohm}, l2 halign=c] ++ (0,-4) coordinate (e)
+                                    to [short] (c);
+                    \draw (b) node[yshift=1mm,label={A}] {};
+                    \draw (c) node[yshift=-7mm,label={B}] {};
+                    \draw[-stealth, semithick, red, rounded corners=4mm]
+                        ([xshift=-1cm, yshift=-1cm] a) |- ([yshift=1cm] b)
+                                                    node[pos=.75,above, red] {Loop II}
+                                                    -- ([xshift=3mm, yshift=1cm] d)
+                                                    |- ([xshift=3mm, yshift=-1cm] e)
+                                                    -| ([xshift=-1cm, yshift=-3cm] a);
+                    \draw[->, blue] ([xshift= 2.5cm, yshift=-1.5cm ] a) arc(140:-140:1cm) node[midway, left, xshift=-4mm] {Loop I};
+                \end{circuitikz}
+            </latex-image></image>
+        </figure>
+        Examining the KCL at junction A and the KVL for loops I and II, we find the following equations
+        <mdn>
+            <mrow xml:id="eqn-dc-branch1">0 \amp = I_1 - I_2 - I_3</mrow>
+            <mrow xml:id="eqn-dc-branch2">0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4</mrow>
+            <mrow xml:id="eqn-dc-branch3">0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4</mrow>
+        </mdn>
+        Solving Equation <xref ref="eqn-dc-branch1"/> for <m>I_1</m> and inserting into Equations <xref ref="eqn-dc-branch2"/>
+        and <xref ref="eqn-dc-branch3"/>, we get
+        <md>
+            <mrow>0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4</mrow>
+            <mrow>0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4</mrow>
+        </md>
+        which can be rearranged into
+        <md>
+            <mrow>0 \amp = V_b - I_2(R_1 + R_2 + R_4) - I_3(R_1 + R_4)</mrow>
+            <mrow>0 \amp = V_b - I_2 (R_1 + R_4) - I_3 (R_1 + R_3 + R_4)</mrow>
+        </md>.
+        Plugging in values for known components and using your favorite method for solving this system of equations, 
+        one can show that <m>I_2 = 1.85</m>mA, <m>I_3=0.92</m>mA, and <m>I_1 = I_2 + I_3 = 2.77</m>mA. Then, just as 
+        in the circuit reduction method, Ohm's law can be used to find
+        <md>
+            <mrow>V_{b+} \amp = 24\text{V}</mrow>
+            <mrow>V_A \amp = V_{b+}-I_1 R_1 = 15.69\text{V}</mrow>
+            <mrow>V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}</mrow>
+        </md>.
+
+    </p>
+</subsection>
+
+<subsection xml:id="subsec-dc-analysis-mesh">
+    <title>Analysis: Mesh Method</title>
+    <p>
+        In the <term>mesh method</term>, we perform the following steps:
+        <ol>
+            <li> Draw the circuit.</li>
+            <li> Define <term>mesh currents</term>. Each current passes around a complete loop. Every component must be in 
+                at least one loop. Typically, it is best to use the simplest loops possible. The total current passing through 
+                any point in the circuit is the sum of the mesh currents through that point. Choose and clearly indicate each 
+                current loop's direction; the direction chosen doesn't really matter as long as it is clearly defined.</li>
+            <li> Write down a KVL equation for each loop. If there are multiple mesh currents passing through a resistor, the 
+                voltage change is the sum of voltage changes for each mesh current through that component. The signs for each 
+                voltage drop contribution result in voltage drops for the mesh currents aligned with the direction we go around 
+                the loop for the loop law, while they result in voltage rises for the mesh currents aligned against the direction 
+                we go around the loop when creating the loop law equation.</li>
+            <li> Solve the system of KVL equations for all unknown mesh currents.</li>
+            <li> The current through any point in the circuit is the sum of mesh currents through that point. Note that two mesh 
+                currents through a point on the circuit will add together with opposite signs.</li>
+            <li> Use Ohm's law to find voltage changes through each resistor and use those changes to find the voltage at any 
+                point of interest in the circuit.</li>
+        </ol>
+        One of the benefits of the mesh method over the branch method is that there are fewer equations to solve in the resulting 
+        system of equations (since there is no KCL equation), though this comes at the cost of having to add multiple mesh 
+        currents together to find the total current through any point in the circuit.
+    </p>
+
+    <p>
+        The analysis begins with drawing the circuit and defining our mesh currents as demonstrated in 
+        <xref ref="dc-mesh-circuit"/>.
+        <figure xml:id="dc-mesh-circuit">
+            <caption>Mesh method circuit analysis.</caption>
+            <image><latex-image>
+                \begin{circuitikz}[scale=0.75]
+                    % ORIGINAL CIRCUIT
+                    \draw   (0,0)   coordinate(start);
+                    \draw   (0,4)   coordinate (a);
+                    \draw    (a)    to [battery, l2^=$V_b$ and \SI{24}{V}, l2 halign=c] (start);
+                    \draw    (a)    to [R, l=$R_1$, a=\SI{3}{\kilo\ohm}] ++ (6,0) coordinate (b)
+                                    to [R,*-*, l2_=$R_2$ and \SI{1}{\kilo\ohm}, l2 halign=c] ++ (0,-4) coordinate (c)
+                                    to [R, l=$R_4$, a=\SI{5}{\kilo\ohm}] (start);
+                    \draw    (b)    to [short,-] ++(6,0) coordinate (d)
+                                    to [R, l2_=$R_3$ and \SI{2}{\kilo\ohm}, l2 halign=c] ++ (0,-4) coordinate (e)
+                                    to [short] (c);
+                    \draw (b) node[yshift=1mm,label={A}] {};
+                    \draw (c) node[yshift=-7mm,label={B}] {};
+
+                    \draw[->, blue] ([xshift= 2.5cm, yshift=-1.5cm ] a) arc(140:-140:1cm) node[midway, left, xshift=-4mm] {$I_1$};
+                    \draw[->, red] ([xshift= 8.5cm, yshift=-1.5cm ] a) arc(140:-140:1cm) node[midway, left, xshift=-4mm] {$I_2$};
+                \end{circuitikz}
+            </latex-image></image>
+        </figure>
+        Then, the KVL equations associated with mesh currents <m>I_1</m> and <m>I_2</m> are
+        <md>
+            <mrow>0 \amp =V_b - I_1 R_1 - (I_1 - I_2) R_2 - I_1 R_4</mrow>
+            <mrow>0 \amp = (I_1 - I_2)R_2 - I_2 R_3</mrow>
+        </md>
+        which can be arranged into the form
+        <md>
+            <mrow>0 \amp = V_b - I_1(R_1 + R_2 + R_4) + I_2 R_2</mrow>
+            <mrow>0 \amp = I_1 R_2 - I_2(R_2 + R_3)</mrow>
+        </md>.
+        Once again, your favorite method for solving systems of equations can be used to find the mesh currents 
+        <m>I_1=2.77</m>mA and <m>I_2=0.923</m>mA. Therefore, the current passing through <m>R_4</m>, <m>V_b</m>,
+        and <m>R_1</m> is <m>I_1 = 2.77</m>mA clockwise, the current through <m>R_3</m> is <m>I_2=0.923</m>mA, 
+        and the current through <m>R_2</m> is <m>I_1-I_2=1.85</m>mA. With these current values, we can once again 
+        use the same Ohm's law method from the previous sections to find the voltages at any location in the circuit.
+    </p>
+</subsection>
+
+<subsection xml:id="subsec-dc-analysis-scipy">
+    <title>Analysis: Branch Method Solved Using SciPy</title>
+    <p>
+        The Python programming language can be used to solve a system of equations through the use of the 
+        <code>scipy.linalg</code> package. If presented with an equation <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m> where <m>\mathbf{A}</m> 
+        is a matrix and <m>\mathbf{x}</m> and <m>\mathbf{v}</m> are vectors, we can solve the equation using 
+        <c>x = scipy.linalg.solve(A,v)</c>.
+    </p>
+    <p>
+        As an example, let's start with the system of equations from <xref ref="subsec-dc-analysis-branch" />
+        <md>
+            <mrow>0 \amp = I_1 - I_2 - I_3</mrow>
+            <mrow>0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4</mrow>
+            <mrow>0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4</mrow>
+        </md>
+        and express them as a matrix equation
+        <me>
+            \begin{pmatrix}
+                1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+            \end{pmatrix}
+            \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+            \begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}
+        </me>.
+        Since we have numerical values for <m>V_b</m> and all resistors, we can plug these into the matrices. This 
+        matrix equation is in the necessary form for <c>x = scipy.linalg.solve(A,v)</c>.
+        <sage language="python">
+            <input>
+                import numpy as np
+                import scipy.linalg as linalg
+
+                Vbb=24 # Volts
+                R1, R2, R3, R4 = [3000, 1000, 2000, 5000] # Ohms
+                A = np.array([[1, -1, -1],[R1+R4, R2, 0],[R1+R4, 0, R3]])
+                v = np.array([0, Vbb, Vbb])
+
+                x = linalg.solve(A,v)
+                print('I1 = {0:0.2f} mA, I2 = {1:0.2f} mA, I3 = {2:0.2f} mA'.format(x[0]*1000,x[1]*1000, x[2]*1000)) # 1000 mA in one Amp
+            </input>
+            <output>
+                I1 = 2.25 mA, I2 = 1.50 mA, I3 = 0.75 mA
+            </output>
+        </sage>
+        The results of this method are identical to the previous methods.
+    </p>
+</subsection>
+
+<subsection xml:id="subsec-dc-analysis-sympy">
+    <title>Analysis: Branch Method Solved Using SymPy</title>
+    <p>
+        One can also use functionality from SymPy, the symbolic math package for Python, to solve systems of linear 
+        equations. As before,
+        <md>
+            <mrow>0 \amp = I_1 - I_2 - I_3</mrow>
+            <mrow>0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4</mrow>
+            <mrow>0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4</mrow>
+        </md>
+        becomes
+        <me>
+            \begin{pmatrix}
+                1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+            \end{pmatrix}
+            \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+            \begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix} \quad \Rightarrow \quad
+            \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+            \begin{pmatrix}
+            1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+            \end{pmatrix} ^{-1}
+            \begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}
+        </me>
+        which can be solved symbolically with the following code:
+        <sage>
+            <input>
+                # Using Sage since Python/SymPy output as LaTeX is not playing nice
+                import sympy as sym
+                from IPython.display import display
+                sym.init_printing(use_latex=True)
+
+                R1, R2, R3, R4 = sym.symbols('R_1 R_2 R_3 R_4')
+                Vb = sym.symbols('V_b')
+                matrix = sym.Matrix([[1, -1, -1],
+                                     [R1+R4, R2, 0],
+                                    [R1+R4, 0, R3]])
+                invmatrix = matrix.inv()
+                I = invmatrix * sym.Matrix([[0],[Vb],[Vb]])
+                sym.simplify(I)
+            </input>
+            <output>
+                
+            </output>
+        </sage>
+        This analysis gives the result
+        <me>
+            \begin{bmatrix}
+                \frac{V_b(R_2+R_3)}{R_1 R_2 + R_1 R_3 + R_2 R_3 + R_2 R_4 + R_3 R_4} \\
+                \frac{V_b R_3}{R_1 R_2 + R_1 R_3 + R_2 R_3 + R_2 R_4 + R_3 R_4} \\
+                \frac{V_b R_2}{R_1 R_2 + R_1 R_3 + R_2 R_3 + R_2 R_4 + R_3 R_4}
+            \end{bmatrix}
+        </me>
+        which simplifies to the results of the previous methods when numerical values are inserted for <m>V_b</m> and resistances.
+    </p>
+</subsection>
+
+<subsection xml:id="subsec-dc-analysis-gaussian">
+    <title>Analysis: Branch Method Solved Using Gaussian Elimination</title>
+
+    <p>
+        We can also use a linear algebra method called <term>Gaussian elimination</term> to solve the matrix equation
+        <me>
+            \begin{pmatrix}
+                1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+            \end{pmatrix}
+            \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+            \begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}
+        </me>.
+        Gaussian elimination relies on two facts:
+        <ol>
+            <li> If we multiply one row of <m>\mathbf{A}</m> and the same row of <m>\mathbf{v}</m> by some constant <m>q</m>, the 
+                solutions for <m>\mathbf{x}</m> remain unchanged.</li>
+            <li> Any linear combination of two rows will give a new correct row. </li>
+        </ol>
+            Using the two rules above, our goal is to find an equivalent <m>\mathbf{A}'\mathbf{x}=\mathbf{v}'</m> such that
+            <me>
+                \mathbf{A}' =
+                \begin{pmatrix}
+                    1 \amp A_{12}' \amp A_{13}'\\
+                    0 \amp 1 \amp A_{13}'\\
+                    0 \amp 0 \amp 1
+                \end{pmatrix}
+            </me>.
+            Often, the first step in using Gaussian elimination is to divide the first row by <m>A_{11}</m>. In this 
+            case, both <m>\mathbf{A}</m> and <m>\mathbf{v}</m> remain unchanged since <m>A_{11}=1</m>. Next, we'll 
+            subtract <m>\left[A_{21} * \left(\text{first row of $\textbf{A}$ and $\bf{v}$}\right)\right]</m> from row 2 to get
+            <me>
+                \begin{pmatrix}
+                    1 \amp -1 \amp -1 \\ 0 \amp R_2 + R_1 + R_4 \amp R_1 + R_4\\ R_1+R_4 \amp 0 \amp R_3
+                \end{pmatrix}
+                \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+                \begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}
+            </me>.
+            Then, we'll subtract <m>\left[A_{31} * \left(\text{first row of $\textbf{A}$ and $\bf{v}$}\right)\right]</m> 
+            from row 3 to get
+            <me>
+                \begin{pmatrix}
+                    1 \amp -1 \amp -1 \\ 0 \amp R_2 + R_1 + R_4 \amp R_1 + R_4\\ 0 \amp R_1 + R_4 \amp R_3 + R_1 + R_4
+                \end{pmatrix}
+                \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+                \begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}
+            </me>.
+            If we now divide row 2 by <m>A_{22}</m>, we get
+            <me>
+                \begin{pmatrix}
+                    1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp R_1 + R_4 \amp R_3 + R_1 + R_4
+                \end{pmatrix}
+                \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+                \begin{pmatrix} 0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ V_b \end{pmatrix}
+            </me>
+            Subtracting <m>\left[A_{32} * \left(\text{second row of $\textbf{A}$ and $\bf{v}$}\right)\right]</m> from row 3 
+            will eliminate <m>A_{32}</m> while leaving <m>A_{31}=0</m>
+            <me>
+                \begin{pmatrix}
+                    1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp 0 \amp R_3 + R_1 + R_4 - \frac{\left(R_1 + R_4\right)^2}{R_2 + R_1 + R_4}
+                \end{pmatrix}
+                \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+                \begin{pmatrix} 0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ V_b - \frac{V_b\left(R_1 + R_4\right)}{R_2 + R_1 + R_4} \end{pmatrix}
+            </me>.
+            Then, divide row 3 by <m>A_{33}</m> to get
+            <me>
+                \begin{pmatrix}
+                    1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp 0 \amp 1
+                \end{pmatrix}
+                \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+                \begin{pmatrix}
+                    0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ 
+                    \left[V_b - \frac{V_b\left(R_1 + R_4\right)}{R_2 + R_1 + R_4}\right] / \left[R_3 + R_1 + R_4 
+                    - \frac{\left(R_1 + R_4\right)^2}{R_2 + R_1 + R_4}\right] \end{pmatrix}
+            </me>
+            which simplifies to
+            <me>
+                \begin{pmatrix}
+                    1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp 0 \amp 1
+                \end{pmatrix}
+                \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+                \begin{pmatrix}
+                    0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ 
+                    \frac{V_b R_2}{R_2 + R_1 + R_4}\ \frac{R_3 + R_1 + R_4}{R_3^2+2 R_3\left(R_1 + R_4\right)} \end{pmatrix}
+            </me>.
+            Now, we can read off an expression for <m>I_3</m> and subsequently calculate <m>I_1</m> and <m>I_2</m>
+            <md>
+                <mrow>I_3 \amp = \frac{V_b R_2}{R_2 + R_1 + R_4}\ \frac{R_3 + R_1 + R_4}{R_3^2+2 R_3\left(R_1 + R_4\right)} = 0.92\text{mA}</mrow>
+                <mrow>I_2 \amp = \frac{V_b}{R_2 + R_1 + R_4} - \frac{R_1 + R_4}{R_2 + R_1 + R_4}I_3 = 1.85\text{mA}</mrow>
+                <mrow>I_1 \amp = I_2 + I_3 = 2.77\text{mA}</mrow>
+            </md>.
+        </p>
+    </subsection>
+    </section> 

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-complexZ" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Complex Impedance</title>
+
+    <p>
+        When analyzing AC circuits with complex signals <m>\tilde{V}(t)</m>, we will need to expand beyond the concept of resistance. We define <term>impedance</term> <m>Z</m> as
+        <md>
+            <mrow>Z \amp\equiv \frac{\tilde{V}}{\tilde{I}} </mrow>
+            <mrow> \amp \equiv R + i X </mrow>
+        </md>
+        where <m>R</m> is our normal resistance and <m>X</m> is <term>reactance</term>. The impedance is the factor that relates <m>\tilde{I}</m> to <m>\tilde{V}</m> as seen in <xref ref="ac-impedance"/>. Generally, <m>Z</m> is frequency-dependent.
+    </p>
+    <figure xml:id="ac-impedance">
+                <caption></caption>
+                <image><latex-image>
+                    \begin{circuitikz}[scale=0.75, american voltages, american currents,dbx/.style={draw}]
+                    % Battery Equivalent Circuit
+                    \draw (0,4) coordinate(start);
+                    \draw (start) to[short, o-, i>^=$\tilde{I}$] ++(3,0) coordinate(a);
+                    \draw ([yshift=.5cm] a) -- ++(0,-5) -- ++(2,0) -- ++(0,5) -- ++(-2,0);
+                    \draw   ([xshift=1cm,yshift=-2cm] a) node{\text{$Z$}};
+                    \draw   ([yshift=-2cm] start) node{\text{$\tilde{V}$}};
+                    \draw ([yshift=-4cm] start) to[short, o-, i\lt_=$\tilde{I}$] ++(3,0);                    
+                    \end{circuitikz}
+                </latex-image></image>
+            </figure>
+    <p>
+        Let's look at a few examples. Ohm's law continues to hold for AC signals, so it is trivial to demonstrate that <m>Z_R=R</m>. 
+    </p>
+    <p>
+        Now, let's work to determine the impedance for a capacitor. In introductory physics, you likely learned that capacitance <m>C</m> is a quantity that links the voltage difference <m>V</m> between two objects and the charge <m>Q</m> on each object through the expression
+        <me>
+            Q=CV
+        </me>.
+        Pairing this expression with the definition of current
+        <me>
+            I=\frac{\text{d}Q}{\text{d}t}
+        </me>
+        we find that
+        <me>
+            I=C\frac{\text{d}V}{\text{d}t}
+        </me>.
+        For a voltage <m>\tilde{V}(t)=\tilde{V}_0 e^{i\omega t}</m>, we thus see that the resulting current through the capacitor is <m>\tilde{I}(t)=i\omega C \tilde{V}_0 e^{i\omega t}</m>. Using these expressions, we find that
+        <me>
+            Z_C = \frac{\tilde{V}}{\tilde{I}}=\frac{\tilde{V}_0 e^{i\omega t}}{i\omega C\tilde{V}_0 e^{i\omega t}}
+        </me>
+        so that
+        <men>
+            Z_C = \frac{1}{i\omega C} = -\frac{i}{\omega C}
+        </men>.
+        Note that the impedance <m>Z_C</m> is frequency-dependent and complex. Examining this expression in limiting cases, <m>Z_C\rightarrow \infty\ (\text{as }\omega\rightarrow 0)</m> and <m>Z_C\rightarrow 0\ (\text{as }\omega\rightarrow \infty)</m>.
+  
+    </p>
+    <p>
+        Now, let's work to determine the impedance for an inductor. Inductors, fundamentally, are coils and act in a way as an anti-capacitor. The fundamental equation governing inductor behavior is 
+        <me>
+            V=L\frac{\text{d}I}{\text{d}t}
+        </me>
+        which means that the voltage drops across an inductor when <m>\text{d}I/\text{d}t\ne 0</m>. If we assume a current 
+        <me>
+            \tilde{I}(t)=\tilde{I}_0 e^{i\omega t}
+        </me>
+        then 
+        <me>
+            \tilde{V}(t)=i\omega L \tilde{I}_0 e^{i\omega t}
+        </me>
+        so that 
+        <me>
+            Z_L = \frac{\tilde{V}}{\tilde{I}} = \frac{i\omega L \tilde{I}_0 e^{i\omega t}}{\tilde{I}_0 e^{i\omega t}}
+        </me>.
+        Simplifying, this leaves us with
+        <me>
+            Z_L = i\omega L
+        </me>.
+        Note that the impedance <m>Z_L</m> is frequency-dependent and complex. Examining this expression in limiting cases, <m>Z_L\rightarrow 0\ (\text{as }\omega\rightarrow 0)</m> and <m>Z_L\rightarrow \infty\ (\text{as }\omega\rightarrow \infty)</m>.
+    </p>
+    <p>
+        The results above can be used with a generalized Ohm's law
+        <me>
+            I=\frac{V}{Z}
+        </me>,
+        and equations for series and parallel impedances
+        <md>
+            <mrow>Z_\text{series} \amp = Z_1 + Z_2 + \cdots </mrow>
+            <mrow>\frac{1}{Z_\text{parallel}} \amp = \frac{1}{Z_1} + \frac{1}{Z_2} + \cdots </mrow>
+        </md>
+        
+    </p>
+
+
+</section>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-voltage-source-symbol">
+    <title>Voltage Source Symbols</title>
+
+    <p>
+        In the following section, we will analyze our first circuit. This circuit is pictured in <xref ref="dc-circuit1"/>. Before we analyze this circuit, let's first take a moment to discuss a notation convention. It is popular convention to label batteries or voltage supplies with the symbol <m>V</m> with an identifying subscript as we have with the symbol <m>V_b</m> in <xref ref="dc-circuit1"/>. Using this convention, one might hypothetically say <m>V_b=9</m>V even though what is really meant is that <m>\Delta V=9</m> Volts across the battery terminals. Though this notation may require a small bit of additional care of the reader, we will use this popular convention of labeling batteries and voltage sources with a <m>V</m> rather than <m>\Delta V</m>. When discussing voltage changes across any other type of circuit element, we will return to the <m>\Delta V</m> notation.
+    </p>
+    
+</section>

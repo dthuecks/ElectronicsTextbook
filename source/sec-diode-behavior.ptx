@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-behavior" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Diode behavior</title>
+
+    <p>
+        When we put p-type and n-type semiconductors together as in <xref ref="fig-diode-biases"/>, we get a <term>diode</term>. When a voltage difference is applied across the diode, interesting behaviors can be observed.
+        <figure xml:id="fig-diode-biases">
+            <caption></caption>
+            <sidebyside widths="45% 45%" margins="auto" valign="top">
+                <figure xml:id="fig-diode-forwardbias">
+                    <caption>Forward-biased. </caption>
+                    <image>
+                        <shortdescription></shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="../figures/fig-diode-forwardbias.ptx" />
+                        </latex-image>
+                            
+                    </image>
+                </figure>
+                <figure xml:id="fig-diode-revbias">
+                    <caption>Reverse biased.</caption>
+                    <image>
+                        <shortdescription></shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="../figures/fig-diode-revbias.ptx" />
+                        </latex-image>
+                            
+                    </image>
+                </figure>
+            </sidebyside>
+        </figure>
+        When the voltage is applied across the diode as in <xref ref="fig-diode-forwardbias"/>, valence-band holes in the valence band of the p-type semiconductor and conduction-band electrons in the n-type semiconductor move toward the pn junction. At the junction, electrons in the n-type semiconductor fall across the pn junction into p-type semiconductor holes. Since the valence band is a lower energy level than the conduction band, this is accomplished easily. Electrons are also pulled out of the p-type into the wire, generating more valence-band holes. These electrons travel through the circuit and replenish the conduction-band electrons when they enter the n-type semiconductor. This process can proceed indefinitely, resulting in sustained current flow through the diode.
+        </p>
+
+        <p>
+        If the bias is reversed as in <xref ref="fig-diode-revbias"/>, we see a different behavior. In this case, valence-band holes and conduction-band electrons move away from the pn junction in their respective semiconductors. While electrons can leave the n-type semiconductor, travel through the circuit, and fill the holes in the p-type semiconductor, this will quickly come to a halt because no new holes are formed at the p-n boundary.
+        </p>
+
+        <p>
+            Using the behaviors observed above, we find that diodes act similar to one-directional wires. The behavior is captured in 
+            <figure xml:id="fig-diode-cartoon">
+                <caption></caption>
+                <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="../figures/fig-diode-cartoon.ptx" />
+                    </latex-image>
+                </image>
+            </figure>
+        </p>
+
+            <figure xml:id="fig-diode-depletionlayer">
+                <caption></caption>
+                <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="../figures/fig-diode-depletionlayer.ptx" />
+                    </latex-image>
+                </image>
+            </figure> 
+
+</section>

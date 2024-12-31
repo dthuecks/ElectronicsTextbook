@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-series_parallel" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Series and Parallel Resistors</title>
+  
+    <p> 
+        Let's begin by applying Kirchhoff's laws and Ohm's law to the circuit shown in <xref ref="dc-circuit1" />.  
+        <figure xml:id="dc-circuit1"><caption>Circuit example.</caption>
+            <image><latex-image>
+                \begin{circuitikz}
+                \begin{scope}[local bounding box=circuit]
+                \draw   (0,0)   coordinate(start);
+                \draw   (0,4)   coordinate (a);
+                \draw    (a)    to [battery, l=$V_b$] (start);
+                \draw    (a)    to [short, -*, i_>=$I_1$] ++ (4,0) coordinate (b)
+                               to [R, l_=$R_1$,i>=$I_2$] ++ (0,-2)
+                                to [R, -*, l_=$R_2$] ++ (0,-2) coordinate (c)
+                                to [short] (start);
+                \draw    (b)    to [short,-, i_>=$I_3$] ++(4,0) coordinate (d)
+                                to [R, l_=$R_3$] ++ (0,-4) coordinate (e)
+                                to [short] (c);
+                \end{scope}
+                \draw[-stealth, semithick, red, rounded corners=4mm]
+                    ([xshift=-5mm, yshift=-1cm] a) |- ([yshift=3mm] b)
+                                                node[pos=.75,above, red] {Loop II}
+                                                -- ([xshift=3mm, yshift=3mm] d)
+                                                |- ([yshift=-1mm] circuit.south)
+                                                -| ([xshift=-.5cm, yshift=-3cm] a);
+                \draw[->, blue] ([xshift= 1.5cm, yshift=-1.5cm ] a) arc(140:-140:1cm) node[midway, left, xshift=-4mm] {Loop I};
+                \draw (b) node[yshift=0.6mm,label={A}] {};
+                \end{circuitikz}
+            </latex-image></image>
+        </figure>
+        
+        At node A, we apply the KCL to find
+        <men xml:id="eqn-intro-kcl1">
+            \sum\limits_i I_i=0 \Rightarrow I_1 - I_2 - I_3 = 0. 
+        </men>
+
+        The KVL can then be applied to Loop I and Loop II. Starting with Loop I, we will start in the lower left corner and 
+        traverse Loop I in the direction indicated by the arrow. Traversing this loop has us pass through battery <m>V_b</m> 
+        from the negative to positive terminal, resulting in <m>\Delta V=+V_b</m>. The next component that we encounter is 
+        <m>R_1</m>, which we travel across in the direction of current, so <m>\Delta V=-I_2 R_1</m> by Ohm's Law. Likewise, 
+        <m>\Delta V=-I_2 R_2</m> as we travel across <m>R_2</m> on the way back to our starting point. The KVL for Loop 1 will 
+        thus give
+        <men xml:id="eqn-intro-kvl1">
+            \sum\limits_{i\text{ in Loop I}} \left(\Delta V\right)_i = 0 \Rightarrow V_b - I_2 R_1 - I_2 R_2 = 0.
+        </men>
+
+        A similar application of the KVL to Loop II gives
+        <men xml:id="eqn-intro-kvl2">
+            \sum\limits_{i\text{ in Loop II}} \left(\Delta V\right)_i = 0 \Rightarrow V_b - I_3 R_3 = 0.
+        </men>
+        
+        Often, voltages provided by batteries (or a DC voltage source) and the resistances are known as these were the 
+        physical components assembled into the circuit. Thus, Equations~<xref ref="eqn-intro-kcl1" /> 
+        - <xref ref="eqn-intro-kvl2" /> represent a series of equations that must be solved to determine currents 
+        <m>I_1,\ I_2, \text{ and } I_3</m> in <xref ref="dc-circuit1" />.
+    </p>
+
+    <p>
+        Rather than solving this system of equations for the three currents, we will instead perform some intermediate 
+        analysis to investigate the behavior of resistor combinations. Starting with Equation~\ref{intro-kvl1}, we can 
+        see that
+        <me>
+            V_b - I_2\left(R_1 + R_2\right) = V_b - I_2 R_{1+2}
+        </me>.
+        Resistors <m>R_1</m> and <m>R_2</m> are considered to be in <term>series</term>. Resistors are in series if the 
+        current in one resistor must be the same current in the other series resistors. In this case, <m>R_1</m> and 
+        <m>R_2</m> are in series because <m>I_2</m> must be the current in each of the resistors since there is no 
+        junction between them. We see that the voltage drop across the pair of series resistors is just <m>I_2 R_{1+2}</m> 
+        where <m>R_{1+2}=R_1 + R_2</m>, meaning that resistors in series act together as a single resistor that has a 
+        resistance equaling the sum of the series resistances. This relationship holds for any number of resistors that 
+        are in series such that
+        <men xml:id="eqn-intro-series-resistors">
+            R_\text{eq} = \sum\limits_\text{series} R_i \quad \text{(Resistors in series)}
+        </men>.
+        This means that currents <m>I_1</m>, <m>I_2</m>, and <m>I_3</m> will have identical values in all three circuits 
+        displayed in Figure~\ref{dc-circuit1-alt1} 
+        <figure xml:id="dc-circuit1-alt1">
+            <image><latex-image>
+                \begin{circuitikz}[scale=0.8]
+                    % Original Circuit
+                    \draw   (0,0)   coordinate(start);
+                    \draw   (0,4)   coordinate (a);
+                    \draw    (a)    to [battery, l^=$V_b$] (start);
+                    \draw    (a)    to [short, -*, i_>=$I_1$] ++ (2,0) coordinate (b)
+                                    to [R, l_=$R_1$,i>=$I_2$] ++ (0,-2)
+                                    to [R, -*, l_=$R_2$] ++ (0,-2) coordinate (c)
+                                    to [short] (start);
+                    \draw    (b)    to [short,-, i_>=$I_3$] ++(2,0) coordinate (d)
+                                    to [R, l_=$R_3$] ++ (0,-4) coordinate (e)
+                                    to [short] (c);
+                    \draw[->] (4.5,2) to (5.75,2);
+                    % Intermediate Circuit
+                    \draw   (6.5,0)   coordinate(start);
+                    \draw   (6.5,4)   coordinate (a);
+                    \draw    (a)    to [battery, l^=$V_b$] (start);
+                    \draw    (a)    to [short, -*, i_>=$I_1$] ++ (2,0) coordinate (b)
+                                    to [R, l^=$R_{1+2}$,i>=$I_2$] ++ (0,-4) coordinate (c)
+                                    to [short] (start);
+                    \draw    (b)    to [short,-, i_>=$I_3$] ++(2,0) coordinate (d)
+                                    to [R, l^=$R_3$] ++ (0,-4) coordinate (e)
+                                    to [short] (c);
+                    \draw[->] (11.55,2) to (12.75,2);
+                    % Simplified Circuit
+                    \draw   (13.5,0)   coordinate(start);
+                    \draw   (13.5,4)   coordinate (a);
+                    \draw    (a)    to [battery, l^=$V_b$] (start);
+                    \draw    (a)    to [short, i_>=$I_1$] ++ (3,0) coordinate (b)
+                                    to [R, l^=$R_{(1+2)||3}$,i>=$I_1$] ++ (0,-4) coordinate (c)
+                                    to [short] (start);
+                \end{circuitikz}
+            </latex-image></image>
+            <caption>Original circuit (left) is simplified into an intermediate circuit (center) by combining series 
+                resistors <m>R_1</m> and <m>R_2</m> into effective resistance <m>R_{1+2}</m>. The circuit is further 
+                simplified (right) by combining parallel resistors <m>R_{1+2}</m> and <m>R_3</m> into effective resistance 
+                <m>R_{(1+2)||3}</m>.</caption>
+        </figure>
+        If we now examine the simplified circuit in <xref ref="dc-circuit1-alt1" />b, we can see that both <m>R_{1+2}</m>
+        and <m>R_3</m> both have the same voltage drop across them
+        <md>
+            <mrow> I_2 R_{1+2} \amp = V_b</mrow>
+            <mrow> I_3 R_3 \amp = V_b </mrow>
+        </md>
+        so that
+        <md>
+            <mrow> I_2 \amp = \frac{V_b}{R_{1+2}} </mrow>
+            <mrow> I_3 \amp = \frac{V_b}{R_3} </mrow>
+        </md>.
+        These expressions can be inserted into Equation~<xref ref="eqn-intro-kcl1"/> to find
+        <md>
+            <mrow> I_1 \amp = I_2 + I_3 \Rightarrow </mrow>
+            <mrow> \amp = \frac{V_b}{R_{1+2}} + \frac{V_1}{R_3} </mrow>
+            <mrow> \amp =  V_b \left(\frac{1}{R_{1+2}} + \frac{1}{R_3}\right)</mrow>
+        </md> 
+        so that
+        <me>
+            V_b = I_1 \left(\frac{1}{R_{1+2}} + \frac{1}{R_3}\right)^{-1}
+        </me>. This has the form of Ohm's Law where <m>R_{1+2}</m> and <m>R_3</m> combine into an equivalent resistance
+        <me>
+            R_{(1+2)||3}^{-1}=R_{1+2}^{-1}+R_3^{-1}
+        </me>.
+        We say that resistors <m>R_{1+2}</m> and <m>R_3</m> are in parallel because the potential difference across each 
+        resistor must be identical as each side of the resistors are connected together by wires. An equivalent resistance 
+        for a combination of any number of parallel resistors can be found using
+        <men xml:id="eqn-intro-parallel-resistors">
+            R_{eq}^{-1} = \sum\limits_\text{parallel} R_i^{-1} \quad \text{(Resistors in parallel)}
+        </men>.
+    </p>
+</section>

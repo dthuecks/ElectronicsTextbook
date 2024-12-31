@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-diode" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Diodes</title>
+
+    \chapter{Introduction}
+    <introduction>
+        <p>
+            In this chapter, we're introduced to our first non-ohmic circuit element: the diode. These elements behave in ways that do not conform to Ohm's law.
+        </p>
+
+        <p>
+            Diodes are semiconductor-based circuit elements whose behaviors in circuits does not conform to Ohm's law. Before describing diode circuit behavior, we first need to understand what semiconductors are, what properties they exhibit, and how those behaviors combine to produce diode behavior.
+        </p>
+    
+    
+    </introduction>  
+
+<xi:include href="./sec-diode-semiconductors.ptx" />
+
+<xi:include href="./sec-diode-behavior.ptx" />
+    
+</chapter>

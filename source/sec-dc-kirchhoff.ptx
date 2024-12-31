@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-kirchhoff" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Kirchhoff's Laws</title>
+  
+    <p> 
+        There are three laws that will make up the foundation of our DC circuit analysis. In truth, these laws will extend 
+        beyond the DC circuit analysis presented in this chapter, but we will leave discussion of these extensions to future 
+        chapters.
+    </p>
+    <p>
+        Kirchhoff's Current Law (KCL), or Junction Law, relies on conservation of charge to say that the rate at which charges 
+        enter a junction must be equivalent to the rate at which charges leave the junction
+<me>\sum I_\text{in}=\sum I_\text{out}.</me>
+for a scenario as pictured in <xref ref="dc-kcl" />. The KCL can also be represented mathematically as
+<me>\sum\limits_i I_i = 0</me>
+where <m>I_i\lt 0</m> for currents leaving a node and <m>I_i\gt 0</m> for currents entering a node.</p>
+<figure xml:id="dc-kcl"> 
+<image width="40%"><latex-image>
+\begin{circuitikz}
+\draw
+    (0,0) to [short,-*, i>=$I_1$] (2,0)
+    (2,0) to [short, i>=$I_2$] (4,0)
+    (2,0) to [short, i>=$I_3$] (2,-2);
+\end{circuitikz}
+</latex-image></image>
+<caption>A circuit junction.</caption>
+</figure>
+
+<p>
+    Another conservation law, the conservation of energy, is ultimately responsible for what we call Kirchhoff's Voltage Law 
+    (KVL), or the Loop Law. If one walks around any loop in a circuit (such as that shown in <xref ref="dc-kvl" />), the sum of 
+    the voltage changes as one moves in a single direction around a complete loop must add up to zero, or
+    <me>\sum\limits_i \Delta V_i=0\text{ around a closed loop.}</me> 
+    When using the KVL equation, voltages rise as one crosses a voltage source from the negative terminal to positive terminal 
+    and voltages fall in the opposite direction. Additionally, voltages fall across a resistor in the direction of current and 
+    rise in the opposite direction.
+<figure xml:id="dc-kvl">
+    <caption>A circuit loop.</caption>
+    <image width="50%"><latex-image>
+    \begin{circuitikz}
+        \draw
+        (0,0) to [short, *-*] (1,0)
+        (1,-1) to [short] (1,1)
+        (1,1) to [R, v^=$\Delta V_1$] (5,1)
+        (5,-1) to [C, v^>=$\Delta V_2$] (1,-1)
+        (5,-1) to [short] (5,1)
+        (5,0) to [short, *-*] (6,0);
+        \draw[->]   (3.0,.5) arc(110:-110:5mm) node[midway, left, font=\footnotesize] {Loop};
+    \end{circuitikz}
+
+    </latex-image></image>
+</figure>
+</p>
+
+<p>
+    The last rule we'll introduce here is Ohm's Law. For the situation shown in Figure~\ref{DC-ohm}, the magnitude of the 
+    voltage change across a resistor is dependent on the resistance and the magnitude of current in the resistor according to
+<me>\Delta V=IR</me>
+where <m>\Delta V=V_A - V_B</m>.
+A note on signs: When using Ohm's law, <m>\Delta V</m> and <m>I</m> actually represent <m>\left|\Delta V\right|</m> 
+and <m>\left| I \right|</m>. It is conventional to use Ohm's law to relate magnitudes of <m>\Delta V</m> to <m>I</m>. The 
+signs on each variable are linked by the fact that current is directed from high to low voltage. So, if current is in the 
+direction indicated in <xref ref="dc-ohm" />, then <m>V_A \gt V_B</m>.
+<figure xml:id="dc-ohm">
+    <image width="40%"><latex-image>
+        \begin{circuitikz}
+            \draw
+            (0,0) node[left]{\texttt{$V_A$}} to [R,*-*,v=$\Delta V$, i>=$I$] (3,0) node[right]{\texttt{$V_B$}};
+        \end{circuitikz}
+    </latex-image></image>
+    <caption>Ohm's Law circuit.</caption>
+</figure>
+</p>
+<p>
+    EXAMINE THE VOLTAGE DIVIDER CIRCUIT.
+</p>
+
+</section>

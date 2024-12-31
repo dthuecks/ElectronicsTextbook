@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-semiconductors" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Semiconductors</title>
+    <p>
+        As the name suggets, semiconductors have conductivity between ocnductors and insulators. Semiondur properties have made many important electrical advances possible.
+        <ul>
+            <li>
+                <p>
+                    diodes
+                </p>
+            </li>
+            <li>
+                <p>
+                    transistors
+                </p>
+            </li>
+            <li>
+                <p>
+                    operational amplifiers
+                </p>
+            </li>
+            <li>
+                <p>
+                    integrated circuit chips
+                </p>
+            </li>
+            <li>
+                <p>
+                    Light-emitting diodes (LEDs)
+                </p>
+            </li>
+            <li>
+                <p>
+                    photodiodes.
+                </p>
+            </li>
+        </ul>    
+            
+    </p> 
+
+    <p>       
+        In order to understand semiconductors, we must examine the atomic structure of these materials and how they relate to molecular bonds. Let's start with <xref ref="diode-isolated-atoms"/>  which shows the energy levels for two isolated atoms.    
+        <figure xml:id="diode-isolated-atoms">
+            <caption></caption>
+            <image><latex-image>
+                <xi:include parse="text" href="../figures/fig-diode-isolated-atoms.ptx" />
+            </latex-image></image>
+        </figure>
+        Quantum mechanics tells us that electrons can occupy discrete energy levels of an atom. Energy levels fill starting with the lowest and fill upward. Electrons occupying high energy levels are further from the nucleus and also have a larger spatial extent surrounding the nucleus compared to electrons in low energy levels, at least on average. Elecrons of course do not behave like macroscopic objects with definite position, but instead are represented by electron clouds. For the purposes of this class, we will not have to trouble ourselves with this level of detail.
+    </p>
+    <p>
+        In the atom pictured in <xref ref="diode-isolated-atoms"/>, the energy levels represented by solid lines are occupied by electrons, with the term <term>valence electrons</term> used to identify electrons in the highest occupied energy level. The dashed lines represent empty energy levels.
+    </p>
+
+    <p>
+        When these two formerly isolated items are brought close to each other such that the valence electron orbitals start overlapping, the pair of atoms can reach a lower energy state by sharing some of their valence electrons. These shared energy levels develop into bands rather than precise discrete levels. Fuller details about the physics of covalent bonds can be found in many Modern Physics or Quantum Mechanics textbooks but will be unnecessary for us. <xref ref="diode-covalent-atoms"/> provides a rough picture of the elements important to us.
+        <figure xml:id="diode-covalent-atoms">
+            <caption></caption>
+            <image><latex-image>
+                <xi:include parse="text" href="../figures/fig-diode-covalent-atoms.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+        In this figure, the <term>valence band</term> represents the last occupied energy band at <m>T=0</m> Kelvin. The <term>conduction band</term> is the next energy band above the valence band, and the <term>band gap</term> is the energy difference between the top of the valence band and the bottom of the conduction band.
+    </p>
+
+    <p>
+        Now, these last three terms are critical to understanding the difference between conductors, semiconductors, and insulators, as illustrated in <xref ref="diode-bandgap"/>. 
+        <figure xml:id="diode-bandgap">
+            <caption></caption>
+            <image><latex-image>
+                <xi:include parse="text" href="../figures/fig-diode-bandgap.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+        We see that conductors have overlapping valence and conduction bands. This means that the valence electrons, which are most loosely held by the nucleus due to their distance from the nucleus, can move relatively easily from one atom to the other using the empty orbital positions in the conduction band. In insulators, it is difficult to move valence electrons between atoms since those electrons would need to gain a large amount of energy to jump across the large bandgap from the valence to conduction band.
+    </p>
+
+    <p>
+        Semicondcuctors have non-overlapping valence and conduction bands, but with only a small bandgap between them. This means that at <m>T=0</m>K, the semiconductor behaves like an insulator. But, at higher temperatures, there is enough thermal energy present that a small population of electrons that had been occupying the valence band instead make the jump into the conduction band and can now move freely.
+    </p>
+            
+    <p>
+        One common semiconductor material is silicon <m>_{14}</m>Si which has an electron configuration that can be represented by <m>1\text{s}^2\ 2\text{s}^2\ 2\text{p}^6\ 3\text{s}^2\ 3\text{p}^2</m>. This means that Silicon has a full ground state (two electrons in the 1s orbital), a full second energy level (two electrons in the 2s orbital and six electrons in the 2p orbital), and a third energy level with electrons occupying half of the eight available orbital spots (two spots in the 3s orbital and six spots in the 3p orbital). <xref ref="diode-si-crystal"/> shows a silicon crystal.
+        <figure xml:id="diode-si-crystal">
+            <caption>Silicon crystal. The shared electrons in covalent bonds fill the valence shell of the silicon crystal.</caption>
+            <image><latex-image>
+                <xi:include parse="text" href="../figures/fig-diode-si-crystal.ptx" />
+            </latex-image></image>
+        </figure>
+        In this crystal, each Si atom is surrounded by eight electrons in the valence band, completely filling it. Each bond is formed by two electrons being shared between a pair of atoms, with each atom contributing one of the two shared electrons.
+    </p>
+    <p>
+        Now, on its own, silicon is a rather poor semiconductor. That said, the semiconductor properties of a Silicon crystal is improved significantly through doping.  The term <term>doping</term> represents the process of mixing a small amount of an impurity into the silicon crystal.
+    </p>
+    <p> 
+        There are two types of doping that are imporant to us here, and they are represented in <xref ref="diode-doped-crystal"/>.   
+        <figure xml:id="diode-doped-crystal">
+            <caption>Doped semiconductors.</caption>
+            <sidebyside widths="45% 45%" margins="auto" valign="middle">
+            <figure xml:id="diode-ntype-crystal">
+                <caption>n-type semiconductor.</caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="../figures/fig-diode-ntype-crystal.ptx" />
+                </latex-image></image>
+            </figure>
+            <figure xml:id="diode-ptype-crystal">
+                <caption>p-type semiconductor.</caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="../figures/fig-diode-ptype-crystal.ptx" />
+                </latex-image></image>
+            </figure>
+            </sidebyside>
+        </figure>
+        In a <term>doped n-type semiconductor</term>, a small amount of phosphorus is added as an impurity into the silicon crystal. Phosphorus has five valence electrons in contrast to the four valence electrons that silicon has. This means that there are nine electrons trying to occupy the eight available spots in the valence band as shown in <xref ref="diode-ntype-crystal"/>. Consequently, each ninth phosphorus electron is bumped up into the shared conducting band and can move freely. This is called an n-type semiconductor because negatively-charged electrons are the <term>charge carrier</term>, meaning they are the moving charged particles that comprise any current flowing through the semiconductor.
+        </p>
+
+        <p>
+            In a <term>doped p-type semiconductor</term>, a small amount of Boron is added as an impurity into the silicon crystal. Phosphorus has three valence electrons in contrast to the four valence electrons that silicon has. This means that there are seven electrons trying to occupy the eight available spots in the valence band, leaving an open orbital spot in the valence bqand as shown in <xref ref="diode-ptype-crystal"/>. Consequently, the holes formed from the missing electron exist in the valence band and represent open spaces into which electrons can move. The reason this is called a p-type semiconductor is pictured in <xref ref="diode-hole-carrier"/>  
+            <figure xml:id="diode-hole-carrier">
+                <caption></caption>
+                <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="../figures/fig-diode-hole-carrier.ptx" />
+                    </latex-image>                            
+                </image>
+            </figure>
+            In this figure, a valence electron feels a force due to the applied voltages and moves to fill the hole (step 1), resulting in a new hole at the electron's former position. This process repeats (step 2) with a different electron moving into the hole location, again swapping places. This continues through steps 3 and 4. The reality of the situation has four electrons each moving one space. it is convenient, instead, to treat the hole (the absence of an electron) as a single positive (relative to an electron) charge that moves four spaces to the left due to the applied voltage, just as a positive charge would move. As such, this hole (which we are treating akin to a positive charge) is considered the charge carrier and can move somewhat freely through the valence band of the semiconductor crystal.
+        </p>
+        
+    
+</section>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-batteries">
+        <title>Application of Thevenin Equivalent Cicruits: Batteries</title>
+        <introduction>
+            <p>
+             Batteries have a complicated voltage and resistance internally, as do power supplies, function generators, and other voltage sources that may be present in a circuit.  All can be represented by a Thevenin equivalent circuit.  
+            </p>
+            <p>
+                The Thevenin equivalent representation of a battery can help us understand the behavior of batteries when connected to resistive loads as pictured in <xref ref="dc-batteries-thevenin"/>. Here, the chemical reactions inside the battery maintain an internal voltage difference <m>V_\text{source}</m>. There is an internal resistance <m>R_\text{internal}</m> that means that the actual battery terminals that we have access to provide a voltage difference of <m>V_\text{battery}\ne V_\text{source}</m>.
+            </p>
+
+            <figure xml:id="dc-batteries-thevenin">
+                <caption></caption>
+                <image><latex-image>
+                    \begin{circuitikz}[scale=0.75, american voltages, american currents,dbx/.style={dashed, draw}]
+                    % Battery Equivalent Circuit
+                    \draw (0,0) coordinate(start);
+                    \draw   ([yshift=4cm] start) coordinate (a) 
+                                    to [battery, l^=$V_\text{source}$] ++ (0,-4) 
+                                    to[short, -o] ++ (5,0) coordinate (b);
+                    \draw (a)       to[R, -o, l_=$R_\text{internal}$] ++ (5,0);
+                    \draw   ([xshift=4.75cm, yshift=2cm] start) node{\text{$V_\text{battery}$}};
+
+                    \draw[dbx] (-.75,-.25) -- ++(0,4.75) -- ++(4.5,0) -- ++(0,-4.75) -- ++(-4.5,0) -- cycle;
+                    \draw   ([xshift=1.25cm, yshift=4.75cm] start) node{\text{Battery}};
+
+                    % Load Equivalent Circuit
+                    \draw ([xshift=5.5cm, yshift=4cm] start) 
+                                    to[short,o-] ++(3,0)
+                                    to[R, l_=$R_\text{load}$] ++(0,-4)
+                                    to[short, -o] ++(-3,0);
+
+                    \end{circuitikz}
+                </latex-image></image>
+            </figure>
+            
+            <p>
+                If we connect a resistive load with resistance <m>R_\text{load}</m>, we find that we have a voltage divider circuit where
+                <me>
+                    V_\text{battery}=\frac{R_\text{load}}{R_\text{internal} + R_\text{load}} V_\text{source}
+                </me>.
+                So, if <m>R_\text{load}</m> is very large <m>\left(R_\text{load}\gg R_\text{internal}\right)</m>, we call this a <q>light</q> resistive load because <m>V_\text{battery}\approx V_\text{source}</m>. Conversely, if <m>R_\text{load}</m> is very small <m>\left(R_\text{load}\ll R_\text{internal}\right)</m>, we call this a <q>heavy</q> resistive load because <m>V_\text{battery}\ll V_\text{source}</m>.
+            </p>
+            <p>
+                The analysis above shows why the voltage between battery terminals can <sq>droop</sq> lower than their rated voltage when a heavy resistive load is connected to it. We will discuss this effect in greater detail in Chapter __________.
+            </p>
+
+        </introduction>
+</section>

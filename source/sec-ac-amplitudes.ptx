@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-amplitudes" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Characterizing Signal Size</title>
+
+    <introduction>
+        <p>
+            With AC signals, there are multiple ways to represent amplitude. Here, we will examine methods of characterizing voltage amplitudes, but all methods discussed apply equally well to any other sinusoidally-varying quantity.
+            <ol>
+                <li>
+                    <p>
+                        Peak-to-Peak voltage <m>V_{p-p}</m> is the voltage difference <m>V_\text{max}-V_\text{min}</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Peak voltage (or amplitude) <m>V_\text{peak}=A=V_{p-p}/2</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data <m>\left(V(t_i)\right)</m> where <m>t_i</m> are the values of time for which <m>n</m> measurements were recorded. Then,  
+                        <me>
+                            V_\text{rms}=\sqrt{\frac{\sum\limits_{i=1}{n} V_i^2}{n}}
+                        </me>
+                        which is <m>V_\text{peak}/\sqrt{2}</m> for sinusoidal waves.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The average power <m>P_\text{avg}</m> dissipated in a resistor <m>R</m> due to a sinusoidal signal is
+                        <me>
+                            P_\text{avg}=I_\text{rms}^2 R = \frac{V_\text{rms}^2}{R}
+                        </me>.                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Power in a signal <m>P_2</m> relative to the power in some other signal <m>P_1</m> can be represented using a logarithmic scale called decibels, where
+                        <md>
+                            <mrow>P_\text{dB} \amp =10\log_{10}\left(\frac{P_2}{P_1}\right)</mrow>
+                            <mrow> \amp = 20\log_{10}\left(\frac{A_2}{A_1}\right) </mrow>
+                        </md>.
+                        
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </introduction>
+</section>

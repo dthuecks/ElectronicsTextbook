@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <section xml:id="sec-dc-superposition">
+        <title>Superposition Theorem</title>
+        <introduction>
+            <p>
+                The superposition theorem isn't often used on its own in circuit analysis, but is the foundation 
+                for some other very important rules and theorems. Before stating the superposition theorem, we must 
+                first establish a few definitions.
+            </p>
+
+            <p> 
+                First, <term>linear circuit elements</term> are circuit elements for which the relationship between 
+                voltage and current is a linear function. Examples of linear circuit elements include resistors, 
+                capacitors, and inductors. A <term>linear circuit</term> contains only linear elements.
+            </p>
+
+            <p>
+                With these definitions in place, the superposition theorem states that for any linear circuit containing 
+                more than one independent source, the circuit can be solved for one source while turning the others `off'. 
+                Then, this can be repeated for each source and add the results together. When we talk about turning a voltage 
+                source off, we mean that we replace it in our analysis with a wire. Turning a current source off means 
+                replacing the current source with a break in the circuit. The superposition theorem in electronics arises 
+                directly from use of the superposition principle in electricity and magnetism.
+
+            </p>
+        </introduction>
+    </section>

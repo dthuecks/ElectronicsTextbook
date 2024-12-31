@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines=middle,
+        axis equal,
+        every major tick/.append style={very thick, major tick length=10pt, black},
+        xmin=-1,xmax=2,
+        ymin=-2,ymax=2,
+        xtick={0.6},xticklabels={$V_F$},
+        ytick={}, yticklabels={},
+        ytick style={draw=none},
+        x label style={anchor=west},
+        y label style={anchor=west},
+        xlabel={$V_D$},ylabel={$I_D$},
+        ]
+                
+        \addplot[ultra thick,blue] coordinates {(-2,0)(0.6,0)};
+        \addplot[ultra thick,blue] coordinates {(0.6,0)(0.6,2.0)};            
+    \end{axis}
+\end{tikzpicture}

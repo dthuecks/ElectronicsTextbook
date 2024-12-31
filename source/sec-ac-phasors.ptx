@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-phasors" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Phasors</title>
+
+    <p>
+        In this section, we will introduce <term>phasors</term>, a graphical method of representing complex electronics signals. Take a complex signal, e.g.
+        <me>
+            \tilde{V}(t)
+            = \tilde{V}_0 e^{i\omega t} 
+            = V_0 e^{i\phi}e^{i\omega t}
+            = V_0 e^{i\left(\omega t + \phi\right)}
+        </me>.
+        For time <m>t=0</m>, we can represent this graphically as a vector at an angle <m>\phi</m> as shown in <xref ref="ac-phasors-plot-a"/>. This phasor will rotate about a circle with radius <m>V_0</m> as time advances, pointing at an angle <m>\omega t + \phi</m> at some later time <m>t</m> as shown in <xref ref="ac-phasors-plot-b"/>.        
+    </p>
+    
+    <figure xml:id="ac-phasors-plot">
+    <caption>Phasor example.</caption>
+    <sidebyside widths="45% 45%" margins="auto" valign="middle">
+        <figure xml:id="ac-phasors-plot-a">
+        <caption><m>V(t=0)</m></caption>
+        <image><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                axis equal,
+                ticks=none,
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={Re},ylabel={Im},
+                ]
+                
+                \addplot[solid, ->] coordinates {(0,0)({4*cos(30)},{4*sin(30)})} node[midway,above left] {$V_0$};
+                \draw [->] (axis cs:1.5,0) arc [radius=1.5,start angle=0,end angle=30] node[pos=.15,right] {$\phi$};
+                %\addplot[draw=none]    coordinates{(0,0) (4*.866025,0)}
+                %                            node[pos=0.5,below] {$V_0 \cos(\phi)$};
+                %\addplot[draw=none]    coordinates{(4*.866025,0) (4*.866025,4*.5) }
+                %                            node[pos=.5, right] {$V_0 \sin(\phi)$};  
+                
+                %\draw[dashed, blue] (axis cs:0,0) circle [radius=4];
+                \end{axis}
+            \end{tikzpicture}
+        </latex-image></image>
+        </figure>
+        <figure xml:id="ac-phasors-plot-b">
+        <caption><m>V(t)</m> relative to <m>V(t=0)</m>.</caption>
+        <image><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[disabledatascaling,
+                axis lines=middle,
+                axis equal,
+                ticks=none,
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={Re},ylabel={Im},
+                ]
+                
+                \addplot[dashed, ->]    coordinates {(0,0)({4*cos(30)},{4*sin(30)})};
+                \draw [->] (axis cs:1.25,0) arc [radius=1.25,start angle=0,end angle=30] node[midway,right] {$\phi$};
+                \addplot[solid, ->]     coordinates {(0,0)({4*cos(140)},{4*sin(140)})} node[midway, below left] {$V_0$};
+                \draw [->] (axis cs:{1.5*cos(30)},{1.5*sin(30)}) arc [radius=1.5,start angle=30,end angle=140] node[pos=0.8,above] {$\omega t$};
+
+                %\addplot[draw=none]    coordinates{(0,0) (4*.866025,0)}
+                %                            node[pos=0.5,below] {$V_0 \cos(\phi)$};
+                %\addplot[draw=none]    coordinates{(4*.866025,0) (4*.866025,4*.5) }
+                %                            node[pos=.5, right] {$V_0 \sin(\phi)$};  
+                
+                \draw[dashed, blue] (axis cs:0,0) circle [radius=4];
+                \end{axis}
+            \end{tikzpicture}
+        </latex-image></image>
+        </figure>
+        </sidebyside>
+    </figure>
+
+    <p>
+        If we have two signals that we would like to compare
+        <md>
+            <mrow>\tilde{V}_\text{out} \amp = V_{\text{out}_0} e^{i\left(\omega t + \phi_2\right)} </mrow>
+            <mrow>\tilde{V}_\text{in} \amp = V_{\text{in}_0} e^{i\left(\omega t + \phi_1\right)} </mrow>
+        </md>
+        we can see in <xref ref="ac-phasor-compare"/> that both vectors rotate at the same rate, leaving the phase <m>\phi=\phi_2-\phi_1</m> between them unchanged as time advances.
+    </p>
+    
+    <figure xml:id="ac-phasor-compare">
+    <caption>Two phasors with the same <m>\omega</m> advancing in time.</caption>
+    <sidebyside widths="45% 45%" margins="auto" valign="middle">
+        <figure xml:id="ac-phasor-compare-a">
+        <caption>Time <m>t=0</m></caption>
+        <image><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                axis equal,
+                ticks=none,
+                xmin=-5,xmax=5,
+                ymin=-5.5,ymax=5.5,
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={Re},ylabel={Im},
+                ]
+                
+                \addplot[solid,blue, ->] coordinates {(0,0)({5*cos(30)},{5*sin(30)})} node[pos=0.9,above left] {$V_{\text{in}_0}$};
+                \draw[blue, ->] (axis cs:3.5,0) arc [radius=3.5,start angle=0,end angle=30];
+                \draw[blue]     (axis cs:4.0,1.0) node {$\phi_1$};
+                \draw[dashed, blue] (axis cs:0,0) circle [radius=5];
+
+                \addplot[solid,red, ->] coordinates {(0,0)({3*cos(105)},{3*sin(105)})} node[midway,below left] {$V_{\text{out}_0}$};
+                \draw[red, ->] (axis cs:1.5,0) arc [radius=1.5,start angle=0,end angle=105]; 
+                \draw[red]     (axis cs:0.5,0.5) node[above] {$\phi_2$};
+                \draw[dashed, red] (axis cs:0,0) circle [radius=3];
+
+                \draw [black, ->] (axis cs:{2.15*cos(30)},{2.15*sin(30)}) arc [radius=2.15,start angle=30,end angle=105];
+                \draw[black]    (axis cs:0.5,2.15) node[above] {$\phi$};
+                \end{axis}
+            \end{tikzpicture}
+        </latex-image></image>
+        </figure>
+        <figure xml:id="ac-phasor-compare-b">
+        <caption>Some later time <m>t</m> </caption>
+        <image><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                axis equal,
+                ticks=none,
+                xmin=-5,xmax=5,
+                ymin=-5.5,ymax=5.5,
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={Re},ylabel={Im},
+                ]
+                
+                \addplot[solid,blue, ->] coordinates {(0,0)({5*cos(120)},{5*sin(120)})} node[pos=0.8,below left] {$V_{\text{in}_0}$};
+                \draw[dashed, blue] (axis cs:0,0) circle [radius=5];
+
+                \addplot[solid,red, ->] coordinates {(0,0)({3*cos(195)},{3*sin(195)})} node[pos=0.8,below right] {$V_{\text{out}_0}$};
+                \draw[dashed, red] (axis cs:0,0) circle [radius=3];
+
+                \draw [black, ->] (axis cs:{2.15*cos(120)},{2.15*sin(120)}) arc [radius=2.15,start angle=120,end angle=195];
+                \draw[black]    (axis cs:-1.5,1) node[below] {$\phi$};
+                \end{axis}
+            \end{tikzpicture}
+        </latex-image></image>
+        </figure>
+        </sidebyside>
+    </figure>
+    <p>
+        Phasors can help us quickly use graphs to determine the amplitudes and phases of signals relative to some other reference signal. As an example, let's examine the circuit in <xref ref="ac-capacitor-phasor-a"/>.
+        <figure xml:id="ac-capacitor-phasor">
+            <caption>Phasor analysis for a capacitor.</caption>
+            <sidebyside widths="45% 45%" margins="auto" valign="middle">
+            <figure xml:id="ac-capacitor-phasor-a">
+                <caption>Circuit</caption>
+                <image><latex-image>
+                    \begin{circuitikz}
+                        \draw (0,0) to[sinusoidal voltage source, l^=$\tilde{V}_\text{in}$] ++ (0,2)
+                                    to[short, i>_=$\tilde{I}$] ++ (2,0)
+                                    to[C, l_=$C$] ++ (0,-2)
+                                    to[short] ++ (-2,0);
+                    \end{circuitikz}
+                </latex-image></image>
+            </figure>
+            <figure xml:id="ac-capacitor-phasor-b">
+                <caption>Phasor diagram.</caption>
+                <image><latex-image>
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            axis lines=middle,
+                            axis equal,
+                            ticks=none,
+                            xmin=-1,xmax=5,
+                            ymin=-4,ymax=1,
+                            x label style={anchor=west},
+                            y label style={anchor=west},
+                            xlabel={Re},ylabel={Im},
+                        ]
+                
+                        \addplot[ultra thick,blue, ->] coordinates {(0,0)(4,0)} node[pos=0.8,above] {$\tilde{I}$};
+                        \addplot[ultra thick,red, ->] coordinates {(0,0)(0,-3)} 
+                                    node[pos=0.8,right] {$\tilde{V}_C=-\frac{i}{\omega C}\tilde{I}$};
+                        
+                        \end{axis}
+                    \end{tikzpicture}
+                </latex-image>                    
+                </image>
+            </figure>
+        </sidebyside>
+        </figure>
+        The phasor diagram in <xref ref="ac-capacitor-phasor-b"/> was generated by completing the following steps:
+        <ol>
+            <li>
+                <p>
+                    Draw your phasor diagram for the instant when one of your signals (voltage or current)  is purely real, meaning its phasor is aligned along the real axis. Choose this signal based on how easily it can be related to other phasors. In this case, we'll look at an instant when <m>\tilde{I}</m> is purely real.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use Ohm's law to find expressions for voltage changes across components. In this case, we used <m>\tilde{V}_C=\tilde{I} Z_C=-(i/\omega C) \tilde{I}</m>.                  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Plot <m>\tilde{V}</m> changes across all components. In this example, <m>\tilde{I}</m> is purely real which means that <m>\tilde{V}_C</m> is aligned with the negative imaginary axis.
+                </p>
+            </li>
+        </ol>
+        Thus, we find that the phase of the current <m>\tilde{I}</m> through a capacitor leads the phase of the capacitor voltage <m>\tilde{V}_C</m> by <m>90^\circ</m> and the amplitude of the voltage is <m>V_{C_0}=I_0/\omega C</m>.
+    </p>
+
+    <p>
+        We can proceed with a similar analysis for an inductor. Examining the circuit in <xref ref="ac-inductor-phasor-a"/>.
+        <figure xml:id="ac-inductor-phasor">
+            <caption>Phasor analysis for an inductor.</caption>
+            <sidebyside widths="45% 45%" margins="auto" valign="middle">
+            <figure xml:id="ac-inductor-phasor-a">
+                <caption>Circuit</caption>
+                <image><latex-image>
+                    \begin{circuitikz}
+                        \draw (0,0) to[sinusoidal voltage source, l^=$\tilde{V}_\text{in}$] ++ (0,2)
+                                    to[short, i>_=$\tilde{I}$] ++ (2,0)
+                                    to[L, l_=$L$] ++ (0,-2)
+                                    to[short] ++ (-2,0);
+                    \end{circuitikz}
+                </latex-image></image>
+            </figure>
+            <figure xml:id="ac-inductor-phasor-b">
+                <caption>Phasor diagram.</caption>
+                <image><latex-image>
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            axis lines=middle,
+                            axis equal,
+                            ticks=none,
+                            xmin=-1,xmax=5,
+                            ymin=-1,ymax=4,
+                            x label style={anchor=west},
+                            y label style={anchor=west},
+                            xlabel={Re},ylabel={Im},
+                        ]
+                
+                        \addplot[ultra thick,blue, ->] coordinates {(0,0)(4,0)} node[pos=0.8,above] {$\tilde{I}$};
+                        \addplot[ultra thick,red, ->] coordinates {(0,0)(0,3)} 
+                                    node[pos=0.8,right] {$\tilde{V}_L=i\omega L \tilde{I}$};
+                        
+                        \end{axis}
+                    \end{tikzpicture}
+                </latex-image>                    
+                </image>
+            </figure>
+        </sidebyside>
+        </figure>
+        and generating the phasor diagram in <xref ref="ac-inductor-phasor-b"/>, we find that the phase of the current <m>\tilde{I}</m> through an inductor trails the phase of the inductor voltage <m>\tilde{V}_L</m> by <m>90^\circ</m> and the amplitude of the voltage is <m>V_{L_0}=\omega L I_0</m>.
+    </p>
+
+    <p>
+        THINGS TO CHECK: WHICH EQUATIONS SHOULD HAVE TILDE VARIABLES AND WHICH SHOULD NOT. 
+    </p>
+    
+    <example>
+            <title>Phasor analysis of the RC High-pass filter</title>
+            <statement>
+                <figure xml:id="ac-phasors-highpass-a">
+                    <caption>High-pass RC Filter.</caption>
+                    <image><latex-image>
+                        \begin{circuitikz}
+                            \draw (0,0) coordinate(start);
+                            \draw (start)   to[sinusoidal voltage source, 
+                                    l_=$\tilde{V}_{in}$] ++ (0,4)
+                                to[C, l_=$C$, i>=$\tilde{I}$] ++ (4,0) 
+                                    coordinate(a)
+                                to[R, l_=$R$] ++ (0,-4) coordinate(b)
+                                to[short] ++ (-4,0);
+                            \draw (a)       
+                                to[short, -o] ++ (1.5,0) coordinate(c);
+                            \draw (b)       
+                                to[short, -o] ++ (1.5,0) coordinate(d);
+                            \draw ([yshift=-2cm] c) 
+                                node{\text{$\tilde{V}_\text{out}$}};
+                        \end{circuitikz}
+                    </latex-image></image>
+                </figure>
+                <p>
+                    Let's revisit the RC high-pass filter circuit in <xref ref="ac-highpass-circuit"/> and analyze the circuit behavior using phasors. Find the voltage gain <m>G_V</m> and the phase <m>\phi=\phi_\text{out}-\phi_\text{in}</m>.
+                </p>
+            </statement>
+            <answer>
+                <me>
+                    G_V 
+                    = \frac{V_{\text{out}_0}}{V_{\text{in}_0}} =  \frac{1}{\sqrt{\left(\frac{1}{\omega R C}\right)^2 + R^2}}
+                    = \frac{1}{\sqrt{1+\left(f_0/f\right)^2}}
+                </me>
+                <me>
+                    \left| \phi \right| = \tan^{-1} \left(\frac{1}{\omega R C}\right)
+                    = \tan^{-1} \left(f_0/f\right)
+                </me>
+                <me>
+                    f_0=1/2\pi R C
+                </me>
+            </answer>
+            <solution>                   
+                <figure xml:id="ac-phasors-highpass-b">
+                <caption></caption>
+                <image><latex-image>
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                        axis lines=middle,
+                        axis equal,
+                        ticks=none,
+                        xmin=-3,xmax=5,
+                        ymin=-3.5,ymax=1,
+                        x label style={anchor=west},
+                        y label style={anchor=west},
+                        xlabel={Re},ylabel={Im},
+                        ]
+                
+                        \addplot[very thick, red, ->] coordinates {(0,0)(4.5,0)} 
+                            node[above left] {$\tilde{V}_\text{out}=\tilde{I} R$};
+                        \addplot[ultra thick,blue, ->] coordinates {(0,0)(2,0)} node[midway,above] {$\tilde{I}$};
+                        \addplot[very thick,red, ->] coordinates {(0,0)(0,-3)} 
+                            node[pos=0.8,left] {$\tilde{V}_C=-\frac{i}{\omega C}\tilde{I}$}; 
+                        \addplot[dashed, black] coordinates {(0,-3) (4.5,-3) (4.5,0)};
+                        \addplot[very thick, red, ->] coordinates {(0,0)(4.5,-3)} 
+                            node[below left] {$\tilde{V}_\text{in}=\tilde{V}_\text{out} + \tilde{V}_C$}; 
+                        \draw [black, ->] (axis cs:{3*cos(-33.7)},{3*sin(-33.7)}) 
+                            arc [radius=3,start angle=-33.7,end angle=0]  
+                            node[pos=.15,right] {$\phi$};          
+                        \end{axis}
+                    \end{tikzpicture}
+                </latex-image></image>
+                </figure>
+                <p>
+                To construct the phasor diagram in <xref ref="ac-phasors-highpass-b"/>, we draw <m>\tilde{I}</m> along the real axis. Then, <m>\tilde{V}_\text{out}=\tilde{V}_\text{R}=\tilde{I}R</m> is also purely real. We can use Ohm's law to draw <m>\tilde{V}_C=i\tilde{I}/\omega C</m> along the negative imaginary axis. Then, since Kirchhoff's Voltage Law requires <m>\tilde{V}_\text{in} - \tilde{V}_C - \tilde{V}_\text{out}=0</m>, we use vector addition to draw <m>\tilde{V}_\text{in}=\tilde{V}_C + \tilde{V}_\text{out}</m>.
+                </p>
+                <p>
+                    Based on our phasor diagram, we can already conclude the following:
+                    <ol>
+                        <li>
+                            <p>
+                                <m>\tilde{V}_\text{out}</m> leads <m>\tilde{V}_\text{in}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                At high frequencies, <m>\tilde{V}_\text{out}\rightarrow \tilde{V}_\text{in}</m> and <m>\phi\rightarrow 0</m> because <m>\tilde{V}_C\ll \tilde{V}_\text{out}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                At low frequencies, <m>\tilde{V}_\text{out}\rightarrow 0</m> and <m>\phi\rightarrow 90^\circ</m> because <m>\tilde{V}_C\gg \tilde{V}_\text{out}</m>.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+                <p>
+                    We can use the phasor diagram to derive more precise relationships. Using the Pythagorean theorem, we find that
+                    <me>
+                        V_{\text{in}_0} = \sqrt{I_0^2 \left(\frac{1}{\omega C}\right)^2 + I_0^2 R^2} = I_0\sqrt{\left(\frac{1}{\omega C}\right)^2 + R^2}
+                    </me>.
+                    Also, 
+                    <me>
+                        V_{\text{out}_0} = I_0 R
+                    </me>.
+                    Combining these results, we find that 
+                    <md>
+                        <mrow>
+                        G_V = \frac{V_{\text{out}_0}}{V_{\text{in}_0}} \amp = \frac{R}{\sqrt{\left(\frac{1}{\omega C}\right)^2 + R^2}}= \frac{1}{\sqrt{\left(\frac{1}{\omega R C}\right)^2 + R^2}}
+                        </mrow>
+                        <mrow> 
+                        \amp  
+                        = \frac{1}{\sqrt{1+\left(f_0/f\right)^2}}
+                        </mrow>   
+                    </md>
+                    where <m>f_0=1/2\pi R C</m> as before. Likewise, we can find the phase between our signals using
+                    <me>
+                        \left| \phi \right| = \tan^{-1}\left(\frac{V_{C_0}}{V_{R_0}}\right)
+                        = \tan^{-1} \left(\frac{1}{\omega R C}\right)
+                        = \tan^{-1} \left(f_0/f\right)
+                    </me>.
+                    These results are identical to what we had calculated previously using Kirchhoff's laws.
+                </p>
+            </solution>
+        </example>
+
+        <example>
+            <title>Phasor analysis of a resonant RLC circuit</title>
+            <statement>
+                <figure xml:id="ac-phasors-resonantRLC-a">
+                <caption>Resonant RLC circuit.</caption>
+                <image><latex-image>
+                    \begin{circuitikz}
+                        \draw (0,0) coordinate(start);
+                        \draw (start)   to[sinusoidal voltage source, l_=$\tilde{V}_{in}$] ++ (0,4)
+                                        to[L, l_=$L$] ++ (2,0)
+                                        to[C, l_=$C$, i>=$\tilde{I}$] ++ (2,0) coordinate(a)
+                                        to[R, l_=$R$] ++ (0,-4) coordinate(b)
+                                        to[short] ++ (-4,0);
+                        \draw (a)       to[short, -o] ++ (1.5,0) coordinate(c);
+                        \draw (b)       to[short, -o] ++ (1.5,0) coordinate(d);
+                        \draw ([yshift=-2cm] c) node{\text{$\tilde{V}_\text{out}$}};
+                    \end{circuitikz}
+                </latex-image></image>
+                </figure>
+                <p>
+                    Find <m>G_V</m> and <m>\phi=\phi_\text{out}-\phi_\text{in}</m> for the resonant RLC circuit shown in <xref ref="ac-phasors-resonantRLC-a"/>.                    
+                </p>
+            </statement>
+            <answer>
+                <p>
+                    The voltage gain is
+                    <md>
+                        <mrow>G_v = \frac{V_{\text{out}_0}}{V_{\text{in}_0}} \amp = \frac{R}{\sqrt{R^2 + \left(\omega L -\frac{1}{\omega C}\right)^2}} </mrow>
+                        <mrow> \amp = \frac{1}{\sqrt{1+\frac{L^2}{\omega^2 R^2}\left(\omega^2 - \omega_0^2\right)^2}} </mrow>
+                    </md>.
+                    The phase is 
+                    <md>
+                        <mrow>\left|\phi\right| \amp = \tan^{-1}\left(\frac{\omega L - \frac{1}{\omega C}}{R}\right) </mrow>
+                        <mrow> \amp = \tan^{-1}\left(\frac{L}{\omega R}\left(\omega^2-\omega_0^2\right)\right) </mrow>
+                    </md>
+                    and the resonant frequency is
+                    <me>
+                        \omega_0 = \frac{1}{\sqrt{LC}}
+                    </me>
+                </p>   
+                    
+            </answer>
+            <solution>        
+                <figure xml:id="ac-phasors-resonantRLC-b">
+                    <caption>Phasor diagram.</caption>
+                    <image><latex-image>
+                        \begin{tikzpicture}
+                            \begin{axis}[
+                                axis lines=middle,
+                                axis equal,
+                                ticks=none,
+                                xmin=-3,xmax=5,
+                                ymin=-5.5,ymax=3,
+                                x label style={anchor=west},
+                                y label style={anchor=west},
+                                xlabel={Re},ylabel={Im},
+                                ]
+                
+                            \addplot[very thick, red, ->] coordinates {(0,0)(4.5,0)} 
+                                node[above left] {$\tilde{V}_\text{out}=\tilde{I} R$};
+                            \addplot[ultra thick,blue, ->] coordinates {(0,0)(2,0)} node[midway,above] {$\tilde{I}$};
+                            \addplot[very thick,red, ->] coordinates {(0,0)(0,-5)} 
+                                node[pos=0.8,left] {$\tilde{V}_C=-\frac{i}{\omega C}\tilde{I}$};
+                            \addplot[very thick,red, ->] coordinates {(0,0)(0,2)} 
+                                node[pos=0.9,above left] {$\tilde{V}_L=i \omega L \tilde{I}$};  
+                            \addplot[dashed, black] coordinates {(0,-3) (4.5,-3) (4.5,0)};
+                            \addplot[very thick, red, ->] coordinates {(0,0)(4.5,-3)};
+                            \draw[red] (5.5,-3)
+                                node[below left] {$\tilde{V}_\text{in}=\tilde{V}_\text{out} + \tilde{V}_C + \tilde{V}_L$}; 
+                            \draw [black, ->] (axis cs:{3*cos(-33.7)},{3*sin(-33.7)}) 
+                                arc [radius=3,start angle=-33.7,end angle=0]  
+                                node[pos=.15,right] {$\phi$};          
+                            \end{axis}
+                        \end{tikzpicture}
+                    </latex-image></image>
+                </figure>
+ 
+                <p>
+                    Based on our phasor diagram, we can already conclude the following:
+                    <ol>
+                        <li>
+                            <p>
+                                At high frequencies, <m>\tilde{V}_\text{out}\rightarrow 0</m> and <m>\phi\rightarrow -90^\circ</m> because <m>\tilde{V}_C\ll \tilde{V}_\text{out}</m> and <m>\tilde{V}_L \gg \tilde{V}_\text{out}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                At low frequencies, <m>\tilde{V}_\text{out}\rightarrow 0</m> and <m>\phi\rightarrow 90^\circ</m> because <m>\tilde{V}_C\gg \tilde{V}_\text{out}</m> and <m>\tilde{V}_L\ll \tilde{V}_\text{out}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                There exists a frequency <m>\omega=\omega_0</m> where <m>\tilde{V}_C + \tilde{V}_L = 0</m>. At this frequency, <m>\tilde{V}_\text{out} = \tilde{V}_\text{in}</m> and <m>\phi = 0^\circ</m>. We call <m>\omega_0</m> the resonant frequency for this circuit.
+                            </p>
+                        </li>
+                    </ol>
+                    We can be more quantitative with results gleaned from the phasor diagram. First, our resonance frequency can be determined by setting <m>\tilde{V}_C + \tilde{V}_L=0</m>, giving us
+                    <me>
+                        \omega_0 L = \frac{1}{\omega_0 C}
+                    </me>
+                    which can be rearranged into
+                    <me>
+                        \omega_0 = \frac{1}{\sqrt{LC}}
+                    </me>.
+                    We can also find expressions for voltage gain and phase using trigonometry. Since the loop law gives
+                    <md>
+                        <mrow>0 \amp = \tilde{V}_\text{in} - \tilde{V}_L - \tilde{V}_C - \tilde{V}_\text{out}</mrow>
+                        <mrow>\Rightarrow \tilde{V}_\text{in} \amp =  \tilde{V}_L + \tilde{V}_C + \tilde{V}_\text{out}</mrow>
+                        <mrow> \amp = i\left(\omega L - \frac{1}{\omega C}\right) I_0 + I_0 R </mrow>
+                    </md>,
+                    we can use Pythagorean's theorem to find <m>V_{\text{in}_0}</m>
+                    <md>
+                        <mrow>V_{\text{in}_0} \amp = \sqrt{\left(\omega L - \frac{1}{\omega C}\right)^2 I_0^2 + I_0^2 R^2}</mrow>
+                        <mrow> \amp = I_0  \sqrt{\left(\omega L - \frac{1}{\omega C}\right)^2 + R^2}</mrow> 
+                    </md>.
+                    Solving this equation for <m>I_0</m> in terms of <m>V_{\text{in}_0}</m> and inserting into <m>V_{\text{out}_0}=I_0 R</m> gives
+                    <md>
+                        <mrow>G_v = \frac{V_{\text{out}_0}}{V_{\text{in}_0}} \amp = \frac{R}{\sqrt{R^2 + \left(\omega L -\frac{1}{\omega C}\right)^2}} </mrow>
+                        <mrow> \amp = \frac{1}{\sqrt{1+\frac{L^2}{\omega^2 R^2}\left(\omega^2 - \omega_0^2\right)^2}} </mrow>
+                    </md>.
+                    The phase is found using
+                    <md>
+                        <mrow>\left|\phi\right| \amp = \tan^{-1}\left(\frac{\omega L - \frac{1}{\omega C}}{R}\right) </mrow>
+                        <mrow> \amp = \tan^{-1}\left(\frac{L}{\omega R}\left(\omega^2-\omega_0^2\right)\right) </mrow>
+                    </md>.
+                    These results are plotted in <xref ref="ac-phasors-resonantRLC-plots"/>, demonstrating the same qualitative behaviors that we had deduced at the outset.                    
+                </p>
+                <figure xml:id="ac-phasors-resonantRLC-plots">
+                    <caption>Resonant RLC circuit curves.</caption>
+                    <sidebyside>
+                        <figure xml:id="ac-phasors-resonantRLC-plots-a">
+                        <caption>Gain curve.</caption>
+                        <image><latex-image>
+                        \begin{tikzpicture}
+                            \begin{axis}[samples=1000,
+                            axis lines=middle,
+                            every major tick/.append style={very thick, major tick length=10pt, black},
+                            xmin=-1,xmax=40,
+                            xtick={10},xticklabels={$\omega_0$},
+                            ymin=-0.1,ymax=1.2,
+                            ytick={1},yticklabels={$1$},
+                            x label style={anchor=west},
+                            y label style={anchor=west},
+                            xlabel={$\omega$},ylabel={$G_V(\omega)$},
+                            ]
+                            \addplot[color=blue, domain=0:40]{1/(sqrt(1+(0.1/x^2)*(x^2-10^2)^2))};
+                            \end{axis}
+                        \end{tikzpicture}
+                        </latex-image></image>
+                        </figure>
+                        <figure xml:id="ac-phasors-resonantRLC-plots-b">
+                        <caption>Phase curve.</caption>
+                        <image><latex-image>
+                        \begin{tikzpicture}
+                            \begin{axis}[samples=1000,
+                            axis lines=middle,
+                            every major tick/.append style={very thick, major tick length=10pt, black},
+                            xmin=-1,xmax=40,
+                            xtick={10},xticklabels={$\omega_0$},
+                            ymin=-100,ymax=120,
+                            ytick={-90, 90},yticklabels={$-\pi/2$,$\pi/2$},
+                            x label style={anchor=west},
+                            y label style={anchor=west},
+                            xlabel={$\omega$},ylabel={$\phi(\omega)$},
+                            ]
+                            \addplot[color=blue, domain=0:10]{atan((sqrt(0.1)/x^2)*(x^2-10^2)^2)};
+                            \addplot[color=blue, domain=10:40]{-atan((sqrt(0.1)/x^2)*(x^2-10^2)^2)};
+                            \end{axis}
+                        \end{tikzpicture}
+                        </latex-image></image>
+                        </figure>
+                    </sidebyside>
+                </figure>
+            </solution>
+        </example>
+
+
+        <example>
+            <title>Phasor analysis of a parallel RLC circuit</title>
+            <statement>
+                <figure xml:id="ac-phasors-parallelRLC-a">
+                    <caption>Parallel RLC circuit.</caption>
+                    <image><latex-image>
+                        \begin{circuitikz}
+                            \draw (0,0) coordinate(start);
+                            \draw (start)   to[sinusoidal voltage source, l_=$\tilde{V}_{in}$] ++ (0,4)
+                                to[short, -*, i>_=$\tilde{I}_\text{in}$] ++ (2,0) coordinate(a)
+                                to[L, l_=$L$, i>_=$\tilde{I}_L$] ++ (0,-4) coordinate(b)
+                                to[short, *-] ++ (-2,0);
+                            \draw (a)       to[short, -*] ++ (2,0)   
+                                            coordinate(c)
+                                to[R, l_=$R$, i>_=$\tilde{I}_R$] ++ (0,-4)
+                                to[short, *-] ++ (-2,0) coordinate(d);
+                            \draw (c)       
+                                to[short] ++ (2,0)
+                                to[C, l_=$C$, i>_=$\tilde{I}_C$] ++ (0,-4)
+                                to[short] ++ (-2,0);
+                        \end{circuitikz}
+                    </latex-image></image>
+                    </figure>
+                <p>
+                    Examine <xref ref="ac-phasors-parallelRLC-a"/>. Determine the current being drawn from the voltage source and the frequency at which the source current's magnitude is minimized.                     
+                </p>
+            </statement>
+            <answer>
+                <me>
+                        I_{\text{in}_0} = V_{\text{in}_0} \sqrt{ \frac{1}{R^2} + \left(\omega C - \frac{1}{\omega L}\right)^2}
+                    </me>
+                    <me>
+                        \phi = \tan^{-1}\left(\frac{1/R^2}{\omega C - 1/\omega L}\right) = \tan^{-1}\left(\frac{1}{R^2\left(\omega C - 1/\omega L\right)}\right)
+                    </me>
+            </answer>
+            <solution>
+                <figure xml:id="ac-phasors-parallelRLC-b">
+                <caption>Phasor diagram.</caption>
+                <image><latex-image>
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            axis lines=middle,
+                            axis equal,
+                            ticks=none,
+                            xmin=-2,xmax=5,
+                            ymin=-5.5,ymax=3,
+                            x label style={anchor=west},
+                            y label style={anchor=west},
+                            xlabel={Re},ylabel={Im},
+                            ]
+                            \addplot[ultra thick,blue, ->] coordinates {(0,0)(4.5,0)} node[pos=0.8,above] {$\tilde{I}_R$};
+                            \addplot[very thick, red, ->] coordinates {(0,0)(2,0)} 
+                                node[above left] {$\tilde{V}_\text{in}$};
+                            \addplot[very thick,blue, ->] coordinates {(0,0)(0,-5)} 
+                                node[pos=0.8,left] {$\tilde{I}_L=-\frac{i}{\omega L}\tilde{V}_\text{in}$};
+                            \addplot[very thick,blue, ->] coordinates {(0,0)(0,2)} 
+                                node[pos=0.9,above left] {$\tilde{I}_C=i \omega C \tilde{V}_\text{in}$};  
+                            \addplot[dashed, black] coordinates {(0,-3) (4.5,-3) (4.5,0)};
+                            \addplot[very thick, blue, ->] coordinates {(0,0)(4.5,-3)};
+                            \draw[blue] (5.5,-3)
+                                node[below left] {$\tilde{I}_\text{in}=\tilde{I}_L + \tilde{I}_R + \tilde{I}_C$}; 
+                            \draw [black, ->] (axis cs:{3*cos(-33.7)},{3*sin(-33.7)}) 
+                                arc [radius=3,start angle=-33.7,end angle=0]  
+                                node[pos=.15,right] {$\phi$};          
+                        \end{axis}
+                    \end{tikzpicture}
+                </latex-image></image>
+                </figure>
+                <p>
+                    In order to create the phasor diagram, we draw it at a time at which one convenient current phasor is aligned purely along the real axis. We will choose a time at which <m>\tilde{I}_R</m> is purely real so that <m>\tilde{V}|_\text{in}</m> is also purely real. We can then use Ohm's law to determine currents across the inductor and capacitor and draw them on the phasor diagram because the voltage across each of the three components is <m>V_\text{in}</m>.                    
+                </p>
+                <p>
+                    Now, the junction law can be used to find <m>\tilde{I}_\text{in}</m>:
+                    <me>
+                        \tilde{I}_\text{in} = \tilde{I}_R + \tilde{I}_L + \tilde{I}_C
+                    </me>.
+                    Using Pythagorean's theorem, 
+                    <md>
+                        <mrow>
+                        I_{\text{in}_0}^2 \amp = I_{R_0}^2 + \left(I_{C_0}-I_{L_0}\right)^2
+                        </mrow>
+                        <mrow> \amp 
+                        = \frac{V_{\text{in}_0}}{R^2}+ \left(\omega C V_{\text{in}_0} - \frac{V_{\text{in}_0}}{\omega L} \right)^2
+                        </mrow>
+                        <mrow> \amp 
+                        = V_{\text{in}_0}^2\left[\frac{1}{R^2} + \left(\omega C - \frac{1}{\omega L}\right)^2\right]
+                        </mrow>
+                    </md>
+                    so that
+                    <me>
+                        I_{\text{in}_0} = V_{\text{in}_0} \sqrt{ \frac{1}{R^2} + \left(\omega C - \frac{1}{\omega L}\right)^2}
+                    </me>
+                    and
+                    <me>
+                        \phi = \tan^{-1}\left(\frac{1/R^2}{\omega C - 1/\omega L}\right) = \tan^{-1}\left(\frac{1}{R^2\left(\omega C - 1/\omega L\right)}\right)
+                    </me>.
+
+                    In the limits <m>\omega\rightarrow 0</m> and <m>\omega\rightarrow\infty</m>, <m>\tilde{I}_\text{in}\rightarrow \infty</m> since the inductor or capacitor short out in these limits, respectively. There are intermediate frequencies at which <m>\tilde{I}</m> is finite. We can find the frequency <m>\omega_0</m> at which source current is minimized by solving for <m>\omega</m> when <m>\text{d}\tilde{I}_\text{in}/\text{d}V=0</m>. Current is also minimized when <m>\text{d}\tilde{I}_\text{in}^2/\text{d}V=0</m>. So, we'll examine
+                    <me>
+                        0 = \frac{\text{d}}{\text{d}V} \tilde{I}_\text{in}^2 = 2\tilde{V}_\text{in}^2\left(\frac{1}{\omega L} - \omega C\right)\left(-\frac{1}{\omega^2 L} - C\right)
+                    </me>.
+                    Now, it is impossible for the second term in parentheses to equal zero. So, source current is minimized when 
+                    <me>
+                        \frac{1}{\omega_0 L} = \omega_0 C
+                    </me>
+                    or
+                    <me>
+                        \omega_0 = \frac{1}{\sqrt{LC}}
+                    </me>.   
+                </p>
+            </solution>
+        </example>   
+</section>

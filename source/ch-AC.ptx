@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-ac" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>AC Circuits</title>
+
+    \chapter{Introduction}
+    <introduction>
+    <p> 
+        When studying DC circuits, resistors and sources were the main components considered. For AC circuits, analysis becomes more interesting and there are additional components to understand. In nature, innumerable measureable quantities have time dependence, and electronics will be used to measure/collect such data. Thus, an understanding of AC signals and AC circuit behavior is critical for a practicing scientist.
+    </p>
+    
+    </introduction>
+
+<xi:include href="./sec-ac-sinusoidal.ptx" />
+
+<xi:include href="./sec-ac-amplitudes.ptx" />
+
+<xi:include href="./sec-ac-complexsigs.ptx" />
+
+<xi:include href="./sec-ac-complexZ.ptx" />
+
+<xi:include href="./sec-ac-capcharging.ptx" />
+
+<xi:include href="./sec-ac-highpass.ptx" />
+
+<xi:include href="./sec-ac-phasors.ptx" />
+
+<xi:include href="./sec-ac-python.ptx" />
+
+<xi:include href="./sec-ac-thevenin.ptx" />
+
+
+
+
+</chapter>

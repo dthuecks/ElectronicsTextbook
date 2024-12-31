@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-highpass" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>RC High-pass filter</title>
+
+    <p>
+        Let's look at some circuit behavior for sinusoidal signals. <xref ref="ac-highpass-circuit"/> shows the circuit that we will examine.
+    </p>
+    <figure xml:id="ac-highpass-circuit">
+        <caption>High-pass RC Filter Circuit.</caption>
+        <image><latex-image>
+            \begin{circuitikz}
+                \draw (0,0) coordinate(start);
+                \draw (start)   to[sinusoidal voltage source, l_=$\tilde{V}_{in}$] ++ (0,4)
+                                to[C, l_=$C$, i>=$\tilde{I}$] ++ (4,0) coordinate(a)
+                                to[R, l_=$R$] ++ (0,-4) coordinate(b)
+                                to[short] ++ (-4,0);
+                \draw (a)       to[short, -o] ++ (3,0) coordinate(c);
+                \draw (b)       to[short, -o] ++ (3,0) coordinate(d);
+                \draw ([yshift=-2cm] c) node{\text{$\tilde{V}_\text{out}$}};
+            \end{circuitikz}
+        </latex-image></image>
+    </figure>
+    <p>
+        There is nothing in the formulation of Kirchhoff's laws that would limit them to only DC circuits. In fact, they apply equally well to all circuits (DC, AC, non-linear). Assume that all quantities with a tilde over them are complex quantities expressed as exponentials. So, 
+        <me>
+            \tilde{V}_\text{in}(t) = \tilde{V}_{\text{in}_0} e^{i\omega t} = V_0 e^{i\delta} e^{i\omega t}
+        </me>
+        where the real signal <m>V_\text{in}(t)=\Re\left[\tilde{V}_\text{in}(t)\right]</m>. Using Kirchhoff's Voltage Law, we find that
+        <me>
+            \tilde{V}_\text{in} - \tilde{I} Z_C - \tilde{I} Z_R = \tilde{V}_\text{in} - \tilde{I} \left(Z_C - Z_R\right) = 0
+        </me>
+        so that
+        <me>
+            \tilde{I} = \frac{\tilde{V}_\text{in}}{Z_R + Z_C} = \frac{\tilde{V}_\text{in}}{R-\frac{i}{\omega C}}
+        </me>.
+        We can then find <m>\tilde{V}_\text{out}</m> using Ohm's Law
+        <me>
+            \tilde{V}_\text{out}=\tilde{I} R = \frac{R}{R-\frac{i}{\omega C}}\tilde{V}_\text{in}
+        </me>.
+        Expanding our voltage signals, 
+        <me>
+            \tilde{V}_{\text{out}_0} e^{i\omega t} = \frac{R}{R-\frac{i}{\omega C}}\tilde{V}_{\text{in}_0} e^{i\omega t}
+        </me>
+        so that
+        <me>
+            \tilde{V}_{\text{out}_0} = \frac{R}{R-\frac{i}{\omega C}}\tilde{V}_{\text{in}_0}
+        </me>.
+        Then, 
+        <me>
+            \frac{\tilde{V}_{\text{out}_0}}{\tilde{V}_{\text{in}_0}} 
+            = \frac{R}{R-\frac{i}{\omega C}}
+            = \frac{R}{R-\frac{i}{\omega C}} \frac{\left(R+\frac{i}{\omega C}\right)/R^2}{\left(R+\frac{i}{\omega C}\right)/R^2}
+            = \frac{1+\frac{i}{\omega R C}}{1+\left(\frac{1}{\omega R C}\right)^2}
+        </me>.
+        Expanding the complex amplitude, 
+        <me>
+            \frac{\tilde{V}_{\text{out}_0}}{\tilde{V}_{\text{in}_0}}
+            = \frac{V_{\text{out}_0}e^{i\delta'}}{V_{\text{in}_0}e^{i\delta}}
+            = \frac{V_{\text{out}_0}}{V_{\text{in}_0}}e^{i\phi}
+        </me>
+        where <m>\phi=\delta' - \delta</m>.
+        We can calculate the voltage gain <m>G_V=V_{\text{out}_0}/V_{\text{in}_0}</m>:
+        <md>
+            <mrow> 
+            G_V \amp 
+            = \frac{V_{\text{out}_0}}{V_{\text{in}_0}}
+            </mrow>
+            <mrow> \amp 
+            = \left| \frac{V_{\text{out}_0}}{V_{\text{in}_0}} e^{i\phi}\right|
+            = \left| \frac{1+\frac{i}{\omega R C}}{1+\left(\frac{1}{\omega R C}\right)^2}\right|
+            </mrow>
+        </md>
+        so
+        <men xml:id="eqn-highpassgain">
+            G_V= \frac{1}{\sqrt{1+\left(\frac{1}{\omega R C}\right)^2}}
+            = \frac{1}{\sqrt{1+\left(f_0/f\right)^2}}
+        </men>
+        
+        where <m>f_0=1/2\pi RC</m> and <m>f=\omega/2\pi</m>. We can also determine the phase difference <m>\phi</m> between the output and input voltages. Since
+        <me>
+            \frac{V_{\text{out}_0}}{V_{\text{in}_0}} e^{i\phi}
+            = \frac{1+\frac{i}{\omega R C}}{1+\left(\frac{1}{\omega R C}\right)^2}
+        </me>,
+        we can rearrange to find 
+        <me>
+            e^{i\phi}
+            = \frac{V_{\text{in}_0}}{V_{\text{out}_0}}
+            \frac{1+\frac{i}{\omega R C}}{1+\left(\frac{1}{\omega R C}\right)^2}
+        </me>.
+        Now, 
+        <me>
+            \tan(\phi) 
+            = \frac{\sin(\phi)}{\cos(\phi)}
+            = \frac{\Im\left(e^{i\phi}\right)}{\Re\left(e^{i\phi}\right)}
+            = \frac{1}{\omega R C}
+        </me>
+        so that 
+        <men xml:id="eqn-highpassphase">
+            \phi 
+            = \tan^{-1}\left(\frac{1}{\omega R C}\right) 
+            = \tan^{-1}\left( f_0/f\right)
+        </men>.
+        Using Eqs. <xref ref="eqn-highpassgain"/> and <xref ref="eqn-highpassphase"/>, we can show the following behaviors:
+        <ol>
+            <li>
+                <p>
+                    <m>0^\circ \lt \phi \lt 90^\circ</m>, meaning <m>\tilde{V}_\text{out}</m> leads <m>\tilde{V}_\text{in}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>V_{\text{out}_0}\rightarrow V_{\text{in}_0}</m> as <m>f\rightarrow \infty</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>V_{\text{out}_0} \rightarrow 0</m> as <m>f\rightarrow 0</m>.
+                </p>
+            </li>
+        </ol>
+        Based on these behaviors, the circuit in <xref ref="ac-highpass-circuit"/> is called a <term>RC high-pass filter</term>. Thus, if a voltage input signal contains many sinusoidal signal components with a variety of frequencies, then this filter circuit can eliminate the low-frequency components while leaving the high-frequency components unaffected.
+    </p>
+</section>

@@ -7,21 +7,21 @@
   <bibinfo>
   
     <author>
-      <personname>You</personname>
-      <department>Your department</department>
-      <institution>Your institution</institution>
+      <personname>Derek J. Thuecks</personname>
+      <department>Department of Physics</department>
+      <institution>Washington College</institution>
     </author>
     <date>
       <today />
     </date>
 
     <website>
-      <url href="https://pretextbook.org">My Website</url>
+      <url href="https://www.washcoll.edu/people_departments/faculty/dthuecks2.php">My Website</url>
     </website>
 
     <copyright>
-      <year>2020<ndash />2024</year>
-      <holder>You</holder>
+      <year>2024</year>
+      <holder>Derek J Thuecks</holder>
       <shortlicense> This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
       </shortlicense>
     </copyright>

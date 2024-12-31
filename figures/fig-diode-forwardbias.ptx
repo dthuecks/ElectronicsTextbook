@@ -1,0 +1,24 @@
+\begin{circuitikz}
+    \def\re{0.6cm}
+    \draw (0,0) coordinate(start);
+    \draw ([xshift=6cm] start) coordinate(a);
+    \draw (start)       to[battery, l^=$V_0$] (a);
+    \draw (start)   -- ++(0,3)
+                    -- ++(1,0) coordinate(b);
+    \node at ([xshift=1cm, yshift=-1cm] b) [rectangle, draw, minimum width=2cm,minimum height=2cm,anchor=south,label=p-type] {};
+    \draw (a)       -- ++(0,3)
+                    -- ++(-1,0) coordinate(c);
+    \node at ([xshift=-1cm, yshift=-1cm] c) [rectangle, draw, minimum width=2cm,minimum height=2cm,anchor=south,label=n-type] {};
+
+    \draw ([xshift={\re+0.1cm}] b) coordinate (d);
+    \draw[-latex, ultra thick, blue] ([xshift={\re/2}] d) -- ++(0.7cm,0);
+    \node at (d) [ultra thick, blue, circle, draw, minimum size = \re] {};
+
+    \draw ([xshift=-{\re-0.1cm}] c) coordinate (f);
+    \draw[-latex, ultra thick, blue] ([xshift={-\re/2}] f) -- ++(-0.7cm,0);
+    \node at (f) [ultra thick, blue, circle, draw, minimum size = \re] {e};
+    %\draw[ultra thick, blue] (f) circle (\re);
+
+    
+
+\end{circuitikz}

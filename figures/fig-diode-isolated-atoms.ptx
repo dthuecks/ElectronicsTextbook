@@ -1,0 +1,43 @@
+\usetikzlibrary {arrows.meta}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis line style={draw=none}, tick style={draw=none},
+        xmin=-15,xmax=15,
+        ymin=-5,ymax=5,
+        xticklabels=\empty,
+        yticklabels=\empty,
+        samples=1000,
+        ]
+        \def\sep{5}
+        \def\spac{.3}
+        \def\nMAX{6}
+        \foreach \m in {0,..., 1}
+            {
+                \addplot[color=black, domain=\m*\sep+.2:\m*\sep+2]{2*log10(x-\m*\sep)};
+                \addplot[color=black, domain=\m*\sep-2:\m*\sep-.2]{2*log10(-(x-\m*\sep)};
+            }        
+        \foreach \m in {0,..., 1}
+            \foreach \n in {0, ..., \inteval{\nMAX-2}}
+                {
+                    \addplot[solid, color=blue] coordinates {({\m*\sep-10^((-1.25+\n*\spac)/2)},{(-1.25+\n*\spac)})({\m*\sep+10^((-1.25+\n*\spac)/2)},{(-1.25+\n*\spac)})};
+                }
+        \foreach \m in {0,..., 1}
+            \foreach \n in {\inteval{\nMAX-1}, ..., \nMAX}
+                {
+                    \addplot[densely dashed, color=red] coordinates {({\m*\sep-10^((-1.25+\n*\spac)/2)},{(-1.25+\n*\spac)})({\m*\sep+10^((-1.25+\n*\spac)/2)},{(-1.25+\n*\spac)})};
+                }
+        %\addplot[solid,color=black] coordinates {({-10^(-1.25/2)},-1.25)})({+10^(-1.25/2)},{-1.25})};
+        \draw[|-|, color=black] (-2,{2*log10(2)+.2}) -- (2,{2*log10(2)+.2})
+                    node[scale=0.3,midway,above] {radius of orbital};
+        \draw[-{Latex[length=1mm]}, color=black] (-1.5,-1.25) -- (-1.5, -.25)
+                    node[scale=0.3, midway, above, align=center, rotate=90] {increasing\\ energy};
+        \draw[-{Latex[length=0.5mm]}, color=black] (0,-1.7) 
+                    node[scale=0.3, below, align=center] {nucleus\\position} -- (0, -1.4);
+        \draw[-{Latex[length=0.5mm]}, color=blue] ({\sep+10^((-1.25+4*\spac)/2)+2},{(-1.25+4*\spac)}) 
+                    -- ({\sep+10^((-1.25+4*\spac)/2)+0.2},{(-1.25+4*\spac)})
+                    node[scale=0.3, midway, below, align=center] {occupied\\energy\\levels};
+        \draw[-{Latex[length=0.5mm]}, color=red] ({\sep+10^((-1.25+5*\spac)/2)+3},{(-1.25+5*\spac)})   
+                    -- ({\sep+10^((-1.25+5*\spac)/2)+0.2},{(-1.25+5*\spac)})
+                    node[scale=0.3, midway, above, align=center] {empty\\energy levels};
+    \end{axis}
+\end{tikzpicture}

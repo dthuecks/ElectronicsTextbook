@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-thevenin">
+        <title>Thevenin and Norton Theorem</title>
+        <introduction>
+            <p>
+                <figure xml:id="dc-messy-thevenin">
+                    <caption></caption>
+                    <image><latex-image>
+                    \begin{circuitikz}[scale=0.75, american voltages, american currents]
+                        % ORIGINAL CIRCUIT
+                        \draw   (6,1.5)   coordinate(start);
+                        \draw   (start) to [R, o-*] ++ (-3,0) coordinate (a)
+                                        to [R,*-*] ++ (0,3) coordinate (b)
+                                        to [short] ++ (-3,0) coordinate (c)
+                                        to [R,*-*] ++ (0,3) coordinate (d);
+                        \draw   (a)     to [battery] ++ (-3,0) coordinate (e)
+                                        to [R,*-*] ++ (0,3);
+                        \draw   (e)     to [I] (b);
+                        \draw   (e)     to [R] ++ (-3,0)
+                                        to [I] ++ (0,6)
+                                        to [battery] ++ (3,0)
+                                        to [R,*-] ++ (3,0) coordinate (f);
+                        \draw   (f)     to [battery] ++ (0,-3)
+                                        to [short,*-o, i>=$i_\text{ext}$] ++ (3,0) coordinate (g);
+                        \draw   (start) node[right]{\texttt{$V_B$}};
+                        \draw   (g)     node[right]{\texttt{$V_A$}};
+                        \draw   ([yshift=1.5cm] start) node{\texttt{$\Delta v_\text{ext}$}};
+                        \draw   ([xshift=-4.5cm, yshift=-.5cm] start) node[below]{\texttt{Complex Circuit}};
+
+                        % Thevenin Equivalent Circuit
+                        \draw   ([xshift=-9cm, yshift=-3cm] start) coordinate (a) to [battery, l_=$V_{th}$] ++ (0,-2) coordinate (b);
+                        \draw   (a)   to [R, -o, i>=$i_\text{ext}$, l=$R_{th}$] ++ (3,0) coordinate (va);
+                        \draw   (b) to [short, -o] ++ (3,0) coordinate (vb);
+                        \draw   (vb)     node[right]{\texttt{$V_B$}};
+                        \draw   (va)     node[right]{\texttt{$V_A$}};
+                        \draw   ([xshift=1.5cm, yshift=-2.5cm] a) node[below]{\texttt{Thevenin Equivalent}};
+                        \draw   ([yshift=-1cm] va) node[right]{\texttt{$\Delta v_\text{ext}$}};
+
+                        % Norton equivalent Circucit
+                        \draw   ([xshift=-3cm, yshift=-5cm] start) coordinate (a) to [I, l^=$I_n$] ++ (0,+2) coordinate (b);
+                        \draw   (a)   to [short, -o] ++ (3,0) coordinate (vb2);
+                        \draw   (b)   to [short] ++ (1.5,0)
+                                      to [short, i>=$i_\text{ext}$,-o] ++ (1.5,0) coordinate (va2);
+                        \draw   ([xshift=1.5cm] b) to [R, *-*,l=$R_n$] ++ (0,-2);
+                        \draw   (vb2)     node[right]{\texttt{$V_B$}};
+                        \draw   (va2)     node[right]{\texttt{$V_A$}};
+                        \draw   ([yshift=-1cm] va2) node[right]{\texttt{$\Delta v_\text{ext}$}};
+                        \draw   ([xshift=1.5cm, yshift=-0.5cm] a) node[below]{\texttt{Norton Equivalent}};
+
+                    \end{circuitikz}
+                    </latex-image></image>
+                </figure>
+                
+            </p>
+            <p>
+                Circuits controlling devices that you use every day are often very complex with complicated scematic diagrams. This complexity can make it difficult to analytically determine the behavior of the output voltage and current when this complex circuit is connected to an external load. DEFINE LOAD.  
+            </p>
+            <p>    
+                In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit (either the Thevenin equivalent circuit or the Norton equivalent circuit). The original and simplified circuits all have output voltages and currents that behave identically when an external load is connected across the outputs.  
+            </p>
+        </introduction>
+
+    <subsection xml:id="subsec-proof-thevenin">
+        <title>Proof of Thevenin's and Norton's Theorems</title>
+        <p>
+            Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>j</m> DC voltage sources <m>V_s</m>, and <m>k</m> ideal current sources <m>I_s</m>. We will also assume <m>k</m> unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.
+        </p>
+
+        <figure xml:id="dc-thevenin-box">
+            <caption></caption>
+            <image><latex-image>
+            \begin{circuitikz}[american voltages, american currents]
+                \draw (0,0) coordinate (start);
+                \draw[draw=black] (start) rectangle ++(5,5) coordinate (a);
+                \draw ([xshift=1cm, yshift=4cm] start) to [R, l=$R$] +(3,0);
+                \draw ([xshift=1.5cm, yshift=.5cm] start) to [I,l=$I_s$] +(0,3);
+                \draw ([xshift=3.5cm, yshift=3.5cm] start) to [battery, l=$V_s$] +(0,-3);
+                \draw ([yshift=-1cm] a) to [short, -o, i>=$i_\text{ext}$] +(2,0) coordinate(va);
+                \draw ([yshift=-4cm] a) to [short, -o] +(2,0) coordinate(vb);
+                \draw   (va)     node[right]{\texttt{$V_A$}};
+                \draw   (vb)     node[right]{\texttt{$V_B$}};
+                \draw   ([yshift=-1.5cm] va) node{\text{$\Delta v_\text{ext}$}};
+            \end{circuitikz}
+            </latex-image></image>
+        </figure>
+
+        <p>
+            Let's assume that if we apply the branch circuit analysis method, we end up with <m>N_1</m> independent junction law equations and <m>N_2</m> loop law equations. Each junction law equation will have the form
+            <me>
+                a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_{s_n}=0
+            </me>
+            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1 or -1 depending on whether the currents <m>i_n</m> and <m>I_{s_n}</m> are entering or exiting a junction and <m>r</m> is an index counting over junction law equations.             
+        </p>
+
+        <p>
+            We will also end up with <m>N_2</m> independent loop law equations. Each of these loop law equations will have the form
+            <me>
+                m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0
+            </me>.
+            The variables <m>m_{rn}</m> have values of either +1 or -1 depending on the battery orientation relative to the direction travelled around the loop. Variables <m>c_{rn}</m> and <m>d_{rn}</m> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm's Law). The variables <m>\varepsilon_n</m> represent voltage changes across the ideal current sources <m>I_{s_n}</m> meaning that <m>w_{rn}</m> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop. 
+        </p>
+
+        <p>
+            These <m>N_1</m> junction law equations and <m>N_2</m> loop law equations can be re-expressed as a matrix equation <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m>. First, let's rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right
+            <md>
+                <mrow> a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_{s_n}</mrow>
+                <mrow> 
+                    \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k w_{rn} \varepsilon_n \amp 
+                    = - m_{r,\text{ext}} \Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{rn} V_{s_n} 
+                    - \sum\limits_{n=1}^k d_{rn} I_{s_n} 
+                </mrow>
+            </md>.
+            We can express these equations in the form <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m> if we let
+            <me> 
+                \mathbf{A} = \begin{pmatrix}
+                    a_{1,\text{ext}} \amp a_{11} \amp \cdots \amp a_{1j} \amp 0 \amp \cdots \amp 0\\
+                    \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                    a_{N_1,\text{ext}} \amp a_{N_1 1}\amp \cdots \amp a_{N_1 j} \amp 0 \amp \cdots \amp 0\\  
+                    0 \amp c_{11} \amp \cdots \amp c_{1j} \amp w_{11} \amp \cdots \amp w_{1k}\\
+                    \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                    0 \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \amp w_{N_2 1} \amp \cdots \amp w_{N_2 k}\\
+                \end{pmatrix}
+            </me>,
+            <me>
+                \mathbf{x} = 
+                \begin{pmatrix} 
+                    i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\ \varepsilon_1 \\ \vdots \\ \varepsilon_k 
+                \end{pmatrix} 
+                \quad , \quad
+                \mathbf{v}  =
+                \begin{pmatrix} 
+                    -\sum\limits_{n=1}^{k} b_{1n} I_{s_n} \\
+                    \vdots \\
+                    -\sum\limits_{n=1}^{k} b_{N_1 n} I_{s_n} \\
+                    -m_{1,\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{1n} V_{s_n} - \sum\limits_{n=1}^k d_{1n}I_{s_n} \\
+                    \vdots \\
+                    -m_{N_{2},\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{N_2 n} V_{s_n} - \sum\limits_{n=1}^k d_{N_2 n}I_{s_n} 
+                \end{pmatrix} 
+            </me>.
+            Now, every element in matrix <m>\mathbf{A}</m> is a function of resistances only. More to the point, there is no voltage or current dependence in <m>\mathbf{A}</m>. If we multiply both sides of our matrix equation by <m>\mathbf{A}^{-1}</m>, we get
+            <me>
+                \mathbf{x}=\mathbf{A}^{-1}\mathbf{v}
+            </me>.
+            The solution that is most important to us is <m>i_\text{ext}</m> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <m>\mathbf{A}</m>, use matrix multiplication to find an expression for <m>i_\text{ext}</m>, and then group source terms and rename constants multiplying each source (<m>v_\text{ext},V_s,\ I_s</m>), the resulting solution is of the form
+            <me> 
+                i_\text{ext} = m_0 v_\text{ext} + \sum\limits_{n=1}^\ell m_n V_{s_n} + \sum\limits_{n=1}^k b_n I_{s_n} 
+            </me>
+            where all <m>m_n</m> and <m>b_n</m> terms are functions of resistances only and are thus constants. This result demonstrates that <m>i_\text{ext}</m> is a linear function of <m>v_\text{ext}</m> with slope <m>m_0</m> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit. 
+        </p>
+
+        <p>
+            Now that the linearity of our complicated circuit has been demonstrated, it follows that any simplified circuit that follows an identical linear relationship will have behavior of <m>i_\text{ext}</m> and <m>v_\text{ext}</m> that is identical to the original circuit, regardless of the load that is connected across the output terminals. One such simplified circuit is the Thevenin equivalent circuit of <xref ref="dc-thevenin-box"/>. The Thevenin equivalent circuit will reproduce the output i-v relationship of our complicated circuit if
+            <md>
+                <mrow> V_{th} \amp = V_{oc} </mrow>
+                <mrow> R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{m_0} </mrow>
+            </md>.
+            In a similar way, we can see that the Norton equivalent circuit can also demonstrate identical output i-v behavior when
+            <md>
+                <mrow> I_n\amp = I_{sc} </mrow>
+                <mrow> R_n \amp = R_{th} </mrow>
+            </md>.
+        </p>
+        <p>
+            The behavior of linear circuits is shown graphically in <xref ref="dc-thevenin-lineplot"/>.
+        </p>
+        
+        <figure xml:id="dc-thevenin-lineplot">
+            <caption>I-V plot for linear circuits.</caption>
+            <image><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                every major tick/.append style={very thick, major tick length=10pt, black},
+                xmin=-0.5,xmax=5,
+                xtick={4},xticklabels={$V_{oc}=V_{th}$},
+                ymin=-0.5,ymax=5,
+                ytick={4},yticklabels={$I_{sc}=I_n$},
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={$V$},ylabel={$I(V)$},
+                ]
+                \addplot[color=blue, domain=0:4]{-x+4};
+                \addplot[black,no marks] coordinates{(2,2)}
+                node[pos=0.25,above right] {$\text{slope}=m_0=R_{th}^{-1}$};
+                \end{axis}
+                
+                
+                
+                \end{tikzpicture}
+            
+  
+            </latex-image></image>
+        </figure>
+
+        <p>
+            At this point, it is important to discuss that the internal behavior of the complicated circuit and simplified circuit are different. EXPAND ON THIS THOUGHT.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-finding-thevenin">
+        <title>Finding Thevenin Equivalent Circuits</title>
+
+        <p>
+            Given a complicated circuit, we can find the Thevenin and Norton equivalent circuit parameters using the following procedure:
+            <ol>
+                <li>
+                    <p>
+                        Find the open-circuit voltage <m>V_{oc}</m> which is equivalent to <m>V_{oc}=V{A}-V{B}</m> when nothing is connected externally between output terminals A and B. Then, <m>V_{th}=V_{oc}</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find the short-circuit current <m>I_{sc}</m> which is the current from terminal A to terminal B when an external wire connects the two outputs. Then <m>I_n = I_{sc}</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The Thevenin resistance (which is equivalent to the Norton resistance) is 
+                        then <m>R_{th} = R_n =V_{th}/I_n</m>.
+                    </p>
+                </li>
+            </ol>
+            These steps can be performed analytically if one is analyzing a circuit schematic or experimentally by 
+            measuring <m>V_{oc}</m> and <m>I_{sc}</m> with a multimeter. In fact, the steps above are most useful as steps to experimentally determine the Thevenin and Norton equivalent parameters.
+        </p>
+
+        <p>
+            If one wishes to find Thevenin and Norton equivalent parameters analytically, it is often easier to follow this procedure:
+            <ol>
+                <li>
+                    <p>
+                        Find <m>V_{th}</m> as above by calculating the open-circuit voltage through circuit analysis.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find <m>R_{th}=R_n</m> which is equivalent to <m>R_{AB}</m> when all internal source voltages and currents are `turned off'.
+                        <ul>
+                            <li>
+                                <p>
+                                    Turning a source `off' means replacing voltage sources with wires and replacing current sources with breaks.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    This method works as a consequence of application of the superposition theorem to the complicated circuit.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use your values for <m>V_{th}</m> and <m>R_{th}</m> to find <m>I_n = V_{th}/R_{th}</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+
+        <p>
+            Let's look at an example.
+
+        </p>
+        
+        <example>
+            <title>Thevenin Example</title>
+            <statement>
+                <p>
+                    Find <m>V_{th}</m>, <m>R_{th}</m>, and <m>I_n</m> for the circuit in <xref ref="dc-thevenin-ex1"/>.
+                    <figure xml:id="dc-thevenin-ex1">
+                    <caption></caption>
+                    <image><latex-image>
+                    \begin{circuitikz}[scale=0.75, american voltages, american currents]
+                        % ORIGINAL CIRCUIT
+                        \draw   (0,4)   coordinate(start);
+                        \draw (start)   to [battery,l2_=$V_1$ and \SI{9}{V}, l2 halign=c] ++ (0,-4)
+                                        to [R, l2_=$R_2$ and \SI{2}{\kilo\ohm}, l2 halign=c] ++ (4,0) coordinate (d)
+                                        to [R,l2_=$R_3$ and \SI{3}{\kilo\ohm}, l2 halign=c] ++ (0,4) coordinate (c)
+                                        to [R, l2^=$R_1$ and \SI{1}{\kilo\ohm}, l2 halign=c] ++ (-4,0);
+                        \draw (c)       to [R, *-o, l2_=$R_4$ and \SI{4}{\kilo\ohm}, l2 halign=c] ++ (4,0) coordinate (a);
+                        \draw (d)       to [battery, *-o, l2_=$V_2$ and \SI{3}{V}, l2 halign=c] ++ (4,0) coordinate (b);
+
+                        \draw   (a)     node[right]{\texttt{$A$}};
+                        \draw   (b)     node[right]{\texttt{$B$}};
+
+                    \end{circuitikz}
+                    </latex-image></image>
+                </figure>
+                </p>
+            </statement>
+            <answer>
+                <p>
+                    <md>
+                        <mrow>V_{th} \amp = 7.5\text{V} </mrow>
+                        <mrow>I_n \amp = 1.36\text{mA} </mrow>
+                        <mrow>R_{th} \amp = 5.5\text{k}\Omega </mrow>
+                    </md>
+                </p>
+               
+            </answer>
+            <solution>
+                <figure xml:id="dc-thevenin-ex1b">
+                    <caption></caption>
+                    <image><latex-image>
+                    \begin{circuitikz}[scale=0.75, american voltages, american currents]
+                        % ORIGINAL CIRCUIT
+                        \draw   (0,4)   coordinate(start);
+                        \draw (start)   to [battery,l_=$V_1$] ++ (0,-4)
+                                        to [R, l_=$R_2$] ++ (4,0) coordinate (d)
+                                        to [R,l_=$R_3$] ++ (0,4) coordinate (c)
+                                        to [R, l^=$R_1$] ++ (-4,0);
+                        \draw (c)       to [R, *-o, l_=$R_4$] ++ (4,0) coordinate (a);
+                        
+                        \draw (d)       to [battery, *-o, l_=$V_2$] ++ (4,0) coordinate (b);
+
+                        \draw   (a)     node[right]{\texttt{$A$}};
+                        \draw   (b)     node[right]{\texttt{$B$}};
+
+                        \draw[->, blue] ([xshift= 1.5cm, yshift=-1.5cm ] start) arc(140:-140:1cm) node[midway, left, xshift=-4mm] {$I_1$};
+                        \draw[->, red] ([xshift= 5.5cm, yshift=-1.5cm ] start) arc(140:-140:1cm) node[midway, left, xshift=-4mm] {$I_2$};
+                        
+                    \end{circuitikz}
+                    </latex-image></image>
+                </figure>
+                <p>
+                    <term>Find <m>V_{th}:</m></term> Assume an open circuit between terminals A and B such that <m>I_2=0</m>. Using mesh analysis, we find
+                    <me>
+                        0 = V_1 - I_1 R_1 - I_1 R_3 - I_1 R_2
+                    </me>
+                    or
+                    <me>
+                        V_1 - I_1 (R_1 + R_2 + R_3) = 0
+                    </me>.
+                    Then
+                    <md>
+                        <mrow> I_1 \amp = \frac{V_1}{R_1 + R_2 + R_3} </mrow>
+                        <mrow> \amp = 1.5\text{mA} </mrow>
+                    </md>.
+                    Thus, the voltage difference across <m>R_2</m> is <m>I_1 R_3 = 4.5\text{V}</m>. Since <m>I_2=0</m>, there is no voltage change across <m>R_4</m>, but there is an additional voltage change across <m>V_2</m> so that the open-circuit voltage between the output terminals is
+                    <me>
+                        V_{th}=V_{oc} = 7.5\text{V}
+                    </me>.                    
+                </p>
+                
+                <figure xml:id="dc-thevenin-ex1c">
+                    <caption></caption>
+                    <image><latex-image>
+                    \begin{circuitikz}[scale=0.75, american voltages, american currents]
+                        % ORIGINAL CIRCUIT
+                        \draw   (0,4)   coordinate(start);
+                        \draw (start)   to [short] ++ (0,-4)
+                                        to [R, l_=$R_2$] ++ (4,0) coordinate (d)
+                                        to [R,l_=$R_3$] ++ (0,4) coordinate (c)
+                                        to [R, l^=$R_1$] ++ (-4,0);
+                        \draw (c)       to [R, *-o, l_=$R_4$] ++ (4,0) coordinate (a);
+                        
+                        \draw (d)       to [short] ++ (4,0) coordinate (b);
+
+                        \draw   (a)     node[right]{\texttt{$A$}};
+                        \draw   (b)     node[right]{\texttt{$B$}};
+                        
+                    \end{circuitikz}
+                    </latex-image></image>
+                </figure>
+                
+                <p>
+                    <term>Find <m>R_{th}</m>:</term> If we turn off all sources in our circuit, we are left to find the resistance between terminals A and B in <xref ref="dc-thevenin-ex1c"/>. Looking for series and parallel resistances, we find that 
+                    <me>
+                        R_{th}=\left(\left(R_1 + R_2\right)||R_3\right)+R_4
+                    </me>.
+                    Plugging in resistance values, we find that
+                    <md>
+                        <mrow>R_{th} \amp = R_4 + \left(\left(R_1 + R_2\right)^{-1}+R_3^{-1}\right)^{-1}</mrow>
+                        <mrow> \amp = 5.5\text{k}\Omega </mrow> 
+                    </md>.
+                </p>
+                <p>
+                    <term>Find <m>I_{n}</m>:</term> The Norton current <m>I_n=V_{th}/R_{th}=1.36</m>mA.
+                </p>
+            </solution>
+        </example>
+
+<p>
+    Look at section 41.6 to add color to example blocks. also section 28.2 and similar. xsl stylesheets
+</p>
+
+
+        </subsection>
+    </section>

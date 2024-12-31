@@ -4,15 +4,25 @@
   <!-- we first include a file which contains the docinfo element: -->
   <xi:include href="./docinfo.ptx" />
 
-  <book xml:id="my-great-book">
-    <title>My Great Book</title>
-    <subtitle>An example to get you started</subtitle>
+  
+
+  <book xml:id="Electronics">
+    <title>Electronics</title>
+    <subtitle>Theory and Practice</subtitle>
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
-    <xi:include href="./ch-chapter-title.ptx" />
+    <!-- <xi:include href="./ch-introduction-old.ptx" /> -->
+
+    <xi:include href="./ch-introduction.ptx" />
+
+    <xi:include href="./ch-DC.ptx" />
+
+    <xi:include href="./ch-AC.ptx" />
+    
+    <xi:include href="./ch-diode.ptx" />
 
 
     <!-- Include backmatter -->
