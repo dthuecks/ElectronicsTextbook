@@ -3,6 +3,6 @@
 <section xml:id="sec-diode-test" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Section Title</title>
 
-  <p> Text of section. testing math: <m>\alpha^2 + \beta^4</m> </p>
+  <p> Text of section. testing this math: <m>\alpha^2 + \beta^4</m> </p>
 
 </section>
