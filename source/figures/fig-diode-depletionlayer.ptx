@@ -17,14 +17,14 @@
             \ifnum\pgfmathresult=1 % p-type
                 \node at (a) [ultra thick, blue, circle, draw, minimum size = \re] {};
             \else
-                \node at (a) [ultra thick, blue, circle, draw, minimum size = \re] {$-$};
+                \node at (a) [ultra thick, blue, circle, draw, minimum size = \re] {e};
             \fi
 
             % Conducting band electrons falling into valence holes
             \pgfmathparse{(\ix==ceil(\nx/2))}  
             \ifnum\pgfmathresult=1%
                 \draw[-latex, ultra thick, red] ([xshift=-\re/2] a) -- ([xshift={-\sep+\re/2}] a);
-                \draw   ([xshift=-\sep] a) node[ultra thick, red, centered]{$-$};
+                \draw   ([xshift=-\sep] a) node[ultra thick, red, centered]{e};
             \else
             \fi    
             }

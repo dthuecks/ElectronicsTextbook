@@ -1,5 +1,3 @@
-\usetikzlibrary {patterns,patterns.meta}
-\usetikzlibrary {arrows.meta}
 \begin{tikzpicture}
     
         

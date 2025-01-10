@@ -19,5 +19,9 @@
 <xi:include href="./sec-diode-semiconductors.ptx" />
 
 <xi:include href="./sec-diode-behavior.ptx" />
-    
+
+<xi:include href="./sec-diode-types.ptx" />
+
+<xi:include href="./sec-diode-circuit-analytic.ptx" />
+
 </chapter>

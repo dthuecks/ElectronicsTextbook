@@ -13,7 +13,7 @@
                     <image>
                         <shortdescription></shortdescription>
                         <latex-image>
-                            <xi:include parse="text" href="../figures/fig-diode-forwardbias.ptx" />
+                            <xi:include parse="text" href="./figures/fig-diode-forwardbias.ptx" />
                         </latex-image>
                             
                     </image>
@@ -21,43 +21,105 @@
                 <figure xml:id="fig-diode-revbias">
                     <caption>Reverse biased.</caption>
                     <image>
-                        <shortdescription></shortdescription>
-                        <latex-image>
-                            <xi:include parse="text" href="../figures/fig-diode-revbias.ptx" />
-                        </latex-image>
-                            
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="./figures/fig-diode-revbias.ptx" />
+                    </latex-image>        
                     </image>
                 </figure>
             </sidebyside>
         </figure>
-        When the voltage is applied across the diode as in <xref ref="fig-diode-forwardbias"/>, valence-band holes in the valence band of the p-type semiconductor and conduction-band electrons in the n-type semiconductor move toward the pn junction. At the junction, electrons in the n-type semiconductor fall across the pn junction into p-type semiconductor holes. Since the valence band is a lower energy level than the conduction band, this is accomplished easily. Electrons are also pulled out of the p-type into the wire, generating more valence-band holes. These electrons travel through the circuit and replenish the conduction-band electrons when they enter the n-type semiconductor. This process can proceed indefinitely, resulting in sustained current flow through the diode.
-        </p>
+        When the voltage is applied across the diode as in <xref ref="fig-diode-forwardbias"/>, we say the diode is <term>forward-biased</term>. Valence-band holes in the valence band of the p-type semiconductor and conduction-band electrons in the n-type semiconductor move toward the pn junction. At the junction, electrons in the n-type semiconductor fall across the pn junction into p-type semiconductor holes. Since the valence band is a lower energy level than the conduction band, this is accomplished easily. Electrons are also pulled out of the p-type into the wire, generating more valence-band holes. These electrons travel through the circuit and replenish the conduction-band electrons when they enter the n-type semiconductor. This process can proceed indefinitely, resulting in sustained current flow through the diode.
+    </p>
 
-        <p>
-        If the bias is reversed as in <xref ref="fig-diode-revbias"/>, we see a different behavior. In this case, valence-band holes and conduction-band electrons move away from the pn junction in their respective semiconductors. While electrons can leave the n-type semiconductor, travel through the circuit, and fill the holes in the p-type semiconductor, this will quickly come to a halt because no new holes are formed at the p-n boundary.
-        </p>
+    <p>
+        If the bias is reversed as in <xref ref="fig-diode-revbias"/>, we say the diode is <term>reverse-biased</term>. In this case, valence-band holes and conduction-band electrons move away from the pn junction in their respective semiconductors. While electrons can leave the n-type semiconductor, travel through the circuit, and fill the holes in the p-type semiconductor, this will quickly come to a halt because no new holes are formed at the p-n boundary.
+    </p>
 
-        <p>
-            Using the behaviors observed above, we find that diodes act similar to one-directional wires. The behavior is captured in 
-            <figure xml:id="fig-diode-cartoon">
-                <caption></caption>
-                <image>
-                    <shortdescription></shortdescription>
-                    <latex-image>
-                        <xi:include parse="text" href="../figures/fig-diode-cartoon.ptx" />
-                    </latex-image>
-                </image>
-            </figure>
-        </p>
+    <p>
+        Using the behaviors observed above, we find that diodes act similar to one-directional wires. The behavior is captured in <xref ref="fig-diode-cartoon"/>.
+        <figure xml:id="fig-diode-cartoon">
+            <caption></caption>
+            <image>
+            <shortdescription></shortdescription>
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-diode-cartoon.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+        In this figure, <m>V_D</m> is the voltage drop across the diode. When <m>V_D \lt V_F</m>, the diode is <sq>off</sq> meaning no current flows through the diode and it acts as a circuit break. When <m>V_D = V_F</m>, the diode is <sq>on</sq> meaning the diode starts acting like a wire, albiet with a voltage drop <m>V_F</m> in the direction of current. In this cartoon picture, the voltage drop across the diode will remain <m>V_F</m> as long as the diode is on regardless of the size of the current through the diode. Likewise, a diode that is off will allow no current regardless of the voltage change applied across the diode. Thus, a diode acts a bit like a unidirectional wire, allowing current to flow in one direction but not the other.
+    </p>
+    <p>
+        In the above discussion, we see that a diode turns on when the applied voltage drop across the diode reaches a value of <m>V_F</m>, which we call the <term>forward turn-on voltage</term>. More colloquially, it is often referred to as the <term>diode voltage drop</term>. The origin of this diode voltage drop will be developed below.
+    </p> 
+    <p>
+        Both p-type and n-type semiconductors are neutral when the voltage applied across them is zero, meaning each semiconductor individually has no excess of positive or negative charges. Let's now examine the situation in <xref ref="fig-diode-depletionlayer"/> where we have a forward-biased diode.
+        <figure xml:id="fig-diode-depletionlayer">
+            <caption></caption>
+            <image>
+            <shortdescription></shortdescription>
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-diode-depletionlayer.ptx" />
+            </latex-image>
+            </image>
+        </figure> 
+        The <term>p-n junction</term> is used for the boundary between the semiconductors. The bias voltage creates an applied electric field <m>\vec{E}_\text{applied}</m> in the diode, accelerating charge carriers toward the p-n junction. Conduction-band electrons in the n-type semiconductor fall across the p-n junction into valence-band holes. It takes some finite time for the charge carriers to redistribute in each semiconductor, resulting in the formation of a thin depletion layer (indicated by dashed lines). Inside the boundary of this depletion layer, there is a deficit of electrons in the n-type semiconductor and a surplus of electrons in the p-type semiconductor, resulting in a second electric field <m>\vec{E}_d</m> within the depletion layer. If the depletion layer is characterized by thickness <m>\Delta x</m>, then this results in a voltage difference <m>V_d = \\E_{d,x} \Delta x</m>. In order for charge carriers to redistribute and maintain a current, we must have <m>\left|\vec{E}_\text{bias}\right| \ge \left|\vec{E}_d\right|</m>. This means that the applied voltage bias <m>V_D = V_+ - V_-</m> must be at least as large as some <m>V_F</m> in order to generate an applied electric field that is larger than <m>\vec{E}_d</m> and can sustain the requisite charge carrier motions to maintain a current through the diode. [CLEAN THIS LAST PART UP. How are <m>V_d, V_D, \text{ and } V_F</m> related? Be careful with definitions and be precise.]
+    </p>
 
-            <figure xml:id="fig-diode-depletionlayer">
-                <caption></caption>
-                <image>
-                    <shortdescription></shortdescription>
-                    <latex-image>
-                        <xi:include parse="text" href="../figures/fig-diode-depletionlayer.ptx" />
-                    </latex-image>
-                </image>
-            </figure> 
+    <p>
+        The size of the diode voltage drop depends on the materials used in diode construction. In diodes constructed using silicon-based semiconductors, <m>V_F\approx 0.6-0.7</m>V. If germanium-based semiconductors are used to construct the diode, <m>V_F\approx 0.3-0.4</m>V. For the purposes of this text, we will assume that diodes are silicon-based with <m>V_F=0.6</m>V.
+    </p>
 
+    <p>
+        We can also be a bit more precise and realistic in our description of diode behavior. Instead of the behavior described in <xref ref="fig-diode-cartoon"/>, we can instead relate the current through the diode <m>I_D</m> in the forward direction to the voltage applied across the diode <m>V_D=V_p - V_n</m>:
+        <me>
+            I_D = I_0\left(e^{eV_D/nk_B T} - 1\right) = I_0\left( e^{V_D/nV_T} - 1 \right)
+        </me>
+        where <m>V_p</m> and <m>V_n</m> are the voltages on the p-type and n-type semiconductor sides respectively, <m>I_0</m> is the saturation current, <m>k_B</m> is Boltzmann's constant, and <m>T</m> is temperature. The value of <m>n</m> is dependent on the materials used to construct the diode. For silicon, <m>n\approx 1</m>. The diode behavior is graphically represented in <xref ref="fig-real-diode"/>
+        
+        <sage language="python">
+            <input>
+                import numpy as np
+                import scipy.constants as sc
+                import matplotlib.pyplot as plt
+
+                VD = np.linspace(-1,.65,10000);
+                I0, T, n = [3e-12, 293, 1];
+                VT = sc.k * T / sc.e;
+
+                I_D = I0*(np.exp(VD/(n*VT))-1);
+
+                plt.plot(VD,I_D);
+                plt.xlabel('$V_D$ (V)');
+                plt.ylabel('$I_D$ (A)');
+                plt.show()
+            </input>
+            <output>
+            </output>
+        </sage>
+        <figure xml:id="fig-real-diode">
+            <caption>More realistic diode behavior.</caption>
+            <image>
+            <sageplot>
+            import numpy as np
+            import scipy.constants as sc
+            import matplotlib.pyplot as plt
+
+            VD = np.linspace(-1,.65,10000);
+            I0, T, n = [3e-12, 293, 1];
+            VT = sc.k * T / sc.e;
+
+            I_D = I0*(np.exp(VD/(n*VT))-1);
+
+            p1 = list_plot(list(zip(VD,I_D)), axes=False, axes_labels=['$V_D$ (V)','$I_D$ (A)'], frame=True)
+        
+            </sageplot>
+            </image>  
+        </figure>
+        The saturation current is the current that can bleed through the diode even when reverse-biased. This current is typically very small and can be found in the specifications for a real diode. For the purposes of this text, I will often assume that <m>I_0 = 1\times 10^{-12}</m>A. I will also typically assume room temperature <m>T=293</m>K.
+    </p>
+
+    <p>
+        Also discuss failure modes of diodes. Breakdown. Curve with fires.
+    </p>
 </section>

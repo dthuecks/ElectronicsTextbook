@@ -72,7 +72,9 @@
   
   <latex-image-preamble>
     \usepackage{tabularray}
-    \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows} 
+    \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows}
+    \usetikzlibrary {patterns,patterns.meta}
+    \usetikzlibrary {arrows.meta} 
     \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} 
     \usetikzlibrary{decorations.markings} 
     \usepackage{tabularray} 
