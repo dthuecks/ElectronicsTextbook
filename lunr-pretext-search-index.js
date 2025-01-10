@@ -772,7 +772,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Section Title",
-  "body": " Section Title  Text of section. testing math:   "
+  "body": " Section Title  Text of section. testing this math:   "
 },
 {
   "id": "backmatter-2",
