@@ -766,6 +766,15 @@ var ptx_lunr_docs = [
   "body": "     "
 },
 {
+  "id": "sec-diode-test",
+  "level": "1",
+  "url": "sec-diode-test.html",
+  "type": "Section",
+  "number": "4.5",
+  "title": "Section Title",
+  "body": " Section Title  Text of section. testing math:   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
