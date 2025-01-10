@@ -22,8 +22,6 @@
 
 <xi:include href="./sec-diode-types.ptx" />
 
-<xi:include href="./sec-diode-circuit-analytic.ptx" />
-
-<xi:include href="./sec-diode-test.ptx" />
+<xi:include href="./sec-diode-circuit-analysis.ptx" />
 
 </chapter>
