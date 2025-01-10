@@ -1,0 +1,788 @@
+var ptx_lunr_search_style = "textbook";
+var ptx_lunr_docs = [
+{
+  "id": "front-colophon",
+  "level": "1",
+  "url": "front-colophon.html",
+  "type": "Colophon",
+  "number": "",
+  "title": "Colophon",
+  "body": "  "
+},
+{
+  "id": "sec-introduction-review",
+  "level": "1",
+  "url": "sec-introduction-review.html",
+  "type": "Section",
+  "number": "1.1",
+  "title": "Review from Introductory Physics",
+  "body": " Review from Introductory Physics  Electrical devices are powered by electricity, and this electricity characterizes the movement of charges (which we call current ) through a circuit. These charges move due to voltage differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first establish what voltage and current are.  In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the electric field (which has SI units of V\/m). The electric field created by a point charge can be written as While the electric field is a useful construct, it is sometimes convenient to represent this space modification using a scalar field which we call the electric potential (with SI units of Volts). For a point charge , the electric potential When dealing with circuits, we often use the term voltage for this scalar field. The relationship linking these two representations is described by While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the behavior of electrical circuits. The SI unit for voltage is, conveniently, the Volt.   Current represents the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or    In order to read circuit schematics, we will need to establish definitions for symbols that are commonly used. provides common symbols that will be used in the first several chapters.   Circuit Symbols    Symbol Name SI Units      wire      Battery Volt (V)      AC voltage source Volt (V)      DC current source Ampere (A)      Resistor Ohm ( )      Capacitor Farad (F)      Inductor Henry (H)      Ground      Common     We must explain the + and - terminals on the battery!  INCLUDE SECTION DISCUSSING HOW TO DRAW CIRCUIT DIAGRAMS. Discuss junctions, ground, common, voltage, current.  "
+},
+{
+  "id": "sec-introduction-review-2",
+  "level": "2",
+  "url": "sec-introduction-review.html#sec-introduction-review-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "current voltage "
+},
+{
+  "id": "sec-introduction-review-3",
+  "level": "2",
+  "url": "sec-introduction-review.html#sec-introduction-review-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "electric field electric potential voltage "
+},
+{
+  "id": "sec-introduction-review-4",
+  "level": "2",
+  "url": "sec-introduction-review.html#sec-introduction-review-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Current "
+},
+{
+  "id": "circuit-symbols",
+  "level": "2",
+  "url": "sec-introduction-review.html#circuit-symbols",
+  "type": "Table",
+  "number": "1.1.1",
+  "title": "Circuit Symbols",
+  "body": " Circuit Symbols    Symbol Name SI Units      wire      Battery Volt (V)      AC voltage source Volt (V)      DC current source Ampere (A)      Resistor Ohm ( )      Capacitor Farad (F)      Inductor Henry (H)      Ground      Common    "
+},
+{
+  "id": "sec-dc-kirchhoff",
+  "level": "1",
+  "url": "sec-dc-kirchhoff.html",
+  "type": "Section",
+  "number": "2.1",
+  "title": "Kirchhoff’s Laws",
+  "body": " Kirchhoff's Laws  There are three laws that will make up the foundation of our DC circuit analysis. In truth, these laws will extend beyond the DC circuit analysis presented in this chapter, but we will leave discussion of these extensions to future chapters.  Kirchhoff's Current Law (KCL), or Junction Law, relies on conservation of charge to say that the rate at which charges enter a junction must be equivalent to the rate at which charges leave the junction for a scenario as pictured in . The KCL can also be represented mathematically as where for currents leaving a node and for currents entering a node.    A circuit junction.   Another conservation law, the conservation of energy, is ultimately responsible for what we call Kirchhoff's Voltage Law (KVL), or the Loop Law. If one walks around any loop in a circuit (such as that shown in ), the sum of the voltage changes as one moves in a single direction around a complete loop must add up to zero, or When using the KVL equation, voltages rise as one crosses a voltage source from the negative terminal to positive terminal and voltages fall in the opposite direction. Additionally, voltages fall across a resistor in the direction of current and rise in the opposite direction.  A circuit loop.     The last rule we'll introduce here is Ohm's Law. For the situation shown in Figure~\\ref{DC-ohm}, the magnitude of the voltage change across a resistor is dependent on the resistance and the magnitude of current in the resistor according to where . A note on signs: When using Ohm's law, and actually represent and . It is conventional to use Ohm's law to relate magnitudes of to . The signs on each variable are linked by the fact that current is directed from high to low voltage. So, if current is in the direction indicated in , then .   Ohm's Law circuit.    EXAMINE THE VOLTAGE DIVIDER CIRCUIT.  "
+},
+{
+  "id": "dc-kcl",
+  "level": "2",
+  "url": "sec-dc-kirchhoff.html#dc-kcl",
+  "type": "Figure",
+  "number": "2.1.1",
+  "title": "",
+  "body": "  A circuit junction.  "
+},
+{
+  "id": "dc-kvl",
+  "level": "2",
+  "url": "sec-dc-kirchhoff.html#dc-kvl",
+  "type": "Figure",
+  "number": "2.1.2",
+  "title": "",
+  "body": " A circuit loop.   "
+},
+{
+  "id": "dc-ohm",
+  "level": "2",
+  "url": "sec-dc-kirchhoff.html#dc-ohm",
+  "type": "Figure",
+  "number": "2.1.3",
+  "title": "",
+  "body": "  Ohm's Law circuit.  "
+},
+{
+  "id": "sec-dc-voltage-source-symbol",
+  "level": "1",
+  "url": "sec-dc-voltage-source-symbol.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Voltage Source Symbols",
+  "body": " Voltage Source Symbols  In the following section, we will analyze our first circuit. This circuit is pictured in . Before we analyze this circuit, let's first take a moment to discuss a notation convention. It is popular convention to label batteries or voltage supplies with the symbol with an identifying subscript as we have with the symbol in . Using this convention, one might hypothetically say V even though what is really meant is that Volts across the battery terminals. Though this notation may require a small bit of additional care of the reader, we will use this popular convention of labeling batteries and voltage sources with a rather than . When discussing voltage changes across any other type of circuit element, we will return to the notation.  "
+},
+{
+  "id": "sec-dc-series_parallel",
+  "level": "1",
+  "url": "sec-dc-series_parallel.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Series and Parallel Resistors",
+  "body": " Series and Parallel Resistors  Let's begin by applying Kirchhoff's laws and Ohm's law to the circuit shown in . Circuit example.   At node A, we apply the KCL to find The KVL can then be applied to Loop I and Loop II. Starting with Loop I, we will start in the lower left corner and traverse Loop I in the direction indicated by the arrow. Traversing this loop has us pass through battery from the negative to positive terminal, resulting in . The next component that we encounter is , which we travel across in the direction of current, so by Ohm's Law. Likewise, as we travel across on the way back to our starting point. The KVL for Loop 1 will thus give A similar application of the KVL to Loop II gives Often, voltages provided by batteries (or a DC voltage source) and the resistances are known as these were the physical components assembled into the circuit. Thus, Equations~ - represent a series of equations that must be solved to determine currents in .  Rather than solving this system of equations for the three currents, we will instead perform some intermediate analysis to investigate the behavior of resistor combinations. Starting with Equation~\\ref{intro-kvl1}, we can see that . Resistors and are considered to be in series . Resistors are in series if the current in one resistor must be the same current in the other series resistors. In this case, and are in series because must be the current in each of the resistors since there is no junction between them. We see that the voltage drop across the pair of series resistors is just where , meaning that resistors in series act together as a single resistor that has a resistance equaling the sum of the series resistances. This relationship holds for any number of resistors that are in series such that . This means that currents , , and will have identical values in all three circuits displayed in Figure~\\ref{dc-circuit1-alt1}   Original circuit (left) is simplified into an intermediate circuit (center) by combining series resistors and into effective resistance . The circuit is further simplified (right) by combining parallel resistors and into effective resistance .  If we now examine the simplified circuit in b, we can see that both and both have the same voltage drop across them so that . These expressions can be inserted into Equation~ to find so that . This has the form of Ohm's Law where and combine into an equivalent resistance . We say that resistors and are in parallel because the potential difference across each resistor must be identical as each side of the resistors are connected together by wires. An equivalent resistance for a combination of any number of parallel resistors can be found using .  "
+},
+{
+  "id": "dc-circuit1",
+  "level": "2",
+  "url": "sec-dc-series_parallel.html#dc-circuit1",
+  "type": "Figure",
+  "number": "2.3.1",
+  "title": "",
+  "body": "Circuit example.   "
+},
+{
+  "id": "sec-dc-series_parallel-3",
+  "level": "2",
+  "url": "sec-dc-series_parallel.html#sec-dc-series_parallel-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "series "
+},
+{
+  "id": "sec-dc-analysis",
+  "level": "1",
+  "url": "sec-dc-analysis.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Circuit Analysis Methods",
+  "body": " Circuit Analysis Methods   In the following sections, we will analyze the DC circuit found in using a variety of different methods. Each of these methods can be useful in different circumstances, so these exercises are meant to introduce you to a variety of tools that will remain in your circuit-analysis toolbox for future use.  The circuit that will be analyzed using multiple different methods over the course of the following sections.       Analysis: Circuit Reduction  In the method of circuit reduction, we use the rules of series and parallel resistors to find all currents present in the circuit. We will start by drawing the circuit and labeling all currents as in a.  Circuit reduction for .   In our first simplification, we note that and are in parallel, so . With that simplification done, we now find that , , and are in series, so . Ohm's law can be used to find  where is the voltage change across . We must also check the direction of . When examining a circuit, you must sometimes guess at the directions of currents. If you guess correctly and the guessed current direction flows from high to low potential, then your value for current will be positive. If you guessed incorrectly at the outset, you will instead find that the value for current will be negative. In this situation, we note that the direction pictured does indeed pass through from high to low potential given how terminals are connected directly to battery terminals. Thus, the value that we calculate for should be positive. So, .  Now, in order to find currents and , we'll have to find the voltage changes across and . We can do this by taking our calculated value for and using Ohm's Law in (left). Thus, we find that . In other words, so that . Once we have , we can use Ohm's law to find and  . If we define , then .    Analysis: Branch Method  In the branch method , we perform the following steps:  Draw the circuit.  Define a current for each circuit segment that may have a different current. Use your intuition to try to guess the correct directions for the currents. Don't worry about guessing wrong. It is just important to clearly identify your assumed direction for each current.  Write out KCL equations at nodes. Remove duplicate or redundant equations. Note that the number of independent KCL equations is one fewer than the number of junctions present in the circuit.  Write down KVL equations for enough loops to include all circuit components at least once.  Solve the system of KCL and KVL equations for all unknown currents. If you were wrong in your initial guesses for any current directions, those currents will just come out with negative values.  Use Ohm's law to find voltage changes through each resistor and use those changes to find the voltage at any point of interest in the circuit.  To analyze the circuit in using the mesh method, we draw the circuit and define currents as in .  Branch method circuit analysis.   Examining the KCL at junction A and the KVL for loops I and II, we find the following equations Solving Equation for and inserting into Equations and , we get which can be rearranged into . Plugging in values for known components and using your favorite method for solving this system of equations, one can show that mA, mA, and mA. Then, just as in the circuit reduction method, Ohm's law can be used to find .    Analysis: Mesh Method  In the mesh method , we perform the following steps:  Draw the circuit.  Define mesh currents . Each current passes around a complete loop. Every component must be in at least one loop. Typically, it is best to use the simplest loops possible. The total current passing through any point in the circuit is the sum of the mesh currents through that point. Choose and clearly indicate each current loop's direction; the direction chosen doesn't really matter as long as it is clearly defined.  Write down a KVL equation for each loop. If there are multiple mesh currents passing through a resistor, the voltage change is the sum of voltage changes for each mesh current through that component. The signs for each voltage drop contribution result in voltage drops for the mesh currents aligned with the direction we go around the loop for the loop law, while they result in voltage rises for the mesh currents aligned against the direction we go around the loop when creating the loop law equation.  Solve the system of KVL equations for all unknown mesh currents.  The current through any point in the circuit is the sum of mesh currents through that point. Note that two mesh currents through a point on the circuit will add together with opposite signs.  Use Ohm's law to find voltage changes through each resistor and use those changes to find the voltage at any point of interest in the circuit.  One of the benefits of the mesh method over the branch method is that there are fewer equations to solve in the resulting system of equations (since there is no KCL equation), though this comes at the cost of having to add multiple mesh currents together to find the total current through any point in the circuit.  The analysis begins with drawing the circuit and defining our mesh currents as demonstrated in .  Mesh method circuit analysis.   Then, the KVL equations associated with mesh currents and are which can be arranged into the form . Once again, your favorite method for solving systems of equations can be used to find the mesh currents mA and mA. Therefore, the current passing through , , and is mA clockwise, the current through is mA, and the current through is mA. With these current values, we can once again use the same Ohm's law method from the previous sections to find the voltages at any location in the circuit.    Analysis: Branch Method Solved Using SciPy  The Python programming language can be used to solve a system of equations through the use of the scipy.linalg package. If presented with an equation where is a matrix and and are vectors, we can solve the equation using x = scipy.linalg.solve(A,v) .  As an example, let's start with the system of equations from  and express them as a matrix equation . Since we have numerical values for and all resistors, we can plug these into the matrices. This matrix equation is in the necessary form for x = scipy.linalg.solve(A,v) . The results of this method are identical to the previous methods.    Analysis: Branch Method Solved Using SymPy  One can also use functionality from SymPy, the symbolic math package for Python, to solve systems of linear equations. As before, becomes which can be solved symbolically with the following code: This analysis gives the result which simplifies to the results of the previous methods when numerical values are inserted for and resistances.    Analysis: Branch Method Solved Using Gaussian Elimination  We can also use a linear algebra method called Gaussian elimination to solve the matrix equation . Gaussian elimination relies on two facts:  If we multiply one row of and the same row of by some constant , the solutions for remain unchanged.  Any linear combination of two rows will give a new correct row.  Using the two rules above, our goal is to find an equivalent such that . Often, the first step in using Gaussian elimination is to divide the first row by . In this case, both and remain unchanged since . Next, we'll subtract from row 2 to get . Then, we'll subtract from row 3 to get . If we now divide row 2 by , we get Subtracting from row 3 will eliminate while leaving  . Then, divide row 3 by to get which simplifies to . Now, we can read off an expression for and subsequently calculate and  .   "
+},
+{
+  "id": "dc-solve-circuit",
+  "level": "2",
+  "url": "sec-dc-analysis.html#dc-solve-circuit",
+  "type": "Figure",
+  "number": "2.4.1",
+  "title": "",
+  "body": " The circuit that will be analyzed using multiple different methods over the course of the following sections.   "
+},
+{
+  "id": "dc-reduction-circuit",
+  "level": "2",
+  "url": "sec-dc-analysis.html#dc-reduction-circuit",
+  "type": "Figure",
+  "number": "2.4.2",
+  "title": "",
+  "body": " Circuit reduction for .   "
+},
+{
+  "id": "subsec-dc-analysis-branch-2",
+  "level": "2",
+  "url": "sec-dc-analysis.html#subsec-dc-analysis-branch-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "branch method "
+},
+{
+  "id": "subsec-dc-analysis-mesh-2",
+  "level": "2",
+  "url": "sec-dc-analysis.html#subsec-dc-analysis-mesh-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mesh method mesh currents "
+},
+{
+  "id": "dc-mesh-circuit",
+  "level": "2",
+  "url": "sec-dc-analysis.html#dc-mesh-circuit",
+  "type": "Figure",
+  "number": "2.4.4",
+  "title": "",
+  "body": " Mesh method circuit analysis.   "
+},
+{
+  "id": "subsec-dc-analysis-gaussian-2",
+  "level": "2",
+  "url": "sec-dc-analysis.html#subsec-dc-analysis-gaussian-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Gaussian elimination "
+},
+{
+  "id": "sec-dc-superposition",
+  "level": "1",
+  "url": "sec-dc-superposition.html",
+  "type": "Section",
+  "number": "2.5",
+  "title": "Superposition Theorem",
+  "body": " Superposition Theorem   The superposition theorem isn't often used on its own in circuit analysis, but is the foundation for some other very important rules and theorems. Before stating the superposition theorem, we must first establish a few definitions.  First, linear circuit elements are circuit elements for which the relationship between voltage and current is a linear function. Examples of linear circuit elements include resistors, capacitors, and inductors. A linear circuit contains only linear elements.  With these definitions in place, the superposition theorem states that for any linear circuit containing more than one independent source, the circuit can be solved for one source while turning the others `off'. Then, this can be repeated for each source and add the results together. When we talk about turning a voltage source off, we mean that we replace it in our analysis with a wire. Turning a current source off means replacing the current source with a break in the circuit. The superposition theorem in electronics arises directly from use of the superposition principle in electricity and magnetism.   "
+},
+{
+  "id": "sec-dc-superposition-2-2",
+  "level": "2",
+  "url": "sec-dc-superposition.html#sec-dc-superposition-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear circuit elements linear circuit "
+},
+{
+  "id": "sec-dc-thevenin",
+  "level": "1",
+  "url": "sec-dc-thevenin.html",
+  "type": "Section",
+  "number": "2.6",
+  "title": "Thevenin and Norton Theorem",
+  "body": " Thevenin and Norton Theorem         Circuits controlling devices that you use every day are often very complex with complicated scematic diagrams. This complexity can make it difficult to analytically determine the behavior of the output voltage and current when this complex circuit is connected to an external load. DEFINE LOAD.  In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit (either the Thevenin equivalent circuit or the Norton equivalent circuit). The original and simplified circuits all have output voltages and currents that behave identically when an external load is connected across the outputs.    Proof of Thevenin's and Norton's Theorems  Let's assume that inside of a box we have a circuit with two leads exiting the box ( ). The circuit in the box is comprised of a complicated network of resistors , DC voltage sources , and ideal current sources . We will also assume unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.      Let's assume that if we apply the branch circuit analysis method, we end up with independent junction law equations and loop law equations. Each junction law equation will have the form where and have values of +1 or -1 depending on whether the currents and are entering or exiting a junction and is an index counting over junction law equations.  We will also end up with independent loop law equations. Each of these loop law equations will have the form . The variables have values of either +1 or -1 depending on the battery orientation relative to the direction travelled around the loop. Variables and have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm's Law). The variables represent voltage changes across the ideal current sources meaning that have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop.  These junction law equations and loop law equations can be re-expressed as a matrix equation . First, let's rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right . We can express these equations in the form if we let , . Now, every element in matrix is a function of resistances only. More to the point, there is no voltage or current dependence in . If we multiply both sides of our matrix equation by , we get . The solution that is most important to us is as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert , use matrix multiplication to find an expression for , and then group source terms and rename constants multiplying each source ( ), the resulting solution is of the form where all and terms are functions of resistances only and are thus constants. This result demonstrates that is a linear function of with slope and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit.  Now that the linearity of our complicated circuit has been demonstrated, it follows that any simplified circuit that follows an identical linear relationship will have behavior of and that is identical to the original circuit, regardless of the load that is connected across the output terminals. One such simplified circuit is the Thevenin equivalent circuit of . The Thevenin equivalent circuit will reproduce the output i-v relationship of our complicated circuit if . In a similar way, we can see that the Norton equivalent circuit can also demonstrate identical output i-v behavior when .  The behavior of linear circuits is shown graphically in .   I-V plot for linear circuits.    At this point, it is important to discuss that the internal behavior of the complicated circuit and simplified circuit are different. EXPAND ON THIS THOUGHT.    Finding Thevenin Equivalent Circuits  Given a complicated circuit, we can find the Thevenin and Norton equivalent circuit parameters using the following procedure:   Find the open-circuit voltage which is equivalent to when nothing is connected externally between output terminals A and B. Then, .    Find the short-circuit current which is the current from terminal A to terminal B when an external wire connects the two outputs. Then .    The Thevenin resistance (which is equivalent to the Norton resistance) is then .   These steps can be performed analytically if one is analyzing a circuit schematic or experimentally by measuring and with a multimeter. In fact, the steps above are most useful as steps to experimentally determine the Thevenin and Norton equivalent parameters.  If one wishes to find Thevenin and Norton equivalent parameters analytically, it is often easier to follow this procedure:   Find as above by calculating the open-circuit voltage through circuit analysis.    Find which is equivalent to when all internal source voltages and currents are `turned off'.   Turning a source `off' means replacing voltage sources with wires and replacing current sources with breaks.    This method works as a consequence of application of the superposition theorem to the complicated circuit.       Use your values for and to find      Let's look at an example.   Thevenin Example   Find , , and for the circuit in .                  Find Assume an open circuit between terminals A and B such that . Using mesh analysis, we find or . Then . Thus, the voltage difference across is . Since , there is no voltage change across , but there is an additional voltage change across so that the open-circuit voltage between the output terminals is .       Find : If we turn off all sources in our circuit, we are left to find the resistance between terminals A and B in . Looking for series and parallel resistances, we find that . Plugging in resistance values, we find that .   Find : The Norton current mA.    Look at section 41.6 to add color to example blocks. also section 28.2 and similar. xsl stylesheets   "
+},
+{
+  "id": "dc-messy-thevenin",
+  "level": "2",
+  "url": "sec-dc-thevenin.html#dc-messy-thevenin",
+  "type": "Figure",
+  "number": "2.6.1",
+  "title": "",
+  "body": "   "
+},
+{
+  "id": "dc-thevenin-box",
+  "level": "2",
+  "url": "sec-dc-thevenin.html#dc-thevenin-box",
+  "type": "Figure",
+  "number": "2.6.2",
+  "title": "",
+  "body": "   "
+},
+{
+  "id": "dc-thevenin-lineplot",
+  "level": "2",
+  "url": "sec-dc-thevenin.html#dc-thevenin-lineplot",
+  "type": "Figure",
+  "number": "2.6.3",
+  "title": "",
+  "body": " I-V plot for linear circuits.   "
+},
+{
+  "id": "subsec-finding-thevenin-5",
+  "level": "2",
+  "url": "sec-dc-thevenin.html#subsec-finding-thevenin-5",
+  "type": "Example",
+  "number": "2.6.4",
+  "title": "Thevenin Example.",
+  "body": " Thevenin Example   Find , , and for the circuit in .                  Find Assume an open circuit between terminals A and B such that . Using mesh analysis, we find or . Then . Thus, the voltage difference across is . Since , there is no voltage change across , but there is an additional voltage change across so that the open-circuit voltage between the output terminals is .       Find : If we turn off all sources in our circuit, we are left to find the resistance between terminals A and B in . Looking for series and parallel resistances, we find that . Plugging in resistance values, we find that .   Find : The Norton current mA.   "
+},
+{
+  "id": "sec-dc-batteries",
+  "level": "1",
+  "url": "sec-dc-batteries.html",
+  "type": "Section",
+  "number": "2.7",
+  "title": "Application of Thevenin Equivalent Cicruits: Batteries",
+  "body": " Application of Thevenin Equivalent Cicruits: Batteries   Batteries have a complicated voltage and resistance internally, as do power supplies, function generators, and other voltage sources that may be present in a circuit. All can be represented by a Thevenin equivalent circuit.  The Thevenin equivalent representation of a battery can help us understand the behavior of batteries when connected to resistive loads as pictured in . Here, the chemical reactions inside the battery maintain an internal voltage difference . There is an internal resistance that means that the actual battery terminals that we have access to provide a voltage difference of .      If we connect a resistive load with resistance , we find that we have a voltage divider circuit where . So, if is very large , we call this a light resistive load because . Conversely, if is very small , we call this a heavy resistive load because .  The analysis above shows why the voltage between battery terminals can droop lower than their rated voltage when a heavy resistive load is connected to it. We will discuss this effect in greater detail in Chapter __________.   "
+},
+{
+  "id": "dc-batteries-thevenin",
+  "level": "2",
+  "url": "sec-dc-batteries.html#dc-batteries-thevenin",
+  "type": "Figure",
+  "number": "2.7.1",
+  "title": "",
+  "body": "   "
+},
+{
+  "id": "sec-dc-uses",
+  "level": "1",
+  "url": "sec-dc-uses.html",
+  "type": "Section",
+  "number": "2.8",
+  "title": "DC Circuit Uses",
+  "body": " DC Circuit Uses      "
+},
+{
+  "id": "sec-ac-sinusoidal",
+  "level": "1",
+  "url": "sec-ac-sinusoidal.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Sinusoidal Signals",
+  "body": " Sinusoidal Signals      In this chapter, we will focus on circuit behavior that results from sinusoidal signals where is the angular frequency, is the frequency, is the period, and are the phase of the signals at time . (We could have used the sine function instead of cossine, but these are the same function but shifted from each other by radians in their arguments.)  While it may seem like focusing on a sinusoidal signal with a single frequency will limit the applicability of the analysis we develop in this chapter, this is not actually the case. Fourier's Theorem states that any well-behaved function can be represented by an integral (sum) of sinusoidal signals. where and are weights and phase shifts for each value. We can use the trigonometric identity to express this in a more common form where has been absorbed into the variable and and .  Since any general (well-behaved) function of time can be represented as a sum of sinusoidal signals, we can use the superposition theorem to find the response of a linear circuit to a general time signal. If we examine the behavior of a linear circuit in response to a single sinusoidal signal with frequency , we can then use superposition to add up (integrate) responses for many sinusoidal signals (each with its own ), weighting the results in the sum using the same weighting factors that appear above.  Thus, it is sufficient to examine the response of linear circuits to a single sinusoidal signal. INCLUDE FURTHER DISCUSSION OF SINE\/COSINE SERIES  "
+},
+{
+  "id": "sec-ac-amplitudes",
+  "level": "1",
+  "url": "sec-ac-amplitudes.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Characterizing Signal Size",
+  "body": " Characterizing Signal Size   With AC signals, there are multiple ways to represent amplitude. Here, we will examine methods of characterizing voltage amplitudes, but all methods discussed apply equally well to any other sinusoidally-varying quantity.   Peak-to-Peak voltage is the voltage difference .    Peak voltage (or amplitude) .    Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data where are the values of time for which measurements were recorded. Then, which is for sinusoidal waves.    The average power dissipated in a resistor due to a sinusoidal signal is .    Power in a signal relative to the power in some other signal can be represented using a logarithmic scale called decibels, where .      "
+},
+{
+  "id": "sec-ac-complexsigs",
+  "level": "1",
+  "url": "sec-ac-complexsigs.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Complex Signals",
+  "body": " Complex Signals   Signal analysis with sinusoidal functions can be challenging due to the need for trigonometric identities. The mathematical manipulations in circuit analysis can more easily be done if signals are instead represented as complex exponentials.  Using Euler's formula we can see that is the real part of . Using this notation, it is easy to see that the phase information can be absorbed into the amplitude, resulting in a complex amplitude: . With this notation, the measured signal is the real part of the complex signal . So, we can use in equations describing circuit behavior, and the real part of the result represents what we would measure for the parameter of interest.   "
+},
+{
+  "id": "sec-ac-complexZ",
+  "level": "1",
+  "url": "sec-ac-complexZ.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Complex Impedance",
+  "body": " Complex Impedance  When analyzing AC circuits with complex signals , we will need to expand beyond the concept of resistance. We define impedance  as where is our normal resistance and is reactance . The impedance is the factor that relates to as seen in . Generally, is frequency-dependent.      Let's look at a few examples. Ohm's law continues to hold for AC signals, so it is trivial to demonstrate that .  Now, let's work to determine the impedance for a capacitor. In introductory physics, you likely learned that capacitance is a quantity that links the voltage difference between two objects and the charge on each object through the expression . Pairing this expression with the definition of current we find that . For a voltage , we thus see that the resulting current through the capacitor is . Using these expressions, we find that so that . Note that the impedance is frequency-dependent and complex. Examining this expression in limiting cases, and .  Now, let's work to determine the impedance for an inductor. Inductors, fundamentally, are coils and act in a way as an anti-capacitor. The fundamental equation governing inductor behavior is which means that the voltage drops across an inductor when . If we assume a current then so that . Simplifying, this leaves us with . Note that the impedance is frequency-dependent and complex. Examining this expression in limiting cases, and .  The results above can be used with a generalized Ohm's law , and equations for series and parallel impedances   "
+},
+{
+  "id": "sec-ac-complexZ-2",
+  "level": "2",
+  "url": "sec-ac-complexZ.html#sec-ac-complexZ-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "impedance reactance "
+},
+{
+  "id": "ac-impedance",
+  "level": "2",
+  "url": "sec-ac-complexZ.html#ac-impedance",
+  "type": "Figure",
+  "number": "3.4.1",
+  "title": "",
+  "body": "   "
+},
+{
+  "id": "sec-ac-capcharging",
+  "level": "1",
+  "url": "sec-ac-capcharging.html",
+  "type": "Section",
+  "number": "3.5",
+  "title": "Capacitor Charging and Discharging Behaviors",
+  "body": " Capacitor Charging and Discharging Behaviors  Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in . We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time .   A circuit for examining a discharging capacitor.    Using where the sign choice is determined by whether the capacitor is charging (+) or discharging (-). Combining these equations, we find for a discharging capacitor. Rearranging this equation, we find that which has a solution of the form where represents the voltage difference across the capacitor at time and is the RC time constant . This discharging behavior is shown in .   Discharging capacitor.    Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in    A circuit for examining a charging capacitor.    Applying the loop law, we find that where is the voltage difference across the capacitor. Remembering that we find that or . Since is a constant, we can write this as . If we define , then this becomes . This has an exponential solution of the form which can be rearranged into . This shows that the capacitor charges from 0% to 63% in .   Charging capacitor.    When charging a capacitor, energy is being stored in the electric field . Likewise, inductors can store energy. As the current through an inductor increases, energy is stored i nthe magnetic field .  "
+},
+{
+  "id": "ac-capdischarge",
+  "level": "2",
+  "url": "sec-ac-capcharging.html#ac-capdischarge",
+  "type": "Figure",
+  "number": "3.5.1",
+  "title": "",
+  "body": " A circuit for examining a discharging capacitor.   "
+},
+{
+  "id": "sec-ac-capcharging-4",
+  "level": "2",
+  "url": "sec-ac-capcharging.html#sec-ac-capcharging-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "RC time constant "
+},
+{
+  "id": "ac-capdischargeplot",
+  "level": "2",
+  "url": "sec-ac-capcharging.html#ac-capdischargeplot",
+  "type": "Figure",
+  "number": "3.5.2",
+  "title": "",
+  "body": " Discharging capacitor.   "
+},
+{
+  "id": "ac-capcharge",
+  "level": "2",
+  "url": "sec-ac-capcharging.html#ac-capcharge",
+  "type": "Figure",
+  "number": "3.5.3",
+  "title": "",
+  "body": " A circuit for examining a charging capacitor.   "
+},
+{
+  "id": "ac-capchargeplot",
+  "level": "2",
+  "url": "sec-ac-capcharging.html#ac-capchargeplot",
+  "type": "Figure",
+  "number": "3.5.4",
+  "title": "",
+  "body": " Charging capacitor.   "
+},
+{
+  "id": "sec-ac-highpass",
+  "level": "1",
+  "url": "sec-ac-highpass.html",
+  "type": "Section",
+  "number": "3.6",
+  "title": "RC High-pass filter",
+  "body": " RC High-pass filter  Let's look at some circuit behavior for sinusoidal signals. shows the circuit that we will examine.   High-pass RC Filter Circuit.    There is nothing in the formulation of Kirchhoff's laws that would limit them to only DC circuits. In fact, they apply equally well to all circuits (DC, AC, non-linear). Assume that all quantities with a tilde over them are complex quantities expressed as exponentials. So, where the real signal . Using Kirchhoff's Voltage Law, we find that so that . We can then find using Ohm's Law . Expanding our voltage signals, so that . Then, . Expanding the complex amplitude, where . We can calculate the voltage gain : so where and . We can also determine the phase difference between the output and input voltages. Since , we can rearrange to find . Now, so that . Using Eqs. and , we can show the following behaviors:    , meaning leads .     as .     as .   Based on these behaviors, the circuit in is called a RC high-pass filter . Thus, if a voltage input signal contains many sinusoidal signal components with a variety of frequencies, then this filter circuit can eliminate the low-frequency components while leaving the high-frequency components unaffected.  "
+},
+{
+  "id": "ac-highpass-circuit",
+  "level": "2",
+  "url": "sec-ac-highpass.html#ac-highpass-circuit",
+  "type": "Figure",
+  "number": "3.6.1",
+  "title": "",
+  "body": " High-pass RC Filter Circuit.   "
+},
+{
+  "id": "sec-ac-highpass-4",
+  "level": "2",
+  "url": "sec-ac-highpass.html#sec-ac-highpass-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "RC high-pass filter "
+},
+{
+  "id": "sec-ac-phasors",
+  "level": "1",
+  "url": "sec-ac-phasors.html",
+  "type": "Section",
+  "number": "3.7",
+  "title": "Phasors",
+  "body": " Phasors  In this section, we will introduce phasors , a graphical method of representing complex electronics signals. Take a complex signal, e.g. . For time , we can represent this graphically as a vector at an angle as shown in . This phasor will rotate about a circle with radius as time advances, pointing at an angle at some later time as shown in .   Phasor example.        relative to .      If we have two signals that we would like to compare we can see in that both vectors rotate at the same rate, leaving the phase between them unchanged as time advances.   Two phasors with the same advancing in time.    Time     Some later time       Phasors can help us quickly use graphs to determine the amplitudes and phases of signals relative to some other reference signal. As an example, let's examine the circuit in .  Phasor analysis for a capacitor.    Circuit     Phasor diagram.      The phasor diagram in was generated by completing the following steps:   Draw your phasor diagram for the instant when one of your signals (voltage or current) is purely real, meaning its phasor is aligned along the real axis. Choose this signal based on how easily it can be related to other phasors. In this case, we'll look at an instant when is purely real.    Use Ohm's law to find expressions for voltage changes across components. In this case, we used .    Plot changes across all components. In this example, is purely real which means that is aligned with the negative imaginary axis.   Thus, we find that the phase of the current through a capacitor leads the phase of the capacitor voltage by and the amplitude of the voltage is .  We can proceed with a similar analysis for an inductor. Examining the circuit in .  Phasor analysis for an inductor.    Circuit     Phasor diagram.      and generating the phasor diagram in , we find that the phase of the current through an inductor trails the phase of the inductor voltage by and the amplitude of the voltage is .  THINGS TO CHECK: WHICH EQUATIONS SHOULD HAVE TILDE VARIABLES AND WHICH SHOULD NOT.   Phasor analysis of the RC High-pass filter    High-pass RC Filter.    Let's revisit the RC high-pass filter circuit in and analyze the circuit behavior using phasors. Find the voltage gain and the phase .             To construct the phasor diagram in , we draw along the real axis. Then, is also purely real. We can use Ohm's law to draw along the negative imaginary axis. Then, since Kirchhoff's Voltage Law requires , we use vector addition to draw .  Based on our phasor diagram, we can already conclude the following:    leads .    At high frequencies, and because .    At low frequencies, and because .     We can use the phasor diagram to derive more precise relationships. Using the Pythagorean theorem, we find that . Also, . Combining these results, we find that where as before. Likewise, we can find the phase between our signals using . These results are identical to what we had calculated previously using Kirchhoff's laws.     Phasor analysis of a resonant RLC circuit    Resonant RLC circuit.    Find and for the resonant RLC circuit shown in .    The voltage gain is . The phase is and the resonant frequency is      Phasor diagram.    Based on our phasor diagram, we can already conclude the following:   At high frequencies, and because and .    At low frequencies, and because and .    There exists a frequency where . At this frequency, and . We call the resonant frequency for this circuit.   We can be more quantitative with results gleaned from the phasor diagram. First, our resonance frequency can be determined by setting , giving us which can be rearranged into . We can also find expressions for voltage gain and phase using trigonometry. Since the loop law gives , we can use Pythagorean's theorem to find  . Solving this equation for in terms of and inserting into gives . The phase is found using . These results are plotted in , demonstrating the same qualitative behaviors that we had deduced at the outset.   Resonant RLC circuit curves.    Gain curve.     Phase curve.         Phasor analysis of a parallel RLC circuit    Parallel RLC circuit.    Examine . Determine the current being drawn from the voltage source and the frequency at which the source current's magnitude is minimized.         Phasor diagram.    In order to create the phasor diagram, we draw it at a time at which one convenient current phasor is aligned purely along the real axis. We will choose a time at which is purely real so that is also purely real. We can then use Ohm's law to determine currents across the inductor and capacitor and draw them on the phasor diagram because the voltage across each of the three components is .  Now, the junction law can be used to find : . Using Pythagorean's theorem, so that and . In the limits and , since the inductor or capacitor short out in these limits, respectively. There are intermediate frequencies at which is finite. We can find the frequency at which source current is minimized by solving for when . Current is also minimized when . So, we'll examine . Now, it is impossible for the second term in parentheses to equal zero. So, source current is minimized when or .    "
+},
+{
+  "id": "sec-ac-phasors-2",
+  "level": "2",
+  "url": "sec-ac-phasors.html#sec-ac-phasors-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "phasors "
+},
+{
+  "id": "ac-phasors-plot",
+  "level": "2",
+  "url": "sec-ac-phasors.html#ac-phasors-plot",
+  "type": "Figure",
+  "number": "3.7.1",
+  "title": "",
+  "body": " Phasor example.        relative to .     "
+},
+{
+  "id": "ac-phasor-compare",
+  "level": "2",
+  "url": "sec-ac-phasors.html#ac-phasor-compare",
+  "type": "Figure",
+  "number": "3.7.2",
+  "title": "",
+  "body": " Two phasors with the same advancing in time.    Time     Some later time      "
+},
+{
+  "id": "ac-capacitor-phasor",
+  "level": "2",
+  "url": "sec-ac-phasors.html#ac-capacitor-phasor",
+  "type": "Figure",
+  "number": "3.7.3",
+  "title": "",
+  "body": " Phasor analysis for a capacitor.    Circuit     Phasor diagram.      "
+},
+{
+  "id": "ac-inductor-phasor",
+  "level": "2",
+  "url": "sec-ac-phasors.html#ac-inductor-phasor",
+  "type": "Figure",
+  "number": "3.7.4",
+  "title": "",
+  "body": " Phasor analysis for an inductor.    Circuit     Phasor diagram.      "
+},
+{
+  "id": "sec-ac-phasors-9",
+  "level": "2",
+  "url": "sec-ac-phasors.html#sec-ac-phasors-9",
+  "type": "Example",
+  "number": "3.7.5",
+  "title": "Phasor analysis of the RC High-pass filter.",
+  "body": " Phasor analysis of the RC High-pass filter    High-pass RC Filter.    Let's revisit the RC high-pass filter circuit in and analyze the circuit behavior using phasors. Find the voltage gain and the phase .             To construct the phasor diagram in , we draw along the real axis. Then, is also purely real. We can use Ohm's law to draw along the negative imaginary axis. Then, since Kirchhoff's Voltage Law requires , we use vector addition to draw .  Based on our phasor diagram, we can already conclude the following:    leads .    At high frequencies, and because .    At low frequencies, and because .     We can use the phasor diagram to derive more precise relationships. Using the Pythagorean theorem, we find that . Also, . Combining these results, we find that where as before. Likewise, we can find the phase between our signals using . These results are identical to what we had calculated previously using Kirchhoff's laws.   "
+},
+{
+  "id": "sec-ac-phasors-10",
+  "level": "2",
+  "url": "sec-ac-phasors.html#sec-ac-phasors-10",
+  "type": "Example",
+  "number": "3.7.8",
+  "title": "Phasor analysis of a resonant RLC circuit.",
+  "body": " Phasor analysis of a resonant RLC circuit    Resonant RLC circuit.    Find and for the resonant RLC circuit shown in .    The voltage gain is . The phase is and the resonant frequency is      Phasor diagram.    Based on our phasor diagram, we can already conclude the following:   At high frequencies, and because and .    At low frequencies, and because and .    There exists a frequency where . At this frequency, and . We call the resonant frequency for this circuit.   We can be more quantitative with results gleaned from the phasor diagram. First, our resonance frequency can be determined by setting , giving us which can be rearranged into . We can also find expressions for voltage gain and phase using trigonometry. Since the loop law gives , we can use Pythagorean's theorem to find  . Solving this equation for in terms of and inserting into gives . The phase is found using . These results are plotted in , demonstrating the same qualitative behaviors that we had deduced at the outset.   Resonant RLC circuit curves.    Gain curve.     Phase curve.       "
+},
+{
+  "id": "sec-ac-phasors-11",
+  "level": "2",
+  "url": "sec-ac-phasors.html#sec-ac-phasors-11",
+  "type": "Example",
+  "number": "3.7.12",
+  "title": "Phasor analysis of a parallel RLC circuit.",
+  "body": " Phasor analysis of a parallel RLC circuit    Parallel RLC circuit.    Examine . Determine the current being drawn from the voltage source and the frequency at which the source current's magnitude is minimized.         Phasor diagram.    In order to create the phasor diagram, we draw it at a time at which one convenient current phasor is aligned purely along the real axis. We will choose a time at which is purely real so that is also purely real. We can then use Ohm's law to determine currents across the inductor and capacitor and draw them on the phasor diagram because the voltage across each of the three components is .  Now, the junction law can be used to find : . Using Pythagorean's theorem, so that and . In the limits and , since the inductor or capacitor short out in these limits, respectively. There are intermediate frequencies at which is finite. We can find the frequency at which source current is minimized by solving for when . Current is also minimized when . So, we'll examine . Now, it is impossible for the second term in parentheses to equal zero. So, source current is minimized when or .   "
+},
+{
+  "id": "sec-ac-python",
+  "level": "1",
+  "url": "sec-ac-python.html",
+  "type": "Section",
+  "number": "3.8",
+  "title": "Using Python in AC circuits",
+  "body": " Using Python in AC circuits  Just as with DC circuits, we can let Python do most of the mathematical manipulation for us when determining circuit behavior. As an example, we'll examine the behavior of the circuit in .   A generic LRC circuit. Let , , and for our analysis.    Using Kirchhoff's laws and the branch method, we find the following equations . Rearranging these equations facilitates writing these equations as a matrix equation which can be solved using Python:       Bandgap RLC Circuit    Bandgap RLC Circuit.    Plot the gain and phase curves for the circuit in .         If we examine the circuit in , we find that it is exactly the same circuit as we examined in except we are now measuring across the resistor instead of across the inductor and capacitor. This means that the matrix equation will be identical, as will our solutions for all of the currents.      RLC Circuit Analysis Using Differential Equations and Python   "
+},
+{
+  "id": "ac-python-LRC-circuit",
+  "level": "2",
+  "url": "sec-ac-python.html#ac-python-LRC-circuit",
+  "type": "Figure",
+  "number": "3.8.1",
+  "title": "",
+  "body": " A generic LRC circuit. Let , , and for our analysis.   "
+},
+{
+  "id": "sec-ac-python-5",
+  "level": "2",
+  "url": "sec-ac-python.html#sec-ac-python-5",
+  "type": "Example",
+  "number": "3.8.2",
+  "title": "Bandgap RLC Circuit.",
+  "body": " Bandgap RLC Circuit    Bandgap RLC Circuit.    Plot the gain and phase curves for the circuit in .         If we examine the circuit in , we find that it is exactly the same circuit as we examined in except we are now measuring across the resistor instead of across the inductor and capacitor. This means that the matrix equation will be identical, as will our solutions for all of the currents.    "
+},
+{
+  "id": "sec-ac-python-6",
+  "level": "2",
+  "url": "sec-ac-python.html#sec-ac-python-6",
+  "type": "Example",
+  "number": "3.8.4",
+  "title": "RLC Circuit Analysis Using Differential Equations and Python.",
+  "body": " RLC Circuit Analysis Using Differential Equations and Python  "
+},
+{
+  "id": "sec-ac-thevenin",
+  "level": "1",
+  "url": "sec-ac-thevenin.html",
+  "type": "Section",
+  "number": "3.9",
+  "title": "Input and Output Impedance",
+  "body": " Input and Output Impedance  Let's revisit Thevenin's theorem and Norton's theorem. Both of these theorems remain valid when working with AC signals as long as we substitute impedances for resistances. Here, we'll focus our attention on the usefulness of Thevenin's theorem.  Thevenin's theorem states that the output voltage and current characteristics of a complicated circuit are identical to output characteristics of a simplified Thevenin-equivalent circuit ( ) for proper choice of Thevenin voltage and impedance.     Here, we provide an example demonstrating the importance of Thevenin's theorem.  An LRC circuit connected to a function generator.     The complicated internal circuitry of a function generator will be equivalent to a single internal voltage source and a single internal impedance . This internal impedance can be found on specification sheets for modern function generators, often labeled as output impedance . Most commonly, function generators have an output impedance of , though some (like those built into prototyping boards) may have output impedances up to several hundred ohms.  The input impedance characterizes a circuit's output voltage and current characteristics based on the load that is applied across the output. A circuit's input impedance characterizes how hard the circuit is to drive and is equivalent to the load circuit's .  Let's use the example in to illustrate the meanings associated with the descriptions above. In this case, the load circuit is an inductor, a capacitor, and a resistor in series, so that . Now, if the load circuit is connected across the output of the function generator, we end up with a voltage-divider circuit as seen in . This means we can use that chapter's result while replacing resistances with impedances, so . We find that is minimized when which occurs when . We draw the following conclusions:   For signal frequencies far from the resonant frequency , meaning that .    When , we will find that and are very different if    We demonstrate this behavior by plotting the signal being produced at the output of the function generator as a function of frequency For the parameters specified in .      Now, this has important consequences. First, extra care must be taken if one were to be studying voltage gain and phase properties of the pictured load circuit. If one were to trust the signal amplitude displayed on the function generator for when calculating voltage gain values, these values would be grossly incorrect for frequencies near the resonance frequency because both and vary with frequency.  These concepts also impact the design of oscilloscopes. If we want to use an oscilloscope to measure the voltage output of a function generator, we want the oscilloscope to have a very high impedance so that the oscilloscope leaves the function generator output voltage unchanged across all frequencies.  So, input and output impedances for circuits is an important consideration when determining how a load circuit will impact the behavior of the driving circuit. We determine Thevenin equivalent circuit values for both the driving and load circuits in order to determine the input and output impedances of these circuits. Input and output impedances are also critical to consider when working at high frequencies (MHz and above). At these high frequencies, impedance matching (or matching input and output impedances of linked circuits) is needed to miminize signal reflections and maximize power transfer. This text will limit it's treatment to sub-MHz frequencies and will not treat these effects.  "
+},
+{
+  "id": "ac-thevenin-eq",
+  "level": "2",
+  "url": "sec-ac-thevenin.html#ac-thevenin-eq",
+  "type": "Figure",
+  "number": "3.9.1",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ac-voltagesource-thevenin",
+  "level": "2",
+  "url": "sec-ac-thevenin.html#ac-voltagesource-thevenin",
+  "type": "Figure",
+  "number": "3.9.2",
+  "title": "",
+  "body": " An LRC circuit connected to a function generator.   "
+},
+{
+  "id": "sec-ac-thevenin-6",
+  "level": "2",
+  "url": "sec-ac-thevenin.html#sec-ac-thevenin-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "output impedance "
+},
+{
+  "id": "sec-ac-thevenin-7",
+  "level": "2",
+  "url": "sec-ac-thevenin.html#sec-ac-thevenin-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "load input impedance "
+},
+{
+  "id": "sec-diode-semiconductors",
+  "level": "1",
+  "url": "sec-diode-semiconductors.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "Semiconductors",
+  "body": " Semiconductors  As the name suggets, semiconductors have conductivity between ocnductors and insulators. Semiondur properties have made many important electrical advances possible.   diodes    transistors    operational amplifiers    integrated circuit chips    Light-emitting diodes (LEDs)    photodiodes.     In order to understand semiconductors, we must examine the atomic structure of these materials and how they relate to molecular bonds. Let's start with which shows the energy levels for two isolated atoms.      Quantum mechanics tells us that electrons can occupy discrete energy levels of an atom. Energy levels fill starting with the lowest and fill upward. Electrons occupying high energy levels are further from the nucleus and also have a larger spatial extent surrounding the nucleus compared to electrons in low energy levels, at least on average. Elecrons of course do not behave like macroscopic objects with definite position, but instead are represented by electron clouds. For the purposes of this class, we will not have to trouble ourselves with this level of detail.  In the atom pictured in , the energy levels represented by solid lines are occupied by electrons, with the term valence electrons used to identify electrons in the highest occupied energy level. The dashed lines represent empty energy levels.  When these two formerly isolated items are brought close to each other such that the valence electron orbitals start overlapping, the pair of atoms can reach a lower energy state by sharing some of their valence electrons. These shared energy levels develop into bands rather than precise discrete levels. Fuller details about the physics of covalent bonds can be found in many Modern Physics or Quantum Mechanics textbooks but will be unnecessary for us. provides a rough picture of the elements important to us.     In this figure, the valence band represents the last occupied energy band at Kelvin. The conduction band is the next energy band above the valence band, and the band gap is the energy difference between the top of the valence band and the bottom of the conduction band.  Now, these last three terms are critical to understanding the difference between conductors, semiconductors, and insulators, as illustrated in .     We see that conductors have overlapping valence and conduction bands. This means that the valence electrons, which are most loosely held by the nucleus due to their distance from the nucleus, can move relatively easily from one atom to the other using the empty orbital positions in the conduction band. In insulators, it is difficult to move valence electrons between atoms since those electrons would need to gain a large amount of energy to jump across the large bandgap from the valence to conduction band.  Semicondcuctors have non-overlapping valence and conduction bands, but with only a small bandgap between them. This means that at K, the semiconductor behaves like an insulator. But, at higher temperatures, there is enough thermal energy present that a small population of electrons that had been occupying the valence band instead make the jump into the conduction band and can now move freely.  One common semiconductor material is silicon Si which has an electron configuration that can be represented by . This means that Silicon has a full ground state (two electrons in the 1s orbital), a full second energy level (two electrons in the 2s orbital and six electrons in the 2p orbital), and a third energy level with electrons occupying half of the eight available orbital spots (two spots in the 3s orbital and six spots in the 3p orbital). shows a silicon crystal.  Silicon crystal. The shared electrons in covalent bonds fill the valence shell of the silicon crystal.   In this crystal, each Si atom is surrounded by eight electrons in the valence band, completely filling it. Each bond is formed by two electrons being shared between a pair of atoms, with each atom contributing one of the two shared electrons.  Now, on its own, silicon is a rather poor semiconductor. That said, the semiconductor properties of a Silicon crystal is improved significantly through doping. The term doping represents the process of mixing a small amount of an impurity into the silicon crystal.  There are two types of doping that are imporant to us here, and they are represented in .  Doped semiconductors.    n-type semiconductor.     p-type semiconductor.     In a doped n-type semiconductor , a small amount of phosphorus is added as an impurity into the silicon crystal. Phosphorus has five valence electrons in contrast to the four valence electrons that silicon has. This means that there are nine electrons trying to occupy the eight available spots in the valence band as shown in . Consequently, each ninth phosphorus electron is bumped up into the shared conducting band and can move freely. This is called an n-type semiconductor because negatively-charged electrons are the charge carrier , meaning they are the moving charged particles that comprise any current flowing through the semiconductor.  In a doped p-type semiconductor , a small amount of Boron is added as an impurity into the silicon crystal. Phosphorus has three valence electrons in contrast to the four valence electrons that silicon has. This means that there are seven electrons trying to occupy the eight available spots in the valence band, leaving an open orbital spot in the valence bqand as shown in . Consequently, the holes formed from the missing electron exist in the valence band and represent open spaces into which electrons can move. The reason this is called a p-type semiconductor is pictured in        In this figure, a valence electron feels a force due to the applied voltages and moves to fill the hole (step 1), resulting in a new hole at the electron's former position. This process repeats (step 2) with a different electron moving into the hole location, again swapping places. This continues through steps 3 and 4. The reality of the situation has four electrons each moving one space. it is convenient, instead, to treat the hole (the absence of an electron) as a single positive (relative to an electron) charge that moves four spaces to the left due to the applied voltage, just as a positive charge would move. As such, this hole (which we are treating akin to a positive charge) is considered the charge carrier and can move somewhat freely through the valence band of the semiconductor crystal.  "
+},
+{
+  "id": "fig-diode-isolated-atoms",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#fig-diode-isolated-atoms",
+  "type": "Figure",
+  "number": "4.1.1",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "sec-diode-semiconductors-4",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#sec-diode-semiconductors-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "valence electrons "
+},
+{
+  "id": "sec-diode-semiconductors-5",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#sec-diode-semiconductors-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "valence band conduction band band gap "
+},
+{
+  "id": "fig-diode-bandgap",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#fig-diode-bandgap",
+  "type": "Figure",
+  "number": "4.1.3",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "fig-diode-si-crystal",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#fig-diode-si-crystal",
+  "type": "Figure",
+  "number": "4.1.4",
+  "title": "",
+  "body": " Silicon crystal. The shared electrons in covalent bonds fill the valence shell of the silicon crystal.   "
+},
+{
+  "id": "sec-diode-semiconductors-9",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#sec-diode-semiconductors-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "doping "
+},
+{
+  "id": "sec-diode-semiconductors-10",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#sec-diode-semiconductors-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "doped n-type semiconductor charge carrier "
+},
+{
+  "id": "sec-diode-semiconductors-11",
+  "level": "2",
+  "url": "sec-diode-semiconductors.html#sec-diode-semiconductors-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "doped p-type semiconductor "
+},
+{
+  "id": "sec-diode-behavior",
+  "level": "1",
+  "url": "sec-diode-behavior.html",
+  "type": "Section",
+  "number": "4.2",
+  "title": "Diode behavior",
+  "body": " Diode behavior  When we put p-type and n-type semiconductors together as in , we get a diode . When a voltage difference is applied across the diode, interesting behaviors can be observed.     Forward-biased.        Reverse biased.        When the voltage is applied across the diode as in , we say the diode is forward-biased . Valence-band holes in the valence band of the p-type semiconductor and conduction-band electrons in the n-type semiconductor move toward the pn junction. At the junction, electrons in the n-type semiconductor fall across the pn junction into p-type semiconductor holes. Since the valence band is a lower energy level than the conduction band, this is accomplished easily. Electrons are also pulled out of the p-type into the wire, generating more valence-band holes. These electrons travel through the circuit and replenish the conduction-band electrons when they enter the n-type semiconductor. This process can proceed indefinitely, resulting in sustained current flow through the diode.  If the bias is reversed as in , we say the diode is reverse-biased . In this case, valence-band holes and conduction-band electrons move away from the pn junction in their respective semiconductors. While electrons can leave the n-type semiconductor, travel through the circuit, and fill the holes in the p-type semiconductor, this will quickly come to a halt because no new holes are formed at the p-n boundary.  Using the behaviors observed above, we find that diodes act similar to one-directional wires. The behavior is captured in .       In this figure, is the voltage drop across the diode. When , the diode is off meaning no current flows through the diode and it acts as a circuit break. When , the diode is on meaning the diode starts acting like a wire, albiet with a voltage drop in the direction of current. In this cartoon picture, the voltage drop across the diode will remain as long as the diode is on regardless of the size of the current through the diode. Likewise, a diode that is off will allow no current regardless of the voltage change applied across the diode. Thus, a diode acts a bit like a unidirectional wire, allowing current to flow in one direction but not the other.  In the above discussion, we see that a diode turns on when the applied voltage drop across the diode reaches a value of , which we call the forward turn-on voltage . More colloquially, it is often referred to as the diode voltage drop . The origin of this diode voltage drop will be developed below.  Both p-type and n-type semiconductors are neutral when the voltage applied across them is zero, meaning each semiconductor individually has no excess of positive or negative charges. Let's now examine the situation in where we have a forward-biased diode.       The p-n junction is used for the boundary between the semiconductors. The bias voltage creates an applied electric field in the diode, accelerating charge carriers toward the p-n junction. Conduction-band electrons in the n-type semiconductor fall across the p-n junction into valence-band holes. It takes some finite time for the charge carriers to redistribute in each semiconductor, resulting in the formation of a thin depletion layer (indicated by dashed lines). Inside the boundary of this depletion layer, there is a deficit of electrons in the n-type semiconductor and a surplus of electrons in the p-type semiconductor, resulting in a second electric field within the depletion layer. If the depletion layer is characterized by thickness , then this results in a voltage difference . In order for charge carriers to redistribute and maintain a current, we must have . This means that the applied voltage bias must be at least as large as some in order to generate an applied electric field that is larger than and can sustain the requisite charge carrier motions to maintain a current through the diode. [CLEAN THIS LAST PART UP. How are related? Be careful with definitions and be precise.]  The size of the diode voltage drop depends on the materials used in diode construction. In diodes constructed using silicon-based semiconductors, V. If germanium-based semiconductors are used to construct the diode, V. For the purposes of this text, we will assume that diodes are silicon-based with V.  We can also be a bit more precise and realistic in our description of diode behavior. Instead of the behavior described in , we can instead relate the current through the diode in the forward direction to the voltage applied across the diode : where and are the voltages on the p-type and n-type semiconductor sides respectively, is the saturation current, is Boltzmann's constant, and is temperature. The value of is dependent on the materials used to construct the diode. For silicon, . The diode behavior is graphically represented in    More realistic diode behavior.     The saturation current is the current that can bleed through the diode even when reverse-biased. This current is typically very small and can be found in the specifications for a real diode. For the purposes of this text, I will often assume that A. I will also typically assume room temperature K.  Also discuss failure modes of diodes. Breakdown. Curve with fires.  "
+},
+{
+  "id": "sec-diode-behavior-2",
+  "level": "2",
+  "url": "sec-diode-behavior.html#sec-diode-behavior-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "diode forward-biased "
+},
+{
+  "id": "sec-diode-behavior-3",
+  "level": "2",
+  "url": "sec-diode-behavior.html#sec-diode-behavior-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "reverse-biased "
+},
+{
+  "id": "fig-diode-cartoon",
+  "level": "2",
+  "url": "sec-diode-behavior.html#fig-diode-cartoon",
+  "type": "Figure",
+  "number": "4.2.2",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sec-diode-behavior-5",
+  "level": "2",
+  "url": "sec-diode-behavior.html#sec-diode-behavior-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "forward turn-on voltage diode voltage drop "
+},
+{
+  "id": "sec-diode-behavior-6",
+  "level": "2",
+  "url": "sec-diode-behavior.html#sec-diode-behavior-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "p-n junction "
+},
+{
+  "id": "fig-real-diode",
+  "level": "2",
+  "url": "sec-diode-behavior.html#fig-real-diode",
+  "type": "Figure",
+  "number": "4.2.4",
+  "title": "",
+  "body": " More realistic diode behavior.     "
+},
+{
+  "id": "sec-diode-types",
+  "level": "1",
+  "url": "sec-diode-types.html",
+  "type": "Section",
+  "number": "4.3",
+  "title": "Diode Types",
+  "body": " Diode Types  Diodes come in many different types, each built to accomplish some task. [include circuit symbol for standard diodes. below, include symbols for special diodes.]  For instance, Zener diodes are designed to allow operation both when forward biased and reverse biased. [FIGURE TO COME].  Light-emitting diodes (LEDs) are the basis of many light bulbs and other light indicators. LEDs are designed so that when the diode is forward biased, electrons and holes are pushed toward each other at the p-n junction. When an electron falls across the p-n junction from the conduction band to the lower-energy valence band (a process called recombination), the electron releases energy in the form of light. The color and intensity of this light depends on the materials used to construct the diode. LEDs are very energy-efficient, especially compared to incandescent light bulbs.  Photodiodes are a bit like LEDs operating in reverse. When light hits a photodiode surface, energy is depositied into atoms. This energy kicks an electron from the valence band in the p-type semiconductor into the conduction band of the n-type semiconductor. Electrons are accelerated away from the depletion layer by , driving current from the n-type to p-type semiconductor, which is the opposite direction of current in standard diodes. Photodiodes are at the heart of solar panel technology as well as many light sensors.  "
+},
+{
+  "id": "sec-diode-types-3",
+  "level": "2",
+  "url": "sec-diode-types.html#sec-diode-types-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Zener diodes "
+},
+{
+  "id": "sec-diode-circuit-analytic",
+  "level": "1",
+  "url": "sec-diode-circuit-analytic.html",
+  "type": "Section",
+  "number": "4.4",
+  "title": "Analysis of diode circuits",
+  "body": " Analysis of diode circuits  How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in , guessing at whether each diode is off or on, and then determining whether inconsistencies arise when analyzing the rest of the circuit elements. For example, let's analyze the circuit in       In this circuit, the diode engages whenever the current passes through the diode in the forward direction while also allowing for the forward voltage drop across the diode in the forward direction. So, whenever , the diode is on and . The diode is off otherwise, meaning V. This behavior is shown in .        The steps to follow are:   Check the conditions in the circuit and see if it is possible to achieve a forward voltage drop across the diode. If it is completely impossible, then the diode will be off and you can treat it as a circuit break. If it is possible that the diode may be forward biased, then continue on to the next steps.    For each diode in your circuit, guess whether the diode is on or off. For each diode that is on, let the voltage drop be locked. For each diode that is off, treat the diode as a circuit break meaning no current can pass through it.    Analyze the rest of the circuit elements and search for inconsistencies.    If any results of your analysis conflict with your guesses about diodes that are on\/off, then go back and change your guesses until there are no inconsistencies.     "
+},
+{
+  "id": "fig-diode-simple-example",
+  "level": "2",
+  "url": "sec-diode-circuit-analytic.html#fig-diode-simple-example",
+  "type": "Figure",
+  "number": "4.4.1",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-diode-simple-example-plot",
+  "level": "2",
+  "url": "sec-diode-circuit-analytic.html#fig-diode-simple-example-plot",
+  "type": "Figure",
+  "number": "4.4.2",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "backmatter-2",
+  "level": "1",
+  "url": "backmatter-2.html",
+  "type": "Colophon",
+  "number": "",
+  "title": "Colophon",
+  "body": " This book was authored in PreTeXt .  "
+}
+]
+
+var ptx_lunr_idx = lunr(function () {
+  this.ref('id')
+  this.field('title')
+  this.field('body')
+  this.metadataWhitelist = ['position']
+
+  ptx_lunr_docs.forEach(function (doc) {
+    this.add(doc)
+  }, this)
+})
