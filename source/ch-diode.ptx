@@ -24,4 +24,6 @@
 
 <xi:include href="./sec-diode-circuit-analytic.ptx" />
 
+<xi:include href="./sec-diode-test.ptx" />
+
 </chapter>
