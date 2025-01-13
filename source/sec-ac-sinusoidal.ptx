@@ -11,8 +11,8 @@
 <p>
         In this chapter, we will focus on circuit behavior that results from sinusoidal signals
         <md>
-            <mrow>V(t) \amp V_0 \cos\left(\omega t + \delta_V\right) </mrow>
-            <mrow>I(t) \amp I_0 \cos\left(\omega t + \delta_I\right)</mrow>
+            <mrow>V(t) =\amp V_0 \cos\left(\omega t + \delta_V\right) </mrow>
+            <mrow>I(t) =\amp I_0 \cos\left(\omega t + \delta_I\right)</mrow>
         </md>
         where <m>\omega=2\pi f=2\pi/T</m> is the angular frequency, <m>f</m> is the frequency, <m>T</m> is the period, and <m>\delta_V, \delta_I</m> are the phase of the signals at time <m>t=0</m>. (We could have used the sine function instead of cossine, but these are the same function but shifted from each other by <m>\pm\pi/2</m> radians in their arguments.)
     </p>

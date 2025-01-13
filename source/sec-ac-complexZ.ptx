@@ -13,7 +13,7 @@
     </p>
     <figure xml:id="ac-impedance">
                 <caption></caption>
-                <image><latex-image>
+                <image width="50%"><latex-image>
                     \begin{circuitikz}[scale=0.75, american voltages, american currents,dbx/.style={draw}]
                     % Battery Equivalent Circuit
                     \draw (0,4) coordinate(start);

@@ -34,12 +34,12 @@
             ({\sep+10^((-1.25+(\nMAX)*\spac)/2)},{(-1.25+(\nMAX)*\spac)+\thick});  
         
         \draw[-{Latex[length=1mm]}, color=black] (-1.5,-1.25) -- (-1.5, -.25)
-                    node[scale=0.3, midway, above, align=center, rotate=90] {increasing\\ energy};
+                    node[scale=0.5, midway, above, align=center, rotate=90] {increasing\\ energy};
         \draw[-{Latex[length=0.5mm]}, color=blue] ({\sep+10^((-1.25+4*\spac)/2)+2},{(-1.25+4*\spac)}) 
                     -- ({\sep+10^((-1.25+4*\spac)/2)+0.2},{(-1.25+4*\spac)})
-                    node[scale=0.3, midway, below, align=center] {Valence\\Band};
+                    node[scale=0.5, midway, below, align=center] {Valence\\Band};
         \draw[-{Latex[length=0.5mm]}, color=red] ({\sep+10^((-1.25+5*\spac)/2)+2.5},{(-1.25+5*\spac)})   
                     -- ({\sep+10^((-1.25+5*\spac)/2)+0.2},{(-1.25+5*\spac)})
-                    node[scale=0.3, midway, above, align=center] {Conducting\\Band};
+                    node[scale=0.5, midway, above, align=center] {Conducting\\Band};
     \end{axis}
 \end{tikzpicture}

@@ -11,23 +11,23 @@
     <p>
         Kirchhoff's Current Law (KCL), or Junction Law, relies on conservation of charge to say that the rate at which charges 
         enter a junction must be equivalent to the rate at which charges leave the junction
-<me>\sum I_\text{in}=\sum I_\text{out}.</me>
-for a scenario as pictured in <xref ref="dc-kcl" />. The KCL can also be represented mathematically as
-<me>\sum\limits_i I_i = 0</me>
-where <m>I_i\lt 0</m> for currents leaving a node and <m>I_i\gt 0</m> for currents entering a node.</p>
-<figure xml:id="dc-kcl"> 
-<image width="40%"><latex-image>
-\begin{circuitikz}
-\draw
-    (0,0) to [short,-*, i>=$I_1$] (2,0)
-    (2,0) to [short, i>=$I_2$] (4,0)
-    (2,0) to [short, i>=$I_3$] (2,-2);
-\end{circuitikz}
-</latex-image></image>
-<caption>A circuit junction.</caption>
-</figure>
+        <me>\sum I_\text{in}=\sum I_\text{out}.</me>
+        for a scenario as pictured in <xref ref="dc-kcl" />. The KCL can also be represented mathematically as
+        <me>\sum\limits_i I_i = 0</me>
+        where <m>I_i\lt 0</m> for currents leaving a node and <m>I_i\gt 0</m> for currents entering a node.</p>
+        <figure xml:id="dc-kcl"> 
+        <image width="40%"><latex-image>
+        \begin{circuitikz}
+            \draw (0,0) coordinate(start);
+            \draw (start)   to[short,-*, i>=$I_1$] ++(2,0)
+                            to[short, i>=$I_2$] ++(2,0);
+            \draw ([xshift=2cm] start)     to [short, i>=$I_3$] ++(0,-2);
+        \end{circuitikz}
+        </latex-image></image>
+        <caption>A circuit junction.</caption>
+        </figure>
 
-<p>
+    <p>
     Another conservation law, the conservation of energy, is ultimately responsible for what we call Kirchhoff's Voltage Law 
     (KVL), or the Loop Law. If one walks around any loop in a circuit (such as that shown in <xref ref="dc-kvl" />), the sum of 
     the voltage changes as one moves in a single direction around a complete loop must add up to zero, or
@@ -54,7 +54,7 @@ where <m>I_i\lt 0</m> for currents leaving a node and <m>I_i\gt 0</m> for curren
 </p>
 
 <p>
-    The last rule we'll introduce here is Ohm's Law. For the situation shown in Figure~\ref{DC-ohm}, the magnitude of the 
+    The last rule we'll introduce here is Ohm's Law. For the situation shown in <xref ref="dc-ohm"/>, the magnitude of the 
     voltage change across a resistor is dependent on the resistance and the magnitude of current in the resistor according to
 <me>\Delta V=IR</me>
 where <m>\Delta V=V_A - V_B</m>.

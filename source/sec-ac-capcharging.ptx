@@ -8,7 +8,7 @@
     </p>
     <figure xml:id="ac-capdischarge">
         <caption>A circuit for examining a discharging capacitor.</caption>
-        <image><latex-image>
+        <image width="50%"><latex-image>
             \begin{circuitikz}
                 \draw (0,4) coordinate(start);
                 \draw (start)   to[battery, l_=$V_0$] ++(0,-4);
@@ -43,7 +43,7 @@
     </p>
     <figure xml:id="ac-capdischargeplot">
             <caption>Discharging capacitor.</caption>
-            <image><latex-image>
+            <image width="50%"><latex-image>
             \begin{tikzpicture}
                 \begin{axis}[
                 axis lines=middle,
@@ -68,7 +68,7 @@
     </p>
     <figure xml:id="ac-capcharge">
         <caption>A circuit for examining a charging capacitor.</caption>
-        <image><latex-image>
+        <image width="50%"><latex-image>
             \begin{circuitikz}
                 \draw (0,4) coordinate(start);
                 \draw (start)   to[battery, l_=$V_0$] ++(0,-4);
@@ -117,7 +117,7 @@
     </p>
     <figure xml:id="ac-capchargeplot">
             <caption>Charging capacitor.</caption>
-            <image><latex-image>
+            <image width="50%"><latex-image>
             \begin{tikzpicture}
                 \begin{axis}[
                 axis lines=middle,
