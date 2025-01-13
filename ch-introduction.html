@@ -126,12 +126,12 @@ eBookConfig.enable_chatcodes =  false;
 #subsec-dc-analysis-branch-2-2 { counter-set: subsec-dc-analysis-branch-2-2 0; }
 #subsec-dc-analysis-branch-2-2 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-2,decimal)"."; }
 #subsec-dc-analysis-branch-2-2 > li { counter-increment: subsec-dc-analysis-branch-2-2; }
+#subsec-dc-analysis-branch-2-13-3-1-3 { counter-set: subsec-dc-analysis-branch-2-13-3-1-3 0; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-13-3-1-3,decimal)"."; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li { counter-increment: subsec-dc-analysis-branch-2-13-3-1-3; }
 #subsec-dc-analysis-mesh-2-2 { counter-set: subsec-dc-analysis-mesh-2-2 0; }
 #subsec-dc-analysis-mesh-2-2 > li::marker { content: ""counter(subsec-dc-analysis-mesh-2-2,decimal)"."; }
 #subsec-dc-analysis-mesh-2-2 > li { counter-increment: subsec-dc-analysis-mesh-2-2; }
-#subsec-dc-analysis-gaussian-2-3 { counter-set: subsec-dc-analysis-gaussian-2-3 0; }
-#subsec-dc-analysis-gaussian-2-3 > li::marker { content: ""counter(subsec-dc-analysis-gaussian-2-3,decimal)"."; }
-#subsec-dc-analysis-gaussian-2-3 > li { counter-increment: subsec-dc-analysis-gaussian-2-3; }
 #subsec-finding-thevenin-2-1 { counter-set: subsec-finding-thevenin-2-1 0; }
 #subsec-finding-thevenin-2-1 > li::marker { content: ""counter(subsec-finding-thevenin-2-1,decimal)"."; }
 #subsec-finding-thevenin-2-1 > li { counter-increment: subsec-finding-thevenin-2-1; }
@@ -161,7 +161,7 @@ eBookConfig.enable_chatcodes =  false;
 <body id="electronics.thuecks" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">Theory and Practice</span></a></h1>
+<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">A Guide for Physicists</span></a></h1>
 <p class="byline">Derek J. Thuecks</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
@@ -203,9 +203,6 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-reduction" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Analysis: Circuit Reduction</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-branch" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Analysis: Branch Method</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-mesh" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Analysis: Mesh Method</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-scipy" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Analysis: Branch Method Solved Using SciPy</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-sympy" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Analysis: Branch Method Solved Using SymPy</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-gaussian" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Analysis: Branch Method Solved Using Gaussian Elimination</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
@@ -243,7 +240,14 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">List of Symbols</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrix-mult.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-introduction"><h2 class="heading">
 <span class="type">Chapter</span><span class="space"> </span><span class="codenumber">1</span><span class="space"> </span><span class="title">Introduction</span>

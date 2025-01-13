@@ -126,12 +126,12 @@ eBookConfig.enable_chatcodes =  false;
 #subsec-dc-analysis-branch-2-2 { counter-set: subsec-dc-analysis-branch-2-2 0; }
 #subsec-dc-analysis-branch-2-2 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-2,decimal)"."; }
 #subsec-dc-analysis-branch-2-2 > li { counter-increment: subsec-dc-analysis-branch-2-2; }
+#subsec-dc-analysis-branch-2-13-3-1-3 { counter-set: subsec-dc-analysis-branch-2-13-3-1-3 0; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-13-3-1-3,decimal)"."; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li { counter-increment: subsec-dc-analysis-branch-2-13-3-1-3; }
 #subsec-dc-analysis-mesh-2-2 { counter-set: subsec-dc-analysis-mesh-2-2 0; }
 #subsec-dc-analysis-mesh-2-2 > li::marker { content: ""counter(subsec-dc-analysis-mesh-2-2,decimal)"."; }
 #subsec-dc-analysis-mesh-2-2 > li { counter-increment: subsec-dc-analysis-mesh-2-2; }
-#subsec-dc-analysis-gaussian-2-3 { counter-set: subsec-dc-analysis-gaussian-2-3 0; }
-#subsec-dc-analysis-gaussian-2-3 > li::marker { content: ""counter(subsec-dc-analysis-gaussian-2-3,decimal)"."; }
-#subsec-dc-analysis-gaussian-2-3 > li { counter-increment: subsec-dc-analysis-gaussian-2-3; }
 #subsec-finding-thevenin-2-1 { counter-set: subsec-finding-thevenin-2-1 0; }
 #subsec-finding-thevenin-2-1 > li::marker { content: ""counter(subsec-finding-thevenin-2-1,decimal)"."; }
 #subsec-finding-thevenin-2-1 > li { counter-increment: subsec-finding-thevenin-2-1; }
@@ -161,7 +161,7 @@ eBookConfig.enable_chatcodes =  false;
 <body id="electronics.thuecks" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">Theory and Practice</span></a></h1>
+<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">A Guide for Physicists</span></a></h1>
 <p class="byline">Derek J. Thuecks</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
@@ -203,9 +203,6 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-reduction" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Analysis: Circuit Reduction</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-branch" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Analysis: Branch Method</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-mesh" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Analysis: Mesh Method</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-scipy" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Analysis: Branch Method Solved Using SciPy</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-sympy" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Analysis: Branch Method Solved Using SymPy</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-gaussian" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Analysis: Branch Method Solved Using Gaussian Elimination</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
@@ -243,7 +240,14 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">List of Symbols</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrix-mult.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-dc-series_parallel"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">Series and Parallel Resistors</span>
@@ -251,55 +255,55 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec-dc-series_parallel-2">
 <div class="para">Let’s begin by applying Kirchhoff’s laws and Ohm’s law to the circuit shown in <a href="sec-dc-series_parallel.html#dc-circuit1" class="xref" data-knowl="./knowl/xref/dc-circuit1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3.1">Figure 2.3.1</a>. <figure class="figure figure-like" id="dc-circuit1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-circuit1-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.3.1<span class="period">.</span></span><span class="space"> </span>Circuit example.</figcaption></figure> At node A, we apply the KCL to find</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1.html ./knowl/xref/eqn-intro-kcl1.html ./knowl/xref/eqn-intro-kvl2.html ./knowl/xref/dc-circuit1.html" id="eqn-intro-kcl1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1.html" id="eqn-intro-kcl1">
 \begin{equation}
 \sum\limits_i I_i=0 \Rightarrow I_1 - I_2 - I_3 = 0. \tag{2.3.1}
 \end{equation}
 </div>
-<div class="para">The KVL can then be applied to Loop I and Loop II. Starting with Loop I, we will start in the lower left corner and traverse Loop I in the direction indicated by the arrow. Traversing this loop has us pass through battery <span class="process-math">\(V_b\)</span> from the negative to positive terminal, resulting in <span class="process-math">\(\Delta V=+V_b\text{.}\)</span> The next component that we encounter is <span class="process-math">\(R_1\text{,}\)</span> which we travel across in the direction of current, so <span class="process-math">\(\Delta V=-I_2 R_1\)</span> by Ohm’s Law. Likewise, <span class="process-math">\(\Delta V=-I_2 R_2\)</span> as we travel across <span class="process-math">\(R_2\)</span> on the way back to our starting point. The KVL for Loop 1 will thus give</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1.html ./knowl/xref/eqn-intro-kcl1.html ./knowl/xref/eqn-intro-kvl2.html ./knowl/xref/dc-circuit1.html" id="eqn-intro-kvl1">
+<div class="para">The KVL can then be applied to Loop I and Loop II. Examining Loop I first, we will start in the lower left corner and traverse the loop in the direction indicated by the arrow. Traversing this loop has us pass through battery <span class="process-math">\(V_b\)</span> from the negative to positive terminal, resulting in <span class="process-math">\(\Delta V=+V_b\text{.}\)</span> The next component that we encounter is <span class="process-math">\(R_1\text{,}\)</span> which we travel across in the direction of current, so Ohm’s law tells us that the voltage falls by <span class="process-math">\(\Delta V=I_2 R_1\)</span> in the direction of current. Likewise, the voltage falls by <span class="process-math">\(\Delta V=I_2 R_2\)</span> as we travel across <span class="process-math">\(R_2\)</span> in the direction of current on the way back to our starting point. The KVL for Loop 1 will thus give</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1.html" id="eqn-intro-kvl1">
 \begin{equation}
-\sum\limits_{i\text{ in Loop I}} \left(\Delta V\right)_i = 0 \Rightarrow V_b - I_2 R_1 - I_2 R_2 = 0.\tag{2.3.2}
+\sum\limits_{i\text{ in Loop I}} \left(\Delta V\right)_i = 0 \Rightarrow V_b - I_2 R_1 - I_2 R_2 = 0\tag{2.3.2}
 \end{equation}
 </div>
-<div class="para">A similar application of the KVL to Loop II gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1.html ./knowl/xref/eqn-intro-kcl1.html ./knowl/xref/eqn-intro-kvl2.html ./knowl/xref/dc-circuit1.html" id="eqn-intro-kvl2">
+<div class="para">where there are negative signs in front of <span class="process-math">\(I_2 R_1\)</span> and <span class="process-math">\(I_2 R_2\)</span> because voltage falls by these amount in the direction that we’ve traversed the loop. A similar application of the KVL to Loop II gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1.html" id="eqn-intro-kvl2">
 \begin{equation}
-\sum\limits_{i\text{ in Loop II}} \left(\Delta V\right)_i = 0 \Rightarrow V_b - I_3 R_3 = 0.\tag{2.3.3}
+\sum\limits_{i\text{ in Loop II}} \left(\Delta V\right)_i = 0 \Rightarrow V_b - I_3 R_3 = 0\text{.}\tag{2.3.3}
 \end{equation}
 </div>
-<div class="para">Often, voltages provided by batteries (or a DC voltage source) and the resistances are known as these were the physical components assembled into the circuit. Thus, Equations~<a href="sec-dc-series_parallel.html#eqn-intro-kcl1" class="xref" data-knowl="./knowl/xref/eqn-intro-kcl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a> - <a href="sec-dc-series_parallel.html#eqn-intro-kvl2" class="xref" data-knowl="./knowl/xref/eqn-intro-kvl2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.3">(2.3.3)</a> represent a series of equations that must be solved to determine currents <span class="process-math">\(I_1,\ I_2, \text{ and } I_3\)</span> in <a href="sec-dc-series_parallel.html#dc-circuit1" class="xref" data-knowl="./knowl/xref/dc-circuit1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3.1">Figure 2.3.1</a>.</div>
 </div>
-<div class="para logical" id="sec-dc-series_parallel-3">
-<div class="para">Rather than solving this system of equations for the three currents, we will instead perform some intermediate analysis to investigate the behavior of resistor combinations. Starting with Equation~\ref{intro-kvl1}, we can see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
+<div class="para" id="sec-dc-series_parallel-3">Often, voltages provided by batteries (or a DC voltage source) and the resistances are known as these were the physical components assembled into the circuit. Thus, <a href="sec-dc-series_parallel.html#eqn-intro-kcl1" class="xref" data-knowl="./knowl/xref/eqn-intro-kcl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a> - <a href="sec-dc-series_parallel.html#eqn-intro-kvl2" class="xref" data-knowl="./knowl/xref/eqn-intro-kvl2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.3">(2.3.3)</a> represent a series of equations that must be solved to determine currents <span class="process-math">\(I_1,\ I_2, \text{ and } I_3\)</span> in <a href="sec-dc-series_parallel.html#dc-circuit1" class="xref" data-knowl="./knowl/xref/dc-circuit1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3.1">Figure 2.3.1</a>.</div>
+<div class="para logical" id="sec-dc-series_parallel-4">
+<div class="para">Rather than solving this system of equations for the three currents, we will instead perform some intermediate analysis to investigate the behavior of resistor combinations. Starting with <a href="sec-dc-series_parallel.html#eqn-intro-kvl1" class="xref" data-knowl="./knowl/xref/eqn-intro-kvl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.2">(2.3.2)</a>, we can see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
 \begin{equation*}
 V_b - I_2\left(R_1 + R_2\right) = V_b - I_2 R_{1+2}\text{.}
 \end{equation*}
 </div>
-<div class="para">Resistors <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> are considered to be in <dfn class="terminology">series</dfn>. Resistors are in series if the current in one resistor must be the same current in the other series resistors. In this case, <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> are in series because <span class="process-math">\(I_2\)</span> must be the current in each of the resistors since there is no junction between them. We see that the voltage drop across the pair of series resistors is just <span class="process-math">\(I_2 R_{1+2}\)</span> where <span class="process-math">\(R_{1+2}=R_1 + R_2\text{,}\)</span> meaning that resistors in series act together as a single resistor that has a resistance equaling the sum of the series resistances. This relationship holds for any number of resistors that are in series such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="eqn-intro-series-resistors">
+<div class="para">Resistors <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> are considered to be in <dfn class="terminology">series</dfn>. Resistors are in series if the current in one resistor must be the same current in the other series resistors. In this case, <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> are in series because <span class="process-math">\(I_2\)</span> must be the current through each of the resistors since there is no junction between them. We see that the voltage drop across the pair of series resistors is just <span class="process-math">\(I_2 R_{1+2}\)</span> where <span class="process-math">\(R_{1+2}=R_1 + R_2\text{,}\)</span> meaning that resistors in series act together as a single resistor that has a resistance equal to the sum of the individual series resistances. This relationship holds for any number of resistors that are in series such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="eqn-intro-series-resistors">
 \begin{equation}
 R_\text{eq} = \sum\limits_\text{series} R_i \quad \text{(Resistors in series)}\text{.}\tag{2.3.4}
 \end{equation}
 </div>
-<div class="para">This means that currents <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> will have identical values in all three circuits displayed in Figure~\ref{dc-circuit1-alt1} <figure class="figure figure-like" id="dc-circuit1-alt1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-circuit1-alt1-1.svg" role="img" class="contained"></div>
+<div class="para">This means that currents <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> will have identical values in all three circuits displayed in <a href="sec-dc-series_parallel.html#dc-circuit1-alt1" class="xref" data-knowl="./knowl/xref/dc-circuit1-alt1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3.2">Figure 2.3.2</a> <figure class="figure figure-like" id="dc-circuit1-alt1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-circuit1-alt1-1.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.3.2<span class="period">.</span></span><span class="space"> </span>Original circuit (left) is simplified into an intermediate circuit (center) by combining series resistors <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> into effective resistance <span class="process-math">\(R_{1+2}\text{.}\)</span> The circuit is further simplified (right) by combining parallel resistors <span class="process-math">\(R_{1+2}\)</span> and <span class="process-math">\(R_3\)</span> into effective resistance <span class="process-math">\(R_{(1+2)||3}\text{.}\)</span></figcaption></figure> If we now examine the simplified circuit in <a href="sec-dc-series_parallel.html#dc-circuit1-alt1" class="xref" data-knowl="./knowl/xref/dc-circuit1-alt1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3.2">Figure 2.3.2</a>b, we can see that both <span class="process-math">\(R_{1+2}\)</span> and <span class="process-math">\(R_3\)</span> both have the same voltage drop across them</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-3-18">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-4-20">
 \begin{align*}
 I_2 R_{1+2} \amp = V_b\\
 I_3 R_3 \amp = V_b 
 \end{align*}
 </div>
 <div class="para">so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-3-19">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-4-21">
 \begin{align*}
 I_2 \amp = \frac{V_b}{R_{1+2}} \\
 I_3 \amp = \frac{V_b}{R_3} \text{.}
 \end{align*}
 </div>
-<div class="para">These expressions can be inserted into Equation~<a href="sec-dc-series_parallel.html#eqn-intro-kcl1" class="xref" data-knowl="./knowl/xref/eqn-intro-kcl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a> to find</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-3-21">
+<div class="para">These expressions can be inserted into <a href="sec-dc-series_parallel.html#eqn-intro-kcl1" class="xref" data-knowl="./knowl/xref/eqn-intro-kcl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a> to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-4-23">
 \begin{align*}
 I_1 \amp = I_2 + I_3 \Rightarrow \\
 \amp = \frac{V_b}{R_{1+2}} + \frac{V_1}{R_3} \\
@@ -307,19 +311,19 @@ I_1 \amp = I_2 + I_3 \Rightarrow \\
 \end{align*}
 </div>
 <div class="para">so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
 \begin{equation*}
 V_b = I_1 \left(\frac{1}{R_{1+2}} + \frac{1}{R_3}\right)^{-1}\text{.}
 \end{equation*}
 </div>
 <div class="para">This has the form of Ohm’s Law where <span class="process-math">\(R_{1+2}\)</span> and <span class="process-math">\(R_3\)</span> combine into an equivalent resistance</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
 \begin{equation*}
 R_{(1+2)||3}^{-1}=R_{1+2}^{-1}+R_3^{-1}\text{.}
 \end{equation*}
 </div>
 <div class="para">We say that resistors <span class="process-math">\(R_{1+2}\)</span> and <span class="process-math">\(R_3\)</span> are in parallel because the potential difference across each resistor must be identical as each side of the resistors are connected together by wires. An equivalent resistance for a combination of any number of parallel resistors can be found using</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="eqn-intro-parallel-resistors">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="eqn-intro-parallel-resistors">
 \begin{equation}
 R_{eq}^{-1} = \sum\limits_\text{parallel} R_i^{-1} \quad \text{(Resistors in parallel)}\text{.}\tag{2.3.5}
 \end{equation}

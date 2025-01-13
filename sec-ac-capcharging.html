@@ -126,12 +126,12 @@ eBookConfig.enable_chatcodes =  false;
 #subsec-dc-analysis-branch-2-2 { counter-set: subsec-dc-analysis-branch-2-2 0; }
 #subsec-dc-analysis-branch-2-2 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-2,decimal)"."; }
 #subsec-dc-analysis-branch-2-2 > li { counter-increment: subsec-dc-analysis-branch-2-2; }
+#subsec-dc-analysis-branch-2-13-3-1-3 { counter-set: subsec-dc-analysis-branch-2-13-3-1-3 0; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-13-3-1-3,decimal)"."; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li { counter-increment: subsec-dc-analysis-branch-2-13-3-1-3; }
 #subsec-dc-analysis-mesh-2-2 { counter-set: subsec-dc-analysis-mesh-2-2 0; }
 #subsec-dc-analysis-mesh-2-2 > li::marker { content: ""counter(subsec-dc-analysis-mesh-2-2,decimal)"."; }
 #subsec-dc-analysis-mesh-2-2 > li { counter-increment: subsec-dc-analysis-mesh-2-2; }
-#subsec-dc-analysis-gaussian-2-3 { counter-set: subsec-dc-analysis-gaussian-2-3 0; }
-#subsec-dc-analysis-gaussian-2-3 > li::marker { content: ""counter(subsec-dc-analysis-gaussian-2-3,decimal)"."; }
-#subsec-dc-analysis-gaussian-2-3 > li { counter-increment: subsec-dc-analysis-gaussian-2-3; }
 #subsec-finding-thevenin-2-1 { counter-set: subsec-finding-thevenin-2-1 0; }
 #subsec-finding-thevenin-2-1 > li::marker { content: ""counter(subsec-finding-thevenin-2-1,decimal)"."; }
 #subsec-finding-thevenin-2-1 > li { counter-increment: subsec-finding-thevenin-2-1; }
@@ -161,7 +161,7 @@ eBookConfig.enable_chatcodes =  false;
 <body id="electronics.thuecks" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">Theory and Practice</span></a></h1>
+<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">A Guide for Physicists</span></a></h1>
 <p class="byline">Derek J. Thuecks</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
@@ -203,9 +203,6 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-reduction" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Analysis: Circuit Reduction</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-branch" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Analysis: Branch Method</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-mesh" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Analysis: Mesh Method</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-scipy" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Analysis: Branch Method Solved Using SciPy</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-sympy" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Analysis: Branch Method Solved Using SymPy</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-gaussian" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Analysis: Branch Method Solved Using Gaussian Elimination</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
@@ -243,14 +240,21 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">List of Symbols</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrix-mult.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-ac-capcharging"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">3.5</span><span class="space"> </span><span class="title">Capacitor Charging and Discharging Behaviors</span>
 </h2>
 <div class="para" id="sec-ac-capcharging-2">Let’s start examining circuits containing resistors, capacitors, and inductors. We’ll start with the circuit in <a href="sec-ac-capcharging.html#ac-capdischarge" class="xref" data-knowl="./knowl/xref/ac-capdischarge.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.5.1">Figure 3.5.1</a>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <span class="process-math">\(t=0\text{.}\)</span>
 </div>
-<figure class="figure figure-like" id="ac-capdischarge"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/ac-capdischarge-2.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="ac-capdischarge"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ac-capdischarge-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.1<span class="period">.</span></span><span class="space"> </span>A circuit for examining a discharging capacitor.</figcaption></figure><div class="para logical" id="sec-ac-capcharging-4">
 <div class="para">Using</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html" id="sec-ac-capcharging-4-1">
@@ -279,10 +283,10 @@ V(t)=V_0 e^{-t/RC} = V_0 e^{-t/\tau}
 </div>
 <div class="para">where <span class="process-math">\(V_0\)</span> represents the voltage difference across the capacitor at time <span class="process-math">\(t=0\)</span> and <span class="process-math">\(\tau=RC\)</span> is the <dfn class="terminology">RC time constant</dfn>. This discharging behavior is shown in <a href="sec-ac-capcharging.html#ac-capdischargeplot" class="xref" data-knowl="./knowl/xref/ac-capdischargeplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.5.2">Figure 3.5.2</a>.</div>
 </div>
-<figure class="figure figure-like" id="ac-capdischargeplot"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/ac-capdischargeplot-2.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="ac-capdischargeplot"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ac-capdischargeplot-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.2<span class="period">.</span></span><span class="space"> </span>Discharging capacitor.</figcaption></figure><div class="para" id="sec-ac-capcharging-6">Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in <a href="sec-ac-capcharging.html#ac-capcharge" class="xref" data-knowl="./knowl/xref/ac-capcharge.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.5.3">Figure 3.5.3</a>
 </div>
-<figure class="figure figure-like" id="ac-capcharge"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/ac-capcharge-2.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="ac-capcharge"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ac-capcharge-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.3<span class="period">.</span></span><span class="space"> </span>A circuit for examining a charging capacitor.</figcaption></figure><div class="para logical" id="sec-ac-capcharging-8">
 <div class="para">Applying the loop law, we find that</div>
 <div class="displaymath process-math">
@@ -335,7 +339,7 @@ V_C = V_0\left(1-e^{-t/RC}\right)\text{.}
 <div class="para">This shows that the capacitor charges from 0% to 63% in <span class="process-math">\(\Delta t=RC\text{.}\)</span>
 </div>
 </div>
-<figure class="figure figure-like" id="ac-capchargeplot"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/ac-capchargeplot-2.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="ac-capchargeplot"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ac-capchargeplot-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.4<span class="period">.</span></span><span class="space"> </span>Charging capacitor.</figcaption></figure><div class="para logical" id="sec-ac-capcharging-10">
 <div class="para">When charging a capacitor, energy is being stored in the electric field</div>
 <div class="displaymath process-math">
