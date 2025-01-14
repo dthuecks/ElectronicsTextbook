@@ -43,7 +43,7 @@
                 So, if <m>R_\text{load}</m> is very large <m>\left(R_\text{load}\gg R_\text{internal}\right)</m>, we call this a <q>light</q> resistive load because <m>V_\text{battery}\approx V_\text{source}</m>. Conversely, if <m>R_\text{load}</m> is very small <m>\left(R_\text{load}\ll R_\text{internal}\right)</m>, we call this a <q>heavy</q> resistive load because <m>V_\text{battery}\ll V_\text{source}</m>.
             </p>
             <p>
-                The analysis above shows why the voltage between battery terminals can <sq>droop</sq> lower than their rated voltage when a heavy resistive load is connected to it. We will discuss this effect in greater detail in Chapter __________.
+                The analysis above shows why the voltage between battery terminals can <sq>droop</sq> lower than their rated voltage when a heavy resistive load is connected to it. We will discuss this effect in greater detail in <xref ref="sec-ac-thevenin" />.
             </p>
 
         </introduction>

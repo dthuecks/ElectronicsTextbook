@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="app-python-newtonmethod" xmlns:xi="http://www.w3.org/2001/XInclude"> 
+    <title> Newton's Method </title>
+
+    <p>
+        Newton's method is a computational algorithm that can be used to find the roots of an equation. Let's illustrate with an example.
+        <figure xml:id="fig-python-newtonmethodplot">
+        <image width="70%">
+            <shortdescription></shortdescription>
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-python-newtonmethodplot.ptx" />
+            </latex-image>
+        </image>
+        </figure>
+        In <xref ref="fig-python-newtonmethodplot"/>, the solid blue line represents the function <m>f(x)</m>. Assume that <m>x^*</m> is a root of <m>f(x)</m> such that <m>f(x^*)=0</m>. If we take a Taylor expansion of <m>f(x)</m> at <m>x=x^*</m>, we find that
+        <me>
+            0=f(x^*) = f(x) + (x^*-x)f'(x) + \frac{1}{2}(x^*-x)^2 f''(x) + \cdots
+        </me>.
+        for <m>x</m> close to the real function root, we can assume that the terms of the expansion containing second-order derivatives and above are very small and can be neglected. This means that
+        <me>
+            0 \approx f(x) + (x^*-x)f'(x) 
+        </me>
+        or
+        <men xml:id="eqn-newton-method">
+            x^*\approx x-\frac{f(x)}{f'(x)}
+        </men>.
+        So, in order to computationally determine the root of a function, we make an initial guess <m>x_g</m> of the root's value and use <xref ref="eqn-newton-method"/> to generate a new and better estimate of the function's root <m>x'</m>. The closer <m>x_g</m> is to the real root <m>x^*</m>, the better our estimate of the root will be using <xref ref="eqn-newton-method"/>. As such, we will make an initial guess <m>x_g</m>, find an estimate of the root <m>x'</m>, and iterate, using <m>x'</m> as our new guess to make a further improved estimate of the root. This iteration continues until the change in the estimated value of the root changes by less than some tolerance that is set by the user. This method requires that the user know the functional form of <m>f(x)</m> and can evaluate the first derivative <m>f'(x)</m>.       
+    </p>
+
+
+</section>
+

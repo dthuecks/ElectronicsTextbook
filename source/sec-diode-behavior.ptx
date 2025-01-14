@@ -72,9 +72,9 @@
 
     <p>
         We can also be a bit more precise and realistic in our description of diode behavior. Instead of the behavior described in <xref ref="fig-diode-cartoon"/>, we can instead relate the current through the diode <m>I_D</m> in the forward direction to the voltage applied across the diode <m>V_D=V_p - V_n</m>:
-        <me>
+        <men xml:id="eqn-diode-exponential">
             I_D = I_0\left(e^{eV_D/nk_B T} - 1\right) = I_0\left( e^{V_D/nV_T} - 1 \right)
-        </me>
+        </men>
         where <m>V_p</m> and <m>V_n</m> are the voltages on the p-type and n-type semiconductor sides respectively, <m>I_0</m> is the saturation current, <m>k_B</m> is Boltzmann's constant, and <m>T</m> is temperature. The value of <m>n</m> is dependent on the materials used to construct the diode. For silicon, <m>n\approx 1</m>. The diode behavior is graphically represented in <xref ref="fig-real-diode"/>
         
         <sage language="python">

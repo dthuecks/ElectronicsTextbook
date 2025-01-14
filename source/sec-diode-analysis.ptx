@@ -3,10 +3,12 @@
 <section xml:id="sec-diode-circuit-analytic" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Analysis of diode circuits</title>
 
+    <subsection xml:id="sub-analytic-analysis">
+        <title>Analytic circuit treatment</title>
     <p>
         How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in <xref ref="fig-diode-cartoon"/>. Given this diode behavior, one can occasionally determine by inspection the conditions under which the diode is on or off.For example, let's analyze the circuit in <xref ref="fig-diode-simple-example"/>.
         <figure xml:id="fig-diode-simple-example">
-            <image>
+            <image width="50%">
                 <shortdescription></shortdescription>
                 <latex-image>
                     <xi:include parse="text" href="./figures/fig-diode-simple-example.ptx" />
@@ -21,7 +23,7 @@
         which is plotted in <xref ref="fig-diode-simple-example-plot"/>.
         
         <figure xml:id="fig-diode-simple-example-plot"> 
-            <image>
+            <image width="50%">
                 <shortdescription></shortdescription>
                 <sageplot>
                 import numpy as np
@@ -84,7 +86,7 @@
         <statement>
             <figure xml:id="fig-diode-example2">
                 <caption>Diode example #2.</caption>
-                <image><latex-image>
+                <image width="30%"><latex-image>
                     <xi:include parse="text" href="./figures/fig-diode-example2-circuit.ptx" />
                 </latex-image></image>
             </figure>
@@ -130,7 +132,7 @@
         <statement>
             <figure xml:id="fig-diode-example3">
                 <caption>Diode example #3.</caption>
-                <image><latex-image>
+                <image width="30%"><latex-image>
                     <xi:include parse="text" href="./figures/fig-diode-example3-circuit.ptx" />
                 </latex-image></image>
             </figure>
@@ -170,6 +172,79 @@
             </p>
         </solution>
     </example>
-    
+    </subsection>
 
+    <subsection xml:id="sub-python-analysis">
+        <title>Python circuit treatment</title>
+
+        <p>
+            Let's revisit the circuit in <xref ref="fig-diode-simple-example"/>. This time, we will use an improved mathematical representation of diode behavior from <xref ref="eqn-diode-exponential"/>, reproduced here as
+            <me>
+                I_D = I_0\left(e^{V_D/nV_T} - 1\right)
+            </me>.
+            Assuming we're using a silicon-based diode, we can assume <m>I_0\approx 3\times 10^{12}</m>A, <m>V_T = k_B T/e</m>, room temperature is <m>T\approx 293</m>K, and <m>n\approx 1</m>. The KVL can be used to write
+            <me>
+                \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)=0
+            </me>.
+            This is a nonlinear equation that cannot easily be solved analytically for <m>V_D</m>, so we'll use computational methods to estimate <m>V_D</m>. Specifically, we'll use Newton's Method which is described in <xref ref="app-python-newtonmethod"/>. In order to use this method, we'll let 
+            <me>
+                f(V_D) = \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)
+            </me>
+            and then calculate the first derivative
+            <me>
+                f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}
+            </me>.
+            Using these equations, we implement Newton's Method using the following code:
+            <sage language="python">
+            <input>
+                import numpy as np
+                import scipy.constants as sc
+                import matplotlib.pyplot as plt
+
+                t = np.linspace(0,1,500);
+                Vin_array = 5*np.sin(20*t);
+                Vout = np.zeros(np.size(t));
+                Varr = np.zeros(np.size(t));
+
+                R, T, I0 = [1e4, 293, 3.0e-12] # in Ohms, Kelvin, Amps
+                VT = sc.k * T / sc.e;
+
+                target = 1.0e-8 # User-defined tolerance for final answer
+
+                for i1 in range(np.size(t)):
+                    Vin = Vin_array[i1]
+
+                    # Initial guesses for the solution
+                    V = 3.0
+
+                    # Main loop
+                    error = 1.0
+                    while error > target:
+                        f = Vin - V - I0*R*(np.exp(sc.e*V/(sc.k*T))-1);
+                        fp = -1-I0*R*sc.e/(sc.k*T)*np.exp(sc.e*V/(sc.k*T))
+                        DeltaV = f/fp
+                        V -= DeltaV
+                        error = DeltaV
+                    Vout[i1]=Vin-V
+                    Varr[i1]=V
+
+                plt.figure(1)
+                plt.plot(t,Vin_array, 'b', label='$V_{in}$')
+                plt.plot(t,Vout,'r-.', label='$V_{out}$')
+                plt.plot(t,Varr,'k--',label='$V_D$')
+                plt.legend()
+                plt.xlabel('Time (s)')
+                plt.ylabel('Voltage (V)')
+                plt.show()
+            </input>
+            <output>
+            </output>
+            </sage> 
+            
+            
+            
+            
+        </p>
+    
+    </subsection>
 </section>

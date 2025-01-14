@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \def\a{1.6} % Value of x at which to evaluate f(x)
+    \def\m{3*\a^2}
+    \def\b{\a^3-1-\m*\a}
+    \def\xp{-1*(\b)/(\m)}
+    \begin{axis}[
+        axis lines=middle,
+        every major tick/.append style={very thick, major tick length=10pt, black},
+        xmin=-0.5,xmax=2,
+        xtick={\xp,\a},xticklabels={$x'$,$x$},
+        ytick=\empty,
+        ymin=-1.1,ymax=5,
+        x label style={anchor=west},
+        y label style={anchor=west},
+        xlabel={$x$},ylabel={$f(x)$},
+        samples=1000
+        ]
+        \addplot[color=blue, domain=0:8]{x^3-1};
+        \addplot[dashed, color=red, domain=0:8]{\m*x+\b};
+        \addplot[dashed] coordinates {(\a,0)(\a,\a^3-1)}; 
+    \end{axis}
+\end{tikzpicture}
