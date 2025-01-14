@@ -153,9 +153,9 @@ eBookConfig.enable_chatcodes =  false;
 #sec-ac-phasors-10-4-2-1 { counter-set: sec-ac-phasors-10-4-2-1 0; }
 #sec-ac-phasors-10-4-2-1 > li::marker { content: ""counter(sec-ac-phasors-10-4-2-1,decimal)"."; }
 #sec-ac-phasors-10-4-2-1 > li { counter-increment: sec-ac-phasors-10-4-2-1; }
-#sec-diode-circuit-analytic-3-1 { counter-set: sec-diode-circuit-analytic-3-1 0; }
-#sec-diode-circuit-analytic-3-1 > li::marker { content: ""counter(sec-diode-circuit-analytic-3-1,decimal)"."; }
-#sec-diode-circuit-analytic-3-1 > li { counter-increment: sec-diode-circuit-analytic-3-1; }
+#sub-analytic-analysis-3-1 { counter-set: sub-analytic-analysis-3-1 0; }
+#sub-analytic-analysis-3-1 > li::marker { content: ""counter(sub-analytic-analysis-3-1,decimal)"."; }
+#sub-analytic-analysis-3-1 > li { counter-increment: sub-analytic-analysis-3-1; }
 </style>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
@@ -237,13 +237,22 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-semiconductors.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Semiconductors</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-behavior.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Diode behavior</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-types.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Diode Types</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-analytic-analysis" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Analytic circuit treatment</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-python-analysis" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Python circuit treatment</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
 <div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">List of Symbols</span></a></div></li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Python</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="app-python-newtonmethod.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Newton’s Method</span></a></div></li></ul>
+</li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrix-mult.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrix Multiplication</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -256,7 +265,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="author-name">Derek J. Thuecks</div>
 <div class="author-info">Department of Physics<br>Washington College</div>
 </div>
-<div class="date">January 13, 2025</div>
+<div class="date">January 14, 2025</div>
 <nav class="summary-links"><ul><li><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></li></ul></nav></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="Electronics.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="front-colophon.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
