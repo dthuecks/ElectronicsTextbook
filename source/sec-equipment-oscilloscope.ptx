@@ -59,7 +59,7 @@
         In its most commonly used mode of operation, an oscilloscope creates a visual display by capturing and successively overlaying identical windows of time, each window beginning at the same point (relative to the ‘trigger point’) on the signal. The time base of the scope determines how much time is represented by each horizontal division of the LCD display. The triggering function determines when each time window is to begin; proper triggering is necessary for stable, unambiguous display of the desired waveform. Finally, the vertical section of the scope controls the amplitude of the information displayed. It determines for each of the two channels how many volts are represented by each vertical division on the display.
     </p>
 
-    <subsection xml:id="subsec-equipment-oscilloscope-hints">
+    <paragraphs>
         <title>Hints regarding oscilloscope controls</title>
         <ul>
             <li>
@@ -79,8 +79,185 @@
                     </ol>
                 </p>
             </li>
+            <li>
+                <p>
+                    To change the vertical (voltage base) scale:
+                    <ol>
+                        <li>
+                            <p>
+                                Scale know changes the voltage per division (V/div are color coded by input channel and displayed on the screen).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Position knob changes location of the ground (labeled as a color-coded arrow on the left of the screen).
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To access the parameters for each channel, press Ch. 1 (or 2,3,4) button twice and chose from:
+                    <ol>
+                        <li>
+                            <p>
+                                Input coupling (AC/DC/Ground)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Invert signal
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Probe setup
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Bandwidth limit
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Probe
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Digital Filter
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Volts/scale
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Invert
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To adjust the trigger:
+                    <ol>
+                        <li>
+                            <p>
+                                Trigger knob changes the voltage level of the trigger.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Trigger MENU button
+                                <ol>
+                                    <li>
+                                        <p>
+                                            Select which channel to trigger off of (trigger level arrow changes color to show which channel is being triggered)
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Slope: can trigger off a rising edge or falling edge
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Trigger mode: Auto, Normal, other
+                                        </p>
+                                    </li>
+                                </ol>
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To select the ACQUIRE mode:
+                    <ol>
+                        <li>
+                            <p>
+                                Run/Stop: sets the scope to continuously acquire or freeze after the last trigger.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Single sequence: draws the signal only once after a single trigger. Will not trigger on successive events.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Autoset: scope tries to choose overall best scope settings (sometimes useful when you can’t see anything, but generally used as a last resort because it can also mislead you.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Measure menu:
+                    <ul>
+                        <li>
+                            <p>
+                                You can select various measurements and which channel to measure. Be very careful with automatic measurements (again these can be deceptive). Generally use cursors to make accurate measurements. Note that the automatic mode searches for the very top and bottom of the signals (when measuring voltages) which may not provide an accurate value for the actual amplitude as noise on the signal may artificially inflate the max/min values.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Cursor menu:
+                    <ol>
+                        <li>
+                            <p>
+                                Choose time (vertical bars) or voltage (horizontal bars) measurement.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Choose which channel to measure (measurement cursors may be the same color as the channel they are measuring).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Choose manual adjustment (adjust each cursor separately) or fixed (adjust both cursors simultaneously).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Choose which cursor to adjust (Cursor A/Cursor B).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Use the knob in the upper-left corner of the controls to adjust the cursor positions.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                The position relative to ground (or trigger zero time for time measurements) is displayed on the screen with the ‘@’ symbol.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                The relative distance between the cursors is displayed on the screen with the ‘<m>\Delta</m>’ symbol.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
         </ul>
+        <p>
+            For further details, please read <url href="https://www.physics.purdue.edu/~jones105/phys536_Spring2009/labs/A%20Shortish%20Guide%20to%20Using%20an%20Oscilloscope.pdf" visual="https://www.physics.purdue.edu/~jones105/phys536_Spring2009/labs/A%20Shortish%20Guide%20to%20Using%20an%20Oscilloscope.pdf">A Shortish Guide to Using an Oscilloscope</url>, posted to the course webpage.
+        </p>
         
-    </subsection>
+    </paragraphs>
 
 </section>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-labnotebook" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Guide to Laboratory Notebooks</title>
+        <introduction>
+          <p>
+            In Physics 352, you will learn to keep a formal laboratory notebook. Rather than using a paper lab notebook, we are instead going to use electronic notebooks from LabArchives. Electronic lab notebooks are seeing increasing use in research labs for several reasons:
+            <ul>
+              <li>
+                <p>
+                  It is easier to back-up an electronic document than it is for a physical document.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Data tables and graphs are almost always generated using computers. These objects are more easily incorporated into an electronic notebook (rather than taping physical sheets into a physical notebook).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Electronic lab notebooks can easily be shared amongst multiple people collaborating on the same project.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Lab instructors can grade notebooks without having to collect them from students. This allows students to continue work on other lab notebook entries during the grading process.
+                </p>
+              </li>
+            </ul>        
+          </p>
+          <p>
+            Good notebook skills will be essential to you as a practicing scientist, so it is important that you get in the habit of keeping good records early. The lab notebook is a diary of your activities each time you sit down to conduct an experiment. The following information is intended to help you practice good scientific record-keeping skills.
+          </p>
+        </introduction>
+
+      <paragraphs>
+        <title>General Formatting and Info</title>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Create your account using the link that was emailed to you from LabArchives. I have also included information on the course webpage that will guide you through the registration process. There is a two-week trial period before you have to pay for access.
+              </p>
+            </li>
+            <li>
+              <p>
+                Enter notes, data, etc. directly into your electronic lab notebook. You should NOT be writing things down on paper for entry at a later time.
+              </p>
+            </li>
+            <li>
+              <p>
+                Cross out any mistakes with a <stale>single line</stale>. Do not delete anything once you’ve entered something into your notebook! This includes mistakes in the development of theory, mistakes in procedure, data entry, and analysis. You can learn from your mistakes, even minor ones, if you keep a record of them.
+              </p>
+            </li>
+            <li>
+              <p>
+                Do not refer to your lab manual in your notebook, except in the case where warnings or hardware specifications in the manual affect your procedure. In real life, you will not have a lab manual, but you will often have technical manuals for the equipment.
+              </p>
+            </li>
+            <li>
+              <p>
+                You may send files (especially pictures) to your LabArchives inbox at inbox@labarchives.com. Note that you MUST send this email from the email account that you used to register for LabArchives. Sometimes you are also able to click-and-drag images directly into your notebook.
+              </p>
+            </li>
+            <li>
+              <p>
+                I will not be grading explicitly on grammar/spelling/etc. That said, your notebook needs to be clear enough that someone else (me in this case) can read your notebook and understand what you are doing or the point you are trying to make with a statement.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </paragraphs>
+
+    <paragraphs>
+      <title>Sections of Your Lab Notebook</title>
+        <p>
+          I would recommend creating a new subfolder for each experiment in the ‘Labs’ folder of your PHY352 notebook. Inside a lab’s subfolder, you can include further subfolders or pages as you see fit. Your notebook entry for each lab should be divided into several sections which are described below. If the lab has multiple sub-experiments, group all sections for a single sub-experiment together and keep it separate from other sub-experiment details.
+        </p>
+        <ol>
+          <li>
+            <p>
+              PREFACE – In this section, provide a brief introductory paragraph (20-40 words or so) describing the theme and goals of the experiment.
+            </p>
+          </li>
+          <li>
+            <p>
+              THEORY – Provide a circuit sketch (with components labeled with variables rather than specific values) for the circuit type that you intend to study in this lab activity. This will typically accompany either theoretical derivations or a report of theoretical results that you intend to investigate experimentally.
+            </p>
+          </li>
+          <li>
+            <p>
+              APPARATUS – In this section, you should include details about the equipment and circuits you are working with. This should include:
+              <ul>
+                <li>
+                  <p>
+                    A list of instruments used, including make and model.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Pin designations (showing the layout of integrated circuit chips, for instance) or other important information regarding parts
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    A schematic diagram, including
+                    <ul>
+                      <li>
+                        <p>
+                          Components labeled with values or part numbers (e.g. 1N914 diode or 2-kΩ resistor)
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Clearly-labeled input/output terminals
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Major connections to external power supplies, etc.
+                        </p>
+                      </li>
+                    </ul>
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              PROCEDURE – Use two to three sentences to explain 1) what was measured, 2) what was varied, and 3) how you intend to compare experimental results to theory. Typically, you do not need to include each and every little step along the way of accomplishing this task, but if there is information that you think is critical to remember (odd steps you needed to take), issues that arose, or changes that were made, these details would be included in this section, after your initial procedure summary.
+            </p>
+            <p>
+              If you obtain unexpected results, try and find out why. Record any debugging you do. Leave wrong results or mistakes in your lab book, crossed out with a single line.
+            </p>
+            <p>
+              Note: In other lab courses, this section may need to expand with more detail than what I’m asking for above. In electronics, the equipment setup and use is pretty standard from experiment to experiment. As a result, detailed notes regarding circuit construction on the prototyping board (for instance) is not necessary in this course, but similar types of information may be critical to record in other courses.
+            </p>
+          </li>
+          <li>
+            <p>
+              RAW DATA TABLES – Data should be entered directly into your lab notebook. LabArchives allows you to create a Microsoft Office file (such as a Word or Excel document) within one of its pages, so you should not be recording data into external programs. That said, this data can be copied into another program for analysis purposes (e.g. into LoggerPro).
+            </p>
+          </li>
+          <li>
+            <p>
+              RESULTS – In this section, you should include tables or graphs that display your experimental results. Your experimental data should be represented using symbols when you are graphing. Axes should be labeled and should include units. If possible, produce a theoretical curve as well for direct comparison to your experimental results. Depending on the lab activity, there may be other methods of reporting your results.
+            </p>
+          </li>
+          <li>
+            <p>
+              DISCUSSION - Write one paragraph, at least, in conclusion, whether you needed to do any analysis or not. Did you see evidence for the effect you set out to observe? What was the value, with units and uncertainties, of the quantity you set out to measure? If your results did not agree with your expectations, as is sometimes the case, speculate on possible reasons. This should be similar to the Conclusions section of a formal lab report. 
+            </p>
+          </li>
+        </ol>
+    </paragraphs>
+    
+</chapter>

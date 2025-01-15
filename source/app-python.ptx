@@ -2,9 +2,8 @@
 
 <appendix xml:id="app-python" xmlns:xi="http://www.w3.org/2001/XInclude"> 
     <title>Python</title> 
-    <notation-list/> 
     
-    <xi:include href="./app-python-newtonmethod.ptx" />
+    <xi:include href="./subapp-python-newtonmethod.ptx" />
     
 
 </appendix>
