@@ -3,7 +3,6 @@
 <chapter xml:id="ch-dc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>DC Circuits</title>
 
-    \chapter{Introduction}
     <introduction>
     <p> In this chapter, we will start our analysis of circuits by examining the behavior of circuits in which voltages and 
         currents are independent of time, and circuits that contain resistors, voltage sources, and/or current sources. We will 

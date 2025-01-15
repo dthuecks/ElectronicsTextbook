@@ -7,7 +7,7 @@
         axis lines=middle,
         every major tick/.append style={very thick, major tick length=10pt, black},
         xmin=-0.5,xmax=2,
-        xtick={\xp,\a},xticklabels={$x'$,$x$},
+        xtick={1, \xp,\a},xticklabels={$x^*$,$x_1$,$x_0$},
         ytick=\empty,
         ymin=-1.1,ymax=5,
         x label style={anchor=west},

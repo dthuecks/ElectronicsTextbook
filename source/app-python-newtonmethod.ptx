@@ -13,21 +13,23 @@
             </latex-image>
         </image>
         </figure>
-        In <xref ref="fig-python-newtonmethodplot"/>, the solid blue line represents the function <m>f(x)</m>. Assume that <m>x^*</m> is a root of <m>f(x)</m> such that <m>f(x^*)=0</m>. If we take a Taylor expansion of <m>f(x)</m> at <m>x=x^*</m>, we find that
+        In <xref ref="fig-python-newtonmethodplot"/>, the solid blue line represents the function <m>f(x)</m>. Assume that <m>x^*</m> is an unknown root of <m>f(x)</m> such that <m>f(x^*)=0</m>. We may be able to guess at an approximate value of the root <m>x=x_0</m>, but this is unlikely to be very precise. Exmining <xref ref="fig-python-newtonmethodplot"/>, we can see that we can find a better approximation of the function's root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess, 
         <me>
-            0=f(x^*) = f(x) + (x^*-x)f'(x) + \frac{1}{2}(x^*-x)^2 f''(x) + \cdots
-        </me>.
-        for <m>x</m> close to the real function root, we can assume that the terms of the expansion containing second-order derivatives and above are very small and can be neglected. This means that
-        <me>
-            0 \approx f(x) + (x^*-x)f'(x) 
+            f'(x_0) = \frac{f(x_0)-0}{x_0-x_1}
         </me>
-        or
-        <men xml:id="eqn-newton-method">
-            x^*\approx x-\frac{f(x)}{f'(x)}
-        </men>.
-        So, in order to computationally determine the root of a function, we make an initial guess <m>x_g</m> of the root's value and use <xref ref="eqn-newton-method"/> to generate a new and better estimate of the function's root <m>x'</m>. The closer <m>x_g</m> is to the real root <m>x^*</m>, the better our estimate of the root will be using <xref ref="eqn-newton-method"/>. As such, we will make an initial guess <m>x_g</m>, find an estimate of the root <m>x'</m>, and iterate, using <m>x'</m> as our new guess to make a further improved estimate of the root. This iteration continues until the change in the estimated value of the root changes by less than some tolerance that is set by the user. This method requires that the user know the functional form of <m>f(x)</m> and can evaluate the first derivative <m>f'(x)</m>.       
+        which can be rearranged to find our new estimate
+        <me>
+            x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}
+        </me>
+        
+        We'll call this new approximated root <m>x_1</m>. It's very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire  using
+        <me>
+            x_{n}=x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}
+        </me>
+        until <m>\left|x_n-x_{n-1}\right|</m> is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function's root. Note that this method requires knowledge of the functional form of our function <m>f(x)</m> as well as knowledge of or the ability to calculate the analytic form of <m>f'(x)</m>    
     </p>
-
-
+    <p>
+        A word of caution: Newton's method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method. 
+    </p>
 </section>
 

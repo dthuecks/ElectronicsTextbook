@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-equipment" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Equipment in the Laboratory</title>
+
+    <introduction>
+        <p>
+            This document provides descriptions of common equipment that may be used in the laboratory component of an undergraduate course in Electronics for physicists. In particular, this will provide the base knowledge necessary for one to successfully conduct the experiments that follow. Please refer back to this chapter frequently when conducting experiments. 
+        </p>   
+    </introduction>  
+    
+    <xi:include href="./sec-equipment-protoboard.ptx" />
+
+    <xi:include href="./sec-equipment-dmm.ptx" />
+
+    <xi:include href="./sec-equipment-oscilloscope.ptx" />
+
+</chapter>

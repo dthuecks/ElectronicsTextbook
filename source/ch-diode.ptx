@@ -3,7 +3,6 @@
 <chapter xml:id="ch-diode" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Diodes</title>
 
-    \chapter{Introduction}
     <introduction>
         <p>
             In this chapter, we're introduced to our first non-ohmic circuit element: the diode. These elements behave in ways that do not conform to Ohm's law.

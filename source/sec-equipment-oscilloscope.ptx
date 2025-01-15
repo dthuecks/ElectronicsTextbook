@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-equipment-oscilloscope">
+    <title>Oscilloscopes (BK Precision 2190E or 2542B)</title>
+    <sidebyside>
+        <image source="images/img-oscilloscope-2190e.jpg">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+
+        <image source="images/img-oscilloscope-2542b.jpg">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+
+    </sidebyside>
+
+    <p>
+        The oscilloscope is an extremely versatile instrument. It can be used to measure both steady and time-dependent voltages, frequency, time duration, phase difference, and harmonic distortion. Some oscilloscopes automatically test transistors, perform spectral analysis, integrate, differentiate, sum, subtract, filter, and store electrical signals. Anyone working in an experimental science should be able to use an oscilloscope with considerable confidence. 
+    </p>
+
+    <p>
+        The oscilloscopes that we are using in lab (BK Precision 2542B or 2190E) are general-purpose, two-channel digital storage instruments capable of displaying and capturing electrical signals with frequencies up to 100 MHz. Its front panel can be divided into a number of sections:
+        <ul>
+            <li>
+                <p>
+                    The color LCD display shows the signal on one or more of the two input channels, using a different color for each channel.
+                </p>
+            </li>
+            <li>
+                <p>
+                    A set of buttons along the right hand side of the display are used to make menu item selections.
+                </p>
+            </li>
+            <li>
+                <p>
+                    A set of buttons and knobs on the right half of the instrument control some of the advanced oscilloscope functions, including:
+                    <ul>
+                        <li>
+                            <p>
+                                a TRIGGER section that permits one to control the starting point for the displayed waveform,
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                a VERTICAL section, accepting up to two input signals and containing controls to vary the voltage resolution (among other things),
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                a HORIZONTAL or ‘time base’ section that controls the time resolution of the display.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        In its most commonly used mode of operation, an oscilloscope creates a visual display by capturing and successively overlaying identical windows of time, each window beginning at the same point (relative to the ‘trigger point’) on the signal. The time base of the scope determines how much time is represented by each horizontal division of the LCD display. The triggering function determines when each time window is to begin; proper triggering is necessary for stable, unambiguous display of the desired waveform. Finally, the vertical section of the scope controls the amplitude of the information displayed. It determines for each of the two channels how many volts are represented by each vertical division on the display.
+    </p>
+
+    <subsection xml:id="subsec-equipment-oscilloscope-hints">
+        <title>Hints regarding oscilloscope controls</title>
+        <ul>
+            <li>
+                <p>
+                    To change the horizontal (time base) scale:
+                    <ol>
+                        <li>
+                            <p>
+                                The Time/div knob changes the time per division (sec/div are color coded by input channel and displayed on the screen).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Position knob changes location of the trigger (labeled as an arrow along the top of the screen).
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+        </ul>
+        
+    </subsection>
+
+</section>

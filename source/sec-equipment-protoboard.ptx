@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-equipment-protoboard">
+    <title>Prototyping Board (or Breadboard)</title>
+        
+    <p>
+        Prototyping boards are rows of connectors wired together behind a plastic face. While circuits in your electronics are soldered (often on printed circuitboards), prototyping boards have holes that allow component/wire leads to be pushed in to form a solderless connection. This makes circuit assembly, disassembly, and modification much easier and faster while developing a circuit. Once a final circuit design has been determined, a more permanent construction may be performed.
+    </p>
+    <p>
+        The prototyping boards that we'll use look like this:
+        <image source="images/img-protoboard-whole.jpg" width="100%">
+        <shortdescription>(for accessibility)</shortdescription>
+        </image>
+        Along the top of this Proto-Board, we have four rows of connectors. The holes in the top row are all connected to +5V, the holes in the second row are connected to +V (variable between +1.3V to +15V), the holes in the third row are connected to –V (variable between -1.3V to -15V), and the holes in the fourth row are connected to the board’s ground. These connections are hard-wired and cannot be changed.
+        <image source="images/img-protoboard-power.jpg">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+    </p>
+    <p>
+        The rest of the board is broken up into segments that look like the figure to the right. The connections are set up such that:
+    </p>
+    <sidebyside widths="70% 28%" valign="middle">
+        <ul>
+            <li>
+                <p>
+                    The holes that are grouped into a single long vertical column are connected to each other. For instance, all holes covered by the red line are connected internally, and all holes covered by the green line are connected internally, though the red and green holes are not connected to each other. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit. [FIX: DISCUSS ORANGE JUMPERS]
+                </p>
+            </li>
+            <li>
+                <p>
+                    There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the yellow line) are connected to each other internally. Likewise, the same is true for the holes covered by the blue line and by the orange line, though yellow, blue, and orange are not connected to each other. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Using these various rows and columns, we are able to make connections between electrical components (such as resistors, capacitors, transistors, semiconductor chips, and wires). While it takes a little practice to get used to this design, you will quickly find that these boards allow great flexibility as you prototype your circuits.
+                </p>
+            </li>
+        </ul>
+
+        <image source="images/img-protoboard-connections.jpg" />
+  
+    </sidebyside>
+
+</section>
+
+

@@ -16,13 +16,26 @@
     <!-- Include chapters -->
     <!-- <xi:include href="./ch-introduction-old.ptx" /> -->
 
-    <xi:include href="./ch-introduction.ptx" />
+    <part xml:id="part-analysis">
+      <title>Circuit Analysis</title>
+      
+      <xi:include href="./ch-introduction.ptx" />
 
-    <xi:include href="./ch-DC.ptx" />
+      <xi:include href="./ch-DC.ptx" />
 
-    <xi:include href="./ch-AC.ptx" />
+      <xi:include href="./ch-AC.ptx" />
     
-    <xi:include href="./ch-diode.ptx" />
+      <xi:include href="./ch-diode.ptx" />
+    </part>
+
+  <part xml:id="part-lab">
+    <title>Laboratory</title>
+
+    <xi:include href="./ch-equipment.ptx" />
+    
+  </part>
+
+    
 
 
     <!-- Include backmatter -->
