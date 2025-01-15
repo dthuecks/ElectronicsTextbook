@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Analysis: Branch Method</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Electronics">
+<meta property="book:author" content="Derek J. Thuecks">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* div with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-python",
+  "linked": true,
+  "linkKey": "linked-python",
+  "autoeval": false,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.5.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.87cabc2515250052.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.630d5c4fb4b681eb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.97f3ae4f7a71ba18.css">
+<style>
+#subsec-dc-analysis-branch-2-2 { counter-set: subsec-dc-analysis-branch-2-2 0; }
+#subsec-dc-analysis-branch-2-2 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-2,decimal)"."; }
+#subsec-dc-analysis-branch-2-2 > li { counter-increment: subsec-dc-analysis-branch-2-2; }
+#subsec-dc-analysis-branch-2-13-3-1-3 { counter-set: subsec-dc-analysis-branch-2-13-3-1-3 0; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li::marker { content: ""counter(subsec-dc-analysis-branch-2-13-3-1-3,decimal)"."; }
+#subsec-dc-analysis-branch-2-13-3-1-3 > li { counter-increment: subsec-dc-analysis-branch-2-13-3-1-3; }
+#subsec-dc-analysis-mesh-2-2 { counter-set: subsec-dc-analysis-mesh-2-2 0; }
+#subsec-dc-analysis-mesh-2-2 > li::marker { content: ""counter(subsec-dc-analysis-mesh-2-2,decimal)"."; }
+#subsec-dc-analysis-mesh-2-2 > li { counter-increment: subsec-dc-analysis-mesh-2-2; }
+#subsec-finding-thevenin-2-1 { counter-set: subsec-finding-thevenin-2-1 0; }
+#subsec-finding-thevenin-2-1 > li::marker { content: ""counter(subsec-finding-thevenin-2-1,decimal)"."; }
+#subsec-finding-thevenin-2-1 > li { counter-increment: subsec-finding-thevenin-2-1; }
+#subsec-finding-thevenin-3-1 { counter-set: subsec-finding-thevenin-3-1 0; }
+#subsec-finding-thevenin-3-1 > li::marker { content: ""counter(subsec-finding-thevenin-3-1,decimal)"."; }
+#subsec-finding-thevenin-3-1 > li { counter-increment: subsec-finding-thevenin-3-1; }
+#sec-ac-amplitudes-2-1-1 { counter-set: sec-ac-amplitudes-2-1-1 0; }
+#sec-ac-amplitudes-2-1-1 > li::marker { content: ""counter(sec-ac-amplitudes-2-1-1,decimal)"."; }
+#sec-ac-amplitudes-2-1-1 > li { counter-increment: sec-ac-amplitudes-2-1-1; }
+#sec-ac-highpass-4-24 { counter-set: sec-ac-highpass-4-24 0; }
+#sec-ac-highpass-4-24 > li::marker { content: ""counter(sec-ac-highpass-4-24,decimal)"."; }
+#sec-ac-highpass-4-24 > li { counter-increment: sec-ac-highpass-4-24; }
+#sec-ac-phasors-6-4 { counter-set: sec-ac-phasors-6-4 0; }
+#sec-ac-phasors-6-4 > li::marker { content: ""counter(sec-ac-phasors-6-4,decimal)"."; }
+#sec-ac-phasors-6-4 > li { counter-increment: sec-ac-phasors-6-4; }
+#sec-ac-phasors-9-4-3-1 { counter-set: sec-ac-phasors-9-4-3-1 0; }
+#sec-ac-phasors-9-4-3-1 > li::marker { content: ""counter(sec-ac-phasors-9-4-3-1,decimal)"."; }
+#sec-ac-phasors-9-4-3-1 > li { counter-increment: sec-ac-phasors-9-4-3-1; }
+#sec-ac-phasors-10-4-2-1 { counter-set: sec-ac-phasors-10-4-2-1 0; }
+#sec-ac-phasors-10-4-2-1 > li::marker { content: ""counter(sec-ac-phasors-10-4-2-1,decimal)"."; }
+#sec-ac-phasors-10-4-2-1 > li { counter-increment: sec-ac-phasors-10-4-2-1; }
+#sub-analytic-analysis-3-1 { counter-set: sub-analytic-analysis-3-1 0; }
+#sub-analytic-analysis-3-1 > li::marker { content: ""counter(sub-analytic-analysis-3-1,decimal)"."; }
+#sub-analytic-analysis-3-1 > li { counter-increment: sub-analytic-analysis-3-1; }
+</style>
+</head>
+<body id="electronics.thuecks" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">A Guide for Physicists</span></a></h1>
+<p class="byline">Derek J. Thuecks</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="subsec-dc-analysis-reduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-dc-analysis.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="subsec-dc-analysis-mesh.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-part"><div class="toc-title-box"><a href="part-.html" class="internal"><span class="codenumber">I</span> <span class="title"></span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-review.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Review from Introductory Physics</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-dc.html" class="internal"><span class="codenumber">2</span> <span class="title">DC Circuits</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-kirchhoff.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Kirchhoff’s Laws</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-voltage-source-symbol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Voltage Source Symbols</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-series_parallel.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Series and Parallel Resistors</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-dc-analysis.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuit Analysis Methods</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subsec-dc-analysis-reduction.html" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Analysis: Circuit Reduction</span></a></div></li>
+<li class="toc-item toc-subsection active"><div class="toc-title-box"><a href="subsec-dc-analysis-branch.html" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Analysis: Branch Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subsec-dc-analysis-mesh.html" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Analysis: Mesh Method</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dc-thevenin.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Thevenin and Norton Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subsec-proof-thevenin.html" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Proof of Thevenin’s and Norton’s Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subsec-finding-thevenin.html" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Finding Thevenin Equivalent Circuits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-batteries.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Application of Thevenin Equivalent Cicruits: Batteries</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-uses.html" class="internal"><span class="codenumber">2.8</span> <span class="title">DC Circuit Uses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-ac.html" class="internal"><span class="codenumber">3</span> <span class="title">AC Circuits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-sinusoidal.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Sinusoidal Signals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-amplitudes.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Characterizing Signal Size</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-complexsigs.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Complex Signals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-complexZ.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Complex Impedance</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-capcharging.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Capacitor Charging and Discharging Behaviors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-highpass.html" class="internal"><span class="codenumber">3.6</span> <span class="title">RC High-pass filter</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-phasors.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Phasors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-python.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Using Python in AC circuits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-thevenin.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Input and Output Impedance</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-diode.html" class="internal"><span class="codenumber">4</span> <span class="title">Diodes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-semiconductors.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Semiconductors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-behavior.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Diode behavior</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-types.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Diode Types</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sub-analytic-analysis.html" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Analytic circuit treatment</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sub-python-analysis.html" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Python circuit treatment</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Python</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="app-python-newtonmethod.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Newton’s Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrix-mult.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="subsection" id="subsec-dc-analysis-branch"><h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="space"> </span><span class="title">Analysis: Branch Method</span>
+</h2>
+<div class="para logical" id="subsec-dc-analysis-branch-2">
+<div class="para">In the <dfn class="terminology">branch method</dfn>, we perform the following steps:</div>
+<ol class="decimal" id="subsec-dc-analysis-branch-2-2">
+<li id="subsec-dc-analysis-branch-2-2-1"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-2-1">Draw the circuit.</div></li>
+<li id="subsec-dc-analysis-branch-2-2-2"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-2-2">Define a current for each circuit segment that may have a different current. Use your intuition to try to guess the correct directions for the currents. Don’t worry about guessing wrong. It is just important to clearly identify your assumed direction for each current.</div></li>
+<li id="subsec-dc-analysis-branch-2-2-3"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-2-3">Write out KCL equations at nodes. Remove duplicate or redundant equations. Note that the number of independent KCL equations is one fewer than the number of junctions present in the circuit.</div></li>
+<li id="subsec-dc-analysis-branch-2-2-4"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-2-4">Write down KVL equations for enough loops to include all circuit components at least once.</div></li>
+<li id="subsec-dc-analysis-branch-2-2-5"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-2-5">Solve the system of KCL and KVL equations for all unknown currents. If you were wrong in your initial guesses for any current directions, those currents will just come out with negative values.</div></li>
+<li id="subsec-dc-analysis-branch-2-2-6"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-2-6">Use Ohm’s law to find voltage changes through each resistor and use those changes to find the voltage at any point of interest in the circuit.</div></li>
+</ol>
+<div class="para">To analyze the circuit in <a href="sec-dc-analysis.html#dc-solve-circuit" class="internal" title="Figure 2.4.0.6">Figure 2.4.0.6</a> using the mesh method, we draw the circuit and define currents as in <a href="subsec-dc-analysis-branch.html#dc-branch-circuit" class="internal" title="Figure 2.4.2.3">Figure 2.4.2.3</a>. <figure class="figure figure-like" id="dc-branch-circuit"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-branch-circuit-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.2.3<span class="period">.</span></span><span class="space"> </span>Branch method circuit analysis.</figcaption></figure> Examining the KCL at junction A and the KVL for loops I and II, we find the following equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-solve-circuit.html ./knowl/xref/dc-branch-circuit.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrix-mult.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-6">
+\begin{align}
+0 \amp = I_1 - I_2 - I_3\tag{2.4.2.1}\\
+0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4\tag{2.4.2.2}\\
+0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4\tag{2.4.2.3}
+\end{align}
+</div>
+<div class="para">You can now find values for <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> using your favorite method for solving systems of equations. We will illustrate several such methods. <details id="subsec-dc-analysis-branch-2-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Analytic.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="subsec-dc-analysis-branch-2-10-2-1">Solve <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.1">(2.4.2.1)</a>-<a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.3">(2.4.2.3)</a> for the three unknown currents using analytic methods.</div>
+<div class="solutions">
+<details id="subsec-dc-analysis-branch-2-10-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="subsec-dc-analysis-branch-2-10-4-1">
+<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
+<div class="para" id="subsec-dc-analysis-branch-2-10-4-2">
+<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
+</div></details><details id="subsec-dc-analysis-branch-2-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-10-3-1">
+<div class="para">Solving Equation <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.1">(2.4.2.1)</a> for <span class="process-math">\(I_1\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html">
+\begin{equation*}
+I_1=I_2+I_3\text{,}
+\end{equation*}
+</div>
+<div class="para">and inserting into Equations <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.2">(2.4.2.2)</a> and <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.3">(2.4.2.3)</a>, we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-10-3-1-6">
+\begin{align*}
+0 \amp = V_b - \left(I_2+I_3\right) R_1 - I_2 R_2 - \left(I_2+I_3\right) R_4\\
+0 \amp = V_b - \left(I_2+I_3\right) R_1 - I_3 R_3 - \left(I_2+I_3\right) R_4
+\end{align*}
+</div>
+<div class="para">which can be rearranged into</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-10-3-1-7">
+\begin{align*}
+0 \amp = V_b - I_2(R_1 + R_2 + R_4) - I_3(R_1 + R_4)\\
+0 \amp = V_b - I_2 (R_1 + R_4) - I_3 (R_1 + R_3 + R_4)\text{.}
+\end{align*}
+</div>
+<div class="para">Plugging in values for known components and using your favorite method for solving this system of equations, one can show that <span class="process-math">\(I_2 = 1.85\)</span>mA, <span class="process-math">\(I_3=0.92\)</span>mA, and <span class="process-math">\(I_1 = I_2 + I_3 = 2.77\)</span>mA. Then, just as in the circuit reduction method, Ohm’s law can be used to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-10-3-1-11">
+\begin{align*}
+V_{b+} \amp = 24\text{V}\\
+V_A \amp = V_{b+}-I_1 R_1 = 15.69\text{V}\\
+V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}\text{.}
+\end{align*}
+</div>
+</div></div></details>
+</div></article></details> <details id="subsec-dc-analysis-branch-2-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Python.</span>
+</h3></summary><article class="example example-like knowl__content">Solve <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.1">(2.4.2.1)</a>-<a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.3">(2.4.2.3)</a> for the three unknown currents using Python.<div class="solutions">
+<details id="subsec-dc-analysis-branch-2-11-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="subsec-dc-analysis-branch-2-11-4-1">
+<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
+<div class="para" id="subsec-dc-analysis-branch-2-11-4-2">
+<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
+</div></details><details id="subsec-dc-analysis-branch-2-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-dc-analysis-branch-2-11-3-1">The Python programming language can be used to solve a system of equations through the use of the scipy.linalg package. If presented with an equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\)</span> where <span class="process-math">\(\mathbf{A}\)</span> is a matrix and <span class="process-math">\(\mathbf{x}\)</span> and <span class="process-math">\(\mathbf{v}\)</span> are vectors, we can solve the equation using <code class="code-inline tex2jax_ignore">x = scipy.linalg.solve(A,v)</code>.</div>
+<div class="para logical" id="subsec-dc-analysis-branch-2-11-3-2">
+<div class="para">As an example, let’s start with the system of equations <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.1">(2.4.2.1)</a>-<a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.3">(2.4.2.3)</a>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrix-mult.html" id="subsec-dc-analysis-branch-2-11-3-2-3">
+\begin{align*}
+0 \amp = I_1 - I_2 - I_3\\
+0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4\\
+0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4\text{.}
+\end{align*}
+</div>
+<div class="para">These equations can be re-expressed as a matrix equation if we remember the rules of matrix multiplication (see <a href="app-matrix-mult.html" class="internal" title="Appendix B: Matrix Multiplication">Appendix B</a> for details). The resulting matrix equation is expressed as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrix-mult.html">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Since we have numerical values for <span class="process-math">\(V_b\)</span> and all resistors, we can plug these into the matrices. This matrix equation is in the necessary form for <code class="code-inline tex2jax_ignore">x = scipy.linalg.solve(A,v)</code>. <div id="subsec-dc-analysis-branch-2-11-3-2-8" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+import scipy.linalg as linalg
+
+Vbb=24 # Volts
+R1, R2, R3, R4 = [3000, 1000, 2000, 5000] # Ohms
+A = np.array([[1, -1, -1],[R1+R4, R2, 0],[R1+R4, 0, R3]])
+v = np.array([0, Vbb, Vbb])
+
+x = linalg.solve(A,v)
+print('I1 = {0:0.2f} mA, I2 = {1:0.2f} mA, I3 = {2:0.2f} mA'.format(x[0]*1000,x[1]*1000, x[2]*1000)) # 1000 mA in one Amp
+</script></div> The results of this method are identical to the analytic result.</div>
+</div>
+</div></details>
+</div></article></details> <details id="subsec-dc-analysis-branch-2-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Sympy.</span>
+</h3></summary><article class="example example-like knowl__content">Solve <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.1">(2.4.2.1)</a>-<a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.3">(2.4.2.3)</a> for the three unknown currents using Python and SymPy.<div class="solutions">
+<details id="subsec-dc-analysis-branch-2-12-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="subsec-dc-analysis-branch-2-12-4-1">
+<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
+<div class="para" id="subsec-dc-analysis-branch-2-12-4-2">
+<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
+</div></details><details id="subsec-dc-analysis-branch-2-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-12-3-1">
+<div class="para">One can also use functionality from SymPy, the symbolic math package for Python, to solve systems of linear equations. As before,</div>
+<div class="displaymath process-math" id="subsec-dc-analysis-branch-2-12-3-1-1">
+\begin{align*}
+0 \amp = I_1 - I_2 - I_3\\
+0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4\\
+0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4
+\end{align*}
+</div>
+<div class="para">becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix} \quad \Rightarrow \quad
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+\end{pmatrix} ^{-1}
+\begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">which can be solved symbolically with the following code: <div id="subsec-dc-analysis-branch-2-12-3-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Using Sage since Python/SymPy output as LaTeX is not playing nice
+import sympy as sym
+from IPython.display import display
+sym.init_printing(use_latex=True)
+
+R1, R2, R3, R4 = sym.symbols('R_1 R_2 R_3 R_4')
+Vb = sym.symbols('V_b')
+matrix = sym.Matrix([[1, -1, -1],
+                     [R1+R4, R2, 0],
+                   [R1+R4, 0, R3]])
+invmatrix = matrix.inv()
+I = invmatrix * sym.Matrix([[0],[Vb],[Vb]])
+sym.simplify(I)
+</script></div> This analysis gives the result</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+\frac{V_b(R_2+R_3)}{R_1 R_2 + R_1 R_3 + R_2 R_3 + R_2 R_4 + R_3 R_4} \\
+\frac{V_b R_3}{R_1 R_2 + R_1 R_3 + R_2 R_3 + R_2 R_4 + R_3 R_4} \\
+\frac{V_b R_2}{R_1 R_2 + R_1 R_3 + R_2 R_3 + R_2 R_4 + R_3 R_4}
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">which simplifies to the results of the previous methods when numerical values are inserted for <span class="process-math">\(V_b\)</span> and resistances.</div>
+</div></div></details>
+</div></article></details> <details id="subsec-dc-analysis-branch-2-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Gaussian elimination.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="subsec-dc-analysis-branch-2-13-2-1">Solve <a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.1">(2.4.2.1)</a>-<a href="subsec-dc-analysis-branch.html#subsec-dc-analysis-branch-2-6" class="internal" title="Equation 2.4.2.3">(2.4.2.3)</a> for the three unknown currents using Gaussian elimination.</div>
+<div class="solutions">
+<details id="subsec-dc-analysis-branch-2-13-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="subsec-dc-analysis-branch-2-13-4-1">
+<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
+<div class="para" id="subsec-dc-analysis-branch-2-13-4-2">
+<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
+</div></details><details id="subsec-dc-analysis-branch-2-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-13-3-1">
+<div class="para">We can also use a linear algebra method called <dfn class="terminology">Gaussian elimination</dfn> to solve the matrix equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Gaussian elimination relies on two facts:</div>
+<ol class="decimal" id="subsec-dc-analysis-branch-2-13-3-1-3">
+<li id="subsec-dc-analysis-branch-2-13-3-1-3-1"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-13-3-1-3-1">If we multiply one row of <span class="process-math">\(\mathbf{A}\)</span> and the same row of <span class="process-math">\(\mathbf{v}\)</span> by some constant <span class="process-math">\(q\text{,}\)</span> the solutions for <span class="process-math">\(\mathbf{x}\)</span> remain unchanged.</div></li>
+<li id="subsec-dc-analysis-branch-2-13-3-1-3-2"><div class="para" id="p-derived-subsec-dc-analysis-branch-2-13-3-1-3-2">Any linear combination of two rows will give a new correct row.</div></li>
+</ol>
+<div class="para">Using the two rules above, our goal is to find an equivalent <span class="process-math">\(\mathbf{A}'\mathbf{x}=\mathbf{v}'\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{A}' =
+\begin{pmatrix}
+1 \amp A_{12}' \amp A_{13}'\\
+0 \amp 1 \amp A_{13}'\\
+0 \amp 0 \amp 1
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Often, the first step in using Gaussian elimination is to divide the first row by <span class="process-math">\(A_{11}\text{.}\)</span> In this case, both <span class="process-math">\(\mathbf{A}\)</span> and <span class="process-math">\(\mathbf{v}\)</span> remain unchanged since <span class="process-math">\(A_{11}=1\text{.}\)</span> Next, we’ll subtract <span class="process-math">\(\left[A_{21} * \left(\text{first row of $\textbf{A}$ and $\bf{v}$}\right)\right]\)</span> from row 2 to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ 0 \amp R_2 + R_1 + R_4 \amp R_1 + R_4\\ R_1+R_4 \amp 0 \amp R_3
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Then, we’ll subtract <span class="process-math">\(\left[A_{31} * \left(\text{first row of $\textbf{A}$ and $\bf{v}$}\right)\right]\)</span> from row 3 to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ 0 \amp R_2 + R_1 + R_4 \amp R_1 + R_4\\ 0 \amp R_1 + R_4 \amp R_3 + R_1 + R_4
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ V_b \\ V_b \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">If we now divide row 2 by <span class="process-math">\(A_{22}\text{,}\)</span> we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp R_1 + R_4 \amp R_3 + R_1 + R_4
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ V_b \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">Subtracting <span class="process-math">\(\left[A_{32} * \left(\text{second row of $\textbf{A}$ and $\bf{v}$}\right)\right]\)</span> from row 3 will eliminate <span class="process-math">\(A_{32}\)</span> while leaving <span class="process-math">\(A_{31}=0\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp 0 \amp R_3 + R_1 + R_4 - \frac{\left(R_1 + R_4\right)^2}{R_2 + R_1 + R_4}
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix} 0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ V_b - \frac{V_b\left(R_1 + R_4\right)}{R_2 + R_1 + R_4} \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Then, divide row 3 by <span class="process-math">\(A_{33}\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp 0 \amp 1
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix}
+0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ 
+\left[V_b - \frac{V_b\left(R_1 + R_4\right)}{R_2 + R_1 + R_4}\right] / \left[R_3 + R_1 + R_4 
+- \frac{\left(R_1 + R_4\right)^2}{R_2 + R_1 + R_4}\right] \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">which simplifies to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp -1 \\ 0 \amp 1 \amp \frac{R_1 + R_4}{R_2 + R_1 + R_4}\\ 0 \amp 0 \amp 1
+\end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} =
+\begin{pmatrix}
+0 \\ \frac{V_b}{R_2 + R_1 + R_4} \\ 
+\frac{V_b R_2}{R_2 + R_1 + R_4}\ \frac{R_3 + R_1 + R_4}{R_3^2+2 R_3\left(R_1 + R_4\right)} \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Now, we can read off an expression for <span class="process-math">\(I_3\)</span> and subsequently calculate <span class="process-math">\(I_1\)</span> and <span class="process-math">\(I_2\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-dc-analysis-branch-2-13-3-1-26">
+\begin{align*}
+I_3 \amp = \frac{V_b R_2}{R_2 + R_1 + R_4}\ \frac{R_3 + R_1 + R_4}{R_3^2+2 R_3\left(R_1 + R_4\right)} = 0.92\text{mA}\\
+I_2 \amp = \frac{V_b}{R_2 + R_1 + R_4} - \frac{R_1 + R_4}{R_2 + R_1 + R_4}I_3 = 1.85\text{mA}\\
+I_1 \amp = I_2 + I_3 = 2.77\text{mA}\text{.}
+\end{align*}
+</div>
+</div></div></details>
+</div></article></details>
+</div>
+</div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="subsec-dc-analysis-reduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="subsec-dc-analysis-mesh.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
