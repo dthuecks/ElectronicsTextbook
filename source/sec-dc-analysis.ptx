@@ -194,22 +194,28 @@
                     <mrow>0 \amp = V_b - I_2(R_1 + R_2 + R_4) - I_3(R_1 + R_4)</mrow>
                     <mrow>0 \amp = V_b - I_2 (R_1 + R_4) - I_3 (R_1 + R_3 + R_4)</mrow>
                 </md>.
-                Plugging in values for known components and using your favorite method for solving this system of equations, one can show that <m>I_2 = 1.85</m>mA, <m>I_3=0.92</m>mA, and <m>I_1 = I_2 + I_3 = 2.77</m>mA. Then, just as in the circuit reduction method, Ohm's law can be used to find
+                Solving the top equation for <m>I_2</m>, we find
+                <me>
+                    I_2 = \frac{V_b}{R_1 + R_2 + R_4} - \frac{R_1 + R_4}{R_1 + R_2 + R_4}I_3
+                </me>
+                which can be substituted into the bottom equation to give
+                <me>
+                    0 = V_b - \frac{V_b \left(R_1+R_4\right)}{R_1 + R_2 + R_4} - \frac{\left(R_1 + R_4\right)^2}{R_1 + R_2 + R_4}I_3 - I_3 (R_1 + R_3 + R_4)
+                </me>.
+                Plugging in values for known components, we can solve for <m>I_3</m>. Once we have a value for <m>I_3</m>, we use the equations above to calculate <m>I_2</m> and then <m>I_1</m>, finding
                 <md>
-                    <mrow>V_{b+} \amp = 24\text{V}</mrow>
-                    <mrow>V_A \amp = V_{b+}-I_1 R_1 = 15.69\text{V}</mrow>
-                    <mrow>V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}</mrow>
+                    <mrow>I_1 =\amp 2.77\text{mA} </mrow>
+                    <mrow>I_2 =\amp 1.85\text{mA} </mrow>
+                    <mrow>I_3 =\amp 0.92\text{mA} </mrow>
+                </md>.
+                 Then, just as in the circuit reduction method, Ohm's law can be used to find
+                <md>
+                    <mrow>V_A \amp = 15.69\text{V}</mrow>
+                    <mrow>V_B \amp = 13.85\text{V}</mrow>
                 </md>.
                 </p>
             </solution>
-            <answer>
-                <p>
-                    <m>I_1=2.25</m>mA, <m>I_2=1.85</m>mA, and <m>I_3=0.92</m>mA.
-                </p>
-                <p>
-                    <m>V_A=15.69</m>V and <m>V_B=13.85</m>V.
-                </p>
-            </answer>
+            
         </example>
 
         <example>
@@ -248,23 +254,21 @@
                         v = np.array([0, Vbb, Vbb])
 
                         x = linalg.solve(A,v)
+                        VA = Vbb - x[0]*R1;
+                        VB = VA - x[1]*R2;
                         print('I1 = {0:0.2f} mA, I2 = {1:0.2f} mA, I3 = {2:0.2f} mA'.format(x[0]*1000,x[1]*1000, x[2]*1000)) # 1000 mA in one Amp
+                        print('VA = {0:0.2f} V, VB = {1:0.2f} V'.format(VA, VB))
+
                     </input>
                     <output>
-                        I1 = 2.25 mA, I2 = 1.50 mA, I3 = 0.75 mA
+                        I1 = 2.77 mA, I2 = 1.85 mA, I3 = 0.92 mA
+                        VA = 15.69 V, VB = 13.85 V
                     </output>
                 </sage>
                 The results of this method are identical to the analytic result.
                 </p>
             </solution>
-            <answer>
-                <p>
-                    <m>I_1=2.25</m>mA, <m>I_2=1.85</m>mA, and <m>I_3=0.92</m>mA.
-                </p>
-                <p>
-                    <m>V_A=15.69</m>V and <m>V_B=13.85</m>V.
-                </p>
-            </answer>
+            
         </example>
         
         <example>
@@ -326,14 +330,7 @@
             </p>
                 
             </solution>
-            <answer>
-                <p>
-                    <m>I_1=2.25</m>mA, <m>I_2=1.85</m>mA, and <m>I_3=0.92</m>mA.
-                </p>
-                <p>
-                    <m>V_A=15.69</m>V and <m>V_B=13.85</m>V.
-                </p>
-            </answer>
+            
         </example>
 
         <example>
@@ -428,14 +425,7 @@
                 </md>.
                 </p>
             </solution>
-            <answer>
-                <p>
-                    <m>I_1=2.25</m>mA, <m>I_2=1.85</m>mA, and <m>I_3=0.92</m>mA.
-                </p>
-                <p>
-                    <m>V_A=15.69</m>V and <m>V_B=13.85</m>V.
-                </p>
-            </answer>
+            
         </example>
     </p>
 </subsection>
@@ -503,8 +493,8 @@
         </md>.
         Once again, your favorite method for solving systems of equations can be used to find the mesh currents 
         <m>I_1=2.77</m>mA and <m>I_2=0.923</m>mA. Therefore, the current passing through <m>R_4</m>, <m>V_b</m>,
-        and <m>R_1</m> is <m>I_1 = 2.77</m>mA clockwise, the current through <m>R_3</m> is <m>I_2=0.923</m>mA, 
-        and the current through <m>R_2</m> is <m>I_1-I_2=1.85</m>mA. With these current values, we can once again 
+        and <m>R_1</m> is <m>I_1 = 2.77</m>mA clockwise, the current through <m>R_3</m> is <m>I_2=0.923</m>mA downward, 
+        and the current through <m>R_2</m> is <m>I_1-I_2=1.85</m>mA downward. With these current values, we can once again 
         use the same Ohm's law method from the previous sections to find the voltages at any location in the circuit.
     </p>
     <p>

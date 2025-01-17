@@ -8,7 +8,7 @@
 
   <book xml:id="Electronics">
     <title>Electronics</title>
-    <subtitle>A Guide for Physicists</subtitle>
+    <subtitle>A Guide for Physicists (DRAFT -- in development)</subtitle>
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
