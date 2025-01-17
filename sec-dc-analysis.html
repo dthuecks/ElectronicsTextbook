@@ -212,7 +212,7 @@ eBookConfig.enable_chatcodes =  false;
 <body id="electronics.thuecks" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">A Guide for Physicists</span></a></h1>
+<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics:</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
 <p class="byline">Derek J. Thuecks</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
@@ -428,13 +428,7 @@ V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}\text{.}
 <div class="para">You can now find values for <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> using your favorite method for solving systems of equations. We will illustrate several such methods. <details id="subsec-dc-analysis-branch-2-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Analytic.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para" id="subsec-dc-analysis-branch-2-10-2-1">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using analytic methods.</div>
-<div class="solutions">
-<details id="subsec-dc-analysis-branch-2-10-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="subsec-dc-analysis-branch-2-10-4-1">
-<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
-<div class="para" id="subsec-dc-analysis-branch-2-10-4-2">
-<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
-</div></details><details id="subsec-dc-analysis-branch-2-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-10-3-1">
+<div class="solutions"><details id="subsec-dc-analysis-branch-2-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-10-3-1">
 <div class="para">Solving Equation <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a> for <span class="process-math">\(I_1\text{,}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html">
@@ -456,24 +450,36 @@ I_1=I_2+I_3\text{,}
 0 \amp = V_b - I_2 (R_1 + R_4) - I_3 (R_1 + R_3 + R_4)\text{.}
 \end{align*}
 </div>
-<div class="para">Plugging in values for known components and using your favorite method for solving this system of equations, one can show that <span class="process-math">\(I_2 = 1.85\)</span>mA, <span class="process-math">\(I_3=0.92\)</span>mA, and <span class="process-math">\(I_1 = I_2 + I_3 = 2.77\)</span>mA. Then, just as in the circuit reduction method, Ohm’s law can be used to find</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-10-3-1-11">
+<div class="para">Solving the top equation for <span class="process-math">\(I_2\text{,}\)</span> we find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html">
+\begin{equation*}
+I_2 = \frac{V_b}{R_1 + R_2 + R_4} - \frac{R_1 + R_4}{R_1 + R_2 + R_4}I_3
+\end{equation*}
+</div>
+<div class="para">which can be substituted into the bottom equation to give</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html">
+\begin{equation*}
+0 = V_b - \frac{V_b \left(R_1+R_4\right)}{R_1 + R_2 + R_4} - \frac{\left(R_1 + R_4\right)^2}{R_1 + R_2 + R_4}I_3 - I_3 (R_1 + R_3 + R_4)\text{.}
+\end{equation*}
+</div>
+<div class="para">Plugging in values for known components, we can solve for <span class="process-math">\(I_3\text{.}\)</span> Once we have a value for <span class="process-math">\(I_3\text{,}\)</span> we use the equations above to calculate <span class="process-math">\(I_2\)</span> and then <span class="process-math">\(I_1\text{,}\)</span> finding</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-10-3-1-15">
 \begin{align*}
-V_{b+} \amp = 24\text{V}\\
-V_A \amp = V_{b+}-I_1 R_1 = 15.69\text{V}\\
-V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}\text{.}
+I_1 =\amp 2.77\text{mA} \\
+I_2 =\amp 1.85\text{mA} \\
+I_3 =\amp 0.92\text{mA} \text{.}
 \end{align*}
 </div>
-</div></div></details>
-</div></article></details> <details id="subsec-dc-analysis-branch-2-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<div class="para">Then, just as in the circuit reduction method, Ohm’s law can be used to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-10-3-1-16">
+\begin{align*}
+V_A \amp = 15.69\text{V}\\
+V_B \amp = 13.85\text{V}\text{.}
+\end{align*}
+</div>
+</div></div></details></div></article></details> <details id="subsec-dc-analysis-branch-2-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Python.</span>
-</h4></summary><article class="example example-like knowl__content">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Python.<div class="solutions">
-<details id="subsec-dc-analysis-branch-2-11-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="subsec-dc-analysis-branch-2-11-4-1">
-<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
-<div class="para" id="subsec-dc-analysis-branch-2-11-4-2">
-<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
-</div></details><details id="subsec-dc-analysis-branch-2-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+</h4></summary><article class="example example-like knowl__content">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Python.<div class="solutions"><details id="subsec-dc-analysis-branch-2-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="subsec-dc-analysis-branch-2-11-3-1">The Python programming language can be used to solve a system of equations through the use of the scipy.linalg package. If presented with an equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\)</span> where <span class="process-math">\(\mathbf{A}\)</span> is a matrix and <span class="process-math">\(\mathbf{x}\)</span> and <span class="process-math">\(\mathbf{v}\)</span> are vectors, we can solve the equation using <code class="code-inline tex2jax_ignore">x = scipy.linalg.solve(A,v)</code>.</div>
 <div class="para logical" id="subsec-dc-analysis-branch-2-11-3-2">
 <div class="para">As an example, let’s start with the system of equations <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a>
@@ -504,19 +510,15 @@ A = np.array([[1, -1, -1],[R1+R4, R2, 0],[R1+R4, 0, R3]])
 v = np.array([0, Vbb, Vbb])
 
 x = linalg.solve(A,v)
+VA = Vbb - x[0]*R1;
+VB = VA - x[1]*R2;
 print('I1 = {0:0.2f} mA, I2 = {1:0.2f} mA, I3 = {2:0.2f} mA'.format(x[0]*1000,x[1]*1000, x[2]*1000)) # 1000 mA in one Amp
+print('VA = {0:0.2f} V, VB = {1:0.2f} V'.format(VA, VB))
 </script></div> The results of this method are identical to the analytic result.</div>
 </div>
-</div></details>
-</div></article></details> <details id="subsec-dc-analysis-branch-2-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+</div></details></div></article></details> <details id="subsec-dc-analysis-branch-2-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Sympy.</span>
-</h4></summary><article class="example example-like knowl__content">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Python and SymPy.<div class="solutions">
-<details id="subsec-dc-analysis-branch-2-12-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="subsec-dc-analysis-branch-2-12-4-1">
-<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
-<div class="para" id="subsec-dc-analysis-branch-2-12-4-2">
-<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
-</div></details><details id="subsec-dc-analysis-branch-2-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-12-3-1">
+</h4></summary><article class="example example-like knowl__content">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Python and SymPy.<div class="solutions"><details id="subsec-dc-analysis-branch-2-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-12-3-1">
 <div class="para">One can also use functionality from SymPy, the symbolic math package for Python, to solve systems of linear equations. As before,</div>
 <div class="displaymath process-math" id="subsec-dc-analysis-branch-2-12-3-1-1">
 \begin{align*}
@@ -564,17 +566,10 @@ sym.simplify(I)
 \end{equation*}
 </div>
 <div class="para">which simplifies to the results of the previous methods when numerical values are inserted for <span class="process-math">\(V_b\)</span> and resistances.</div>
-</div></div></details>
-</div></article></details> <details id="subsec-dc-analysis-branch-2-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+</div></div></details></div></article></details> <details id="subsec-dc-analysis-branch-2-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Branch Method Equations - Gaussian elimination.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para" id="subsec-dc-analysis-branch-2-13-2-1">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Gaussian elimination.</div>
-<div class="solutions">
-<details id="subsec-dc-analysis-branch-2-13-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="subsec-dc-analysis-branch-2-13-4-1">
-<span class="process-math">\(I_1=2.25\)</span>mA, <span class="process-math">\(I_2=1.85\)</span>mA, and <span class="process-math">\(I_3=0.92\)</span>mA.</div>
-<div class="para" id="subsec-dc-analysis-branch-2-13-4-2">
-<span class="process-math">\(V_A=15.69\)</span>V and <span class="process-math">\(V_B=13.85\)</span>V.</div>
-</div></details><details id="subsec-dc-analysis-branch-2-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-13-3-1">
+<div class="solutions"><details id="subsec-dc-analysis-branch-2-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsec-dc-analysis-branch-2-13-3-1">
 <div class="para">We can also use a linear algebra method called <dfn class="terminology">Gaussian elimination</dfn> to solve the matrix equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -676,8 +671,7 @@ I_2 \amp = \frac{V_b}{R_2 + R_1 + R_4} - \frac{R_1 + R_4}{R_2 + R_1 + R_4}I_3 = 
 I_1 \amp = I_2 + I_3 = 2.77\text{mA}\text{.}
 \end{align*}
 </div>
-</div></div></details>
-</div></article></details>
+</div></div></details></div></article></details>
 </div>
 </div></section><section class="subsection" id="subsec-dc-analysis-mesh"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="space"> </span><span class="title">Analysis: Mesh Method</span>
@@ -710,7 +704,7 @@ I_1 \amp = I_2 + I_3 = 2.77\text{mA}\text{.}
 0 \amp = I_1 R_2 - I_2(R_2 + R_3)\text{.}
 \end{align*}
 </div>
-<div class="para">Once again, your favorite method for solving systems of equations can be used to find the mesh currents <span class="process-math">\(I_1=2.77\)</span>mA and <span class="process-math">\(I_2=0.923\)</span>mA. Therefore, the current passing through <span class="process-math">\(R_4\text{,}\)</span> <span class="process-math">\(V_b\text{,}\)</span> and <span class="process-math">\(R_1\)</span> is <span class="process-math">\(I_1 = 2.77\)</span>mA clockwise, the current through <span class="process-math">\(R_3\)</span> is <span class="process-math">\(I_2=0.923\)</span>mA, and the current through <span class="process-math">\(R_2\)</span> is <span class="process-math">\(I_1-I_2=1.85\)</span>mA. With these current values, we can once again use the same Ohm’s law method from the previous sections to find the voltages at any location in the circuit.</div>
+<div class="para">Once again, your favorite method for solving systems of equations can be used to find the mesh currents <span class="process-math">\(I_1=2.77\)</span>mA and <span class="process-math">\(I_2=0.923\)</span>mA. Therefore, the current passing through <span class="process-math">\(R_4\text{,}\)</span> <span class="process-math">\(V_b\text{,}\)</span> and <span class="process-math">\(R_1\)</span> is <span class="process-math">\(I_1 = 2.77\)</span>mA clockwise, the current through <span class="process-math">\(R_3\)</span> is <span class="process-math">\(I_2=0.923\)</span>mA downward, and the current through <span class="process-math">\(R_2\)</span> is <span class="process-math">\(I_1-I_2=1.85\)</span>mA downward. With these current values, we can once again use the same Ohm’s law method from the previous sections to find the voltages at any location in the circuit.</div>
 </div>
 <div class="para" id="subsec-dc-analysis-mesh-4">Note that the mesh method leaves us with a system of two equations to solve and compare that to the system of three equations that the branch method provided. This simplification comes at a cost, though. In the branch method, the variables representing currents are the actual currents passing through each part of the circuit. In the mesh method, we instead solve for mesh currents. The real currents can then be calculated as sums and differences of these mesh currents.</div></section></section></div>
 <div class="ptx-content-footer">
