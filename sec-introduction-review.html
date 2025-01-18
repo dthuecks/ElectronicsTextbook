@@ -138,6 +138,9 @@ eBookConfig.enable_chatcodes =  false;
 #subsec-finding-thevenin-3-1 { counter-set: subsec-finding-thevenin-3-1 0; }
 #subsec-finding-thevenin-3-1 > li::marker { content: ""counter(subsec-finding-thevenin-3-1,decimal)"."; }
 #subsec-finding-thevenin-3-1 > li { counter-increment: subsec-finding-thevenin-3-1; }
+#ch-dc-homework-2 { counter-set: ch-dc-homework-2 0; }
+#ch-dc-homework-2 > li::marker { content: ""counter(ch-dc-homework-2,decimal)"."; }
+#ch-dc-homework-2 > li { counter-increment: ch-dc-homework-2; }
 #sec-ac-amplitudes-2-1-1 { counter-set: sec-ac-amplitudes-2-1-1 0; }
 #sec-ac-amplitudes-2-1-1 > li::marker { content: ""counter(sec-ac-amplitudes-2-1-1,decimal)"."; }
 #sec-ac-amplitudes-2-1-1 > li { counter-increment: sec-ac-amplitudes-2-1-1; }
@@ -203,7 +206,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-dc.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-introduction-schematics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -219,7 +222,10 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
-<ul class="structural toc-item-list contains-active"><li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-introduction-review.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Review from Introductory Physics</span></a></div></li></ul>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-introduction-review.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Review from Introductory Physics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-schematics.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Fundamentals of Circuit Schematics</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-dc.html" class="internal"><span class="codenumber">2</span> <span class="title">DC Circuits</span></a></div>
@@ -245,6 +251,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-batteries.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Application of Thevenin Equivalent Cicruits: Batteries</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-uses.html" class="internal"><span class="codenumber">2.8</span> <span class="title">DC Circuit Uses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-dc-homework.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Problems</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -309,94 +316,40 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-introduction-review"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">Review from Introductory Physics</span>
 </h2>
-<div class="para" id="sec-introduction-review-2">Electrical devices are powered by electricity, and this electricity characterizes the movement of charges (which we call <dfn class="terminology">current</dfn>) through a circuit. These charges move due to <dfn class="terminology">voltage</dfn> differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first establish what voltage and current are.</div>
+<div class="para" id="sec-introduction-review-2">Electrical devices are powered by electricity, the movement of charges (which we call <dfn class="terminology">current</dfn>) through a circuit. These charges move due to <dfn class="terminology">voltage</dfn> differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first remember what we learned in our introductory physics course.</div>
 <div class="para logical" id="sec-introduction-review-3">
-<div class="para">In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the <dfn class="terminology">electric field</dfn> (which has SI units of V/m). The electric field created by a point charge <span class="process-math">\(Q\)</span> can be written as</div>
+<div class="para">In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the <dfn class="terminology">electric field</dfn> (which has SI units of V/m). The electric field at a position <span class="process-math">\(\vec{r}\)</span> relative to a point charge source <span class="process-math">\(Q\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\vec{E}=\frac{Q}{4\pi\varepsilon_0 r^2}\vec{r}.
+\vec{E}=\frac{Q}{4\pi\varepsilon_0 r^2}\hat{r}
 \end{equation*}
 </div>
-<div class="para">While the electric field is a useful construct, it is sometimes convenient to represent this space modification using a scalar field which we call the <dfn class="terminology">electric potential</dfn> (with SI units of Volts). For a point charge <span class="process-math">\(Q\text{,}\)</span> the electric potential</div>
+<div class="para">where <span class="process-math">\(\varepsilon_0\)</span> is the permitivity of free space (a constant of nature). The electric field has SI units of V/m. While the electric field is a useful construct, it can be convenient to represent this space modification using a scalar field called the <dfn class="terminology">electric potential</dfn> (with SI units of Volts). For a point charge <span class="process-math">\(Q\text{,}\)</span> the electric potential some distance <span class="process-math">\(r\)</span> away from the source charge is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-V(\vec{r})=\frac{Q}{4\pi\varepsilon_0 r}.
+V(\vec{r})=\frac{Q}{4\pi\varepsilon_0 r}\text{.}
 \end{equation*}
 </div>
-<div class="para">When dealing with circuits, we often use the term <dfn class="terminology">voltage</dfn> for this scalar field. The relationship linking these two representations is described by</div>
+<div class="para">When discussing circuits, this scalar field is often called the <dfn class="terminology">voltage</dfn>. The relationship linking these two representations is described by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \vec{E}=-\nabla V = -\left[\frac{\partial V}{\partial x}\hat{x} + \frac{\partial V}{\partial y}\hat{y} + 
-\frac{\partial V}{\partial z}\hat{z}\right].
+\frac{\partial V}{\partial z}\hat{z}\right]\text{.}
 \end{equation*}
 </div>
-<div class="para">While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the behavior of electrical circuits. The SI unit for voltage is, conveniently, the Volt.</div>
+<div class="para">While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the behavior of electrical circuits.</div>
 </div>
 <div class="para logical" id="sec-introduction-review-4">
-<div class="para">
-<dfn class="terminology">Current</dfn> represents the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or</div>
+<div class="para">In circuits, voltage differences lead to electric fields that cause charges to move. <dfn class="terminology">Current</dfn> quantifies the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or</div>
 <div class="displaymath process-math">
 \begin{equation*}
-I=\frac{dQ}{dt}.
+I=\frac{dQ}{dt}\text{.}
 \end{equation*}
 </div>
-</div>
-<div class="para" id="sec-introduction-review-5"> In order to read circuit schematics, we will need to establish definitions for symbols that are commonly used. <a href="sec-introduction-review.html#circuit-symbols" class="xref" data-knowl="./knowl/xref/circuit-symbols.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.1.1: Circuit Symbols">Table 1.1.1</a> provides common symbols that will be used in the first several chapters.</div>
-<figure class="table table-like" id="circuit-symbols"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>Circuit Symbols</figcaption><div class="tabular-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><table class="tabular">
-<tr class="header-horizontal">
-<th scope="col" class="c m b1 r0 l0 t0 lines">Symbol</th>
-<th scope="col" class="c m b1 r0 l0 t0 lines">Name</th>
-<th scope="col" class="c m b1 r0 l0 t0 lines">SI Units</th>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/circuit-symbols-2-2-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">wire</td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-symbols-2-3-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">Battery</td>
-<td class="c m b0 r0 l0 t0 lines">Volt (V)</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-symbols-2-4-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">AC voltage source</td>
-<td class="c m b0 r0 l0 t0 lines">Volt (V)</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-symbols-2-5-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">DC current source</td>
-<td class="c m b0 r0 l0 t0 lines">Ampere (A)</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-symbols-2-6-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">Resistor</td>
-<td class="c m b0 r0 l0 t0 lines">Ohm (<span class="process-math">\(\Omega\)</span>)</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-symbols-2-7-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">Capacitor</td>
-<td class="c m b0 r0 l0 t0 lines">Farad (F)</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-symbols-2-8-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">Inductor</td>
-<td class="c m b0 r0 l0 t0 lines">Henry (H)</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/latex-image/circuit-symbols-2-9-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">Ground</td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/latex-image/circuit-symbols-2-10-1-1.svg" role="img" class="contained"></div></td>
-<td class="c m b0 r0 l0 t0 lines">Common</td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-</tr>
-</table></div></figure><div class="para" id="sec-introduction-review-7">We must explain the + and - terminals on the battery!</div>
-<div class="para" id="sec-introduction-review-8">INCLUDE SECTION DISCUSSING HOW TO DRAW CIRCUIT DIAGRAMS. Discuss junctions, ground, common, voltage, current.</div></section></div>
+<div class="para">In many materials (e.g. metals), positive charges are largely immobile since they are associated with the nuclei of atoms in a material. Thus, electrons are typically the charge carrier in circuits, constituting the current. Unfortunately, there was still much unknown about atomic theory when initial experiments on electricity were conducted, with the consequence that the direction of current is defined to be in the direction that positive charge carriers would be moving if they were responsible for the current. This means that current often has a direction that is opposite to the direction in which the actual charge carriers are moving.</div>
+</div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-dc.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch-introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-introduction-schematics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

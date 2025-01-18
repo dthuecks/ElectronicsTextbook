@@ -16,7 +16,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.1",
   "title": "Review from Introductory Physics",
-  "body": " Review from Introductory Physics  Electrical devices are powered by electricity, and this electricity characterizes the movement of charges (which we call current ) through a circuit. These charges move due to voltage differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first establish what voltage and current are.  In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the electric field (which has SI units of V\/m). The electric field created by a point charge can be written as While the electric field is a useful construct, it is sometimes convenient to represent this space modification using a scalar field which we call the electric potential (with SI units of Volts). For a point charge , the electric potential When dealing with circuits, we often use the term voltage for this scalar field. The relationship linking these two representations is described by While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the behavior of electrical circuits. The SI unit for voltage is, conveniently, the Volt.   Current represents the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or    In order to read circuit schematics, we will need to establish definitions for symbols that are commonly used. provides common symbols that will be used in the first several chapters.   Circuit Symbols    Symbol Name SI Units      wire      Battery Volt (V)      AC voltage source Volt (V)      DC current source Ampere (A)      Resistor Ohm ( )      Capacitor Farad (F)      Inductor Henry (H)      Ground      Common     We must explain the + and - terminals on the battery!  INCLUDE SECTION DISCUSSING HOW TO DRAW CIRCUIT DIAGRAMS. Discuss junctions, ground, common, voltage, current.  "
+  "body": " Review from Introductory Physics  Electrical devices are powered by electricity, the movement of charges (which we call current ) through a circuit. These charges move due to voltage differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first remember what we learned in our introductory physics course.  In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the electric field (which has SI units of V\/m). The electric field at a position relative to a point charge source is given by where is the permitivity of free space (a constant of nature). The electric field has SI units of V\/m. While the electric field is a useful construct, it can be convenient to represent this space modification using a scalar field called the electric potential (with SI units of Volts). For a point charge , the electric potential some distance away from the source charge is . When discussing circuits, this scalar field is often called the voltage . The relationship linking these two representations is described by . While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the behavior of electrical circuits.  In circuits, voltage differences lead to electric fields that cause charges to move. Current quantifies the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or . In many materials (e.g. metals), positive charges are largely immobile since they are associated with the nuclei of atoms in a material. Thus, electrons are typically the charge carrier in circuits, constituting the current. Unfortunately, there was still much unknown about atomic theory when initial experiments on electricity were conducted, with the consequence that the direction of current is defined to be in the direction that positive charge carriers would be moving if they were responsible for the current. This means that current often has a direction that is opposite to the direction in which the actual charge carriers are moving.  "
 },
 {
   "id": "sec-introduction-review-2",
@@ -46,13 +46,31 @@ var ptx_lunr_docs = [
   "body": "Current "
 },
 {
-  "id": "circuit-symbols",
+  "id": "sec-introduction-schematics",
+  "level": "1",
+  "url": "sec-introduction-schematics.html",
+  "type": "Section",
+  "number": "1.2",
+  "title": "Fundamentals of Circuit Schematics",
+  "body": " Fundamentals of Circuit Schematics  Analysis of a circuit often starts with producing a visual representation of a circuit's important properties. Rather than using an artistic representation of a real circuit, schematic diagrams are typically used instead. An example of a circuit schematic is given in .       Explanation of the various circuit elements used in are provided in .  Circuit Symbols    Symbol Name Notes      wire      junction       Battery   SI Unit: Volt (V),  Long line is + terminal       AC voltage source SI Unit: Volt (V)      DC current source SI Unit: Ampere (A)      Resistor SI Unit: Ohm ( )      Capacitor SI Unit: Farad (F)      Inductor SI Unit: Henry (H)      Ground   Physically connected to Earth.  Acts as charge source\/sink.       Common   Circuit reference.  Assume V=0 at common.     So, lines represent wires connecting terminals of circuit elements. If a dot is present where two lines intersect, then it means that those two wires are connected. We have also labeled all of our components and provided labels and directions for currents.  "
+},
+{
+  "id": "fig-intro-schematic",
   "level": "2",
-  "url": "sec-introduction-review.html#circuit-symbols",
+  "url": "sec-introduction-schematics.html#fig-intro-schematic",
+  "type": "Figure",
+  "number": "1.2.1",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "tbl-intro-circuit-symbols",
+  "level": "2",
+  "url": "sec-introduction-schematics.html#tbl-intro-circuit-symbols",
   "type": "Table",
-  "number": "1.1.1",
+  "number": "1.2.2",
   "title": "Circuit Symbols",
-  "body": " Circuit Symbols    Symbol Name SI Units      wire      Battery Volt (V)      AC voltage source Volt (V)      DC current source Ampere (A)      Resistor Ohm ( )      Capacitor Farad (F)      Inductor Henry (H)      Ground      Common    "
+  "body": " Circuit Symbols    Symbol Name Notes      wire      junction       Battery   SI Unit: Volt (V),  Long line is + terminal       AC voltage source SI Unit: Volt (V)      DC current source SI Unit: Ampere (A)      Resistor SI Unit: Ohm ( )      Capacitor SI Unit: Farad (F)      Inductor SI Unit: Henry (H)      Ground   Physically connected to Earth.  Acts as charge source\/sink.       Common   Circuit reference.  Assume V=0 at common.     "
 },
 {
   "id": "sec-dc-kirchhoff",
@@ -269,6 +287,33 @@ var ptx_lunr_docs = [
   "number": "2.8",
   "title": "DC Circuit Uses",
   "body": " DC Circuit Uses      "
+},
+{
+  "id": "ch-dc-homework",
+  "level": "1",
+  "url": "ch-dc-homework.html",
+  "type": "Section",
+  "number": "2.9",
+  "title": "Problems",
+  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          "
+},
+{
+  "id": "fig-dc-homework-a1",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a1",
+  "type": "Figure",
+  "number": "2.9.1",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a2",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a2",
+  "type": "Figure",
+  "number": "2.9.2",
+  "title": "",
+  "body": "     "
 },
 {
   "id": "sec-ac-sinusoidal",
@@ -781,7 +826,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "5",
   "title": "Lab Safety",
-  "body": " Lab Safety   The laboratory is a place to gain hands-on experience with course content, become proficient with standard lab tools, and to learn techniques in experimental design, analysis, and troubleshooting. It requires only a small amount of effort to protect you, your classmates, and the equipment from damage or injury. In this lab, the main hazards to protect against include electrical shock, fire, and burns.    General Precautions    Keep your work area organized and uncluttered.    Avoid tripping hazards by keeping cables off of the floor.    Turn off all power when making physical changes to circuit components.    Even after turning power off, use a wire to connect the two ends of each capacitor and inductor in your circuit before reaching into the circuit with your fingers. Capacitors and inductors can store energy, maintaining a voltage difference between their terminals even after the power to the circuit has been turned off.    Be wary of circuit components that have become hot. Check the temperature of components before solidly grabbing them.    If you smell smoke or something burning, turn off your circuit immediately . Only start troubleshooting once the circuit is off.    Practice reaching into your circuit with a single hand (rather than both simultaneously) to reduce the risk of current passing through the core of your body.    Never work with electronics if your hands, clothes, or equipment are wet.    Food and drink are allowed only in designated areas in the lab room. Ask your instructor where this designated area is. Food and drink are prohibited everywhere else in the lab room.    In case of emergency involving risk of life or an uncontrollable fire, call 911. Notify the instructor of any accident that involves injury or equipment damage.     The primary sources of electric power that you will encounter in the lab are the 120V AC wall\/table outlets and the DC power supplies (that may provide up to 30V DC) between their terminals. Higher voltages may be present inside lab equipment. Never stick any unauthorized objects\/fingers into outlets or inside equipment.  When working with electricity, the main danger to avoid is a situation where current passes through your body. While voltage can also be dangerous, it is only very high voltages (which should not be present in the lab) that could cause arcs and burns that are dangerous on their own. In the circumstances you'll encounter in the lab, voltage is only dangerous in that it can induce a current to pass through your body.  The danger posed by currents passing through your body depend on 1) the size of the current and 2) the path that the current follows through your body. The highest risk is associated with a current that passes through the core of your body (namely, your heart). This is why you should learn to use only one hand when reaching into a circuit to insert\/remove circuit components.  The danger posed by current passing through the heart changes based on the size of the current. Breathing can start becoming labored for currents as low as 20mA. By 75mA, breathing may cease until the current is removed. In the 100mA-200mA range, ventricular fibrillation of the heart occurs. This is a condition where the electrical signals that tell your heart to pump are disrupted, resulting in a quivering of the ventricles instead of pumping. This is the most dangerous situation as sudden cardiac death may occur. Above 200mA, a person's chances for survival are actually better. At 200mA or above, the heart actually clamps rather than going into ventricular fibrilation.  "
+  "body": " Lab Safety   The laboratory is a place to gain hands-on experience with course content, become proficient with standard lab tools, and to learn techniques in experimental design, analysis, and troubleshooting. It requires only a small amount of effort to protect you, your classmates, and the equipment from damage or injury. In this lab, the main hazards to protect against include electrical shock, fire, and burns.    General Precautions    Keep your work area organized and uncluttered.    Avoid tripping hazards by keeping cables off of the floor.    Turn off all power when making physical changes to circuit components.    Even after turning power off, use a wire to connect the two ends of each capacitor and inductor in your circuit before reaching into the circuit with your fingers. Capacitors and inductors can store energy, maintaining a voltage difference between their terminals even after the power to the circuit has been turned off.    Be wary of circuit components that have become hot. Check the temperature of components before solidly grabbing them.    If you smell smoke or something burning, turn off your circuit immediately . Only start troubleshooting once the circuit is off.    Practice reaching into your circuit with a single hand (rather than both simultaneously) to reduce the risk of current passing through the core of your body.    Never work with electronics if your hands, clothes, or equipment are wet.    Food and drink are allowed only in designated areas in the lab room. Ask your instructor where this designated area is. Food and drink are prohibited everywhere else in the lab room.    In case of emergency involving risk of life or an uncontrollable fire, call 911. Notify the instructor of any accident that involves injury or equipment damage.     The primary sources of electric power that you will encounter in the lab are the 120V AC wall\/table outlets and the DC power supplies (that may provide up to 30V DC) between their terminals. Higher voltages may be present inside lab equipment. Never stick any unauthorized objects\/fingers into outlets or inside equipment.  When working with electricity, the main danger to avoid is a situation where current passes through your body. While voltage can also be dangerous, it is only very high voltages (which should not be present in the lab) that could cause arcs and burns that are dangerous on their own. In the circumstances you'll encounter in the lab, voltage is only dangerous in that it can induce a current to pass through your body.  The danger posed by currents passing through your body depend on 1) the size of the current and 2) the path that the current follows through your body. The highest risk is associated with a current that passes through the core of your body (namely, your heart). This is why you should learn to use only one hand when reaching into a circuit to insert\/remove circuit components.  The danger posed by current passing through the heart changes based on the size of the current. Breathing can start becoming labored for currents as low as 20mA. By 75mA, breathing may cease until the current is removed. In the 100mA-200mA range, ventricular fibrillation of the heart occurs. This is a condition where the electrical signals that tell your heart to pump are disrupted, resulting in a quivering of the ventricles instead of pumping. This is the most dangerous situation as sudden cardiac death may occur. Above 200mA, a person's chances for survival are actually better. At 200mA or above, the heart actually clamps rather than going into ventricular fibrilation, and beating will often resume if the voltage is removed quickly.  In our lab, you are unlikely to encounter life-threatening situations as long as you do not disassemble lab equipment or stick items into the outlet. The resistance provided by your skin and internal body (hand-to-hand or hand-to-leg) is often as high as as long as your skin is dry. According to Ohm's Law, one would need somewhere on the order of 10kV to result in a 20mA current through the body assuming dry skin . If the skin is wet, however, the combined resistance of your skin and body could drop as low as , meaning that a voltage difference as low as 30V could result in 20mA passing through the body and could lead to difficulty breathing.  To complicate the above picture, the current at which heart fibrillation occurs is lowered for alternating current (AC) as compared to values for direct current (DC). A shock that causes a current of 30mA AC could cause heart fibrillation. Additionally, voltages higher than 400V can cause dielectric breakdown of the skin (which is the main contributor to the body's resistance), meaning the body's resistance could drop as low as a few hundred ohms and lower the voltage threshhold for fibrillation.  In most educational labs at this level of instruction, you're unlikely to face significant dangers to life, though there are still risks of light injury. As long as one keeps hands dry and avoids shocks from the outlet or equipment internals, the risk of injury is quite low. All the same, it is best to always be cognizant of potential danger and to take steps to miminize the risk of discomfort\/injury.  [CITATIONS NEEDED FOR ABOVE INFORMATION]  "
 },
 {
   "id": "ch-labnotebook",

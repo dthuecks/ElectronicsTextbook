@@ -138,6 +138,9 @@ eBookConfig.enable_chatcodes =  false;
 #subsec-finding-thevenin-3-1 { counter-set: subsec-finding-thevenin-3-1 0; }
 #subsec-finding-thevenin-3-1 > li::marker { content: ""counter(subsec-finding-thevenin-3-1,decimal)"."; }
 #subsec-finding-thevenin-3-1 > li { counter-increment: subsec-finding-thevenin-3-1; }
+#ch-dc-homework-2 { counter-set: ch-dc-homework-2 0; }
+#ch-dc-homework-2 > li::marker { content: ""counter(ch-dc-homework-2,decimal)"."; }
+#ch-dc-homework-2 > li { counter-increment: ch-dc-homework-2; }
 #sec-ac-amplitudes-2-1-1 { counter-set: sec-ac-amplitudes-2-1-1 0; }
 #sec-ac-amplitudes-2-1-1 > li::marker { content: ""counter(sec-ac-amplitudes-2-1-1,decimal)"."; }
 #sec-ac-amplitudes-2-1-1 > li { counter-increment: sec-ac-amplitudes-2-1-1; }
@@ -219,7 +222,10 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list">
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-review.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Review from Introductory Physics</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-review.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Review from Introductory Physics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-schematics.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Fundamentals of Circuit Schematics</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-dc.html" class="internal"><span class="codenumber">2</span> <span class="title">DC Circuits</span></a></div>
@@ -245,6 +251,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-batteries.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Application of Thevenin Equivalent Cicruits: Batteries</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-uses.html" class="internal"><span class="codenumber">2.8</span> <span class="title">DC Circuit Uses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-dc-homework.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Problems</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -324,7 +331,11 @@ eBookConfig.enable_chatcodes =  false;
 </ul></section><div class="para" id="ch-safety-4">The primary sources of electric power that you will encounter in the lab are the 120V AC wall/table outlets and the DC power supplies (that may provide up to 30V DC) between their terminals. Higher voltages may be present inside lab equipment. Never stick any unauthorized objects/fingers into outlets or inside equipment.</div>
 <div class="para" id="ch-safety-5">When working with electricity, the main danger to avoid is a situation where current passes through your body. While voltage can also be dangerous, it is only very high voltages (which should not be present in the lab) that could cause arcs and burns that are dangerous on their own. In the circumstances you’ll encounter in the lab, voltage is only dangerous in that it can induce a current to pass through your body.</div>
 <div class="para" id="ch-safety-6">The danger posed by currents passing through your body depend on 1) the size of the current and 2) the path that the current follows through your body. The highest risk is associated with a current that passes through the core of your body (namely, your heart). This is why you should learn to use only one hand when reaching into a circuit to insert/remove circuit components.</div>
-<div class="para" id="ch-safety-7">The danger posed by current passing through the heart changes based on the size of the current. Breathing can start becoming labored for currents as low as 20mA. By 75mA, breathing may cease until the current is removed. In the 100mA-200mA range, ventricular fibrillation of the heart occurs. This is a condition where the electrical signals that tell your heart to pump are disrupted, resulting in a quivering of the ventricles instead of pumping. This is the most dangerous situation as sudden cardiac death may occur. Above 200mA, a person’s chances for survival are actually better. At 200mA or above, the heart actually clamps rather than going into ventricular fibrilation.</div></section></div>
+<div class="para" id="ch-safety-7">The danger posed by current passing through the heart changes based on the size of the current. Breathing can start becoming labored for currents as low as 20mA. By 75mA, breathing may cease until the current is removed. In the 100mA-200mA range, ventricular fibrillation of the heart occurs. This is a condition where the electrical signals that tell your heart to pump are disrupted, resulting in a quivering of the ventricles instead of pumping. This is the most dangerous situation as sudden cardiac death may occur. Above 200mA, a person’s chances for survival are actually better. At 200mA or above, the heart actually clamps rather than going into ventricular fibrilation, and beating will often resume if the voltage is removed quickly.</div>
+<div class="para" id="ch-safety-8">In our lab, you are unlikely to encounter life-threatening situations as long as you do not disassemble lab equipment or stick items into the outlet. The resistance provided by your skin and internal body (hand-to-hand or hand-to-leg) is often as high as <span class="process-math">\(500,000\Omega\)</span> as long as your skin is dry. According to Ohm’s Law, one would need somewhere on the order of 10kV to result in a 20mA current through the body <em class="emphasis">assuming dry skin</em>. If the skin is wet, however, the combined resistance of your skin and body could drop as low as <span class="process-math">\(1500\Omega\text{,}\)</span> meaning that a voltage difference as low as 30V could result in 20mA passing through the body and could lead to difficulty breathing.</div>
+<div class="para" id="ch-safety-9">To complicate the above picture, the current at which heart fibrillation occurs is lowered for alternating current (AC) as compared to values for direct current (DC). A shock that causes a current of 30mA AC could cause heart fibrillation. Additionally, voltages higher than 400V can cause dielectric breakdown of the skin (which is the main contributor to the body’s resistance), meaning the body’s resistance could drop as low as a few hundred ohms and lower the voltage threshhold for fibrillation.</div>
+<div class="para" id="ch-safety-10">In most educational labs at this level of instruction, you’re unlikely to face significant dangers to life, though there are still risks of light injury. As long as one keeps hands dry and avoids shocks from the outlet or equipment internals, the risk of injury is quite low. All the same, it is best to always be cognizant of potential danger and to take steps to miminize the risk of discomfort/injury.</div>
+<div class="para" id="ch-safety-11">[CITATIONS NEEDED FOR ABOVE INFORMATION]</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="part-lab.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-labnotebook.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
