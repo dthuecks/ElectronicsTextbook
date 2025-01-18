@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="sec-ac-python">
+<section xml:id="sec-ac-python" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Using Python in AC circuits</title>
     <p>
         Just as with DC circuits, we can let Python do most of the mathematical manipulation for us when determining circuit behavior. As an example, we'll examine the behavior of the circuit in <xref ref="ac-python-LRC-circuit"/>.
@@ -8,19 +8,7 @@
     <figure xml:id="ac-python-LRC-circuit">
         <caption>A generic LRC circuit. Let <m>R=1\text{k}\Omega</m>, <m>C=1 \mu\text{F}</m>, and <m>L=1\text{mH}</m> for our analysis.</caption>
         <image width="50%"><latex-image>
-            \begin{circuitikz}
-                \draw (0,0)     to[sinusoidal voltage source, l^=$\tilde{V}_\text{in}$] ++ (0,3)
-                                to[R, l_=$R$, i>_=$I_1$] ++ (3,0) coordinate(a)
-                                to[C, l_=$C$, i>_=$I_2$] ++ (0,-3)
-                                to[short] ++ (-3,0);
-                \draw (a)       to[short, *-] ++ (2,0) coordinate(b)
-                                to[L, l_=$L$, i>_=$I_3$] ++ (0,-3) coordinate(c)
-                                to[short, -*] ++ (-2,0);
-                \draw (b)       to[short, -o] ++ (2,0);
-                \draw (c)       to[short, -o] ++ (2,0);
-                \draw ([xshift = 2cm, yshift=1.5cm] c)
-                                node{\text{$V_\text{out}$}};
-            \end{circuitikz}
+            <xi:include parse="text" href="./figures/fig-ac-python-LRC-circuit.ptx" />    
         </latex-image></image>
     </figure>
     <p>

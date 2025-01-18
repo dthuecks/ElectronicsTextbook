@@ -1,0 +1,10 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,3) coordinate(start);
+    \draw (start)   to[battery, v_=\SI{12}{V}] ++ (0,-3)
+                    to[R,-*, l_=$R$] ++ (3,0) coordinate(c)
+                    to[R,-*, l_=$R$] ++ (0,3) coordinate(b)
+                    to[R,-*, l_=$R$] ++ (-3,0) coordinate(a);
+    \draw (a) node[anchor=south east]{A};
+    \draw (b) node[anchor=south west]{B};
+    \draw (c) node[anchor=north west]{C};
+\end{circuitikz}

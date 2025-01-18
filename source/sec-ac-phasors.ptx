@@ -642,7 +642,7 @@
                     Using Pythagorean's theorem, 
                     <md>
                         <mrow>
-                        I_{\text{in}_0}^2 \amp = I_{R_0}^2 + \left(I_{C_0}-I_{L_0}\right)^2
+                        I_{in_0}^2 \amp = I_{R_0}^2 + \left(I_{C_0}-I_{L_0}\right)^2
                         </mrow>
                         <mrow> \amp 
                         = \frac{V_{\text{in}_0}}{R^2}+ \left(\omega C V_{\text{in}_0} - \frac{V_{\text{in}_0}}{\omega L} \right)^2

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch-dc-homework" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Problems</title>
+  <ol>
+    <li>
+        <p>
+            For the circuit in <xref ref="fig-dc-homework-a1"/>, calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common. 
+        
+            <figure xml:id="fig-dc-homework-a1">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a1.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            In the circuit shown in <xref ref="fig-dc-homework-a2"/>, calculate the voltages at points A, B, and C.
+            <figure xml:id="fig-dc-homework-a2">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a2.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+  </ol>
+
+</section>

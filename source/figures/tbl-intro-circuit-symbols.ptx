@@ -1,0 +1,109 @@
+<tabular halign="center" width="70%">
+    <row header="yes" bottom="major" >
+        <cell>Symbol</cell><cell>Name</cell><cell>Notes</cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) -- (1,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>wire</cell><cell></cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) -- (1,0);
+                    \draw (0.5,0) to[short, *-] (0.5,0.5);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>junction</cell><cell></cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}[american voltages]
+                    \draw (0,0) to [battery, v>=$$] (2,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell>
+        <cell>Battery</cell>
+        <cell>
+            <line>SI Unit: Volt (V),</line>
+            <line>Long line is + terminal</line> 
+        </cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) to [sinusoidal voltage source] (2,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>AC voltage source</cell><cell>SI Unit: Volt (V)</cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) to [american current source] (2,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>DC current source</cell><cell>SI Unit: Ampere (A)</cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) to [R] (2,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>Resistor</cell><cell>SI Unit: Ohm (<m>\Omega</m>)</cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) to [C] (2,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>Capacitor</cell><cell>SI Unit: Farad (F)</cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="50%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) to [inductor] (2,0);
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>Inductor</cell><cell>SI Unit: Henry (H)</cell>
+    </row>
+    <row bottom="minor">
+        <cell>
+            <image width="25%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) node[ground] {};
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>Ground</cell>
+        <cell>
+            <line>Physically connected to Earth.</line>
+            <line>Acts as charge source/sink.</line>
+        </cell>
+    </row>
+    <row>
+        <cell>
+            <image width="25%"><latex-image >
+                \begin{circuitikz}
+                    \draw (0,0) node[sground] {};
+                \end{circuitikz}
+            </latex-image></image>
+        </cell><cell>Common</cell>
+        <cell>
+            <line>Circuit reference.</line>
+            <line>Assume V=0 at common.</line>
+        </cell>
+    </row>
+</tabular>

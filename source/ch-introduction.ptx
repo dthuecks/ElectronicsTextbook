@@ -4,15 +4,11 @@
   <title>Introduction</title>
 
     <introduction>
-    <p> We rely heavily on electronics in our daily lives. Some examples include:
-        <ul>
-            <li> digital clocks </li>
-            <li> phones </li>
-            <li> computers </li>
-            <li> appliances. </li>
-        </ul>
-        This course serves as a survey of electronics principles and design. We will not focus much on the physics 
-        principles behind electronic components, but will instead focus on the rules governing circuit design and behavior. 
+    <p> 
+        Electronic devices surround us. Computers, phones, televisions, watches, cars, building wiring, and many other examples all rely on electricity. All of these applications ultimately rely on energy from electricity, and this electricity must be controlled using circuits comprising wires, resistors, capacitors, and many other components.
+    </p>
+    <p>
+        This text serves as a survey of electronics principles and design. While you will not learn to build a smartphone in this text, you will instead learn about the fundamental building blocks of electronic circuits. Focus will be placed on how electronic components work, both alone and in tandem, as we learn the rules that govern the behavior of circuit elements. While we will occasionally delve into the physical principles underlying the behavior of circuit elements, such topics are more appropriate for a course in undergraduate electrodynamics. So, while we will not focus much on the physics principles behind electronic components, we will instead focus on the rules governing circuit design and behavior. 
     </p>
     </introduction>
 
@@ -20,161 +16,59 @@
     <title>Review from Introductory Physics</title>
   
     <p> 
-        Electrical devices are powered by electricity, and this electricity characterizes the movement of charges 
-        (which we call <term>current</term>) through a circuit. These charges move due to <term>voltage</term> differences 
-        applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must 
-        first establish what voltage and current are.
+        Electrical devices are powered by electricity, the movement of charges (which we call <term>current</term>) through a circuit. These charges move due to <term>voltage</term> differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first remember what we learned in our introductory physics course.
     </p>
 
     <p>
-        In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a 
-        vector field which we call the <term> electric field</term> (which has SI units of V/m). The electric field created 
-        by a point charge <m>Q</m> can be written as
+        In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the <term> electric field</term> (which has SI units of V/m). The electric field at a position <m>\vec{r}</m> relative to a point charge source <m>Q</m> is given by
         <me>
-            \vec{E}=\frac{Q}{4\pi\varepsilon_0 r^2}\vec{r}.
+            \vec{E}=\frac{Q}{4\pi\varepsilon_0 r^2}\hat{r}
         </me>
-        While the electric field is a useful construct, it is sometimes convenient to represent this space modification using a 
-        scalar field which we call the <term>electric potential</term> (with SI units of Volts). For a point charge <m>Q</m>, 
-        the electric potential
+        where <m>\varepsilon_0</m> is the permitivity of free space (a constant of nature). The electric field has SI units of V/m. While the electric field is a useful construct, it can be convenient to represent this space modification using a scalar field called the <term>electric potential</term> (with SI units of Volts). For a point charge <m>Q</m>, the electric potential some distance <m>r</m> away from the source charge is
         <me>
-        V(\vec{r})=\frac{Q}{4\pi\varepsilon_0 r}.
-        </me>
-        When dealing with circuits, we often use the term <term>voltage</term> for this scalar field. The relationship linking these 
+        V(\vec{r})=\frac{Q}{4\pi\varepsilon_0 r}
+        </me>.
+        When discussing circuits, this scalar field is often called the <term>voltage</term>. The relationship linking these 
         two representations is described by
         <me>
         \vec{E}=-\nabla V = -\left[\frac{\partial V}{\partial x}\hat{x} + \frac{\partial V}{\partial y}\hat{y} + 
-        \frac{\partial V}{\partial z}\hat{z}\right].
-        </me>
+        \frac{\partial V}{\partial z}\hat{z}\right]
+        </me>.
         While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the 
-        behavior of electrical circuits. The SI unit for voltage is, conveniently, the Volt.
+        behavior of electrical circuits.
     </p>
     
     <p>
-        <term>Current</term> represents the movement of charge through circuit components. More precisely, current is the amount 
-        of charge passing by some point in a circuit per unit time, or
+        In circuits, voltage differences lead to electric fields that cause charges to move. <term>Current</term> quantifies the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or
         <me>
-            I=\frac{dQ}{dt}.
-        </me>
+            I=\frac{dQ}{dt}
+        </me>.
+        In many materials (e.g. metals), positive charges are largely immobile since they are associated with the nuclei of atoms in a material. Thus, electrons are typically the charge carrier in circuits, constituting the current. Unfortunately, there was still much unknown about atomic theory when initial experiments on electricity were conducted, with the consequence that the direction of current is defined to be in the direction that positive charge carriers would be moving if they were responsible for the current. This means that current often has a direction that is opposite to the direction in which the actual charge carriers are moving.
     </p>
+</section>
 
-    <p>
-        <!--% [DON'T USE THIS BLOCK OF TEXT] The voltage can also be used to determine the amount of energy needed to move a charged particle through a region 
-        of space containing other charged particles
-        %\begin{align*}
-        %\Delta U_\text{elec} = q\Delta V
-        %\end{align*}
-        %Here, $\Delta U_\text{elec}$ is the energy change that results as an object with charge $q$ moves through a potential 
-        difference of $\Delta V$.-->
-        
-        In order to read circuit schematics, we will need to establish definitions for symbols that are commonly used. 
-        <xref ref="circuit-symbols" /> provides common symbols that will be used in the first several chapters.
-    </p>
+<section xml:id="sec-introduction-schematics" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Fundamentals of Circuit Schematics</title>
     
-    <table xml:id="circuit-symbols"> 
-            <title> Circuit Symbols </title>
-            <tabular halign="center" width="70%">
-                <row header="yes" bottom="minor" >
-                    <cell>Symbol</cell><cell>Name</cell><cell>SI Units</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) -- (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>wire</cell><cell></cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="50%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) to [battery] (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>Battery</cell><cell>Volt (V)</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="50%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) to [sinusoidal voltage source] (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>AC voltage source</cell><cell>Volt (V)</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="50%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) to [american current source] (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>DC current source</cell><cell>Ampere (A)</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="50%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) to [R] (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>Resistor</cell><cell>Ohm (<m>\Omega</m>)</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="50%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) to [C] (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>Capacitor</cell><cell>Farad (F)</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="50%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) to [inductor] (2,0);
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>Inductor</cell><cell>Henry (H)</cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="25%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) node[ground] {};
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>Ground</cell><cell></cell>
-                </row>
-                <row>
-                    <cell>
-                        <image width="25%"><latex-image >
-                        \begin{circuitikz}
-                        \draw (0,0) node[sground] {};
-                        \end{circuitikz}
-                        </latex-image></image>
-                    </cell><cell>Common</cell><cell></cell>
-                </row>
-            </tabular>
-        </table>
-        <p>
-                
-        We must explain the + and - terminals on the battery!
-        
-    </p>
+    
     <p>
-        INCLUDE SECTION DISCUSSING HOW TO DRAW CIRCUIT DIAGRAMS. Discuss junctions, ground, common, voltage, current.
-    </p>
-  
-  </section>
-
-
-
-
-
-
-
+        Analysis of a circuit often starts with producing a visual representation of a circuit's important properties. Rather than using an artistic representation of a real circuit, schematic diagrams are typically used instead. An example of a circuit schematic is given in <xref ref="fig-intro-schematic"/>.
+        <figure xml:id="fig-intro-schematic">
+            <caption></caption>
+            <image width="70%">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-ac-python-LRC-circuit.ptx" />
+                </latex-image>
+            </image>
+        </figure>
+        Explanation of the various circuit elements used in <xref ref="fig-intro-schematic"/> are provided in <xref ref="tbl-intro-circuit-symbols"/>.
+        <table xml:id="tbl-intro-circuit-symbols"> 
+            <title> Circuit Symbols </title>
+                <xi:include href="./figures/tbl-intro-circuit-symbols.ptx" />
+        </table>
+        So, lines represent wires connecting terminals of circuit elements. If a dot is present where two lines intersect, then it means that those two wires are connected. We have also labeled all of our components and provided labels and directions for currents.
+    </p>    
+</section>
 
 </chapter>
