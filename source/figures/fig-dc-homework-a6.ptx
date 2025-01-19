@@ -1,0 +1,10 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[battery, v_=\SI{12}{V}] ++(0,-3) coordinate(end);
+    \draw (start)   to[R,-*, l^=\SI{5}{\kilo\ohm}, i>_=$I_2$] ++(3,0) coordinate(a)
+                    to[battery, v^=\SI{3}{V}] ++(3,0)
+                    to[R, l^=\SI{1}{\kilo\ohm}] ++(0,-3)
+                    to[short, -*] ++(-3,0) coordinate(b)
+                    to[short] (end);
+    \draw (a)       to[R, l_=\SI{1}{\kilo\ohm}, i_>=$I_1$] (b);    
+\end{circuitikz}

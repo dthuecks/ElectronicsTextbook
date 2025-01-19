@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-voltagedivider" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: Voltage Divider</title>
+
+    <p> 
+        <alert>Objective:</alert> Through the course of this lab, you will familiarize yourself with the operation of a prototyping board and its various components (breadboard, voltage sources, potentiometers, and switches) and with resistor color codes. You will build a DC voltage divider circuit using this prototyping board and will use a handheld digital multimeter (DMM) to measure properties of circuit behavior. 
+    </p>
+    <p>
+        <alert>Equipment:</alert> Prototyping board, digital multimeter (DMM), resistors with varied values, wires.
+    </p>
+
+    <paragraphs>
+        <title>THEORY</title>
+        <p>
+            Using content from class, derive an expression for the ratio <m>V_\text{out}/V_\text{in}</m> for the voltage divider circuit in <xref ref="fig-labactivities-voltagedivider-circuit"/>.
+        </p>
+        <figure xml:id="fig-labactivities-voltagedivider-circuit">
+            <caption></caption>
+            <image width="50%">
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-labactivities-voltagedivider-circuit.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+    </paragraphs>
+    <paragraphs>
+        <title>INTRODUCTION TO EQUIPMENT</title>
+        <p>
+            For the following steps, explain in your lab notebook the behavior of the various components that you test. 
+        </p>
+        <ol>
+            <li>
+                <p>
+                    With the prototyping board turned off, use the DMM in resistance mode to verify the internal wiring of the breadboard.
+                </p>
+            </li>
+            <li>
+                <p>
+                    With the prototyping board still turned off, set up the DMM to verify the +5V row (with respect to the board’s ground). Once the DMM is set up and connected to the board, only then turn the prototyping board on and verify the expected behavior.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Turn the prototyping board off, change the DMM connections, and verify the other power strips. ALWAYS TURN OFF THE POWER WHEN CHANGING CONNECTIONS!
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the DMM to verify the behavior of both on-board potentiometers. Do behaviors deviate from expected behaviors in any way? Describe how the available terminals correspond to parts of the potentiometers’ designs.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the DMM to verify the SPDT switch behavior.
+                </p>
+            </li>
+            <li>
+                <p>
+                    You’ve been given five different resistors. Use the color codes to determine their specified resistance values, and then verify these values using your DMM. Provide all of these results in your notebook.
+                </p>
+            </li>
+        </ol> 
+        <p>
+            <alert>Discuss your findings with your professor prior to moving on to the next section.</alert>
+        </p>
+    </paragraphs>
+
+    <paragraphs>
+        <title>EXPERIMENT</title>
+        <p>
+            In this section, you will construct the DC voltage divider pictured below using the prototyping board, one fixed resistor, the <m>10\text{k}\Omega</m> on-board potentiometer, and a SPDT switch.
+        </p>
+        <figure xml:id="fig-labactivities-voltagedivider-circuit-expt">
+            <caption></caption>
+            <image width="50%">
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-labactivities-voltagedivider-circuit-expt.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+        <ol>
+            <li>
+                <p>
+                    With the prototyping board turned off, construct your circuit, remembering the following:
+                    <ul>
+                        <li>
+                            <p>
+                                Make use of the long columns of holes to distribute voltages to convenient locations on your board.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Remember the internal wiring of the prototyping boards. Don’t accidentally ‘short’ your resistor or potentiometer.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Don’t use long wires when short wires will do. Try to keep your circuit organized and use efficient placement of wires. A neat and organized circuit is much easier to troubleshoot!
+                            </p>
+                        </li>
+                    </ul>
+                    <alert>Verify your circuit and discuss the next steps with your professor before moving on.</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    You must measure the ratio <m>V_\text{out}/V_\text{in}</m> as a function of the variable resistance <m>R</m>. Use the DMM to first measure the actual <m>V_\text{in}</m> value (with the prototyping board turned on). Then, with the prototyping board off again, move the DMM connections to measure the variable resistance. Please note the following:
+                    <ul>
+                        <li>
+                            <p>
+                                When measuring the resistance of the variable resistor, ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a break in the circuit.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                When measuring <m>V_\text{out}</m>, ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a closed connection in this segment of the circuit.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                You will need to repeat the previous two steps for each of <em>ten</em> resistance values.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Graph the results of your measurements (<m>V_\text{out}/V_\text{in}</m> vs <m>R</m>) using symbols to represent your data points.  On the same axes, generate a theoretical plot based on the predicted behavior of this circuit and represent this theory curve using a solid line plot. Also provide a legend.
+                </p>
+                <p>
+                    <alert>Question:</alert> Are there any deviations from expected behavior at low or high resistances? If so, discuss this in your lab notebook.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Extension: In your lab notebook, discuss how you can make a voltage divider and conduct this experiment using only a single potentiometer (without the fixed resistor that we used in our circuit). Include a circuit diagram. Also discuss common places in your everyday life where you may find this type of circuit used.
+                </p>
+            </li>
+        </ol>
+
+    </paragraphs>
+
+</section>

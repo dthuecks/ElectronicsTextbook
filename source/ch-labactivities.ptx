@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-labactivities" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab Activities</title>
+    <introduction>
+        <p>
+            In this chapter, laboratory exercises are provided to accompany the content from <xref ref="part-analysis"/>.
+        </p>
+    </introduction>
+
+    <xi:include href="sec-labactivities-voltagedivider.ptx" />
+    
+</chapter>

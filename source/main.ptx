@@ -38,6 +38,8 @@
     <xi:include href="./ch-equipment.ptx" />
 
     <xi:include href="./ch-labhints.ptx" />
+
+    <xi:include href="./ch-labactivities.ptx" />
     
   </part>
 

@@ -14,5 +14,7 @@
     <xi:include href="./sec-equipment-dmm.ptx" />
 
     <xi:include href="./sec-equipment-oscilloscope.ptx" />
+    
+    <xi:include href="./sec-equipment-potentiometer.ptx" />
 
 </chapter>

@@ -1,0 +1,14 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[battery, l_=$V_\text{in}$] ++(0,-4) coordinate(end);
+    \draw (start)   to[short] ++(2,0)
+                    to[R, -*, l_=$R_1$] ++(0,-2) coordinate(c)
+                    to[R, -*, l_=$R_2$] ++(0,-2) coordinate(d)
+                    to[short] (end);
+
+    
+    \draw (c)       to[short, -o] ++(1,0) coordinate(a);
+    \draw (d)       to[short, -o] ++(1,0) coordinate(b);
+    \draw ([yshift=-1cm] a)
+                    node{$V_\text{out}$};
+\end{circuitikz}

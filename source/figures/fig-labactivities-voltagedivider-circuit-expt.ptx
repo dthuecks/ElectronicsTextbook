@@ -1,0 +1,17 @@
+\begin{circuitikz}
+    \draw (0,0)     coordinate(start);
+    \draw (start)   to[battery, l_=\SI{5}{V}] ++(0,-4) coordinate(z);
+    \draw ([xshift=2cm, yshift=-4cm] start)
+                    node[spdt] (Sw) {};
+    \draw (z) -- (Sw.in);
+    \draw (Sw.out 1) to[pR, n=mypot, mirror, l2^=\SI{10}{\kilo\ohm} and pot] ++(0,2);
+    \draw (mypot.wiper) coordinate(w)
+                    to[R, l_=\SI{1}{\kilo\ohm}] (mypot.wiper |- start)
+                    -- (start);
+    \draw (mypot.wiper)
+                    to[short, *-o] ++(1,0) coordinate(Vout1);
+    \draw (Sw.out 1)
+                    to[short, *-o] (Vout1 |- Sw.out 1);
+    \draw ([yshift= -0.5cm] Vout1)   node{$V_\text{out}$};   
+\end{circuitikz}
+

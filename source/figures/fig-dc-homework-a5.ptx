@@ -1,0 +1,13 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[R, -*, l^=\SI{11}{\ohm}] ++(2,0) coordinate(a)
+                    to[short] ++(2,0) 
+                    to[short, -*] ++(2,0) coordinate(b)
+                    to[R, l^=\SI{11}{\ohm}] ++(0,-2)
+                    to[R, -*, l^=\SI{22}{\ohm}] ++(-3,0) coordinate(c)
+                    to[short] ([yshift=-2cm] start) coordinate(end);
+    \draw (a)       to[R, l_=\SI{22}{\ohm}] (c);
+    \draw (b)       to[R, l_=\SI{22}{\ohm}] (c);
+    \draw (start)   node[anchor=south east]{A};
+    \draw (end)     node[anchor=north east]{B};
+\end{circuitikz}

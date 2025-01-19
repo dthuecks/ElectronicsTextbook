@@ -30,6 +30,94 @@
             </figure>
         </p>
     </li>
+    <li>
+        <p>
+            A fixed <m>1.0\text{k}\Omega</m> resistor and a <m>4.0\text{k}\Omega</m> potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of <m>V_{AB}</m> based on possible potentiometer settings. (See <xref ref="sec-equipment-potentiometer"/> for an explanation of potentiometers.)
+            <figure xml:id="fig-dc-homework-a3">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a3.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the current <m>I</m> in <xref ref="fig-dc-homework-a4"/>.
+            <figure xml:id="fig-dc-homework-a4">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a4.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the equivalent resistance beetween points A and B in <xref ref="fig-dc-homework-a5"/>.
+            <figure xml:id="fig-dc-homework-a5">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a5.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate <m>I_1</m> and <m>I_2</m> in <xref ref="fig-dc-homework-a6"/>.
+            <figure xml:id="fig-dc-homework-a6">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a6.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate <m>I_1</m>, <m>I_2</m>, and <m>I_3</m> in <xref ref="fig-dc-homework-a7"/>.
+            <figure xml:id="fig-dc-homework-a7">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a7.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the Thevenin equivalents for the circuits in <xref ref="fig-dc-homework-a8a"/> and <xref ref="fig-dc-homework-a8b"/>.
+            <sidebyside>
+            <figure xml:id="fig-dc-homework-a8a">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a8a.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+            <figure xml:id="fig-dc-homework-a8b">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a8b.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+            </sidebyside>
+        </p>
+    </li>
   </ol>
 
 </section>

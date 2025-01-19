@@ -2,7 +2,7 @@
     \draw (6,4) coordinate(start);
     \draw (start)   to[battery, v_=\SI{6}{V}] ++(-6,0)
                     to[short] ++(0,-4)
-                    to[R, l_=\SI{10}{\ohm}] ++(6,0)
+                    to[R, l_=\SI{10}{\kilo\ohm}] ++(6,0)
                     to[short] ++(0,4);
     \draw (0,2) coordinate(a)
                     to[R,*-*, l^=\SI{1}{\kilo\ohm}] ++(3,0) coordinate(b)
