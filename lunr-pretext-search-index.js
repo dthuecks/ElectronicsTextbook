@@ -295,7 +295,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.9",
   "title": "Problems",
-  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          "
+  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance beetween points A and B in .          Calculate and in .          Calculate , , and in .          Calculate the Thevenin equivalents for the circuits in and .                  "
 },
 {
   "id": "fig-dc-homework-a1",
@@ -312,6 +312,69 @@ var ptx_lunr_docs = [
   "url": "ch-dc-homework.html#fig-dc-homework-a2",
   "type": "Figure",
   "number": "2.9.2",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a3",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a3",
+  "type": "Figure",
+  "number": "2.9.3",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a4",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a4",
+  "type": "Figure",
+  "number": "2.9.4",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a5",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a5",
+  "type": "Figure",
+  "number": "2.9.5",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a6",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a6",
+  "type": "Figure",
+  "number": "2.9.6",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a7",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a7",
+  "type": "Figure",
+  "number": "2.9.7",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a8a",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a8a",
+  "type": "Figure",
+  "number": "2.9.8",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-dc-homework-a8b",
+  "level": "2",
+  "url": "ch-dc-homework.html#fig-dc-homework-a8b",
+  "type": "Figure",
+  "number": "2.9.9",
   "title": "",
   "body": "     "
 },
@@ -865,6 +928,15 @@ var ptx_lunr_docs = [
   "body": " Oscilloscopes (BK Precision 2190E or 2542B)    (for accessibility)    (for accessibility)    The oscilloscope is an extremely versatile instrument. It can be used to measure both steady and time-dependent voltages, frequency, time duration, phase difference, and harmonic distortion. Some oscilloscopes automatically test transistors, perform spectral analysis, integrate, differentiate, sum, subtract, filter, and store electrical signals. Anyone working in an experimental science should be able to use an oscilloscope with considerable confidence.  The oscilloscopes that we are using in lab (BK Precision 2542B or 2190E) are general-purpose, two-channel digital storage instruments capable of displaying and capturing electrical signals with frequencies up to 100 MHz. Its front panel can be divided into a number of sections:   The color LCD display shows the signal on one or more of the two input channels, using a different color for each channel.    A set of buttons along the right hand side of the display are used to make menu item selections.    A set of buttons and knobs on the right half of the instrument control some of the advanced oscilloscope functions, including:   a TRIGGER section that permits one to control the starting point for the displayed waveform,    a VERTICAL section, accepting up to two input signals and containing controls to vary the voltage resolution (among other things),    a HORIZONTAL or ‘time base’ section that controls the time resolution of the display.        In its most commonly used mode of operation, an oscilloscope creates a visual display by capturing and successively overlaying identical windows of time, each window beginning at the same point (relative to the ‘trigger point’) on the signal. The time base of the scope determines how much time is represented by each horizontal division of the LCD display. The triggering function determines when each time window is to begin; proper triggering is necessary for stable, unambiguous display of the desired waveform. Finally, the vertical section of the scope controls the amplitude of the information displayed. It determines for each of the two channels how many volts are represented by each vertical division on the display.   Hints regarding oscilloscope controls    To change the horizontal (time base) scale:   The Time\/div knob changes the time per division (sec\/div are color coded by input channel and displayed on the screen).    Position knob changes location of the trigger (labeled as an arrow along the top of the screen).       To change the vertical (voltage base) scale:   Scale know changes the voltage per division (V\/div are color coded by input channel and displayed on the screen).    Position knob changes location of the ground (labeled as a color-coded arrow on the left of the screen).       To access the parameters for each channel, press Ch. 1 (or 2,3,4) button twice and chose from:   Input coupling (AC\/DC\/Ground)    Invert signal    Probe setup    Bandwidth limit    Probe    Digital Filter    Volts\/scale    Invert       To adjust the trigger:   Trigger knob changes the voltage level of the trigger.    Trigger MENU button   Select which channel to trigger off of (trigger level arrow changes color to show which channel is being triggered)    Slope: can trigger off a rising edge or falling edge    Trigger mode: Auto, Normal, other          To select the ACQUIRE mode:   Run\/Stop: sets the scope to continuously acquire or freeze after the last trigger.    Single sequence: draws the signal only once after a single trigger. Will not trigger on successive events.    Autoset: scope tries to choose overall best scope settings (sometimes useful when you can’t see anything, but generally used as a last resort because it can also mislead you.       Measure menu:   You can select various measurements and which channel to measure. Be very careful with automatic measurements (again these can be deceptive). Generally use cursors to make accurate measurements. Note that the automatic mode searches for the very top and bottom of the signals (when measuring voltages) which may not provide an accurate value for the actual amplitude as noise on the signal may artificially inflate the max\/min values.       Cursor menu:   Choose time (vertical bars) or voltage (horizontal bars) measurement.    Choose which channel to measure (measurement cursors may be the same color as the channel they are measuring).    Choose manual adjustment (adjust each cursor separately) or fixed (adjust both cursors simultaneously).    Choose which cursor to adjust (Cursor A\/Cursor B).    Use the knob in the upper-left corner of the controls to adjust the cursor positions.    The position relative to ground (or trigger zero time for time measurements) is displayed on the screen with the ‘@’ symbol.    The relative distance between the cursors is displayed on the screen with the ‘ ’ symbol.       For further details, please read A Shortish Guide to Using an Oscilloscope , posted to the course webpage.   "
 },
 {
+  "id": "sec-equipment-potentiometer",
+  "level": "1",
+  "url": "sec-equipment-potentiometer.html",
+  "type": "Section",
+  "number": "7.4",
+  "title": "Potentiometers",
+  "body": " Potentiometers  "
+},
+{
   "id": "ch-labhints",
   "level": "1",
   "url": "ch-labhints.html",
@@ -872,6 +944,33 @@ var ptx_lunr_docs = [
   "number": "8",
   "title": "Troubleshooting Hints",
   "body": " Troubleshooting Hints    "
+},
+{
+  "id": "sec-labactivities-voltagedivider",
+  "level": "1",
+  "url": "sec-labactivities-voltagedivider.html",
+  "type": "Section",
+  "number": "9.1",
+  "title": "Lab: Voltage Divider",
+  "body": " Lab: Voltage Divider   Objective: Through the course of this lab, you will familiarize yourself with the operation of a prototyping board and its various components (breadboard, voltage sources, potentiometers, and switches) and with resistor color codes. You will build a DC voltage divider circuit using this prototyping board and will use a handheld digital multimeter (DMM) to measure properties of circuit behavior.   Equipment: Prototyping board, digital multimeter (DMM), resistors with varied values, wires.   THEORY  Using content from class, derive an expression for the ratio for the voltage divider circuit in .          INTRODUCTION TO EQUIPMENT  For the following steps, explain in your lab notebook the behavior of the various components that you test.    With the prototyping board turned off, use the DMM in resistance mode to verify the internal wiring of the breadboard.    With the prototyping board still turned off, set up the DMM to verify the +5V row (with respect to the board’s ground). Once the DMM is set up and connected to the board, only then turn the prototyping board on and verify the expected behavior.    Turn the prototyping board off, change the DMM connections, and verify the other power strips. ALWAYS TURN OFF THE POWER WHEN CHANGING CONNECTIONS!    Use the DMM to verify the behavior of both on-board potentiometers. Do behaviors deviate from expected behaviors in any way? Describe how the available terminals correspond to parts of the potentiometers’ designs.    Use the DMM to verify the SPDT switch behavior.    You’ve been given five different resistors. Use the color codes to determine their specified resistance values, and then verify these values using your DMM. Provide all of these results in your notebook.     Discuss your findings with your professor prior to moving on to the next section.     EXPERIMENT  In this section, you will construct the DC voltage divider pictured below using the prototyping board, one fixed resistor, the on-board potentiometer, and a SPDT switch.          With the prototyping board turned off, construct your circuit, remembering the following:   Make use of the long columns of holes to distribute voltages to convenient locations on your board.    Remember the internal wiring of the prototyping boards. Don’t accidentally ‘short’ your resistor or potentiometer.    Don’t use long wires when short wires will do. Try to keep your circuit organized and use efficient placement of wires. A neat and organized circuit is much easier to troubleshoot!    Verify your circuit and discuss the next steps with your professor before moving on.     You must measure the ratio as a function of the variable resistance . Use the DMM to first measure the actual value (with the prototyping board turned on). Then, with the prototyping board off again, move the DMM connections to measure the variable resistance. Please note the following:   When measuring the resistance of the variable resistor, ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a break in the circuit.    When measuring , ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a closed connection in this segment of the circuit.    You will need to repeat the previous two steps for each of ten resistance values.       Graph the results of your measurements ( vs ) using symbols to represent your data points. On the same axes, generate a theoretical plot based on the predicted behavior of this circuit and represent this theory curve using a solid line plot. Also provide a legend.   Question: Are there any deviations from expected behavior at low or high resistances? If so, discuss this in your lab notebook.    Extension: In your lab notebook, discuss how you can make a voltage divider and conduct this experiment using only a single potentiometer (without the fixed resistor that we used in our circuit). Include a circuit diagram. Also discuss common places in your everyday life where you may find this type of circuit used.     "
+},
+{
+  "id": "fig-labactivities-voltagedivider-circuit",
+  "level": "2",
+  "url": "sec-labactivities-voltagedivider.html#fig-labactivities-voltagedivider-circuit",
+  "type": "Figure",
+  "number": "9.1.1",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-labactivities-voltagedivider-circuit-expt",
+  "level": "2",
+  "url": "sec-labactivities-voltagedivider.html#fig-labactivities-voltagedivider-circuit-expt",
+  "type": "Figure",
+  "number": "9.1.2",
+  "title": "",
+  "body": "     "
 },
 {
   "id": "app-python-newtonmethod",
