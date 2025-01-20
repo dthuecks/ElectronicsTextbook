@@ -64,7 +64,7 @@
     <subsection xml:id="subsec-proof-thevenin">
         <title>Proof of Thevenin's and Norton's Theorems</title>
         <p>
-            Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>j</m> DC voltage sources <m>V_s</m>, and <m>k</m> ideal current sources <m>I_s</m>. We will also assume <m>k</m> unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.
+            Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>\ell</m> DC voltage sources <m>V_{s_n}</m>, and <m>k</m> ideal current sources <m>I_{s_n}</m>. We will also assume <m>j</m> unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.
         </p>
 
         <figure xml:id="dc-thevenin-box">
@@ -87,22 +87,22 @@
 
         <p>
             Let's assume that if we apply the branch circuit analysis method, we end up with <m>N_1</m> independent junction law equations and <m>N_2</m> loop law equations. Each junction law equation will have the form
-            <me>
+            <men xml:id="eqn-dc-thevenin-kcl">
                 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_{s_n}=0
-            </me>
-            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1 or -1 depending on whether the currents <m>i_n</m> and <m>I_{s_n}</m> are entering or exiting a junction and <m>r</m> is an index counting over junction law equations.             
+            </men>
+            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_{s_n}</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations.     
         </p>
 
         <p>
             We will also end up with <m>N_2</m> independent loop law equations. Each of these loop law equations will have the form
-            <me>
+            <men xml:id="eqn-dc-thevenin-kvl">
                 m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0
-            </me>.
-            The variables <m>m_{rn}</m> have values of either +1 or -1 depending on the battery orientation relative to the direction travelled around the loop. Variables <m>c_{rn}</m> and <m>d_{rn}</m> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm's Law). The variables <m>\varepsilon_n</m> represent voltage changes across the ideal current sources <m>I_{s_n}</m> meaning that <m>w_{rn}</m> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop. 
+            </men>.
+            The variables <m>m_{rn}</m> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variables <m>c_{rn}</m> and <m>d_{rn}</m> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm's Law). The variables <m>\varepsilon_n</m> represent voltage changes across the ideal current sources <m>I_{s_n}</m> meaning that <m>w_{rn}</m> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop. Here, the index <m>r</m> counts over KVL equations. 
         </p>
 
         <p>
-            These <m>N_1</m> junction law equations and <m>N_2</m> loop law equations can be re-expressed as a matrix equation <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m>. First, let's rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right
+            These <m>N_1</m> instances of <xref ref="eqn-dc-thevenin-kcl"/> and <m>N_2</m> instances of <xref ref="eqn-dc-thevenin-kvl"/> can be re-expressed as a matrix equation <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m>. First, let's rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right
             <md>
                 <mrow> a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_{s_n}</mrow>
                 <mrow> 
@@ -138,7 +138,7 @@
                     -m_{N_{2},\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{N_2 n} V_{s_n} - \sum\limits_{n=1}^k d_{N_2 n}I_{s_n} 
                 \end{pmatrix} 
             </me>.
-            Now, every element in matrix <m>\mathbf{A}</m> is a function of resistances only. More to the point, there is no voltage or current dependence in <m>\mathbf{A}</m>. If we multiply both sides of our matrix equation by <m>\mathbf{A}^{-1}</m>, we get
+            Now, every element in matrix <m>\mathbf{A}</m> is either a unitless number or a function of resistances only. More to the point, there is no voltage or current dependence in <m>\mathbf{A}</m>. If we multiply both sides of our matrix equation by <m>\mathbf{A}^{-1}</m>, we get
             <me>
                 \mathbf{x}=\mathbf{A}^{-1}\mathbf{v}
             </me>.
@@ -202,35 +202,31 @@
         <title>Finding Thevenin Equivalent Circuits</title>
 
         <p>
-            Given a complicated circuit, we can find the Thevenin and Norton equivalent circuit parameters using the following procedure:
-            <ol>
-                <li>
-                    <p>
-                        Find the open-circuit voltage <m>V_{oc}</m> which is equivalent to <m>V_{oc}=V{A}-V{B}</m> when nothing is connected externally between output terminals A and B. Then, <m>V_{th}=V_{oc}</m>.  
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Find the short-circuit current <m>I_{sc}</m> which is the current from terminal A to terminal B when an external wire connects the two outputs. Then <m>I_n = I_{sc}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        The Thevenin resistance (which is equivalent to the Norton resistance) is 
-                        then <m>R_{th} = R_n =V_{th}/I_n</m>.
-                    </p>
-                </li>
-            </ol>
-            These steps can be performed analytically if one is analyzing a circuit schematic or experimentally by 
-            measuring <m>V_{oc}</m> and <m>I_{sc}</m> with a multimeter. In fact, the steps above are most useful as steps to experimentally determine the Thevenin and Norton equivalent parameters.
+            Given a complicated circuit, we can use the procedure provided in the proof above to find Thevenin and Norton equivalent circuit parameters. 
         </p>
+        <example>
+            <title>Thevenin Example - Matrix Approach</title>
+            <statement>
+                <p>
+                    Coming soon.
+                </p>
+                <p>
+                    Here, we develop <xref ref="eqn-dc-thevenin-kcl"/> and <xref ref="eqn-dc-thevenin-kvl"/>, convert them into a matrix equation, and use Python to solve for the Thevenin and Norton equivalent circuit parameters.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Coming soon
+                </p>
+            </solution>
+        </example>        
 
         <p>
             If one wishes to find Thevenin and Norton equivalent parameters analytically, it is often easier to follow this procedure:
             <ol>
                 <li>
                     <p>
-                        Find <m>V_{th}</m> as above by calculating the open-circuit voltage through circuit analysis.
+                        Use circuit analysis to find the open-circuit voltage <m>V_{oc}</m> which is equivalent to <m>V_{oc}=V_A-V_B</m> when nothing is connected externally between output terminals A and B. Then, <m>V_{th}=V_{oc}</m>.
                     </p>
                 </li>
                 <li>
@@ -264,7 +260,7 @@
         </p>
         
         <example>
-            <title>Thevenin Example</title>
+            <title>Thevenin Example - No Linear Algebra</title>
             <statement>
                 <p>
                     Find <m>V_{th}</m>, <m>R_{th}</m>, and <m>I_n</m> for the circuit in <xref ref="dc-thevenin-ex1"/>.
@@ -380,6 +376,27 @@
                 </p>
             </solution>
         </example>
+        <p>            
+            Sometimes, one does not have a circuit schematic but only has the physical circuit. In this case, a digital multimeter can be used to physically perform the following procedure:
+            <ol>
+                <li>
+                    <p>
+                        Find the open-circuit voltage <m>V_{oc}</m> which is equivalent to <m>V_{oc}=V_A-V_B</m> when nothing is connected externally between output terminals A and B. Then, <m>V_{th}=V_{oc}</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find the short-circuit current <m>I_{sc}</m> which is the current from terminal A to terminal B when an external wire connects the two outputs. Then <m>I_n = I_{sc}</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The Thevenin resistance (which is equivalent to the Norton resistance) is 
+                        then <m>R_{th} = R_n =V_{th}/I_n</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
 
 <p>
     Look at section 41.6 to add color to example blocks. also section 28.2 and similar. xsl stylesheets
