@@ -304,7 +304,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.9",
   "title": "Problems",
-  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance beetween points A and B in .          Calculate and in .          Calculate , , and in .          Calculate the Thevenin equivalents for the circuits in and .                  "
+  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance beetween points A and B in .          Calculate and in .          Calculate , , and in .          Calculate the Thevenin equivalents for the circuit in .          Calculate the Thevenin equivalents for the circuit in .          "
 },
 {
   "id": "fig-dc-homework-a1",
@@ -370,18 +370,18 @@ var ptx_lunr_docs = [
   "body": "     "
 },
 {
-  "id": "fig-dc-homework-a8a",
+  "id": "fig-dc-homework-a8",
   "level": "2",
-  "url": "ch-dc-homework.html#fig-dc-homework-a8a",
+  "url": "ch-dc-homework.html#fig-dc-homework-a8",
   "type": "Figure",
   "number": "2.9.8",
   "title": "",
   "body": "     "
 },
 {
-  "id": "fig-dc-homework-a8b",
+  "id": "fig-dc-homework-a9",
   "level": "2",
-  "url": "ch-dc-homework.html#fig-dc-homework-a8b",
+  "url": "ch-dc-homework.html#fig-dc-homework-a9",
   "type": "Figure",
   "number": "2.9.9",
   "title": "",
