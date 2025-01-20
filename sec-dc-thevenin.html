@@ -132,12 +132,12 @@ eBookConfig.enable_chatcodes =  false;
 #subsec-dc-analysis-mesh-2-2 { counter-set: subsec-dc-analysis-mesh-2-2 0; }
 #subsec-dc-analysis-mesh-2-2 > li::marker { content: ""counter(subsec-dc-analysis-mesh-2-2,decimal)"."; }
 #subsec-dc-analysis-mesh-2-2 > li { counter-increment: subsec-dc-analysis-mesh-2-2; }
-#subsec-finding-thevenin-2-1 { counter-set: subsec-finding-thevenin-2-1 0; }
-#subsec-finding-thevenin-2-1 > li::marker { content: ""counter(subsec-finding-thevenin-2-1,decimal)"."; }
-#subsec-finding-thevenin-2-1 > li { counter-increment: subsec-finding-thevenin-2-1; }
-#subsec-finding-thevenin-3-1 { counter-set: subsec-finding-thevenin-3-1 0; }
-#subsec-finding-thevenin-3-1 > li::marker { content: ""counter(subsec-finding-thevenin-3-1,decimal)"."; }
-#subsec-finding-thevenin-3-1 > li { counter-increment: subsec-finding-thevenin-3-1; }
+#subsec-finding-thevenin-4-1 { counter-set: subsec-finding-thevenin-4-1 0; }
+#subsec-finding-thevenin-4-1 > li::marker { content: ""counter(subsec-finding-thevenin-4-1,decimal)"."; }
+#subsec-finding-thevenin-4-1 > li { counter-increment: subsec-finding-thevenin-4-1; }
+#subsec-finding-thevenin-7-1 { counter-set: subsec-finding-thevenin-7-1 0; }
+#subsec-finding-thevenin-7-1 > li::marker { content: ""counter(subsec-finding-thevenin-7-1,decimal)"."; }
+#subsec-finding-thevenin-7-1 > li { counter-increment: subsec-finding-thevenin-7-1; }
 #ch-dc-homework-2 { counter-set: ch-dc-homework-2 0; }
 #ch-dc-homework-2 > li::marker { content: ""counter(ch-dc-homework-2,decimal)"."; }
 #ch-dc-homework-2 > li { counter-increment: ch-dc-homework-2; }
@@ -333,29 +333,29 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec-dc-thevenin-2-3">In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit (either the Thevenin equivalent circuit or the Norton equivalent circuit). The original and simplified circuits all have output voltages and currents that behave identically when an external load is connected across the outputs.</div></section><section class="subsection" id="subsec-proof-thevenin"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="space"> </span><span class="title">Proof of Thevenin’s and Norton’s Theorems</span>
 </h3>
-<div class="para" id="subsec-proof-thevenin-2">Let’s assume that inside of a box we have a circuit with two leads exiting the box (<a href="sec-dc-thevenin.html#dc-thevenin-box" class="xref" data-knowl="./knowl/xref/dc-thevenin-box.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a>). The circuit in the box is comprised of a complicated network of resistors <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(j\)</span> DC voltage sources <span class="process-math">\(V_s\text{,}\)</span> and <span class="process-math">\(k\)</span> ideal current sources <span class="process-math">\(I_s\text{.}\)</span> We will also assume <span class="process-math">\(k\)</span> unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.</div>
+<div class="para" id="subsec-proof-thevenin-2">Let’s assume that inside of a box we have a circuit with two leads exiting the box (<a href="sec-dc-thevenin.html#dc-thevenin-box" class="xref" data-knowl="./knowl/xref/dc-thevenin-box.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a>). The circuit in the box is comprised of a complicated network of resistors <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(\ell\)</span> DC voltage sources <span class="process-math">\(V_{s_n}\text{,}\)</span> and <span class="process-math">\(k\)</span> ideal current sources <span class="process-math">\(I_{s_n}\text{.}\)</span> We will also assume <span class="process-math">\(j\)</span> unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.</div>
 <figure class="figure figure-like" id="dc-thevenin-box"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-box-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="subsec-proof-thevenin-4">
 <div class="para">Let’s assume that if we apply the branch circuit analysis method, we end up with <span class="process-math">\(N_1\)</span> independent junction law equations and <span class="process-math">\(N_2\)</span> loop law equations. Each junction law equation will have the form</div>
-<div class="displaymath process-math">
-\begin{equation*}
-a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_{s_n}=0
-\end{equation*}
+<div class="displaymath process-math" id="eqn-dc-thevenin-kcl">
+\begin{equation}
+a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_{s_n}=0\tag{2.6.1}
+\end{equation}
 </div>
-<div class="para">where <span class="process-math">\(a_{rn}\)</span> and <span class="process-math">\(b_{rn}\)</span> have values of +1 or -1 depending on whether the currents <span class="process-math">\(i_n\)</span> and <span class="process-math">\(I_{s_n}\)</span> are entering or exiting a junction and <span class="process-math">\(r\)</span> is an index counting over junction law equations.</div>
+<div class="para">where <span class="process-math">\(a_{rn}\)</span> and <span class="process-math">\(b_{rn}\)</span> have values of +1, -1, or 0 depending on whether the currents <span class="process-math">\(i_n\)</span> and <span class="process-math">\(I_{s_n}\)</span> are entering, exiting, or not present at a junction and <span class="process-math">\(r\)</span> is an index counting over KCL equations.</div>
 </div>
 <div class="para logical" id="subsec-proof-thevenin-5">
 <div class="para">We will also end up with <span class="process-math">\(N_2\)</span> independent loop law equations. Each of these loop law equations will have the form</div>
-<div class="displaymath process-math">
-\begin{equation*}
-m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0\text{.}
-\end{equation*}
+<div class="displaymath process-math" id="eqn-dc-thevenin-kvl">
+\begin{equation}
+m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0\text{.}\tag{2.6.2}
+\end{equation}
 </div>
-<div class="para">The variables <span class="process-math">\(m_{rn}\)</span> have values of either +1 or -1 depending on the battery orientation relative to the direction travelled around the loop. Variables <span class="process-math">\(c_{rn}\)</span> and <span class="process-math">\(d_{rn}\)</span> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm’s Law). The variables <span class="process-math">\(\varepsilon_n\)</span> represent voltage changes across the ideal current sources <span class="process-math">\(I_{s_n}\)</span> meaning that <span class="process-math">\(w_{rn}\)</span> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop.</div>
+<div class="para">The variables <span class="process-math">\(m_{rn}\)</span> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variables <span class="process-math">\(c_{rn}\)</span> and <span class="process-math">\(d_{rn}\)</span> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm’s Law). The variables <span class="process-math">\(\varepsilon_n\)</span> represent voltage changes across the ideal current sources <span class="process-math">\(I_{s_n}\)</span> meaning that <span class="process-math">\(w_{rn}\)</span> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop. Here, the index <span class="process-math">\(r\)</span> counts over KVL equations.</div>
 </div>
 <div class="para logical" id="subsec-proof-thevenin-6">
-<div class="para">These <span class="process-math">\(N_1\)</span> junction law equations and <span class="process-math">\(N_2\)</span> loop law equations can be re-expressed as a matrix equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\text{.}\)</span> First, let’s rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right</div>
-<div class="displaymath process-math" id="subsec-proof-thevenin-6-4">
+<div class="para">These <span class="process-math">\(N_1\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> and <span class="process-math">\(N_2\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> can be re-expressed as a matrix equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\text{.}\)</span> First, let’s rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-6">
 \begin{align*}
 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_{s_n}\\
 \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k w_{rn} \varepsilon_n \amp 
@@ -364,7 +364,7 @@ a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\l
 \end{align*}
 </div>
 <div class="para">We can express these equations in the form <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\)</span> if we let</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html">
 \begin{equation*}
 \mathbf{A} = \begin{pmatrix}
 a_{1,\text{ext}} \amp a_{11} \amp \cdots \amp a_{1j} \amp 0 \amp \cdots \amp 0\\
@@ -376,7 +376,7 @@ a_{N_1,\text{ext}} \amp a_{N_1 1}\amp \cdots \amp a_{N_1 j} \amp 0 \amp \cdots \
 \end{pmatrix}\text{,}
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html">
 \begin{equation*}
 \mathbf{x} = 
 \begin{pmatrix} 
@@ -394,14 +394,14 @@ i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\ \varepsilon_1 \\ \vdots \\ \varepsilon_k
 \end{pmatrix} \text{.}
 \end{equation*}
 </div>
-<div class="para">Now, every element in matrix <span class="process-math">\(\mathbf{A}\)</span> is a function of resistances only. More to the point, there is no voltage or current dependence in <span class="process-math">\(\mathbf{A}\text{.}\)</span> If we multiply both sides of our matrix equation by <span class="process-math">\(\mathbf{A}^{-1}\text{,}\)</span> we get</div>
-<div class="displaymath process-math">
+<div class="para">Now, every element in matrix <span class="process-math">\(\mathbf{A}\)</span> is either a unitless number or a function of resistances only. More to the point, there is no voltage or current dependence in <span class="process-math">\(\mathbf{A}\text{.}\)</span> If we multiply both sides of our matrix equation by <span class="process-math">\(\mathbf{A}^{-1}\text{,}\)</span> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html">
 \begin{equation*}
 \mathbf{x}=\mathbf{A}^{-1}\mathbf{v}\text{.}
 \end{equation*}
 </div>
 <div class="para">The solution that is most important to us is <span class="process-math">\(i_\text{ext}\)</span> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <span class="process-math">\(\mathbf{A}\text{,}\)</span> use matrix multiplication to find an expression for <span class="process-math">\(i_\text{ext}\text{,}\)</span> and then group source terms and rename constants multiplying each source (<span class="process-math">\(v_\text{ext},V_s,\ I_s\)</span>), the resulting solution is of the form</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html">
 \begin{equation*}
 i_\text{ext} = m_0 v_\text{ext} + \sum\limits_{n=1}^\ell m_n V_{s_n} + \sum\limits_{n=1}^k b_n I_{s_n} 
 \end{equation*}
@@ -429,49 +429,42 @@ R_n \amp = R_{th} \text{.}
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.3<span class="period">.</span></span><span class="space"> </span>I-V plot for linear circuits.</figcaption></figure><div class="para" id="subsec-proof-thevenin-10">At this point, it is important to discuss that the internal behavior of the complicated circuit and simplified circuit are different. EXPAND ON THIS THOUGHT.</div></section><section class="subsection" id="subsec-finding-thevenin"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="space"> </span><span class="title">Finding Thevenin Equivalent Circuits</span>
 </h3>
-<div class="para logical" id="subsec-finding-thevenin-2">
-<div class="para">Given a complicated circuit, we can find the Thevenin and Norton equivalent circuit parameters using the following procedure:</div>
-<ol class="decimal" id="subsec-finding-thevenin-2-1">
-<li id="subsec-finding-thevenin-2-1-1"><div class="para" id="subsec-finding-thevenin-2-1-1-1">Find the open-circuit voltage <span class="process-math">\(V_{oc}\)</span> which is equivalent to <span class="process-math">\(V_{oc}=V{A}-V{B}\)</span> when nothing is connected externally between output terminals A and B. Then, <span class="process-math">\(V_{th}=V_{oc}\text{.}\)</span>
-</div></li>
-<li id="subsec-finding-thevenin-2-1-2"><div class="para" id="subsec-finding-thevenin-2-1-2-1">Find the short-circuit current <span class="process-math">\(I_{sc}\)</span> which is the current from terminal A to terminal B when an external wire connects the two outputs. Then <span class="process-math">\(I_n = I_{sc}\text{.}\)</span>
-</div></li>
-<li id="subsec-finding-thevenin-2-1-3"><div class="para" id="subsec-finding-thevenin-2-1-3-1">The Thevenin resistance (which is equivalent to the Norton resistance) is then <span class="process-math">\(R_{th} = R_n =V_{th}/I_n\text{.}\)</span>
-</div></li>
-</ol>
-<div class="para">These steps can be performed analytically if one is analyzing a circuit schematic or experimentally by measuring <span class="process-math">\(V_{oc}\)</span> and <span class="process-math">\(I_{sc}\)</span> with a multimeter. In fact, the steps above are most useful as steps to experimentally determine the Thevenin and Norton equivalent parameters.</div>
-</div>
-<div class="para logical" id="subsec-finding-thevenin-3">
+<div class="para" id="subsec-finding-thevenin-2">Given a complicated circuit, we can use the procedure provided in the proof above to find Thevenin and Norton equivalent circuit parameters.</div>
+<details id="subsec-finding-thevenin-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Thevenin Example - Matrix Approach.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subsec-finding-thevenin-3-2-1">Coming soon.</div> <div class="para" id="subsec-finding-thevenin-3-2-2">Here, we develop <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> and <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a>, convert them into a matrix equation, and use Python to solve for the Thevenin and Norton equivalent circuit parameters.</div>
+<div class="solutions"><details id="subsec-finding-thevenin-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="subsec-finding-thevenin-3-3-1">Coming soon</div></div></details></div></article></details><div class="para logical" id="subsec-finding-thevenin-4">
 <div class="para">If one wishes to find Thevenin and Norton equivalent parameters analytically, it is often easier to follow this procedure:</div>
-<ol class="decimal" id="subsec-finding-thevenin-3-1">
-<li id="subsec-finding-thevenin-3-1-1"><div class="para" id="subsec-finding-thevenin-3-1-1-1">Find <span class="process-math">\(V_{th}\)</span> as above by calculating the open-circuit voltage through circuit analysis.</div></li>
-<li id="subsec-finding-thevenin-3-1-2"><div class="para logical" id="subsec-finding-thevenin-3-1-2-1">
+<ol class="decimal" id="subsec-finding-thevenin-4-1">
+<li id="subsec-finding-thevenin-4-1-1"><div class="para" id="subsec-finding-thevenin-4-1-1-1">Use circuit analysis to find the open-circuit voltage <span class="process-math">\(V_{oc}\)</span> which is equivalent to <span class="process-math">\(V_{oc}=V_A-V_B\)</span> when nothing is connected externally between output terminals A and B. Then, <span class="process-math">\(V_{th}=V_{oc}\text{.}\)</span>
+</div></li>
+<li id="subsec-finding-thevenin-4-1-2"><div class="para logical" id="subsec-finding-thevenin-4-1-2-1">
 <div class="para">Find <span class="process-math">\(R_{th}=R_n\)</span> which is equivalent to <span class="process-math">\(R_{AB}\)</span> when all internal source voltages and currents are `turned off’.</div>
-<ul class="disc" id="subsec-finding-thevenin-3-1-2-1-3">
-<li id="subsec-finding-thevenin-3-1-2-1-3-1"><div class="para" id="subsec-finding-thevenin-3-1-2-1-3-1-1">Turning a source `off’ means replacing voltage sources with wires and replacing current sources with breaks.</div></li>
-<li id="subsec-finding-thevenin-3-1-2-1-3-2"><div class="para" id="subsec-finding-thevenin-3-1-2-1-3-2-1">This method works as a consequence of application of the superposition theorem to the complicated circuit.</div></li>
+<ul class="disc" id="subsec-finding-thevenin-4-1-2-1-3">
+<li id="subsec-finding-thevenin-4-1-2-1-3-1"><div class="para" id="subsec-finding-thevenin-4-1-2-1-3-1-1">Turning a source `off’ means replacing voltage sources with wires and replacing current sources with breaks.</div></li>
+<li id="subsec-finding-thevenin-4-1-2-1-3-2"><div class="para" id="subsec-finding-thevenin-4-1-2-1-3-2-1">This method works as a consequence of application of the superposition theorem to the complicated circuit.</div></li>
 </ul>
 </div></li>
-<li id="subsec-finding-thevenin-3-1-3"><div class="para" id="subsec-finding-thevenin-3-1-3-1">Use your values for <span class="process-math">\(V_{th}\)</span> and <span class="process-math">\(R_{th}\)</span> to find <span class="process-math">\(I_n = V_{th}/R_{th}\)</span>
+<li id="subsec-finding-thevenin-4-1-3"><div class="para" id="subsec-finding-thevenin-4-1-3-1">Use your values for <span class="process-math">\(V_{th}\)</span> and <span class="process-math">\(R_{th}\)</span> to find <span class="process-math">\(I_n = V_{th}/R_{th}\)</span>
 </div></li>
 </ol>
 </div>
-<div class="para" id="subsec-finding-thevenin-4">Let’s look at an example.</div>
-<details id="subsec-finding-thevenin-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Thevenin Example.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="subsec-finding-thevenin-5-2-1">Find <span class="process-math">\(V_{th}\text{,}\)</span> <span class="process-math">\(R_{th}\text{,}\)</span> and <span class="process-math">\(I_n\)</span> for the circuit in <a href="sec-dc-thevenin.html#dc-thevenin-ex1" class="xref" data-knowl="./knowl/xref/dc-thevenin-ex1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.5">Figure 2.6.5</a>. <figure class="figure figure-like" id="dc-thevenin-ex1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-ex1-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+<div class="para" id="subsec-finding-thevenin-5">Let’s look at an example.</div>
+<details id="subsec-finding-thevenin-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.5</span><span class="period">.</span><span class="space"> </span><span class="title">Thevenin Example - No Linear Algebra.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subsec-finding-thevenin-6-2-1">Find <span class="process-math">\(V_{th}\text{,}\)</span> <span class="process-math">\(R_{th}\text{,}\)</span> and <span class="process-math">\(I_n\)</span> for the circuit in <a href="sec-dc-thevenin.html#dc-thevenin-ex1" class="xref" data-knowl="./knowl/xref/dc-thevenin-ex1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.6">Figure 2.6.6</a>. <figure class="figure figure-like" id="dc-thevenin-ex1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-ex1-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
 </div>
 <div class="solutions">
-<details id="subsec-finding-thevenin-5-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="subsec-finding-thevenin-5-3-1"><div class="displaymath process-math" id="subsec-finding-thevenin-5-3-1-1">
+<details id="subsec-finding-thevenin-6-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="subsec-finding-thevenin-6-3-1"><div class="displaymath process-math" id="subsec-finding-thevenin-6-3-1-1">
 \begin{align*}
 V_{th} \amp = 7.5\text{V} \\
 I_n \amp = 1.36\text{mA} \\
 R_{th} \amp = 5.5\text{k}\Omega 
 \end{align*}
-</div></div></div></details><details id="subsec-finding-thevenin-5-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+</div></div></div></details><details id="subsec-finding-thevenin-6-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <figure class="figure figure-like" id="dc-thevenin-ex1b"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-ex1b-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="subsec-finding-thevenin-5-4-2">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="subsec-finding-thevenin-6-4-2">
 <div class="para">
 <dfn class="terminology">Find <span class="process-math">\(V_{th}:\)</span></dfn> Assume an open circuit between terminals A and B such that <span class="process-math">\(I_2=0\text{.}\)</span> Using mesh analysis, we find</div>
 <div class="displaymath process-math">
@@ -486,7 +479,7 @@ V_1 - I_1 (R_1 + R_2 + R_3) = 0\text{.}
 \end{equation*}
 </div>
 <div class="para">Then</div>
-<div class="displaymath process-math" id="subsec-finding-thevenin-5-4-2-5">
+<div class="displaymath process-math" id="subsec-finding-thevenin-6-4-2-5">
 \begin{align*}
 I_1 \amp = \frac{V_1}{R_1 + R_2 + R_3} \\
 \amp = 1.5\text{mA} \text{.}
@@ -500,26 +493,37 @@ V_{th}=V_{oc} = 7.5\text{V}\text{.}
 </div>
 </div>
 <figure class="figure figure-like" id="dc-thevenin-ex1c"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-ex1c-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="subsec-finding-thevenin-5-4-4">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="subsec-finding-thevenin-6-4-4">
 <div class="para">
-<dfn class="terminology">Find <span class="process-math">\(R_{th}\text{:}\)</span></dfn> If we turn off all sources in our circuit, we are left to find the resistance between terminals A and B in <a href="sec-dc-thevenin.html#dc-thevenin-ex1c" class="xref" data-knowl="./knowl/xref/dc-thevenin-ex1c.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.7">Figure 2.6.7</a>. Looking for series and parallel resistances, we find that</div>
+<dfn class="terminology">Find <span class="process-math">\(R_{th}\text{:}\)</span></dfn> If we turn off all sources in our circuit, we are left to find the resistance between terminals A and B in <a href="sec-dc-thevenin.html#dc-thevenin-ex1c" class="xref" data-knowl="./knowl/xref/dc-thevenin-ex1c.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.8">Figure 2.6.8</a>. Looking for series and parallel resistances, we find that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-thevenin-ex1c.html">
 \begin{equation*}
 R_{th}=\left(\left(R_1 + R_2\right)||R_3\right)+R_4\text{.}
 \end{equation*}
 </div>
 <div class="para">Plugging in resistance values, we find that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-thevenin-ex1c.html" id="subsec-finding-thevenin-5-4-4-4">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-thevenin-ex1c.html" id="subsec-finding-thevenin-6-4-4-4">
 \begin{align*}
 R_{th} \amp = R_4 + \left(\left(R_1 + R_2\right)^{-1}+R_3^{-1}\right)^{-1}\\
 \amp = 5.5\text{k}\Omega \text{.}
 \end{align*}
 </div>
 </div>
-<div class="para" id="subsec-finding-thevenin-5-4-5">
+<div class="para" id="subsec-finding-thevenin-6-4-5">
 <dfn class="terminology">Find <span class="process-math">\(I_{n}\text{:}\)</span></dfn> The Norton current <span class="process-math">\(I_n=V_{th}/R_{th}=1.36\)</span>mA.</div>
 </div></details>
-</div></article></details><div class="para" id="subsec-finding-thevenin-6">Look at section 41.6 to add color to example blocks. also section 28.2 and similar. xsl stylesheets</div></section></section></div>
+</div></article></details><div class="para logical" id="subsec-finding-thevenin-7">
+<div class="para">Sometimes, one does not have a circuit schematic but only has the physical circuit. In this case, a digital multimeter can be used to physically perform the following procedure:</div>
+<ol class="decimal" id="subsec-finding-thevenin-7-1">
+<li id="subsec-finding-thevenin-7-1-1"><div class="para" id="subsec-finding-thevenin-7-1-1-1">Find the open-circuit voltage <span class="process-math">\(V_{oc}\)</span> which is equivalent to <span class="process-math">\(V_{oc}=V_A-V_B\)</span> when nothing is connected externally between output terminals A and B. Then, <span class="process-math">\(V_{th}=V_{oc}\text{.}\)</span>
+</div></li>
+<li id="subsec-finding-thevenin-7-1-2"><div class="para" id="subsec-finding-thevenin-7-1-2-1">Find the short-circuit current <span class="process-math">\(I_{sc}\)</span> which is the current from terminal A to terminal B when an external wire connects the two outputs. Then <span class="process-math">\(I_n = I_{sc}\text{.}\)</span>
+</div></li>
+<li id="subsec-finding-thevenin-7-1-3"><div class="para" id="subsec-finding-thevenin-7-1-3-1">The Thevenin resistance (which is equivalent to the Norton resistance) is then <span class="process-math">\(R_{th} = R_n =V_{th}/I_n\text{.}\)</span>
+</div></li>
+</ol>
+</div>
+<div class="para" id="subsec-finding-thevenin-8">Look at section 41.6 to add color to example blocks. also section 28.2 and similar. xsl stylesheets</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-dc-superposition.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-dc-batteries.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
