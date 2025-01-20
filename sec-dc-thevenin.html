@@ -348,7 +348,7 @@ a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{
 <div class="para">We will also end up with <span class="process-math">\(N_2\)</span> independent loop law equations. Each of these loop law equations will have the form</div>
 <div class="displaymath process-math" id="eqn-dc-thevenin-kvl">
 \begin{equation}
-m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0\text{.}\tag{2.6.2}
+m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0\text{.}\tag{2.6.2}
 \end{equation}
 </div>
 <div class="para">The variables <span class="process-math">\(m_{rn}\)</span> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variables <span class="process-math">\(c_{rn}\)</span> and <span class="process-math">\(d_{rn}\)</span> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm’s Law). The variables <span class="process-math">\(\varepsilon_n\)</span> represent voltage changes across the ideal current sources <span class="process-math">\(I_{s_n}\)</span> meaning that <span class="process-math">\(w_{rn}\)</span> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop. Here, the index <span class="process-math">\(r\)</span> counts over KVL equations.</div>
@@ -358,7 +358,7 @@ m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + \
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-6">
 \begin{align*}
 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_{s_n}\\
-\sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k w_{rn} \varepsilon_n \amp 
+c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k w_{rn} \varepsilon_n \amp 
 = - m_{r,\text{ext}} \Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{rn} V_{s_n} 
 - \sum\limits_{n=1}^k d_{rn} I_{s_n} \text{.}
 \end{align*}
@@ -370,9 +370,9 @@ a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\l
 a_{1,\text{ext}} \amp a_{11} \amp \cdots \amp a_{1j} \amp 0 \amp \cdots \amp 0\\
 \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \amp \ddots \amp \vdots\\
 a_{N_1,\text{ext}} \amp a_{N_1 1}\amp \cdots \amp a_{N_1 j} \amp 0 \amp \cdots \amp 0\\  
-0 \amp c_{11} \amp \cdots \amp c_{1j} \amp w_{11} \amp \cdots \amp w_{1k}\\
+c_{1,\text{ext}} \amp c_{11} \amp \cdots \amp c_{1j} \amp w_{11} \amp \cdots \amp w_{1k}\\
 \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \amp \ddots \amp \vdots\\
-0 \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \amp w_{N_2 1} \amp \cdots \amp w_{N_2 k}\\
+c_{N_1,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \amp w_{N_2 1} \amp \cdots \amp w_{N_2 k}\\
 \end{pmatrix}\text{,}
 \end{equation*}
 </div>
