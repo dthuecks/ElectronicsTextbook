@@ -97,25 +97,28 @@
     </li>
     <li>
         <p>
-            Calculate the Thevenin equivalents for the circuits in <xref ref="fig-dc-homework-a8a"/> and <xref ref="fig-dc-homework-a8b"/>.
-            <sidebyside>
-            <figure xml:id="fig-dc-homework-a8a">
+            Calculate the Thevenin equivalents for the circuit in <xref ref="fig-dc-homework-a8"/>.
+            <figure xml:id="fig-dc-homework-a8">
                 <caption></caption>
                 <image width="70%">
                 <latex-image>
-                    <xi:include parse="text" href="./figures/fig-dc-homework-a8a.ptx" />
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a8.ptx" />
                 </latex-image>
                 </image>
             </figure>
-            <figure xml:id="fig-dc-homework-a8b">
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the Thevenin equivalents for the circuit in <xref ref="fig-dc-homework-a9"/>.
+            <figure xml:id="fig-dc-homework-a9">
                 <caption></caption>
                 <image width="70%">
                 <latex-image>
-                    <xi:include parse="text" href="./figures/fig-dc-homework-a8b.ptx" />
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a9.ptx" />
                 </latex-image>
                 </image>
             </figure>
-            </sidebyside>
         </p>
     </li>
   </ol>
