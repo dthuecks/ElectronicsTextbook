@@ -343,7 +343,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Python</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="app-python-newtonmethod.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Newton’s Method</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrix-mult.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrices.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrices</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
 </li>
@@ -436,7 +436,7 @@ V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}\text{.}
 </ol>
 <div class="para">To analyze the circuit in <a href="sec-dc-analysis.html#dc-solve-circuit" class="xref" data-knowl="./knowl/xref/dc-solve-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.1">Figure 2.4.1</a> using the mesh method, we draw the circuit and define currents as in <a href="sec-dc-analysis.html#dc-branch-circuit" class="xref" data-knowl="./knowl/xref/dc-branch-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.3">Figure 2.4.3</a>. <figure class="figure figure-like" id="dc-branch-circuit"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-branch-circuit-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.3<span class="period">.</span></span><span class="space"> </span>Branch method circuit analysis.</figcaption></figure> Examining the KCL at junction A and the KVL for loops I and II, we find the following equations</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-solve-circuit.html ./knowl/xref/dc-branch-circuit.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrix-mult.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-6">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-solve-circuit.html ./knowl/xref/dc-branch-circuit.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch2.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrices.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html" id="subsec-dc-analysis-branch-2-6">
 \begin{align}
 0 \amp = I_1 - I_2 - I_3\tag{2.4.1}\\
 0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4\tag{2.4.2}\\
@@ -502,15 +502,15 @@ V_B \amp = 13.85\text{V}\text{.}
 <div class="para logical" id="subsec-dc-analysis-branch-2-11-3-2">
 <div class="para">As an example, let’s start with the system of equations <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrix-mult.html" id="subsec-dc-analysis-branch-2-11-3-2-3">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrices.html" id="subsec-dc-analysis-branch-2-11-3-2-3">
 \begin{align*}
 0 \amp = I_1 - I_2 - I_3\\
 0 \amp = V_b - I_1 R_1 - I_2 R_2 - I_1 R_4\\
 0 \amp = V_b - I_1 R_1 - I_3 R_3 - I_1 R_4\text{.}
 \end{align*}
 </div>
-<div class="para">These equations can be re-expressed as a matrix equation if we remember the rules of matrix multiplication (see <a href="app-matrix-mult.html" class="internal" title="Appendix B: Matrix Multiplication">Appendix B</a> for details). The resulting matrix equation is expressed as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrix-mult.html">
+<div class="para">These equations can be re-expressed as a matrix equation if we remember the rules of matrix multiplication (see <a href="app-matrices.html" class="internal" title="Appendix B: Matrices">Appendix B</a> for details). The resulting matrix equation is expressed as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-branch1.html ./knowl/xref/eqn-dc-branch3.html ./knowl/xref/app-matrices.html">
 \begin{equation*}
 \begin{pmatrix}
 1 \amp -1 \amp -1 \\ R_1+R_4 \amp R_2 \amp 0\\ R_1+R_4 \amp 0 \amp R_3

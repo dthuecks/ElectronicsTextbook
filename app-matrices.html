@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lab Safety</title>
+<title>Matrices</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -212,7 +212,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="part-lab.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part-lab.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-labnotebook.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="app-python-newtonmethod.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="backmatter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -291,10 +291,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-part contains-active">
+<li class="toc-item toc-part">
 <div class="toc-title-box"><a href="part-lab.html" class="internal"><span class="codenumber">II</span> <span class="title">Laboratory</span></a></div>
-<ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-chapter active"><div class="toc-title-box"><a href="ch-safety.html" class="internal"><span class="codenumber">5</span> <span class="title">Lab Safety</span></a></div></li>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-safety.html" class="internal"><span class="codenumber">5</span> <span class="title">Lab Safety</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labnotebook.html" class="internal"><span class="codenumber">6</span> <span class="title">Guide to Laboratory Notebooks</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-equipment.html" class="internal"><span class="codenumber">7</span> <span class="title">Introduction to Equipment in the Laboratory</span></a></div>
@@ -312,43 +312,150 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-backmatter">
+<li class="toc-item toc-backmatter contains-active">
 <div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-appendix">
 <div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Python</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="app-python-newtonmethod.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Newton’s Method</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrices.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-appendix active"><div class="toc-title-box"><a href="app-matrices.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrices</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-safety"><h2 class="heading">
-<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">5</span><span class="space"> </span><span class="title">Lab Safety</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="appendix" id="app-matrices"><h2 class="heading">
+<span class="type">Appendix</span><span class="space"> </span><span class="codenumber">B</span><span class="space"> </span><span class="title">Matrices</span>
 </h2>
-<section class="introduction" id="ch-safety-2"><div class="para" id="ch-safety-2-1">The laboratory is a place to gain hands-on experience with course content, become proficient with standard lab tools, and to learn techniques in experimental design, analysis, and troubleshooting. It requires only a small amount of effort to protect you, your classmates, and the equipment from damage or injury. In this lab, the main hazards to protect against include electrical shock, fire, and burns.</div></section><section class="paragraphs" id="ch-safety-3"><h2 class="heading"><span class="title">General Precautions.</span></h2>
-<ul class="disc" id="ch-safety-3-2">
-<li id="ch-safety-3-2-1"><div class="para" id="ch-safety-3-2-1-1">Keep your work area organized and uncluttered.</div></li>
-<li id="ch-safety-3-2-2"><div class="para" id="ch-safety-3-2-2-1">Avoid tripping hazards by keeping cables off of the floor.</div></li>
-<li id="ch-safety-3-2-3"><div class="para" id="ch-safety-3-2-3-1">Turn off all power when making physical changes to circuit components.</div></li>
-<li id="ch-safety-3-2-4"><div class="para" id="ch-safety-3-2-4-1">Even after turning power off, use a wire to connect the two ends of each capacitor and inductor in your circuit before reaching into the circuit with your fingers. Capacitors and inductors can store energy, maintaining a voltage difference between their terminals even after the power to the circuit has been turned off.</div></li>
-<li id="ch-safety-3-2-5"><div class="para" id="ch-safety-3-2-5-1">Be wary of circuit components that have become hot. Check the temperature of components before solidly grabbing them.</div></li>
-<li id="ch-safety-3-2-6"><div class="para" id="ch-safety-3-2-6-1">If you smell smoke or something burning, turn off your circuit <em class="emphasis">immediately</em>. Only start troubleshooting once the circuit is off.</div></li>
-<li id="ch-safety-3-2-7"><div class="para" id="ch-safety-3-2-7-1">Practice reaching into your circuit with a single hand (rather than both simultaneously) to reduce the risk of current passing through the core of your body.</div></li>
-<li id="ch-safety-3-2-8"><div class="para" id="ch-safety-3-2-8-1">Never work with electronics if your hands, clothes, or equipment are wet.</div></li>
-<li id="ch-safety-3-2-9"><div class="para" id="ch-safety-3-2-9-1">Food and drink are allowed only in designated areas in the lab room. Ask your instructor where this designated area is. Food and drink are prohibited everywhere else in the lab room.</div></li>
-<li id="ch-safety-3-2-10"><div class="para" id="ch-safety-3-2-10-1">In case of emergency involving risk of life or an uncontrollable fire, call 911. Notify the instructor of any accident that involves injury or equipment damage.</div></li>
-</ul></section><div class="para" id="ch-safety-4">The primary sources of electric power that you will encounter in the lab are the 120V AC wall/table outlets and the DC power supplies (that may provide up to 30V DC) between their terminals. Higher voltages may be present inside lab equipment. Never stick any unauthorized objects/fingers into outlets or inside equipment.</div>
-<div class="para" id="ch-safety-5">When working with electricity, the main danger to avoid is a situation where current passes through your body. While voltage can also be dangerous, it is only very high voltages (which should not be present in the lab) that could cause arcs and burns that are dangerous on their own. In the circumstances you’ll encounter in the lab, voltage is only dangerous in that it can induce a current to pass through your body.</div>
-<div class="para" id="ch-safety-6">The danger posed by currents passing through your body depend on 1) the size of the current and 2) the path that the current follows through your body. The highest risk is associated with a current that passes through the core of your body (namely, your heart). This is why you should learn to use only one hand when reaching into a circuit to insert/remove circuit components.</div>
-<div class="para" id="ch-safety-7">The danger posed by current passing through the heart changes based on the size of the current. Breathing can start becoming labored for currents as low as 20mA. By 75mA, breathing may cease until the current is removed. In the 100mA-200mA range, ventricular fibrillation of the heart occurs. This is a condition where the electrical signals that tell your heart to pump are disrupted, resulting in a quivering of the ventricles instead of pumping. This is the most dangerous situation as sudden cardiac death may occur. Above 200mA, a person’s chances for survival are actually better. At 200mA or above, the heart actually clamps rather than going into ventricular fibrilation, and beating will often resume if the voltage is removed quickly.</div>
-<div class="para" id="ch-safety-8">In our lab, you are unlikely to encounter life-threatening situations as long as you do not disassemble lab equipment or stick items into the outlet. The resistance provided by your skin and internal body (hand-to-hand or hand-to-leg) is often as high as <span class="process-math">\(500,000\Omega\)</span> as long as your skin is dry. According to Ohm’s Law, one would need somewhere on the order of 10kV to result in a 20mA current through the body <em class="emphasis">assuming dry skin</em>. If the skin is wet, however, the combined resistance of your skin and body could drop as low as <span class="process-math">\(1500\Omega\text{,}\)</span> meaning that a voltage difference as low as 30V could result in 20mA passing through the body and could lead to difficulty breathing.</div>
-<div class="para" id="ch-safety-9">To complicate the above picture, the current at which heart fibrillation occurs is lowered for alternating current (AC) as compared to values for direct current (DC). A shock that causes a current of 30mA AC could cause heart fibrillation. Additionally, voltages higher than 400V can cause dielectric breakdown of the skin (which is the main contributor to the body’s resistance), meaning the body’s resistance could drop as low as a few hundred ohms and lower the voltage threshhold for fibrillation.</div>
-<div class="para" id="ch-safety-10">In most educational labs at this level of instruction, you’re unlikely to face significant dangers to life, though there are still risks of light injury. As long as one keeps hands dry and avoids shocks from the outlet or equipment internals, the risk of injury is quite low. All the same, it is best to always be cognizant of potential danger and to take steps to miminize the risk of discomfort/injury.</div>
-<div class="para" id="ch-safety-11">[CITATIONS NEEDED FOR ABOVE INFORMATION]</div></section></div>
+<section class="paragraphs" id="app-matrices-2"><h1 class="heading"><span class="title">Properties of Matrices.</span></h1>
+<div class="para" id="app-matrices-2-2"></div>
+<div class="para logical" id="app-matrices-2-3">
+<div class="para">A matrix is an array of numbers</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp 3 \amp 4\\
+4 \amp 1 \amp 9\\ 
+\end{pmatrix}       \text{.}
+\end{equation*}
+</div>
+<div class="para">In order to use matrices to solve systems of equations, we must understand how to multiply matrices using the dot product.</div>
+</div>
+<div class="para logical" id="app-matrices-2-4">
+<div class="para">Suppose we have matrix <span class="process-math">\(\matrix{A}\)</span> that has the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\matrix{A} = 
+\begin{pmatrix}
+A_{11} \amp A_{12} \amp A_{13}\\
+A_{21} \amp A_{22} \amp A_{23}\\
+A_{31} \amp A_{32} \amp A_{33}\\
+A_{41} \amp A_{42} \amp A_{43}\\
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(A_{ij}\)</span> is the matrix element in the <span class="process-math">\(i\)</span>-th row and <span class="process-math">\(j\)</span>-th column. Now, if we multiply a matrix by a scalar, we find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u\matrix{A} = 
+\begin{pmatrix}
+uA_{11} \amp uA_{12} \amp uA_{13}\\
+uA_{21} \amp uA_{22} \amp uA_{23}\\
+uA_{31} \amp uA_{32} \amp uA_{33}\\
+uA_{41} \amp uA_{42} \amp uA_{43}\\
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="app-matrices-2-5">
+<div class="para">Let’s now say that we want to multiply matrices <span class="process-math">\(\matrix{A}\)</span> and <span class="process-math">\(\matrix{B}\)</span> to find <span class="process-math">\(\matrix{C}=\matrix{A}\cdot\matrix{B}\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\matrix{B} = 
+\begin{pmatrix}
+B_{11} \amp B_{12}\\
+B_{21} \amp B_{22}\\
+B_{31} \amp B_{32}\\
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">First off, <span class="process-math">\(\matrix{A}\cdot\matrix{B}\)</span> is only defined if <span class="process-math">\(\matrix{A}\)</span> has a number of columns that is equal to the number of rows of <span class="process-math">\(\matrix{B}\text{.}\)</span> In other words, <span class="process-math">\(\matrix{A}\cdot\matrix{B}\)</span> is only defined for matrices where <span class="process-math">\(\matrix{A}\)</span> is an <span class="process-math">\(\ell\times m\)</span> matrix and <span class="process-math">\(\matrix{B}\)</span> is an <span class="process-math">\(m \times n\)</span> matrix. Now we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\matrix{C}=\matrix{A}\cdot\matrix{B} = 
+\begin{pmatrix}
+A_{11} \amp A_{12} \amp A_{13}\\
+A_{21} \amp A_{22} \amp A_{23}\\
+A_{31} \amp A_{32} \amp A_{33}\\
+A_{41} \amp A_{42} \amp A_{43}\\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+B_{11} \amp B_{12}\\
+B_{21} \amp B_{22}\\
+B_{31} \amp B_{32}\\
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">The elements of <span class="process-math">\(\matrix{C}\)</span> are given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_{ik} = \sum\limits_{j=1}^n A_{ij} B_{jk}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(n\)</span> is the number of columns of <span class="process-math">\(\matrix{A}\)</span> and equivalently the number of rows in <span class="process-math">\(\matrix{B}\text{.}\)</span> In other words,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_{11} = A_{11}B_{11} + A_{12}B_{21}+A_{13}B_{31}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_{42} = A_{41}B_{12} + A_{42}B_{22}+A_{43}B_{32}\text{.}
+\end{equation*}
+</div>
+<div class="para">In other words, in order to find <span class="process-math">\(C_{ik}\text{,}\)</span> you can multiply, element-by-element, the cells in row i of <span class="process-math">\(\matrix{A}\)</span> with the cells in column k of <span class="process-math">\(\matrix{B}\text{.}\)</span> The resulting matrix <span class="process-math">\(\matrix{C}=\matrix{A}\cdot\matrix{B}\)</span> will have the same number of rows as <span class="process-math">\(\matrix{A}\)</span> and same number of columns as <span class="process-math">\(\matrix{B}\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="app-matrices-2-6">
+<div class="para">The <dfn class="terminology">identity matrix</dfn>, typically labeled <span class="process-math">\(\matrix{I}\)</span> is another concept that will be necessary to understand. The identity matrix is defined such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\matrix{I}\cdot\matrix{A}=\matrix{A}
+\end{equation*}
+</div>
+<div class="para">for any matrix <span class="process-math">\(\matrix{A}\text{.}\)</span> In order to have this property, the identity matrix must be a square matrix with dimensions <span class="process-math">\(n\times n\)</span> (same number of rows and columns) with values of 1 on the diagonal and 0 everywhere else:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp 0 \amp 0\\
+0 \amp 1 \amp 0\\
+0 \amp 0 \amp 1\\
+\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">The identity matrix can have any value of <span class="process-math">\(n\)</span> in order to make the desired matrix multiplication work.</div>
+</div>
+<div class="para logical" id="app-matrices-2-7">
+<div class="para">Now, let’s say that we have an equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\matrix{C}=\matrix{A}\cdot\matrix{B}
+\end{equation*}
+</div>
+<div class="para">and let’s further assume that we have prior knowledge of both <span class="process-math">\(\matrix{C}\)</span> and <span class="process-math">\(\matrix{A}\text{.}\)</span> How do we find <span class="process-math">\(\matrix{B}\text{?}\)</span> We cannot perform division with matrices. Instead, we use the concept of an <dfn class="terminology">inverse matrix</dfn>. Let’s define <span class="process-math">\(\matrix{A}^{-1}\)</span> to be the inverse matrix of <span class="process-math">\(\matrix{A}\)</span> such that <span class="process-math">\(\matrix{A}^{-1}\cdot \matrix{A} = \matrix{A}\cdot \matrix{A}^{-1} = \matrix{I}\text{.}\)</span> Then, we can multiply both sides of our equation by <span class="process-math">\(\matrix{A}^{-1}\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\matrix{A}^{-1}\cdot \matrix{C} = \matrix{A}^{-1}\cdot \matrix{A} \cdot \matrix{B} = \matrix{I}\cdot\matrix{B}=\matrix{B}\text{.}
+\end{equation*}
+</div>
+<div class="para">You can learn how to find <span class="process-math">\(\matrix{A}^{-1}\)</span> given knowledge of <span class="process-math">\(\matrix{A}\)</span> in a linear algebra course. For our purposes, we will just rely on Python to invert matrices.</div>
+</div></section><section class="paragraphs" id="app-matrices-3"><h1 class="heading"><span class="title">Connecting to systems of equations.</span></h1>
+<div class="para" id="app-matrices-3-2"></div>
+<div class="para" id="app-matrices-3-3">Coming soon.</div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="part-lab.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-labnotebook.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="app-python-newtonmethod.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
