@@ -18,7 +18,7 @@
 
   <xi:include href="./app-python.ptx" />
 
-  <xi:include href="./app-matrix-mult.ptx" />
+  <xi:include href="./app-matrices.ptx" />
   
   <colophon>
     <p> This book was authored in <pretext />. </p>
