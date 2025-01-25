@@ -40,6 +40,8 @@
     <xi:include href="./ch-labhints.ptx" />
 
     <xi:include href="./ch-labactivities.ptx" />
+
+    <xi:include href="./ch-labpython.ptx" />
     
   </part>
 
