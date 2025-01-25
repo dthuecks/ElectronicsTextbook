@@ -982,6 +982,42 @@ var ptx_lunr_docs = [
   "body": "     "
 },
 {
+  "id": "sec-labpython-dataload",
+  "level": "1",
+  "url": "sec-labpython-dataload.html",
+  "type": "Section",
+  "number": "10.1",
+  "title": "Loading Data Files",
+  "body": " Loading Data Files  Here, we are going to import data from a spreadsheet file, bringing it into Python as a NumPy array.  Import from .csv file using NumPy  If you are starting with data in an .xlsx file, you must first convert it into a .csv file using the 'Save As' feature, selecting 'CSV (Comma Delimited)' format. Then, import your data into Python using code like the following:   import numpy as np # Read filename.csv file into a pandas dataframe. Skip the first two lines as they are string headers. data = np.loadtxt('filename.csv', skiprows=2, delimiter=','); R = data[:,0]; V = data[:,1];     Import from .xlsx file using Pandas package   The Pandas package in Python is a powerful data analysis and manipulation tool. If you intend to work with large amounts of data in Python, you may wish to investigate the capabilities of this package. For our purposes now, we'll just scratch the surface of its functionality and solely use it to import data into Python from an xlsx file format (from Excel), eventually converting it into NumPy arrays.  import pandas as pd import numpy as np # Read filename.xlsx file into a pandas dataframe df = pd.read_excel('filename.xlsx'); # Create a pandas sequence using the 0th column of data. Rows 0 and 1 contain header info. df_R = df.iloc[2:,0]; # Create a pandas sequence using the 1st column of data. Rows 0 and 1 contain header info. df_V = df.iloc[2:,1]; # Convert pandas sequences to numpy arrays R = df_R.to_numpy(); V = df_V.to_numpy();     "
+},
+{
+  "id": "sec-labpython-dataload-2-1",
+  "level": "2",
+  "url": "sec-labpython-dataload.html#sec-labpython-dataload-2-1",
+  "type": "Example",
+  "number": "10.1.1",
+  "title": "Import from .csv file using NumPy.",
+  "body": " Import from .csv file using NumPy  If you are starting with data in an .xlsx file, you must first convert it into a .csv file using the 'Save As' feature, selecting 'CSV (Comma Delimited)' format. Then, import your data into Python using code like the following:   import numpy as np # Read filename.csv file into a pandas dataframe. Skip the first two lines as they are string headers. data = np.loadtxt('filename.csv', skiprows=2, delimiter=','); R = data[:,0]; V = data[:,1];   "
+},
+{
+  "id": "sec-labpython-dataload-2-2",
+  "level": "2",
+  "url": "sec-labpython-dataload.html#sec-labpython-dataload-2-2",
+  "type": "Example",
+  "number": "10.1.2",
+  "title": "Import from .xlsx file using Pandas package.",
+  "body": " Import from .xlsx file using Pandas package   The Pandas package in Python is a powerful data analysis and manipulation tool. If you intend to work with large amounts of data in Python, you may wish to investigate the capabilities of this package. For our purposes now, we'll just scratch the surface of its functionality and solely use it to import data into Python from an xlsx file format (from Excel), eventually converting it into NumPy arrays.  import pandas as pd import numpy as np # Read filename.xlsx file into a pandas dataframe df = pd.read_excel('filename.xlsx'); # Create a pandas sequence using the 0th column of data. Rows 0 and 1 contain header info. df_R = df.iloc[2:,0]; # Create a pandas sequence using the 1st column of data. Rows 0 and 1 contain header info. df_V = df.iloc[2:,1]; # Convert pandas sequences to numpy arrays R = df_R.to_numpy(); V = df_V.to_numpy();   "
+},
+{
+  "id": "sec-labpython-plotting",
+  "level": "1",
+  "url": "sec-labpython-plotting.html",
+  "type": "Section",
+  "number": "10.2",
+  "title": "Line Plots in Python",
+  "body": " Line Plots in Python  Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.      "
+},
+{
   "id": "app-python-newtonmethod",
   "level": "1",
   "url": "app-python-newtonmethod.html",
