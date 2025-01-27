@@ -32,7 +32,7 @@
     </li>
     <li>
         <p>
-            A fixed <m>1.0\text{k}\Omega</m> resistor and a <m>4.0\text{k}\Omega</m> potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of <m>V_{AB}</m> based on possible potentiometer settings. (See <xref ref="sec-equipment-potentiometer"/> for an explanation of potentiometers.)
+            A fixed <m>1.0\text{k}\Omega</m> resistor and a <m>4.0\text{k}\Omega</m> potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of <m>V_{AB}</m> based on possible potentiometer settings. (See <xref ref="sec-components-potentiometers"/> for an explanation of potentiometers.)
             <figure xml:id="fig-dc-homework-a3">
                 <caption></caption>
                 <image width="70%">
