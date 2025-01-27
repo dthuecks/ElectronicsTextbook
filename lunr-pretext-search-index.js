@@ -916,7 +916,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.1",
   "title": "Prototyping Board (or Breadboard)",
-  "body": " Prototyping Board (or Breadboard)  Prototyping boards are rows of connectors wired together behind a plastic face. While circuits in your electronics are soldered (often on printed circuitboards), prototyping boards have holes that allow component\/wire leads to be pushed in to form a solderless connection. This makes circuit assembly, disassembly, and modification much easier and faster while developing a circuit. Once a final circuit design has been determined, a more permanent construction may be performed.  The prototyping boards that we'll use look like this:  (for accessibility)  Along the top of this Proto-Board, we have four rows of connectors. The holes in the top row are all connected to +5V, the holes in the second row are connected to +V (variable between +1.3V to +15V), the holes in the third row are connected to –V (variable between -1.3V to -15V), and the holes in the fourth row are connected to the board’s ground. These connections are hard-wired and cannot be changed.  (for accessibility)    The rest of the board is broken up into segments that look like the figure to the right. The connections are set up such that:     The holes that are grouped into a single long vertical column are connected to each other. For instance, all holes covered by the red line are connected internally, and all holes covered by the green line are connected internally, though the red and green holes are not connected to each other. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit. [FIX: DISCUSS ORANGE JUMPERS]    There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the yellow line) are connected to each other internally. Likewise, the same is true for the holes covered by the blue line and by the orange line, though yellow, blue, and orange are not connected to each other.    Using these various rows and columns, we are able to make connections between electrical components (such as resistors, capacitors, transistors, semiconductor chips, and wires). While it takes a little practice to get used to this design, you will quickly find that these boards allow great flexibility as you prototype your circuits.      "
+  "body": " Prototyping Board (or Breadboard)  Prototyping boards are rows of connectors wired together behind a plastic face. While circuits in your electronics are soldered (often on printed circuitboards), prototyping boards have holes that allow component\/wire leads to be pushed in to form a solderless connection. This makes circuit assembly, disassembly, and modification much easier and faster while developing a circuit. Once a final circuit design has been determined, a more permanent construction may be performed.  The prototyping boards that we'll use look like this:  (for accessibility)  Along the top of this Proto-Board, we have four rows of connectors. The holes in the top row are all connected to +5V, the holes in the second row are connected to +V (variable between +1.3V to +15V), the holes in the third row are connected to –V (variable between -1.3V to -15V), and the holes in the fourth row are connected to the board’s ground. These connections are hard-wired and cannot be changed.  (for accessibility)    The rest of the board is broken up into segments that look like the figure to the right. The connections are set up such that:     The holes that are grouped into a single long vertical column are connected to each other, but with a break halfway down each column. For instance, all holes covered by the purple line are connected internally,as are holes covered by the green line and orange line, though holes covered by different colors are not connected internally. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit.    There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the blue line) are connected to each other internally. Likewise, the same is true for the holes covered by the brick red line and by the lavender line and gray line. Again, holes covered by different colored lines are not connected internally.    Using these various rows and columns, we are able to make connections between electrical components (such as resistors, capacitors, transistors, semiconductor chips, and wires). While it takes a little practice to get used to this design, you will quickly find that these boards allow great flexibility as you prototype your circuits.      "
 },
 {
   "id": "sec-equipment-dmm",
@@ -937,13 +937,49 @@ var ptx_lunr_docs = [
   "body": " Oscilloscopes (BK Precision 2190E or 2542B)    (for accessibility)    (for accessibility)    The oscilloscope is an extremely versatile instrument. It can be used to measure both steady and time-dependent voltages, frequency, time duration, phase difference, and harmonic distortion. Some oscilloscopes automatically test transistors, perform spectral analysis, integrate, differentiate, sum, subtract, filter, and store electrical signals. Anyone working in an experimental science should be able to use an oscilloscope with considerable confidence.  The oscilloscopes that we are using in lab (BK Precision 2542B or 2190E) are general-purpose, two-channel digital storage instruments capable of displaying and capturing electrical signals with frequencies up to 100 MHz. Its front panel can be divided into a number of sections:   The color LCD display shows the signal on one or more of the two input channels, using a different color for each channel.    A set of buttons along the right hand side of the display are used to make menu item selections.    A set of buttons and knobs on the right half of the instrument control some of the advanced oscilloscope functions, including:   a TRIGGER section that permits one to control the starting point for the displayed waveform,    a VERTICAL section, accepting up to two input signals and containing controls to vary the voltage resolution (among other things),    a HORIZONTAL or ‘time base’ section that controls the time resolution of the display.        In its most commonly used mode of operation, an oscilloscope creates a visual display by capturing and successively overlaying identical windows of time, each window beginning at the same point (relative to the ‘trigger point’) on the signal. The time base of the scope determines how much time is represented by each horizontal division of the LCD display. The triggering function determines when each time window is to begin; proper triggering is necessary for stable, unambiguous display of the desired waveform. Finally, the vertical section of the scope controls the amplitude of the information displayed. It determines for each of the two channels how many volts are represented by each vertical division on the display.   Hints regarding oscilloscope controls    To change the horizontal (time base) scale:   The Time\/div knob changes the time per division (sec\/div are color coded by input channel and displayed on the screen).    Position knob changes location of the trigger (labeled as an arrow along the top of the screen).       To change the vertical (voltage base) scale:   Scale know changes the voltage per division (V\/div are color coded by input channel and displayed on the screen).    Position knob changes location of the ground (labeled as a color-coded arrow on the left of the screen).       To access the parameters for each channel, press Ch. 1 (or 2,3,4) button twice and chose from:   Input coupling (AC\/DC\/Ground)    Invert signal    Probe setup    Bandwidth limit    Probe    Digital Filter    Volts\/scale    Invert       To adjust the trigger:   Trigger knob changes the voltage level of the trigger.    Trigger MENU button   Select which channel to trigger off of (trigger level arrow changes color to show which channel is being triggered)    Slope: can trigger off a rising edge or falling edge    Trigger mode: Auto, Normal, other          To select the ACQUIRE mode:   Run\/Stop: sets the scope to continuously acquire or freeze after the last trigger.    Single sequence: draws the signal only once after a single trigger. Will not trigger on successive events.    Autoset: scope tries to choose overall best scope settings (sometimes useful when you can’t see anything, but generally used as a last resort because it can also mislead you.       Measure menu:   You can select various measurements and which channel to measure. Be very careful with automatic measurements (again these can be deceptive). Generally use cursors to make accurate measurements. Note that the automatic mode searches for the very top and bottom of the signals (when measuring voltages) which may not provide an accurate value for the actual amplitude as noise on the signal may artificially inflate the max\/min values.       Cursor menu:   Choose time (vertical bars) or voltage (horizontal bars) measurement.    Choose which channel to measure (measurement cursors may be the same color as the channel they are measuring).    Choose manual adjustment (adjust each cursor separately) or fixed (adjust both cursors simultaneously).    Choose which cursor to adjust (Cursor A\/Cursor B).    Use the knob in the upper-left corner of the controls to adjust the cursor positions.    The position relative to ground (or trigger zero time for time measurements) is displayed on the screen with the ‘@’ symbol.    The relative distance between the cursors is displayed on the screen with the ‘ ’ symbol.       For further details, please read A Shortish Guide to Using an Oscilloscope , posted to the course webpage.   "
 },
 {
-  "id": "sec-equipment-potentiometer",
+  "id": "sec-equipment-components",
   "level": "1",
-  "url": "sec-equipment-potentiometer.html",
+  "url": "sec-equipment-components.html",
   "type": "Section",
   "number": "7.4",
-  "title": "Potentiometers",
-  "body": " Potentiometers  "
+  "title": "Electronics components",
+  "body": " Electronics components   Resistor Color Codes  Resistors are marked with (typically) four colored bands. These bands provide a code that can be used to determine the fvalue of the resistance. The meanings of the colors and band placements are provided in .  [GENERATE OWN FIGURE] Resistor color codes.    Thus, a resistors with a Green-Violet-Orange-Silver code has a resistance of .    Potentiometers  Read about potentiometers here for now: Digikey Potentiometer Explanation   Potentiometers (or pots) typically have three terminals: Two are the ends of a fixedc resistor and one is the 'wiper', as pictured in .  [GENERATE OWN IMAGE] a) Physical design, b) what's inside, c) schematic symbol   (for accessibility)   This design allows the potentiometer to be used as a variable resistor, where the resistance varies between the wiper terminal and each of the fixed terminals as the knob is rotated. Before using aany potentiometer, ensure that you are sure of the role tqaken by each of the terminals, as there can be variation in the terminal layouts.    Switches  The SPST (single pull, single throw) switch has two terminals, while the SPDT (single pull, double throw) switch has three terminals as shown in .  [GENERATE OWN FIGURE]   (for accessibility)   The SPST switch is meant to flip between a closed circuit and an open circuit, depending on the switch position. The SPDT is meant to flip between connection A and connection B, depending on the switch position. Always verify the switch operation before incorporating it into your circuit. Many prototyping boards have built-in switches available, as shown in .  [GENERATE OWN IMAGE]   (for accessibility)      "
+},
+{
+  "id": "fig-components-color-codes",
+  "level": "2",
+  "url": "sec-equipment-components.html#fig-components-color-codes",
+  "type": "Figure",
+  "number": "7.4.1",
+  "title": "",
+  "body": " [GENERATE OWN FIGURE] Resistor color codes.    "
+},
+{
+  "id": "fig-components-potentiometer",
+  "level": "2",
+  "url": "sec-equipment-components.html#fig-components-potentiometer",
+  "type": "Figure",
+  "number": "7.4.2",
+  "title": "",
+  "body": " [GENERATE OWN IMAGE] a) Physical design, b) what's inside, c) schematic symbol   (for accessibility)   "
+},
+{
+  "id": "fig-components-switches",
+  "level": "2",
+  "url": "sec-equipment-components.html#fig-components-switches",
+  "type": "Figure",
+  "number": "7.4.3",
+  "title": "",
+  "body": " [GENERATE OWN FIGURE]   (for accessibility)   "
+},
+{
+  "id": "fig-components-pboard-switches",
+  "level": "2",
+  "url": "sec-equipment-components.html#fig-components-pboard-switches",
+  "type": "Figure",
+  "number": "7.4.4",
+  "title": "",
+  "body": " [GENERATE OWN IMAGE]   (for accessibility)   "
 },
 {
   "id": "ch-labhints",
@@ -955,38 +991,11 @@ var ptx_lunr_docs = [
   "body": " Troubleshooting Hints    "
 },
 {
-  "id": "sec-labactivities-voltagedivider",
-  "level": "1",
-  "url": "sec-labactivities-voltagedivider.html",
-  "type": "Section",
-  "number": "9.1",
-  "title": "Lab: Voltage Divider",
-  "body": " Lab: Voltage Divider   Objective: Through the course of this lab, you will familiarize yourself with the operation of a prototyping board and its various components (breadboard, voltage sources, potentiometers, and switches) and with resistor color codes. You will build a DC voltage divider circuit using this prototyping board and will use a handheld digital multimeter (DMM) to measure properties of circuit behavior.   Equipment: Prototyping board, digital multimeter (DMM), resistors with varied values, wires.   THEORY  Using content from class, derive an expression for the ratio for the voltage divider circuit in .          INTRODUCTION TO EQUIPMENT  For the following steps, explain in your lab notebook the behavior of the various components that you test.    With the prototyping board turned off, use the DMM in resistance mode to verify the internal wiring of the breadboard.    With the prototyping board still turned off, set up the DMM to verify the +5V row (with respect to the board’s ground). Once the DMM is set up and connected to the board, only then turn the prototyping board on and verify the expected behavior.    Turn the prototyping board off, change the DMM connections, and verify the other power strips. ALWAYS TURN OFF THE POWER WHEN CHANGING CONNECTIONS!    Use the DMM to verify the behavior of both on-board potentiometers. Do behaviors deviate from expected behaviors in any way? Describe how the available terminals correspond to parts of the potentiometers’ designs.    Use the DMM to verify the SPDT switch behavior.    You’ve been given five different resistors. Use the color codes to determine their specified resistance values, and then verify these values using your DMM. Provide all of these results in your notebook.     Discuss your findings with your professor prior to moving on to the next section.     EXPERIMENT  In this section, you will construct the DC voltage divider pictured below using the prototyping board, one fixed resistor, the on-board potentiometer, and a SPDT switch.          With the prototyping board turned off, construct your circuit, remembering the following:   Make use of the long columns of holes to distribute voltages to convenient locations on your board.    Remember the internal wiring of the prototyping boards. Don’t accidentally ‘short’ your resistor or potentiometer.    Don’t use long wires when short wires will do. Try to keep your circuit organized and use efficient placement of wires. A neat and organized circuit is much easier to troubleshoot!    Verify your circuit and discuss the next steps with your professor before moving on.     You must measure the ratio as a function of the variable resistance . Use the DMM to first measure the actual value (with the prototyping board turned on). Then, with the prototyping board off again, move the DMM connections to measure the variable resistance. Please note the following:   When measuring the resistance of the variable resistor, ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a break in the circuit.    When measuring , ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a closed connection in this segment of the circuit.    You will need to repeat the previous two steps for each of ten resistance values.       Graph the results of your measurements ( vs ) using symbols to represent your data points. On the same axes, generate a theoretical plot based on the predicted behavior of this circuit and represent this theory curve using a solid line plot. Also provide a legend.   Question: Are there any deviations from expected behavior at low or high resistances? If so, discuss this in your lab notebook.    Extension: In your lab notebook, discuss how you can make a voltage divider and conduct this experiment using only a single potentiometer (without the fixed resistor that we used in our circuit). Include a circuit diagram. Also discuss common places in your everyday life where you may find this type of circuit used.     "
-},
-{
-  "id": "fig-labactivities-voltagedivider-circuit",
-  "level": "2",
-  "url": "sec-labactivities-voltagedivider.html#fig-labactivities-voltagedivider-circuit",
-  "type": "Figure",
-  "number": "9.1.1",
-  "title": "",
-  "body": "     "
-},
-{
-  "id": "fig-labactivities-voltagedivider-circuit-expt",
-  "level": "2",
-  "url": "sec-labactivities-voltagedivider.html#fig-labactivities-voltagedivider-circuit-expt",
-  "type": "Figure",
-  "number": "9.1.2",
-  "title": "",
-  "body": "     "
-},
-{
   "id": "sec-labpython-dataload",
   "level": "1",
   "url": "sec-labpython-dataload.html",
   "type": "Section",
-  "number": "10.1",
+  "number": "9.1",
   "title": "Loading Data Files",
   "body": " Loading Data Files  Here, we are going to import data from a spreadsheet file, bringing it into Python as a NumPy array.  Import from .csv file using NumPy  If you are starting with data in an .xlsx file, you must first convert it into a .csv file using the 'Save As' feature, selecting 'CSV (Comma Delimited)' format. Then, import your data into Python using code like the following:   import numpy as np # Read filename.csv file into a pandas dataframe. Skip the first two lines as they are string headers. data = np.loadtxt('filename.csv', skiprows=2, delimiter=','); R = data[:,0]; V = data[:,1];     Import from .xlsx file using Pandas package   The Pandas package in Python is a powerful data analysis and manipulation tool. If you intend to work with large amounts of data in Python, you may wish to investigate the capabilities of this package. For our purposes now, we'll just scratch the surface of its functionality and solely use it to import data into Python from an xlsx file format (from Excel), eventually converting it into NumPy arrays.  import pandas as pd import numpy as np # Read filename.xlsx file into a pandas dataframe df = pd.read_excel('filename.xlsx'); # Create a pandas sequence using the 0th column of data. Rows 0 and 1 contain header info. df_R = df.iloc[2:,0]; # Create a pandas sequence using the 1st column of data. Rows 0 and 1 contain header info. df_V = df.iloc[2:,1]; # Convert pandas sequences to numpy arrays R = df_R.to_numpy(); V = df_V.to_numpy();     "
 },
@@ -995,7 +1004,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-labpython-dataload.html#sec-labpython-dataload-2-1",
   "type": "Example",
-  "number": "10.1.1",
+  "number": "9.1.1",
   "title": "Import from .csv file using NumPy.",
   "body": " Import from .csv file using NumPy  If you are starting with data in an .xlsx file, you must first convert it into a .csv file using the 'Save As' feature, selecting 'CSV (Comma Delimited)' format. Then, import your data into Python using code like the following:   import numpy as np # Read filename.csv file into a pandas dataframe. Skip the first two lines as they are string headers. data = np.loadtxt('filename.csv', skiprows=2, delimiter=','); R = data[:,0]; V = data[:,1];   "
 },
@@ -1004,7 +1013,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-labpython-dataload.html#sec-labpython-dataload-2-2",
   "type": "Example",
-  "number": "10.1.2",
+  "number": "9.1.2",
   "title": "Import from .xlsx file using Pandas package.",
   "body": " Import from .xlsx file using Pandas package   The Pandas package in Python is a powerful data analysis and manipulation tool. If you intend to work with large amounts of data in Python, you may wish to investigate the capabilities of this package. For our purposes now, we'll just scratch the surface of its functionality and solely use it to import data into Python from an xlsx file format (from Excel), eventually converting it into NumPy arrays.  import pandas as pd import numpy as np # Read filename.xlsx file into a pandas dataframe df = pd.read_excel('filename.xlsx'); # Create a pandas sequence using the 0th column of data. Rows 0 and 1 contain header info. df_R = df.iloc[2:,0]; # Create a pandas sequence using the 1st column of data. Rows 0 and 1 contain header info. df_V = df.iloc[2:,1]; # Convert pandas sequences to numpy arrays R = df_R.to_numpy(); V = df_V.to_numpy();   "
 },
@@ -1013,9 +1022,36 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-labpython-plotting.html",
   "type": "Section",
-  "number": "10.2",
+  "number": "9.2",
   "title": "Line Plots in Python",
   "body": " Line Plots in Python  Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.      "
+},
+{
+  "id": "sec-labactivities-voltagedivider",
+  "level": "1",
+  "url": "sec-labactivities-voltagedivider.html",
+  "type": "Section",
+  "number": "10.1",
+  "title": "Lab: Voltage Divider",
+  "body": " Lab: Voltage Divider   Objective: Through the course of this lab, you will familiarize yourself with the operation of a prototyping board and its various components (breadboard, voltage sources, potentiometers, and switches) and with resistor color codes. You will build a DC voltage divider circuit using this prototyping board and will use a handheld digital multimeter (DMM) to measure properties of circuit behavior.   Equipment: Prototyping board, digital multimeter (DMM), resistors with varied values, wires.   THEORY  Using content from class, derive an expression for the ratio for the voltage divider circuit in .          INTRODUCTION TO EQUIPMENT  For the following steps, explain in your lab notebook the behavior of the various components that you test.    With the prototyping board turned off, use the DMM in resistance mode to verify the internal wiring of the breadboard.    With the prototyping board still turned off, set up the DMM to verify the +5V row (with respect to the board’s ground). Once the DMM is set up and connected to the board, only then turn the prototyping board on and verify the expected behavior.    Turn the prototyping board off, change the DMM connections, and verify the other power strips. ALWAYS TURN OFF THE POWER WHEN CHANGING CONNECTIONS!    Use the DMM to verify the behavior of both on-board potentiometers. Do behaviors deviate from expected behaviors in any way? Describe how the available terminals correspond to parts of the potentiometers’ designs.    Use the DMM to verify the SPDT switch behavior.    You’ve been given five different resistors. Use the color codes to determine their specified resistance values, and then verify these values using your DMM. Provide all of these results in your notebook.     Discuss your findings with your professor prior to moving on to the next section.     EXPERIMENT  In this section, you will construct the DC voltage divider pictured below using the prototyping board, one fixed resistor, the on-board potentiometer, and a SPDT switch.          With the prototyping board turned off, construct your circuit, remembering the following:   Make use of the long columns of holes to distribute voltages to convenient locations on your board.    Remember the internal wiring of the prototyping boards. Don’t accidentally ‘short’ your resistor or potentiometer.    Don’t use long wires when short wires will do. Try to keep your circuit organized and use efficient placement of wires. A neat and organized circuit is much easier to troubleshoot!    Verify your circuit and discuss the next steps with your professor before moving on.     You must measure the ratio as a function of the variable resistance . Use the DMM to first measure the actual value (with the prototyping board turned on). Then, with the prototyping board off again, move the DMM connections to measure the variable resistance. Please note the following:   When measuring the resistance of the variable resistor, ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a break in the circuit.    When measuring , ensure that the multimeter dial is correctly set and that the SPDT is in the position that creates a closed connection in this segment of the circuit.    You will need to repeat the previous two steps for each of ten resistance values.       Graph the results of your measurements ( vs ) using symbols to represent your data points. On the same axes, generate a theoretical plot based on the predicted behavior of this circuit and represent this theory curve using a solid line plot. Also provide a legend.   Question: Are there any deviations from expected behavior at low or high resistances? If so, discuss this in your lab notebook.    Extension: In your lab notebook, discuss how you can make a voltage divider and conduct this experiment using only a single potentiometer (without the fixed resistor that we used in our circuit). Include a circuit diagram. Also discuss common places in your everyday life where you may find this type of circuit used.     "
+},
+{
+  "id": "fig-labactivities-voltagedivider-circuit",
+  "level": "2",
+  "url": "sec-labactivities-voltagedivider.html#fig-labactivities-voltagedivider-circuit",
+  "type": "Figure",
+  "number": "10.1.1",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "fig-labactivities-voltagedivider-circuit-expt",
+  "level": "2",
+  "url": "sec-labactivities-voltagedivider.html#fig-labactivities-voltagedivider-circuit-expt",
+  "type": "Figure",
+  "number": "10.1.2",
+  "title": "",
+  "body": "     "
 },
 {
   "id": "app-python-newtonmethod",

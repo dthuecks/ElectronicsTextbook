@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Superposition Theorem</title>
+<title>Resistors</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -212,7 +212,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-dc-analysis.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-dc.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-dc-thevenin.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-equipment-oscilloscope.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-equipment.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-labhints.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -223,9 +223,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li class="toc-item toc-part contains-active">
+<li class="toc-item toc-part">
 <div class="toc-title-box"><a href="part-analysis.html" class="internal"><span class="codenumber">I</span> <span class="title">Circuit Analysis</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
@@ -233,9 +233,9 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-schematics.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Fundamentals of Circuit Schematics</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter contains-active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-dc.html" class="internal"><span class="codenumber">2</span> <span class="title">DC Circuits</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-kirchhoff.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Kirchhoff’s Laws</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-voltage-source-symbol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Voltage Source Symbols</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-series_parallel.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Series and Parallel Resistors</span></a></div></li>
@@ -247,7 +247,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-mesh" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Analysis: Mesh Method</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-dc-thevenin.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Thevenin and Norton Theorem</span></a></div>
 <ul class="structural toc-item-list">
@@ -291,23 +291,22 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-part">
+<li class="toc-item toc-part contains-active">
 <div class="toc-title-box"><a href="part-lab.html" class="internal"><span class="codenumber">II</span> <span class="title">Laboratory</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-safety.html" class="internal"><span class="codenumber">5</span> <span class="title">Lab Safety</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labnotebook.html" class="internal"><span class="codenumber">6</span> <span class="title">Guide to Laboratory Notebooks</span></a></div></li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-equipment.html" class="internal"><span class="codenumber">7</span> <span class="title">Introduction to Equipment in the Laboratory</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-protoboard.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Prototyping Board (or Breadboard)</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-dmm.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Digital Multimeter (DMM)</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-oscilloscope.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Oscilloscopes (BK Precision 2190E or 2542B)</span></a></div></li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-equipment-components.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Electronics components</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-color-codes" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Resistor Color Codes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-potentiometers" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Potentiometers</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#subsec-components-switches" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Switches</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-equipment-resistors.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Resistors</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-resistors.html#sec-resistors-color-codes" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Resistor Color Codes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-resistors.html#sec-sec-resistors-potentiometers" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Potentiometers</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -338,14 +337,23 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-dc-superposition"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.5</span><span class="space"> </span><span class="title">Superposition Theorem</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-equipment-resistors"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">7.4</span><span class="space"> </span><span class="title">Resistors</span>
 </h2>
-<section class="introduction" id="sec-dc-superposition-2"><div class="para" id="sec-dc-superposition-2-1">The superposition theorem isn’t often used on its own in circuit analysis, but is the foundation for some other very important rules and theorems. Before stating the superposition theorem, we must first establish a few definitions.</div>
-<div class="para" id="sec-dc-superposition-2-2">First, <dfn class="terminology">linear circuit elements</dfn> are circuit elements for which the relationship between voltage and current is a linear function. Examples of linear circuit elements include resistors, capacitors, and inductors. A <dfn class="terminology">linear circuit</dfn> contains only linear elements.</div>
-<div class="para" id="sec-dc-superposition-2-3">With these definitions in place, the superposition theorem states that for any linear circuit containing more than one independent source, the circuit can be solved for one source while turning the others `off’. Then, this can be repeated for each source and add the results together. When we talk about turning a voltage source off, we mean that we replace it in our analysis with a wire. Turning a current source off means replacing the current source with a break in the circuit. The superposition theorem in electronics arises directly from use of the superposition principle in electricity and magnetism.</div></section></section></div>
+<section class="subsection" id="sec-resistors-color-codes"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="space"> </span><span class="title">Resistor Color Codes</span>
+</h3>
+<div class="para" id="sec-resistors-color-codes-2">Resistors are marked with (typically) four colored bands. These bands provide a code that can be used to determine the fvalue of the resistance. The meanings of the colors and band placements are provided in <a href="sec-equipment-resistors.html#fig-resistors-color-codes" class="internal" title="Figure 7.4.1">Figure 7.4.1</a>. <figure class="figure figure-like" id="fig-resistors-color-codes"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/img-resistors-color-codes.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.1<span class="period">.</span></span><span class="space"> </span>[GENERATE OWN FIGURE] Resistor color codes.</figcaption></figure> Thus, a resistors with a Green-Violet-Orange-Silver code has a resistance of <span class="process-math">\(57\times 10^3\Omega = 57\text{k}\Omega \pm 10\%\text{.}\)</span>
+</div></section><section class="subsection" id="sec-sec-resistors-potentiometers"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="space"> </span><span class="title">Potentiometers</span>
+</h3>
+<div class="para" id="sec-sec-resistors-potentiometers-2">Read about potentiometers here for now: <a class="external" href="https://www.digikey.com/en/articles/the-complete-guide-to-potentiometers" target="_blank">Digikey Potentiometer Explanation</a><details class="ptx-footnote" aria-live="polite" id="sec-sec-resistors-potentiometers-2-2"><summary class="ptx-footnote__number" title="Footnote 7.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec-sec-resistors-potentiometers-2-2"><code class="code-inline tex2jax_ignore">Digikey Potentiometer Explanation</code></div></details>
+</div>
+<div class="para" id="sec-sec-resistors-potentiometers-3">Potentiometers (or pots) typically have three terminals: Two are the ends of a fixedc resistor and one is the ’wiper’, as pictured in <a href="sec-equipment-resistors.html#fig-resistors-potentiometer" class="internal" title="Figure 7.4.2">Figure 7.4.2</a>. <figure class="figure figure-like" id="fig-resistors-potentiometer"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/img-resistors-potentiometer.jpg" class="contained" alt="(for accessibility)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.2<span class="period">.</span></span><span class="space"> </span>[GENERATE OWN IMAGE] a) Physical design, b) what’s inside, c) schematic symbol</figcaption></figure> This design allows the potentiometer to be used as a variable resistor, where the resistance varies between the wiper terminal and each of the fixed terminals as the knob is rotated. Before using aany potentiometer, ensure that you are sure of the role tqaken by each of the terminals, as there can be variation in the terminal layouts.</div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-dc-analysis.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-dc-thevenin.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-equipment-oscilloscope.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-labhints.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

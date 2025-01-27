@@ -302,20 +302,27 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-equipment-protoboard.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Prototyping Board (or Breadboard)</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-dmm.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Digital Multimeter (DMM)</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-oscilloscope.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Oscilloscopes (BK Precision 2190E or 2542B)</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-potentiometer.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Potentiometers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-equipment-components.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Electronics components</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-color-codes" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Resistor Color Codes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-potentiometers" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Potentiometers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#subsec-components-switches" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Switches</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labhints.html" class="internal"><span class="codenumber">8</span> <span class="title">Troubleshooting Hints</span></a></div></li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-labactivities.html" class="internal"><span class="codenumber">9</span> <span class="title">Lab Activities</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-voltagedivider.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Lab: Voltage Divider</span></a></div></li></ul>
+<div class="toc-title-box"><a href="ch-labpython.html" class="internal"><span class="codenumber">9</span> <span class="title">Data Analysis with Python</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-dataload.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Loading Data Files</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-plotting.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Line Plots in Python</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-labpython.html" class="internal"><span class="codenumber">10</span> <span class="title">Data Analysis with Python</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-dataload.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Loading Data Files</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-plotting.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Line Plots in Python</span></a></div></li>
-</ul>
+<div class="toc-title-box"><a href="ch-labactivities.html" class="internal"><span class="codenumber">10</span> <span class="title">Lab Activities</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-voltagedivider.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Lab: Voltage Divider</span></a></div></li></ul>
 </li>
 </ul>
 </li>
@@ -340,8 +347,8 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec-equipment-protoboard-4">The rest of the board is broken up into segments that look like the figure to the right. The connections are set up such that:</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0.5%;margin-right:0.5%;">
 <div class="sbspanel middle" style="width:70.7070707070707%;"><ul class="disc" id="sec-equipment-protoboard-5-1">
-<li id="sec-equipment-protoboard-5-1-1"><div class="para" id="sec-equipment-protoboard-5-1-1-1">The holes that are grouped into a single long vertical column are connected to each other. For instance, all holes covered by the red line are connected internally, and all holes covered by the green line are connected internally, though the red and green holes are not connected to each other. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit. [FIX: DISCUSS ORANGE JUMPERS]</div></li>
-<li id="sec-equipment-protoboard-5-1-2"><div class="para" id="sec-equipment-protoboard-5-1-2-1">There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the yellow line) are connected to each other internally. Likewise, the same is true for the holes covered by the blue line and by the orange line, though yellow, blue, and orange are not connected to each other.</div></li>
+<li id="sec-equipment-protoboard-5-1-1"><div class="para" id="sec-equipment-protoboard-5-1-1-1">The holes that are grouped into a single long vertical column are connected to each other, but with a break halfway down each column. For instance, all holes covered by the purple line are connected internally,as are holes covered by the green line and orange line, though holes covered by different colors are not connected internally. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit.</div></li>
+<li id="sec-equipment-protoboard-5-1-2"><div class="para" id="sec-equipment-protoboard-5-1-2-1">There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the blue line) are connected to each other internally. Likewise, the same is true for the holes covered by the brick red line and by the lavender line and gray line. Again, holes covered by different colored lines are not connected internally.</div></li>
 <li id="sec-equipment-protoboard-5-1-3"><div class="para" id="sec-equipment-protoboard-5-1-3-1">Using these various rows and columns, we are able to make connections between electrical components (such as resistors, capacitors, transistors, semiconductor chips, and wires). While it takes a little practice to get used to this design, you will quickly find that these boards allow great flexibility as you prototype your circuits.</div></li>
 </ul></div>
 <div class="sbspanel middle" style="width:28.2828282828283%;"><img src="external/images/img-protoboard-connections.jpg" class="contained"></div>
