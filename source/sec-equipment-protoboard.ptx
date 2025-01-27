@@ -23,12 +23,12 @@
         <ul>
             <li>
                 <p>
-                    The holes that are grouped into a single long vertical column are connected to each other. For instance, all holes covered by the red line are connected internally, and all holes covered by the green line are connected internally, though the red and green holes are not connected to each other. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit. [FIX: DISCUSS ORANGE JUMPERS]
+                    The holes that are grouped into a single long vertical column are connected to each other, but with a break halfway down each column. For instance, all holes covered by the purple line are connected internally,as are holes covered by the green line and orange line, though holes covered by different colors are not connected internally. One use for these columns is to distribute voltages from the top voltage strip to other parts of the circuit. 
                 </p>
             </li>
             <li>
                 <p>
-                    There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the yellow line) are connected to each other internally. Likewise, the same is true for the holes covered by the blue line and by the orange line, though yellow, blue, and orange are not connected to each other. 
+                    There are also a series of horizontal groupings containing five holes in a row. These five holes (for instance, the holes covered by the blue line) are connected to each other internally. Likewise, the same is true for the holes covered by the brick red line and by the lavender line and gray line. Again, holes covered by different colored lines are not connected internally. 
                 </p>
             </li>
             <li>

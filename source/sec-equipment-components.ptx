@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-equipment-components">
+    <title>Electronics components</title>
+    <subsection xml:id="sec-components-color-codes">
+        <title>Resistor Color Codes</title>
+        <p>
+            Resistors are marked with (typically) four colored bands. These bands provide a code that can be used to determine the fvalue of the resistance. The meanings of the colors and band placements are provided in <xref ref="fig-components-color-codes"/>.
+            <figure xml:id="fig-components-color-codes">
+                <caption>[GENERATE OWN FIGURE] Resistor color codes.</caption>
+                <image source="images/img-components-color-codes.jpg" width="100%">
+                </image>
+            </figure>
+            Thus, a resistors with a Green-Violet-Orange-Silver code has a resistance of <m>57\times 10^3\Omega = 57\text{k}\Omega \pm 10\%</m>.
+        </p>
+        
+    </subsection>
+    
+    
+    <subsection xml:id="sec-components-potentiometers">
+        <title>Potentiometers</title>
+    <p>
+        Read about potentiometers here for now: <url href="https://www.digikey.com/en/articles/the-complete-guide-to-potentiometers" visual="Digikey Potentiometer Explanation">Digikey Potentiometer Explanation</url>
+    </p>
+    <p>
+        Potentiometers (or pots) typically have three terminals: Two are the ends of a fixedc resistor and one is the 'wiper', as pictured in <xref ref="fig-components-potentiometer"/>.
+        <figure xml:id="fig-components-potentiometer">
+            <caption>[GENERATE OWN IMAGE] a) Physical design, b) what's inside, c) schematic symbol</caption>
+            <image source="images/img-components-potentiometer.jpg" width="100%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
+        This design allows the potentiometer to be used as a variable resistor, where the resistance varies between the wiper terminal and each of the fixed terminals as the knob is rotated. Before using aany potentiometer, ensure that you are sure of the role tqaken by each of the terminals, as there can be variation in the terminal layouts.
+    </p>
+</subsection>
+<subsection xml:id="subsec-components-switches">
+    <title>Switches</title>
+    <p>
+        The SPST (single pull, single throw) switch has two terminals, while the SPDT (single pull, double throw) switch has three terminals as shown in <xref ref="fig-components-switches"/>. 
+        <figure xml:id="fig-components-switches">
+            <caption>[GENERATE OWN FIGURE]</caption>
+            <image source="images/img-components-switches.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
+        The SPST switch is meant to flip between a closed circuit and an open circuit, depending on the switch position. The SPDT is meant to flip between connection A and connection B, depending on the switch position. Always verify the switch operation before incorporating it into your circuit. Many prototyping boards have built-in switches available, as shown in <xref ref="fig-components-pboard-switches"/>.
+        <figure xml:id="fig-components-pboard-switches">
+            <caption>[GENERATE OWN IMAGE]</caption>
+            <image source="images/img-components-pboard-switches.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
+    </p>
+    
+</subsection>
+</section>
