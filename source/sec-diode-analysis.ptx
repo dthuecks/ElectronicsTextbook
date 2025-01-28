@@ -161,7 +161,7 @@
             <me>
                 \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)=0
             </me>.
-            This is a nonlinear equation that cannot easily be solved analytically for <m>V_D</m>, so we'll use computational methods to estimate <m>V_D</m>. Specifically, we'll use Newton's Method which is described in <xref ref="app-python-newtonmethod"/>. In order to use this method, we'll let 
+            This is a nonlinear equation that cannot easily be solved analytically for <m>V_D</m>, so we'll use computational methods to estimate <m>V_D</m>. Specifically, we'll use Newton's Method which is described in <xref ref="subapp-python-newtonmethod"/>. In order to use this method, we'll let 
             <me>
                 f(V_D) = \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)
             </me>
@@ -169,7 +169,7 @@
             <me>
                 f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}
             </me>.
-            Using these equations, we implement Newton's Method (<xref ref="app-python-newtonmethod"/>) using the following code:
+            Using these equations, we implement Newton's Method (<xref ref="subapp-python-newtonmethod"/>) using the following code:
             <sage language="python">
             <input><xi:include parse="text" href="./codes/python-diode-simple-example.ptx" /></input>
             <output>
@@ -179,14 +179,75 @@
             <image width="75%">
                 <shortdescription></shortdescription>
                 <sageplot><xi:include parse="text" href="./sageplots/fig-diode-simple-example-plot-python.ptx" /></sageplot>
-            </image>
-
-            
-            
-            
-            
-            
+            </image>   
         </p>
+
+        <example>
+            <title>Diode Example #4</title>
+            
+            
+            <statement>
+                <p>
+                    Examine the circuit in <xref ref="fig-diode-example4-circuit"/>. Plot the time behavior of all currents, <m>V_\text{in}(t)</m>, <m>V_\text{out}(t)</m>, and the voltage across the diode <m>V_D(t)</m>.
+                </p>
+                <figure xml:id="fig-diode-example4-circuit">
+                    <caption></caption>
+                    <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="./figures/fig-diode-example4-circuit.ptx" />
+                    </latex-image>    
+                        
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    We can write down an equation for KCL
+                    <me>
+                        I_3 = I_1 + I_2
+                    </me>.
+                    Using Ohm's law, 
+                    <md>
+                        <mrow>I_1 =\amp I_D </mrow>
+                        <mrow>I_2 =\amp \frac{V_\text{in}-V_2}{R_2} </mrow>
+                        <mrow>I_3  =\amp \frac{V_2}{R_3} </mrow>
+                    </md>
+                    where <m>V_2</m> is the voltage at the top side of <m>V_\text{out}</m> (at the junction between <m>R_2</m>, <m>R_3</m>, and <m>D_1</m>). 
+                    Combining these equations, we find
+                    <me>
+                        I_D + \frac{V_\text{in}-V_2}{R_2} - \frac{V_2}{R_3} = 0
+                    </me>.
+                    We also get an additional equation by examining the circuit branch containing the diode: 
+                    <me>
+                        V_2 = V_\text{in}-I_D R_1 - V_D
+                    </me>. Plugging into the previous equation, we thus find that
+                    <me>
+                        I_D + \frac{I_D R_1+V_D}{R_2} - \frac{V_\text{in}-I_D R_1 - V_D}{R_3} = 0
+                    </me>.
+                    If we now group all of the <m>I_D</m> terms, we find
+                    <me>
+                        \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)I_D + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)V_D - \frac{V_\text{in}}{R_3} = 0
+                    </me>.
+                    We can then use Newton's method to solve for the currents letting
+                    <md>
+                        <mrow>f(V_D) =\amp  \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)I_0\left(e^{V_D/V_T}-1\right) + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)V_D - \frac{V_\text{in}}{R_3}</mrow>
+                        <mrow>f'(V_D) =\amp \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)\frac{I_0}{V_T}e^{V_D/V_T} + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)</mrow>
+                    </md>
+                    <sage language="python">
+                        <input><xi:include parse="text" href="./codes/python-diode-example4.ptx" /></input>
+                        <output>
+                            
+                        </output>
+                    </sage>
+                    
+                    
+                    
+                    
+                    
+                </p>
+            </solution>
+        </example>
     
     </subsection>
 </section>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="app-python-newtonmethod" xmlns:xi="http://www.w3.org/2001/XInclude"> 
+<section xml:id="subapp-python-newtonmethod" xmlns:xi="http://www.w3.org/2001/XInclude"> 
     <title> Newton's Method </title>
 
     <p>
@@ -32,4 +32,3 @@
         A word of caution: Newton's method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method. 
     </p>
 </section>
-
