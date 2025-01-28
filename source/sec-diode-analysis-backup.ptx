@@ -25,7 +25,28 @@
         <figure xml:id="fig-diode-simple-example-plot"> 
             <image width="75%">
                 <shortdescription></shortdescription>
-                <sageplot><xi:include parse="text" href="./sageplots/fig-diode-simple-example-plot.ptx" /></sageplot>
+                <sageplot>
+                import numpy as np
+                import matplotlib.pyplot as plt
+
+                R = 1e4; #in ohms
+                VF = 0.6; #in volts
+                
+                t = np.linspace(0,1,500);
+                Vin = 5*np.sin(20*t);
+                Vout = np.zeros(np.size(t));
+                Varr = np.zeros(np.size(t));
+
+                Vout = Vin - VF;
+                Vout[np.less(Vout,0)] = 0; # Use np.less since the less than symbol is a PreTeXt escape character
+                Varr = Vin - Vout;
+
+                p = list_plot(list(zip(t,Vin)),axes=false, axes_labels=['Time (s)','Voltage (V)'], frame=True, plotjoined=True, legend_label='$V_{in}$', color='blue',thickness=2)
+                p += list_plot(list(zip(t,Vout)),legend_label='$V_{out}$',plotjoined=True,color='red', linestyle='-.',thickness=2)
+                p += list_plot(list(zip(t,Varr)),legend_label='$V_D$', plotjoined=True, color='black', linestyle='--',thickness=2)
+                p.set_legend_options(font_size=16, handlelength=3.0)
+                p
+                </sageplot>   
             </image>
         </figure>      
     </p>        
@@ -171,14 +192,91 @@
             </me>.
             Using these equations, we implement Newton's Method (<xref ref="app-python-newtonmethod"/>) using the following code:
             <sage language="python">
-            <input><xi:include parse="text" href="./codes/python-diode-simple-example.ptx" /></input>
+            <input>
+                import numpy as np
+                import scipy.constants as sc
+                import matplotlib.pyplot as plt
+
+                t = np.linspace(0,1,500);
+                Vin_array = 5*np.sin(20*t);
+                Vout = np.zeros(np.size(t));
+                Varr = np.zeros(np.size(t));
+
+                R, T, I0 = [1e4, 293, 3.0e-12] # in Ohms, Kelvin, Amps
+                VT = sc.k * T / sc.e;
+
+                target = 1.0e-8 # User-defined tolerance for final answer
+
+                for i1 in range(np.size(t)):
+                    Vin = Vin_array[i1]
+
+                    # Initial guesses for the solution
+                    V = 3.0
+
+                    # Main loop
+                    error = 1.0
+                    while error > target:
+                        f = Vin - V - I0*R*(np.exp(sc.e*V/(sc.k*T))-1);
+                        fp = -1-I0*R*sc.e/(sc.k*T)*np.exp(sc.e*V/(sc.k*T))
+                        DeltaV = f/fp
+                        V -= DeltaV
+                        error = DeltaV
+                    Vout[i1]=Vin-V
+                    Varr[i1]=V
+
+                plt.figure(1)
+                plt.plot(t,Vin_array, 'b', label='$V_{in}$')
+                plt.plot(t,Vout,'r-.', label='$V_{out}$')
+                plt.plot(t,Varr,'k--',label='$V_D$')
+                plt.legend()
+                plt.xlabel('Time (s)')
+                plt.ylabel('Voltage (V)')
+                plt.show()
+            </input>
             <output>
             </output>
             </sage> 
 
-            <image width="75%">
+            <image  width="75%">
                 <shortdescription></shortdescription>
-                <sageplot><xi:include parse="text" href="./sageplots/fig-diode-simple-example-plot-python.ptx" /></sageplot>
+                <sageplot>
+                import numpy as np
+                import scipy.constants as sc
+                import matplotlib.pyplot as plt
+
+                t = np.linspace(0,1,500);
+                Vin_array = 5*np.sin(20*t);
+                Vout = np.zeros(np.size(t));
+                Varr = np.zeros(np.size(t));
+
+                R, T, I0 = [1e4, 293, 3.0e-12] # in Ohms, Kelvin, Amps
+                VT = sc.k * T / sc.e;
+
+                target = 1.0e-8 # User-defined tolerance for final answer
+
+                for i1 in range(np.size(t)):
+                    Vin = Vin_array[i1]
+
+                    # Initial guesses for the solution
+                    V = 3.0
+
+                    # Main loop
+                    error = 1.0
+                    while error > target:
+                        f = Vin - V - I0*R*(np.exp(sc.e*V/(sc.k*T))-1);
+                        fp = -1-I0*R*sc.e/(sc.k*T)*np.exp(sc.e*V/(sc.k*T))
+                        DeltaV = f/fp
+                        V -= DeltaV
+                        error = DeltaV
+                    Vout[i1]=Vin-V
+                    Varr[i1]=V
+
+                p = list_plot(list(zip(t,Vin_array)),axes=false, axes_labels=['Time (s)','Voltage (V)'], frame=True, plotjoined=True, legend_label='$V_{in}$', color='blue',thickness=2)
+                p += list_plot(list(zip(t,Vout)),legend_label='$V_{out}$',plotjoined=True,color='red', linestyle='-.',thickness=2)
+                p += list_plot(list(zip(t,Varr)),legend_label='$V_D$', plotjoined=True, color='black', linestyle='--',thickness=2)
+                p.set_legend_options(font_size=16, handlelength=3.0)
+                p
+            </sageplot> 
             </image>
 
             

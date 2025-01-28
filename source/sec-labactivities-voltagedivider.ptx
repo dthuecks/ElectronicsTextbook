@@ -32,12 +32,12 @@
         <ol>
             <li>
                 <p>
-                    With the prototyping board turned off, use the DMM in resistance mode to verify the internal wiring of the breadboard.
+                    With the prototyping board turned off, use the DMM in resistance mode to verify the internal connections of the breadboard. In other words, verify that the resistance between holes is <m>0\Omega</m> if they are supposed to be connected and 0.L (essentially, out of range) if the holes are not supposed to be connected.
                 </p>
             </li>
             <li>
                 <p>
-                    With the prototyping board still turned off, set up the DMM to verify the +5V row (with respect to the board’s ground). Once the DMM is set up and connected to the board, only then turn the prototyping board on and verify the expected behavior.
+                    With the prototyping board still turned off, set up the DMM to verify the +5V row (with respect to the board’s ground). Once the DMM is physically connected and set to voltage mode, only then turn the prototyping board on and verify the expected voltage behavior. Specifically, confirm that the 5V row is indeed 5V above the board common.
                 </p>
             </li>
             <li>
