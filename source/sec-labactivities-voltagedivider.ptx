@@ -119,7 +119,12 @@
                         </li>
                         <li>
                             <p>
-                                You will need to repeat the previous two steps for each of <em>ten</em> resistance values.
+                                You will need to repeat the previous two steps, measuring potentiometer resistance and <m>V_\text{out}</m> for each of <em>ten</em> potentiometer resistance values. Ensure that your ten potentiometer resistances are chosen to provide adequate coverage of the full potentiometer range.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Record your results in a spreadsheet table and ensure this table is included in your lab notebook.
                             </p>
                         </li>
                     </ul>
@@ -127,7 +132,7 @@
             </li>
             <li>
                 <p>
-                    Graph the results of your measurements (<m>V_\text{out}/V_\text{in}</m> vs <m>R</m>) using symbols to represent your data points.  On the same axes, generate a theoretical plot based on the predicted behavior of this circuit and represent this theory curve using a solid line plot. Also provide a legend.
+                    Use Python to graph the results of your measurements (<m>V_\text{out}/V_\text{in}</m> vs <m>R</m>). Use symbols (not a line) to represent your data points.  On the same axes, generate a theoretical plot based on the predicted behavior of this circuit and represent this theory curve using a solid line plot. Also provide a legend.
                 </p>
                 <p>
                     <alert>Question:</alert> Are there any deviations from expected behavior at low or high resistances? If so, discuss this in your lab notebook.
@@ -136,6 +141,11 @@
             <li>
                 <p>
                     Extension: In your lab notebook, discuss how you can make a voltage divider and conduct this experiment using only a single potentiometer (without the fixed resistor that we used in our circuit). Include a circuit diagram. Also discuss common places in your everyday life where you may find this type of circuit used.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Ensure that all required parts are included in your lab notebook. See <xref ref="ch-labnotebook"/> for details.
                 </p>
             </li>
         </ol>

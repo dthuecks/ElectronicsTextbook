@@ -194,7 +194,7 @@
             <me>
                 f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}
             </me>.
-            Using these equations, we implement Newton's Method using the following code:
+            Using these equations, we implement Newton's Method (<xref ref="app-python-newtonmethod"/>) using the following code:
             <sage language="python">
             <input>
                 import numpy as np
@@ -240,6 +240,8 @@
             <output>
             </output>
             </sage> 
+
+            
             
             
             

@@ -154,7 +154,7 @@
           </li>
           <li>
             <p>
-              APPENDIX - Here, you can include longer spreadsheets of data as well as printouts of the code used for data analysis. When including code, include both a printout but also attach a .py file containing the original analysis code.
+              APPENDIX - Here, you can include longer spreadsheets of data as well as printouts of the code used for data analysis. When including code, include both a printout but also attach a .py file containing the executable code that you used along with any ancillary files that the code calls (e.g. data files).
             </p>
           </li>
         </ol>

@@ -32,9 +32,9 @@
         </figure>
         This design allows the potentiometer to be used as a variable resistor, where the resistance varies between the wiper terminal and each of the fixed terminals as the knob is rotated. Before using aany potentiometer, ensure that you are sure of the role tqaken by each of the terminals, as there can be variation in the terminal layouts.
     </p>
-</subsection>
-<subsection xml:id="subsec-components-switches">
-    <title>Switches</title>
+    </subsection>
+    <subsection xml:id="subsec-components-switches">
+        <title>Switches</title>
     <p>
         The SPST (single pull, single throw) switch has two terminals, while the SPDT (single pull, double throw) switch has three terminals as shown in <xref ref="fig-components-switches"/>. 
         <figure xml:id="fig-components-switches">
@@ -52,5 +52,20 @@
         </figure>
     </p>
     
+    </subsection>
+
+<subsection xml:id="subsec-components-cables-connectors">
+    <title>Wires, Cables, and Connectors</title>
+    <p>
+        Banana Plugs (<xref ref="fig-components-banana-alligator"/>) are typically at the ends of an insulated wire containing a single conducting path. The cable color is irrelevant to the behavior of the wires, though some thought should be used when choosing colors to assist with wiring organization. Alligator clips can be attached to banana wires, allowing them to clip to a component.
+        <figure xml:id="fig-components-banana-alligator">
+            <caption>[GENERATE NEW IMAGE]</caption>
+            <image source="images/img-components-banana-alligator.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
+    </p>
+    
 </subsection>
+
 </section>
