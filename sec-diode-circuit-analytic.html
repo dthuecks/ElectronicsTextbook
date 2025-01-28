@@ -320,6 +320,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-color-codes" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Resistor Color Codes</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-potentiometers" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Potentiometers</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#subsec-components-switches" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Switches</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#subsec-components-cables-connectors" class="internal"><span class="codenumber">7.4.4</span> <span class="title">Wires, Cables, and Connectors</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -436,30 +437,30 @@ V_B=-5.0\text{V} + \frac{1}{3}(9.4\text{V}) + 0.6\text{V}=-1.87\text{V}
 </h3>
 <div class="para logical" id="sub-python-analysis-2">
 <div class="para">Let’s revisit the circuit in <a href="sec-diode-circuit-analytic.html#fig-diode-simple-example" class="xref" data-knowl="./knowl/xref/fig-diode-simple-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.1">Figure 4.4.1</a>. This time, we will use an improved mathematical representation of diode behavior from <a href="sec-diode-behavior.html#eqn-diode-exponential" class="xref" data-knowl="./knowl/xref/eqn-diode-exponential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.1">(4.2.1)</a>, reproduced here as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html ./knowl/xref/app-python-newtonmethod.html">
 \begin{equation*}
 I_D = I_0\left(e^{V_D/nV_T} - 1\right)\text{.}
 \end{equation*}
 </div>
 <div class="para">Assuming we’re using a silicon-based diode, we can assume <span class="process-math">\(I_0\approx 3\times 10^{12}\)</span>A, <span class="process-math">\(V_T = k_B T/e\text{,}\)</span> room temperature is <span class="process-math">\(T\approx 293\)</span>K, and <span class="process-math">\(n\approx 1\text{.}\)</span> The KVL can be used to write</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html ./knowl/xref/app-python-newtonmethod.html">
 \begin{equation*}
 \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)=0\text{.}
 \end{equation*}
 </div>
 <div class="para">This is a nonlinear equation that cannot easily be solved analytically for <span class="process-math">\(V_D\text{,}\)</span> so we’ll use computational methods to estimate <span class="process-math">\(V_D\text{.}\)</span> Specifically, we’ll use Newton’s Method which is described in <a href="app-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>. In order to use this method, we’ll let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html ./knowl/xref/app-python-newtonmethod.html">
 \begin{equation*}
 f(V_D) = \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)
 \end{equation*}
 </div>
 <div class="para">and then calculate the first derivative</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/app-python-newtonmethod.html ./knowl/xref/app-python-newtonmethod.html">
 \begin{equation*}
 f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}\text{.}
 \end{equation*}
 </div>
-<div class="para">Using these equations, we implement Newton’s Method using the following code: <div id="sub-python-analysis-2-14" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para">Using these equations, we implement Newton’s Method (<a href="app-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>) using the following code: <div id="sub-python-analysis-2-15" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 import scipy.constants as sc
 import matplotlib.pyplot as plt
 
