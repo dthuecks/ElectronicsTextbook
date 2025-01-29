@@ -118,7 +118,7 @@
                     a_{N_1,\text{ext}} \amp a_{N_1 1}\amp \cdots \amp a_{N_1 j} \\  
                     c_{1,\text{ext}} \amp c_{11} \amp \cdots \amp c_{1j} \\
                     \vdots \amp \vdots \amp \ddots \amp \vdots \\
-                    c_{N_1,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \\
+                    c_{N_2,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \\
                 \end{pmatrix}
             </me>,
             <me>
