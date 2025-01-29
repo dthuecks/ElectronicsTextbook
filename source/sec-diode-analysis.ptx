@@ -188,7 +188,7 @@
             
             <statement>
                 <p>
-                    Examine the circuit in <xref ref="fig-diode-example4-circuit"/>. Plot the time behavior of all currents, <m>V_\text{in}(t)</m>, <m>V_\text{out}(t)</m>, and the voltage across the diode <m>V_D(t)</m>.
+                    Examine the circuit in <xref ref="fig-diode-example4-circuit"/>. Plot the time behavior of <m>I_1(t)</m>, <m>I_2(t)</m>, <m>I_3(t)</m>, <m>V_\text{in}(t)</m>, <m>V_\text{out}(t)</m>, and the voltage across the diode <m>V_D(t)</m>.
                 </p>
                 <figure xml:id="fig-diode-example4-circuit">
                     <caption></caption>
