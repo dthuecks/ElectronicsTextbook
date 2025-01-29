@@ -113,7 +113,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.3';
+eBookConfig.runestone_version = '7.5.4';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -360,34 +360,33 @@ a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{
 <div class="para">where <span class="process-math">\(a_{rn}\)</span> and <span class="process-math">\(b_{rn}\)</span> have values of +1, -1, or 0 depending on whether the currents <span class="process-math">\(i_n\)</span> and <span class="process-math">\(I_{s_n}\)</span> are entering, exiting, or not present at a junction and <span class="process-math">\(r\)</span> is an index counting over KCL equations.</div>
 </div>
 <div class="para logical" id="subsec-proof-thevenin-5">
-<div class="para">We will also end up with <span class="process-math">\(N_2\)</span> independent loop law equations. Each of these loop law equations will have the form</div>
+<div class="para">We will also end up with <span class="process-math">\(N_2\)</span> independent loop law equations. All loops chosen for KVL analysis must be absent known current sources <span class="process-math">\(I_{s_n}\text{.}\)</span> Since the current is already known on circuit legs containing circuit sources, so this restriction will not cost us anything. Each of these loop law equations will have the form</div>
 <div class="displaymath process-math" id="eqn-dc-thevenin-kvl">
 \begin{equation}
-m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_{s_n} + \sum\limits_{n=1}^k w_{rn} \varepsilon_n = 0\text{.}\tag{2.6.2}
+m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n = 0\text{.}\tag{2.6.2}
 \end{equation}
 </div>
-<div class="para">The variables <span class="process-math">\(m_{rn}\)</span> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variables <span class="process-math">\(c_{rn}\)</span> and <span class="process-math">\(d_{rn}\)</span> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm’s Law). The variables <span class="process-math">\(\varepsilon_n\)</span> represent voltage changes across the ideal current sources <span class="process-math">\(I_{s_n}\)</span> meaning that <span class="process-math">\(w_{rn}\)</span> have values of +1 or -1 depending on the direction of voltage change in the direction traversing the loop. Here, the index <span class="process-math">\(r\)</span> counts over KVL equations.</div>
+<div class="para">The variables <span class="process-math">\(m_{rn}\)</span> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variable <span class="process-math">\(c_{rn}\)</span> has units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm’s Law). Here, the index <span class="process-math">\(r\)</span> counts over KVL equations.</div>
 </div>
 <div class="para logical" id="subsec-proof-thevenin-6">
 <div class="para">These <span class="process-math">\(N_1\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> and <span class="process-math">\(N_2\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> can be re-expressed as a matrix equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\text{.}\)</span> First, let’s rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-6">
 \begin{align*}
 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_{s_n}\\
-c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k w_{rn} \varepsilon_n \amp 
-= - m_{r,\text{ext}} \Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{rn} V_{s_n} 
-- \sum\limits_{n=1}^k d_{rn} I_{s_n} \text{.}
+c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n 
+\amp = - m_{r,\text{ext}} \Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{rn} V_{s_n}  \text{.}
 \end{align*}
 </div>
 <div class="para">We can express these equations in the form <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\)</span> if we let</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html">
 \begin{equation*}
 \mathbf{A} = \begin{pmatrix}
-a_{1,\text{ext}} \amp a_{11} \amp \cdots \amp a_{1j} \amp 0 \amp \cdots \amp 0\\
-\vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \amp \ddots \amp \vdots\\
-a_{N_1,\text{ext}} \amp a_{N_1 1}\amp \cdots \amp a_{N_1 j} \amp 0 \amp \cdots \amp 0\\  
-c_{1,\text{ext}} \amp c_{11} \amp \cdots \amp c_{1j} \amp w_{11} \amp \cdots \amp w_{1k}\\
-\vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \amp \ddots \amp \vdots\\
-c_{N_1,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \amp w_{N_2 1} \amp \cdots \amp w_{N_2 k}\\
+a_{1,\text{ext}} \amp a_{11} \amp \cdots \amp a_{1j}\\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+a_{N_1,\text{ext}} \amp a_{N_1 1}\amp \cdots \amp a_{N_1 j} \\  
+c_{1,\text{ext}} \amp c_{11} \amp \cdots \amp c_{1j} \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+c_{N_1,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \\
 \end{pmatrix}\text{,}
 \end{equation*}
 </div>
@@ -395,7 +394,7 @@ c_{N_1,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \amp w_{N_2 1} \amp
 \begin{equation*}
 \mathbf{x} = 
 \begin{pmatrix} 
-i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\ \varepsilon_1 \\ \vdots \\ \varepsilon_k 
+i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\ 
 \end{pmatrix} 
 \quad , \quad
 \mathbf{v}  =
@@ -403,9 +402,9 @@ i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\ \varepsilon_1 \\ \vdots \\ \varepsilon_k
 -\sum\limits_{n=1}^{k} b_{1n} I_{s_n} \\
 \vdots \\
 -\sum\limits_{n=1}^{k} b_{N_1 n} I_{s_n} \\
--m_{1,\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{1n} V_{s_n} - \sum\limits_{n=1}^k d_{1n}I_{s_n} \\
+-m_{1,\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{1n} V_{s_n}  \\
 \vdots \\
--m_{N_{2},\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{N_2 n} V_{s_n} - \sum\limits_{n=1}^k d_{N_2 n}I_{s_n} 
+-m_{N_{2},\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{N_2 n} V_{s_n}  
 \end{pmatrix} \text{.}
 \end{equation*}
 </div>
