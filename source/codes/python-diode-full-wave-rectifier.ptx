@@ -1,0 +1,49 @@
+# Clear all variables that may be present from previous code run on this page.
+globals().clear()
+
+import numpy as np
+from scipy.constants import k
+import matplotlib.pyplot as plt
+
+plt.close('all') # Close all open figures
+
+# Initialize arrays
+t = np.linspace(0,1,500)
+Vin_array = 10*np.sin(20*t)
+Vout = np.zeros(np.size(t))
+
+# Circuit parameters and target precision for roots
+R, VT, I0 = [100, 0.05, 3.0e-9]
+target = 1.0e-2
+
+# Perform Newton's Method for every time value
+for i1 in range(np.size(t)):
+    
+    Vin = Vin_array[i1]
+
+    # Initial guesses for the solution
+    V1 = 0.4
+    V2 = abs(Vin)
+
+    # Main loop
+    error = 1.0
+    #for i1 in range(100):
+    while error > target: # perform iterations until our estimated root gets close enough to real root
+        # c1 and c2 are defined to make entry of the f and A arrays easier
+        c1 = -I0*(np.exp((V1-Vin)/VT)+np.exp(V1/VT))
+        c2 = -I0*(np.exp(-V2/VT)+np.exp((Vin-V2)/VT))
+    
+        f = np.array([c1+2*I0+(V2-V1)/R, c2+2*I0+(V2-V1)/R]) # f from system of equations
+        A = np.array([[c1/VT-1/R, 1/R],[-1/R, -c2/VT+1/R]]) # f' for system of equations
+        DeltaV = np.linalg.solve(A,f) # distance from our guess to our estimated root
+        error = np.linalg.norm(DeltaV)
+        V1 -= DeltaV[0]
+        V2 -= DeltaV[1]
+
+    Vout[i1]=V2-V1
+plt.plot(t,Vin_array,label='$V_{in}$') 
+plt.plot(t,Vout,label='$V_{out}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Voltage (V)')
+plt.legend()
+plt.show()

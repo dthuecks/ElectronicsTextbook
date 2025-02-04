@@ -2,7 +2,9 @@
 
 <section xml:id="subapp-python-newtonmethod" xmlns:xi="http://www.w3.org/2001/XInclude"> 
     <title> Newton's Method </title>
-
+    <paragraphs>
+    <title>FINDING THE ROOT OF ONE NONLINEAR EQUATION</title>
+    <p></p>
     <p>
         Newton's method is a computational algorithm that can be used to find the roots of an equation. Let's illustrate with an example.
         <figure xml:id="fig-python-newtonmethodplot">
@@ -22,13 +24,73 @@
             x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}
         </me>
         
-        We'll call this new approximated root <m>x_1</m>. It's very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire  using
+        We'll call this new approximated root <m>x_1</m>. It's very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire using
         <me>
             x_{n}=x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}
         </me>
-        until <m>\left|x_n-x_{n-1}\right|</m> is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function's root. Note that this method requires knowledge of the functional form of our function <m>f(x)</m> as well as knowledge of or the ability to calculate the analytic form of <m>f'(x)</m>    
+        until <m>\left|x_n-x_{n-1}\right|</m> is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function's root. Note that this method requires knowledge of the functional form of our function <m>f(x)</m> as well as knowledge of or the ability to calculate the analytic form of <m>f'(x)</m>.    
+    </p>
+    <p>
+        We can be a little more rigorous with the theory underlying Newton's method. Let's assume that we have a function <m>f(x)</m> that has a root <m>x^*</m> such that <m>f(x^*)=0</m>. We can expand our function as a Taylor series around some initial guess for the root, <m>x_g</m>, giving us
+        <me>
+            f(x)=f(x_g) + (x-x_g)f'(x) + \frac{1}{2}(x-x_g)^2 f''(x) + \cdots
+        </me>.
+        Evaluating this expansion at the root <m>x=x^*</m> gives us
+        <me>
+            0=f(x^*)=f(x_g) + (x^*-x_g)f'(x_g) + \frac{1}{2}(x^*-x_g)^2 f''(x_g) + \cdots
+        </me>.
+        If we divide both sides by <m>f'(x_g)</m> and assume that all terms that are order two or higher in <m>(x^*-x_g)</m> are small, then 
+        <me>
+            0=(x^*_\text{est}-x_g) + \frac{f(x_g)}{f'(x_g)}
+        </me>
+        or
+        <me>
+           x^*_\text{est}= x_g- \frac{f(x_g)}{f'(x_g)}
+        </me>
+        where <m>x^*_\text{est}</m> is our estimate of the root based on one iteration of this method. Now, the closer <m>x_g</m> is to the real root <m>x^*</m>, the better our estimate <m>x^*_\text{est}</m> will be. So, once we have <m>x^*_\text{est}</m>, we can use this as our new guess for another iteration, giving us a result identical to what we found above,
+        <me>
+            x_{n}=x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}
+        </me>,
+        which we iterate until <m>\left|x_n-x_{n-1}\right|</m> is less than some user-defined tolerance that defines the desired precision.
     </p>
     <p>
         A word of caution: Newton's method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method. 
     </p>
+    </paragraphs>
+    <paragraphs>
+        <title>FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS</title>
+        <p></p>
+        <p>
+            Write your equations in the following form:
+            <md>
+                <mrow>f_1(x_1,...,x_N) =\amp 0 </mrow>
+                <mrow> \vdots\amp </mrow>
+                <mrow>f_N(x_1,...,x_N) =\amp 0</mrow>
+            </md>
+            with roots <m>x_1^*, ...,x_N^*</m>. The Taylor expansion for <m>f_i</m> can be written as
+            <me>
+                f_i(x^*_1,\dots,x^*_N) = f_i(x_1,\dots,x_N) + \sum\limits_j \left(x_j^*-x_j\right)\frac{\partial f_i}{\partial x_j} + \mathcal{O}(\text{small})=0
+            </me>
+            so that
+            <me>
+               \sum\limits_j \left(x_j-x_j^*\right)\frac{\partial f_i}{\partial x_j} + \mathcal{O}(\text{small}) = f_i(x_1,\dots,x_N)
+            </me>.
+            Each <m>i</m> value can represent the <m>i</m>-th equation in a system of equations. This system can be written in vector form as
+            <me>
+               \vec{f}(\vec{x}^*) = \vec{f}(\vec{x}) + \nabla\vec{f}\cdot(\vec{x}^* - \vec{x}) + \mathcal{O}(\text{small})
+            </me>
+            where <m>\nabla\vec{f}</m> is the <m>N\times N</m> matrix with elements <m>\partial f_i /\partial x_j</m>. Since <m>\vec{x}^*</m> is a root of the equations, we have <m>\vec{f}(\vec{x}^*)=0</m> so that
+            <me>
+               \nabla\vec{f} \cdot \Delta \vec{x} + \mathcal{O}(\text{small}) = \vec{f}(\vec{x})
+            </me>
+            where <m>\Delta \vec{x}=\vec{x} - \vec{x}^*</m>. Thus, we can get a good estimate of our root, <m>\vec{x}'</m> using
+            <me>
+                \nabla\vec{f} \cdot \Delta \vec{x} = \vec{f}(\vec{x})
+            </me>.
+            This is a set of ordinary linear simultaneous equations of the form <m>\vec{A}\vec{x} = \vec{v}</m> which we can solve using the <c>linalg.solve</c> package in NumPy. Once we've solved for <m>\Delta \vec{x}</m>, our new estimate <m>\vec{x}'</m> of the root is
+            <me>
+                \vec{x}' = \vec{x}-\Delta\vec{x}
+            </me>.
+        </p>
+    </paragraphs>
 </section>

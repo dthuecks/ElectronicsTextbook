@@ -1,0 +1,17 @@
+\begin{circuitikz}
+\ctikzset{label/align = straight}
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,5)
+                    to[short, i^=$i_1$] ++(4,0)
+                    to[short, -*] ++(0, -0.5) coordinate(a)
+                    to[D,-*, invert, l_=$D_1$, i_=$i_3$] ++(-2, -2) coordinate(v1)
+                    node[anchor=east]{$V_1$}
+                    to[D, -*, l_=$D_3$, i_=$i_4$] ++(2, -2) coordinate(b)
+                    to[short] ++(0, -0.5)
+                    to[short] (start);
+    \draw (a)       to[D, -*, l^=$D_2$, i^=$i_2$] ++(2, -2) coordinate(v2)
+                    node[anchor=west]{$V_2$}
+                    to[D, invert, l^=$D_4$, i^=$i_5$] ++(-2, -2);
+    \draw (v2)      to[R, l^=R, i^=$i_6$] (v1);
+
+\end{circuitikz}

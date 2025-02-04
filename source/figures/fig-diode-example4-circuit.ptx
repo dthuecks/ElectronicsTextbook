@@ -3,7 +3,7 @@
     \draw (start)   to[sinusoidal voltage source, -*, l^=$V_\text{in}$] ++(0,3) coordinate(a)
                     to[R,i>=$I_2$, -*, l_=$R_2$] ++(4,0) coordinate(b)
                     to[R, i>=$I_3$, -*, l_=$R_3$] ++(0,-3) coordinate(c)
-                    to[short, i>=$I_4$] ++(-4,0);
+                    to[short] ++(-4,0);
     \draw (a)       to[short] ++(0,1)
                     to[R, l^=$R_1$] ++(2,0)
                     to[D, i>=$I_1$, l^=$D_1$] ++(2,0)
