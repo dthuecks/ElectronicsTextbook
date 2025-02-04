@@ -373,7 +373,9 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subapp-python-newtonmethod"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">A.1</span><span class="space"> </span><span class="title">Newton’s Method</span>
 </h2>
-<div class="para logical" id="subapp-python-newtonmethod-2">
+<section class="paragraphs" id="subapp-python-newtonmethod-2"><h2 class="heading"><span class="title">FINDING THE ROOT OF ONE NONLINEAR EQUATION.</span></h2>
+<div class="para" id="subapp-python-newtonmethod-2-2"></div>
+<div class="para logical" id="subapp-python-newtonmethod-2-3">
 <div class="para">Newton’s method is a computational algorithm that can be used to find the roots of an equation. Let’s illustrate with an example. <figure class="figure figure-like" id="fig-python-newtonmethodplot"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-python-newtonmethodplot-1.svg" role="img" class="contained" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">A.1.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure> In <a href="subapp-python-newtonmethod.html#fig-python-newtonmethodplot" class="xref" data-knowl="./knowl/xref/fig-python-newtonmethodplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure A.1.1">Figure A.1.1</a>, the solid blue line represents the function <span class="process-math">\(f(x)\text{.}\)</span> Assume that <span class="process-math">\(x^*\)</span> is an unknown root of <span class="process-math">\(f(x)\)</span> such that <span class="process-math">\(f(x^*)=0\text{.}\)</span> We may be able to guess at an approximate value of the root <span class="process-math">\(x=x_0\text{,}\)</span> but this is unlikely to be very precise. Exmining <a href="subapp-python-newtonmethod.html#fig-python-newtonmethodplot" class="xref" data-knowl="./knowl/xref/fig-python-newtonmethodplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure A.1.1">Figure A.1.1</a>, we can see that we can find a better approximation of the function’s root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-python-newtonmethodplot.html ./knowl/xref/fig-python-newtonmethodplot.html">
@@ -387,16 +389,96 @@ f'(x_0) = \frac{f(x_0)-0}{x_0-x_1}
 x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}
 \end{equation*}
 </div>
-<div class="para">We’ll call this new approximated root <span class="process-math">\(x_1\text{.}\)</span> It’s very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire  using</div>
+<div class="para">We’ll call this new approximated root <span class="process-math">\(x_1\text{.}\)</span> It’s very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire using</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-python-newtonmethodplot.html ./knowl/xref/fig-python-newtonmethodplot.html">
 \begin{equation*}
 x_{n}=x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}
 \end{equation*}
 </div>
-<div class="para">until <span class="process-math">\(\left|x_n-x_{n-1}\right|\)</span> is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function’s root. Note that this method requires knowledge of the functional form of our function <span class="process-math">\(f(x)\)</span> as well as knowledge of or the ability to calculate the analytic form of <span class="process-math">\(f'(x)\)</span>
+<div class="para">until <span class="process-math">\(\left|x_n-x_{n-1}\right|\)</span> is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function’s root. Note that this method requires knowledge of the functional form of our function <span class="process-math">\(f(x)\)</span> as well as knowledge of or the ability to calculate the analytic form of <span class="process-math">\(f'(x)\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="subapp-python-newtonmethod-3">A word of caution: Newton’s method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method.</div></section></div>
+<div class="para logical" id="subapp-python-newtonmethod-2-4">
+<div class="para">We can be a little more rigorous with the theory underlying Newton’s method. Let’s assume that we have a function <span class="process-math">\(f(x)\)</span> that has a root <span class="process-math">\(x^*\)</span> such that <span class="process-math">\(f(x^*)=0\text{.}\)</span> We can expand our function as a Taylor series around some initial guess for the root, <span class="process-math">\(x_g\text{,}\)</span> giving us</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x)=f(x_g) + (x-x_g)f'(x) + \frac{1}{2}(x-x_g)^2 f''(x) + \cdots\text{.}
+\end{equation*}
+</div>
+<div class="para">Evaluating this expansion at the root <span class="process-math">\(x=x^*\)</span> gives us</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0=f(x^*)=f(x_g) + (x^*-x_g)f'(x_g) + \frac{1}{2}(x^*-x_g)^2 f''(x_g) + \cdots\text{.}
+\end{equation*}
+</div>
+<div class="para">If we divide both sides by <span class="process-math">\(f'(x_g)\)</span> and assume that all terms that are order two or higher in <span class="process-math">\((x^*-x_g)\)</span> are small, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0=(x^*_\text{est}-x_g) + \frac{f(x_g)}{f'(x_g)}
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^*_\text{est}= x_g- \frac{f(x_g)}{f'(x_g)}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(x^*_\text{est}\)</span> is our estimate of the root based on one iteration of this method. Now, the closer <span class="process-math">\(x_g\)</span> is to the real root <span class="process-math">\(x^*\text{,}\)</span> the better our estimate <span class="process-math">\(x^*_\text{est}\)</span> will be. So, once we have <span class="process-math">\(x^*_\text{est}\text{,}\)</span> we can use this as our new guess for another iteration, giving us a result identical to what we found above,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{n}=x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}\text{,}
+\end{equation*}
+</div>
+<div class="para">which we iterate until <span class="process-math">\(\left|x_n-x_{n-1}\right|\)</span> is less than some user-defined tolerance that defines the desired precision.</div>
+</div>
+<div class="para" id="subapp-python-newtonmethod-2-5">A word of caution: Newton’s method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method.</div></section><section class="paragraphs" id="subapp-python-newtonmethod-3"><h2 class="heading"><span class="title">FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS.</span></h2>
+<div class="para" id="subapp-python-newtonmethod-3-2"></div>
+<div class="para logical" id="subapp-python-newtonmethod-3-3">
+<div class="para">Write your equations in the following form:</div>
+<div class="displaymath process-math" id="subapp-python-newtonmethod-3-3-1">
+\begin{align*}
+f_1(x_1,...,x_N) =\amp 0 \\
+\vdots\amp \\
+f_N(x_1,...,x_N) =\amp 0
+\end{align*}
+</div>
+<div class="para">with roots <span class="process-math">\(x_1^*, ...,x_N^*\text{.}\)</span> The Taylor expansion for <span class="process-math">\(f_i\)</span> can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_i(x^*_1,\dots,x^*_N) = f_i(x_1,\dots,x_N) + \sum\limits_j \left(x_j^*-x_j\right)\frac{\partial f_i}{\partial x_j} + \mathcal{O}(\text{small})=0
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum\limits_j \left(x_j-x_j^*\right)\frac{\partial f_i}{\partial x_j} + \mathcal{O}(\text{small}) = f_i(x_1,\dots,x_N)\text{.}
+\end{equation*}
+</div>
+<div class="para">Each <span class="process-math">\(i\)</span> value can represent the <span class="process-math">\(i\)</span>-th equation in a system of equations. This system can be written in vector form as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{f}(\vec{x}^*) = \vec{f}(\vec{x}) + \nabla\vec{f}\cdot(\vec{x}^* - \vec{x}) + \mathcal{O}(\text{small})
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\nabla\vec{f}\)</span> is the <span class="process-math">\(N\times N\)</span> matrix with elements <span class="process-math">\(\partial f_i /\partial x_j\text{.}\)</span> Since <span class="process-math">\(\vec{x}^*\)</span> is a root of the equations, we have <span class="process-math">\(\vec{f}(\vec{x}^*)=0\)</span> so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla\vec{f} \cdot \Delta \vec{x} + \mathcal{O}(\text{small}) = \vec{f}(\vec{x})
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\Delta \vec{x}=\vec{x} - \vec{x}^*\text{.}\)</span> Thus, we can get a good estimate of our root, <span class="process-math">\(\vec{x}'\)</span> using</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla\vec{f} \cdot \Delta \vec{x} = \vec{f}(\vec{x})\text{.}
+\end{equation*}
+</div>
+<div class="para">This is a set of ordinary linear simultaneous equations of the form <span class="process-math">\(\vec{A}\vec{x} = \vec{v}\)</span> which we can solve using the <code class="code-inline tex2jax_ignore">linalg.solve</code> package in NumPy. Once we’ve solved for <span class="process-math">\(\Delta \vec{x}\text{,}\)</span> our new estimate <span class="process-math">\(\vec{x}'\)</span> of the root is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}' = \vec{x}-\Delta\vec{x}\text{.}
+\end{equation*}
+</div>
+</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="app-python.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="app-matrices.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
