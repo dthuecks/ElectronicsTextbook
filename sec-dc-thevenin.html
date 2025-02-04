@@ -448,17 +448,17 @@ i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\
 <div class="para">The solution that is most important to us is <span class="process-math">\(i_\text{ext}\)</span> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <span class="process-math">\(\mathbf{A}\text{,}\)</span> use matrix multiplication to find an expression for <span class="process-math">\(i_\text{ext}\text{,}\)</span> and then group source terms and rename constants multiplying each source (<span class="process-math">\(v_\text{ext},V_s,\ I_s\)</span>), the resulting solution is of the form</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html">
 \begin{equation*}
-i_\text{ext} = m_0 v_\text{ext} + \sum\limits_{n=1}^\ell m_n V_{s_n} + \sum\limits_{n=1}^k b_n I_{s_n} 
+i_\text{ext} = \alpha_0 v_\text{ext} + \sum\limits_{n=1}^\ell \alpha_n V_{s_n} + \sum\limits_{n=1}^k \beta_n I_{s_n} 
 \end{equation*}
 </div>
-<div class="para">where all <span class="process-math">\(m_n\)</span> and <span class="process-math">\(b_n\)</span> terms are functions of resistances only and are thus constants. This result demonstrates that <span class="process-math">\(i_\text{ext}\)</span> is a linear function of <span class="process-math">\(v_\text{ext}\)</span> with slope <span class="process-math">\(m_0\)</span> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit.</div>
+<div class="para">where all <span class="process-math">\(\alpha_n\)</span> and <span class="process-math">\(\beta_n\)</span> terms are functions of resistances only and are thus constants. This result demonstrates that <span class="process-math">\(i_\text{ext}\)</span> is a linear function of <span class="process-math">\(v_\text{ext}\)</span> with slope <span class="process-math">\(\alpha_0\)</span> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit.</div>
 </div>
 <div class="para logical" id="subsec-proof-thevenin-7">
 <div class="para">Now that the linearity of our complicated circuit has been demonstrated, it follows that any simplified circuit that follows an identical linear relationship will have behavior of <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(v_\text{ext}\)</span> that is identical to the original circuit, regardless of the load that is connected across the output terminals. One such simplified circuit is the Thevenin equivalent circuit of <a href="sec-dc-thevenin.html#dc-thevenin-box" class="xref" data-knowl="./knowl/xref/dc-thevenin-box.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a>. The Thevenin equivalent circuit will reproduce the output i-v relationship of our complicated circuit if</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-thevenin-box.html" id="subsec-proof-thevenin-7-4">
 \begin{align*}
 V_{th} \amp = V_{oc} \\
-R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{m_0} \text{.}
+R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{\alpha_0} \text{.}
 \end{align*}
 </div>
 <div class="para">In a similar way, we can see that the Norton equivalent circuit can also demonstrate identical output i-v behavior when</div>
