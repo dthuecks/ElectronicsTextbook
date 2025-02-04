@@ -143,16 +143,16 @@
             </me>.
             The solution that is most important to us is <m>i_\text{ext}</m> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <m>\mathbf{A}</m>, use matrix multiplication to find an expression for <m>i_\text{ext}</m>, and then group source terms and rename constants multiplying each source (<m>v_\text{ext},V_s,\ I_s</m>), the resulting solution is of the form
             <me> 
-                i_\text{ext} = m_0 v_\text{ext} + \sum\limits_{n=1}^\ell m_n V_{s_n} + \sum\limits_{n=1}^k b_n I_{s_n} 
+                i_\text{ext} = \alpha_0 v_\text{ext} + \sum\limits_{n=1}^\ell \alpha_n V_{s_n} + \sum\limits_{n=1}^k \beta_n I_{s_n} 
             </me>
-            where all <m>m_n</m> and <m>b_n</m> terms are functions of resistances only and are thus constants. This result demonstrates that <m>i_\text{ext}</m> is a linear function of <m>v_\text{ext}</m> with slope <m>m_0</m> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit. 
+            where all <m>\alpha_n</m> and <m>\beta_n</m> terms are functions of resistances only and are thus constants. This result demonstrates that <m>i_\text{ext}</m> is a linear function of <m>v_\text{ext}</m> with slope <m>\alpha_0</m> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit. 
         </p>
 
         <p>
             Now that the linearity of our complicated circuit has been demonstrated, it follows that any simplified circuit that follows an identical linear relationship will have behavior of <m>i_\text{ext}</m> and <m>v_\text{ext}</m> that is identical to the original circuit, regardless of the load that is connected across the output terminals. One such simplified circuit is the Thevenin equivalent circuit of <xref ref="dc-thevenin-box"/>. The Thevenin equivalent circuit will reproduce the output i-v relationship of our complicated circuit if
             <md>
                 <mrow> V_{th} \amp = V_{oc} </mrow>
-                <mrow> R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{m_0} </mrow>
+                <mrow> R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{\alpha_0} </mrow>
             </md>.
             In a similar way, we can see that the Norton equivalent circuit can also demonstrate identical output i-v behavior when
             <md>
@@ -181,14 +181,9 @@
                 ]
                 \addplot[color=blue, domain=0:4]{-x+4};
                 \addplot[black,no marks] coordinates{(2,2)}
-                node[pos=0.25,above right] {$\text{slope}=m_0=R_{th}^{-1}$};
+                node[pos=0.25,above right] {$\text{slope}=\alpha_0=R_{th}^{-1}$};
                 \end{axis}
-                
-                
-                
-                \end{tikzpicture}
-            
-  
+            \end{tikzpicture}
             </latex-image></image>
         </figure>
 

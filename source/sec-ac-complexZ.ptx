@@ -79,8 +79,8 @@
         The results above can be used with a generalized Ohm's law
         <me>
             I=\frac{V}{Z}
-        </me>,
-        and equations for series and parallel impedances
+        </me>
+        and also with equations for series and parallel impedances
         <md>
             <mrow>Z_\text{series} \amp = Z_1 + Z_2 + \cdots </mrow>
             <mrow>\frac{1}{Z_\text{parallel}} \amp = \frac{1}{Z_1} + \frac{1}{Z_2} + \cdots </mrow>

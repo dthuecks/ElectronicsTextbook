@@ -27,9 +27,10 @@
         </me>
         to express this in a more common form
         <me>
-            I(t)=\int\limits_{-\infty}^{\infty} \left[a(\omega) \cos\left(\omega t\right)  + b(\omega) \cos\left(\omega t\right)\right]\text{d}\omega
+            I(t)=\int\limits_{-\infty}^{\infty} \left[\alpha(\omega) \cos\left(\omega t\right)  + 
+            \beta(\omega) \sin\left(\omega t\right)\right]\text{d}\omega
         </me>
-        where <m>\cos\left(\delta_I(\omega)\right)</m> has been absorbed into the <m>a(\omega)</m> variable and <m>b(\omega)=\sin\left(\delta_I(\omega)\right)</m> and .      
+        where <m>\alpha(\omega)=a(\omega)\cos\left(\delta_I(\omega)\right)</m> and <m>\beta(\omega)=a(\omega)\sin\left(\delta_I(\omega)\right)</m>.      
     </p>
     <p>
         Since any general (well-behaved) function of time can be represented as a sum of sinusoidal signals, we can use the superposition theorem to find the response of a linear circuit to a general time signal. If we examine the behavior of a linear circuit in response to a single sinusoidal signal with frequency <m>\omega</m>, we can then use superposition to add up (integrate) responses for many sinusoidal signals (each with its own <m>\omega</m>), weighting the results in the sum using the same weighting factors that appear above.

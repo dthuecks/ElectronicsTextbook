@@ -105,7 +105,7 @@
                 <caption>Bandgap RLC Circuit.</caption>
                 <image><latex-image>
                     \begin{circuitikz}
-                        \draw (0,0) to[sinusoidal voltage source, l^=$\tilde{V}_\text{in}$, i^>=$I_1$] ++ (0,3)
+                        \draw (0,0) to[sinusoidal voltage source, l^=$V_\text{in}$, i^>=$I_1$] ++ (0,3)
                                     to[short, -*] ++ (0.5, 0) coordinate(a)
                                     to[short] ++ (0,.5)
                                     to[C, l^=$C$, i>_=$I_2$] ++ (3,0)

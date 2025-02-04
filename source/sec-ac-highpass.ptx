@@ -11,13 +11,13 @@
         <image><latex-image>
             \begin{circuitikz}
                 \draw (0,0) coordinate(start);
-                \draw (start)   to[sinusoidal voltage source, l_=$\tilde{V}_{in}$] ++ (0,4)
-                                to[C, l_=$C$, i>=$\tilde{I}$] ++ (4,0) coordinate(a)
+                \draw (start)   to[sinusoidal voltage source, l_=$V_\text{in}$] ++ (0,4)
+                                to[C, l_=$C$, i>=$I$] ++ (4,0) coordinate(a)
                                 to[R, l_=$R$] ++ (0,-4) coordinate(b)
                                 to[short] ++ (-4,0);
                 \draw (a)       to[short, -o] ++ (3,0) coordinate(c);
                 \draw (b)       to[short, -o] ++ (3,0) coordinate(d);
-                \draw ([yshift=-2cm] c) node{\text{$\tilde{V}_\text{out}$}};
+                \draw ([yshift=-2cm] c) node{\text{$V_\text{out}$}};
             \end{circuitikz}
         </latex-image></image>
     </figure>
