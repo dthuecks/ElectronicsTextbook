@@ -9,5 +9,7 @@
     </introduction>
 
     <xi:include href="sec-labactivities-voltagedivider.ptx" />
+
+    <xi:include href="sec-labactivities-oscilloscopeprimer.ptx" />
     
 </chapter>

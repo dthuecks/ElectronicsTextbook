@@ -1,0 +1,8 @@
+\begin{circuitikz}
+    \draw (0,0) coordinate(start);
+    \draw (start)   node[anchor=east]{A}
+                    to[L,o-, l^=$L$] ++(2,0)
+                    to[R, l^=$R$] ++(2,0)
+                    to[C,-o, l^=$C$] ++(2,0)
+                    node[anchor=west]{B};
+\end{circuitikz}

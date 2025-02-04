@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-homework" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Problems</title>
+  <ol>
+    <li>
+        <p>
+            Calculate the energy (in Joules) stored in a <m>2000\mu\text{F}</m> capacitor charged to 5V. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the impedance <m>Z_{AB}</m> and provide your answer in the form <m>Z_{AB}=a+ib</m> and <m>Z_{AB}=\left|z\right|e^{i\theta}</m> for each of the circuits in <xref ref="fig-ac-homework-1a"/>-<xref ref="fig-ac-homework-1c"/>.
+            <sbsgroup widths="">
+                <sidebyside widths="70%">
+                    <figure xml:id="fig-ac-homework-1a">
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/fig-ac-homework-1a.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
+                <sidebyside widths="40% 50%" valign="bottom">
+                    <figure xml:id="fig-ac-homework-1b">  
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/fig-ac-homework-1b.ptx" />
+                        </latex-image></image>
+                    </figure>
+                    <figure xml:id="fig-ac-homework-1c">
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/fig-ac-homework-1c.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
+            </sbsgroup>
+        </p>
+    </li>
+    <li>
+        <p>
+            Design a low-pass RC filter that will attenuate a 60-Hz sinusoidal voltage by 12 dB relative to the dc gain. Use a <m>100\Omega</m> resistance. Explain in words why the low-pass RC filter attenuates the high frequencies.
+        </p>
+    </li>
+    <li>
+        <p>
+            The circuit shown in <xref ref="fig-ac-homework-4"/>is used to trigger a device connected between terminals A and B. The device turns ON when <m>V_{AB}\ge 6.0\text{V}</m> and turns OFF when <m>V_{AB}\le 2.0\text{V}</m>. (Assume that connecting the device between terminals A and B has no effect o nthe rest of the circuit. In other words, the device effectively has almost infinite output resistance.)
+            <ol>
+                <li>
+                    <p>
+                        Assume that the switch has been in position Y for a long time. Then, at <m>t=0\text{s}</m>, the switch moves to position X. How long after the switch is turned to position X does the device turn ON?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        After being left at position X for over one minute, the switch is turned to position Y. How long does it take the device to turn off after this change?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use Python to plot your charging and discharging voltage curves (as a function of time).
+                    </p>
+                </li>
+            </ol>
+            <figure xml:id="fig-ac-homework-4">
+                <caption></caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/fig-ac-homework-4.ptx" />
+                </latex-image></image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Use phasors to derive an expression for the voltage gain and phase shift for the following LR circuit.
+            <figure xml:id="fig-dc-homework-a135551">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-ac-homework-5.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Sketch a graph of the magnitude of the impedance versus frequency for (a) a series RLC circuit and (b) a parallel RLC circuit. In each case, determine the phase of the impedance as the frequency passes through resonance.
+        </p>
+    </li>
+    <li>
+        <p>
+            Use Python to plot the gain-versus-frequency curve and phase-versus-frequency curve for the circuit in <xref ref="fig-ac-homework-7"/>. I'd strongly recommend using Python to solve your system of equations.
+            <figure xml:id="fig-ac-homework-7">
+                <caption></caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="figures/fig-ac-homework-7.ptx" />
+                </latex-image></image>
+            </figure>
+        </p>
+    </li>
+    
+    <li>
+        <p>
+            Use phasors to answer the following questions about the circuit in <xref ref="fig-ac-homework-8"/>.
+            <ol>
+                <li>
+                    <p>
+                        Show that the peak current through the resistor is
+                        <me>
+                            I=\frac{V_0}{\sqrt{R^2 + \left(X_L^{-1}+X_C^{-1}\right)^{-2}}}
+                        </me>.
+                        (Hint: Find an equivalent impedance for the capacitor and inductor, and then examine the circuit behavior at a time when the resistor current <m>I_R</m> is purely real.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What is <m>I_R</m> in the limits <m>\omega\rightarrow 0</m> and <m>\omega\rightarrow \infty</m>?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find an expression for the resonance frequency <m>\omega_0</m>? What is <m>I_R</m> at this frequency?
+                    </p>
+                    <figure xml:id="fig-ac-homework-8">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="figures/fig-ac-homework-8.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </li>
+            </ol>
+        </p>
+    </li>
+    
+    
+  </ol>
+
+</section>

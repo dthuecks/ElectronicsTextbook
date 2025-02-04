@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-oscilloscopeprimer" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: Oscilloscope Primer</title>
+
+    <p> 
+        <alert>Objective:</alert> Through the course of this lab, you will familiarize yourself with the operation of a the BK Precision 2190E Digital Oscilloscope.  You will use the scope to measure an AC voltage signal from the internal function generator of the scope, and from an external function generator.  Our goal will be to understand how to display a signal on the scope, measure frequency and amplitude values, and trigger the scope properly by adjusting the triggering threshold and other trigger settings. 
+    </p>
+    <p>
+        <alert>Equipment:</alert> Function generator, oscilloscope, BNC coaxial cables.
+    </p>
+    <p>
+        <alert>Lab Notebook:</alert> In your theory section of the report, you should discuss any functions of the oscilloscope that we use today and their purpose.  In the data section, you should include the signal data and photos asked for throughout the lab.  You do not need a procedure, results or conclusion section for this lab. Otherwise, please follow the lab notebook guidelines provided in <xref ref="ch-labnotebook"/>.
+    </p>
+
+    <paragraphs>
+        <title>THE OSCILLOSCOPE INTERFACE</title>
+        <p>
+            The oscilloscope interface seems quite complicated at first, but in order to measure one signal vs. time we will only need a few functions. 
+            <ol>
+                <li>
+                    <p>
+                        Turn on your scope using the power button on the top of the case.  Wait for it to start and then hit the <q>Default Setup</q> button- it is blue in the upper right of the front face.   You should see the following display:
+                    </p>
+                    <image source="images/img-labactivities-oscilloscope-default.jpg" width="70%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                    </image>
+                </li>
+                <li>
+                    <p>
+                        The scope has the ability to display two signals at once.  Turn on the channel two display by hitting the <q>2</q> button.  A pink line, representing the voltage plugged into the channel 2 BNC input connector, should now appear on top of Channel 1's  yellow line.  (Both voltages are zero at the moment as nothing is plugged into either channel.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You can use the <alert>small knobs</alert> below the <q>1</q> and <q>2</q> buttons to displace the signal lines on the display.  Try it and see if you can move channel 1 upwards and channel two downwards as shown below:
+                    </p>
+                    <image source="images/img-labactivities-oscilloscope-position.jpg" width="70%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                    </image>
+                </li>
+                <li>
+                    <p>
+                        Turn off channel 2 by hitting the <q>2</q> button.  Re-center signal 1 on the x-axis. Turn off the channel 2 menu that appeared on the right of the screen by hitting the <q>Menu On/Off</q> button.
+                    </p>
+                </li>
+            </ol>
+            To explore more of the functions of the scope we will need to look at a signal.
+        </p>
+        
+    </paragraphs>
+
+    <paragraphs>
+        <title>MEASURING THE BUILT-IN TEST SIGNAL</title>
+        <p>
+            The oscilloscope has a built in test signal.  It is a 1KHz square wave, and can be measured by connecting an <term>oscilloscope probe</term> to the two metal clips in the lower right of the front face.
+            <image source="images/img-labactivities-oscilloscope-testsig.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+            <ol>
+                <li>
+                    <p>
+                        Find your oscilloscope probe. Plug it into the <term>Channel 1</term> BNC connector on the oscilloscope.  <alert>Set the attenuation switch on the probe to 1X.</alert> (10X means the voltage measured in attenuated by 10- useful for high voltage projects.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The probe has two clips.  The side <term>alligator clip</term> must be connected to ground.  The center <term>hook clip</term> is connected to the point in a circuit where you want to measure the voltage.  Find the metal leads for the test signal (shown above in the figure).  Connect the probe clips to the leads. One lead should be clearly labeled as ground.  Channel 1 should display the test signal as shown below:
+                        <image source="images/img-labactivities-oscilloscope-testsig-disp.jpg" width="50%">
+                            <shortdescription>(for accessibility)</shortdescription>
+                        </image>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Take a picture of your channel 1 display for your lab notebook.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You should see the oscilloscope's vertical and horizontal scales on the display screen.  The CH1 = 1.00V  marker means that the vertical grid spacing (between horizontal dotted lines) represents a change of 1.00 V.  The M = 500 μs  marker means there is a 500 μs spacing between each vertical dotted line. <alert>What is the amplitude of this square wave?  Include this value in your report.</alert>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Try to change the vertical and horizontal scale by using the large CH 1 knobs on the front panel.  Change the horizontal scale to display the wave on a 100 μs timescale and a 2V vertical scale.  <alert>Take a picture of the output to include in your report.</alert>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Return the waveform to its default view. You can do this either by reversing your changes made above or, even easier, by just hitting the <term>Default Setup</term> button again. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+        
+    </paragraphs>
+
+<paragraphs>
+    <title>MEASURING A SINE WAVE</title>
+    <p>
+        Now we will use an external function generator to produce an AC sine wave signal for us to measure.
+        <ol>
+            <li>
+                <p>
+                    With the function generator turned off, use a BNC cable to connect the function generator <alert>output</alert> to the oscilloscope Channel 2 input.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Turn on the function generator. We want a 1V amplitude 1kHz sine wave signal to measure. Press the <sq>Amp</sq> menu button and type in 1.0 and then press V. Then, click <term>Freq</term> and type 1.0 and click the <term>kHz</term> button. At this point, there is still no signal being produced. Press the <term>Output</term> button to start producing the desired signal. The <term>Output</term> button should now be glowing, indicating that the function generator output is active.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The display should show a sine wave, but probably too zoomed in to see the whole wave.  Hit the <term>Auto</term> button to autoscale the display to the signal.  The following image shows the correctly auto-scaled sine wave.  Click the <sq>Measure</sq> button on the oscilloscope and select parameters that you might want to measure for each channel, including the Peak-to-Peak Amplitude <m>(V_{pp})</m> and frequency of the signal.  
+                    <alert>What are the values of these parameters? Record values in your notebook along with an image of the oscilloscope display.</alert>
+                    <image source="images/img-labactivities-oscilloscope-sine-disp.jpg" width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                    </image>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To make sure you understand the different settings of the function generator and scope, do the following:
+                    <ol>
+                        <li>
+                            <p>
+                                Set the function generator to display a 500Hz signal with a 20V pk-pk amplitude
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Display the signal on the scope with a 10V vertical scale and a 1ms timescale.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Take a picture of this output and include with your report.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Note that you can use the <term>position</term> knob to move the signal up and down on the screen. This is purely moving the 0V reference position on the screen. The position of this reference point is indicated by the yellow arrow with a <sq>1</sq> in it. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Also note that you can adjust the vertical <term>Zoom</term>, or scaling for each channel independently. As you adjust the CH1 knob, you can see that the value <sq>CH1=___V</sq> changes in the bottom left corner. This number indicates the change in voltage vertically across one of the small boxes in the grid displayed on screen for the Channel 1 signal. You can also adjust the horizontal scaling in the same way, with the <sq>M___ms</sq> number providing the change in time horizontally across one of the small boxes in your grid. You will often need to adjust these appropriately to see your desired signal. Note: You should always try to maximize the vertical size of each signal that you are trying to measure to get the most precise measurements using the built-in <sq>measure</sq> feature and using the cursors (explained below). If you have a periodic signal, it is often desirable to have 3-5 periods displayed in order to use the built-in <sq>measure</sq> feature.
+                </p>
+            </li>
+        </ol>
+    </p>
+    
+</paragraphs>
+
+<paragraphs>
+    <title>USING THE CURSORS</title>
+    <p>
+        With complicated signals, the auto measured output for amplitude and frequency cannot necessarily be trusted. In these cases, it’s better to do manual measurements with the oscilloscope's cursor functionality.
+        <ol>
+            <li>
+                <p>
+                    Set up the function generator to produce a 1kHz, 20V pk-pk sine wave.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Display this signal on the scope, auto-scaled.  Hit the <term>Run/Stop</term> button to freeze the signal for better analysis.  The button should light up red when data acquisition is stopped.  (Don’t forget it’s stopped and that you’re no longer measuring real time data!)
+                </p>
+            </li>
+            <li>
+                <p>
+                    To manually measure the period of the wave, we will use vertical cursors.  Hit the <term>Cursors</term> button on the top center of the scope control panel.  In the menu that appears, change the mode to <term>Manual</term>.  Then change the type to <term>Time</term> and ensure that the source is <term>CH1</term>.  You should see two dotted lines appear on the display.
+                </p>
+            </li>
+            <li>
+                <p>
+                    You can move the position of the lines by selecting cursor A or B in the screen menu and then turning the small knob in the upper left of the control panel.  Try to move cursor A onto a peak of the wave.  Do the same for cursor B.
+                </p>
+                <p>
+                    <alert>NOTE: If you can only see one cursor line on the screen, it might be that the other is off the edge of the display.  Try selecting the invisible cursor and moving the knob until it appears in view. Sometimes you might need to zoom out in time or voltage to find the cursors.</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    The cursors appear with readouts that tell you the time location for each individual cursor (with respect to the trigger, which will be discussed next), the time interval between the two cursors, and the associated frequency.  Do these values make sense?  <alert>Record these values and take a photo of the screen for your report.</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Switch the cursor type to Voltage to get horizontal cursors.  Place them so that you can measure the pk-pk voltage amplitude.  <alert>Record the pk-pk voltage, and take a photo for your report.</alert>
+                </p>
+            </li>
+        </ol>
+    </p>
+    
+</paragraphs>
+
+<paragraphs>
+    <title>Triggering</title>
+    <p>
+        The oscilloscope needs to know where the wave starts in order to display a nice, steady display output.  This process of finding the start of the waveform is called <term>triggering</term>.  The trigger determines the location of your signal with respect to the scope’s definition of t=0s. The blue T in the image below indicates the time location of the trigger.
+        <image source="images/img-labactivities-oscilloscope-triggerzero.jpg" width="30%">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+        
+        Using the trigger menu and cursor wheel, we can set the trigger level at whatever voltage threshold we want. When the experimental signal crosses the trigger level that we set, the oscilloscope calls that time t=0s and all other times are measured with respect to that time. The oscilloscope can be told to trigger off of CH1, CH2, or even other external signals. It can also be told to trigger when the signal rises through the trigger level or falls through the trigger level.
+    </p>
+    <p>
+        For a simple AC sine wave, triggering is pretty easy to set up with the Auto-scale feature, but for other signals you may need to manually adjust the trigger settings.
+        <ol>
+            <li>
+                <p>
+                    Make sure the scope is in RUN mode, not STOP mode.
+                </p>
+            </li>
+            <li>
+                <p>
+                    With the AC sine signal displayed, find the <term>Trig Menu</term> button on the control panel (on the right, under Auto).  Hit this button to bring up the trigger settings menu.
+                </p>
+            </li>
+            <li>
+                <p>
+                    In this menu, we say how we want the scope to find the beginning of the signal.  By default, Type is set to <term>Edge</term>, Source is set to <term>CH1</term>, and Slope is set to <term>Up</term>.  This means we are telling the scope to search for an edge with a rising slope on channel 1, and place everything such that that edge is at t=0s.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Try to set the slope type to <term>Down</term>.  Discuss in your report how the display changes.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We also need to tell the scope how big of a voltage actually counts as a signal.  This is especially important if we have a noisy experiment.  We don’t want to accidentally trigger on noise instead of our real signal.  This function is controlled by the <term>Trigger Level</term> (or just <term>Level</term>) knob on the control panel (lower right).
+                </p>
+            </li>
+            <li>
+                <p>
+                    Try adjusting the trigger level and you should see the level line appear on the display.  Any voltage signal with a peak below this line will not be considered a signal.  Try moving the level to above the sine wave peak.  Describe what happens in your report.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Adjust the level knob to manually regain good triggering.  As a rule of thumb, it is good to have the trigger level around 30% below the peak of your signal.  
+                </p>
+            </li>
+        </ol>
+    </p>
+    <p>
+        The location of the trigger’s t=0s can be adjusted left or right on the screen using the <term>Horizontal Position</term> knob. <alert>A word of advice: if the trigger time is offset from the middle of the screen and you change the time resolution on the scope, the trigger indicator may be outside of the window of view on the display. This can sometimes cause confusion if you do not realize that you are looking at a portion of the signal well after (or before) the trigger time.</alert> 
+    </p>
+    <p>
+        In more advanced contexts one can trigger all oscilloscope channels off of Channel 1, Channel 2, or off of a third external trigger.  We will discuss these options later on in the course, as needed.
+    </p>
+    
+</paragraphs>
+    
+
+</section>
