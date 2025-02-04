@@ -1,6 +1,6 @@
 \begin{circuitikz}
     \draw (0,0) coordinate(start);
-    \draw (start)   to[sinusoidal voltage source] ++(0,2)
+    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,2)
                     to[R, l^=$R$] ++(2,0) coordinate(a)
                     to[L, *-*, l^=$L$] (a|-start) coordinate(b)
                     to[short] (start|-b);
