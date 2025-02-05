@@ -4,14 +4,17 @@
     <title>Capacitor Charging and Discharging Behaviors</title>
 
     <p>
-        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>.
+        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>. Assume that the internal battery resistance is much smaller than the circuit resistor so that <m>r_e \ll R</m> and <m>\left(\Delta V\right)_C\approx V_0</m> at <m>t=0</m>.
     </p>
     <figure xml:id="ac-capdischarge">
         <caption>A circuit for examining a discharging capacitor.</caption>
         <image width="50%"><latex-image>
             \begin{circuitikz}
                 \draw (0,4) coordinate(start);
-                \draw (start)   to[battery, l_=$V_0$] ++(0,-4);
+                \draw (start)   to[short] ++(0,-1.3)
+                                to[/tikz/circuitikz/bipoles/length=15pt, R, l_=$r_e$] ++(0,-.6)
+                                to[battery, l_=$V_0$] ++(0,-0.8)
+                                to[short] ++(0,-1.3);
                 \draw (start)   to[ospst] ++ (4,0) coordinate(a)
                                 to[C,l_=$C$] ++ (0,-4) coordinate(b)
                                 to[short] ++ (-4,0);
@@ -64,7 +67,7 @@
         </latex-image></image>
     </figure>
     <p>
-        Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in <xref ref="ac-capcharge"/>
+        Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in <xref ref="ac-capcharge"/>. Here, we do not worry about the battery's internal resistance <m>r_e</m> as <m>r_e \ll R</m> typically, meaning that the charging behavior will be determined by <m>R+r_e\approx R</m>.
     </p>
     <figure xml:id="ac-capcharge">
         <caption>A circuit for examining a charging capacitor.</caption>
