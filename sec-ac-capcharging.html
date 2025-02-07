@@ -113,7 +113,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.5';
+eBookConfig.runestone_version = '7.5.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -168,6 +168,9 @@ eBookConfig.enable_chatcodes =  false;
 #sub-analytic-analysis-3-1 { counter-set: sub-analytic-analysis-3-1 0; }
 #sub-analytic-analysis-3-1 > li::marker { content: ""counter(sub-analytic-analysis-3-1,decimal)"."; }
 #sub-analytic-analysis-3-1 > li { counter-increment: sub-analytic-analysis-3-1; }
+#sec-diode-rectifier-2-4 { counter-set: sec-diode-rectifier-2-4 0; }
+#sec-diode-rectifier-2-4 > li::marker { content: ""counter(sec-diode-rectifier-2-4,decimal)"."; }
+#sec-diode-rectifier-2-4 > li { counter-increment: sec-diode-rectifier-2-4; }
 #ch-labnotebook-3-2-1 { counter-set: ch-labnotebook-3-2-1 0; }
 #ch-labnotebook-3-2-1 > li::marker { content: ""counter(ch-labnotebook-3-2-1,decimal)"."; }
 #ch-labnotebook-3-2-1 > li { counter-increment: ch-labnotebook-3-2-1; }
@@ -315,6 +318,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-python-analysis" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Python circuit treatment</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-rectifier.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Full-Wave Rectifier</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -377,32 +381,43 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <figure class="figure figure-like" id="ac-capdischarge"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ac-capdischarge-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.1<span class="period">.</span></span><span class="space"> </span>A circuit for examining a discharging capacitor.</figcaption></figure><div class="para logical" id="sec-ac-capcharging-4">
-<div class="para">Using</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html" id="sec-ac-capcharging-4-1">
-\begin{align*}
-I \amp = \pm C\frac{\text{d}V}{\text{d}t} \\
-I \amp = \frac{V}{R} 
-\end{align*}
-</div>
-<div class="para">where the sign choice is determined by whether the capacitor is charging (+) or discharging (-). Combining these equations, we find</div>
+<div class="para"> We can use KVL to examine the circuit. Since the switch is opened at <span class="process-math">\(t=0\text{,}\)</span> we only have a single KVL equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html">
 \begin{equation*}
-C\frac{\text{d}V}{\text{d}t}= -\frac{V}{R}
+V_C - IR = 0
 \end{equation*}
 </div>
-<div class="para">for a discharging capacitor. Rearranging this equation, we find that</div>
+<div class="para">where <span class="process-math">\(V_C\)</span> is the voltage difference between the capacitor plates. For a capacitor, <span class="process-math">\(Q=CV_c\text{,}\)</span> so</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html">
 \begin{equation*}
-\frac{\text{d}V}{\text{d}t}=-\frac{1}{RC} V
+\frac{Q}{C} - IR = 0\text{.}
 \end{equation*}
 </div>
-<div class="para">which has a solution of the form</div>
+<div class="para">If we take the time derivative of both sides and recognize that <span class="process-math">\(I=dQ/dt\text{,}\)</span> we get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html">
 \begin{equation*}
-V(t)=V_0 e^{-t/RC} = V_0 e^{-t/\tau}
+\frac{I}{C} - R\frac{dI}{dt} = 0
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(V_0\)</span> represents the voltage difference across the capacitor at time <span class="process-math">\(t=0\)</span> and <span class="process-math">\(\tau=RC\)</span> is the <dfn class="terminology">RC time constant</dfn>. This discharging behavior is shown in <a href="sec-ac-capcharging.html#ac-capdischargeplot" class="xref" data-knowl="./knowl/xref/ac-capdischargeplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.5.2">Figure 3.5.2</a>.</div>
+<div class="para">or, after rearranging:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html">
+\begin{equation*}
+\frac{dI}{dt}=-\frac{1}{RC} I(t)\text{.}
+\end{equation*}
+</div>
+<div class="para">By inspection, the solution to this differential equation is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html">
+\begin{equation*}
+I(t)=I_0 e^{-t/RC}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(I_0=I(t=0)\text{.}\)</span> Now, this current can be plugged back into our original equation <span class="process-math">\(V_C - IR=0\)</span> to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ac-capdischargeplot.html">
+\begin{equation*}
+V_C(t)=I_0 R e^{-t/RC} = V_0 e^{-t/\tau} 
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(V_C(t=0)=V_0 = I_0 R\)</span> at the instant that the switch opens and we’ve defined something called the <dfn class="terminology">RC time constant</dfn> <span class="process-math">\(\tau=RC\)</span> which is a characteristic response time associated with this RC circuit. We plot this discharging behavior in <a href="sec-ac-capcharging.html#ac-capdischargeplot" class="xref" data-knowl="./knowl/xref/ac-capdischargeplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.5.2">Figure 3.5.2</a>.</div>
 </div>
 <figure class="figure figure-like" id="ac-capdischargeplot"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ac-capdischargeplot-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.2<span class="period">.</span></span><span class="space"> </span>Discharging capacitor.</figcaption></figure><div class="para" id="sec-ac-capcharging-6">Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in <a href="sec-ac-capcharging.html#ac-capcharge" class="xref" data-knowl="./knowl/xref/ac-capcharge.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.5.3">Figure 3.5.3</a>. Here, we do not worry about the battery’s internal resistance <span class="process-math">\(r_e\)</span> as <span class="process-math">\(r_e \ll R\)</span> typically, meaning that the charging behavior will be determined by <span class="process-math">\(R+r_e\approx R\text{.}\)</span>

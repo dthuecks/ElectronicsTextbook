@@ -125,7 +125,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.5';
+eBookConfig.runestone_version = '7.5.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -180,6 +180,9 @@ eBookConfig.enable_chatcodes =  false;
 #sub-analytic-analysis-3-1 { counter-set: sub-analytic-analysis-3-1 0; }
 #sub-analytic-analysis-3-1 > li::marker { content: ""counter(sub-analytic-analysis-3-1,decimal)"."; }
 #sub-analytic-analysis-3-1 > li { counter-increment: sub-analytic-analysis-3-1; }
+#sec-diode-rectifier-2-4 { counter-set: sec-diode-rectifier-2-4 0; }
+#sec-diode-rectifier-2-4 > li::marker { content: ""counter(sec-diode-rectifier-2-4,decimal)"."; }
+#sec-diode-rectifier-2-4 > li { counter-increment: sec-diode-rectifier-2-4; }
 #ch-labnotebook-3-2-1 { counter-set: ch-labnotebook-3-2-1 0; }
 #ch-labnotebook-3-2-1 > li::marker { content: ""counter(ch-labnotebook-3-2-1,decimal)"."; }
 #ch-labnotebook-3-2-1 > li { counter-increment: ch-labnotebook-3-2-1; }
@@ -251,7 +254,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-diode-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-diode.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="part-lab.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-diode-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-diode.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-diode-rectifier.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -327,6 +330,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-python-analysis" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Python circuit treatment</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-rectifier.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Full-Wave Rectifier</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -641,109 +645,9 @@ plt.ylabel('Current (mA)')
 plt.legend()
 plt.show()
 </script></div></div>
-</div></div></details></div></article></details><details id="sub-python-analysis-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Full Wave Rectifier.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="sub-python-analysis-4-2-1">
-<div class="para">Let’s look at a full-wave rectifier circuit pictured in <a href="sec-diode-circuit-analytic.html#fig-diode-full-wave-rectifier" class="xref" data-knowl="./knowl/xref/fig-diode-full-wave-rectifier.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.10">Figure 4.4.10</a> where we’re going to use <span class="process-math">\(V_\text{out}=V_2-V_1\text{.}\)</span> <figure class="figure figure-like" id="fig-diode-full-wave-rectifier"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/fig-diode-full-wave-rectifier-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.10<span class="period">.</span></span><span class="space"> </span></figcaption></figure> We find KCL equations for the junctions labeled <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span>
-</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-full-wave-rectifier.html ./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html" id="sub-python-analysis-4-2-1-6">
-\begin{align}
-0 = \amp I_3 + I_6 - I_4 \tag{4.4.1}\\
-0 = \amp I_5 + I_6 - I_2 \text{.}\tag{4.4.2}
-\end{align}
-</div>
-<div class="para">We can also write down expressions for the currents by examining voltage changes across components</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-full-wave-rectifier.html ./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html" id="sub-python-analysis-4-2-1-7">
-\begin{align}
-I_2 = \amp I_0\left(e^{\left(V_\text{in}-V_2\right)/V_T}-1\right) \tag{4.4.3}\\
-I_3 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T}-1\right) \tag{4.4.4}\\
-I_4 = \amp I_0\left(e^{V_1/V_T}-1\right) \tag{4.4.5}\\
-I_5 = \amp -I_0\left(e^{-V_2/V_T}-1\right) \tag{4.4.6}\\
-I_6 = \amp \frac{V_2-V_1}{R} \text{.}\tag{4.4.7}
-\end{align}
-</div>
-<div class="para">Combining <a href="sec-diode-circuit-analytic.html#sub-python-analysis-4-2-1-6" class="xref" data-knowl="./knowl/xref/eqn-diode-rectifier-kcl-a.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4.1">(4.4.1)</a>-<a href="sec-diode-circuit-analytic.html#sub-python-analysis-4-2-1-6" class="xref" data-knowl="./knowl/xref/eqn-diode-rectifier-kcl-b.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4.2">(4.4.2)</a> with <a href="sec-diode-circuit-analytic.html#sub-python-analysis-4-2-1-7" class="xref" data-knowl="./knowl/xref/eqn-diode-rectifier-currents-a.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4.3">(4.4.3)</a>-<a href="sec-diode-circuit-analytic.html#sub-python-analysis-4-2-1-7" class="xref" data-knowl="./knowl/xref/eqn-diode-rectifier-currents-e.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4.7">(4.4.7)</a>, we find that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-full-wave-rectifier.html ./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html" id="sub-python-analysis-4-2-1-12">
-\begin{align*}
-0 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R} \\
-0 = \amp -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2 - V_1}{R} \text{.}
-\end{align*}
-</div>
-<div class="para">Using Newton’s method in <a href="subapp-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>, we’ll set</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-full-wave-rectifier.html ./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html">
-\begin{equation*}
-\vec{f}(\vec{x})=
-\begin{pmatrix}
--I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R}\\
--I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2-V_1}{R}
-\end{pmatrix}
-\end{equation*}
-</div>
-<div class="para">and then calculate</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-full-wave-rectifier.html ./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html">
-\begin{equation*}
-\nabla\vec{f}(\vec{x}) = 
-\begin{pmatrix}
--\frac{I_0}{V_T}\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T}\right)-\frac{1}{R} \amp \frac{1}{R}\\
--\frac{1}{R} \amp \frac{I_0}{V_T}\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}\right) + \frac{1}{R}
-\end{pmatrix}\text{.}
-\end{equation*}
-</div>
-<div class="para">Then, we can use Python to estimate the circuit behavior using Newton’s method. <div id="sub-python-analysis-4-2-1-16" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># Clear all variables that may be present from previous code run on this page.
-globals().clear()
-
-import numpy as np
-from scipy.constants import k
-import matplotlib.pyplot as plt
-
-plt.close('all') # Close all open figures
-
-# Initialize arrays
-t = np.linspace(0,1,500)
-Vin_array = 10*np.sin(20*t)
-Vout = np.zeros(np.size(t))
-
-# Circuit parameters and target precision for roots
-R, VT, I0 = [100, 0.05, 3.0e-9]
-target = 1.0e-2
-
-# Perform Newton's Method for every time value
-for i1 in range(np.size(t)):
-    
-    Vin = Vin_array[i1]
-
-    # Initial guesses for the solution
-    V1 = 0.4
-    V2 = abs(Vin)
-
-    # Main loop
-    error = 1.0
-    #for i1 in range(100):
-    while error > target: # perform iterations until our estimated root gets close enough to real root
-        # c1 and c2 are defined to make entry of the f and A arrays easier
-        c1 = -I0*(np.exp((V1-Vin)/VT)+np.exp(V1/VT))
-        c2 = -I0*(np.exp(-V2/VT)+np.exp((Vin-V2)/VT))
-    
-        f = np.array([c1+2*I0+(V2-V1)/R, c2+2*I0+(V2-V1)/R]) # f from system of equations
-        A = np.array([[c1/VT-1/R, 1/R],[-1/R, -c2/VT+1/R]]) # f' for system of equations
-        DeltaV = np.linalg.solve(A,f) # distance from our guess to our estimated root
-        error = np.linalg.norm(DeltaV)
-        V1 -= DeltaV[0]
-        V2 -= DeltaV[1]
-
-    Vout[i1]=V2-V1
-plt.plot(t,Vin_array,label='$V_{in}$') 
-plt.plot(t,Vout,label='$V_{out}$')
-plt.xlabel('Time (s)')
-plt.ylabel('Voltage (V)')
-plt.legend()
-plt.show()
-</script></div>
-</div>
-</div></article></details></section></section></div>
+</div></div></details></div></article></details></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-diode-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="part-lab.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-diode-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-diode-rectifier.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
