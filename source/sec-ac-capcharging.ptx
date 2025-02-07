@@ -25,7 +25,7 @@
         </latex-image></image>
     </figure>
     <p>
-        Using 
+        <!--Using 
         <md>
             <mrow>I \amp = \pm C\frac{\text{d}V}{\text{d}t} </mrow>
             <mrow>I \amp = \frac{V}{R} </mrow>
@@ -37,12 +37,33 @@
         for a discharging capacitor. Rearranging this equation, we find that
         <me>
             \frac{\text{d}V}{\text{d}t}=-\frac{1}{RC} V
-        </me>
-        which has a solution of the form
+        </me>-->
+
+        We can use KVL to examine the circuit. Since the switch is opened at <m>t=0</m>, we only have a single KVL equation
         <me>
-            V(t)=V_0 e^{-t/RC} = V_0 e^{-t/\tau}
+            V_C - IR = 0
         </me>
-        where <m>V_0</m> represents the voltage difference across the capacitor at time <m>t=0</m> and <m>\tau=RC</m> is the <term>RC time constant</term>. This discharging behavior is shown in <xref ref="ac-capdischargeplot"/>.
+        where <m>V_C</m> is the voltage difference between the capacitor plates. For a capacitor, <m>Q=CV_c</m>, so
+        <me>
+            \frac{Q}{C} - IR = 0
+        </me>.
+        If we take the time derivative of both sides and recognize that <m>I=dQ/dt</m>, we get
+        <me>
+            \frac{I}{C} - R\frac{dI}{dt} = 0
+        </me>
+        or, after rearranging:
+        <me>
+            \frac{dI}{dt}=-\frac{1}{RC} I(t)
+        </me>.
+        By inspection, the solution to this differential equation is
+        <me>
+            I(t)=I_0 e^{-t/RC}
+        </me>
+        where <m>I_0=I(t=0)</m>. Now, this current can be plugged back into our original equation <m>V_C - IR=0</m> to find
+        <me>
+            V_C(t)=I_0 R e^{-t/RC} = V_0 e^{-t/\tau} 
+        </me>
+        where <m>V_C(t=0)=V_0 = I_0 R</m> at the instant that the switch opens and we've defined something called the <term>RC time constant</term> <m>\tau=RC</m> which is a characteristic response time associated with this RC circuit. We plot this discharging behavior in <xref ref="ac-capdischargeplot"/>.
     </p>
     <figure xml:id="ac-capdischargeplot">
             <caption>Discharging capacitor.</caption>

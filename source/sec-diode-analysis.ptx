@@ -244,63 +244,7 @@
             </solution>
         </example>
 
-        <example>
-        <title>Full Wave Rectifier</title>
-            <statement>
-                <p>
-                    Let's look at a full-wave rectifier circuit pictured in <xref ref="fig-diode-full-wave-rectifier"/> where we're going to use <m>V_\text{out}=V_2-V_1</m>.
-                    <figure xml:id="fig-diode-full-wave-rectifier">
-                        <caption></caption>
-                        <image><latex-image>
-                            <xi:include parse="text" href="figures/fig-diode-full-wave-rectifier-circuit.ptx" />
-                        </latex-image></image>
-                    </figure>
-                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m>
-                    <mdn>
-                        <mrow xml:id="eqn-diode-rectifier-kcl-a">0 = \amp I_3 + I_6 - I_4 </mrow>
-                        <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_5 + I_6 - I_2 </mrow>
-                    </mdn>.
-                    We can also write down expressions for the currents by examining voltage changes across components  
-                    <mdn>
-                        <mrow xml:id="eqn-diode-rectifier-currents-a">I_2 = \amp I_0\left(e^{\left(V_\text{in}-V_2\right)/V_T}-1\right) </mrow>
-                        <mrow xml:id="eqn-diode-rectifier-currents-b">I_3 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T}-1\right) </mrow>
-                        <mrow xml:id="eqn-diode-rectifier-currents-c">I_4 = \amp I_0\left(e^{V_1/V_T}-1\right) </mrow>
-                        <mrow xml:id="eqn-diode-rectifier-currents-d">I_5 = \amp -I_0\left(e^{-V_2/V_T}-1\right) </mrow>
-                        <mrow xml:id="eqn-diode-rectifier-currents-e">I_6 = \amp \frac{V_2-V_1}{R} </mrow>
-                    </mdn>.
-                    Combining <xref ref="eqn-diode-rectifier-kcl-a"/>-<xref ref="eqn-diode-rectifier-kcl-b"/> with <xref ref="eqn-diode-rectifier-currents-a"/>-<xref ref="eqn-diode-rectifier-currents-e"/>, we find that
-                    <md>
-                        <mrow>0 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R} </mrow>
-                        <mrow>0 = \amp -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2 - V_1}{R} </mrow>
-                    </md>.
-                    Using Newton's method in <xref ref="subapp-python-newtonmethod"/>, we'll set
-                    <me>
-                        \vec{f}(\vec{x})=
-                            \begin{pmatrix}
-                                -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R}\\
-                                -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2-V_1}{R}
-                            \end{pmatrix}
-                    </me>
-                    and then calculate
-                    <me>
-                        \nabla\vec{f}(\vec{x}) = 
-                            \begin{pmatrix}
-                                -\frac{I_0}{V_T}\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T}\right)-\frac{1}{R} \amp \frac{1}{R}\\
-                                -\frac{1}{R} \amp \frac{I_0}{V_T}\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}\right) + \frac{1}{R}
-                            \end{pmatrix}
-                    </me>.
-                    Then, we can use Python to estimate the circuit behavior using Newton's method.
-                    <sage language="python">
-                        <input><xi:include parse="text" href="./codes/python-diode-full-wave-rectifier.ptx" /></input>
-                        <output>
-                            
-                        </output>
-                    </sage>  
-                    
-                    
-                </p>
-            </statement>
-        </example>
+        
     
     </subsection>
 </section>

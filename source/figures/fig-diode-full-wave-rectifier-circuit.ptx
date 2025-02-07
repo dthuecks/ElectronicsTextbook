@@ -4,9 +4,11 @@
     \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,5)
                     to[short, i^=$i_1$] ++(4,0)
                     to[short, -*] ++(0, -0.5) coordinate(a)
+                    node[anchor=south west]{A}
                     to[D,-*, invert, l_=$D_1$, i_=$i_3$] ++(-2, -2) coordinate(v1)
                     node[anchor=east]{$V_1$}
                     to[D, -*, l_=$D_3$, i_=$i_4$] ++(2, -2) coordinate(b)
+                    node[anchor=north west]{B}
                     to[short] ++(0, -0.5)
                     to[short] (start);
     \draw (a)       to[D, -*, l^=$D_2$, i^=$i_2$] ++(2, -2) coordinate(v2)

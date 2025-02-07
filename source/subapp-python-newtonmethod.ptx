@@ -83,11 +83,11 @@
             <me>
                \nabla\vec{f} \cdot \Delta \vec{x} + \mathcal{O}(\text{small}) = \vec{f}(\vec{x})
             </me>
-            where <m>\Delta \vec{x}=\vec{x} - \vec{x}^*</m>. Thus, we can get a good estimate of our root, <m>\vec{x}'</m> using
+            where <m>\Delta \vec{x}=\vec{x} - \vec{x}^*</m>. Thus, we can get a good estimate of our root, <m>\vec{x}'</m>, using
             <me>
                 \nabla\vec{f} \cdot \Delta \vec{x} = \vec{f}(\vec{x})
-            </me>.
-            This is a set of ordinary linear simultaneous equations of the form <m>\vec{A}\vec{x} = \vec{v}</m> which we can solve using the <c>linalg.solve</c> package in NumPy. Once we've solved for <m>\Delta \vec{x}</m>, our new estimate <m>\vec{x}'</m> of the root is
+            </me>
+            where <m>\Delta\vec{x}=\vec{x}-\vec{x}'</m> now. This is a set of ordinary linear simultaneous equations of the form <m>\vec{A}\vec{x} = \vec{v}</m> which can be solved using the <c>linalg.solve</c> package in NumPy. Once we've solved for <m>\Delta \vec{x}</m>, our new estimate <m>\vec{x}'</m> of the root is
             <me>
                 \vec{x}' = \vec{x}-\Delta\vec{x}
             </me>.

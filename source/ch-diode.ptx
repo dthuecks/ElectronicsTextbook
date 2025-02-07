@@ -23,4 +23,6 @@
 
 <xi:include href="./sec-diode-analysis.ptx" />
 
+<xi:include href="./sec-diode-rectifier.ptx" />
+
 </chapter>

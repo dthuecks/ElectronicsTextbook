@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-rectifier" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Full-Wave Rectifier</title>
+    <p>
+        Let's look at a full-wave rectifier circuit pictured in <xref ref="fig-diode-full-wave-rectifier"/>. The circuit output will be examined at <m>V_\text{out}=V_2-V_1</m>.
+        <figure xml:id="fig-diode-full-wave-rectifier">
+            <caption></caption>
+            <image><latex-image>
+                <xi:include parse="text" href="figures/fig-diode-full-wave-rectifier-circuit.ptx" />
+            </latex-image></image>
+        </figure>
+        Let's examine this circuit analytically through several cases.
+        <ol>
+            <li>
+                <p>
+                    Times when <m>V_\text{in}>\gt 2V_F</m>:
+                </p>
+                <p>
+                    In this case, <m>V_A=V_\text{in}\gt V_1,\ V_2,\ V_B</m>. This means that diode <m>D_2</m> will conduct current <m>i_2</m> while <m>i_3=0</m>. Since <m>V_2\gt V_B</m>, diode <m>D_4</m> will remain off meaning that current will flow across the resistor <m>R</m>, dropping voltage in the process. Then, since <m>V_A\gt V_1</m>, we confirm that diode <m>D_1</m> remains off. Consequently, diode <m>D_3</m> will conduct current <m>i_4</m>. Since there was a voltage drop across <m>R</m> and <m>D_3</m>, we find that <m>V_B \lt V_2</m>, confirming our assertion that <m>D_4</m> is off. This current path is represented in <xref ref="fig-diode-full-wave-rectifier-pos-color"/>
+                    <figure xml:id="fig-diode-full-wave-rectifier-pos-color">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="figures/fig-diode-full-wave-rectifier-pos-color.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </li>
+        </ol>
+        
+        <example>
+            <title>Solution Using Newton's method in Python</title>
+            <statement>
+                <p>
+                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m>
+                    <mdn>
+                        <mrow xml:id="eqn-diode-rectifier-kcl-a">0 = \amp I_3 + I_6 - I_4 </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_5 + I_6 - I_2 </mrow>
+                    </mdn>.
+                    We can also write down expressions for the currents by examining voltage changes across components  
+                    <mdn>
+                        <mrow xml:id="eqn-diode-rectifier-currents-a">I_2 = \amp I_0\left(e^{\left(V_\text{in}-V_2\right)/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-b">I_3 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-c">I_4 = \amp I_0\left(e^{V_1/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-d">I_5 = \amp -I_0\left(e^{-V_2/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-e">I_6 = \amp \frac{V_2-V_1}{R} </mrow>
+                    </mdn>.
+                    Combining <xref ref="eqn-diode-rectifier-kcl-a"/>-<xref ref="eqn-diode-rectifier-kcl-b"/> with <xref ref="eqn-diode-rectifier-currents-a"/>-<xref ref="eqn-diode-rectifier-currents-e"/>, we find that
+                    <md>
+                        <mrow>0 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R} </mrow>
+                        <mrow>0 = \amp -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2 - V_1}{R} </mrow>
+                    </md>.
+                    Using Newton's method in <xref ref="subapp-python-newtonmethod"/>, we'll set
+                    <me>
+                        \vec{f}(\vec{V})=
+                            \begin{pmatrix}
+                                -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R}\\
+                                -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2-V_1}{R}
+                            \end{pmatrix}
+                    </me>
+                    where
+                    <me>
+                        \vec{V}=\begin{pmatrix} V_1 \\ V_2\end{pmatrix}
+                    </me>.
+                    Given <m>\vec{f}(\vec{V})</m>, we then calculate
+                    <me>
+                        \nabla\vec{f}\left(\vec{V}\right) = 
+                            \begin{pmatrix}
+                                -\frac{I_0}{V_T}\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T}\right)-\frac{1}{R} \amp \frac{1}{R}\\
+                                -\frac{1}{R} \amp \frac{I_0}{V_T}\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}\right) + \frac{1}{R}
+                            \end{pmatrix}
+                    </me>.
+                    Then, Newton's method can be used in Python to estimate the circuit behavior governed by
+                    <me>
+                        \nabla\vec{f}\left(\vec{V}\right) \cdot \Delta \vec{V} = \vec{f}\left(\vec{V}\right)
+                    </me>
+                    to solve for <m>\Delta\vec{x}</m> and find our new root estimate
+                    <me>
+                        \vec{x}' = \vec{x}-\Delta\vec{x}
+                    </me>,
+                    iterating to some desired tolerance.
+                    <sage language="python">
+                        <input><xi:include parse="text" href="./codes/python-diode-full-wave-rectifier.ptx" /></input>
+                        <output>
+
+                        </output>
+                    </sage>                 
+                </p>
+            </statement>
+        </example>
+        
+    </p>
+</section>
