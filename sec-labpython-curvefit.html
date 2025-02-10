@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Analysis of diode circuits</title>
+<title>Fitting a curve to data in Python</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -257,7 +257,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-diode-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-diode.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-diode-rectifier.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-labpython-plotting.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-labpython.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-labactivities.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -268,9 +268,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li class="toc-item toc-part contains-active">
+<li class="toc-item toc-part">
 <div class="toc-title-box"><a href="part-analysis.html" class="internal"><span class="codenumber">I</span> <span class="title">Circuit Analysis</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
@@ -320,15 +320,15 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-homework.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Problems</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter contains-active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-diode.html" class="internal"><span class="codenumber">4</span> <span class="title">Diodes</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-semiconductors.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Semiconductors</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-behavior.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Diode behavior</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-types.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Diode Types</span></a></div></li>
-<li class="toc-item toc-section contains-active">
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div>
-<ul class="structural toc-item-list active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-analytic-analysis" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Analytic circuit treatment</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-python-analysis" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Python circuit treatment</span></a></div></li>
 </ul>
@@ -338,9 +338,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-part">
+<li class="toc-item toc-part contains-active">
 <div class="toc-title-box"><a href="part-lab.html" class="internal"><span class="codenumber">II</span> <span class="title">Laboratory</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-safety.html" class="internal"><span class="codenumber">5</span> <span class="title">Lab Safety</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labnotebook.html" class="internal"><span class="codenumber">6</span> <span class="title">Guide to Laboratory Notebooks</span></a></div></li>
 <li class="toc-item toc-chapter">
@@ -361,12 +361,12 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labhints.html" class="internal"><span class="codenumber">8</span> <span class="title">Troubleshooting Hints</span></a></div></li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-labpython.html" class="internal"><span class="codenumber">9</span> <span class="title">Data Analysis with Python</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-dataload.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Loading Data Files</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-plotting.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Line Plots in Python</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-curvefit.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Fitting a curve to data in Python</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-labpython-curvefit.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Fitting a curve to data in Python</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -391,268 +391,50 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-diode-circuit-analytic"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">Analysis of diode circuits</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-labpython-curvefit"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">9.3</span><span class="space"> </span><span class="title">Fitting a curve to data in Python</span>
 </h2>
-<section class="subsection" id="sub-analytic-analysis"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="space"> </span><span class="title">Analytic circuit treatment</span>
-</h3>
-<div class="para logical" id="sub-analytic-analysis-2">
-<div class="para">How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in <a href="sec-diode-behavior.html#fig-diode-cartoon" class="xref" data-knowl="./knowl/xref/fig-diode-cartoon.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.2">Figure 4.2.2</a>. Given this diode behavior, one can occasionally determine by inspection the conditions under which the diode is on or off.For example, let’s analyze the circuit in <a href="sec-diode-circuit-analytic.html#fig-diode-simple-example" class="xref" data-knowl="./knowl/xref/fig-diode-simple-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.1">Figure 4.4.1</a>. <figure class="figure figure-like" id="fig-diode-simple-example"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/fig-diode-simple-example-1.svg" role="img" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure> In this circuit,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-cartoon.html ./knowl/xref/fig-diode-simple-example.html ./knowl/xref/fig-diode-simple-example-plot.html" id="sub-analytic-analysis-2-4">
-\begin{align*}
-\tilde{V}_\text{out} \amp =\tilde{V}_\text{in}-V_F \amp \text{(Diode on)} \\
-\tilde{V}_\text{out} \amp = 0 \amp \text{(Diode off)} 
-\end{align*}
-</div>
-<div class="para">which is plotted in <a href="sec-diode-circuit-analytic.html#fig-diode-simple-example-plot" class="xref" data-knowl="./knowl/xref/fig-diode-simple-example-plot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.2">Figure 4.4.2</a>. <figure class="figure figure-like" id="fig-diode-simple-example-plot"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/sageplot/fig-diode-simple-example-plot-1.svg" role="img" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
-</div>
-</div>
-<div class="para logical" id="sub-analytic-analysis-3">
-<div class="para">With experience, the approach above may eventually be enough for you to solve some relatively simple diode circuits. When one is first learning to analyze diode circuits, or when analyzing more complicated circuits, the above method may not work. In such a case, one continues to use the cartoon diode behavior and guesses at whether each diode is off or on for a given instantaneous value of the input voltage. The remaining circuit elements are then analyzed under the assumption that the initial guesses are correct. In order to determine the veracity of the initial guesses, one looks for inconsistencies or impossibilities that arise from the rest of the circuit analysis. If an impossible situation occurs, then one knows that the initial assumptions were incorrect. In this scenario, one adjusts the initial guesses and re-analyzes the circuit, repeating until no inconsistencies occur. Stated differently, the steps to follow are:</div>
-<ol class="decimal" id="sub-analytic-analysis-3-1">
-<li id="sub-analytic-analysis-3-1-1"><div class="para" id="sub-analytic-analysis-3-1-1-1">Check the conditions in the circuit and see if it is possible to achieve a forward voltage drop <span class="process-math">\(V_F\)</span> across the diode. If it is completely impossible, then the diode will be off and you can treat it as a circuit break. If it is possible that the diode may be forward biased, then continue on to the next steps.</div></li>
-<li id="sub-analytic-analysis-3-1-2"><div class="para" id="sub-analytic-analysis-3-1-2-1">For each diode in your circuit, guess whether the diode is on or off. For each diode that is on, let the voltage drop <span class="process-math">\(\left(\Delta V\right)_D=V_F\)</span> be locked. For each diode that is off, treat the diode as a circuit break meaning no current can pass through it.</div></li>
-<li id="sub-analytic-analysis-3-1-3"><div class="para" id="sub-analytic-analysis-3-1-3-1">Analyze the rest of the circuit elements and search for inconsistencies.</div></li>
-<li id="sub-analytic-analysis-3-1-4"><div class="para" id="sub-analytic-analysis-3-1-4-1">If any results of your analysis conflict with your guesses about diodes that are on/off, then go back and change your guesses until there are no inconsistencies.</div></li>
-</ol>
-<div class="para">Let’s use this procedure for <a href="sec-diode-circuit-analytic.html#fig-diode-simple-example" class="xref" data-knowl="./knowl/xref/fig-diode-simple-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.1">Figure 4.4.1</a>. If we assume that the diode is on when <span class="process-math">\(\tilde{V}_\text{in}=-1.0\)</span>V, then <span class="process-math">\(\tilde{V}_\text{out}=-0.4\)</span>V. But, this would require a current directed counterclockwise around the circuit which is not allowed by the diode. This inconsistency indicates that our assumption about the diode being on is incorrect in this case. If we change our assumption and instead state that the diode is off when <span class="process-math">\(\tilde{V}_\text{in}=-1.0\)</span>V, then <span class="process-math">\(\tilde{V}_\text{out}=0\)</span>V since no current passes through the output resistor.</div>
-</div>
-<details id="sub-analytic-analysis-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Diode example #2.</span>
-</h4></summary><article class="example example-like knowl__content"><figure class="figure figure-like" id="fig-diode-example2"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="generated/latex-image/fig-diode-example2-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.4<span class="period">.</span></span><span class="space"> </span>Diode example #2.</figcaption></figure> <div class="para" id="sub-analytic-analysis-4-2-2">Find the voltage <span class="process-math">\(V_B\)</span> in <a href="sec-diode-circuit-analytic.html#fig-diode-example2" class="xref" data-knowl="./knowl/xref/fig-diode-example2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.4">Figure 4.4.4</a> assuming <span class="process-math">\(V_F=0.6\)</span>V.</div>
-<div class="solutions">
-<details id="sub-analytic-analysis-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="displaymath process-math">
-\begin{equation*}
-V_B=0
-\end{equation*}
-</div></div></details><details id="sub-analytic-analysis-4-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="sub-analytic-analysis-4-4-1">
-<div class="para">Let’s examine this case-by-case.</div>
-<ul class="disc" id="sub-analytic-analysis-4-4-1-1">
-<li id="sub-analytic-analysis-4-4-1-1-1"><div class="para" id="sub-analytic-analysis-4-4-1-1-1-1">Case 1: Both diodes are off. Then, <span class="process-math">\(I_2=I_3=0\)</span> so that <span class="process-math">\(I_1=0\)</span> as well. So, <span class="process-math">\(V_A=+5\)</span>V. This is inconsistent with our assumption, since this results in a bias that is both large enough and in the correct direction to turn on diode <span class="process-math">\(D2\text{.}\)</span> Thus, the assumptions in this case cannot be true.</div></li>
-<li id="sub-analytic-analysis-4-4-1-1-2"><div class="para" id="sub-analytic-analysis-4-4-1-1-2-1">Case 2: Both diodes are on. Then, <span class="process-math">\(V_A=+0.6\)</span>V. Using Ohm’s law, <span class="process-math">\(I_1=0.88\)</span>mA. Also, we’d see that <span class="process-math">\(V=0\)</span> due to the diode drop from point A to point B. Given this information, Ohm’s law can again be applied to tell us that <span class="process-math">\(I_3=0.5\)</span>mA. The KCL is then used to determine that <span class="process-math">\(I_2=I_1-I_3=0.38\)</span>mA. There is no inconsistency here, meaning that we were correct in our assumptions and <span class="process-math">\(V_B=0\text{.}\)</span> Though it is unnecessary (there can be only one correct answer!), we will examine the remaining cases.</div></li>
-<li id="sub-analytic-analysis-4-4-1-1-3"><div class="para logical" id="sub-analytic-analysis-4-4-1-1-3-1">
-<div class="para">Case 3: Diode 2 is off while diode 3 is on. In this case, our circuit acts as a voltage divider, with <span class="process-math">\(10.0\text{V}-0.6\text{V}=9.4\)</span>V across the two resistors. So,</div>
+<div class="para logical" id="sec-labpython-curvefit-2">
+<div class="para">In this section, we will use the <code class="code-inline tex2jax_ignore">scipy.optimize.curve_fit</code> function to fit a curve to data. In the example below, we define a function <code class="code-inline tex2jax_ignore">func(Rpot, Vin, Rfix)</code> where this is the functional form that <code class="code-inline tex2jax_ignore">scipy.optimize.curve_fit</code> is going to apply when fitting our data. In this function that we define, the first argument (<code class="code-inline tex2jax_ignore">Rpot</code> in our case) is the independent variable. The other arguments (<code class="code-inline tex2jax_ignore">Vin, Rfix</code>) are the fitting parameters. We’ve defined our function assuming that our data describes a voltage divider where</div>
 <div class="displaymath process-math">
 \begin{equation*}
-V_A=-5.0\text{V} + \frac{2}{3}(9.4\text{V}) + 0.6\text{V}=1.87\text{V}
+\text{func}(R_\text{pot}) = V_\text{out} = \frac{R_\text{pot}}{R_\text{fixed}+R_\text{pot}}\text{.}
 \end{equation*}
 </div>
-<div class="para">which is more than enough to turn on diode two. Thus, this case cannot be valid.</div>
-</div></li>
-<li id="sub-analytic-analysis-4-4-1-1-4"><div class="para" id="sub-analytic-analysis-4-4-1-1-4-1">Case 4: Diode 2 is on while diode 3 is off. In this case, <span class="process-math">\(V_A=0.7\)</span>V. This is identical to <span class="process-math">\(V_A\)</span> in case 2 meaning that diode 3 should activate. This conflicts with our assumption that diode 3 is off. Thus, this case cannot be valid.</div></li>
-</ul>
-</div></div></details>
-</div></article></details><details id="sub-analytic-analysis-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Diode example #3.</span>
-</h4></summary><article class="example example-like knowl__content"><figure class="figure figure-like" id="fig-diode-example3"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="generated/latex-image/fig-diode-example3-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.6<span class="period">.</span></span><span class="space"> </span>Diode example #3.</figcaption></figure> <div class="para" id="sub-analytic-analysis-5-2-2">Find the voltage <span class="process-math">\(V_B\)</span> in <a href="sec-diode-circuit-analytic.html#fig-diode-example3" class="xref" data-knowl="./knowl/xref/fig-diode-example3.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.6">Figure 4.4.6</a> assuming <span class="process-math">\(V_F=0.6\)</span>V. Note that this is identical to the previous problem except that the two resistors have been swapped.</div>
-<div class="solutions">
-<details id="sub-analytic-analysis-5-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="displaymath process-math">
-\begin{equation*}
-V_B=-1.87\text{V}
-\end{equation*}
-</div></div></details><details id="sub-analytic-analysis-5-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="sub-analytic-analysis-5-4-1">
-<div class="para">Let’s examine this case-by-case.</div>
-<ul class="disc" id="sub-analytic-analysis-5-4-1-1">
-<li id="sub-analytic-analysis-5-4-1-1-1"><div class="para" id="sub-analytic-analysis-5-4-1-1-1-1">Case 1: Both diodes are off. Then, <span class="process-math">\(I_2=I_3=0\)</span> so that <span class="process-math">\(I_1=0\)</span> as well. So, <span class="process-math">\(V_A=+5\)</span>V. This is inconsistent with our assumption, since this results in a bias that is both large enough and in the correct direction to turn on diode <span class="process-math">\(D2\text{.}\)</span> Thus, the assumptions in this case cannot be true.</div></li>
-<li id="sub-analytic-analysis-5-4-1-1-2"><div class="para" id="sub-analytic-analysis-5-4-1-1-2-1">Case 2: Both diodes are on. Then, <span class="process-math">\(V_A=+0.6\)</span>V. Using Ohm’s law, <span class="process-math">\(I_1=0.44\)</span>mA. Also, we’d see that <span class="process-math">\(V=0\)</span> due to the diode drop from point A to point B. Given this information, Ohm’s law can again be applied to tell us that <span class="process-math">\(I_3=1.0\)</span>mA. The KCL is then used to determine that <span class="process-math">\(I_2=I_1-I_3=-0.56\)</span>mA. This is impossible since we’ve assumed ideal diodes which do not allow current to pass in the reverse direction.</div></li>
-<li id="sub-analytic-analysis-5-4-1-1-3"><div class="para logical" id="sub-analytic-analysis-5-4-1-1-3-1">
-<div class="para">Case 3: Diode 2 is off while diode 3 is on. In this case, our circuit acts as a voltage divider, with <span class="process-math">\(10.0\text{V}-0.6\text{V}=9.4\)</span>V across the two resistors. So,</div>
-<div class="displaymath process-math">
-\begin{equation*}
-V_B=-5.0\text{V} + \frac{1}{3}(9.4\text{V}) + 0.6\text{V}=-1.87\text{V}
-\end{equation*}
-</div>
-<div class="para">and <span class="process-math">\(V_A = V_B + 0.6\text{V}=-1.27\text{V}\)</span> which would not turn on <span class="process-math">\(D_2\text{.}\)</span> Thus, everything is consistent and this must be the valid scenario.</div>
-</div></li>
-<li id="sub-analytic-analysis-5-4-1-1-4"><div class="para" id="sub-analytic-analysis-5-4-1-1-4-1">Case 4: Diode 2 is on while diode 3 is off. In this case, <span class="process-math">\(V_A=0.7\)</span>V. This is identical to <span class="process-math">\(V_A\)</span> in case 2 meaning that diode 3 should activate. This conflicts with our assumption that diode 3 is off. Thus, this case cannot be valid.</div></li>
-</ul>
-</div></div></details>
-</div></article></details></section><section class="subsection" id="sub-python-analysis"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="space"> </span><span class="title">Python circuit treatment</span>
-</h3>
-<div class="para logical" id="sub-python-analysis-2">
-<div class="para">Let’s revisit the circuit in <a href="sec-diode-circuit-analytic.html#fig-diode-simple-example" class="xref" data-knowl="./knowl/xref/fig-diode-simple-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.1">Figure 4.4.1</a>. This time, we will use an improved mathematical representation of diode behavior from <a href="sec-diode-behavior.html#eqn-diode-exponential" class="xref" data-knowl="./knowl/xref/eqn-diode-exponential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.1">(4.2.1)</a>, reproduced here as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/subapp-python-newtonmethod.html ./knowl/xref/subapp-python-newtonmethod.html">
-\begin{equation*}
-I_D = I_0\left(e^{V_D/nV_T} - 1\right)\text{.}
-\end{equation*}
-</div>
-<div class="para">Assuming we’re using a silicon-based diode, we can assume <span class="process-math">\(I_0\approx 3\times 10^{12}\)</span>A, <span class="process-math">\(V_T = k_B T/e\text{,}\)</span> room temperature is <span class="process-math">\(T\approx 293\)</span>K, and <span class="process-math">\(n\approx 1\text{.}\)</span> The KVL can be used to write</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/subapp-python-newtonmethod.html ./knowl/xref/subapp-python-newtonmethod.html">
-\begin{equation*}
-\tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)=0\text{.}
-\end{equation*}
-</div>
-<div class="para">This is a nonlinear equation that cannot easily be solved analytically for <span class="process-math">\(V_D\text{,}\)</span> so we’ll use computational methods to estimate <span class="process-math">\(V_D\text{.}\)</span> Specifically, we’ll use Newton’s Method which is described in <a href="subapp-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>. In order to use this method, we’ll let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/subapp-python-newtonmethod.html ./knowl/xref/subapp-python-newtonmethod.html">
-\begin{equation*}
-f(V_D) = \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)
-\end{equation*}
-</div>
-<div class="para">and then calculate the first derivative</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-diode-simple-example.html ./knowl/xref/eqn-diode-exponential.html ./knowl/xref/subapp-python-newtonmethod.html ./knowl/xref/subapp-python-newtonmethod.html">
-\begin{equation*}
-f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}\text{.}
-\end{equation*}
-</div>
-<div class="para">Using these equations, we implement Newton’s Method (<a href="subapp-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>) using the following code: <div id="sub-python-analysis-2-15" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
-import scipy.constants as sc
-import matplotlib.pyplot as plt
-
-t = np.linspace(0,1,500);
-Vin_array = 5*np.sin(20*t);
-Vout = np.zeros(np.size(t));
-Varr = np.zeros(np.size(t));
-
-R, T, I0 = [1e4, 293, 3.0e-12] # in Ohms, Kelvin, Amps
-VT = sc.k * T / sc.e;
-
-target = 1.0e-8 # User-defined tolerance for final answer
-
-for i1 in range(np.size(t)):
-    Vin = Vin_array[i1]
-
-    # Initial guesses for the solution
-    V = 3.0
-
-    # Main loop
-    error = 1.0
-    while error > target:
-        f = Vin - V - I0*R*(np.exp(sc.e*V/(sc.k*T))-1);
-        fp = -1-I0*R*sc.e/(sc.k*T)*np.exp(sc.e*V/(sc.k*T))
-        DeltaV = f/fp
-        V -= DeltaV
-        error = DeltaV
-    Vout[i1]=Vin-V
-    Varr[i1]=V
-
-plt.figure(1)
-plt.plot(t,Vin_array, 'b', label='$V_{in}$')
-plt.plot(t,Vout,'r-.', label='$V_{out}$')
-plt.plot(t,Varr,'k--',label='$V_D$')
-plt.legend()
-plt.xlabel('Time (s)')
-plt.ylabel('Voltage (V)')
-plt.show()
-</script></div> <div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/sageplot/sub-python-analysis-2-16.svg" role="img" class="contained" alt=""></div>
-</div>
-</div>
-<details id="sub-python-analysis-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.7</span><span class="period">.</span><span class="space"> </span><span class="title">Diode Example #4.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="sub-python-analysis-3-2-1">Examine the circuit in <a href="sec-diode-circuit-analytic.html#fig-diode-example4-circuit" class="xref" data-knowl="./knowl/xref/fig-diode-example4-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.8">Figure 4.4.8</a>. Plot the time behavior of <span class="process-math">\(I_1(t)\text{,}\)</span> <span class="process-math">\(I_2(t)\text{,}\)</span> <span class="process-math">\(I_3(t)\text{,}\)</span> <span class="process-math">\(V_\text{in}(t)\text{,}\)</span> <span class="process-math">\(V_\text{out}(t)\text{,}\)</span> and the voltage across the diode <span class="process-math">\(V_D(t)\text{.}\)</span>
-</div> <figure class="figure figure-like" id="fig-diode-example4-circuit"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/fig-diode-example4-circuit-2.svg" role="img" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="solutions"><details id="sub-python-analysis-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="sub-python-analysis-3-3-1">
-<div class="para">We can write down an equation for KCL</div>
-<div class="displaymath process-math">
-\begin{equation*}
-I_3 = I_1 + I_2\text{.}
-\end{equation*}
-</div>
-<div class="para">Using Ohm’s law,</div>
-<div class="displaymath process-math" id="sub-python-analysis-3-3-1-2">
-\begin{align*}
-I_1 =\amp I_D \\
-I_2 =\amp \frac{V_\text{in}-V_2}{R_2} \\
-I_3  =\amp \frac{V_2}{R_3} 
-\end{align*}
-</div>
-<div class="para">where <span class="process-math">\(V_2\)</span> is the voltage at the top side of <span class="process-math">\(V_\text{out}\)</span> (at the junction between <span class="process-math">\(R_2\text{,}\)</span> <span class="process-math">\(R_3\text{,}\)</span> and <span class="process-math">\(D_1\)</span>). Combining these equations, we find</div>
-<div class="displaymath process-math">
-\begin{equation*}
-I_D + \frac{V_\text{in}-V_2}{R_2} - \frac{V_2}{R_3} = 0\text{.}
-\end{equation*}
-</div>
-<div class="para">We also get an additional equation by examining the circuit branch containing the diode:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-V_2 = V_\text{in}-I_D R_1 - V_D\text{.}
-\end{equation*}
-</div>
-<div class="para">Plugging into the previous equation, we thus find that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-I_D + \frac{I_D R_1+V_D}{R_2} - \frac{V_\text{in}-I_D R_1 - V_D}{R_3} = 0\text{.}
-\end{equation*}
-</div>
-<div class="para">If we now group all of the <span class="process-math">\(I_D\)</span> terms, we find</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)I_D + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)V_D - \frac{V_\text{in}}{R_3} = 0\text{.}
-\end{equation*}
-</div>
-<div class="para">We can then use Newton’s method to solve for the currents letting</div>
-<div class="displaymath process-math" id="sub-python-analysis-3-3-1-13">
-\begin{align*}
-f(V_D) =\amp  \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)I_0\left(e^{V_D/V_T}-1\right) + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)V_D - \frac{V_\text{in}}{R_3}\\
-f'(V_D) =\amp \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)\frac{I_0}{V_T}e^{V_D/V_T} + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)
-\end{align*}
-</div>
-<div class="para"><div id="sub-python-analysis-3-3-1-14" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># Clear all variables that may be present from previous code run on this page.
-globals().clear()
-
-# Voltage divider with (R1+diode) in parallel with R2. R3 is the Vout resistor.
+<div class="para">The actual curve fitting is then performed with the <code class="code-inline tex2jax_ignore">opt.curve_fit</code> command which takes as arguments the function name (<code class="code-inline tex2jax_ignore">func</code>), and the <code class="code-inline tex2jax_ignore">xdata</code> and <code class="code-inline tex2jax_ignore">ydata</code>. The outputs that we get from the <code class="code-inline tex2jax_ignore">curve_fit</code> function are stored in <code class="code-inline tex2jax_ignore">param</code> and <code class="code-inline tex2jax_ignore">param_cov</code> which represent an array with our fit parameters and a 2D array containing the approximate covariance matrix. For our purposes, you just need to know that <code class="code-inline tex2jax_ignore">np.sqrt(np.diag(pcov))</code> approximates the standard deviation on the fit parameters. See the official documentation for <code class="code-inline tex2jax_ignore">scipy.optimize.curve_fit</code> for further details. Here, we provide an example. When generating the synthetic ‘data’ below, we assumed that <span class="process-math">\(V_\text{in}=5.0\text{V}\)</span> and <span class="process-math">\(R_\text{fixed}=5\text{k}\Omega\text{.}\)</span> <div id="sec-labpython-curvefit-2-19" class="ptx-sagecell sagecell-python"><script type="text/x-sage">globals().clear()
 import numpy as np
-import scipy.constants as sc
+import scipy.optimize as opt
 import matplotlib.pyplot as plt
 
 plt.close('all') # Close all open figures
 
-# Initialize arrays
-t = np.linspace(0,1,500)
-Vin_array = 5*np.sin(20*t)
-Vout = np.zeros(np.size(t))
-VD = np.zeros(np.size(t))
+def func(Rpot, Vin, Rfix):
+    return Vin*Rpot/(Rfix+Rpot)
 
-I0, R1, R2, R3, T = [1e-13, 1e3, 2e3, 3e3, 293] # Circuit parameters
-target = 1.0e-8 # Target tolerance for Newton's method
+R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
 
-for i1 in range(np.size(t)):
-    Vin = Vin_array[i1]
-    
-    # Initial guesses for the solution
-    V = 1.0
+param, param_cov = opt.curve_fit(func, R, Vout);
+sigma=np.sqrt(np.diag(param_cov));
+print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(param[0],sigma[0],param[1], sigma[1]))
 
-    # Main loop
-    error = 1.0
-    while error > target:
-        f = (1+R1/R2+R1/R3)*I0*(np.exp(sc.e*V/(sc.k*T))-1)+V*(1/R2+1/R3)-Vin/R3
-        fp = (1+R1/R2+R1/R3)*sc.e*I0/(sc.k*T)*np.exp(sc.e*V/(sc.k*T)) + (1/R2+1/R3)
-        DeltaV = f/fp
-        V -= DeltaV
-        error = DeltaV
-    VD[i1]=V
+# Fit function array for plotting
+pot_array=np.linspace(0,10000, 100);
+Vout_fit=param[0]*pot_array/(param[1]+pot_array);
 
-ID = I0*(np.exp(sc.e*VD/(sc.k*T))-1) # Diode current; exponential diode equation
-Vout = Vin_array - ID*R1 - VD # Kirchhoff loop law
-
-# Plot voltage changes across components
-plt.figure(1)
-plt.subplot(2,1,1)
-plt.plot(t,Vin_array,'b',label='$V_{in}$') 
-plt.plot(t,Vout,'r-.',label='$V_{out}$')  
-plt.plot(t,VD,'k--',label='$V_D$')
-plt.xlabel('Time (s)')
-plt.ylabel('Voltage (V)')
-plt.legend()
-
-# Plot circuit currents
-plt.subplot(2,1,2)
-plt.plot(t,ID*1000,'k--',label='$I_1$')
-plt.plot(t,(Vout/R3- ID)*1000,'r-.',label='$I_2$')
-plt.plot(t,Vout/R3*1000,label='$I_3$')
-plt.xlabel('Time (s)')
-plt.ylabel('Current (mA)')
-plt.legend()
-plt.show()
-</script></div></div>
-</div></div></details></div></article></details></section></section></div>
+plt.plot(R, Vout, 'o', label='Data');
+plt.plot(pot_array, Vout_fit, label='Fit')
+plt.xlim(0,10500);
+plt.ylim(0,3.5);
+plt.xlabel(r'Resistance ($\Omega$)')
+plt.ylabel(r'$V_\text{out}$')
+plt.legend();
+plt.show();
+</script></div>
+</div>
+</div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-diode-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-diode-rectifier.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-labpython-plotting.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-labactivities.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

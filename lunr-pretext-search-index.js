@@ -1153,6 +1153,15 @@ var ptx_lunr_docs = [
   "body": " Line Plots in Python  Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.      "
 },
 {
+  "id": "sec-labpython-curvefit",
+  "level": "1",
+  "url": "sec-labpython-curvefit.html",
+  "type": "Section",
+  "number": "9.3",
+  "title": "Fitting a curve to data in Python",
+  "body": " Fitting a curve to data in Python  In this section, we will use the scipy.optimize.curve_fit function to fit a curve to data. In the example below, we define a function func(Rpot, Vin, Rfix) where this is the functional form that scipy.optimize.curve_fit is going to apply when fitting our data. In this function that we define, the first argument ( Rpot in our case) is the independent variable. The other arguments ( Vin, Rfix ) are the fitting parameters. We've defined our function assuming that our data describes a voltage divider where . The actual curve fitting is then performed with the opt.curve_fit command which takes as arguments the function name ( func ), and the xdata and ydata . The outputs that we get from the curve_fit function are stored in param and param_cov which represent an array with our fit parameters and a 2D array containing the approximate covariance matrix. For our purposes, you just need to know that np.sqrt(np.diag(pcov)) approximates the standard deviation on the fit parameters. See the official documentation for scipy.optimize.curve_fit for further details. Here, we provide an example. When generating the synthetic data below, we assumed that and .   "
+},
+{
   "id": "sec-labactivities-voltagedivider",
   "level": "1",
   "url": "sec-labactivities-voltagedivider.html",
@@ -1241,6 +1250,24 @@ var ptx_lunr_docs = [
   "number": "",
   "title": "",
   "body": "Horizontal Position "
+},
+{
+  "id": "sec-labactivities-rc-highpass",
+  "level": "1",
+  "url": "sec-labactivities-rc-highpass.html",
+  "type": "Section",
+  "number": "10.3",
+  "title": "Lab: RC High-Pass Filter",
+  "body": " Lab: RC High-Pass Filter   Objective: To use the oscilloscope to explore the attenuation, phase-shifting, and transient behavior of an RC high pass filter circuit. This experiment involves resistance, capacitance, filtering, attenuation, half-power frequencies, time constants, phase shifts, and oscilloscope and function generator operation.   Equipment: Proto-board, digital oscilloscope, function generator, resistor, capacitor.   RC HIGH-PASS FILTER THEORY  The aim of this experiment is to test the reliability of the theoretical predictions for a RC high pass filter circuit like the one shown in .  RC high-pass filter circuit. Use and .   The prediction for the ratio of the amplitudes of the output voltage to the input voltage is . The half-power angular frequency, , is given by . The theoretical prediction for the phase shift between output and input voltages is .    RC CIRCUIT EXPERIMENTS    Begin by constructing the high pass filter circuit shown in Fig. 1 on your prototyping board. Make sure your prototyping board is turned off!     Connect the built-in function generator and ground across the circuit input. Also connect this input to the CH1 input on the oscilloscope. Connect the circuit output to the CH2 input on the scope. Have your professor check your circuit before turning the prototyping board on.     Set your input sine wave to have a peak-to-peak amplitude of approximately 2.0 volts.    Trigger on CH1 (AUTO, Rising Slope). Use oscilloscope probes to make connections between the oscilloscope and the circuit. Make sure both probes are set to x1 attenuation. You can display both channels simultaneously on the oscilloscope display.    Proceed to acquire input-output data that lets you test the theoretical predictions given by the two equations above. Your amplitude data should consist of pairs of voltage values , as well as phase shifts acquired at 30-40 frequencies (e.g. 100 Hz, 200 Hz, …, 900 Hz, 1 kHz, 1.5 kHz, 2 kHz, , 9.5 kHz, 10 kHz, 20 kHz, 30 kHz, 40 kHz). In addition to these frequency values, also try to get one measurement at the predicted resonance frequency . To measure the phase shift, we recommend zooming in on the zero-crossings and measuring the time delay between the signals on the two channels (using the cursor function on the oscilloscope). From the frequency (or period) and the time delay, you can calculate the phase shift (in radians or degrees).   Tip 1: You are allowed to use the Measure functionality to measure , and the phase between channels 1 and 2. Given that this functionality can sometimes provide poor results, you should manually check your measurements occasionally using the cursors (for instance, manually check at 100 Hz, 1 kHz, and 10 kHz).   Tip 2: When advancing to a new frequency, find the frequency you want, wait for the signal to stabilize, and then press RUN\/STOP to temporarily freeze the oscilloscope. This allows you to have a stable display while you are writing down your results or using your cursors to find experimental values. When complete, press RUN\/STOP again to unfreeze the oscilloscope.   Q: Explain how you determined the phase shift manually from experimental measurements using cursors.   Q: How could you use the experimental time delay seen on the scope to search for the half-power frequency if you weren’t certain of the values of or ?    Plot vs using symbols. Decide whether to plot your data using linear axes or a semi-log plot (with a logarithmic frequency axis). Also plot a theoretical curve using the equations from the introduction.   Q: How did you decide whether to use linear or semi-log plot axes? Think about the information you are trying to present and which option best highlights the behavior.    Plot phase shift vs frequency using the same type of axes that you used in step 4. Proceed to perform a curve fit to your experimental data (based on the theoretical phase equation) with as a fit parameter. (See for guidance.) Report this value.   Q: How does your fitted value of compare to the theoretically-predicted value? How does it compare to the value you found in step 5?    Plot phase vs frequency. As you did before, plot experimental data using symbols. On the same axes, generate a plot using your curve fit parameters, plotting this fit curve as a line.     "
+},
+{
+  "id": "fig-labactivities-rc-highpass-theorycircuit",
+  "level": "2",
+  "url": "sec-labactivities-rc-highpass.html#fig-labactivities-rc-highpass-theorycircuit",
+  "type": "Figure",
+  "number": "10.3.1",
+  "title": "",
+  "body": " RC high-pass filter circuit. Use and .   "
 },
 {
   "id": "subapp-python-newtonmethod",
