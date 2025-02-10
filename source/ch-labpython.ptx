@@ -76,7 +76,7 @@
                     plt.xlim(0,10500);
                     plt.ylim(0,3.5);
                     plt.xlabel(r'Resistance ($\Omega$)')
-                    plt.ylabel(r'$V_\text{out}/V_\text{in}$')
+                    plt.ylabel(r'$V_\text{out}$')
                     plt.legend();
                     plt.show();
                 </input>
@@ -99,7 +99,7 @@
                     plt.xlim(0,10500);
                     plt.ylim(0,3.5);
                     plt.xlabel('Resistance ($\Omega$)')
-                    plt.ylabel('$V_{out}/V_{in}$')
+                    plt.ylabel('$V_{out}$')
                     plt.legend();
                     plt.savefig("sec-labpython-plotting-2-2.svg");
                     plt.savefig("sec-labpython-plotting-2-2.pdf");
@@ -107,5 +107,54 @@
                     </image>
         </p>
         
+    </section>
+
+    <section xml:id="sec-labpython-curvefit">
+        <title>Fitting a curve to data in Python</title>
+        <p>
+            In this section, we will use the <c>scipy.optimize.curve_fit</c> function to fit a curve to data. In the example below, we define a function <c>func(Rpot, Vin, Rfix)</c> where this is the functional form that <c>scipy.optimize.curve_fit</c> is going to apply when fitting our data. In this function that we define, the first argument (<c>Rpot</c> in our case) is the independent variable. The other arguments (<c>Vin, Rfix</c>) are the fitting parameters. We've defined our function assuming that our data describes a voltage divider where 
+            <me>
+                \text{func}(R_\text{pot}) = V_\text{out} = \frac{R_\text{pot}}{R_\text{fixed}+R_\text{pot}}
+            </me>.
+            The actual curve fitting is then performed with the <c>opt.curve_fit</c> command which takes as arguments the function name (<c>func</c>), and the <c>xdata</c> and <c>ydata</c>. The outputs that we get from the <c>curve_fit</c> function are stored in <c>param</c> and <c>param_cov</c> which represent an array with our fit parameters and a 2D array containing the approximate covariance matrix. For our purposes, you just need to know that <c>np.sqrt(np.diag(pcov))</c> approximates the standard deviation on the fit parameters. See the official documentation for <c>scipy.optimize.curve_fit</c> for further details. Here, we provide an example. When generating the synthetic <sq>data</sq> below, we assumed that <m>V_\text{in}=5.0\text{V}</m> and <m>R_\text{fixed}=5\text{k}\Omega</m>.     
+            <sage language="python">
+                <input>
+                    globals().clear()
+                    import numpy as np
+                    import scipy.optimize as opt
+                    import matplotlib.pyplot as plt
+
+                    plt.close('all') # Close all open figures
+
+                    def func(Rpot, Vin, Rfix):
+                        return Vin*Rpot/(Rfix+Rpot)
+
+                    R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+                    Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
+
+                    param, param_cov = opt.curve_fit(func, R, Vout);
+                    sigma=np.sqrt(np.diag(param_cov));
+                    print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(param[0],sigma[0],param[1], sigma[1]))
+                    
+                    # Fit function array for plotting
+                    pot_array=np.linspace(0,10000, 100);
+                    Vout_fit=param[0]*pot_array/(param[1]+pot_array);
+
+                    plt.plot(R, Vout, 'o', label='Data');
+                    plt.plot(pot_array, Vout_fit, label='Fit')
+                    plt.xlim(0,10500);
+                    plt.ylim(0,3.5);
+                    plt.xlabel(r'Resistance ($\Omega$)')
+                    plt.ylabel(r'$V_\text{out}$')
+                    plt.legend();
+                    plt.show();
+                    
+                </input>
+                <output>
+                    
+                </output>
+            </sage>
+        </p>
+
     </section>
 </chapter>

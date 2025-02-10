@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-rc-highpass" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: RC High-Pass Filter</title>
+
+    <p> 
+        <alert>Objective:</alert> To use the oscilloscope to explore the attenuation, phase-shifting, and transient behavior of an RC high pass filter circuit. This experiment involves resistance, capacitance, filtering, attenuation, half-power frequencies, time constants, phase shifts, and oscilloscope and function generator operation. 
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, digital oscilloscope, function generator, resistor, capacitor.
+    </p>
+    
+    <paragraphs>
+        <title>RC HIGH-PASS FILTER THEORY</title>
+        <p>
+            The aim of this experiment is to test the reliability of the theoretical predictions for a RC high pass filter circuit like the one shown in <xref ref="fig-labactivities-rc-highpass-theorycircuit"/>. 
+            <figure xml:id="fig-labactivities-rc-highpass-theorycircuit">
+                <caption>RC high-pass filter circuit. Use <m>C=47\text{nF}</m> and <m>R=2\text{k}\Omega</m>.</caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="figures/fig-labactivities-rc-highpass-circuit.ptx" />
+                </latex-image></image>
+            </figure>
+            The prediction for the ratio of the amplitudes of the output voltage to the input voltage is
+            <me>
+                G_V = \frac{V_\text{out}}{V_\text{in}} = \frac{1}{\sqrt{1+\left(f_0/f\right)^2}}
+            </me>.
+            The half-power angular frequency, <m>f_0</m>, is given by <m>f_0=1/2πRC</m>. The theoretical prediction for the phase shift between output and input voltages is
+            <me>
+                \phi=\tan^{-1}\left(f_0/f\right)
+            </me>.   
+        </p>  
+    </paragraphs>
+
+    <paragraphs>
+        <title>RC CIRCUIT EXPERIMENTS</title>
+        <ol>
+            <li>
+                <p>
+                    Begin by constructing the high pass filter circuit shown in Fig. 1 on your prototyping board. <alert>Make sure your prototyping board is turned off!</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Connect the built-in function generator and ground across the circuit input. Also connect this input to the CH1 input on the oscilloscope. Connect the circuit output to the CH2 input on the scope. <alert>Have your professor check your circuit before turning the prototyping board on.</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Set your input sine wave to have a peak-to-peak amplitude of approximately 2.0 volts.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Trigger on CH1 (AUTO, Rising Slope). Use oscilloscope probes to make connections between the oscilloscope and the circuit. Make sure both probes are set to <sq>x1</sq> attenuation. You can display both channels simultaneously on the oscilloscope display.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Proceed to acquire input-output data that lets you test the theoretical predictions given by the two equations above. Your amplitude data should consist of pairs of voltage values <m>(V_\text{in}</m>,<m>V_\text{out})</m> as well as phase shifts acquired at 30-40 frequencies (e.g. 100 Hz, 200 Hz, …, 900 Hz, 1 kHz, 1.5 kHz, 2 kHz, <m>\dots</m> , 9.5 kHz, 10 kHz, 20 kHz, 30 kHz, 40 kHz). In addition to these frequency values, also try to get one measurement at the predicted resonance frequency <m>f_0</m>. To measure the phase shift, we recommend <sq>zooming</sq> in on the zero-crossings and measuring the time delay between the signals on the two channels (using the cursor function on the oscilloscope). From the frequency (or period) and the time delay, you can calculate the phase shift (in radians or degrees). 
+                </p>
+                <p>
+                    <alert>Tip 1:</alert> You are allowed to use the <sq>Measure</sq> functionality to measure <m>V_\text{in},\ V_\text{out},\ f_\text{CH1}</m>, and the phase between channels 1 and 2. Given that this functionality can sometimes provide poor results, you should manually check your measurements occasionally using the cursors (for instance, manually check at 100 Hz, 1 kHz, and 10 kHz).
+                </p>
+                <p>
+                    <alert>Tip 2:</alert> When advancing to a new frequency, find the frequency you want, wait for the signal to stabilize, and then press RUN/STOP to temporarily freeze the oscilloscope. This allows you to have a stable display while you are writing down your results or using your cursors to find experimental values. When complete, press RUN/STOP again to unfreeze the oscilloscope.
+                </p>
+
+                <p>
+                    <alert>Q:</alert> Explain how you determined the phase shift manually from experimental measurements using cursors.
+                </p>
+                <p>
+                    <alert>Q:</alert> How could you use the experimental time delay seen on the scope to search for the half-power frequency if you weren’t certain of the values of <m>R</m> or <m>C</m>?
+                </p>
+            </li>
+            <li>
+                <p>
+                    Plot <m>V_\text{out}/V_\text{in}</m> vs <m>f</m> using symbols. Decide whether to plot your data using linear axes or a semi-log plot (with a logarithmic frequency axis). Also plot a theoretical curve using the equations from the introduction.
+                </p>
+                <p>
+                    <alert>Q:</alert> How did you decide whether to use linear or semi-log plot axes? Think about the information you are trying to present and which option best highlights the behavior.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Plot phase shift vs frequency using the same type of axes that you used in step 4. Proceed to perform a curve fit to your experimental data (based on the theoretical phase equation) with <m>f_0</m> as a fit parameter. (See <xref ref="sec-labpython-curvefit"/> for guidance.) Report this value.
+                </p>
+                <p>
+                    <alert>Q:</alert> How does your fitted value of <m>f_0</m> compare to the theoretically-predicted value? How does it compare to the value you found in step 5?
+                </p>
+            </li>
+            <li>
+                <p>
+                    Plot phase vs frequency. As you did before, plot experimental data using symbols. On the same axes, generate a plot using your curve fit parameters, plotting this fit curve as a line. 
+                </p>
+            </li>
+        </ol>
+</paragraphs>
+</section>

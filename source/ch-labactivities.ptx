@@ -11,5 +11,7 @@
     <xi:include href="sec-labactivities-voltagedivider.ptx" />
 
     <xi:include href="sec-labactivities-oscilloscopeprimer.ptx" />
+
+    <xi:include href="sec-labactivities-rc-highpass.ptx" />
     
 </chapter>
