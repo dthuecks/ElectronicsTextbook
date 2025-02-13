@@ -979,7 +979,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Full-Wave Rectifier",
-  "body": " Full-Wave Rectifier  Let's look at a full-wave rectifier circuit pictured in . The circuit output will be examined at .    Let's examine this circuit analytically through several cases.   Times when :  In this case, . This means that diode will conduct current while . Since , diode will remain off meaning that current will flow across the resistor , dropping voltage in the process. Then, since , we confirm that diode remains off. Consequently, diode will conduct current . Since there was a voltage drop across and , we find that , confirming our assertion that is off. This current path is represented in          Solution Using Newton's method in Python   We find KCL equations for the junctions labeled and  . We can also write down expressions for the currents by examining voltage changes across components . Combining - with - , we find that . Using Newton's method in , we'll set where . Given , we then calculate . Then, Newton's method can be used in Python to estimate the circuit behavior governed by to solve for and find our new root estimate , iterating to some desired tolerance.      "
+  "body": " Full-Wave Rectifier  Let's look at a full-wave rectifier circuit pictured in .    Let's examine this circuit analytically through several cases.   Times when :  In this case, . This means that diode will conduct current while . Since , diode will remain off meaning that current will flow across the resistor , dropping voltage in the process. Then, since , we confirm that diode remains off. Consequently, diode will conduct current . Since there was a voltage drop across and , we find that , confirming our assertion that is off. This current path is represented in         In a similar way, we find that shows the current path when .         Solution Using Newton's method in Python   We find KCL equations for the junctions labeled and  . We can also write down expressions for the currents by examining voltage changes across components . Combining - with - , we find that . Using Newton's method in , we'll set where . Given , we then calculate . Then, Newton's method can be used in Python to estimate the circuit behavior governed by to solve for and find our new root estimate , iterating to some desired tolerance.      "
 },
 {
   "id": "fig-diode-full-wave-rectifier",
@@ -991,20 +991,29 @@ var ptx_lunr_docs = [
   "body": "   "
 },
 {
-  "id": "fig-diode-full-wave-rectifier-pos-color",
+  "id": "fig-diode-full-rectifier-pos-color",
   "level": "2",
-  "url": "sec-diode-rectifier.html#fig-diode-full-wave-rectifier-pos-color",
+  "url": "sec-diode-rectifier.html#fig-diode-full-rectifier-pos-color",
   "type": "Figure",
   "number": "4.5.2",
   "title": "",
   "body": "   "
 },
 {
-  "id": "sec-diode-rectifier-2-5",
+  "id": "fig-diode-full-wave-rectifier-neg-color",
   "level": "2",
-  "url": "sec-diode-rectifier.html#sec-diode-rectifier-2-5",
-  "type": "Example",
+  "url": "sec-diode-rectifier.html#fig-diode-full-wave-rectifier-neg-color",
+  "type": "Figure",
   "number": "4.5.3",
+  "title": "",
+  "body": "   "
+},
+{
+  "id": "sec-diode-rectifier-2-4",
+  "level": "2",
+  "url": "sec-diode-rectifier.html#sec-diode-rectifier-2-4",
+  "type": "Example",
+  "number": "4.5.4",
   "title": "Solution Using Newton’s method in Python.",
   "body": " Solution Using Newton's method in Python   We find KCL equations for the junctions labeled and  . We can also write down expressions for the currents by examining voltage changes across components . Combining - with - , we find that . Using Newton's method in , we'll set where . Given , we then calculate . Then, Newton's method can be used in Python to estimate the circuit behavior governed by to solve for and find our new root estimate , iterating to some desired tolerance.    "
 },
