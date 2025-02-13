@@ -3,7 +3,7 @@
 <section xml:id="sec-diode-rectifier" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Full-Wave Rectifier</title>
     <p>
-        Let's look at a full-wave rectifier circuit pictured in <xref ref="fig-diode-full-wave-rectifier"/>. The circuit output will be examined at <m>V_\text{out}=V_2-V_1</m>.
+        Let's look at a full-wave rectifier circuit pictured in <xref ref="fig-diode-full-wave-rectifier"/>. 
         <figure xml:id="fig-diode-full-wave-rectifier">
             <caption></caption>
             <image><latex-image>
@@ -14,14 +14,25 @@
         <ol>
             <li>
                 <p>
-                    Times when <m>V_\text{in}>\gt 2V_F</m>:
+                    Times when <m>V_\text{in}\gt 2V_F</m>:
                 </p>
                 <p>
-                    In this case, <m>V_A=V_\text{in}\gt V_1,\ V_2,\ V_B</m>. This means that diode <m>D_2</m> will conduct current <m>i_2</m> while <m>i_3=0</m>. Since <m>V_2\gt V_B</m>, diode <m>D_4</m> will remain off meaning that current will flow across the resistor <m>R</m>, dropping voltage in the process. Then, since <m>V_A\gt V_1</m>, we confirm that diode <m>D_1</m> remains off. Consequently, diode <m>D_3</m> will conduct current <m>i_4</m>. Since there was a voltage drop across <m>R</m> and <m>D_3</m>, we find that <m>V_B \lt V_2</m>, confirming our assertion that <m>D_4</m> is off. This current path is represented in <xref ref="fig-diode-full-wave-rectifier-pos-color"/>
-                    <figure xml:id="fig-diode-full-wave-rectifier-pos-color">
+                    In this case, <m>V_A=V_\text{in}\gt V_1,\ V_2,\ V_B</m>. This means that diode <m>D_2</m> will conduct current <m>i_2</m> while <m>i_3=0</m>. Since <m>V_2\gt V_B</m>, diode <m>D_4</m> will remain off meaning that current will flow across the resistor <m>R</m>, dropping voltage in the process. Then, since <m>V_A\gt V_1</m>, we confirm that diode <m>D_1</m> remains off. Consequently, diode <m>D_3</m> will conduct current <m>i_4</m>. Since there was a voltage drop across <m>R</m> and <m>D_3</m>, we find that <m>V_B \lt V_2</m>, confirming our assertion that <m>D_4</m> is off. This current path is represented in <xref ref="fig-diode-full-rectifier-pos-color"/>
+                    <figure xml:id="fig-diode-full-rectifier-pos-color">
                         <caption></caption>
                         <image><latex-image>
-                            <xi:include parse="text" href="figures/fig-diode-full-wave-rectifier-pos-color.ptx" />
+                            <xi:include parse="text" href="figures/fig-diode-full-rectifier-pos-color.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </li>
+            <li>
+                <p>
+                    In a similar way, we find that <xref ref="fig-diode-full-wave-rectifier-neg-color"/> shows the current path when <m>V_\text{in}\lt 2V_F</m>.
+                    <figure xml:id="fig-diode-full-wave-rectifier-neg-color">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="figures/fig-diode-full-rectifier-neg-color.ptx" />
                         </latex-image></image>
                     </figure>
                 </p>

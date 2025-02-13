@@ -2,18 +2,27 @@
 \ctikzset{label/align = straight}
     \draw (0,0) coordinate(start);
     \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,5)
-                    to[short, i^=$i_1$] ++(4,0)
+                    to[short, i^=$i_1$] ++(5,0)
                     to[short, -*] ++(0, -0.5) coordinate(a)
                     node[anchor=south west]{A}
                     to[D,-*, invert, l_=$D_1$, i_=$i_3$] ++(-2, -2) coordinate(v1)
-                    node[anchor=east]{$V_1$}
+                    node[anchor=north east]{$V_1$}
                     to[D, -*, l_=$D_3$, i_=$i_4$] ++(2, -2) coordinate(b)
                     node[anchor=north west]{B}
                     to[short] ++(0, -0.5)
                     to[short] (start);
     \draw (a)       to[D, -*, l^=$D_2$, i^=$i_2$] ++(2, -2) coordinate(v2)
-                    node[anchor=west]{$V_2$}
+                    node[anchor=north west]{$V_2$}
                     to[D, invert, l^=$D_4$, i^=$i_5$] ++(-2, -2);
-    \draw (v2)      to[R, l^=R, i^=$i_6$] (v1);
-
+    \draw (v2)      to[short, -o] ++(4,0) coordinate(voutp);
+    \node at (v1 |- start)[jump crossing, rotate=-90, scale=3](X){};
+    \draw (X.west)  to[short] (v1);
+    \draw (X.east)  to[short] ++(0,-0.5) coordinate(C)
+                    to[short, -o] (voutp |- C) coordinate(voutn);
+    \draw ([xshift=-2cm] voutp)   
+                    node[circ]{} coordinate(tmp)
+                    to[R, i>=$i_6$, l^=R] (tmp|- voutn)
+                    node[circ]{};
+    \path (voutp) -- (voutn)
+                    node[midway]{$V_\text{out}$};
 \end{circuitikz}
