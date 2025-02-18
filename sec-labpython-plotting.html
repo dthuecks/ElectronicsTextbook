@@ -289,15 +289,22 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-labpython-plotting"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">9.2</span><span class="space"> </span><span class="title">Line Plots in Python</span>
 </h2>
-<div class="para" id="sec-labpython-plotting-2">Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following. <div id="sec-labpython-plotting-2-1" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para" id="sec-labpython-plotting-2">Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following. <div id="sec-labpython-plotting-2-1" class="ptx-sagecell sagecell-python"><script type="text/x-sage">globals().clear() # Clear all variables from previous code runs
+
+import numpy as np
 import matplotlib.pyplot as plt
 
+# Data points
 R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
 V = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
-Vth = np.array([0.833, 1.429, 1.875, 2.222, 2.5, 2.727, 2.917, 3.077, 3.214, 3.333]);
 
+# Theory curves
+Rth = np.arange(10000);
+Vth = 5*Rth/(5000+Rth);
+
+# Plotting routine
 plt.plot(R, V, 'o', label='Data');
-plt.plot(R, Vth, label='Theory');
+plt.plot(Rth, Vth, label='Theory');
 plt.xlim(0,10500);
 plt.ylim(0,3.5);
 plt.xlabel(r'Resistance ($\Omega$)')
