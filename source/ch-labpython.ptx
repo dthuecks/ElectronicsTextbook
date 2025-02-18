@@ -12,8 +12,6 @@
 
         <p>
             Here, we are going to import data from a spreadsheet file, bringing it into Python as a NumPy array.
-            
-            
             <example>
             <title>Import from .csv file using NumPy</title>
                 <p>
@@ -64,15 +62,22 @@
             Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.
             <sage language="python">
                 <input>
+                    globals().clear() # Clear all variables from previous code runs
+
                     import numpy as np
                     import matplotlib.pyplot as plt
 
+                    # Data points
                     R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
                     V = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
-                    Vth = np.array([0.833, 1.429, 1.875, 2.222, 2.5, 2.727, 2.917, 3.077, 3.214, 3.333]);
 
+                    # Theory curves
+                    Rth = np.arange(10000);
+                    Vth = 5*Rth/(5000+Rth);
+
+                    # Plotting routine
                     plt.plot(R, V, 'o', label='Data');
-                    plt.plot(R, Vth, label='Theory');
+                    plt.plot(Rth, Vth, label='Theory');
                     plt.xlim(0,10500);
                     plt.ylim(0,3.5);
                     plt.xlabel(r'Resistance ($\Omega$)')
@@ -91,11 +96,13 @@
 
                     R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
                     V = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
-                    Vth = np.array([0.833, 1.429, 1.875, 2.222, 2.5, 2.727, 2.917, 3.077, 3.214, 3.333]);
+
+                    Rth = np.arange(10000);
+                    Vth = 5*Rth/(5000+Rth);
 
                     plt.figure(1);
                     plt.plot(R, V, 'o', label='Data');
-                    plt.plot(R, Vth, label='Theory');
+                    plt.plot(Rth, Vth, label='Theory');
                     plt.xlim(0,10500);
                     plt.ylim(0,3.5);
                     plt.xlabel('Resistance ($\Omega$)')
@@ -119,7 +126,7 @@
             The actual curve fitting is then performed with the <c>opt.curve_fit</c> command which takes as arguments the function name (<c>func</c>), and the <c>xdata</c> and <c>ydata</c>. The outputs that we get from the <c>curve_fit</c> function are stored in <c>param</c> and <c>param_cov</c> which represent an array with our fit parameters and a 2D array containing the approximate covariance matrix. For our purposes, you just need to know that <c>np.sqrt(np.diag(pcov))</c> approximates the standard deviation on the fit parameters. See the official documentation for <c>scipy.optimize.curve_fit</c> for further details. Here, we provide an example. When generating the synthetic <sq>data</sq> below, we assumed that <m>V_\text{in}=5.0\text{V}</m> and <m>R_\text{fixed}=5\text{k}\Omega</m>.     
             <sage language="python">
                 <input>
-                    globals().clear()
+                    globals().clear() # Clear all variables from previous code runs
                     import numpy as np
                     import scipy.optimize as opt
                     import matplotlib.pyplot as plt
