@@ -37,9 +37,14 @@
         which can be solved using Python:
         <sage language="python">
             <input>
+                # Clear all variables that may be present from previous code executions
+                globals().clear()
+                
                 import numpy as np
                 import scipy.linalg as linalg
                 import matplotlib.pyplot as plt
+
+                plt.close('all'); # Close all open figures
 
                 f = np.logspace(0,8,1000)
                 w_arr = 2*np.pi * f
@@ -55,7 +60,7 @@
                     v = np.array([0, -Vin, 0]);
                     
                     x = linalg.solve(A,v);
-                    Gv[i] = np.abs(x[2]*1j*w*L) # Voltage Gain where I3=x[2]
+                    Gv[i] = np.abs(x[2]*1j*w*L) / Vin # Voltage Gain where I3=x[2]
                     phi[i] = np.angle(x[2]*1j*w*L) # Phase of output (assuming Vin is at zero phase)
 
                 fig, axs = plt.subplots(2,1,sharex=True)
@@ -162,11 +167,16 @@
             </p>                  
             <sage language="python">
             <input>
+                # Clear all variables that may be present from previous code executions
+                globals().clear()
+                
                 import numpy as np
                 import scipy.linalg as linalg
                 import matplotlib.pyplot as plt
 
-                f = np.logspace(0,8,10000)
+                plt.close('all'); # Close all open figures
+
+                f = np.logspace(0,8,1000)
                 w_arr = 2*np.pi * f
                 Vin = 1 # Volts
                 R, C, L = [1000, 1e-9, 1e-3] # Ohms, Farads, Henrys

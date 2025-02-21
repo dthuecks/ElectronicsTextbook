@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-problems" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Problems</title>
+    <ol>
+        <li>
+            <p> 
+                Analyze the circuit in <xref ref="fig-diode-homework-1"/> using two different methods.
+                <figure xml:id="fig-diode-homework-1">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-1.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+                <ol>
+                    <li>
+                        <p>
+                            Numerical methods: Use Newton's method in Python to analyze the circuit assuming the exponential description of diode behavior. Assume a sinusoidal <m>V_\text{in}</m> that has a 5V peak-to-peak amplitude and <m>f=1</m>kHz. Further, use Python to generate two figures. The first figure should show <m>V_\text{in},\ V_\text{out},\ \text{and} V_D</m> vs time on the same axes (with labels). The second figure should show <m>I_1,\ I_2,</m> and <m>I_D</m> vs time on the same axes. Figure 2 should appear below Figure 1 and the time axes should align with each other. Submit your code along with your figures.                
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Analytic methods: Use the analytical circuit treatment from <xref ref="sub-diode-analytic-analysis"/> to explain how we could have achieved similar results to what you found above without using Python. You do not need to reproduce the graphs above but must explain how you could use the cartoon behavior of the diode (with <m>V_F=0.6</m>V) to find nearly the same results as above.
+                        </p>
+                    </li>
+                </ol>    
+            </p>
+        </li>
+        <li>
+            <p>
+                For the circuit in <xref ref="fig-diode-homework-2"/>, use Python to plot <m>V_\text{in}</m> and <m>V_\text{out}</m> as a function of time and on the same axes. Assume a sinusoidal <m>V_\text{in}</m> with a peak-to-peak amplitude of 5V and <m>f=1</m>kHz.
+                <figure xml:id="fig-diode-homework-2">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-2.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+            </p>
+        </li>
+        <li>
+            <p>
+                A red light-emitting diode (LED) has a forward voltage drop of 1.8V and has to be operated with a 10.0mA diode current. One possible circuit that can achieve these requirements is shown in <xref ref="fig-diode-homework-3"/>.
+                <figure xml:id="fig-diode-homework-3">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-3.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+                <ol>
+                    <li>
+                        <p>
+                            Calculate the resistance <m>R</m> that will ensure the desired operating conditions.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Calculate the powre delivered to the LED and the power dissipated in the resistance <m>R</m>.
+                        </p>
+                    </li>
+                </ol>
+                Hint: First replace the voltage divider on the left (comprising the battery and the two known resistances) by its Th&#xE9;venin equivalent.
+            </p>
+        </li>
+    </ol>
+</section>

@@ -3,7 +3,7 @@
 <section xml:id="sec-diode-circuit-analytic" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Analysis of diode circuits</title>
 
-    <subsection xml:id="sub-analytic-analysis">
+    <subsection xml:id="sub-diode-analytic-analysis">
         <title>Analytic circuit treatment</title>
     <p>
         How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in <xref ref="fig-diode-cartoon"/>. Given this diode behavior, one can occasionally determine by inspection the conditions under which the diode is on or off.For example, let's analyze the circuit in <xref ref="fig-diode-simple-example"/>.
@@ -149,7 +149,7 @@
     </example>
     </subsection>
 
-    <subsection xml:id="sub-python-analysis">
+    <subsection xml:id="sub-diode-python-analysis">
         <title>Python circuit treatment</title>
 
         <p>

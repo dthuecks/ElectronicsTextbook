@@ -25,4 +25,8 @@
 
 <xi:include href="./sec-diode-rectifier.ptx" />
 
+<xi:include href="./sec-diode-usefulcircuits.ptx" />
+
+<xi:include href="./sec-diode-problems.ptx" />
+
 </chapter>
