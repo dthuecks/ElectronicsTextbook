@@ -946,27 +946,27 @@ var ptx_lunr_docs = [
   "body": "     "
 },
 {
-  "id": "sub-analytic-analysis-4",
+  "id": "sub-diode-analytic-analysis-4",
   "level": "2",
-  "url": "sec-diode-circuit-analytic.html#sub-analytic-analysis-4",
+  "url": "sec-diode-circuit-analytic.html#sub-diode-analytic-analysis-4",
   "type": "Example",
   "number": "4.4.3",
   "title": "Diode example #2.",
   "body": " Diode example #2    Diode example #2.    Find the voltage in assuming V.       Let's examine this case-by-case.   Case 1: Both diodes are off. Then, so that as well. So, V. This is inconsistent with our assumption, since this results in a bias that is both large enough and in the correct direction to turn on diode . Thus, the assumptions in this case cannot be true.    Case 2: Both diodes are on. Then, V. Using Ohm's law, mA. Also, we'd see that due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that mA. The KCL is then used to determine that mA. There is no inconsistency here, meaning that we were correct in our assumptions and . Though it is unnecessary (there can be only one correct answer!), we will examine the remaining cases.    Case 3: Diode 2 is off while diode 3 is on. In this case, our circuit acts as a voltage divider, with V across the two resistors. So, which is more than enough to turn on diode two. Thus, this case cannot be valid.    Case 4: Diode 2 is on while diode 3 is off. In this case, V. This is identical to in case 2 meaning that diode 3 should activate. This conflicts with our assumption that diode 3 is off. Thus, this case cannot be valid.      "
 },
 {
-  "id": "sub-analytic-analysis-5",
+  "id": "sub-diode-analytic-analysis-5",
   "level": "2",
-  "url": "sec-diode-circuit-analytic.html#sub-analytic-analysis-5",
+  "url": "sec-diode-circuit-analytic.html#sub-diode-analytic-analysis-5",
   "type": "Example",
   "number": "4.4.5",
   "title": "Diode example #3.",
   "body": " Diode example #3    Diode example #3.    Find the voltage in assuming V. Note that this is identical to the previous problem except that the two resistors have been swapped.       Let's examine this case-by-case.   Case 1: Both diodes are off. Then, so that as well. So, V. This is inconsistent with our assumption, since this results in a bias that is both large enough and in the correct direction to turn on diode . Thus, the assumptions in this case cannot be true.    Case 2: Both diodes are on. Then, V. Using Ohm's law, mA. Also, we'd see that due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that mA. The KCL is then used to determine that mA. This is impossible since we've assumed ideal diodes which do not allow current to pass in the reverse direction.    Case 3: Diode 2 is off while diode 3 is on. In this case, our circuit acts as a voltage divider, with V across the two resistors. So, and which would not turn on . Thus, everything is consistent and this must be the valid scenario.    Case 4: Diode 2 is on while diode 3 is off. In this case, V. This is identical to in case 2 meaning that diode 3 should activate. This conflicts with our assumption that diode 3 is off. Thus, this case cannot be valid.      "
 },
 {
-  "id": "sub-python-analysis-3",
+  "id": "sub-diode-python-analysis-3",
   "level": "2",
-  "url": "sec-diode-circuit-analytic.html#sub-python-analysis-3",
+  "url": "sec-diode-circuit-analytic.html#sub-diode-python-analysis-3",
   "type": "Example",
   "number": "4.4.7",
   "title": "Diode Example #4.",
@@ -1016,6 +1016,51 @@ var ptx_lunr_docs = [
   "number": "4.5.4",
   "title": "Solution Using Newton’s method in Python.",
   "body": " Solution Using Newton's method in Python   We find KCL equations for the junctions labeled and  . We can also write down expressions for the currents by examining voltage changes across components . Combining - with - , we find that . Using Newton's method in , we'll set where . Given , we then calculate . Then, Newton's method can be used in Python to estimate the circuit behavior governed by to solve for and find our new root estimate , iterating to some desired tolerance.    "
+},
+{
+  "id": "sec-diode-usefulcircuits",
+  "level": "1",
+  "url": "sec-diode-usefulcircuits.html",
+  "type": "Section",
+  "number": "4.6",
+  "title": "Useful Diode Circuits",
+  "body": " Useful Diode Circuits    "
+},
+{
+  "id": "sec-diode-problems",
+  "level": "1",
+  "url": "sec-diode-problems.html",
+  "type": "Section",
+  "number": "4.7",
+  "title": "Problems",
+  "body": " Problems    Analyze the circuit in using two different methods.    (for accessibility)       Numerical methods: Use Newton's method in Python to analyze the circuit assuming the exponential description of diode behavior. Assume a sinusoidal that has a 5V peak-to-peak amplitude and kHz. Further, use Python to generate two figures. The first figure should show vs time on the same axes (with labels). The second figure should show and vs time on the same axes. Figure 2 should appear below Figure 1 and the time axes should align with each other. Submit your code along with your figures.    Analytic methods: Use the analytical circuit treatment from to explain how we could have achieved similar results to what you found above without using Python. You do not need to reproduce the graphs above but must explain how you could use the cartoon behavior of the diode (with V) to find nearly the same results as above.       For the circuit in , use Python to plot and as a function of time and on the same axes. Assume a sinusoidal with a peak-to-peak amplitude of 5V and kHz.    (for accessibility)        A red light-emitting diode (LED) has a forward voltage drop of 1.8V and has to be operated with a 10.0mA diode current. One possible circuit that can achieve these requirements is shown in .    (for accessibility)       Calculate the resistance that will ensure the desired operating conditions.    Calculate the powre delivered to the LED and the power dissipated in the resistance .   Hint: First replace the voltage divider on the left (comprising the battery and the two known resistances) by its Thévenin equivalent.    "
+},
+{
+  "id": "fig-diode-homework-1",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-1",
+  "type": "Figure",
+  "number": "4.7.1",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-2",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-2",
+  "type": "Figure",
+  "number": "4.7.2",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-3",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-3",
+  "type": "Figure",
+  "number": "4.7.3",
+  "title": "",
+  "body": "   (for accessibility)    "
 },
 {
   "id": "ch-safety",
