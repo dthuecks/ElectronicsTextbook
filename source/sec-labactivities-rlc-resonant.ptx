@@ -106,10 +106,20 @@
                     </p>
                 </li>
             </ul>
+        </p>
+        <p>
+            Build your circuit on the prototyping board. When laying out your circuit, it can be useful to build it in a way that is clean and similar to the circuit diagram when possible. See <xref ref="img-labactivities-rlc-resonant-layout"/> for an illustration of how one may do this.
+            <figure xml:id="img-labactivities-rlc-resonant-layout">
+                <caption>[CREATE NEW IMAGE] Suggested prototyping board layout.</caption>
+                <image source="images/img-labactivities-rlc-resonant-layout.jpg" width="50%">
+                </image>
+            </figure>
+        </p>
+        <p>
             As you proceed to conduct your experiment, discuss any changes you have to make to your procedure and the reason for those changes. Additionally, if you observe some behavior that you were not expecting or that confuses you, make a note of it in your notebook.
         </p>
         <p>
-            <alert>Tip:</alert> Your starting input voltage should be sinusoidal with amplitude <m>V_{\text{in},0}=10\text{V}_{p-p}</m> and an initial frequency of <m>f=200</m>Hz. Monitor <m>V_{\text{in},0}</m> and do your best to maintain this input amplitude throughout the experiment (though it may not be possible).
+            <alert>Tip:</alert> Your starting input voltage should be sinusoidal with amplitude <m>V_{\text{in},0}=10\text{V}_\text{p-p}</m> and an initial frequency of <m>f=200</m>Hz. Monitor <m>V_{\text{in},0}</m> and do your best to maintain this input amplitude throughout the experiment (though it may not be possible).
         </p>
 
         <p>
