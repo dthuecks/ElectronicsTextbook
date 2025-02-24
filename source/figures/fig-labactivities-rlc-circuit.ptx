@@ -1,0 +1,16 @@
+\begin{circuitikz}
+    \draw (0,0)     coordinate(start);
+    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,6)
+                    to[short, -*] ++(3,0) coordinate(ch1)
+                    to[L, *-, l_=\SI{4}{\milli\henry}] ++(0,-2) coordinate(x)
+                    node[anchor=west]{X}
+                    to[C, *-, l_=\SI{100}{\nano\farad}] ++(0,-2) coordinate(ch2)
+                    to[R, *-, l_=\SI{50}{\ohm}] ++(0,-2)
+                    to[short, -*] ([xshift=1.5cm] start)
+                    node[sground] {}
+                    to[short] (start);
+    \draw           [-{Latex[length=4mm]}] (ch1) -- ++(2,0)
+                    node[anchor=south]{To CH1 Probe (x1)};
+    \draw           [-{Latex[length=4mm]}] (ch2) -- ++(2,0)
+                    node[anchor=south]{To CH2 Probe (x1)};;
+\end{circuitikz}

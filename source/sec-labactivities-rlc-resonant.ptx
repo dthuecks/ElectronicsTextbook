@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-rlc-resonant" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: RLC Resonant Circuit</title>
+    <p> 
+        <alert>Objective:</alert> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exrercise. Consider the following questions:
+        <ul>
+            <li>
+                <p>
+                    What kind of circuit am I examining?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What is new about this circuit as compared to circuits previously studied?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What theoretical predictions do you have regarding circuit behavior?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What effects do you expect to observe?
+                </p>
+            </li>
+        </ul>
+         Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, digital oscilloscope, resistor, capacitor, inductor.
+    </p>
+    
+    <paragraphs>
+        <title>RLC RESONANT CIRCUIT THEORY</title>
+        <p></p>
+        <p>
+            You will be studying properties of the circuit pictured in <xref ref="fig-labactivities-rlc-circuit"/>.
+            <figure xml:id="fig-labactivities-rlc-circuit">
+                <caption></caption>
+                <image width="50%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-labactivities-rlc-circuit.ptx" />
+                </latex-image></image>
+            </figure>
+            We developed the theory for this circuit in <xref ref="sec-ac-phasor-example-rlc-resonant-circuit"/>. In your lab notebook, summarize the main theoretical results/circuit behaviors that you expect to observe today. To guide you, here are a few questions you may wish to address:
+            <ul>
+                <li>
+                    <p>
+                        What behaviors do you observe as <m>\omega\rightarrow 0</m>?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What behaviors do you observe as <m>\omega\rightarrow\infty</m>?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Are there special frequencies that are appropriate to discuss? What are they? What happens at that frequency?
+                    </p>
+                </li>
+            </ul>
+            These are just a few examples. Are there any other important qualities that could be tested experimentally?
+        </p>
+    </paragraphs>
+    <paragraphs>
+        <title>RLC CIRCUIT EXPERIMENTS</title>
+        <p></p>
+        <p>
+            In your lab notebook, describe a procedure that you intend to follow. This procedure should be designed to address the points that you’ve discussed above in the theory section. Here are a few questions you may wish to consider:
+            <ul>
+                <li>
+                    <p>
+                        What quantities do you wish to observe, based on the theory above?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What equipment do you intend to use as a voltage source?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What equipment do you intend to use to measure the desired quantities?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If using the oscilloscope, describe the functionality that will be used (e.g. cursors, <sq>MEASURE</sq> functions, etc.). Why did you make your choice?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What variable are you going to vary? How many measurements will you use? How are you going to determine measurement spacing?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        How are you going to display your results? How will you relate your results back to theoretical predictions?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        How will you identify when you are at or near the resonant frequency?
+                    </p>
+                </li>
+            </ul>
+            As you proceed to conduct your experiment, discuss any changes you have to make to your procedure and the reason for those changes. Additionally, if you observe some behavior that you were not expecting or that confuses you, make a note of it in your notebook.
+        </p>
+        <p>
+            <alert>Tip:</alert> Your starting input voltage should be sinusoidal with amplitude <m>V_{\text{in},0}=10\text{V}_{p-p}</m> and an initial frequency of <m>f=200</m>Hz. Monitor <m>V_{\text{in},0}</m> and do your best to maintain this input amplitude throughout the experiment (though it may not be possible).
+        </p>
+
+        <p>
+            Once you’ve completed the experiment above, return to the resonance frequency that you observed and do the following:
+            <ul>
+                <li>
+                    <p>
+                        Make sure you always turn off the circuit power when moving probes or changing components!
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Move the oscilloscope Channel 1 probe to the node marked X on the circuit diagram. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Make sure that both channels have the same VOLTS/DIV settings. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Press the MATH button (in Channel 1 and 2 controls area) and explore the various calculations that can be accomplished using the functions in this menu.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use options in the MATH menu to subtract the Channel 2 signal from the Channel 1 signal.
+                        <ul>
+                            <li>
+                                <p>
+                                    <alert>Q:</alert> What are you measuring when you do this?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <alert>Q:</alert> What do you observe?
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Turn off your circuit. Switch the positions of L and C in your circuit (leaving the Channel 1 probe where it is) and repeat the previous bullet points. 
+                        <ul>
+                            <li>
+                                <p>
+                                    <alert>Q:</alert> What are you measuring now?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <alert>Q:</alert> What do you observe?
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <alert>Q:</alert> Do your observations make sense to you? How do you expect your observed MATH signals to compare to <m>V_\text{in}</m> and <m>V_R</m>?
+                    </p>
+                </li>
+            </ul>
+        </p>
+        <p>
+            Once you have completed data collection and analysis, write a discussion section that summarizes your results and compares them to your initial theory. Address any discrepancies that you may have seen along with any issues you may have run into. Speculate regarding solutions/explanations related to these discrepancies/issues. Include this discussion in your lab notebook.
+        </p>  
+    </paragraphs>
+</section>

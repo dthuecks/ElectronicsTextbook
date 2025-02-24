@@ -386,7 +386,7 @@
             </solution>
         </example>
 
-        <example>
+        <example xml:id="sec-ac-phasor-example-rlc-resonant-circuit">
             <title>Phasor analysis of a resonant RLC circuit</title>
             <statement>
                 <figure xml:id="ac-phasors-resonantRLC-a">
