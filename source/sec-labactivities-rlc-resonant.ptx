@@ -116,7 +116,7 @@
             </figure>
         </p>
         <p>
-            As you proceed to conduct your experiment, discuss any changes you have to make to your procedure and the reason for those changes. Additionally, if you observe some behavior that you were not expecting or that confuses you, make a note of it in your notebook.
+            As you proceed to conduct your experiment, discuss any changes you have to make to your procedure and the reason for those changes. Additionally, if you observe some behavior that you were not expecting or that confuses you, make a note of it in your notebook. Also, please remember that when using the oscilloscope to measure signals, you should 1) adjust the vertical scaling on each channel so that the signals are displayed as large as possible on the screen, and 2) adjust the timebase so that there are 3-5 cycles displayed on the oscilloscope screen. Adjust these oscilloscope settings as needed for each frequency at which you take data.
         </p>
         <p>
             <alert>Tip:</alert> Your starting input voltage should be sinusoidal with amplitude <m>V_{\text{in},0}=10\text{V}_\text{p-p}</m> and an initial frequency of <m>f=200</m>Hz. Monitor <m>V_{\text{in},0}</m> and do your best to maintain this input amplitude throughout the experiment (though it may not be possible).
@@ -187,7 +187,24 @@
             </ul>
         </p>
         <p>
-            Once you have completed data collection and analysis, write a discussion section that summarizes your results and compares them to your initial theory. Address any discrepancies that you may have seen along with any issues you may have run into. Speculate regarding solutions/explanations related to these discrepancies/issues. Include this discussion in your lab notebook.
+            Once you have completed data collection and analysis, write a discussion section that summarizes your results and compares them to your initial theory. 
+            <ul>
+                <li>
+                    <p>
+                        What options can you think of to compare theory to experiment in this lab? 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What option(s) did you choose for your comparison of theory to experiment? Why did you make the choice that you did?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Address any discrepancies that you may have seen along with any issues you may have run into. Speculate regarding solutions/explanations related to these discrepancies/issues.
+                    </p>
+                </li>
+            </ul> Include this discussion in your lab notebook.
         </p>  
     </paragraphs>
 </section>
