@@ -84,9 +84,9 @@
     </li>
     <li>
         <p>
-            Calculate <m>I_1</m>, <m>I_2</m>, and <m>I_3</m> in <xref ref="fig-dc-homework-a7"/>.
+            Calculate values and directions for all unknown currents in <xref ref="fig-dc-homework-a7"/>. Please use the mesh method as it is likely the shortest path to the solution. [UPDATED SINCE ASSIGNED SP25]
             <figure xml:id="fig-dc-homework-a7">
-                <caption></caption>
+                <caption>[UPDATED SINCE ASSIGNED SP25]</caption>
                 <image width="70%">
                 <latex-image>
                     <xi:include parse="text" href="./figures/fig-dc-homework-a7.ptx" />

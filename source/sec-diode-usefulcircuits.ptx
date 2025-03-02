@@ -3,6 +3,12 @@
 <section xml:id="sec-diode-usefulcircuits" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Useful Diode Circuits</title>
     <p>
-
+        Let's take our full-wave rectifier circuit and add a capacitor across the output as in <xref ref="fig-diode-ac2dc-circuit"/>. 
+        <figure xml:id="fig-diode-ac2dc-circuit">
+            <caption></caption>
+            <image><latex-image>
+                <xi:include parse="text" href="figures/fig-diode-ac2dc-circuit.ptx" />
+            </latex-image></image>
+        </figure>
     </p>
 </section>

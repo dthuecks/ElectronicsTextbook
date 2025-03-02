@@ -1,11 +1,13 @@
 \begin{circuitikz}
-    \draw (0,0) coordinate(start);
-    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$]   ++(0,4)
-                    to[R, -*, l=$R_1$, i=$I$] ++(4,0) coordinate(a)
-                    to[R, l^=$R_2$] ++(0,-2) 
-                    to[diode, -*, l^=$D1$] ++(0,-2) coordinate(b)
-                    to[short] ++(-4,0);
-    \draw (a)       to[short, -o] ++(2,0) coordinate(c);
-    \draw (b)       to[short, -o] (start -| c) coordinate(d);
-    \draw ([yshift=-2cm] c)       node{\text{$V_\text{out}$}};
+    \draw (0,0)     coordinate(vinn);
+    \draw (vinn)   to[short, o-*] ++(3,0) coordinate(tmp)
+                    to[short, -o] ++(3,0) coordinate(voutn);
+    \draw ([yshift=3cm] vinn) coordinate(vinp)
+                    to[D, invert, o-*] (tmp |- vinp)
+                    to[short, -o] (voutn |- vinp) coordinate(voutp);
+    \draw (tmp)     to[R, l^=$R$] (tmp |- vinp);
+    \path (vinn) -- (vinp)
+                    node[midway]{$V_\text{in}$};
+    \path (voutn) -- (voutp)
+                    node[midway]{$V_\text{out}$};
 \end{circuitikz}

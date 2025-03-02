@@ -4,8 +4,11 @@
     <title>Problems</title>
     <ol>
         <li>
-            <p> 
-                Analyze the circuit in <xref ref="fig-diode-homework-1"/> using two different methods.
+            <p>
+                For each of the following circuit inputs, graph by hand 1) the input waveform and 2) the output waveform after passing through the circuit in <xref ref="fig-diode-homework-1"/>. These waveforms should appear on the same axes and should be as accurate and numerical as reasonably possible. Please use different colors (or solid vs dashed lines) for your two waveforms.
+            </p>
+            <p>
+                You should use the diode behavior shown in <xref ref="fig-diode-cartoon"/> with <m>V_F=0.6</m>V to analyze this circuit analytically.
                 <figure xml:id="fig-diode-homework-1">
                     <caption></caption>
                     <image width="50%">
@@ -18,20 +21,23 @@
                 <ol>
                     <li>
                         <p>
-                            Numerical methods: Use Newton's method in Python to analyze the circuit assuming the exponential description of diode behavior. Assume a sinusoidal <m>V_\text{in}</m> that has a 5V peak-to-peak amplitude and <m>f=1</m>kHz. Further, use Python to generate two figures. The first figure should show <m>V_\text{in},\ V_\text{out},\ \text{and} V_D</m> vs time on the same axes (with labels). The second figure should show <m>I_1,\ I_2,</m> and <m>I_D</m> vs time on the same axes. Figure 2 should appear below Figure 1 and the time axes should align with each other. Submit your code along with your figures.                
+                            Input waveform: two cycles of a triangle wave alternating between <m>\pm 1.0</m>V.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Analytic methods: Use the analytical circuit treatment from <xref ref="sub-diode-analytic-analysis"/> to explain how we could have achieved similar results to what you found above without using Python. You do not need to reproduce the graphs above but must explain how you could use the cartoon behavior of the diode (with <m>V_F=0.6</m>V) to find nearly the same results as above.
+                            Input waveform: two cycles of a triangle wave alternating between 0.0V and +2.0V.
                         </p>
                     </li>
-                </ol>    
+                </ol>
             </p>
         </li>
         <li>
             <p>
-                For the circuit in <xref ref="fig-diode-homework-2"/>, use Python to plot <m>V_\text{in}</m> and <m>V_\text{out}</m> as a function of time and on the same axes. Assume a sinusoidal <m>V_\text{in}</m> with a peak-to-peak amplitude of 5V and <m>f=1</m>kHz.
+                Assume an input waveform that is two cycles of a triangle wave alternating between <m>\pm 2.0</m>V in <xref ref="fig-diode-homework-2"/>. Then, graph by hand 1) the input waveform and 2) the output waveform. These waveforms should appear on the same axes and should be as accurate and numerical as reasonably possible. Please use different colors (or solid vs dashed lines) for your two waveforms.
+            </p>
+            <p>
+                You should use the diode behavior shown in <xref ref="fig-diode-cartoon"/> with <m>V_F=0.6</m>V to analyze this circuit analytically.
                 <figure xml:id="fig-diode-homework-2">
                     <caption></caption>
                     <image width="50%">
@@ -45,7 +51,10 @@
         </li>
         <li>
             <p>
-                A red light-emitting diode (LED) has a forward voltage drop of 1.8V and has to be operated with a 10.0mA diode current. One possible circuit that can achieve these requirements is shown in <xref ref="fig-diode-homework-3"/>.
+                Assume an input waveform that is two cycles of a triangle wave alternating between <m>\pm 4.0</m>V in <xref ref="fig-diode-homework-3"/>. Then, graph by hand 1) the input waveform and 2) the output waveform. These waveforms should appear on the same axes and should be as accurate and numerical as reasonably possible. Please use different colors (or solid vs dashed lines) for your two waveforms.
+            </p>
+            <p>
+                You should use the diode behavior shown in <xref ref="fig-diode-cartoon"/> with <m>V_F=0.6</m>V to analyze this circuit analytically.
                 <figure xml:id="fig-diode-homework-3">
                     <caption></caption>
                     <image width="50%">
@@ -55,19 +64,134 @@
                         </latex-image>
                     </image>
                 </figure>
+            </p>
+        </li>
+        <li>
+            <p>
+                A red light-emitting diode (LED) has a forward voltage drop of 1.8V and has to be operated with a 10.0mA diode current. One possible circuit that can achieve these requirements is shown in <xref ref="fig-diode-homework-4a"/>.
+                <sidebyside widths="56% 40%" valign="bottom">
+                <figure xml:id="fig-diode-homework-4a">
+                    <caption></caption>
+                    <image>
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-4a.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+                <figure xml:id="fig-diode-homework-4b">
+                    <caption></caption>
+                    <image>
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-4b.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+                </sidebyside>
                 <ol>
                     <li>
                         <p>
-                            Calculate the resistance <m>R</m> that will ensure the desired operating conditions.
+                            Find the Th&#xE9;venin equivalent circuit parameters when leaving the diode out of the circuit in <xref ref="fig-diode-homework-4a"/>.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Calculate the powre delivered to the LED and the power dissipated in the resistance <m>R</m>.
+                            Using the Th&#xE9;venin equivalent circuit in <xref ref="fig-diode-homework-4b"/>, calculate the resistance <m>R</m> that will ensure the desired diode operating conditions.
                         </p>
                     </li>
                 </ol>
-                Hint: First replace the voltage divider on the left (comprising the battery and the two known resistances) by its Th&#xE9;venin equivalent.
+            </p>
+        </li>
+        <li>
+            <p>
+                Analyze the circuit in <xref ref="fig-diode-homework-5"/> using the analytical circuit treatment from <xref ref="sub-diode-analytic-analysis"/> with <m>V_F=0.6</m>V.
+                <figure xml:id="fig-diode-homework-5">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-5.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+                <ol>
+                    <li>
+                        <p>
+                            At what minimum <m>V_b</m> does the diode just barely begin to conduct current?
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Calculate all of the labeled currents for <m>V_b=2.8</m>V.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Calculate all of the labeled currents for <m>V_b=10.5</m>V.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Calculate all of the labeled currents for <m>V_b=14.0</m>V.
+                        </p>
+                    </li>
+                </ol>
+                Hint: Consider the voltage drop across the <m>700\Omega</m> resistor if the diode were missing, and then determine the effect of the diode when it is present. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Calculate the three unknown currents in <xref ref="fig-diode-homework-6"/> using the analytical circuit treatment from <xref ref="sub-diode-analytic-analysis"/> with <m>V_F=0.6</m>V.
+                <figure xml:id="fig-diode-homework-6">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-6.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+            </p>
+        </li>
+        <li>
+            <p> 
+                Analyze the circuit in <xref ref="fig-diode-homework-7"/> using two different methods. Assume a sinusoidal <m>V_\text{in}</m> that has a 10V peak-to-peak amplitude and <m>f=1</m>kHz. 
+                <figure xml:id="fig-diode-homework-7">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-7.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
+                <ol>
+                    <li>
+                        <p>
+                            Numerical methods: Use Newton's method in Python to analyze the circuit assuming the exponential description of diode behavior. Then, generate the following two figures using Python. The first figure should show <m>V_\text{in},\ V_\text{out},\text{ and } V_D</m> vs time on the same axes (with labels). The second figure should show <m>I_1,\ I_2,</m> and <m>I_D</m> vs time on the same axes. Figure 2 should appear below Figure 1 and the time axes of the two figures should align with each other. Submit your code along with your figures and any analytic work that you needed to perform before writing the Python code.                
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Analytic methods: Use the analytical circuit treatment from <xref ref="sub-diode-analytic-analysis"/> to explain how we could have achieved similar results to what you found above with the analytic diode analysis using the cartoon diode behavior (with <m>V_F=0.6</m>V). You do not need to reproduce the graphs from the previous part, but you must provide narrative and equations to explain how you come to essentially the same plots.
+                        </p>
+                    </li>
+                </ol>    
+            </p>
+        </li>
+        <li>
+            <p>
+                For the circuit in <xref ref="fig-diode-homework-8"/>, use Python to plot <m>V_\text{in}</m> and <m>V_\text{out}</m> as a function of time and on the same axes. Assume a sinusoidal <m>V_\text{in}</m> with a peak-to-peak voltage of 10V and <m>f=1</m>kHz.
+                <figure xml:id="fig-diode-homework-8">
+                    <caption></caption>
+                    <image width="50%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-diode-homework-8.ptx" />
+                        </latex-image>
+                    </image>
+                </figure>
             </p>
         </li>
     </ol>

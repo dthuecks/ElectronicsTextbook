@@ -1,11 +1,14 @@
 \begin{circuitikz}
-    \draw (0,0)     coordinate(start);
-    \draw (start)   to[battery, l^=$V_\text{in}$] ++(0,4)
-                    to[R, l^=$\SI{300}{\ohm}$] ++(3,0) coordinate(a)
-                    to[R, *-*, l_=$\SI{600}{\ohm}$] (a |- start) coordinate(b)
-                    to[short] (start);
-    \draw (a)       to[short] ++(2,0)
-                    to[R, l^=$R$] ++(0,-2)
-                    to[leD] ++(0,-2)
-                    to[short] (b);
+    \draw (0,0)     coordinate(vinn);
+    \draw (vinn)    to[short, o-*] ++(4,0) coordinate(tmp)
+                    to[short, -o] ++(3,0) coordinate(voutn);
+    \draw ([yshift=3cm] vinn) coordinate(vinp)
+                    to[battery, o-, l^=$\SI{2}{\text{V}}$] ++(2,0)
+                    to[R, -*, l^=$R$] (tmp |- vinp)
+                    to[short, -o] (voutn |- vinp) coordinate(voutp);
+    \draw (tmp)     to[D, invert] (tmp |- vinp);
+    \path (vinn) -- (vinp)
+                    node[midway]{$V_\text{in}$};
+    \path (voutn) -- (voutp)
+                    node[midway]{$V_\text{out}$};
 \end{circuitikz}

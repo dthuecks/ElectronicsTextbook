@@ -1,0 +1,11 @@
+\begin{circuitikz}
+    \draw (0,0)     coordinate(start);
+    \draw (start)   to[battery, invert, l^=$\SI{9}{\text{V}}$] ++(0,4)
+                    to[R, l^=$\SI{300}{\ohm}$] ++(3,0) coordinate(a)
+                    to[R, *-*, l_=$\SI{600}{\ohm}$] (a |- start) coordinate(b)
+                    to[short] (start);
+    \draw (a)       to[short] ++(2,0)
+                    to[R, l_=$R$] ++(0,-2)
+                    to[leD, l_=$\text{LED}$] ++(0,-2)
+                    to[short] (b);
+\end{circuitikz}
