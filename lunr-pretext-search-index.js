@@ -304,7 +304,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.9",
   "title": "Problems",
-  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance beetween points A and B in .          Calculate and in .          Calculate , , and in .          Calculate the Thevenin equivalents for the circuit in .          Calculate the Thevenin equivalents for the circuit in .          "
+  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance beetween points A and B in .          Calculate and in .          Calculate values and directions for all unknown currents in . Please use the mesh method as it is likely the shortest path to the solution. [UPDATED SINCE ASSIGNED SP25]  [UPDATED SINCE ASSIGNED SP25]         Calculate the Thevenin equivalents for the circuit in .          Calculate the Thevenin equivalents for the circuit in .          "
 },
 {
   "id": "fig-dc-homework-a1",
@@ -367,7 +367,7 @@ var ptx_lunr_docs = [
   "type": "Figure",
   "number": "2.9.7",
   "title": "",
-  "body": "     "
+  "body": " [UPDATED SINCE ASSIGNED SP25]     "
 },
 {
   "id": "fig-dc-homework-a8",
@@ -1024,7 +1024,16 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.6",
   "title": "Useful Diode Circuits",
-  "body": " Useful Diode Circuits    "
+  "body": " Useful Diode Circuits  Let's take our full-wave rectifier circuit and add a capacitor across the output as in .      "
+},
+{
+  "id": "fig-diode-ac2dc-circuit",
+  "level": "2",
+  "url": "sec-diode-usefulcircuits.html#fig-diode-ac2dc-circuit",
+  "type": "Figure",
+  "number": "4.6.1",
+  "title": "",
+  "body": "   "
 },
 {
   "id": "sec-diode-problems",
@@ -1033,7 +1042,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.7",
   "title": "Problems",
-  "body": " Problems    Analyze the circuit in using two different methods.    (for accessibility)       Numerical methods: Use Newton's method in Python to analyze the circuit assuming the exponential description of diode behavior. Assume a sinusoidal that has a 5V peak-to-peak amplitude and kHz. Further, use Python to generate two figures. The first figure should show vs time on the same axes (with labels). The second figure should show and vs time on the same axes. Figure 2 should appear below Figure 1 and the time axes should align with each other. Submit your code along with your figures.    Analytic methods: Use the analytical circuit treatment from to explain how we could have achieved similar results to what you found above without using Python. You do not need to reproduce the graphs above but must explain how you could use the cartoon behavior of the diode (with V) to find nearly the same results as above.       For the circuit in , use Python to plot and as a function of time and on the same axes. Assume a sinusoidal with a peak-to-peak amplitude of 5V and kHz.    (for accessibility)        A red light-emitting diode (LED) has a forward voltage drop of 1.8V and has to be operated with a 10.0mA diode current. One possible circuit that can achieve these requirements is shown in .    (for accessibility)       Calculate the resistance that will ensure the desired operating conditions.    Calculate the powre delivered to the LED and the power dissipated in the resistance .   Hint: First replace the voltage divider on the left (comprising the battery and the two known resistances) by its Thévenin equivalent.    "
+  "body": " Problems    For each of the following circuit inputs, graph by hand 1) the input waveform and 2) the output waveform after passing through the circuit in . These waveforms should appear on the same axes and should be as accurate and numerical as reasonably possible. Please use different colors (or solid vs dashed lines) for your two waveforms.  You should use the diode behavior shown in with V to analyze this circuit analytically.    (for accessibility)       Input waveform: two cycles of a triangle wave alternating between V.    Input waveform: two cycles of a triangle wave alternating between 0.0V and +2.0V.       Assume an input waveform that is two cycles of a triangle wave alternating between V in . Then, graph by hand 1) the input waveform and 2) the output waveform. These waveforms should appear on the same axes and should be as accurate and numerical as reasonably possible. Please use different colors (or solid vs dashed lines) for your two waveforms.  You should use the diode behavior shown in with V to analyze this circuit analytically.    (for accessibility)        Assume an input waveform that is two cycles of a triangle wave alternating between V in . Then, graph by hand 1) the input waveform and 2) the output waveform. These waveforms should appear on the same axes and should be as accurate and numerical as reasonably possible. Please use different colors (or solid vs dashed lines) for your two waveforms.  You should use the diode behavior shown in with V to analyze this circuit analytically.    (for accessibility)        A red light-emitting diode (LED) has a forward voltage drop of 1.8V and has to be operated with a 10.0mA diode current. One possible circuit that can achieve these requirements is shown in .     (for accessibility)        (for accessibility)        Find the Thévenin equivalent circuit parameters when leaving the diode out of the circuit in .    Using the Thévenin equivalent circuit in , calculate the resistance that will ensure the desired diode operating conditions.       Analyze the circuit in using the analytical circuit treatment from with V.    (for accessibility)       At what minimum does the diode just barely begin to conduct current?    Calculate all of the labeled currents for V.    Calculate all of the labeled currents for V.    Calculate all of the labeled currents for V.   Hint: Consider the voltage drop across the resistor if the diode were missing, and then determine the effect of the diode when it is present.    Calculate the three unknown currents in using the analytical circuit treatment from with V.    (for accessibility)        Analyze the circuit in using two different methods. Assume a sinusoidal that has a 10V peak-to-peak amplitude and kHz.    (for accessibility)       Numerical methods: Use Newton's method in Python to analyze the circuit assuming the exponential description of diode behavior. Then, generate the following two figures using Python. The first figure should show vs time on the same axes (with labels). The second figure should show and vs time on the same axes. Figure 2 should appear below Figure 1 and the time axes of the two figures should align with each other. Submit your code along with your figures and any analytic work that you needed to perform before writing the Python code.    Analytic methods: Use the analytical circuit treatment from to explain how we could have achieved similar results to what you found above with the analytic diode analysis using the cartoon diode behavior (with V). You do not need to reproduce the graphs from the previous part, but you must provide narrative and equations to explain how you come to essentially the same plots.       For the circuit in , use Python to plot and as a function of time and on the same axes. Assume a sinusoidal with a peak-to-peak voltage of 10V and kHz.    (for accessibility)        "
 },
 {
   "id": "fig-diode-homework-1",
@@ -1059,6 +1068,60 @@ var ptx_lunr_docs = [
   "url": "sec-diode-problems.html#fig-diode-homework-3",
   "type": "Figure",
   "number": "4.7.3",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-4a",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-4a",
+  "type": "Figure",
+  "number": "4.7.4",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-4b",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-4b",
+  "type": "Figure",
+  "number": "4.7.5",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-5",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-5",
+  "type": "Figure",
+  "number": "4.7.6",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-6",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-6",
+  "type": "Figure",
+  "number": "4.7.7",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-7",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-7",
+  "type": "Figure",
+  "number": "4.7.8",
+  "title": "",
+  "body": "   (for accessibility)    "
+},
+{
+  "id": "fig-diode-homework-8",
+  "level": "2",
+  "url": "sec-diode-problems.html#fig-diode-homework-8",
+  "type": "Figure",
+  "number": "4.7.9",
   "title": "",
   "body": "   (for accessibility)    "
 },
