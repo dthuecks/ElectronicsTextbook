@@ -19,9 +19,9 @@
         In order to use matrices to solve systems of equations, we must understand how to multiply matrices using the dot product.
     </p> 
     <p>
-        Suppose we have matrix <m>\matrix{A}</m> that has the form
+        Suppose we have matrix <m>\mathbf{A}</m> that has the form
         <me>
-            \matrix{A} = 
+            \mathbf{A} = 
             \begin{pmatrix}
                 A_{11} \amp A_{12} \amp A_{13}\\
                 A_{21} \amp A_{22} \amp A_{23}\\
@@ -31,7 +31,7 @@
         </me>
         where <m>A_{ij}</m> is the matrix element in the <m>i</m>-th row and <m>j</m>-th column. Now, if we multiply a matrix by a scalar, we find
         <me>
-            u\matrix{A} = 
+            u\mathbf{A} = 
             \begin{pmatrix}
                 uA_{11} \amp uA_{12} \amp uA_{13}\\
                 uA_{21} \amp uA_{22} \amp uA_{23}\\
@@ -41,18 +41,18 @@
         </me>.
     </p>
     <p>
-        Let's now say that we want to multiply matrices <m>\matrix{A}</m> and <m>\matrix{B}</m> to find <m>\matrix{C}=\matrix{A}\cdot\matrix{B}</m> where
+        Let's now say that we want to multiply matrices <m>\mathbf{A}</m> and <m>\mathbf{B}</m> to find <m>\mathbf{C}=\mathbf{A}\cdot\mathbf{B}</m> where
         <me>
-            \matrix{B} = 
+            \mathbf{B} = 
             \begin{pmatrix}
                 B_{11} \amp B_{12}\\
                 B_{21} \amp B_{22}\\
                 B_{31} \amp B_{32}\\
             \end{pmatrix}
         </me>.
-        First off, <m>\matrix{A}\cdot\matrix{B}</m> is only defined if <m>\matrix{A}</m> has a number of columns that is equal to the number of rows of <m>\matrix{B}</m>. In other words, <m>\matrix{A}\cdot\matrix{B}</m> is only defined for matrices where <m>\matrix{A}</m> is an <m>\ell\times m</m> matrix and <m>\matrix{B}</m> is an <m>m \times n</m> matrix. Now we have
+        First off, <m>\mathbf{A}\cdot\mathbf{B}</m> is only defined if <m>\mathbf{A}</m> has a number of columns that is equal to the number of rows of <m>\mathbf{B}</m>. In other words, <m>\mathbf{A}\cdot\mathbf{B}</m> is only defined for matrices where <m>\mathbf{A}</m> is an <m>\ell\times m</m> matrix and <m>\mathbf{B}</m> is an <m>m \times n</m> matrix. Now we have
         <me>
-            \matrix{C}=\matrix{A}\cdot\matrix{B} = 
+            \mathbf{C}=\mathbf{A}\cdot\mathbf{B} = 
                 \begin{pmatrix}
                 A_{11} \amp A_{12} \amp A_{13}\\
                 A_{21} \amp A_{22} \amp A_{23}\\
@@ -66,11 +66,11 @@
                 B_{31} \amp B_{32}\\
             \end{pmatrix}
         </me>.
-        The elements of <m>\matrix{C}</m> are given by 
+        The elements of <m>\mathbf{C}</m> are given by 
         <me>
             C_{ik} = \sum\limits_{j=1}^n A_{ij} B_{jk}
         </me>
-        where <m>n</m> is the number of columns of <m>\matrix{A}</m> and equivalently the number of rows in <m>\matrix{B}</m>. In other words, 
+        where <m>n</m> is the number of columns of <m>\mathbf{A}</m> and equivalently the number of rows in <m>\mathbf{B}</m>. In other words, 
         <me>
             C_{11} = A_{11}B_{11} + A_{12}B_{21}+A_{13}B_{31}
         </me>
@@ -78,14 +78,14 @@
         <me>
             C_{42} = A_{41}B_{12} + A_{42}B_{22}+A_{43}B_{32}
         </me>.
-        In other words, in order to find <m>C_{ik}</m>, you can multiply, element-by-element, the cells in row i of <m>\matrix{A}</m> with the cells in column k of <m>\matrix{B}</m>. The resulting matrix <m>\matrix{C}=\matrix{A}\cdot\matrix{B}</m> will have the same number of rows as <m>\matrix{A}</m> and same number of columns as <m>\matrix{B}</m>.
+        In other words, in order to find <m>C_{ik}</m>, you can multiply, element-by-element, the cells in row i of <m>\mathbf{A}</m> with the cells in column k of <m>\mathbf{B}</m>. The resulting matrix <m>\mathbf{C}=\mathbf{A}\cdot\mathbf{B}</m> will have the same number of rows as <m>\mathbf{A}</m> and same number of columns as <m>\mathbf{B}</m>.
     </p>
     <p>
-        The <term>identity matrix</term>, typically labeled <m>\matrix{I}</m> is another concept that will be necessary to understand. The identity matrix is defined such that
+        The <term>identity matrix</term>, typically labeled <m>\mathbf{I}</m> is another concept that will be necessary to understand. The identity matrix is defined such that
         <me>
-            \matrix{I}\cdot\matrix{A}=\matrix{A}
+            \mathbf{I}\cdot\mathbf{A}=\mathbf{A}
         </me>
-        for any matrix <m>\matrix{A}</m>. In order to have this property, the identity matrix must be a square matrix with dimensions <m>n\times n</m> (same number of rows and columns) with values of 1 on the diagonal and 0 everywhere else:
+        for any matrix <m>\mathbf{A}</m>. In order to have this property, the identity matrix must be a square matrix with dimensions <m>n\times n</m> (same number of rows and columns) with values of 1 on the diagonal and 0 everywhere else:
         <me>
             \begin{pmatrix}
                 1 \amp 0 \amp 0\\
@@ -98,13 +98,13 @@
     <p>
         Now, let's say that we have an equation
         <me>
-            \matrix{C}=\matrix{A}\cdot\matrix{B}
+            \mathbf{C}=\mathbf{A}\cdot\mathbf{B}
         </me>
-        and let's further assume that we have prior knowledge of both <m>\matrix{C}</m> and <m>\matrix{A}</m>. How do we find <m>\matrix{B}</m>? We cannot perform division with matrices. Instead, we use the concept of an <term>inverse matrix</term>. Let's define <m>\matrix{A}^{-1}</m> to be the inverse matrix of <m>\matrix{A}</m> such that <m>\matrix{A}^{-1}\cdot \matrix{A} = \matrix{A}\cdot \matrix{A}^{-1} = \matrix{I}</m>. Then, we can multiply both sides of our equation by <m>\matrix{A}^{-1}</m> to get
+        and let's further assume that we have prior knowledge of both <m>\mathbf{C}</m> and <m>\mathbf{A}</m>. How do we find <m>\mathbf{B}</m>? We cannot perform division with matrices. Instead, we use the concept of an <term>inverse matrix</term>. Let's define <m>\mathbf{A}^{-1}</m> to be the inverse matrix of <m>\mathbf{A}</m> such that <m>\mathbf{A}^{-1}\cdot \mathbf{A} = \mathbf{A}\cdot \mathbf{A}^{-1} = \mathbf{I}</m>. Then, we can multiply both sides of our equation by <m>\mathbf{A}^{-1}</m> to get
         <me>
-            \matrix{A}^{-1}\cdot \matrix{C} = \matrix{A}^{-1}\cdot \matrix{A} \cdot \matrix{B} = \matrix{I}\cdot\matrix{B}=\matrix{B}
+            \mathbf{A}^{-1}\cdot \mathbf{C} = \mathbf{A}^{-1}\cdot \mathbf{A} \cdot \mathbf{B} = \mathbf{I}\cdot\mathbf{B}=\mathbf{B}
         </me>.
-        You can learn how to find <m>\matrix{A}^{-1}</m> given knowledge of <m>\matrix{A}</m> in a linear algebra course. For our purposes, we will just rely on Python to invert matrices.
+        You can learn how to find <m>\mathbf{A}^{-1}</m> given knowledge of <m>\mathbf{A}</m> in a linear algebra course. For our purposes, we will just rely on Python to invert matrices.
     </p>
     </paragraphs>
     <paragraphs>
