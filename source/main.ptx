@@ -26,6 +26,14 @@
       <xi:include href="./ch-AC.ptx" />
     
       <xi:include href="./ch-diode.ptx" />
+
+      <xi:include href="./ch-transistor.ptx" />
+
+      <xi:include href="./ch-opamp.ptx" />
+
+      <xi:include href="./ch-digital.ptx" />
+
+      <xi:include href="./ch-advancedcircuits.ptx" />
     </part>
 
   <part xml:id="part-lab">

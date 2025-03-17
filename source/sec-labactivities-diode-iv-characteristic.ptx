@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-diode-iv-characteristic" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: I-V Characteristic for Diodes</title>
+    <p> 
+        <alert>Objective:</alert> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exrercise. Consider the following questions:
+        <ul>
+            <li>
+                <p>
+                    What kind of circuit(s) or components are you exploring?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What is new about this circuit as compared to circuits previously studied?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What theoretical predictions do you have regarding circuit behavior?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What effects do you expect to observe?
+                </p>
+            </li>
+        </ul>
+         Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, digital oscilloscope, DMM, 1N4001 silicon diode, 10k<m>\Omega</m> resistor.
+    </p>
+    
+    <paragraphs>
+        <title>Introduction</title>
+        <p></p>
+        <p>
+            To date we have used only linear circuit elements in lab: resistors, capacitors, and inductors. In this experiment, we take up the diode, a nonlinear device. Diodes provide signal conditioning, voltage regulation, and the conversion of AC voltages and currents into DC. In this experiment, you will measure a silicon diode’s “I-V characteristic” using the circuit pictured in <xref ref="fig-labactivities-diodes-iv-circuit"/>. 
+            <figure xml:id="fig-labactivities-diodes-iv-circuit">
+                <caption></caption>
+                <image width="50%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-labactivities-diodes-iv-circuit.ptx" />
+                </latex-image></image>
+            </figure>
+            Before conducting the experiment, discuss the following topics in your lab notebook:
+            <ul>
+                <li>
+                    <p>
+                        How does a single diode behave in a circuit?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What should the I-V characteristic look like? Provide a rough sketch.
+                    </p>
+                </li>
+            </ul>
+        </p>
+        
+    </paragraphs>
+
+    <paragraphs>
+        <title>EXPERIMENT</title>
+        <p></p>
+        <p>
+            In this experiment, you need to collect many data points to construct the I-V characteristic for your diode. You can either do this using a DC supply for your input, collecting point-by-point the diode voltage drop <m>V_D</m> and associated diode current <m>I_D</m> as you vary the DC supply. This process is very slow. So, we will instead use a sinusoidal voltage source as <m>V_\text{in}</m> and collect time traces for <m>V_D</m> and <m>I_D</m>. We will export this data to a computer and then use Python to generate the I-V characteristic.
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Unplug your prototyping board. You will not need to plug it in for this experiment.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Obtain a 1N4001 silicon diode and test its function with the multimeter set to its diode-testing mode. In this mode, the DMM checks the effective resistance of a diode by attempting to force a positive current out through its <sq>+</sq> or red lead, through the external diode, and back into its <sq>-</sq> or black lead. When the DMM displays a small result such as 0.5, one may infer that the red lead is connected to the anode (or p-type semiconductor) and the black lead to the cathode (or n-type semiconductor) of the diode, and that the diode is conducting in its <sq>easy</sq> direction. If, instead, a large off-scale indication of <sq>.OL</sq> is displayed, then the diode is reverse-biased. Note how the diode is marked to indicate which end is the anode.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Proceed to construct the circuit shown in <xref ref="fig-labactivities-diodes-iv-circuit"/>.
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    Attach the oscilloscope probes so that CH1 measures <m>V_\text{in}</m> and CH2 measures <m>V_\text{out}</m> in <xref ref="fig-labactivities-diodes-iv-circuit"/>.
+                </p>
+                <p>
+                    <alert>Q:</alert> What will you need to do in Python to extract <m>V_D</m> from your data?
+                </p>
+                <p>
+                    <alert>Q:</alert> What will you need to do in Python to extract <m>I_D</m> from your data?
+                </p>
+            </li>
+            <li>
+                <p>
+                    Connect your waveform generator to your circuit and set it to produce a 60Hz sinusoidal signal that varies between <m>\pm 5</m>V. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Save your data to a USB flash drive. The oscilloscope can export data in several formats. For our purposes it is best to save and export the actual digitally sampled data points (as opposed to an image file of the display) so that we can plot, manipulate, and analyze the data using a program like Excel or LoggerPro. This requires that we save the data in channels one and two separately. 
+                    <ol>
+                        <li>
+                            <p>
+                                Press the RUN/STOP button to capture the data and to make sure that you are saving the data you want. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Insert your flash drive into the USB port on the front of the oscilloscope.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Press the SAVE/LOAD button and, from the menu options figure out how to save the CH1 and CH2 data (in separate files) to a spreadsheet format file (such as a .csv file). Make note of the filename for each channel. The instructions depend on the oscilloscope type. Try one of the following:
+                                <ul>
+                                    <li>
+                                        <p>
+                                            SAVE/RECALL <m>\rightarrow</m> TYPE (CSV), press <sq>Confirm</sq> and follow the rest of the menu options to save a new file.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            SAVE/RECALL <m>\rightarrow</m> EXTERNAL STORAGE <m>\rightarrow</m> NEW <m>\rightarrow</m> NEW FILE <m>\rightarrow</m> SAVE AS CSV <m>\rightarrow</m> SAVE.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                    </ol> 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Turn off your waveform generator and oscilloscope.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Load your data into a spreadsheet file (which you can upload to your lab notebook as a file; no printout is necessary). Examine how the data is formatted and determine the meaning of each column of data.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Write a program in Python to load your data, extract <m>V_D</m> and <m>I_D</m> from the data you collected, and plot your I-V characteristic. Make sure to label your axes and include units.
+                </p>
+                <p>
+                    <alert>P:</alert> Include your I-V characteristic in your lab notebook.
+                </p>
+                <p>
+                    <alert>Q:</alert> Discuss similarities and differences between your measured I-V characteristic and the <sq>cartoon</sq> behavior displayed in <xref ref="fig-diode-cartoon"/>.
+                </p>
+                <p>
+                    <alert>Q:</alert> Discuss similarities and differences between your measured I-V characteristic and the more realistic behavior shown in <xref ref="fig-real-diode"/>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Add to your Python program above the ability to produce a second plot, this time of <m>V_\text{in}</m>, <m>V_\text{out}</m>, and <m>V_D</m> vs t on the same axes using different colors for each signal. Ensure that your axes are labeled (with units!) and that you include a legend.
+                </p>
+                <p>
+                    <alert>P:</alert> Include your plot of input, output, and diode voltage signals in your notebook. 
+                </p>
+                <p>
+                    <alert>Note:</alert> This last result illustrates the ability of diodes to <sq>rectify</sq> oscillating voltages, converting symmetric AC signals into signals that, on average, have a DC component. The present circuit is called a <term>half-wave rectifier</term>. In this case, the diode acts to turn off current flow for one half of each input cycle. In the next experiment, you will construct a full-wave rectifier that effectively outputs the absolute value of the input voltage.
+                </p>
+            </li>
+        </ol>
+
+
+        
+    </paragraphs>
+</section>
