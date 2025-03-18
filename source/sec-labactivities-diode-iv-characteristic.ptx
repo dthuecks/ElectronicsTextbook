@@ -159,18 +159,23 @@
             </li>
             <li>
                 <p>
-                    Add to your Python program above the ability to produce a second plot, this time of <m>V_\text{in}</m>, <m>V_\text{out}</m>, and <m>V_D</m> vs t on the same axes using different colors for each signal. Ensure that your axes are labeled (with units!) and that you include a legend.
+                    Add to your Python program above the ability to produce a second plot, this time of <m>V_\text{in}</m>, <m>V_\text{out}</m>, and <m>V_D</m> vs <m>t</m> on the same axes using different colors for each signal. Ensure that your axes are labeled (with units!) and that you include a legend.
                 </p>
                 <p>
                     <alert>P:</alert> Include your plot of input, output, and diode voltage signals in your notebook. 
                 </p>
                 <p>
-                    <alert>Note:</alert> This last result illustrates the ability of diodes to <sq>rectify</sq> oscillating voltages, converting symmetric AC signals into signals that, on average, have a DC component. The present circuit is called a <term>half-wave rectifier</term>. In this case, the diode acts to turn off current flow for one half of each input cycle. In the next experiment, you will construct a full-wave rectifier that effectively outputs the absolute value of the input voltage.
+                    <alert>Note:</alert> This result illustrates the ability of diodes to <sq>rectify</sq> oscillating voltages, converting symmetric AC signals into signals that, on average, have a DC component. The present circuit is called a <term>half-wave rectifier</term>. In this case, the diode acts to turn off current flow for one half of each input cycle. In the next experiment, you will construct a full-wave rectifier that effectively outputs the absolute value of the input voltage.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Produce a third plot in Python that shows <m>I_D</m> vs <m>t</m>. Ensure that the time range shown matches the range in the previous voltage vs time plots.
                 </p>
             </li>
         </ol>
-
-
-        
+        <p>
+            Provide a discussion in your lab notebook based on guidelines provided in <xref ref="ch-labnotebook"/>
+        </p>    
     </paragraphs>
 </section>
