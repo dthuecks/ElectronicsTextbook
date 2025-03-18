@@ -172,6 +172,9 @@
                 <p>
                     Produce a third plot in Python that shows <m>I_D</m> vs <m>t</m>. Ensure that the time range shown matches the range in the previous voltage vs time plots.
                 </p>
+                <p>
+                    <alert>P:</alert> Include your plot of <m>I_D</m> vs <m>t</m> in your notebook. 
+                </p>
             </li>
         </ol>
         <p>
