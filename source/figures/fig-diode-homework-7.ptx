@@ -1,11 +1,11 @@
 \begin{circuitikz}
     \draw (0,0) coordinate(start);
     \draw (start)   to[sinusoidal voltage source, -*, l^=$V_\text{in}$] ++(0,3) coordinate(a)
-                    to[R,i>=$I_2$, -*, l_=$\SI{1}{\kilo\ohm}$] ++(3,0) coordinate(b)
-                    to[R, i>=$I_3$, -*, l_=$\SI{1}{\kilo\ohm}$] ++(0,-3) coordinate(c)
+                    to[R,i>=$I_2$, -*, l_=$\SI{3}{\kilo\ohm}$] ++(3,0) coordinate(b)
+                    to[R, i>=$I_3$, -*, l_=$\SI{5}{\kilo\ohm}$] ++(0,-3) coordinate(c)
                     to[short] (start);
     \draw (a)       to[short] ++(0,1)
-                    to[D, i>=$I_1$, l^=$D_1$] ++(3,0)
+                    to[D, invert, i>=$I_1$, l^=$D_1$] ++(3,0)
                     to[short] ++(0,-1);
     \draw (b)       to[short, -o] ++(1,0);
     \draw (c)       to[short, -o] ++(1,0) coordinate(d);

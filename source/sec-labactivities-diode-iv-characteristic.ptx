@@ -74,7 +74,7 @@
             </li>
             <li>
                 <p>
-                    Obtain a 1N4001 silicon diode and test its function with the multimeter set to its diode-testing mode. In this mode, the DMM checks the effective resistance of a diode by attempting to force a positive current out through its <sq>+</sq> or red lead, through the external diode, and back into its <sq>-</sq> or black lead. When the DMM displays a small result such as 0.5, one may infer that the red lead is connected to the anode (or p-type semiconductor) and the black lead to the cathode (or n-type semiconductor) of the diode, and that the diode is conducting in its <sq>easy</sq> direction. If, instead, a large off-scale indication of <sq>.OL</sq> is displayed, then the diode is reverse-biased. Note how the diode is marked to indicate which end is the anode.
+                    Obtain a 1N4001 silicon diode and test its function with the multimeter set to its diode-testing mode. In this mode, the DMM checks the effective resistance of a diode by attempting to force a positive current out through its <sq>+</sq> or red lead, through the external diode, and back into its <sq>-</sq> or black lead. When the DMM displays a small result such as 0.5V, one may infer that the red lead is connected to the anode (or p-type semiconductor) and the black lead to the cathode (or n-type semiconductor) of the diode, and that the diode is conducting in its <sq>easy</sq> direction. If, instead, a large off-scale indication of <sq>.OL</sq> is displayed, then the diode is reverse-biased. Note how the diode is marked to indicate which end is the anode.
                 </p>
             </li>
             <li>
