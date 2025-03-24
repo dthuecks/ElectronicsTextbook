@@ -33,7 +33,7 @@
     <p>
         We can be a little more rigorous with the theory underlying Newton's method. Let's assume that we have a function <m>f(x)</m> that has a root <m>x^*</m> such that <m>f(x^*)=0</m>. We can expand our function as a Taylor series around some initial guess for the root, <m>x_g</m>, giving us
         <me>
-            f(x)=f(x_g) + (x-x_g)f'(x) + \frac{1}{2}(x-x_g)^2 f''(x) + \cdots
+            f(x)=f(x_g) + (x-x_g)f'(x_g) + \frac{1}{2}(x-x_g)^2 f''(x_g) + \cdots
         </me>.
         Evaluating this expansion at the root <m>x=x^*</m> gives us
         <me>
