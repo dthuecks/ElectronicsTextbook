@@ -28,7 +28,7 @@
             </li>
             <li>
                 <p>
-                    In a similar way, we find that <xref ref="fig-diode-full-wave-rectifier-neg-color"/> shows the current path when <m>V_\text{in}\lt 2V_F</m>.
+                    In a similar way, we find that <xref ref="fig-diode-full-wave-rectifier-neg-color"/> shows the current path when <m>V_\text{in}\lt -2V_F</m>.
                     <figure xml:id="fig-diode-full-wave-rectifier-neg-color">
                         <caption></caption>
                         <image><latex-image>
@@ -43,7 +43,7 @@
             <title>Solution Using Newton's method in Python</title>
             <statement>
                 <p>
-                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m>
+                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m> [UPDATE WITH STANDARD KCL SIGNS ON CURRENTS]
                     <mdn>
                         <mrow xml:id="eqn-diode-rectifier-kcl-a">0 = \amp I_3 + I_6 - I_4 </mrow>
                         <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_5 + I_6 - I_2 </mrow>

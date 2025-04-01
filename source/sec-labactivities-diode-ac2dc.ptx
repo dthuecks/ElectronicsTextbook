@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-diode-ac2dc" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: AC to DC Conversion Using Diode Bridge Rectifier</title>
+    <p> 
+        <alert>Objective:</alert> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exrercise. Consider the following questions:
+        <ul>
+            <li>
+                <p>
+                    What kind of circuit(s) or components are you exploring?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What is new about this circuit as compared to circuits previously studied?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What theoretical predictions do you have regarding circuit behavior?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What effects do you expect to observe?
+                </p>
+            </li>
+        </ul>
+         Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, digital oscilloscope, DMM, 4 x 1N4001 silicon diodes, 3.3k<m>\Omega</m> resistor, five capacitors in the range from 1<m>\mu</m>F to 500<m>\mu</m>F.
+    </p>
+    
+    <paragraphs>
+        <title>Introduction</title>
+        <p></p>
+        <p>
+            The operation of many electronic devices depend on a DC voltage source, but the electricity delivered to households in the United States is 60-Hz AC voltage. Today, we'll explore one method of converting AC voltage to DC voltage using the <term>bridge full-wave rectifier</term> with a smoothing capacitor as pictured in <xref ref="fig-labactivities-diode-ac2dc-circuit"/>. 
+            <figure xml:id="fig-labactivities-diode-ac2dc-circuit">
+                <caption></caption>
+                <image width="70%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-labactivities-diode-ac2dc-circuit.ptx" />
+                </latex-image></image>
+            </figure>
+           This circuit converts an AC input voltage to a nearly-constant output voltage, though a small <sq>ripple</sq> will remain. Larger values of smoothing capacitance will reduce the size of this ripple and thus will improve the quality of the DC voltage output. High-capacitance capacitors are typically more expensive and physically larger than small capacitors, so there is incentive to keep the capacitance as small as possible. Thus, devices that require DC voltages often specify a maximum ripple size that they can tolerate. 
+        </p>
+        <p>
+            Your goal in this experiment is to predict the optimal smoothing capacitance one would use to ensure a 5% ripple on <m>V_\text{out}</m>. The ripple size depends on the smoothing capacitance (which you will determine), the input signal frequency (which we will assume to be 120-Hz) and the load resistance provided by the device across the output (here, represented by the 3.3-k<m>\Omega</m> resistor).
+        </p> 
+
+        <p>
+            Before conducting the experiment, be sure to review the behavior of the unsmoothed bridge full-wave rectifier circuit in <xref ref="sec-diode-rectifier"/>. 
+        </p>
+        <p>
+            <alert>NOTE:</alert> One downside of the circuit shown in <xref ref="fig-labactivities-diode-ac2dc-circuit"/> is that neither <m>V_\text{out}</m> terminal is connected to ground. This means that we cannot simply connect a single oscilloscope probe across <m>V_\text{out}</m> since the ground provided by the oscilloscope and the ground provided by the function generator would conflict. In practice, this issue can be resolved by using a <sq>floating</sq> function generator where the output is isolated from ground, or to use a transformer between the function generator and rectifier circuit. We will use a simpler solution and use the oscilloscope to measure <m>V_2</m> on CH1, <m>V_1</m> on CH2, and then use the MATH oscilloscope feature to display <m>V_\text{out}=V_2-V_1=\text{CH1}-\text{CH2}</m>.     
+        </p>      
+        
+    </paragraphs>
+
+    <paragraphs>
+        <title>EXPERIMENT</title>
+        <p></p>        
+        <p>
+            Once you've reviewed the above information, complete the following steps.
+        </p>    
+        <ol>
+            <li>
+                <p>
+                    Use your DMM to determine exact values for your resistor and your capacitors. 
+                </p>
+                <p>
+                    <alert>Warning:</alert> The capacitors that you are using are called <sq>electrolytic capacitors</sq> and are polarized, meaning that they only work when the negative lead (often marked with a negative sign) is at a lower voltage than the positive lead. When measuring the capacitance with the DMM, connect the COM to the negative capacitor lead. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Unplug your prototyping board. You will not need to plug it in for this experiment.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Construct the circuit shown in <xref ref="fig-labactivities-diode-ac2dc-circuit"/> on your prototyping board. Use the smallest capacitor value that you've been given as your smoothing capacitor. The input voltage <m>V_\text{in}</m> will be provided by your function generator.
+                </p>
+                <p>
+                    <alert>Warning: Pay attention to the capacitor polarity in the circuit schematic. If you wire the capacitor in backward, you can destroy the capacitor (sometimes resulting in a puff of smoke or small flame). Remember that in this circuit, <m>V_2 \gt V_1</m> always.</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Set up the oscilloscope to measure <m>V_\text{in}</m> on CH1 by connecting the oscilloscope probe to the proper location in the circuit that you constructed. Turn your oscilloscope on.
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    Turn on the function generator (but leave the OUTPUT off). Set the generator to produce a 120-Hz sinusoidal voltage with a peak amplitude of 5-V. Then, enable the OUTPUT.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the CURSOR functionality to measure the amplitude of <m>V_\text{in}</m>.
+                </p>
+                <p>
+                    <alert>Q: </alert> Record your <m>V_\text{in}</m> amplitude in your lab notebook.
+                </p>
+                <p>
+                    <alert>P: </alert> Insert a photograph of <m>V_\text{in}</m> into your lab notebook.
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    Disable the function generator OUTPUT. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Set up the oscilloscope and probes in the following way. 
+                </p>
+                <p>
+                    <alert>Warning: Failure to follow these instructions may result in equipment damage and/or electric shock.</alert>
+                </p>
+                <p>
+                    <ul>
+                        <li>
+                            <p>
+                                Use an oscilloscope probe (x1) to connect CH1 across <m>V_2</m> and ground.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Use an oscilloscope probe (x1) to connect CH2 across <m>V_1</m> and ground.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Enable the function generator OUTPUT.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the oscilloscope's MATH functionality to display <m>V_\text{out}=V_2-V_1=\text{CH1}-\text{CH2}</m> on the oscilloscope screen. Under the MATH menu, do the following:
+                    <ul>
+                        <li>
+                            <p>
+                                Set <sq>Operation</sq> to <sq><m>-</m></sq>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Set <sq>Source A</sq> to CH1.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Set <sq>Source B</sq> to CH2.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Ensure that <sq>Invert</sq> is set to Off.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Explore <sq>Page 2/2</sq> of the MATH menu. Determine how to shift the displayed MATH signal up and down on the oscilloscope screen and how to adjust the vertical scale for the MATH signal.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the oscilloscope cursors to measure the size of the ripple on <m>V_\text{out}</m>.
+                </p>
+                <p>
+                    <alert>Q: </alert> Record the ripple size and smoothing capacitance in your lab notebook.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Disable the function generator OUTPUT.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Swap out the smoothing capacitor for the next largest capacitance that you've been given.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Enable the function generator OUTPUT and measure the size of the <m>V_\text{out}</m> ripple and record this value in your lab notebook.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Follow the procedure to measure the size of the <m>V_\text{out}</m> ripple for all capacitor values you've been given, recording the values in your notebook. <alert>WARNING: You must disable the output of the function generator before making any changes to the circuit in order to avoid shocks.</alert>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use Python to do the following:
+                    <ol>
+                        <li>
+                            <p>
+                                Perform a curve fit to your data. Assume a function of the form <m>\left(\Delta V\right)_\text{ripple}=AC^B</m> where <m>A</m> and <m>B</m> are fitting parameters and <m>C</m> is your capacitance variable.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Plot ripple voltage size vs smoothing capacitance and use symbols to display your data points. Overplot a line representing your curve fit.
+                            </p>
+                        </li>
+                    </ol>    
+                </p>
+                <p>
+                    <alert>P: </alert> Include your plot in your lab notebook.
+                </p>
+                <p>
+                    <alert>Q: </alert> Provide your fit parameters in your lab notebook.
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    Predict the minimum smoothing capacitance one would require to ensure a 5% ripple on <m>V_\text{out}</m>. 
+                </p>
+                <p>
+                    <alert>Q: </alert> Include this result in your lab notebook.
+                </p>
+            </li>
+        </ol>
+        <p>
+            Provide a discussion in your lab notebook based on guidelines provided in <xref ref="ch-labnotebook"/>.
+        </p>    
+    </paragraphs>
+</section>

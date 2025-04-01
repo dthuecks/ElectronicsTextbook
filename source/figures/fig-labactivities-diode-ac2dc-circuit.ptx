@@ -1,0 +1,35 @@
+\begin{circuitikz}
+\ctikzset{label/align = straight}
+    \draw (0,0) coordinate(start)
+                    node[sground] {};
+    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,5)
+                    to[short] ++(5,0)
+                    to[short, -*] ++(0, -0.5) coordinate(a)
+                    to[D,-*, invert, l_=$D$] ++(-2, -2) coordinate(v1)
+                    to[D, -*, l_=$D$] ++(2, -2) coordinate(b)
+                    to[short] ++(0, -0.5)
+                    to[short] (start);
+    \draw (a)       to[D, -*, l^=$D$] ++(2, -2) coordinate(v2)
+                    to[D, invert, l^=$D$] ++(-2, -2);
+    \draw (v2)      to[short] ++(1,0) 
+                    to[short, -o] ++(4,0) coordinate(voutp)
+                    node[anchor=south west]{$V_2$};
+    \node at (v1 |- start)[jump crossing, rotate=-90, scale=3](X){};
+    \draw (X.west)  to[short] (v1);
+    \draw (X.east)  to[short] ++(0,-0.5) coordinate(C)
+                    to[short, -o] (voutp |- C) coordinate(voutn)
+                    node[anchor=north west]{$V_1$};
+    \draw ([xshift=-3.5cm] voutp)   
+                    node[circ]{} coordinate(tmp)
+                    to[R, l_=\SI{3.3}{\kilo\ohm}] (tmp|- voutn)
+                    node[circ]{};
+    \draw ([xshift=-1.25cm] voutp)   
+                    node[circ]{} coordinate(tmp)
+                    to[curved capacitor, l_=$C$] (tmp|- voutn)
+                    node[circ]{};
+    \path (voutp) -- (tmp|- voutn)
+                    node[midway, above]{$+$}
+                    node[midway, below]{$-$};
+    \path (voutp) -- (voutn)
+                    node[midway, anchor=west]{$V_\text{out}$};
+\end{circuitikz}

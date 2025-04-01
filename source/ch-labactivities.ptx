@@ -17,5 +17,7 @@
     <xi:include href="sec-labactivities-rlc-resonant.ptx" />
 
     <xi:include href="sec-labactivities-diode-iv-characteristic.ptx" />
+
+    <xi:include href="sec-labactivities-diode-ac2dc.ptx" />
     
 </chapter>
