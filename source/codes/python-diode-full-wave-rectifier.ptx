@@ -31,10 +31,10 @@ for i1 in range(np.size(t)):
     while error > target: # perform iterations until our estimated root gets close enough to real root
         # c1 and c2 are defined to make entry of the f and A arrays easier
         c1 = -I0*(np.exp((V1-Vin)/VT)+np.exp(V1/VT))
-        c2 = -I0*(np.exp(-V2/VT)+np.exp((Vin-V2)/VT))
+        c2 = I0*(np.exp(-V2/VT)+np.exp((Vin-V2)/VT))
     
-        f = np.array([c1+2*I0+(V2-V1)/R, c2+2*I0+(V2-V1)/R]) # f from system of equations
-        A = np.array([[c1/VT-1/R, 1/R],[-1/R, -c2/VT+1/R]]) # f' for system of equations
+        f = np.array([c1+2*I0+(V2-V1)/R, c2-2*I0-(V2-V1)/R]) # f from system of equations
+        A = np.array([[c1/VT-1/R, 1/R],[1/R, -c2/VT-1/R]]) # f' for system of equations
         DeltaV = np.linalg.solve(A,f) # distance from our guess to our estimated root
         error = np.linalg.norm(DeltaV)
         V1 -= DeltaV[0]

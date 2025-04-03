@@ -46,7 +46,7 @@
                     We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m> [UPDATE WITH STANDARD KCL SIGNS ON CURRENTS]
                     <mdn>
                         <mrow xml:id="eqn-diode-rectifier-kcl-a">0 = \amp I_3 + I_6 - I_4 </mrow>
-                        <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_5 + I_6 - I_2 </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_2 - I_5 - I_6 </mrow>
                     </mdn>.
                     We can also write down expressions for the currents by examining voltage changes across components  
                     <mdn>
@@ -58,15 +58,15 @@
                     </mdn>.
                     Combining <xref ref="eqn-diode-rectifier-kcl-a"/>-<xref ref="eqn-diode-rectifier-kcl-b"/> with <xref ref="eqn-diode-rectifier-currents-a"/>-<xref ref="eqn-diode-rectifier-currents-e"/>, we find that
                     <md>
-                        <mrow>0 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R} </mrow>
-                        <mrow>0 = \amp -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2 - V_1}{R} </mrow>
+                        <mrow>0 =  \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R} </mrow>
+                        <mrow>0 = \amp I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) - \frac{V_2 - V_1}{R} </mrow>
                     </md>.
                     Using Newton's method in <xref ref="subapp-python-newtonmethod"/>, we'll set
                     <me>
                         \vec{f}(\vec{V})=
                             \begin{pmatrix}
                                 -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R}\\
-                                -I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) + \frac{V_2-V_1}{R}
+                                I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) - \frac{V_2-V_1}{R}
                             \end{pmatrix}
                     </me>
                     where
@@ -78,7 +78,7 @@
                         \nabla\vec{f}\left(\vec{V}\right) = 
                             \begin{pmatrix}
                                 -\frac{I_0}{V_T}\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T}\right)-\frac{1}{R} \amp \frac{1}{R}\\
-                                -\frac{1}{R} \amp \frac{I_0}{V_T}\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}\right) + \frac{1}{R}
+                                \frac{1}{R} \amp -\frac{I_0}{V_T}\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}\right) - \frac{1}{R}
                             \end{pmatrix}
                     </me>.
                     Then, Newton's method can be used in Python to estimate the circuit behavior governed by
