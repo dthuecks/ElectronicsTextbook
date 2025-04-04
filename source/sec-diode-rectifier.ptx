@@ -43,7 +43,7 @@
             <title>Solution Using Newton's method in Python</title>
             <statement>
                 <p>
-                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m> [UPDATE WITH STANDARD KCL SIGNS ON CURRENTS]
+                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m>
                     <mdn>
                         <mrow xml:id="eqn-diode-rectifier-kcl-a">0 = \amp I_3 + I_6 - I_4 </mrow>
                         <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_2 - I_5 - I_6 </mrow>
@@ -83,7 +83,7 @@
                     </me>.
                     Then, Newton's method can be used in Python to estimate the circuit behavior governed by
                     <me>
-                        \nabla\vec{f}\left(\vec{V}\right) \cdot \Delta \vec{V} = \vec{f}\left(\vec{V}\right)
+                        \nabla\vec{f}\left(\vec{V}\right) \cdot \vec{V} = \vec{f}\left(\vec{V}\right)
                     </me>
                     to solve for <m>\Delta\vec{x}</m> and find our new root estimate
                     <me>
