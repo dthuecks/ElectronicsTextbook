@@ -317,7 +317,8 @@ sagecell.makeSagecell({
 <div class="para"><details id="sec-diode-rectifier-2-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Solution Using Newton’s method in Python.</span>
 </h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-diode-rectifier-2-4-2-1">
-<div class="para">We find KCL equations for the junctions labeled <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> [UPDATE WITH STANDARD KCL SIGNS ON CURRENTS]</div>
+<div class="para">We find KCL equations for the junctions labeled <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span>
+</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html" id="sec-diode-rectifier-2-4-2-1-3">
 \begin{align}
 0 = \amp I_3 + I_6 - I_4 \tag{4.5.1}\\
@@ -370,7 +371,7 @@ I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) - \frac{V_2-
 <div class="para">Then, Newton’s method can be used in Python to estimate the circuit behavior governed by</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-diode-rectifier-kcl-a.html ./knowl/xref/eqn-diode-rectifier-kcl-b.html ./knowl/xref/eqn-diode-rectifier-currents-a.html ./knowl/xref/eqn-diode-rectifier-currents-e.html ./knowl/xref/subapp-python-newtonmethod.html">
 \begin{equation*}
-\nabla\vec{f}\left(\vec{V}\right) \cdot \Delta \vec{V} = \vec{f}\left(\vec{V}\right)
+\nabla\vec{f}\left(\vec{V}\right) \cdot \vec{V} = \vec{f}\left(\vec{V}\right)
 \end{equation*}
 </div>
 <div class="para">to solve for <span class="process-math">\(\Delta\vec{x}\)</span> and find our new root estimate</div>
