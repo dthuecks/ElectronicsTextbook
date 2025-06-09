@@ -155,6 +155,11 @@
           banner="crc"
           navbar="crc"
       />-->
+      <css
+          theme="denver"
+          primary-color="#386F94"
+          primary-color-dark="#5192BD"
+      />
 
     <!-- Search can be default or none, or you can use a Google-cx number to use google's search
     feature (but then variant should be set to none to avoid conflict) -->
