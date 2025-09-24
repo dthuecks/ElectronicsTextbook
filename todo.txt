@@ -1,0 +1,11 @@
+Fix implementation of sageplot in ch-labpython 
+
+Options to sage elements
+    https://groups.google.com/g/pretext-support/c/rdIi42AJ8cg/m/gNuStGbnAAAJ
+
+Sageplot preamble
+    https://groups.google.com/g/pretext-support/c/6Y8SxdpPO40/m/2RJBCckkAgAJ
+
+
+
+

@@ -1,0 +1,3 @@
+Type the following inside a ptx document: 
+                <!
+    View the drop-down to create new chapter, section, etc.

@@ -3,6 +3,22 @@
 <chapter xml:id="ch-opamp" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Operational Amplifiers</title>
 
+  <introduction>
+        <p>
+          In the last chapter, we examined single-transistor circuits that provide voltage amplification, current amplification, switching circuits, and signal buffering. These behaviors can be improved even further through the design of more complex circuits using multiple transistors. Given the small size that can be achieved in transistor construction, these complex multi-transistor circuits can be built on a single small silicon chip. The ability to create silicon chips containing specialized multi-transistor circuit revolutionized electronics development.   
+        </p>
+
+        <p>
+          In this chapter, we are going to examine 
+        </p>
+
+        <p>
+            Diodes are semiconductor-based circuit elements whose behaviors in circuits does not conform to Ohm's law. Before describing diode circuit behavior, we first need to understand what semiconductors are, what properties they exhibit, and how those behaviors combine to produce diode behavior.
+        </p>
     
+    
+  </introduction>  
+
+  <xi:include href="./sec-opamp-ideal.ptx" />
 
 </chapter>

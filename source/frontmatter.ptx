@@ -16,13 +16,16 @@
     </date>
 
     <website>
-      <url href="https://dthuecks.github.io/ElectronicsTextbook/Electronics.html">Textbook (Online Edition)</url>
+      <url href="https://dthuecks.github.io/ElectronicsTextbook/Electronics.html" visual="dthuecks.github.io/ElectronicsTextbook/Electronics.html">Textbook (Online Edition)</url>
+    </website>
+    <website>
+      <url href="https://github.com/dthuecks/ElectronicsTextbook" visual="github.com/dthuecks/ElectronicsTextbook">Project Source Files on GitHub</url>
     </website>
 
     <copyright>
-      <year>2025</year>
+      <year>2024-2025</year>
       <holder>Derek J Thuecks</holder>
-      <shortlicense> This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+      <shortlicense> This work and all project source files are licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> creativecommons.org/licenses/by-sa/4.0</url>
       </shortlicense>
     </copyright>
   

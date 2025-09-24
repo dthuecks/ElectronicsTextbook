@@ -97,12 +97,13 @@
             x = linalg.solve(A,v);
             Gv[i] = np.abs(x[2]*1j*w*L) # Voltage Gain where I3=x[2]
             phi[i] = np.angle(x[2]*1j*w*L) # Phase of output (assuming Vin is at zero phase)
-        p1 = list_plot(list(zip(f,Gv)), scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
-        p2 = list_plot(list(zip(f,phi)), scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
+        p1 = list_plot(list(zip(f,Gv)), plotjoined=True, scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
+        p2 = list_plot(list(zip(f,phi)), plotjoined=True, scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
         graphics_array([p1,p2],2,1)
         </sageplot>
         </image>  
     </p>
+    
     <example>
         <title>Bandgap RLC Circuit</title>
         <statement>
@@ -155,8 +156,8 @@
                 x = linalg.solve(A,v);
                 Gv[i] = np.abs(x[0]*R) # Voltage Gain where I3=x[2]
                 phi[i] = np.angle(x[0]*R) # Phase of output (assuming Vin is at zero phase)
-            p1 = list_plot(list(zip(f,Gv)), scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
-            p2 = list_plot(list(zip(f,phi)), scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
+            p1 = list_plot(list(zip(f,Gv)), plotjoined=True, scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
+            p2 = list_plot(list(zip(f,phi)), plotjoined=True, scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
             graphics_array([p1,p2],2,1)
             </sageplot>
             </image>      

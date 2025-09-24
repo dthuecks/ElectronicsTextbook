@@ -111,7 +111,7 @@
 
             I_D = I0*(np.exp(VD/(n*VT))-1);
 
-            p1 = list_plot(list(zip(VD,I_D)), axes=False, axes_labels=['$V_D$ (V)','$I_D$ (A)'], frame=True)
+            p1 = list_plot(list(zip(VD,I_D)), axes=False, axes_labels=['$V_D$ (V)','$I_D$ (A)'], frame=True, plotjoined=True)
         
             </sageplot>
             </image>  
