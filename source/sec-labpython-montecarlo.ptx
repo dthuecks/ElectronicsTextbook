@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labpython-montecarlo" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Propagating Uncertainties Through Curve Fits</title>
+
+    <p>
+        When conducting experiments, the data that is collected will have some uncertainty associated with all measured values. These uncertainties will naturally give rise to uncertainties in any curve fitting results. Here, we will explain the Monte Carlo technique for estimating uncertainties for fit parameters.
+    </p>
+    <p>
+        The Monte Carlo technique uses repeated curve fits on synthetic data to generate a distribution of values for each fit parameter, from which uncertainties on the fit parameters can be estimated. The synthetic data that is used in these repeated curve fits are generated using the original data and the associated uncertainties on that original data.
+    </p>
+    <p>
+        [THIS SECTION REMAINS IN DEVELOPMENT]
+    </p>
+
+</section>

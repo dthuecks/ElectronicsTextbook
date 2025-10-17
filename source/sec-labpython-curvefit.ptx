@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labpython-curvefit" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Fitting a Curve to Data</title>
+    <p>
+        Frequently, curve fitting will be used to extract results from experimental data. In this section, we demonstrate use of <c>scipy.optimize.curve_fit</c>, the curve fitting function provided within SciPy. 
+    </p>
+    <p>        
+        Curve fitting is accomplished by calling <c>curve_fit(func, xdata, ydata, p0) </c> which returns <c>[param, param_cov]</c> for the following inputs and outputs:
+        <ul>
+            <li>
+                <p>
+                    Inputs:
+                    <ul>
+                        <li>
+                            <p>
+                                func : The name of a user-defined function that defines the fitting equation.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                xdata : An array containing data for the independent variable.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                ydata : An array containing data for the dependent variable.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                p0 : (Optional) An array containing initial guesses for the fitting parameter values. [INCLUDE FURTHER DISCUSSION OF WHEN THIS MIGHT BE USEFUL TO USE.]
+                            </p>
+                        </li>
+                    </ul> 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Outputs:
+                    <ul>
+                        <li>
+                            <p>
+                                param : An array containing values for the fitting parameters that provide the best fit of our function to the provided data.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                param_cov : The covariance matrix for our fit parameters. For our purposes, it is sufficient to know that <c>numpy.sqrt(numpy.diag(pcov))</c> approximates the standard deviation of the fit parameters that arises from discrepancies between data and the best fit curve.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+        </ul>
+        While additional input arguments and returns are available for the <c>curve_fit</c> function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.
+    </p>
+    <p>
+        Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in <xref ref="fig-labpython-voltagedivider-circuit"/>.
+        <figure xml:id="fig-labpython-voltagedivider-circuit">
+            <caption></caption>
+            <image width="50%">
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-labpython-voltagedivider-circuit.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+        Here, <m>R_\text{pot}</m> is a potentiometer (or variable resistor) that the experimenter controls. Content from <xref ref="ch-dc"/> can be used to show that the expected circuit behavior should be governed by
+        <me>
+            V_\text{out} = \frac{R_\text{pot}}{R_\text{fixed}+R_\text{pot}}V_\text{in}
+        </me>.
+        This expression is used to create the user-defined function <c>func</c> which has the independent variable (<m>R_\text{pot}</m> in this case) as its first argument, variables representing each fitting parameter as subsequent arguments, and returns a value based on our fitting function.
+    </p>
+    <p>
+        If an experiment is conducted to collect <m>V_\text{out}</m> data as <m>R_\text{pot}</m> varies, a curve fit can be used to estimate values for <m>V_\text{in}</m> and <m>R_\text{fixed}</m> in our experiment. The Python code below demonstrates this process.
+    </p>    
+    <sage language="python">
+        <input>
+            globals().clear() # Clear all variables from previous code runs
+            import numpy as np
+            import scipy.optimize as opt
+            import matplotlib.pyplot as plt
+
+            plt.close('all') # Close all open figures
+
+            # Define our fitting function
+            def func(R, Vin, Rfix):
+                return Vin*R/(Rfix+R)
+
+            # Create arrays containing data from experiment 
+            Rpot = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+            Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
+
+            # Perform curve fitting
+            param, param_cov = opt.curve_fit(func, Rpot, Vout);
+            
+            # Calculate standard deviation on fit parameters (associated with data scatter)
+            sigma=np.sqrt(np.diag(param_cov));
+            
+            # Print values and uncertainties for fit parameters
+            print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(param[0],sigma[0],param[1], sigma[1]))
+            
+            # Create arrays containing values for the best fit curve (useful for plotting best fit curve)
+            Rpot_fit=np.linspace(0,10000, 100);
+            Vout_fit=param[0]*Rpot_fit/(param[1]+Rpot_fit);
+
+            # Plot experiment data and best fit curve on the same axes
+            plt.plot(Rpot, Vout, 'o', label='Data');
+            plt.plot(Rpot_fit, Vout_fit, label='Fit')
+            plt.xlim(0,10500);
+            plt.ylim(0,3.5);
+            plt.xlabel(r'Resistance ($\Omega$)')
+            plt.ylabel(r'$V_\text{out}$')
+            plt.legend();
+            plt.show();
+            
+        </input>
+        <output>
+            
+        </output>
+    </sage>
+    <p>
+        [INCLUDE A PREFIGURE PLOT SHOWING RESULT OF THE CODE ALONG WITH THE ACCOMPANYING TEXT OUTPUT.] When generating the synthetic data in the above example, values of <m>V_\text{in}=5.0\text{V}</m> and <m>R_\text{fixed}=5\text{k}\Omega</m> were used. 
+    </p>
+
+</section>

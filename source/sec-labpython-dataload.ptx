@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labpython-dataload" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Loading Data Files</title>
+    <p>
+        Here, we are going to import data from a spreadsheet file, bringing it into Python as a NumPy array.
+        <example>
+            <title>Import from .csv file using NumPy</title>
+            <p>
+                If you are starting with data in an .xlsx file, you must first convert it into a .csv file using the 'Save As' feature, selecting 'CSV (Comma Delimited)' format. Then, import your data into Python using code like the following:
+            </p>
+            <program language="python">
+            <code>
+                import numpy as np
+
+                # Read filename.csv file into a pandas dataframe. Skip the first two lines as they are string headers.
+                data = np.loadtxt('filename.csv', skiprows=2, delimiter=',');
+                R = data[:,0]; 
+                V = data[:,1];
+            </code>
+            </program>
+        </example>
+
+        <example>
+        <title>Import from .xlsx file using Pandas package</title>
+            <program language="python">
+                <p>
+                    The Pandas package in Python is a powerful data analysis and manipulation tool. If you intend to work with large amounts of data in Python, you may wish to investigate the capabilities of this package. For our purposes now, we'll just scratch the surface of its functionality and solely use it to import data into Python from an xlsx file format (from Excel), eventually converting it into NumPy arrays.
+                </p>
+            <code>
+                import pandas as pd
+                import numpy as np
+
+                # Read filename.xlsx file into a pandas dataframe
+                df = pd.read_excel('filename.xlsx'); 
+                
+                # Create a pandas sequence using the 0th column of data. Rows 0 and 1 contain header info.
+                df_R = df.iloc[2:,0]; 
+                
+                # Create a pandas sequence using the 1st column of data. Rows 0 and 1 contain header info.
+                df_V = df.iloc[2:,1]; 
+                
+                # Convert pandas sequences to numpy arrays
+                R = df_R.to_numpy();
+                V = df_V.to_numpy();
+            </code>
+            </program>
+        </example>
+    </p>
+    
+</section>
