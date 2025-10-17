@@ -1135,13 +1135,13 @@ var ptx_lunr_docs = [
   "body": " Transistors  "
 },
 {
-  "id": "ch-opamp",
+  "id": "sec-opamp-ideal",
   "level": "1",
-  "url": "ch-opamp.html",
-  "type": "Chapter",
-  "number": "6",
-  "title": "Operational Amplifiers",
-  "body": " Operational Amplifiers  "
+  "url": "sec-opamp-ideal.html",
+  "type": "Section",
+  "number": "6.1",
+  "title": "",
+  "body": "  "
 },
 {
   "id": "ch-digital",
@@ -1302,8 +1302,8 @@ var ptx_lunr_docs = [
   "url": "sec-labpython-plotting.html",
   "type": "Section",
   "number": "13.2",
-  "title": "Line Plots in Python",
-  "body": " Line Plots in Python  Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.      "
+  "title": "Producing Line Plots",
+  "body": " Producing Line Plots  Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.      "
 },
 {
   "id": "sec-labpython-curvefit",
@@ -1311,8 +1311,26 @@ var ptx_lunr_docs = [
   "url": "sec-labpython-curvefit.html",
   "type": "Section",
   "number": "13.3",
-  "title": "Fitting a curve to data in Python",
-  "body": " Fitting a curve to data in Python  In this section, we will use the scipy.optimize.curve_fit function to fit a curve to data. In the example below, we define a function func(Rpot, Vin, Rfix) where this is the functional form that scipy.optimize.curve_fit is going to apply when fitting our data. In this function that we define, the first argument ( Rpot in our case) is the independent variable. The other arguments ( Vin, Rfix ) are the fitting parameters. We've defined our function assuming that our data describes a voltage divider where . The actual curve fitting is then performed with the opt.curve_fit command which takes as arguments the function name ( func ), and the xdata and ydata . The outputs that we get from the curve_fit function are stored in param and param_cov which represent an array with our fit parameters and a 2D array containing the approximate covariance matrix. For our purposes, you just need to know that np.sqrt(np.diag(pcov)) approximates the standard deviation on the fit parameters. See the official documentation for scipy.optimize.curve_fit for further details. Here, we provide an example. When generating the synthetic data below, we assumed that and .   "
+  "title": "Fitting a Curve to Data",
+  "body": " Fitting a Curve to Data  Frequently, curve fitting will be used to extract results from experimental data. In this section, we demonstrate use of scipy.optimize.curve_fit , the curve fitting function provided within SciPy.  Curve fitting is accomplished by calling curve_fit(func, xdata, ydata, p0) which returns [param, param_cov] for the following inputs and outputs:   Inputs:   func : The name of a user-defined function that defines the fitting equation.    xdata : An array containing data for the independent variable.    ydata : An array containing data for the dependent variable.    p0 : (Optional) An array containing initial guesses for the fitting parameter values. [INCLUDE FURTHER DISCUSSION OF WHEN THIS MIGHT BE USEFUL TO USE.]       Outputs:   param : An array containing values for the fitting parameters that provide the best fit of our function to the provided data.    param_cov : The covariance matrix for our fit parameters. For our purposes, it is sufficient to know that numpy.sqrt(numpy.diag(pcov)) approximates the standard deviation of the fit parameters that arises from discrepancies between data and the best fit curve.      While additional input arguments and returns are available for the curve_fit function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.  Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in .      Here, is a potentiometer (or variable resistor) that the experimenter controls. Content from can be used to show that the expected circuit behavior should be governed by . This expression is used to create the user-defined function func which has the independent variable ( in this case) as its first argument, variables representing each fitting parameter as subsequent arguments, and returns a value based on our fitting function.  If an experiment is conducted to collect data as varies, a curve fit can be used to estimate values for and in our experiment. The Python code below demonstrates this process.   [INCLUDE A PREFIGURE PLOT SHOWING RESULT OF THE CODE ALONG WITH THE ACCOMPANYING TEXT OUTPUT.] When generating the synthetic data in the above example, values of and were used.  "
+},
+{
+  "id": "fig-labpython-voltagedivider-circuit",
+  "level": "2",
+  "url": "sec-labpython-curvefit.html#fig-labpython-voltagedivider-circuit",
+  "type": "Figure",
+  "number": "13.3.1",
+  "title": "",
+  "body": "     "
+},
+{
+  "id": "sec-labpython-montecarlo",
+  "level": "1",
+  "url": "sec-labpython-montecarlo.html",
+  "type": "Section",
+  "number": "13.4",
+  "title": "Propagating Uncertainties Through Curve Fits",
+  "body": " Propagating Uncertainties Through Curve Fits  When conducting experiments, the data that is collected will have some uncertainty associated with all measured values. These uncertainties will naturally give rise to uncertainties in any curve fitting results. Here, we will explain the Monte Carlo technique for estimating uncertainties for fit parameters.  The Monte Carlo technique uses repeated curve fits on synthetic data to generate a distribution of values for each fit parameter, from which uncertainties on the fit parameters can be estimated. The synthetic data that is used in these repeated curve fits are generated using the original data and the associated uncertainties on that original data.  [THIS SECTION REMAINS IN DEVELOPMENT]  "
 },
 {
   "id": "sec-labactivities-voltagedivider",

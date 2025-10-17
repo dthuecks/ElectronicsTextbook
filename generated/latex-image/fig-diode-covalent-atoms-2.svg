@@ -68,15 +68,15 @@
 <path transform="matrix(1.00006,0,0,-1.00002,-30.262612,114.99495)" stroke-width=".3985" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M88.78162 45.72853H105.4966"/>
 <path transform="matrix(1.00006,0,0,-1.00002,-30.262612,114.99495)" stroke-width=".3985" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M85.333 61.86801H108.94522"/>
 <g clip-path="url(#clip_2)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-192,688)" fill="url(#pattern_3)" x="605.3347" y="257.9506" width="57.396608" height="57.396638"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-192,688)" fill="url(#pattern_3)" x="610.68899" y="263.3048" width="46.68817" height="46.68817"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00002,-30.262612,114.99495)" stroke-width=".3985" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M53.96996 75.31758V80.69742H113.81578V75.31758ZM113.81578 80.69742"/>
 <g clip-path="url(#clip_4)">
-<rect transform="matrix(.7071,.7071,.7071,-.7071,-192,688)" fill="url(#pattern_5)" x="-331.62147" y="611.8858" width="67.11975" height="67.11975"/>
+<rect transform="matrix(.7071,.7071,.7071,-.7071,-192,688)" fill="url(#pattern_5)" x="-326.2672" y="617.24008" width="56.411287" height="56.411317"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00002,-30.262612,114.99495)" stroke-width=".3985" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M47.09514 91.45708V96.8369H120.69058V91.45708ZM120.69058 96.8369"/>
 <g clip-path="url(#clip_6)">
-<rect transform="matrix(.7071,.7071,.7071,-.7071,-192,688)" fill="url(#pattern_7)" x="-349.90464" y="616.428" width="80.86075" height="80.86078"/>
+<rect transform="matrix(.7071,.7071,.7071,-.7071,-192,688)" fill="url(#pattern_7)" x="-344.55039" y="621.7822" width="70.15225" height="70.15228"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00002,-30.262612,114.99495)" stroke-width=".3985" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M37.37947 107.59656V112.97638H130.40625V107.59656ZM130.40625 112.97638"/>
 <path transform="matrix(1.00006,0,0,-1.00002,-30.262612,114.99495)" stroke-width=".3985" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#000000" d="M44.15414 13.44957V64.61243"/>

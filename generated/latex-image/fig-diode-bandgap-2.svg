@@ -101,12 +101,12 @@
 </defs>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M0-7.08669V21.2601H56.69362V-7.08669ZM56.69362 21.2601"/>
 <g clip-path="url(#clip_1)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_2)" x="542.55917" y="282.84553" width="82.68109" height="82.68109"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_2)" x="553.26779" y="293.55415" width="61.263856" height="61.263856"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M0 7.08669V-21.2601H56.69362V7.08669ZM56.69362-21.2601"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M70.867 3.54333V31.89014H127.56062V3.54333ZM127.56062 31.89014"/>
 <g clip-path="url(#clip_3)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_4)" x="585.1562" y="225.21448" width="82.68109" height="82.68109"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_4)" x="595.86477" y="235.92308" width="61.263917" height="61.26387"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M70.867-3.54333V-31.89014H127.56062V-3.54333ZM127.56062-31.89014"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M141.73404 3.54333V31.89014H198.42766V3.54333ZM198.42766 31.89014"/>
@@ -129,7 +129,7 @@
 <use data-text="r" xlink:href="#font_9_96" transform="matrix(9.963197,0,0,-9.963098,258.9092,22.280522)"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M212.60106 14.17339V42.5202H269.29469V14.17339ZM269.29469 42.5202"/>
 <g clip-path="url(#clip_10)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_11)" x="677.8672" y="117.46936" width="82.68115" height="82.68109"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_11)" x="688.5758" y="128.17795" width="61.263917" height="61.263887"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M212.60106-14.17339V-42.5202H269.29469V-14.17339ZM269.29469-42.5202"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M325.9883 28.3468H270.09169"/>
