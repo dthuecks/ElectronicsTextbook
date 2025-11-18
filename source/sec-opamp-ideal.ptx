@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-opamp-ideal" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title></title>
+    <title>The Ideal OpAmp</title>
+    <p>
+        The schematic symbol for an ideal op-amp is provided in <xref ref="fig-opamp-ideal-schematic"/>  while an example pin diagram is shown for a specific op-amp model (741CN) in <xref ref="fig-opamp-ideal-pin-diagram" />
+        <figure xml:id="fig-opamp-ideal">
+            <caption></caption>
+            <sidebyside widths="45% 45%" margins="auto" valign="top">
+                <figure xml:id="fig-opamp-ideal-schematic">
+                    <caption>Schematic symbol for an ideal op-amp. </caption>
+                    <image>
+                        <shortdescription></shortdescription>
+                        <latex-image>
+                            <xi:include parse="text" href="./figures/fig-opamp-ideal-schematic.ptx" />
+                        </latex-image>  
+                    </image>
+                </figure>
+                <figure xml:id="fig-opamp-ideal-pin-diagram">
+                    <caption>Reverse biased.</caption>
+                    <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="./figures/fig-opamp-ideal-pin-diagram.ptx" />
+                    </latex-image>        
+                    </image>
+                </figure>
+            </sidebyside>
+        </figure>
+    </p>
 
     
 

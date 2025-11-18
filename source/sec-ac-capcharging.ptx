@@ -4,9 +4,9 @@
     <title>Capacitor Charging and Discharging Behaviors</title>
 
     <p>
-        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>. Assume that the internal battery resistance is much smaller than the circuit resistor so that <m>r_e \ll R</m> and <m>\left(\Delta V\right)_C\approx V_0</m> at <m>t=0</m>.
+        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="fig-ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>. Assume that the internal battery resistance is much smaller than the circuit resistor so that <m>r_e \ll R</m> and <m>\left(\Delta V\right)_C\approx V_0</m> at <m>t=0</m>.
     </p>
-    <figure xml:id="ac-capdischarge">
+    <figure xml:id="fig-ac-capdischarge">
         <caption>A circuit for examining a discharging capacitor.</caption>
         <image width="50%"><latex-image>
             \begin{circuitikz}
