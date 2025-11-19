@@ -1,0 +1,6 @@
+If a file can't be found in LaTeX, use a command like
+    tlmgr install tabularray.sty 
+in the terminal.
+
+I've run into issues with tabularray.sty and ninecolors.sty. I've modified the installLatex.sh file to include these files in the install, but they weren't there initially. I think I might need to re-install each time I start a new codespace? Not certain.
+

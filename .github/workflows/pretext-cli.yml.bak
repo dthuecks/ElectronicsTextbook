@@ -12,9 +12,9 @@ on:
     # Runs on pull requests
     pull_request:
         branches: ["*"]
-    ## Runs on pushes to main
-    #push:
-    #    branches: ["main"]
+    # Runs on pushes to main
+    push:
+        branches: ["main"]
     # Runs on demand
     workflow_dispatch:
 

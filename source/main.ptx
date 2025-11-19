@@ -4,8 +4,6 @@
   <!-- we first include a file which contains the docinfo element: -->
   <xi:include href="./docinfo.ptx" />
 
-  
-
   <book xml:id="Electronics">
     <title>Electronics</title>
     <subtitle>A Guide for Physicists (DRAFT -- in development)</subtitle>
@@ -14,10 +12,6 @@
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
-    <!-- <xi:include href="./ch-introduction-old.ptx" /> -->
-
-    <!-- <xi:include href="./ch-sandbox.ptx" /> -->
-    
     <part xml:id="part-analysis">
       <title>Circuit Analysis</title>
       
@@ -38,25 +32,21 @@
       <xi:include href="./ch-advancedcircuits.ptx" />
     </part>
 
-  <part xml:id="part-lab">
-    <title>Laboratory</title>
+    <part xml:id="part-lab">
+      <title>Laboratory</title>
 
-    <xi:include href="./ch-safety.ptx" />
+      <xi:include href="./ch-safety.ptx" />
     
-    <xi:include href="./ch-labnotebook.ptx" />
+      <xi:include href="./ch-labnotebook.ptx" />
     
-    <xi:include href="./ch-equipment.ptx" />
+      <xi:include href="./ch-equipment.ptx" />
 
-    <xi:include href="./ch-labhints.ptx" />
+      <xi:include href="./ch-labhints.ptx" />
 
-    <xi:include href="./ch-labpython.ptx" />
+      <xi:include href="./ch-labpython.ptx" />
 
-    <xi:include href="./ch-labactivities.ptx" />
-    
-  </part>
-
-    
-
+      <xi:include href="./ch-labactivities.ptx" />
+    </part>
 
     <!-- Include backmatter -->
     <xi:include href="./backmatter.ptx" />
