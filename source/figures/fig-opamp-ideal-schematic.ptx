@@ -1,13 +1,8 @@
 \begin{circuitikz}
-    \draw (0,0)     coordinate(vinn);
-    \draw (vinn)   to[short, o-*] ++(3,0) coordinate(tmp)
-                    to[short, -o] ++(3,0) coordinate(voutn);
-    \draw ([yshift=3cm] vinn) coordinate(vinp)
-                    to[D, o-*] (tmp |- vinp)
-                    to[short, -o] (voutn |- vinp) coordinate(voutp);
-    \draw (tmp)     to[R, l^=$R$] (tmp |- vinp);
-    \path (vinn) -- (vinp)
-                    node[midway]{$V_\text{in}$};
-    \path (voutn) -- (voutp)
-                    node[midway]{$V_\text{out}$};
+    \draw (0,0)                     node[op amp] (opamp) {}
+    (opamp.+)                       node[left] {$V_+$}
+    (opamp.-)                       node[left] {$V_-$}
+    (opamp.out)                     node[right] {$V_\text{out}$}
+    (opamp.up)      --++(0,0.5)     node[above] {$V_{s+}$}
+    (opamp.down)    --++(0,-0.5)    node[below] {$V_{s-}$};
 \end{circuitikz}
