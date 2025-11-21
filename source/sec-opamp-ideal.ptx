@@ -6,7 +6,7 @@
         The schematic symbol for an ideal op-amp is provided in <xref ref="fig-opamp-ideal-schematic"/>, where <m>V_-</m> and <m>V_+</m> are called the <term>inverting input</term> and <term>non-inverting input</term> respectively. The amplifier output is given as <m>V_\text{out}</m>. Op-amps require an external voltage source for operation, just as transistors require <m>V_{CC}</m> and <m>V_{EE}</m> as supply voltages. These two supply voltages are marked as <m>V_{s+}</m> and <m>V_{s-}</m>, though these connections are sometimes left out in circuit diagrams. 
         <figure xml:id="fig-opamp-ideal-schematic">
             <caption>Schematic symbol for an ideal op-amp. The inverting and non-inverting inputs are specified as <m>V_-</m> and <m>V_+</m>. The two voltages <m>V_{s+}</m> and <m>V_{s-}</m> are supplied by an external power source.</caption>
-            <image>
+            <image width="50%">
                 <shortdescription></shortdescription>
                 <latex-image>
                     <xi:include parse="text" href="./figures/fig-opamp-ideal-schematic.ptx" />
@@ -18,7 +18,7 @@
         <xref ref="fig-opamp-pin-diagrams" /> shows a top-view pin diagram for two general-purpose op-amps. The half-moon shape allows one to identify pin 1, with remaining pins being counted in a counter-clockwise manner.
         <figure xml:id="fig-opamp-pin-diagrams">
             <caption>Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.</caption>
-            <sidebyside widths="45% 45%" margins="auto" valign="top">
+            <sidebyside widths="44% 46%" margins="auto" valign="top">
                 
                 <figure xml:id="fig-opamp-LM741-pin-diagram">
                     <caption>LM741</caption>
@@ -40,6 +40,8 @@
                 </figure>
             </sidebyside>
         </figure>
+
+        
     </p>
 
     

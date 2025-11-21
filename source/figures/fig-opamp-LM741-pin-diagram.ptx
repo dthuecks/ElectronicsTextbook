@@ -1,18 +1,18 @@
 \begin{circuitikz}
-    \draw (0,0) node[dipchip, num pins=8, hide numbers, external pins width=0, circuitikz/chips/scale=3](C){};
-    \foreach \pin in {1,...,4} \node[font=\small, left] at(C.bpin \pin) {\pin};
-    \foreach \pin in {5,...,8} \node[font=\small, right] at(C.bpin \pin) {\pin};
-    \node [left, xshift=-4mm, font=\large, align=center] at (C.pin 1) {Offset\\Null};
-    \node [left, xshift=-4mm, font=\large, align=center] at (C.pin 2) {$V_-$};
-    \node [left, xshift=-4mm, font=\large, align=center] at (C.pin 3) {$V_+$};
-    \node [left, xshift=-4mm, font=\large, align=center] at (C.pin 4) {$V_{s-}$};
-    \node [right, xshift=+4mm, font=\large, align=center] at (C.pin 5) {Offset\\Null};
-    \node [right, xshift=+4mm, font=\large, align=center] at (C.pin 6) {$V_\text{out}$};
-    \node [right, xshift=+4mm, font=\large, align=center] at (C.pin 7) {$V_{s+}$};
-    \node [right, xshift=+4mm, font=\large, align=center] at (C.pin 8) {Not\\Used};
+    \draw (0,0) node[dipchip, num pins=8, hide numbers, external pins width=0, circuitikz/chips/scale=1](C){};
+    \foreach \pin in {1,...,4} \node[font=\tiny, left] at(C.bpin \pin) {\pin};
+    \foreach \pin in {5,...,8} \node[font=\tiny, right] at(C.bpin \pin) {\pin};
+    \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 1) {Offset\\Null};
+    \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 2) {$V_-$};
+    \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 3) {$V_+$};
+    \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 4) {$V_{s-}$};
+    \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 5) {Offset\\Null};
+    \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 6) {$V_\text{out}$};
+    \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 7) {$V_{s+}$};
+    \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 8) {Not\\Used};
     % Place op-amp schematic connections inside chip pin diagram
     \path ($(C.pin 6)!0.5!(C.pin 7)$) coordinate (midway-6-7)
-            (midway-6-7 -| C.north) node[op amp](opamp){};
+            (midway-6-7 -| C.north) node[op amp, scale=0.4](opamp){};
     % connect pins
     \draw (C.pin 2) -| (opamp.-);
     \draw (C.pin 3) -| (opamp.+);
