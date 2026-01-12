@@ -304,7 +304,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.9",
   "title": "Problems",
-  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance beetween points A and B in .          Calculate and in .          Calculate values and directions for all unknown currents in . Please use the mesh method as it is likely the shortest path to the solution. [UPDATED SINCE ASSIGNED SP25]  [UPDATED SINCE ASSIGNED SP25]         Calculate the Thevenin equivalents for the circuit in .          Calculate the Thevenin equivalents for the circuit in .          "
+  "body": " Problems    For the circuit in , calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common.          In the circuit shown in , calculate the voltages at points A, B, and C.          A fixed resistor and a potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of based on possible potentiometer settings. (See for an explanation of potentiometers.)          Calculate the current in .          Calculate the equivalent resistance between points A and B in .          Calculate and in .          Calculate values and directions for all unknown currents in . Please use the mesh method as it is likely the shortest path to the solution.          Calculate the Thevenin equivalents for the circuit in .          Calculate the Thevenin equivalents for the circuit in .          "
 },
 {
   "id": "fig-dc-homework-a1",
@@ -367,7 +367,7 @@ var ptx_lunr_docs = [
   "type": "Figure",
   "number": "2.9.7",
   "title": "",
-  "body": " [UPDATED SINCE ASSIGNED SP25]     "
+  "body": "     "
 },
 {
   "id": "fig-dc-homework-a8",
@@ -451,9 +451,9 @@ var ptx_lunr_docs = [
   "body": " Capacitor Charging and Discharging Behaviors  Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in . We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time . Assume that the internal battery resistance is much smaller than the circuit resistor so that and at .   A circuit for examining a discharging capacitor.     We can use KVL to examine the circuit. Since the switch is opened at , we only have a single KVL equation where is the voltage difference between the capacitor plates. For a capacitor, , so . If we take the time derivative of both sides and recognize that , we get or, after rearranging: . By inspection, the solution to this differential equation is where . Now, this current can be plugged back into our original equation to find where at the instant that the switch opens and we've defined something called the RC time constant  which is a characteristic response time associated with this RC circuit. We plot this discharging behavior in .   Discharging capacitor.    Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in . Here, we do not worry about the battery's internal resistance as typically, meaning that the charging behavior will be determined by .   A circuit for examining a charging capacitor.    Applying the loop law, we find that where is the voltage difference across the capacitor. Remembering that we find that or . Since is a constant, we can write this as . If we define , then this becomes . This has an exponential solution of the form which can be rearranged into . This shows that the capacitor charges from 0% to 63% in .   Charging capacitor.    When charging a capacitor, energy is being stored in the electric field . Likewise, inductors can store energy. As the current through an inductor increases, energy is stored i nthe magnetic field .  "
 },
 {
-  "id": "ac-capdischarge",
+  "id": "fig-ac-capdischarge",
   "level": "2",
-  "url": "sec-ac-capcharging.html#ac-capdischarge",
+  "url": "sec-ac-capcharging.html#fig-ac-capdischarge",
   "type": "Figure",
   "number": "3.5.1",
   "title": "",
@@ -1140,8 +1140,26 @@ var ptx_lunr_docs = [
   "url": "sec-opamp-ideal.html",
   "type": "Section",
   "number": "6.1",
+  "title": "The Ideal OpAmp",
+  "body": " The Ideal OpAmp  The schematic symbol for an ideal op-amp is provided in , where and are called the inverting input and non-inverting input respectively. The amplifier output is given as . Op-amps require an external voltage source for operation, just as transistors require and as supply voltages. These two supply voltages are marked as and , though these connections are sometimes left out in circuit diagrams.  Schematic symbol for an ideal op-amp. The inverting and non-inverting inputs are specified as and . The two voltages and are supplied by an external power source.         shows a top-view pin diagram for two general-purpose op-amps. The half-moon shape allows one to identify pin 1, with remaining pins being counted in a counter-clockwise manner.  Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.    LM741        LM358          "
+},
+{
+  "id": "sec-opamp-ideal-2",
+  "level": "2",
+  "url": "sec-opamp-ideal.html#sec-opamp-ideal-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": "  "
+  "body": "inverting input non-inverting input "
+},
+{
+  "id": "fig-opamp-pin-diagrams",
+  "level": "2",
+  "url": "sec-opamp-ideal.html#fig-opamp-pin-diagrams",
+  "type": "Figure",
+  "number": "6.1.2",
+  "title": "",
+  "body": " Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.    LM741        LM358        "
 },
 {
   "id": "ch-digital",
@@ -1330,7 +1348,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "13.4",
   "title": "Propagating Uncertainties Through Curve Fits",
-  "body": " Propagating Uncertainties Through Curve Fits  When conducting experiments, the data that is collected will have some uncertainty associated with all measured values. These uncertainties will naturally give rise to uncertainties in any curve fitting results. Here, we will explain the Monte Carlo technique for estimating uncertainties for fit parameters.  The Monte Carlo technique uses repeated curve fits on synthetic data to generate a distribution of values for each fit parameter, from which uncertainties on the fit parameters can be estimated. The synthetic data that is used in these repeated curve fits are generated using the original data and the associated uncertainties on that original data.  [THIS SECTION REMAINS IN DEVELOPMENT]  "
+  "body": " Propagating Uncertainties Through Curve Fits  When conducting experiments, any data collected will have some uncertainty associated with it. These uncertainties will naturally give rise to uncertainties in any subsequent curve fitting results. Here, we will explain the Monte Carlo technique for estimating uncertainties for fit parameters.  The Monte Carlo technique uses repeated curve fits on synthetic data to generate a distribution of values for each fit parameter. Fit parameter uncertainties can be found from these distributions. The synthetic data that is used in these repeated curve fits are generated using the original data with their associated uncertainties.  We will use [THIS SECTION REMAINS IN DEVELOPMENT]  "
 },
 {
   "id": "sec-labactivities-voltagedivider",

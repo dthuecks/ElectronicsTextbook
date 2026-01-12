@@ -118,15 +118,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.13';
+eBookConfig.runestone_version = '7.11.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.9f7f6b353cd8c357.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.629fdbd852876870.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/prefix-runtime.991c135ccf182bf5.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1c010553c35c544c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.677a75a9120449ff.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -230,7 +230,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-transistor.html" class="internal"><span class="codenumber">5</span> <span class="title">Transistors</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-opamp.html" class="internal"><span class="codenumber">6</span> <span class="title">Operational Amplifiers</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-opamp-ideal.html" class="internal"><span class="codenumber">6.1</span> <span class="title"></span></a></div></li></ul>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-opamp-ideal.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Ideal OpAmp</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-digital.html" class="internal"><span class="codenumber">7</span> <span class="title">Digital Electronics</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-advancedcircuits.html" class="internal"><span class="codenumber">8</span> <span class="title">Advanced Circuits</span></a></div></li>
@@ -285,7 +285,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-appendix">
-<div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Python</span></a></div>
+<div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Numerical Methods</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="subapp-python-newtonmethod.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Newton’s Method</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrices.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrices</span></a></div></li>
@@ -322,7 +322,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para logical" id="sec-dc-series_parallel-4">
 <div class="para">Rather than solving this system of equations for the three currents, we will instead perform some intermediate analysis to investigate the behavior of resistor combinations. Starting with <a href="sec-dc-series_parallel.html#eqn-intro-kvl1" class="xref" data-knowl="./knowl/xref/eqn-intro-kvl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.2">(2.3.2)</a>, we can see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-4-2">
 \begin{equation*}
 V_b - I_2\left(R_1 + R_2\right) = V_b - I_2 R_{1+2}\text{.}
 \end{equation*}
@@ -357,13 +357,13 @@ I_1 \amp = I_2 + I_3 \Rightarrow \\
 \end{align*}
 </div>
 <div class="para">so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-4-24">
 \begin{equation*}
 V_b = I_1 \left(\frac{1}{R_{1+2}} + \frac{1}{R_3}\right)^{-1}\text{.}
 \end{equation*}
 </div>
 <div class="para">This has the form of Ohm’s Law where <span class="process-math">\(R_{1+2}\)</span> and <span class="process-math">\(R_3\)</span> combine into an equivalent resistance</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-intro-kvl1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/dc-circuit1-alt1.html ./knowl/xref/eqn-intro-kcl1.html" id="sec-dc-series_parallel-4-27">
 \begin{equation*}
 R_{(1+2)||3}^{-1}=R_{1+2}^{-1}+R_3^{-1}\text{.}
 \end{equation*}
