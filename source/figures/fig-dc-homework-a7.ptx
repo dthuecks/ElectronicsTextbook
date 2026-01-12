@@ -8,6 +8,6 @@
                     to[short, -*] ++(-3,0) coordinate(d)
                     to[short] (start);
     \draw (a)       to[R, -*,l^=\SI{1}{\kilo\ohm}] ++(0,-2) coordinate(c)
-                    to[R, l^=\SI{1}{\kilo\ohm}] ++(0,-2);
+                    to[R, l^=\SI{2}{\kilo\ohm}] ++(0,-2);
     \draw (b)       to[R, l^=\SI{1}{\kilo\ohm}] (c);    
 \end{circuitikz}

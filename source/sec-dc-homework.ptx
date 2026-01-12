@@ -58,7 +58,7 @@
     </li>
     <li>
         <p>
-            Calculate the equivalent resistance beetween points A and B in <xref ref="fig-dc-homework-a5"/>.
+            Calculate the equivalent resistance between points A and B in <xref ref="fig-dc-homework-a5"/>.
             <figure xml:id="fig-dc-homework-a5">
                 <caption></caption>
                 <image width="70%">
@@ -84,9 +84,9 @@
     </li>
     <li>
         <p>
-            Calculate values and directions for all unknown currents in <xref ref="fig-dc-homework-a7"/>. Please use the mesh method as it is likely the shortest path to the solution. [UPDATED SINCE ASSIGNED SP25]
+            Calculate values and directions for all unknown currents in <xref ref="fig-dc-homework-a7"/>. Please use the mesh method as it is likely the shortest path to the solution.
             <figure xml:id="fig-dc-homework-a7">
-                <caption>[UPDATED SINCE ASSIGNED SP25]</caption>
+                <caption></caption>
                 <image width="70%">
                 <latex-image>
                     <xi:include parse="text" href="./figures/fig-dc-homework-a7.ptx" />
