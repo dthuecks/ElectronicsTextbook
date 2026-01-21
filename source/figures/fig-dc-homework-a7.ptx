@@ -2,12 +2,12 @@
     \draw (0,0) coordinate(start);
     \draw (start)   to[R,-*, l^=\SI{1}{\kilo\ohm}] ++(0,2) coordinate(b)
                     to[R, l^=\SI{1}{\kilo\ohm}] ++(0,2)
-                    to[short, -*] ++(3,0) coordinate(a)
-                    to[short] ++(3,0)
+                    to[short, -*, i<^=$I_2$] ++(3,0) coordinate(a)
+                    to[short, i<^=$I_1$] ++(3,0)
                     to[battery, l^=\SI{12}{V}] ++(0,-4)
                     to[short, -*] ++(-3,0) coordinate(d)
                     to[short] (start);
     \draw (a)       to[R, -*,l^=\SI{1}{\kilo\ohm}] ++(0,-2) coordinate(c)
                     to[R, l^=\SI{2}{\kilo\ohm}] ++(0,-2);
-    \draw (b)       to[R, l^=\SI{1}{\kilo\ohm}] (c);    
+    \draw (b)       to[R, l^=\SI{1}{\kilo\ohm}, i<_=$I_3$] (c);    
 \end{circuitikz}
