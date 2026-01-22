@@ -4,7 +4,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) -- (1,0);
                 \end{circuitikz}
@@ -13,7 +13,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) -- (1,0);
                     \draw (0.5,0) to[short, *-] (0.5,0.5);
@@ -23,7 +23,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}[american voltages]
                     \draw (0,0) to [battery, v>=$$] (2,0);
                 \end{circuitikz}
@@ -37,7 +37,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) to [sinusoidal voltage source] (2,0);
                 \end{circuitikz}
@@ -46,7 +46,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) to [american current source] (2,0);
                 \end{circuitikz}
@@ -55,7 +55,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) to [R] (2,0);
                 \end{circuitikz}
@@ -64,7 +64,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) to [C] (2,0);
                 \end{circuitikz}
@@ -73,7 +73,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="50%"><latex-image >
+            <image width="100%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) to [inductor] (2,0);
                 \end{circuitikz}
@@ -82,7 +82,7 @@
     </row>
     <row bottom="minor">
         <cell>
-            <image width="25%"><latex-image >
+            <image width="50%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) node[ground] {};
                 \end{circuitikz}
@@ -95,7 +95,7 @@
     </row>
     <row>
         <cell>
-            <image width="25%"><latex-image >
+            <image width="50%"><latex-image >
                 \begin{circuitikz}
                     \draw (0,0) node[sground] {};
                 \end{circuitikz}

@@ -47,27 +47,30 @@
     </p>
 </section>
 
-<section xml:id="sec-introduction-schematics" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>Fundamentals of Circuit Schematics</title>
-    
-    
+<section xml:id="sec-circuit-schematics" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Circuit Schematic: A Visual Model of a Circuit</title>
     <p>
-        Analysis of a circuit often starts with producing a visual representation of a circuit's important properties. Rather than using an artistic representation of a real circuit, schematic diagrams are typically used instead. An example of a circuit schematic is given in <xref ref="fig-intro-schematic"/>.
-        <figure xml:id="fig-intro-schematic">
-            <caption></caption>
-            <image width="70%">
-                <shortdescription></shortdescription>
-                <latex-image>
-                    <xi:include parse="text" href="./figures/fig-ac-python-LRC-circuit.ptx" />
-                </latex-image>
-            </image>
-        </figure>
-        Explanation of the various circuit elements used in <xref ref="fig-intro-schematic"/> are provided in <xref ref="tbl-intro-circuit-symbols"/>.
+        Before we can jump into analyzing the behavior of a circuit, we must first identify features of the circuit that are likely to contribute most importantly to the overall circuit behavior to within some desired degree of accuracy. Such a process is an example of model building, a common activity in physics and one that is a bit of an art form. Model building requires practioners to balance model simplicity (a desirable quality that simplifies circuit analysis) with the model's ability to represent the real behavior of a physical circuit if it were to be built. A model that is too complex, it may become difficult, costly (in time or money), or impossible to use in generating predictions of circuit behavior. On the other hand, a model that is too simple may leave out important qualities, leading to predictions that have little semblance to reality. Finding the proper balance between simplicity and completeness is an activity that practitioners learn over time and through experience. 
+        
+    </p>
+    <p>    
+        A <term>circuit schematic</term>, like the one shown in <xref ref="fig-intro-schematic"/> is a visual model of a circuit. Rather than presenting an artistic representation or photograph of a real circuit, a circuit schematic represents the circuit construction and includes enough information about the behavior of circuit components and the connections between them while leaving out information that is unimportant for our particular purposes. 
+    </p>
+    <figure xml:id="fig-intro-schematic">
+        <caption></caption>
+        <image width="70%">
+            <shortdescription></shortdescription>
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-ac-python-LRC-circuit.ptx" />
+            </latex-image>
+        </image>
+    </figure>
+    <p>
+    In <xref ref="fig-intro-schematic"/>, circuit components are represented using standard symbols that are defined in <xref ref="tbl-intro-circuit-symbols"/>. We find an AC voltage source, a resistor, a capacitor, and an inductor, all labeled with variable names. Lines in the circuit schematic represent wire connections between components. If a dot is present where two lines intersect, it indicates a junction where two wires that are connected. Arrows (and associated labels) are used to represent the current present in various parts of the circuit.
         <table xml:id="tbl-intro-circuit-symbols"> 
             <title> Circuit Symbols </title>
                 <xi:include href="./figures/tbl-intro-circuit-symbols.ptx" />
         </table>
-        So, lines represent wires connecting terminals of circuit elements. If a dot is present where two lines intersect, then it means that those two wires are connected. We have also labeled all of our components and provided labels and directions for currents.
     </p>    
 </section>
 
