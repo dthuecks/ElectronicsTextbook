@@ -46,18 +46,27 @@ var ptx_lunr_docs = [
   "body": "Current "
 },
 {
-  "id": "sec-introduction-schematics",
+  "id": "sec-circuit-schematics",
   "level": "1",
-  "url": "sec-introduction-schematics.html",
+  "url": "sec-circuit-schematics.html",
   "type": "Section",
   "number": "1.2",
-  "title": "Fundamentals of Circuit Schematics",
-  "body": " Fundamentals of Circuit Schematics  Analysis of a circuit often starts with producing a visual representation of a circuit's important properties. Rather than using an artistic representation of a real circuit, schematic diagrams are typically used instead. An example of a circuit schematic is given in .       Explanation of the various circuit elements used in are provided in .  Circuit Symbols    Symbol Name Notes      wire      junction       Battery   SI Unit: Volt (V),  Long line is + terminal       AC voltage source SI Unit: Volt (V)      DC current source SI Unit: Ampere (A)      Resistor SI Unit: Ohm ( )      Capacitor SI Unit: Farad (F)      Inductor SI Unit: Henry (H)      Ground   Physically connected to Earth.  Acts as charge source\/sink.       Common   Circuit reference.  Assume V=0 at common.     So, lines represent wires connecting terminals of circuit elements. If a dot is present where two lines intersect, then it means that those two wires are connected. We have also labeled all of our components and provided labels and directions for currents.  "
+  "title": "Circuit Schematic: A Visual Model of a Circuit",
+  "body": " Circuit Schematic: A Visual Model of a Circuit  Before we can jump into analyzing the behavior of a circuit, we must first identify features of the circuit that are likely to contribute most importantly to the overall circuit behavior to within some desired degree of accuracy. Such a process is an example of model building, a common activity in physics and one that is a bit of an art form. Model building requires practioners to balance model simplicity (a desirable quality that simplifies circuit analysis) with the model's ability to represent the real behavior of a physical circuit if it were to be built. A model that is too complex, it may become difficult, costly (in time or money), or impossible to use in generating predictions of circuit behavior. On the other hand, a model that is too simple may leave out important qualities, leading to predictions that have little semblance to reality. Finding the proper balance between simplicity and completeness is an activity that practitioners learn over time and through experience.  A circuit schematic , like the one shown in is a visual model of a circuit. Rather than presenting an artistic representation or photograph of a real circuit, a circuit schematic represents the circuit construction and includes enough information about the behavior of circuit components and the connections between them while leaving out information that is unimportant for our particular purposes.         In , circuit components are represented using standard symbols that are defined in . We find an AC voltage source, a resistor, a capacitor, and an inductor, all labeled with variable names. Lines in the circuit schematic represent wire connections between components. If a dot is present where two lines intersect, it indicates a junction where two wires that are connected. Arrows (and associated labels) are used to represent the current present in various parts of the circuit.  Circuit Symbols    Symbol Name Notes      wire      junction       Battery   SI Unit: Volt (V),  Long line is + terminal       AC voltage source SI Unit: Volt (V)      DC current source SI Unit: Ampere (A)      Resistor SI Unit: Ohm ( )      Capacitor SI Unit: Farad (F)      Inductor SI Unit: Henry (H)      Ground   Physically connected to Earth.  Acts as charge source\/sink.       Common   Circuit reference.  Assume V=0 at common.       "
+},
+{
+  "id": "sec-circuit-schematics-3",
+  "level": "2",
+  "url": "sec-circuit-schematics.html#sec-circuit-schematics-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "circuit schematic "
 },
 {
   "id": "fig-intro-schematic",
   "level": "2",
-  "url": "sec-introduction-schematics.html#fig-intro-schematic",
+  "url": "sec-circuit-schematics.html#fig-intro-schematic",
   "type": "Figure",
   "number": "1.2.1",
   "title": "",
@@ -66,7 +75,7 @@ var ptx_lunr_docs = [
 {
   "id": "tbl-intro-circuit-symbols",
   "level": "2",
-  "url": "sec-introduction-schematics.html#tbl-intro-circuit-symbols",
+  "url": "sec-circuit-schematics.html#tbl-intro-circuit-symbols",
   "type": "Table",
   "number": "1.2.2",
   "title": "Circuit Symbols",
