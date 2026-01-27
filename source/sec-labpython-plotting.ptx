@@ -3,7 +3,7 @@
 <section xml:id="sec-labpython-plotting" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Producing Line Plots</title>
     <p>
-        Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in <xref ref="fig-labpython-plotting-vdiv"/>. In this experiment, <m>V_\text{in}=5.0\text{V}</m>, <m>R_\text{fixed}=5\text{k}\Omega</m>, and we measured <m>V_\text{out}</m> as <m>R</m> was varied between <m>0-10\text{k}\Omega</m>. The code below produces a plot in which the data is represented as closed circles and the theoretical prediction is represented as a solid line.
+        Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in <xref ref="fig-labpython-plotting-vdiv"/>. In this experiment, <m>V_\text{in}=5.0\text{V}</m>, <m>R_\text{fixed}=5\text{k}\Omega</m>, and we measured <m>V_\text{out}</m> as <m>R</m> was varied between <m>0-10\text{k}\Omega</m>. The code below produces a plot in which the data are represented as closed circles and the theoretical prediction is represented as a solid line.
     </p>
     <figure xml:id="fig-labpython-plotting-vdiv">
         <caption></caption>
