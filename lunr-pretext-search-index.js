@@ -1330,7 +1330,16 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "13.2",
   "title": "Producing Line Plots",
-  "body": " Producing Line Plots  Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.      "
+  "body": " Producing Line Plots  Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in . In this experiment, , , and we measured as was varied between . The code below produces a plot in which the data is represented as closed circles and the theoretical prediction is represented as a solid line.          "
+},
+{
+  "id": "fig-labpython-plotting-vdiv",
+  "level": "2",
+  "url": "sec-labpython-plotting.html#fig-labpython-plotting-vdiv",
+  "type": "Figure",
+  "number": "13.2.1",
+  "title": "",
+  "body": "     "
 },
 {
   "id": "sec-labpython-curvefit",
