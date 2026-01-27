@@ -56,20 +56,9 @@
         While additional input arguments and returns are available for the <c>curve_fit</c> function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.
     </p>
     <p>
-        Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in <xref ref="fig-labpython-voltagedivider-circuit"/>.
-        <figure xml:id="fig-labpython-voltagedivider-circuit">
-            <caption></caption>
-            <image width="50%">
-            <latex-image>
-                <xi:include parse="text" href="./figures/fig-labpython-voltagedivider-circuit.ptx" />
-            </latex-image>
-            </image>
-        </figure>
-        Here, <m>R_\text{pot}</m> is a potentiometer (or variable resistor) that the experimenter controls. Content from <xref ref="ch-dc"/> can be used to show that the expected circuit behavior should be governed by
-        <me>
-            V_\text{out} = \frac{R_\text{pot}}{R_\text{fixed}+R_\text{pot}}V_\text{in}
-        </me>.
-        This expression is used to create the user-defined function <c>func</c> which has the independent variable (<m>R_\text{pot}</m> in this case) as its first argument, variables representing each fitting parameter as subsequent arguments, and returns a value based on our fitting function.
+        Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in <xref ref="fig-labpython-vdiv-circuit"/>.
+        [FIGURE IN PREVIOUS SECTION... ADJUST TEXT]
+        Here, <m>R_\text{pot}</m> is a potentiometer (or variable resistor) that the experimenter controls. 
     </p>
     <p>
         If an experiment is conducted to collect <m>V_\text{out}</m> data as <m>R_\text{pot}</m> varies, a curve fit can be used to estimate values for <m>V_\text{in}</m> and <m>R_\text{fixed}</m> in our experiment. The Python code below demonstrates this process.

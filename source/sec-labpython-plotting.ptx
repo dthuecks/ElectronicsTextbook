@@ -3,16 +3,21 @@
 <section xml:id="sec-labpython-plotting" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Producing Line Plots</title>
     <p>
-        Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in <xref ref="fig-labpython-plotting-vdiv"/>. In this experiment, <m>V_\text{in}=5.0\text{V}</m>, <m>R_\text{fixed}=5\text{k}\Omega</m>, and we measured <m>V_\text{out}</m> as <m>R</m> was varied between <m>0-10\text{k}\Omega</m>. The code below produces a plot in which the data are represented as closed circles and the theoretical prediction is represented as a solid line.
+        Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in <xref ref="fig-labpython-vdiv-circuit"/>.  
+        <figure xml:id="fig-labpython-vdiv-circuit">
+            <caption></caption>
+            <image width="50%">
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-labpython-vdiv-circuit.ptx" />
+            </latex-image>
+            </image>
+        </figure>
+        Here, <m>R_\text{pot}</m> is a potentiometer (or variable resistor) that the experimenter controls. In this experiment, <m>V_\text{in}=5.0\text{V}</m>, <m>R_\text{fixed}=5\text{k}\Omega</m>, and we measured <m>V_\text{out}</m> as the potentiometer resistance <m>R_\text{pot}</m> was varied between <m>0-10\text{k}\Omega</m>. The code below produces a plot in which the data are represented as closed circles. A solid line represents the theoretical prediction 
+        <me>
+            V_\text{out} = \frac{R_\text{pot}}{R_\text{fixed}+R_\text{pot}}V_\text{in},
+        </me>
+        which can be derived using content from <xref ref="ch-dc"/>.
     </p>
-    <figure xml:id="fig-labpython-plotting-vdiv">
-        <caption></caption>
-        <image width="50%">
-        <latex-image>
-            <xi:include parse="text" href="./figures/fig-labpython-plotting-vdiv.ptx" />
-        </latex-image>
-        </image>
-    </figure>
     <sage language="python">
         <input>
             globals().clear() # Clear all variables from previous code runs
@@ -23,8 +28,8 @@
             plt.close('all') # Close all open figures
 
             # Data points
-            R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
-            V = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
+            Rpot = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+            Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
 
             # Theory curves
             Vin = 5.0 # Volts
@@ -33,7 +38,7 @@
             Vth = Vin*Rth/(Rfixed+Rth);
 
             # Plotting routine
-            plt.plot(R, V, 'o', label='Data');
+            plt.plot(Rpot, Vout, 'o', label='Data');
             plt.plot(Rth, Vth, label='Theory');
             plt.xlim(0,10500);
             plt.ylim(0,3.5);
