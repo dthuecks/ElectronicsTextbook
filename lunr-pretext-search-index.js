@@ -1330,12 +1330,12 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "13.2",
   "title": "Producing Line Plots",
-  "body": " Producing Line Plots  Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in . In this experiment, , , and we measured as was varied between . The code below produces a plot in which the data is represented as closed circles and the theoretical prediction is represented as a solid line.          "
+  "body": " Producing Line Plots  Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in .      Here, is a potentiometer (or variable resistor) that the experimenter controls. In this experiment, , , and we measured as the potentiometer resistance was varied between . The code below produces a plot in which the data are represented as closed circles. A solid line represents the theoretical prediction which can be derived using content from .    "
 },
 {
-  "id": "fig-labpython-plotting-vdiv",
+  "id": "fig-labpython-vdiv-circuit",
   "level": "2",
-  "url": "sec-labpython-plotting.html#fig-labpython-plotting-vdiv",
+  "url": "sec-labpython-plotting.html#fig-labpython-vdiv-circuit",
   "type": "Figure",
   "number": "13.2.1",
   "title": "",
@@ -1348,16 +1348,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "13.3",
   "title": "Fitting a Curve to Data",
-  "body": " Fitting a Curve to Data  Frequently, curve fitting will be used to extract results from experimental data. In this section, we demonstrate use of scipy.optimize.curve_fit , the curve fitting function provided within SciPy.  Curve fitting is accomplished by calling curve_fit(func, xdata, ydata, p0) which returns [param, param_cov] for the following inputs and outputs:   Inputs:   func : The name of a user-defined function that defines the fitting equation.    xdata : An array containing data for the independent variable.    ydata : An array containing data for the dependent variable.    p0 : (Optional) An array containing initial guesses for the fitting parameter values. [INCLUDE FURTHER DISCUSSION OF WHEN THIS MIGHT BE USEFUL TO USE.]       Outputs:   param : An array containing values for the fitting parameters that provide the best fit of our function to the provided data.    param_cov : The covariance matrix for our fit parameters. For our purposes, it is sufficient to know that numpy.sqrt(numpy.diag(pcov)) approximates the standard deviation of the fit parameters that arises from discrepancies between data and the best fit curve.      While additional input arguments and returns are available for the curve_fit function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.  Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in .      Here, is a potentiometer (or variable resistor) that the experimenter controls. Content from can be used to show that the expected circuit behavior should be governed by . This expression is used to create the user-defined function func which has the independent variable ( in this case) as its first argument, variables representing each fitting parameter as subsequent arguments, and returns a value based on our fitting function.  If an experiment is conducted to collect data as varies, a curve fit can be used to estimate values for and in our experiment. The Python code below demonstrates this process.   [INCLUDE A PREFIGURE PLOT SHOWING RESULT OF THE CODE ALONG WITH THE ACCOMPANYING TEXT OUTPUT.] When generating the synthetic data in the above example, values of and were used.  "
-},
-{
-  "id": "fig-labpython-voltagedivider-circuit",
-  "level": "2",
-  "url": "sec-labpython-curvefit.html#fig-labpython-voltagedivider-circuit",
-  "type": "Figure",
-  "number": "13.3.1",
-  "title": "",
-  "body": "     "
+  "body": " Fitting a Curve to Data  Frequently, curve fitting will be used to extract results from experimental data. In this section, we demonstrate use of scipy.optimize.curve_fit , the curve fitting function provided within SciPy.  Curve fitting is accomplished by calling curve_fit(func, xdata, ydata, p0) which returns [param, param_cov] for the following inputs and outputs:   Inputs:   func : The name of a user-defined function that defines the fitting equation.    xdata : An array containing data for the independent variable.    ydata : An array containing data for the dependent variable.    p0 : (Optional) An array containing initial guesses for the fitting parameter values. [INCLUDE FURTHER DISCUSSION OF WHEN THIS MIGHT BE USEFUL TO USE.]       Outputs:   param : An array containing values for the fitting parameters that provide the best fit of our function to the provided data.    param_cov : The covariance matrix for our fit parameters. For our purposes, it is sufficient to know that numpy.sqrt(numpy.diag(pcov)) approximates the standard deviation of the fit parameters that arises from discrepancies between data and the best fit curve.      While additional input arguments and returns are available for the curve_fit function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.  Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in . [FIGURE IN PREVIOUS SECTION... ADJUST TEXT] Here, is a potentiometer (or variable resistor) that the experimenter controls.  If an experiment is conducted to collect data as varies, a curve fit can be used to estimate values for and in our experiment. The Python code below demonstrates this process.   [INCLUDE A PREFIGURE PLOT SHOWING RESULT OF THE CODE ALONG WITH THE ACCOMPANYING TEXT OUTPUT.] When generating the synthetic data in the above example, values of and were used.  "
 },
 {
   "id": "sec-labpython-montecarlo",
