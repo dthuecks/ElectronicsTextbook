@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="sec-labpython-plotting">
+<section xml:id="sec-labpython-plotting" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Producing Line Plots</title>
     <p>
-        Once data is accessible in Python, data analysis and visualization can be performed. If one wishes to produce a lineplot using Python, one could use code like the following.
-        <sage language="python">
-            <input>
-                globals().clear() # Clear all variables from previous code runs
+        Once data is accessible in Python, data analysis and visualization can be performed. As an example, let's assume that we've conducted an experiment on the circuit shown in <xref ref="fig-labpython-plotting-vdiv"/>. In this experiment, <m>V_\text{in}=5.0\text{V}</m>, <m>R_\text{fixed}=5\text{k}\Omega</m>, and we measured <m>V_\text{out}</m> as <m>R</m> was varied between <m>0-10\text{k}\Omega</m>. The code below produces a plot in which the data is represented as closed circles and the theoretical prediction is represented as a solid line.
+    </p>
+    <figure xml:id="fig-labpython-plotting-vdiv">
+        <caption></caption>
+        <image width="50%">
+        <latex-image>
+            <xi:include parse="text" href="./figures/fig-labpython-plotting-vdiv.ptx" />
+        </latex-image>
+        </image>
+    </figure>
+    <sage language="python">
+        <input>
+            globals().clear() # Clear all variables from previous code runs
 
-                import numpy as np
-                import matplotlib.pyplot as plt
+            import numpy as np
+            import matplotlib.pyplot as plt
 
-                # Data points
-                R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
-                V = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
+            plt.close('all') # Close all open figures
 
-                # Theory curves
-                Rth = np.arange(10000);
-                Vth = 5*Rth/(5000+Rth);
+            # Data points
+            R = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+            V = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
 
-                # Plotting routine
-                plt.plot(R, V, 'o', label='Data');
-                plt.plot(Rth, Vth, label='Theory');
-                plt.xlim(0,10500);
-                plt.ylim(0,3.5);
-                plt.xlabel(r'Resistance ($\Omega$)')
-                plt.ylabel(r'$V_\text{out}$')
-                plt.legend();
-                plt.show();
-            </input>
-            <output>
-                
-            </output>
-            </sage>
+            # Theory curves
+            Vin = 5.0 # Volts
+            Rfixed = 5000 # Ohms
+            Rth = np.arange(10000);
+            Vth = Vin*Rth/(Rfixed+Rth);
+
+            # Plotting routine
+            plt.plot(R, V, 'o', label='Data');
+            plt.plot(Rth, Vth, label='Theory');
+            plt.xlim(0,10500);
+            plt.ylim(0,3.5);
+            plt.xlabel(r'Resistance ($\Omega$)')
+            plt.ylabel(r'$V_\text{out}$ (Volts)')
+            plt.legend();
+            plt.show();
+        </input>
+        <output>    
+        </output>
+        </sage>
+        
+        <!--
         <image>
             <sageplot>
             import numpy as np
@@ -51,6 +65,6 @@
             p1+p2
             </sageplot>
         </image>
-    </p>
+        -->
     
 </section>
