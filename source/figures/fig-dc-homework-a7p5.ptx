@@ -1,0 +1,12 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[battery, l^=$V_1$] ++(0,-3)
+                    to[R, -*, l^=$R_4$] ++(3,0) coordinate(c)
+                    to[R,-*, l^=$R_3$] ++(0,3) coordinate(b)
+                    to[R, l^=$R_1$] ++(-3,0);
+    \draw (c)       to[R, l^=$R_5$] ++(3,0)
+                    to[battery, l^=$V_2$] ++(0,+3)
+                    to[R, l^=$R_2$] ++(-3,0);
+    
+    
+\end{circuitikz}

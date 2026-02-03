@@ -7,7 +7,7 @@
         <alert>Objective:</alert> Through the course of this lab, you will familiarize yourself with the operation of a prototyping board and its various components (breadboard, voltage sources, potentiometers, and switches) and with resistor color codes. You will build a DC voltage divider circuit using this prototyping board and will use a handheld digital multimeter (DMM) to measure properties of circuit behavior. 
     </p>
     <p>
-        <alert>Equipment:</alert> Prototyping board, digital multimeter (DMM), resistors with varied values, wires.
+        <alert>Equipment:</alert> Prototyping board, digital multimeter (DMM) with banana cables and alligator clips, 1k<m>\Omega</m> resistor, wires.
     </p>
 
     <paragraphs>

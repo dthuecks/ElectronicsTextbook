@@ -71,7 +71,7 @@
     </li>
     <li>
         <p>
-            Calculate <m>I_1</m> and <m>I_2</m> in <xref ref="fig-dc-homework-a6"/>.
+            Use the branch method to determine values and directions for <m>I_1</m> and <m>I_2</m> in <xref ref="fig-dc-homework-a6"/>.
             <figure xml:id="fig-dc-homework-a6">
                 <caption></caption>
                 <image width="70%">
@@ -84,12 +84,25 @@
     </li>
     <li>
         <p>
-            Calculate values and directions for all unknown currents in <xref ref="fig-dc-homework-a7"/>. Please use the mesh method as it is likely the shortest path to the solution.
+            Use the mesh method to determine values and directions for <m>I_1</m>, <m>I_2</m>, and <m>I_3</m> in <xref ref="fig-dc-homework-a7"/>.
             <figure xml:id="fig-dc-homework-a7">
                 <caption></caption>
                 <image width="70%">
                 <latex-image>
                     <xi:include parse="text" href="./figures/fig-dc-homework-a7.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Determine an expression for <m>V_2</m> that results in zero current through resistor <m>R_3</m>. Your <m>V_2</m> expression may only depend on <m>V_1</m>, <m>R_1</m>, <m>R_2</m>, <m>R_3</m>, <m>R_4</m>, and <m>R_5</m>.
+            <figure xml:id="fig-dc-homework-a7p5">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a7p5.ptx" />
                 </latex-image>
                 </image>
             </figure>

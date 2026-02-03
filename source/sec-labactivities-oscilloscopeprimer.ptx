@@ -4,10 +4,10 @@
     <title>Lab: Oscilloscope Primer</title>
 
     <p> 
-        <alert>Objective:</alert> Through the course of this lab, you will familiarize yourself with the operation of a the BK Precision 2190E Digital Oscilloscope.  You will use the scope to measure an AC voltage signal from the internal function generator of the scope, and from an external function generator.  Our goal will be to understand how to display a signal on the scope, measure frequency and amplitude values, and trigger the scope properly by adjusting the triggering threshold and other trigger settings. 
+        <alert>Objective:</alert> Through the course of this lab, you will familiarize yourself with the operation of a the BK Precision 2190E Digital Oscilloscope (or scope).  You will use the scope to measure an AC voltage signal from the internal function generator of the scope, and from an external function generator.  Our goal will be to understand how to display a signal on the scope, measure frequency and amplitude values, and trigger the scope properly by adjusting the triggering threshold and other trigger settings. 
     </p>
     <p>
-        <alert>Equipment:</alert> Function generator, oscilloscope, BNC coaxial cables.
+        <alert>Equipment:</alert> Function generator, oscilloscope, oscilloscope probe, BNC coaxial cable.
     </p>
     <p>
         <alert>Lab Notebook:</alert> In your theory section of the report, you should discuss any functions of the oscilloscope that we use today and their purpose.  In the data section, you should include the signal data and photos asked for throughout the lab.  You do not need a procedure, results or conclusion section for this lab. Otherwise, please follow the lab notebook guidelines provided in <xref ref="ch-labnotebook"/>.
