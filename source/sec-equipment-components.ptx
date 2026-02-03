@@ -13,6 +13,18 @@
             </figure>
             Thus, a resistors with a Green-Violet-Orange-Silver code has a resistance of <m>57\times 10^3\Omega = 57\text{k}\Omega \pm 10\%</m>.
         </p>
+        <figure xml:id="img-components-resistor1">
+            <caption>Resistor color code practice. put into example.</caption>
+            <image source="images/img-components-resistor1.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
+        <figure xml:id="img-components-resistor2">
+            <caption>Resistor color code practice. put into example.</caption>
+            <image source="images/img-components-resistor2.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
         
     </subsection>
     
@@ -23,10 +35,16 @@
         Read about potentiometers here for now: <url href="https://www.digikey.com/en/articles/the-complete-guide-to-potentiometers" visual="Digikey Potentiometer Explanation">Digikey Potentiometer Explanation</url>
     </p>
     <p>
-        Potentiometers (or pots) typically have three terminals: Two are the ends of a fixedc resistor and one is the 'wiper', as pictured in <xref ref="fig-components-potentiometer"/>.
+        Potentiometers (or pots) typically have three terminals: Two are the ends of a fixedc resistor and one is the 'wiper', as pictured in <xref ref="img-components-potentiometer-outside"/>.
+        <figure xml:id="img-components-potentiometer-outside">
+            <caption>Potentiometer</caption>
+            <image source="images/img-components-potentiometer-outside.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
         <figure xml:id="fig-components-potentiometer">
             <caption>[GENERATE OWN IMAGE] a) Physical design, b) what's inside, c) schematic symbol</caption>
-            <image source="images/img-components-potentiometer.jpg" width="100%">
+            <image source="images/img-components-potentiometer.jpg" width="50%">
                 <shortdescription>(for accessibility)</shortdescription>
             </image>
         </figure>
@@ -36,7 +54,13 @@
     <subsection xml:id="subsec-components-switches">
         <title>Switches</title>
     <p>
-        The SPST (single pull, single throw) switch has two terminals, while the SPDT (single pull, double throw) switch has three terminals as shown in <xref ref="fig-components-switches"/>. 
+        The SPST (single pull, single throw) switch has two terminals, while the SPDT (single pull, double throw) switch has three terminals as shown in <xref ref="img-components-spdt"/>. 
+        <figure xml:id="img-components-spdt">
+            <caption>Single-pull double-throw (SPDT) switch.</caption>
+            <image source="images/img-components-spdt.jpg" width="50%">
+                <shortdescription>(for accessibility)</shortdescription>
+            </image>
+        </figure>
         <figure xml:id="fig-components-switches">
             <caption>[GENERATE OWN FIGURE]</caption>
             <image source="images/img-components-switches.jpg" width="50%">
@@ -57,15 +81,40 @@
 <subsection xml:id="subsec-components-cables-connectors">
     <title>Wires, Cables, and Connectors</title>
     <p>
-        Banana Plugs (<xref ref="fig-components-banana-alligator"/>) are typically at the ends of an insulated wire containing a single conducting path. The cable color is irrelevant to the behavior of the wires, though some thought should be used when choosing colors to assist with wiring organization. Alligator clips can be attached to banana wires, allowing them to clip to a component.
-        <figure xml:id="fig-components-banana-alligator">
-            <caption>[GENERATE NEW IMAGE]</caption>
+        Banana Plugs (<xref ref="img-components-banana-alligator"/>) are typically at the ends of an insulated wire containing a single conducting path. The cable color is irrelevant to the behavior of the wires, though some thought should be used when choosing colors to assist with wiring organization. Alligator clips can be attached to banana wires, allowing them to clip to a component.
+        <figure xml:id="img-components-banana-alligator">
+            <caption>Cable with banana connectors. There is an alligator clip placed on one of the male banana connectors.</caption>
             <image source="images/img-components-banana-alligator.jpg" width="50%">
                 <shortdescription>(for accessibility)</shortdescription>
             </image>
         </figure>
     </p>
-    
+    <figure xml:id="img-components-bnc-male-to-banana-male">
+        <caption>Male BNC to male banana adapter.</caption>
+        <image source="images/img-components-bnc-male-to-banana-male.jpg" width="50%">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+    </figure>
+    <figure xml:id="img-components-bnc-male-to-banana-female">
+        <caption>Male BNC to femail banana adapter.</caption>
+        <image source="images/img-components-bnc-male-to-banana-female.jpg" width="50%">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+    </figure>
+
+    <figure xml:id="img-components-bnc-tee">
+        <caption>BNC tee</caption>
+        <image source="images/img-components-bnc-tee.jpg" width="50%">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+    </figure>
+
+    <figure xml:id="img-components-clip-lead">
+        <caption>Adapter that converts female BNC connector to clip leads.</caption>
+        <image source="images/img-components-clip-lead.jpg" width="50%">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+    </figure>
 </subsection>
 
 </section>

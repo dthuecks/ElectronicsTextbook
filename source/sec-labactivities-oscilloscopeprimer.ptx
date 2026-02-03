@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <p>
-                        You can use the <alert>small knobs</alert> below the <q>1</q> and <q>2</q> buttons to displace the signal lines on the display.  Try it and see if you can move channel 1 upwards and channel two downwards as shown below:
+                        You can use the <alert>small knobs</alert> below the <q>1</q> and <q>2</q> buttons to vertically displace the signal lines on the display.  Try it and see if you can move channel 1 upwards and channel two downwards as shown below:
                     </p>
                     <image source="images/img-labactivities-oscilloscope-position.jpg" width="70%">
                         <shortdescription>(for accessibility)</shortdescription>
@@ -65,7 +65,7 @@
                 </li>
                 <li>
                     <p>
-                        The probe has two clips.  The side <term>alligator clip</term> must be connected to ground.  The center <term>hook clip</term> is connected to the point in a circuit where you want to measure the voltage.  Find the metal leads for the test signal (shown above in the figure).  Connect the probe clips to the leads. One lead should be clearly labeled as ground.  Channel 1 should display the test signal as shown below:
+                        The probe has two clips.  The side <term>alligator clip</term> must be connected to ground.  The center <term>hook clip</term> is connected to the point in a circuit where you want to measure the voltage.  Find the metal leads for the test signal (shown above in the figure).  Connect the oscilloscope probe to the test signal clips, clipping the probe ground to the test signal ground and the probe's center hook to the test signal clip that is marked as a 1 kHz square wave. Channel 1 should display the test signal as shown below:
                         <image source="images/img-labactivities-oscilloscope-testsig-disp.jpg" width="50%">
                             <shortdescription>(for accessibility)</shortdescription>
                         </image>
@@ -83,7 +83,12 @@
                 </li>
                 <li>
                     <p>
-                        Try to change the vertical and horizontal scale by using the large CH 1 knobs on the front panel.  Change the horizontal scale to display the wave on a 100 μs timescale and a 2V vertical scale.  <alert>Take a picture of the output to include in your report.</alert>
+                        Try to change the vertical (voltage) scale by using the large CH 1 knob on the front panel. Also try to change the horizontal (time) scale by using the large knob marked 'Horizontal' on the front panel. 
+                    </p> 
+                </li>
+                <li>      
+                    <p>    
+                        Change the horizontal scale to display the wave on a 100 μs timescale and a 2V vertical scale.  <alert>Take a picture of the output to include in your report.</alert>
                     </p>
                 </li>
                 <li>
@@ -103,12 +108,17 @@
         <ol>
             <li>
                 <p>
-                    With the function generator turned off, use a BNC cable to connect the function generator <alert>output</alert> to the oscilloscope Channel 2 input.
+                    With the function generator turned off, disconnect the oscilloscope probe.
                 </p>
             </li>
             <li>
                 <p>
-                    Turn on the function generator. We want a 1V amplitude 1kHz sine wave signal to measure. Press the <sq>Amp</sq> menu button and type in 1.0 and then press V. Then, click <term>Freq</term> and type 1.0 and click the <term>kHz</term> button. At this point, there is still no signal being produced. Press the <term>Output</term> button to start producing the desired signal. The <term>Output</term> button should now be glowing, indicating that the function generator output is active.
+                    Use a BNC cable to connect the function generator <alert>output</alert> to the oscilloscope Channel 1 input.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Turn on the function generator. We want a 1V amplitude 1kHz sine wave signal to measure. Press the <sq>Amp</sq> menu button and type in 1.0 and then press <m>V_{pp}</m>. Then, click <term>Freq</term> and type 1.0 and click the <term>kHz</term> button. At this point, there is still no signal being produced. Press the <term>Output</term> button to start producing the desired signal. The <term>Output</term> button should now be glowing, indicating that the function generator output is active.
                 </p>
             </li>
             <li>
