@@ -20,64 +20,16 @@
   <!-- to define these semantically, so that the macro relates to what-->
   <!-- it defines. -->
   <macros> \newcommand{\vect}[1]{\mathbf{#1}} </macros>
-  <!--<macros>    
-    \newcommand{\thiscirc}[1]{%
-      \texttt{#1}\kern5pt%\hfill
-      \begin{circuitikz}%
-      \draw (0,0) node[ #1 ] {};%(2,0);
-      \end{circuitikz}%
-      {\hspace{5mm}}%
-      }
-      
-      \newcommand{\bipole}[1]{%
-      <figure>
-        <image>
-          <latex-image >
-            \begin{circuitikz}
-              \draw (0,0) to[ #1 ] (2,0);
-              \end{circuitikz}
-            </latex-image>
-              </image>
-            
-            </figure>  
-      }
-      
-      
-      \newcommand{\component}[1]{%
-      \begin{circuitikz}%[scale=0.01]%
-      \draw (0,0) to[ #1 ] (2,0);
-      \end{circuitikz}%
-      \hspace{5mm}%
-      }
-      
-      \newcommand{\barecomponent}[1]{%
-      \begin{circuitikz}%[scale=0.01]%
-      \draw (0,0) node[ #1 ] {};
-      \end{circuitikz}%
-      \hspace{5mm}%
-      }
-      
-      \newcommand{\terminalcomponent}[1]{%
-      <latex-image >
-        \begin{circuitikz}%[scale=0.01]%
-      \draw (0,0) to[ #1,*-* ] (2,0);
-      \end{circuitikz}%
-      </latex-image >
-      \hspace{5mm}%
-      }
-  </macros> -->
 
   <!-- If you put any latex-image elements you can include preambles -->
   <!-- for those in the next element. -->
-  
   <latex-image-preamble>
-    \usepackage{tabularray}
-    \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows}
+    \usepackage{tikz, pgfplots} 
+    \usetikzlibrary{positioning,matrix,arrows}
     \usetikzlibrary {patterns,patterns.meta}
     \usetikzlibrary {arrows.meta} 
     \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} 
     \usetikzlibrary{decorations.markings} 
-    \usepackage{tabularray} 
     \usepackage[siunitx]{circuitikz}
     \ctikzset{logic ports=ieee}
     \usepackage{pgfplots}

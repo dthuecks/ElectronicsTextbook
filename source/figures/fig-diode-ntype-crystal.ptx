@@ -4,8 +4,8 @@
     \def\R{0.4cm} % Nucleus separation
     \def\re{0.05} % Electron size
     \def\dsep{.1cm} % Electron separation
-    \def\c{red} % Color of central nucleus and electrons
-    \def\cc{blue} % Color of extra electron or hole in doped semiconductor
+    \def\c2{red} % Color of central nucleus and electrons
+    \def\d2{blue} % Color of extra electron or hole in doped semiconductor
                                             
     % CRYSTAL
     \foreach \ix in {0, ..., \inteval{\nx-1}}
@@ -18,11 +18,11 @@
             \pgfmathparse{and(\ix==floor(\nx/2),\iy==floor(\ny/2))} \pgfmathresult    
             \ifnum\pgfmathresult=1 % Central Atom
                 \draw (a) node[color=\c2,scale=1.4] {P};
-                \fill[color=\c] ([xshift=\dsep, yshift=\R] a) circle (\re);
-                \fill[color=\c] ([xshift=\R, yshift=-\dsep] a) circle (\re);
-                \fill[color=\c] ([xshift=-\dsep, yshift=-\R] a) circle (\re);
-                \fill[color=\c] ([xshift=-\R, yshift=\dsep] a) circle (\re);
-                \fill[color=\cc] ([xshift={.707*\R}, yshift={.707*\R}] a) circle (\re);
+                \fill[color=\c2] ([xshift=\dsep, yshift=\R] a) circle (\re);
+                \fill[color=\c2] ([xshift=\R, yshift=-\dsep] a) circle (\re);
+                \fill[color=\c2] ([xshift=-\dsep, yshift=-\R] a) circle (\re);
+                \fill[color=\c2] ([xshift=-\R, yshift=\dsep] a) circle (\re);
+                \fill[color=\d2] ([xshift={.707*\R}, yshift={.707*\R}] a) circle (\re);
             \else % All other atoms
                 \draw (a) node[color=black,scale=1.4] {Si};
                 \fill ([xshift=\dsep, yshift=\R] a) circle (\re);
