@@ -166,23 +166,23 @@
         </p>
         
         <figure xml:id="dc-thevenin-lineplot">
-            <caption>I-V plot for linear circuits.</caption>
+            <caption>I-V plot for linear circuits. The norton current <m>I_n</m> is equal to <m>i_\text{ext}</m> when the output is shorted (<m>v_\text{ext}=0</m>). We call this the short-circuit current <m>I_\text{sc}</m>. The Thevenin voltage <m>V_\text{th}</m> is given by <m>v_\text{ext}</m> when <m>i_\text{ext}=0</m>. This occurs when there is no load placed across the output terminals, so we call it the open-circuit voltage <m>V_\text{oc}</m>.</caption>
             <image><latex-image>
             \begin{tikzpicture}
                 \begin{axis}[
                 axis lines=middle,
                 every major tick/.append style={very thick, major tick length=10pt, black},
                 xmin=-0.5,xmax=5,
-                xtick={4},xticklabels={$V_{oc}=V_{th}$},
+                xtick={4},xticklabels={$V_{th}$},
                 ymin=-0.5,ymax=5,
-                ytick={4},yticklabels={$I_{sc}=I_n$},
+                ytick={4},yticklabels={$I_n$},
                 x label style={anchor=west},
                 y label style={anchor=west},
-                xlabel={$V$},ylabel={$I(V)$},
+                xlabel={$v_\text{ext}$},ylabel={$i_\text{ext}$},
                 ]
                 \addplot[color=blue, domain=0:4]{-x+4};
-                \addplot[black,no marks] coordinates{(2,2)}
-                node[pos=0.25,above right] {$\text{slope}=\alpha_0=R_{th}^{-1}=R_n^{-1}$};
+                \addplot[black,no marks] coordinates{(2,2)};
+                \node[anchor=south west] (T) at (1.25,2.55) {$\text{slope}=\alpha_0=R_{th}^{-1}=R_n^{-1}$};
                 \end{axis}
             \end{tikzpicture}
             </latex-image></image>
