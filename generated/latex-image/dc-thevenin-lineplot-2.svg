@@ -61,6 +61,11 @@
 <use data-text="1" xlink:href="#font_6_2" transform="matrix(6.97394,0,0,-6.9740097,192.36356,84.14913)"/>
 <use data-text="t" xlink:href="#font_2_6" transform="matrix(6.97394,0,0,-6.9740097,186.06046,91.41634)"/>
 <use data-text="h" xlink:href="#font_2_2" transform="matrix(6.97394,0,0,-6.9740097,189.06623,91.41634)"/>
+<use data-text="=" xlink:href="#font_3_3" transform="matrix(9.962799,0,0,-9.962899,199.60071,88.410259)"/>
+<use data-text="R" xlink:href="#font_1_3" transform="matrix(9.962799,0,0,-9.962899,210.11692,88.410259)"/>
+<use data-text="&#x2212;" xlink:href="#font_7_1" transform="matrix(6.97394,0,0,-6.9740097,217.75809,84.79514)"/>
+<use data-text="1" xlink:href="#font_6_2" transform="matrix(6.97394,0,0,-6.9740097,223.98523,84.79514)"/>
+<use data-text="n" xlink:href="#font_2_3" transform="matrix(6.97394,0,0,-6.9740097,217.6821,90.87333)"/>
 </g>
 <use data-text="V" xlink:href="#font_1_4" transform="matrix(9.962799,0,0,-9.962899,225.13523,157.03032)"/>
 <use data-text="I" xlink:href="#font_1_2" transform="matrix(9.962799,0,0,-9.962899,48.522676,9.390884)"/>
