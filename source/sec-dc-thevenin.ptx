@@ -64,7 +64,7 @@
     <subsection xml:id="subsec-proof-thevenin">
         <title>Proof of Thevenin's and Norton's Theorems</title>
         <p>
-            Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>\ell</m> DC voltage sources <m>V_{s_n}</m>, and <m>k</m> ideal current sources <m>I_{s_n}</m>. We will also assume <m>j</m> unknown currents that are dependent on the size of the externally-applied voltage across the output terminals of the circuit.
+            Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>\ell</m> DC voltage sources <m>V</m>, and <m>k</m> ideal current sources <m>I</m>. We will also assume <m>j</m> unknown currents <m>i</m> that are dependent on the size of the voltage difference <m>\Delta v_\text{ext}</m> across the output terminals of the circuit.
         </p>
 
         <figure xml:id="dc-thevenin-box">
@@ -90,7 +90,7 @@
             <men xml:id="eqn-dc-thevenin-kcl">
                 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_n=0
             </men>
-            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_n</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations.     
+            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_n</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations. Here, <m>i_\text{ext}</m> is the current that passes out of our circuit, through some external load, and back into our circuit.    
         </p>
 
         <p>
