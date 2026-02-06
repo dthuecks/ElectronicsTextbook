@@ -1,6 +1,6 @@
 # Electronics - A Guide for Physicists
 
-All files in the ./source/ directory are Copyright 2024-2025, Derek J Thuecks
+All files in the ./source/ directory are Copyright 2024-2026, Derek J Thuecks
 
 This work and all project source files are licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit CreativeCommons.org/licenses/by-sa/4.0
 

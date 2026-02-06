@@ -74,8 +74,8 @@
                 \draw (0,0) coordinate (start);
                 \draw[draw=black] (start) rectangle ++(5,5) coordinate (a);
                 \draw ([xshift=1cm, yshift=4cm] start) to [R, l=$R$] +(3,0);
-                \draw ([xshift=1.5cm, yshift=.5cm] start) to [I,l=$I_s$] +(0,3);
-                \draw ([xshift=3.5cm, yshift=3.5cm] start) to [battery, l=$V_s$] +(0,-3);
+                \draw ([xshift=1.5cm, yshift=.5cm] start) to [I,l=$I$] +(0,3);
+                \draw ([xshift=3.5cm, yshift=3.5cm] start) to [battery, l=$V$] +(0,-3);
                 \draw ([yshift=-1cm] a) to [short, -o, i>=$i_\text{ext}$] +(2,0) coordinate(va);
                 \draw ([yshift=-4cm] a) to [short, -o] +(2,0) coordinate(vb);
                 \draw   (va)     node[right]{\texttt{$V_A$}};
@@ -88,26 +88,27 @@
         <p>
             Let's assume that if we apply the branch circuit analysis method, we end up with <m>N_1</m> independent junction law equations and <m>N_2</m> loop law equations. Each junction law equation will have the form
             <men xml:id="eqn-dc-thevenin-kcl">
-                a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_{s_n}=0
+                a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_n=0
             </men>
-            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_{s_n}</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations.     
+            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_n</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations.     
         </p>
 
         <p>
-            We will also end up with <m>N_2</m> independent loop law equations. All loops chosen for KVL analysis must be absent known current sources <m>I_{s_n}</m>. Since the current is already known on circuit legs containing circuit sources, so this restriction will not cost us anything. Each of these loop law equations will have the form
+            We will also end up with <m>N_2</m> independent loop law equations. All loops chosen for KVL analysis must be absent known current sources <m>I_n</m>. Since the current is already known on circuit legs containing circuit sources, so this restriction will not cost us anything. Each of these loop law equations will have the form
             <men xml:id="eqn-dc-thevenin-kvl">
-                m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_{s_n} + c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n = 0
+                m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_n + c_{r,\text{ext}} i_\text{ext} 
+                + \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_n = 0
             </men>.
-            The variables <m>m_{rn}</m> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variable <m>c_{rn}</m> has units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm's Law). Here, the index <m>r</m> counts over KVL equations. 
+            The variables <m>m_{rn}</m> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variables <m>c_{rn}</m> and <m>d_{rn}</m> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm's Law). Here, the index <m>r</m> counts over KVL equations. 
         </p>
 
         <p>
             These <m>N_1</m> instances of <xref ref="eqn-dc-thevenin-kcl"/> and <m>N_2</m> instances of <xref ref="eqn-dc-thevenin-kvl"/> can be re-expressed as a matrix equation <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m>. First, let's rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right
             <md>
-                <mrow> a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_{s_n}</mrow>
+                <mrow> a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_n</mrow>
                 <mrow> 
                     c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n 
-                    \amp = - m_{r,\text{ext}} \Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{rn} V_{s_n}  
+                    \amp = - m_{r,\text{ext}} \Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{rn} V_n - \sum\limits_{n=1}^k d_{rn} I_n  
                 </mrow>
             </md>.
             We can express these equations in the form <m>\mathbf{A}\mathbf{x}=\mathbf{v}</m> if we let
@@ -129,21 +130,21 @@
                 \quad , \quad
                 \mathbf{v}  =
                 \begin{pmatrix} 
-                    -\sum\limits_{n=1}^{k} b_{1n} I_{s_n} \\
+                    -\sum\limits_{n=1}^{k} b_{1n} I_n \\
                     \vdots \\
-                    -\sum\limits_{n=1}^{k} b_{N_1 n} I_{s_n} \\
-                    -m_{1,\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{1n} V_{s_n}  \\
+                    -\sum\limits_{n=1}^{k} b_{N_1 n} I_n \\
+                    -m_{1,\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{1n} V_n  - \sum\limits_{n=1}^k d_{1n} I_n\\
                     \vdots \\
-                    -m_{N_{2},\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{N_2 n} V_{s_n}  
+                    -m_{N_{2},\text{ext}}\Delta v_\text{ext} - \sum\limits_{n=1}^\ell m_{N_2 n} V_n - \sum\limits_{n=1}^k d_{N_2 n} I_n 
                 \end{pmatrix} 
             </me>.
             Now, every element in matrix <m>\mathbf{A}</m> is either a unitless number or a function of resistances only. More to the point, there is no voltage or current dependence in <m>\mathbf{A}</m>. If we multiply both sides of our matrix equation by <m>\mathbf{A}^{-1}</m>, we get
             <me>
                 \mathbf{x}=\mathbf{A}^{-1}\mathbf{v}
             </me>.
-            The solution that is most important to us is <m>i_\text{ext}</m> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <m>\mathbf{A}</m>, use matrix multiplication to find an expression for <m>i_\text{ext}</m>, and then group source terms and rename constants multiplying each source (<m>v_\text{ext},V_s,\ I_s</m>), the resulting solution is of the form
+            The solution that is most important to us is <m>i_\text{ext}</m> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <m>\mathbf{A}</m>, use matrix multiplication to find an expression for <m>i_\text{ext}</m>, and then group source terms and rename constants multiplying each source (<m>v_\text{ext},V,\ I</m>), the resulting solution is of the form
             <me> 
-                i_\text{ext} = \alpha_0 v_\text{ext} + \sum\limits_{n=1}^\ell \alpha_n V_{s_n} + \sum\limits_{n=1}^k \beta_n I_{s_n} 
+                i_\text{ext} = \alpha_0 v_\text{ext} + \sum\limits_{n=1}^\ell \alpha_n V_n + \sum\limits_{n=1}^k \beta_n I_n 
             </me>
             where all <m>\alpha_n</m> and <m>\beta_n</m> terms are functions of resistances only and are thus constants. This result demonstrates that <m>i_\text{ext}</m> is a linear function of <m>v_\text{ext}</m> with slope <m>\alpha_0</m> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit. 
         </p>
@@ -181,7 +182,7 @@
                 ]
                 \addplot[color=blue, domain=0:4]{-x+4};
                 \addplot[black,no marks] coordinates{(2,2)}
-                node[pos=0.25,above right] {$\text{slope}=\alpha_0=R_{th}^{-1}$};
+                node[pos=0.25,above right] {$\text{slope}=\alpha_0=R_{th}^{-1}=R_n^{-1}$};
                 \end{axis}
             \end{tikzpicture}
             </latex-image></image>
