@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Thevenin and Norton Theorem</title>
+<title>Thévenin’s and Norton’s Theorems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -118,7 +118,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.12';
+eBookConfig.runestone_version = '7.11.13';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -183,10 +183,11 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-dc-thevenin.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Thevenin and Norton Theorem</span></a></div>
+<div class="toc-title-box"><a href="sec-dc-thevenin.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Thévenin’s and Norton’s Theorems</span></a></div>
 <ul class="structural toc-item-list active">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-proof-thevenin" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Proof of Thevenin’s and Norton’s Theorems</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-finding-thevenin" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Finding Thevenin Equivalent Circuits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-dc-thevenin-norton-circuits" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Behavior of Thévenin/Norton circuits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-dc-proof-thevenin" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Proof of Thevenin’s and Norton’s Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-finding-thevenin" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Finding Thevenin Equivalent Circuits</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-batteries.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Application of Thevenin Equivalent Cicruits: Batteries</span></a></div></li>
@@ -295,45 +296,106 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-dc-thevenin"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Thevenin and Norton Theorem</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Thévenin’s and Norton’s Theorems</span>
 </h2>
 <section class="introduction" id="sec-dc-thevenin-2"><div class="para" id="sec-dc-thevenin-2-1">
 <figure class="figure figure-like" id="dc-messy-thevenin"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-messy-thevenin-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 2.6.1"><a href="#dc-messy-thevenin" title="Copy heading and permalink for Figure 2.6.1" aria-label="Copy heading and permalink for Figure 2.6.1">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-dc-thevenin-2-2">Circuits controlling devices that you use every day are often very complex with complicated scematic diagrams. This complexity can make it difficult to analytically determine the behavior of the output voltage and current when this complex circuit is connected to an external load. DEFINE LOAD.<div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-dc-thevenin-2-2">Circuits controlling devices that you use every day are often very complex with complicated scematic diagrams. This complexity can make it difficult to analytically determine the behavior of the output voltage and current when this complex circuit is connected to an external load. DEFINE LOAD. NOTE SOMEWHERE THAT <span class="process-math">\(\Delta v_\text{ext}=V_A-V_B\)</span> .<div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-dc-thevenin-2-3">In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit (either the Thevenin equivalent circuit or the Norton equivalent circuit). The original and simplified circuits all have output voltages and currents that behave identically when an external load is connected across the outputs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="subsec-proof-thevenin"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof of Thevenin’s and Norton’s Theorems</span>
+<div class="para" id="sec-dc-thevenin-2-3">In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit. For the moment, we will limit ourselves to resistor-based DC circuits and will generalize these theorems next chapter.<div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-dc-thevenin-2-4">
+<dfn class="terminology">Thévenin’s theorem</dfn> states that any complicated circuit containing comprised of only ideal voltage sources, ideal current sources, and resistors will demonstrate a relationship between <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(\Delta v_\text{ext}\)</span> that is identical to the relationship demonstrated by a Thévenin equivalent circuit containing a single voltage source (the Thévenin voltage <span class="process-math">\(V_\text{th}\)</span>) in series with a single resistance (the Thévenin resistance <span class="process-math">\(R_\text{th}\)</span>) for any load (DEFINE!) connected across the circuit output. Similarly, <dfn class="terminology">Norton’s theorem</dfn> states that any complicated circuit containing comprised of only ideal voltage sources, ideal current sources, and resistors will demonstrate a relationship between <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(\Delta v_\text{ext}\)</span> that is identical to the relationship demonstrated by a Norton equivalent circuit containing a single current source (the Norton current <span class="process-math">\(I_n\)</span>) in parallel with a single resistance (the Norton resistance <span class="process-math">\(R_n\)</span>) for any load (DEFINE!) connected across the circuit output.<div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-dc-thevenin-2-5">Below, we will start by analyzing the Thévenin and Norton equivalent circuits and determine the relationship between <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(v_\text{ext}\text{.}\)</span> We will then show that any complicated circuit containing only ideal sources and resistors must demonstrate this same behavior, thus proving these two theorems.<div class="autopermalink" data-description="Paragraph"><a href="#sec-dc-thevenin-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="subsec-dc-thevenin-norton-circuits"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Behavior of Thévenin/Norton circuits</span>
 </h3>
-<div class="para" id="subsec-proof-thevenin-2">Let’s assume that inside of a box we have a circuit with two leads exiting the box (<a href="sec-dc-thevenin.html#dc-thevenin-box" class="xref" data-knowl="./knowl/xref/dc-thevenin-box.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a>). The circuit in the box is comprised of a complicated network of resistors <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(\ell\)</span> DC voltage sources <span class="process-math">\(V\text{,}\)</span> and <span class="process-math">\(k\)</span> ideal current sources <span class="process-math">\(I\text{.}\)</span> We will also assume <span class="process-math">\(j\)</span> unknown currents <span class="process-math">\(i\)</span> that are dependent on the size of the voltage difference <span class="process-math">\(\Delta v_\text{ext}\)</span> across the output terminals of the circuit.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="subsec-dc-thevenin-norton-circuits-2">
+<div class="para">Applying Kirchhoff’s voltage law to the Thévenin equivalent circuit in <a href="sec-dc-thevenin.html#dc-messy-thevenin" class="xref" data-knowl="./knowl/xref/dc-messy-thevenin.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.1">Figure 2.6.1</a>, we find that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-messy-thevenin.html" id="subsec-dc-thevenin-norton-circuits-2-2">
+\begin{equation*}
+V_\text{th}-i_\text{ext}R_\text{th}-\Delta v_\text{ext}\text{.}
+\end{equation*}
+</div>
+<div class="para">Rearrangement of this equation shows</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-messy-thevenin.html" id="eqn-dc-thevenin-thevenin_eqn">
+\begin{equation}
+i_\text{ext}=-\frac{1}{R_\text{th}}\Delta v_\text{ext} + \frac{1}{R_\text{th}} V_\text{th}\text{,}\tag{2.6.1}
+\end{equation}
+</div>
+<div class="para">a linear relationship between <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(v_\text{ext}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-thevenin-norton-circuits-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-dc-thevenin-norton-circuits-3">
+<div class="para">Application of Kirchhoff’s current law to the Norton equivalent circuit in <a href="sec-dc-thevenin.html#dc-messy-thevenin" class="xref" data-knowl="./knowl/xref/dc-messy-thevenin.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.1">Figure 2.6.1</a> shows</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-messy-thevenin.html" id="subsec-dc-thevenin-norton-circuits-3-2">
+\begin{equation*}
+I_n - i_\text{ext} - \frac{1}{R_n}\Delta v_\text{ext}
+\end{equation*}
+</div>
+<div class="para">where Ohm’s law was used to express the current through <span class="process-math">\(R_n\)</span> in terms of <span class="process-math">\(\Delta v_\text{ext}\text{.}\)</span> Rearrangement of this equation shows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-messy-thevenin.html" id="eqn-dc-thevenin-norton_eqn">
+\begin{equation}
+i_\text{ext} = -\frac{1}{R_n}\Delta v_\text{ext} + I_n\tag{2.6.2}
+\end{equation}
+</div>
+<div class="para">which again demonstrates a linear relationship between <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(\Delta v_\text{ext}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-thevenin-norton-circuits-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-dc-thevenin-norton-circuits-4">
+<div class="para">If both Thévenin’s theorem and Norton’s theorem are to be true, then Equations <a href="sec-dc-thevenin.html#eqn-dc-thevenin-thevenin_eqn" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-thevenin_eqn.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> and <a href="sec-dc-thevenin.html#eqn-dc-thevenin-norton_eqn" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-norton_eqn.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> must be equivalent. This can only be true if</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-thevenin_eqn.html ./knowl/xref/eqn-dc-thevenin-norton_eqn.html ./knowl/xref/fig-dc-thevenin-lineplot.html" id="subsec-dc-thevenin-norton-circuits-4-3">
+\begin{equation*}
+I_n = \frac{V_\text{th}}{R_\text{th}}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-thevenin_eqn.html ./knowl/xref/eqn-dc-thevenin-norton_eqn.html ./knowl/xref/fig-dc-thevenin-lineplot.html" id="subsec-dc-thevenin-norton-circuits-4-4">
+\begin{equation*}
+R_n = R_\text{th}\text{.}
+\end{equation*}
+</div>
+<div class="para">The linear relationship between <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(\Delta v_\text{ext}\)</span> for these circuits is shown in <a href="sec-dc-thevenin.html#fig-dc-thevenin-lineplot" class="xref" data-knowl="./knowl/xref/fig-dc-thevenin-lineplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a>. Here we see that the slope is the negative inverse of <span class="process-math">\(R_\text{th}\)</span> and <span class="process-math">\(R_n\text{.}\)</span> The Thévenin voltage <span class="process-math">\(V_\text{th}\)</span> is equal to <span class="process-math">\(\Delta v_\text{ext}\)</span> when <span class="process-math">\(i_\text{ext}=0\)</span> (an open-circuit where nothing is connected across the output terminals), and the Norton current <span class="process-math">\(I_n\)</span> equals <span class="process-math">\(i_\text{ext}\)</span> when the outputs are shorted by a wire (making <span class="process-math">\(\Delta v_\text{ext}=0\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-thevenin-norton-circuits-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-dc-thevenin-lineplot"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/fig-dc-thevenin-lineplot-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>I-V plot for linear circuits. The norton current <span class="process-math">\(I_n\)</span> is equal to <span class="process-math">\(i_\text{ext}\)</span> when the output is shorted (<span class="process-math">\(v_\text{ext}=0\)</span>). We call this the short-circuit current <span class="process-math">\(I_\text{sc}\text{.}\)</span> The Thevenin voltage <span class="process-math">\(V_\text{th}\)</span> is given by <span class="process-math">\(v_\text{ext}\)</span> when <span class="process-math">\(i_\text{ext}=0\text{.}\)</span> This occurs when there is no load placed across the output terminals, so we call it the open-circuit voltage <span class="process-math">\(V_\text{oc}\text{.}\)</span><div class="autopermalink" data-description="Figure 2.6.2"><a href="#fig-dc-thevenin-lineplot" title="Copy heading and permalink for Figure 2.6.2" aria-label="Copy heading and permalink for Figure 2.6.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-dc-thevenin-norton-circuits-6">In the next section, we show that <a href="sec-dc-thevenin.html#fig-dc-thevenin-lineplot" class="xref" data-knowl="./knowl/xref/fig-dc-thevenin-lineplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a> must represent the behavior of any circuit comprised of ideal voltage sources, ideal current sources, and resistors.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-thevenin-norton-circuits-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 2.6.1: Behavior of Thévenin/Norton circuits"><a href="#subsec-dc-thevenin-norton-circuits" title="Copy heading and permalink for Subsection 2.6.1: Behavior of Thévenin/Norton circuits" aria-label="Copy heading and permalink for Subsection 2.6.1: Behavior of Thévenin/Norton circuits">🔗</a></div></section><section class="subsection" id="subsec-dc-proof-thevenin"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof of Thevenin’s and Norton’s Theorems</span>
+</h3>
+<div class="para" id="subsec-dc-proof-thevenin-2">Let’s assume that inside of a box we have a circuit with two leads exiting the box (<a href="sec-dc-thevenin.html#dc-thevenin-box" class="xref" data-knowl="./knowl/xref/dc-thevenin-box.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.3">Figure 2.6.3</a>). The circuit in the box is comprised of a complicated network of resistors <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(\ell\)</span> DC voltage sources <span class="process-math">\(V\text{,}\)</span> and <span class="process-math">\(k\)</span> ideal current sources <span class="process-math">\(I\text{.}\)</span> We will also assume <span class="process-math">\(j\)</span> unknown currents <span class="process-math">\(i\)</span> that are dependent on the size of the voltage difference <span class="process-math">\(\Delta v_\text{ext}\)</span> across the output terminals of the circuit.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-proof-thevenin-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="dc-thevenin-box"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-box-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 2.6.2"><a href="#dc-thevenin-box" title="Copy heading and permalink for Figure 2.6.2" aria-label="Copy heading and permalink for Figure 2.6.2">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-proof-thevenin-4">
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 2.6.3"><a href="#dc-thevenin-box" title="Copy heading and permalink for Figure 2.6.3" aria-label="Copy heading and permalink for Figure 2.6.3">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-dc-proof-thevenin-4">
 <div class="para">Let’s assume that if we apply the branch circuit analysis method, we end up with <span class="process-math">\(N_1\)</span> independent junction law equations and <span class="process-math">\(N_2\)</span> loop law equations. Each junction law equation will have the form</div>
 <div class="displaymath process-math" id="eqn-dc-thevenin-kcl">
 \begin{equation}
-a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_n=0\tag{2.6.1}
+a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_n=0\tag{2.6.3}
 \end{equation}
 </div>
 <div class="para">where <span class="process-math">\(a_{rn}\)</span> and <span class="process-math">\(b_{rn}\)</span> have values of +1, -1, or 0 depending on whether the currents <span class="process-math">\(i_n\)</span> and <span class="process-math">\(I_n\)</span> are entering, exiting, or not present at a junction and <span class="process-math">\(r\)</span> is an index counting over KCL equations. Here, <span class="process-math">\(i_\text{ext}\)</span> is the current that passes out of our circuit, through some external load, and back into our circuit.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-proof-thevenin-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="subsec-proof-thevenin-5">
+<div class="para logical" id="subsec-dc-proof-thevenin-5">
 <div class="para">We will also end up with <span class="process-math">\(N_2\)</span> independent loop law equations. All loops chosen for KVL analysis must be absent known current sources <span class="process-math">\(I_n\text{.}\)</span> Since the current is already known on circuit legs containing circuit sources, so this restriction will not cost us anything. Each of these loop law equations will have the form</div>
 <div class="displaymath process-math" id="eqn-dc-thevenin-kvl">
 \begin{equation}
 m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_n + c_{r,\text{ext}} i_\text{ext} 
-+ \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_n = 0\text{.}\tag{2.6.2}
++ \sum\limits_{n=1}^j c_{rn} i_n + \sum\limits_{n=1}^k d_{rn} I_n = 0\text{.}\tag{2.6.4}
 \end{equation}
 </div>
 <div class="para">The variables <span class="process-math">\(m_{rn}\)</span> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. Variables <span class="process-math">\(c_{rn}\)</span> and <span class="process-math">\(d_{rn}\)</span> have units of resistance (since each nonzero term in these sums represents a voltage change described by Ohm’s Law). Here, the index <span class="process-math">\(r\)</span> counts over KVL equations.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-proof-thevenin-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="subsec-proof-thevenin-6">
-<div class="para">These <span class="process-math">\(N_1\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> and <span class="process-math">\(N_2\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> can be re-expressed as a matrix equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\text{.}\)</span> First, let’s rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-6">
+<div class="para logical" id="subsec-dc-proof-thevenin-6">
+<div class="para">These <span class="process-math">\(N_1\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.3">(2.6.3)</a> and <span class="process-math">\(N_2\)</span> instances of <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.4">(2.6.4)</a> can be re-expressed as a matrix equation <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\text{.}\)</span> First, let’s rearrange these equations so that all unknowns are on the left side of the equation and all of the source terms are on the right</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-dc-proof-thevenin-6-6">
 \begin{align*}
 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n \amp = - \sum\limits_{n=1}^k b_{rn} I_n\\
 c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n 
@@ -341,7 +403,7 @@ c_{r,\text{ext}} i_\text{ext} + \sum\limits_{n=1}^j c_{rn} i_n
 \end{align*}
 </div>
 <div class="para">We can express these equations in the form <span class="process-math">\(\mathbf{A}\mathbf{x}=\mathbf{v}\)</span> if we let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-8">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-dc-proof-thevenin-6-8">
 \begin{equation*}
 \mathbf{A} = \begin{pmatrix}
 a_{1,\text{ext}} \amp a_{11} \amp \cdots \amp a_{1j}\\
@@ -353,7 +415,7 @@ c_{N_2,\text{ext}} \amp c_{N_2 1} \amp \cdots \amp c_{N_2 j} \\
 \end{pmatrix}\text{,}
 \end{equation*}
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-9">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-dc-proof-thevenin-6-9">
 \begin{equation*}
 \mathbf{x} = 
 \begin{pmatrix} 
@@ -372,51 +434,31 @@ i_\text{ext} \\ i_1 \\ \vdots \\ i_j \\
 \end{equation*}
 </div>
 <div class="para">Now, every element in matrix <span class="process-math">\(\mathbf{A}\)</span> is either a unitless number or a function of resistances only. More to the point, there is no voltage or current dependence in <span class="process-math">\(\mathbf{A}\text{.}\)</span> If we multiply both sides of our matrix equation by <span class="process-math">\(\mathbf{A}^{-1}\text{,}\)</span> we get</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-13">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-dc-proof-thevenin-6-13">
 \begin{equation*}
 \mathbf{x}=\mathbf{A}^{-1}\mathbf{v}\text{.}
 \end{equation*}
 </div>
 <div class="para">The solution that is most important to us is <span class="process-math">\(i_\text{ext}\)</span> as we wish to examine the relationship between output current and voltage. If we actually perform the calculations necessary to invert <span class="process-math">\(\mathbf{A}\text{,}\)</span> use matrix multiplication to find an expression for <span class="process-math">\(i_\text{ext}\text{,}\)</span> and then group source terms and rename constants multiplying each source (<span class="process-math">\(v_\text{ext},V,\ I\)</span>), the resulting solution is of the form</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-proof-thevenin-6-18">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eqn-dc-thevenin-kcl.html ./knowl/xref/eqn-dc-thevenin-kvl.html" id="subsec-dc-proof-thevenin-6-18">
 \begin{equation*}
 i_\text{ext} = \alpha_0 v_\text{ext} + \sum\limits_{n=1}^\ell \alpha_n V_n + \sum\limits_{n=1}^k \beta_n I_n 
 \end{equation*}
 </div>
 <div class="para">where all <span class="process-math">\(\alpha_n\)</span> and <span class="process-math">\(\beta_n\)</span> terms are functions of resistances only and are thus constants. This result demonstrates that <span class="process-math">\(i_\text{ext}\)</span> is a linear function of <span class="process-math">\(v_\text{ext}\)</span> with slope <span class="process-math">\(\alpha_0\)</span> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-proof-thevenin-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="subsec-proof-thevenin-7">
-<div class="para">Now that the linearity of our complicated circuit has been demonstrated, it follows that any simplified circuit that follows an identical linear relationship will have behavior of <span class="process-math">\(i_\text{ext}\)</span> and <span class="process-math">\(v_\text{ext}\)</span> that is identical to the original circuit, regardless of the load that is connected across the output terminals. One such simplified circuit is the Thevenin equivalent circuit of <a href="sec-dc-thevenin.html#dc-thevenin-box" class="xref" data-knowl="./knowl/xref/dc-thevenin-box.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.2">Figure 2.6.2</a>. The Thevenin equivalent circuit will reproduce the output i-v relationship of our complicated circuit if</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-thevenin-box.html" id="subsec-proof-thevenin-7-4">
-\begin{align*}
-V_{th} \amp = V_{oc} \\
-R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{\alpha_0} \text{.}
-\end{align*}
+<div class="para" id="subsec-dc-proof-thevenin-7">At this point, it is important to discuss that the internal behavior of the complicated circuit and simplified circuit are different. EXPAND ON THIS THOUGHT.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-dc-proof-thevenin-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">In a similar way, we can see that the Norton equivalent circuit can also demonstrate identical output i-v behavior when</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/dc-thevenin-box.html" id="subsec-proof-thevenin-7-5">
-\begin{align*}
-I_n\amp = I_{sc} \\
-R_n \amp = R_{th} \text{.}
-\end{align*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="subsec-proof-thevenin-8">The behavior of linear circuits is shown graphically in <a href="sec-dc-thevenin.html#dc-thevenin-lineplot" class="xref" data-knowl="./knowl/xref/dc-thevenin-lineplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.3">Figure 2.6.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="dc-thevenin-lineplot"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-thevenin-lineplot-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>I-V plot for linear circuits. The norton current <span class="process-math">\(I_n\)</span> is equal to <span class="process-math">\(i_\text{ext}\)</span> when the output is shorted (<span class="process-math">\(v_\text{ext}=0\)</span>). We call this the short-circuit current <span class="process-math">\(I_\text{sc}\text{.}\)</span> The Thevenin voltage <span class="process-math">\(V_\text{th}\)</span> is given by <span class="process-math">\(v_\text{ext}\)</span> when <span class="process-math">\(i_\text{ext}=0\text{.}\)</span> This occurs when there is no load placed across the output terminals, so we call it the open-circuit voltage <span class="process-math">\(V_\text{oc}\text{.}\)</span><div class="autopermalink" data-description="Figure 2.6.3"><a href="#dc-thevenin-lineplot" title="Copy heading and permalink for Figure 2.6.3" aria-label="Copy heading and permalink for Figure 2.6.3">🔗</a></div></figcaption></figure><div class="para" id="subsec-proof-thevenin-10">At this point, it is important to discuss that the internal behavior of the complicated circuit and simplified circuit are different. EXPAND ON THIS THOUGHT.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-proof-thevenin-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Subsection 2.6.1: Proof of Thevenin’s and Norton’s Theorems"><a href="#subsec-proof-thevenin" title="Copy heading and permalink for Subsection 2.6.1: Proof of Thevenin’s and Norton’s Theorems" aria-label="Copy heading and permalink for Subsection 2.6.1: Proof of Thevenin’s and Norton’s Theorems">🔗</a></div></section><section class="subsection" id="subsec-finding-thevenin"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding Thevenin Equivalent Circuits</span>
+<div class="autopermalink" data-description="Subsection 2.6.2: Proof of Thevenin’s and Norton’s Theorems"><a href="#subsec-dc-proof-thevenin" title="Copy heading and permalink for Subsection 2.6.2: Proof of Thevenin’s and Norton’s Theorems" aria-label="Copy heading and permalink for Subsection 2.6.2: Proof of Thevenin’s and Norton’s Theorems">🔗</a></div></section><section class="subsection" id="subsec-finding-thevenin"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding Thevenin Equivalent Circuits</span>
 </h3>
 <div class="para" id="subsec-finding-thevenin-2">Given a complicated circuit, we can use the procedure provided in the proof above to find Thevenin and Norton equivalent circuit parameters.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-finding-thevenin-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="subsec-finding-thevenin-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Thevenin Example - Matrix Approach.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para" id="subsec-finding-thevenin-3-2-1">Coming soon.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-finding-thevenin-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="subsec-finding-thevenin-3-2-2">Here, we develop <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> and <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a>, convert them into a matrix equation, and use Python to solve for the Thevenin and Norton equivalent circuit parameters.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-finding-thevenin-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="subsec-finding-thevenin-3-2-2">Here, we develop <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kcl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kcl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.3">(2.6.3)</a> and <a href="sec-dc-thevenin.html#eqn-dc-thevenin-kvl" class="xref" data-knowl="./knowl/xref/eqn-dc-thevenin-kvl.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.4">(2.6.4)</a>, convert them into a matrix equation, and use Python to solve for the Thevenin and Norton equivalent circuit parameters.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-finding-thevenin-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="subsec-finding-thevenin-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="subsec-finding-thevenin-3-3-1">Coming soon<div class="autopermalink" data-description="Paragraph"><a href="#subsec-finding-thevenin-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -556,7 +598,7 @@ R_{th} \amp = R_4 + \left(\left(R_1 + R_2\right)^{-1}+R_3^{-1}\right)^{-1}\\
 </div>
 <div class="para" id="subsec-finding-thevenin-8">Look at section 41.6 to add color to example blocks. also section 28.2 and similar. xsl stylesheets<div class="autopermalink" data-description="Paragraph"><a href="#subsec-finding-thevenin-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 2.6.2: Finding Thevenin Equivalent Circuits"><a href="#subsec-finding-thevenin" title="Copy heading and permalink for Subsection 2.6.2: Finding Thevenin Equivalent Circuits" aria-label="Copy heading and permalink for Subsection 2.6.2: Finding Thevenin Equivalent Circuits">🔗</a></div></section><div class="autopermalink" data-description="Section 2.6: Thevenin and Norton Theorem"><a href="#sec-dc-thevenin" title="Copy heading and permalink for Section 2.6: Thevenin and Norton Theorem" aria-label="Copy heading and permalink for Section 2.6: Thevenin and Norton Theorem">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Subsection 2.6.3: Finding Thevenin Equivalent Circuits"><a href="#subsec-finding-thevenin" title="Copy heading and permalink for Subsection 2.6.3: Finding Thevenin Equivalent Circuits" aria-label="Copy heading and permalink for Subsection 2.6.3: Finding Thevenin Equivalent Circuits">🔗</a></div></section><div class="autopermalink" data-description="Section 2.6: Thévenin’s and Norton’s Theorems"><a href="#sec-dc-thevenin" title="Copy heading and permalink for Section 2.6: Thévenin’s and Norton’s Theorems" aria-label="Copy heading and permalink for Section 2.6: Thévenin’s and Norton’s Theorems">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-dc-superposition.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-dc-batteries.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
