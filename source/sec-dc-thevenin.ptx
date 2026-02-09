@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-dc-thevenin">
-        <title>Thevenin and Norton Theorem</title>
+        <title>Th&#xE9;venin's and Norton's Theorems</title>
         <introduction>
             <p>
                 <figure xml:id="dc-messy-thevenin">
@@ -34,7 +34,7 @@
                         \draw   (b) to [short, -o] ++ (3,0) coordinate (vb);
                         \draw   (vb)     node[right]{\texttt{$V_B$}};
                         \draw   (va)     node[right]{\texttt{$V_A$}};
-                        \draw   ([xshift=1.5cm, yshift=-2.5cm] a) node[below]{\texttt{Thevenin Equivalent}};
+                        \draw   ([xshift=1.5cm, yshift=-2.5cm] a) node[below]{\texttt{Th&#xE9;venin Equivalent}};
                         \draw   ([yshift=-1cm] va) node[right]{\texttt{$\Delta v_\text{ext}$}};
 
                         % Norton equivalent Circucit
@@ -54,14 +54,83 @@
                 
             </p>
             <p>
-                Circuits controlling devices that you use every day are often very complex with complicated scematic diagrams. This complexity can make it difficult to analytically determine the behavior of the output voltage and current when this complex circuit is connected to an external load. DEFINE LOAD.  
+                Circuits controlling devices that you use every day are often very complex with complicated scematic diagrams. This complexity can make it difficult to analytically determine the behavior of the output voltage and current when this complex circuit is connected to an external load. DEFINE LOAD. NOTE SOMEWHERE THAT <m>\Delta v_\text{ext}=V_A-V_B</m> .
             </p>
             <p>    
-                In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit (either the Thevenin equivalent circuit or the Norton equivalent circuit). The original and simplified circuits all have output voltages and currents that behave identically when an external load is connected across the outputs.  
+                In this section, we introduce two theorems that allow us to replace a complicated circuit with a simplified circuit. For the moment, we will limit ourselves to resistor-based DC circuits and will generalize these theorems next chapter. 
+            </p>
+            <p>
+                <term>Th&#xE9;venin's theorem</term> states that any complicated circuit containing comprised of only ideal voltage sources, ideal current sources, and resistors will demonstrate a relationship between <m>i_\text{ext}</m> and <m>\Delta v_\text{ext}</m> that is identical to the relationship demonstrated by a Th&#xE9;venin equivalent circuit containing a single voltage source (the Th&#xE9;venin voltage <m>V_\text{th}</m>) in series with a single resistance (the Th&#xE9;venin resistance <m>R_\text{th}</m>) for any load (DEFINE!) connected across the circuit output. Similarly, <term>Norton's theorem</term> states that any complicated circuit containing comprised of only ideal voltage sources, ideal current sources, and resistors will demonstrate a relationship between <m>i_\text{ext}</m> and <m>\Delta v_\text{ext}</m> that is identical to the relationship demonstrated by a Norton equivalent circuit containing a single current source (the Norton current <m>I_n</m>) in parallel with a single resistance (the Norton resistance <m>R_n</m>) for any load (DEFINE!) connected across the circuit output.
+            </p>
+            <p>
+               Below, we will start by analyzing the Th&#xE9;venin and Norton equivalent circuits and determine the relationship between <m>i_\text{ext}</m> and <m>v_\text{ext}</m>. We will then show that any complicated circuit containing only ideal sources and resistors must demonstrate this same behavior, thus proving these two theorems. 
             </p>
         </introduction>
 
-    <subsection xml:id="subsec-proof-thevenin">
+    <subsection xml:id="subsec-dc-thevenin-norton-circuits">
+        <title>Behavior of Th&#xE9;venin/Norton circuits</title>
+        <p>
+            Applying Kirchhoff's voltage law to the Th&#xE9;venin equivalent circuit in <xref ref="dc-messy-thevenin"/>, we find that
+            <md>
+                V_\text{th}-i_\text{ext}R_\text{th}-\Delta v_\text{ext}
+            </md>.
+            Rearrangement of this equation shows
+            <md number="yes" xml:id="eqn-dc-thevenin-thevenin_eqn">
+                i_\text{ext}=-\frac{1}{R_\text{th}}\Delta v_\text{ext} + \frac{1}{R_\text{th}} V_\text{th}
+            </md>,
+            a linear relationship between <m>i_\text{ext}</m> and <m>v_\text{ext}</m>.
+        </p>
+        <p>
+            Application of Kirchhoff's current law to the Norton equivalent circuit in <xref ref="dc-messy-thevenin"/> shows
+            <md>
+                I_n - i_\text{ext} - \frac{1}{R_n}\Delta v_\text{ext}
+            </md>
+            where Ohm's law was used to express the current through <m>R_n</m> in terms of <m>\Delta v_\text{ext}</m>. Rearrangement of this equation shows that
+            <md number="yes" xml:id="eqn-dc-thevenin-norton_eqn">
+                i_\text{ext} = -\frac{1}{R_n}\Delta v_\text{ext} + I_n
+            </md>
+            which again demonstrates a linear relationship between <m>i_\text{ext}</m> and <m>\Delta v_\text{ext}</m>.
+        </p>
+        <p>
+            If both Th&#xE9;venin's theorem and Norton's theorem are to be true, then Equations <xref ref="eqn-dc-thevenin-thevenin_eqn"/> and <xref ref="eqn-dc-thevenin-norton_eqn"/> must be equivalent. This can only be true if
+            <md>
+                I_n = \frac{V_\text{th}}{R_\text{th}}
+            </md>
+            and
+            <md>
+                R_n = R_\text{th}
+            </md>.
+            The linear relationship between <m>i_\text{ext}</m> and <m>\Delta v_\text{ext}</m> for these circuits is shown in <xref ref="fig-dc-thevenin-lineplot"/>. Here we see that the slope is the negative inverse of <m>R_\text{th}</m> and <m>R_n</m>. The Th&#xE9;venin voltage <m>V_\text{th}</m> is equal to <m>\Delta v_\text{ext}</m> when <m>i_\text{ext}=0</m> (an open-circuit where nothing is connected across the output terminals), and the Norton current <m>I_n</m> equals <m>i_\text{ext}</m> when the outputs are shorted by a wire (making <m>\Delta v_\text{ext}=0</m>).
+        </p>
+        <figure xml:id="fig-dc-thevenin-lineplot">
+            <caption>I-V plot for linear circuits. The norton current <m>I_n</m> is equal to <m>i_\text{ext}</m> when the output is shorted (<m>v_\text{ext}=0</m>). We call this the short-circuit current <m>I_\text{sc}</m>. The Thevenin voltage <m>V_\text{th}</m> is given by <m>v_\text{ext}</m> when <m>i_\text{ext}=0</m>. This occurs when there is no load placed across the output terminals, so we call it the open-circuit voltage <m>V_\text{oc}</m>.</caption>
+            <image><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                every major tick/.append style={very thick, major tick length=10pt, black},
+                xmin=-0.5,xmax=5,
+                xtick={4},xticklabels={$V_{th}$},
+                ymin=-0.5,ymax=5,
+                ytick={4},yticklabels={$I_n$},
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={$\Delta v_\text{ext}$},ylabel={$i_\text{ext}$},
+                ]
+                \addplot[color=blue, domain=0:4]{-x+4};
+                \addplot[black,no marks] coordinates{(2,2)};
+                \node[anchor=south west] (T) at (1.25,2.55) {$\text{slope}=-R_{th}^{-1}=-R_n^{-1}$};
+                \end{axis}
+            \end{tikzpicture}
+            </latex-image></image>
+        </figure>
+        <p>
+            In the next section, we show that <xref ref="fig-dc-thevenin-lineplot"/> must represent the behavior of any circuit comprised of ideal voltage sources, ideal current sources, and resistors.
+        </p>
+        
+    </subsection>
+    
+    <subsection xml:id="subsec-dc-proof-thevenin">
         <title>Proof of Thevenin's and Norton's Theorems</title>
         <p>
             Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>\ell</m> DC voltage sources <m>V</m>, and <m>k</m> ideal current sources <m>I</m>. We will also assume <m>j</m> unknown currents <m>i</m> that are dependent on the size of the voltage difference <m>\Delta v_\text{ext}</m> across the output terminals of the circuit.
@@ -148,46 +217,6 @@
             </me>
             where all <m>\alpha_n</m> and <m>\beta_n</m> terms are functions of resistances only and are thus constants. This result demonstrates that <m>i_\text{ext}</m> is a linear function of <m>v_\text{ext}</m> with slope <m>\alpha_0</m> and a y-intercept that equals the two summations on the right side of the equation. So, we have now shown that any circuit comprised of solely linear circuit elements is itself a linear circuit. 
         </p>
-
-        <p>
-            Now that the linearity of our complicated circuit has been demonstrated, it follows that any simplified circuit that follows an identical linear relationship will have behavior of <m>i_\text{ext}</m> and <m>v_\text{ext}</m> that is identical to the original circuit, regardless of the load that is connected across the output terminals. One such simplified circuit is the Thevenin equivalent circuit of <xref ref="dc-thevenin-box"/>. The Thevenin equivalent circuit will reproduce the output i-v relationship of our complicated circuit if
-            <md>
-                <mrow> V_{th} \amp = V_{oc} </mrow>
-                <mrow> R_{th} \amp = \frac{V_{th}}{I_{sc}} = \frac{1}{\alpha_0} </mrow>
-            </md>.
-            In a similar way, we can see that the Norton equivalent circuit can also demonstrate identical output i-v behavior when
-            <md>
-                <mrow> I_n\amp = I_{sc} </mrow>
-                <mrow> R_n \amp = R_{th} </mrow>
-            </md>.
-        </p>
-        <p>
-            The behavior of linear circuits is shown graphically in <xref ref="dc-thevenin-lineplot"/>.
-        </p>
-        
-        <figure xml:id="dc-thevenin-lineplot">
-            <caption>I-V plot for linear circuits. The norton current <m>I_n</m> is equal to <m>i_\text{ext}</m> when the output is shorted (<m>v_\text{ext}=0</m>). We call this the short-circuit current <m>I_\text{sc}</m>. The Thevenin voltage <m>V_\text{th}</m> is given by <m>v_\text{ext}</m> when <m>i_\text{ext}=0</m>. This occurs when there is no load placed across the output terminals, so we call it the open-circuit voltage <m>V_\text{oc}</m>.</caption>
-            <image><latex-image>
-            \begin{tikzpicture}
-                \begin{axis}[
-                axis lines=middle,
-                every major tick/.append style={very thick, major tick length=10pt, black},
-                xmin=-0.5,xmax=5,
-                xtick={4},xticklabels={$V_{th}$},
-                ymin=-0.5,ymax=5,
-                ytick={4},yticklabels={$I_n$},
-                x label style={anchor=west},
-                y label style={anchor=west},
-                xlabel={$v_\text{ext}$},ylabel={$i_\text{ext}$},
-                ]
-                \addplot[color=blue, domain=0:4]{-x+4};
-                \addplot[black,no marks] coordinates{(2,2)};
-                \node[anchor=south west] (T) at (1.25,2.55) {$\text{slope}=\alpha_0=R_{th}^{-1}=R_n^{-1}$};
-                \end{axis}
-            \end{tikzpicture}
-            </latex-image></image>
-        </figure>
-
         <p>
             At this point, it is important to discuss that the internal behavior of the complicated circuit and simplified circuit are different. EXPAND ON THIS THOUGHT.
         </p>
