@@ -21,7 +21,7 @@
                     <p>
                         Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data <m>\left(V(t_i)\right)</m> where <m>t_i</m> are the values of time for which <m>n</m> measurements were recorded. Then,  
                         <me>
-                            V_\text{rms}=\sqrt{\frac{\sum\limits_{i=1}{n} V_i^2}{n}}
+                            V_\text{rms}=\sqrt{\frac{\sum\limits_{i=1}^{n} V_i^2}{n}}
                         </me>
                         which is <m>V_\text{peak}/\sqrt{2}</m> for sinusoidal waves.
                     </p>
