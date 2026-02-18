@@ -313,91 +313,49 @@ sagecell.makeSagecell({
 <div class="para" id="sec-labpython-curvefit-2">Frequently, curve fitting will be used to extract results from experimental data. In this section, we demonstrate use of <code class="code-inline tex2jax_ignore">scipy.optimize.curve_fit</code>, the curve fitting function provided within SciPy.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec-labpython-curvefit-3">
-<div class="para">Curve fitting is accomplished by calling <code class="code-inline tex2jax_ignore">curve_fit(func, xdata, ydata, p0) </code> which returns <code class="code-inline tex2jax_ignore">[param, param_cov]</code> for the following inputs and outputs:</div>
-<ul class="disc" id="sec-labpython-curvefit-3-3">
-<li id="sec-labpython-curvefit-3-3-1">
-<div class="para logical" id="sec-labpython-curvefit-3-3-1-1">
-<div class="para">Inputs:</div>
-<ul class="circle" id="sec-labpython-curvefit-3-3-1-1-1">
-<li id="sec-labpython-curvefit-3-3-1-1-1-1">
-<div class="para" id="sec-labpython-curvefit-3-3-1-1-1-1-1">func : The name of a user-defined function that defines the fitting equation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Let’s illustrate this process through an example. Assume that we have conducted an experiment in which we investigated the behavior of a voltage divider circuit shown in <a href="sec-labpython-plotting.html#fig-labpython-vdiv-circuit" class="xref" data-knowl="./knowl/xref/fig-labpython-vdiv-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 13.2.1">Figure 13.2.1</a> where <span class="process-math">\(V_\text{in}\)</span> and <span class="process-math">\(R_\text{fixed}\)</span> are treated as being unknown. We collect measurements of <span class="process-math">\(V_\text{out}\)</span> as we vary and measure <span class="process-math">\(R_\text{pot}\text{.}\)</span> A curve fitting process can then be employed to find <span class="process-math">\(V_\text{in}\)</span> and <span class="process-math">\(R_\text{fixed}\)</span> from fit parameters, where</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-labpython-vdiv-circuit.html" id="eqn-labpython-curvefit-theory">
+\begin{equation}
+V_\text{out}=\frac{R_\text{pot}}{R+R_\text{pot}}\tag{13.3.1}
+\end{equation}
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-1-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="sec-labpython-curvefit-3-3-1-1-1-2">
-<div class="para" id="sec-labpython-curvefit-3-3-1-1-1-2-1">xdata : An array containing data for the independent variable.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-1-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="sec-labpython-curvefit-3-3-1-1-1-3">
-<div class="para" id="sec-labpython-curvefit-3-3-1-1-1-3-1">ydata : An array containing data for the dependent variable.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-1-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-1-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="sec-labpython-curvefit-3-3-1-1-1-4">
-<div class="para" id="sec-labpython-curvefit-3-3-1-1-1-4-1">p0 : (Optional) An array containing initial guesses for the fitting parameter values. [INCLUDE FURTHER DISCUSSION OF WHEN THIS MIGHT BE USEFUL TO USE.]<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-1-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-1-1-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-</ul>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="sec-labpython-curvefit-3-3-2">
-<div class="para logical" id="sec-labpython-curvefit-3-3-2-1">
-<div class="para">Outputs:</div>
-<ul class="circle" id="sec-labpython-curvefit-3-3-2-1-1">
-<li id="sec-labpython-curvefit-3-3-2-1-1-1">
-<div class="para" id="sec-labpython-curvefit-3-3-2-1-1-1-1">param : An array containing values for the fitting parameters that provide the best fit of our function to the provided data.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="sec-labpython-curvefit-3-3-2-1-1-2">
-<div class="para" id="sec-labpython-curvefit-3-3-2-1-1-2-1">param_cov : The covariance matrix for our fit parameters. For our purposes, it is sufficient to know that <code class="code-inline tex2jax_ignore">numpy.sqrt(numpy.diag(pcov))</code> approximates the standard deviation of the fit parameters that arises from discrepancies between data and the best fit curve.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-</ul>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#sec-labpython-curvefit-3-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-</ul>
-<div class="para">While additional input arguments and returns are available for the <code class="code-inline tex2jax_ignore">curve_fit</code> function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.</div>
+<div class="para">is our fitting function. Here, an executable routine is provided that uses the <code class="code-inline tex2jax_ignore">curve_fit</code> function from the <code class="code-inline tex2jax_ignore">scipy.optimize</code> module to perform a curve fit to data, with a code break-down with explanation following. When examining the results provided by this curve fitting routine, note that values of <span class="process-math">\(V_\text{in}=5.0\text{V}\)</span> and <span class="process-math">\(R_\text{fixed}=5\text{k}\Omega\)</span> were used when generating the synthetic data in this example.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-labpython-curvefit-4">Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in <a href="sec-labpython-plotting.html#fig-labpython-vdiv-circuit" class="xref" data-knowl="./knowl/xref/fig-labpython-vdiv-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 13.2.1">Figure 13.2.1</a>. [FIGURE IN PREVIOUS SECTION... ADJUST TEXT] Here, <span class="process-math">\(R_\text{pot}\)</span> is a potentiometer (or variable resistor) that the experimenter controls.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec-labpython-curvefit-5">If an experiment is conducted to collect <span class="process-math">\(V_\text{out}\)</span> data as <span class="process-math">\(R_\text{pot}\)</span> varies, a curve fit can be used to estimate values for <span class="process-math">\(V_\text{in}\)</span> and <span class="process-math">\(R_\text{fixed}\)</span> in our experiment. The Python code below demonstrates this process.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div id="sec-labpython-curvefit-6" class="ptx-sagecell sagecell-python"><script type="text/x-sage">globals().clear() # Clear all variables from previous code runs
+<div id="sec-labpython-curvefit-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># FULL ROUTINE
+
+# Clear all variables from previous code runs
+globals().clear() 
+
+# Import functions for use in this program 
 import numpy as np
 import scipy.optimize as opt
 import matplotlib.pyplot as plt
 
-plt.close('all') # Close all open figures
+# Close all open figures
+plt.close('all') 
 
 # Define our fitting function
 def func(R, Vin, Rfix):
-    return Vin*R/(Rfix+R)
+    out = Vin * R/(Rfix + R)
+    return out
 
 # Create arrays containing data from experiment 
 Rpot = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
 Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
 
 # Perform curve fitting
-param, param_cov = opt.curve_fit(func, Rpot, Vout);
+fit, fit_cov = opt.curve_fit(func, Rpot, Vout);
 
 # Calculate standard deviation on fit parameters (associated with data scatter)
-sigma=np.sqrt(np.diag(param_cov));
+sigma=np.sqrt(np.diag(fit_cov));
 
 # Print values and uncertainties for fit parameters
-print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(param[0],sigma[0],param[1], sigma[1]))
+print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(fit[0],sigma[0],fit[1], sigma[1]))
 
 # Create arrays containing values for the best fit curve (useful for plotting best fit curve)
 Rpot_fit=np.linspace(0,10000, 100);
-Vout_fit=param[0]*Rpot_fit/(param[1]+Rpot_fit);
+Vout_fit=fit[0]*Rpot_fit/(fit[1]+Rpot_fit);
 
 # Plot experiment data and best fit curve on the same axes
 plt.plot(Rpot, Vout, 'o', label='Data');
@@ -409,9 +367,64 @@ plt.ylabel(r'$V_\text{out}$')
 plt.legend();
 plt.show();
 </script></div>
-<div class="para" id="sec-labpython-curvefit-7">[INCLUDE A PREFIGURE PLOT SHOWING RESULT OF THE CODE ALONG WITH THE ACCOMPANYING TEXT OUTPUT.] When generating the synthetic data in the above example, values of <span class="process-math">\(V_\text{in}=5.0\text{V}\)</span> and <span class="process-math">\(R_\text{fixed}=5\text{k}\Omega\)</span> were used.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="paragraphs" id="sec-labpython-curvefit-5"><h3 class="heading"><span class="title">Breakdown of curve fitting routine.</span></h3>
+<div class="para" id="sec-labpython-curvefit-5-2">Let’s take a closer look at the pieces that go into this Python routine. We start by initializing our variable and function space. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Clear all variables from previous code runs
+globals().clear() 
+
+# Import functions for use in this program 
+import numpy as np
+import scipy.optimize as opt
+import matplotlib.pyplot as plt
+
+# Close all open figures
+plt.close('all')
+</code></pre></div> We ensure that all variables in the variable-space are cleared out and don’t carry over from other code boxes in the textbook. We then import functions from NumPy, SciPy, and MatPlotLib.pyplot packages that we’ll wish to use. Finally, we close all plot windows that may exist from other instances of running code in this textbook.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section 13.3: Fitting a Curve to Data"><a href="#sec-labpython-curvefit" title="Copy heading and permalink for Section 13.3: Fitting a Curve to Data" aria-label="Copy heading and permalink for Section 13.3: Fitting a Curve to Data">🔗</a></div></section></div>
+<div class="para" id="sec-labpython-curvefit-5-3">The <code class="code-inline tex2jax_ignore">curve_fit</code> function that we intend to use must be given information about the functional form of our fitting equation. This information will be provided by a function <code class="code-inline tex2jax_ignore">func</code> that we define based on Equation <a href="sec-labpython-curvefit.html#eqn-labpython-curvefit-theory" class="xref" data-knowl="./knowl/xref/eqn-labpython-curvefit-theory.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 13.3.1">(13.3.1)</a>. Once defined, <code class="code-inline tex2jax_ignore">func</code> will be an input provided to the <code class="code-inline tex2jax_ignore">curve_fit</code> function. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Define our fitting function
+def func(R, Vin, Rfix):
+    out = Vin * R/(Rfix + R)
+    return out
+</code></pre></div> The first line of our function definition always begins with <code class="code-inline tex2jax_ignore">def</code>, followed by the name of the function we’re defining and its arguments. The <code class="code-inline tex2jax_ignore">curve_fit</code> function expects the first argument of <code class="code-inline tex2jax_ignore">func</code> to represent our data’s independent variable (often the horizontal axis of a plot). In this example, <code class="code-inline tex2jax_ignore">R</code> will represent <span class="process-math">\(R_\text{pot}\text{.}\)</span> Any additional arguments specified for <code class="code-inline tex2jax_ignore">func</code> represent fitting parameters that will be determined by the curve fitting process. In this example, these fit parameters <code class="code-inline tex2jax_ignore">Vin</code> and <code class="code-inline tex2jax_ignore">Rfix</code> will represent <span class="process-math">\(V_\text{in}\)</span> and <span class="process-math">\(R_\text{fixed}\)</span> respectively. The next line(s) contain the actual functional form for our fitting function which will be dictated by Equation <a href="sec-labpython-curvefit.html#eqn-labpython-curvefit-theory" class="xref" data-knowl="./knowl/xref/eqn-labpython-curvefit-theory.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 13.3.1">(13.3.1)</a> in terms of the argument names above. The <code class="code-inline tex2jax_ignore">out</code> variable represents our data’s dependent variable (often the vertical axis of a plot) and represents <span class="process-math">\(V_\text{out}\)</span> in this example. The final line of the function definition for <code class="code-inline tex2jax_ignore">func</code> will return to <code class="code-inline tex2jax_ignore">curve_fit</code> a value of <code class="code-inline tex2jax_ignore">out</code> based on the argument values that <code class="code-inline tex2jax_ignore">curve_fit</code> provided to <code class="code-inline tex2jax_ignore">func</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labpython-curvefit-5-4">The next lines of code represent the introduction of experimental data <span class="process-math">\(\left(R_\text{pot}, V_\text{out}\right)\)</span> into the routine. There are only ten data points in this example, so it is not too onerous to enter the data by hand directly into the routine. For larger data sets, it is instead recommended that data import routines similar to those shown in <a href="sec-labpython-dataload.html" class="internal" title="Section 13.1: Loading Data Files">Section 13.1</a> be used. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Create arrays containing data from experiment 
+Rpot = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
+</code></pre></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labpython-curvefit-5-5">We are now ready to perform a curve fit to our data. The <code class="code-inline tex2jax_ignore">curve_fit</code> function takes as inputs the name of the fitting function, the variable name for the independent variable, and the variable name for the dependent variable. Further inputs and options are available but optional, and can be found in official documentation for SciPy. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Perform curve fitting
+fit, fit_cov = opt.curve_fit(func, Rpot, Vout);
+</code></pre></div> Here, we provide the name of our defined function <code class="code-inline tex2jax_ignore">func</code>, the name of our independent variable data <code class="code-inline tex2jax_ignore">Rpot</code>, and the name of our dependent variable data <code class="code-inline tex2jax_ignore">Vout</code>. The <code class="code-inline tex2jax_ignore">curve_fit</code> function will then return its estimate for values of the fit parameters as an array of values in <code class="code-inline tex2jax_ignore">fit</code> and something called the covariance as an array of values in <code class="code-inline tex2jax_ignore">fit_cov</code>. A full description of the meaning of the covariance matrix can be found in data analysis or statistics texts. For our purposes, the covariance can be used to provide estimates of the one standard deviation uncertainty (arising from scatter in the data) for each of the fit parameters stored in <code class="code-inline tex2jax_ignore">fit</code>. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Calculate standard deviation on fit parameters (associated with data scatter)
+sigma=np.sqrt(np.diag(fit_cov));
+</code></pre></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labpython-curvefit-5-6">Estimates for the fit parameters and data-scatter uncertainties are printed for the user. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Print values and uncertainties for fit parameters
+print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(fit[0],sigma[0],fit[1], sigma[1]))
+</code></pre></div> In this print command, the structure of the string that will be displayed is provided first, followed by values taken from variables present in our program. As an example, the portion of the command reading <code class="code-inline tex2jax_ignore">Rfixed={2:.2f}ohms</code> indicates that the spot enclosed by the curly brackets should be replaced by the second element (since the number before the colon is a ‘2’) in the <code class="code-inline tex2jax_ignore">format</code> attribute (<code class="code-inline tex2jax_ignore">fit[1]</code> in this case). The ‘:.2f’ indicates that the number placed in this spot should be a floating point number (because of the ‘f’) that is truncated two digits after the decimal point (because of the ‘:.2’). To better demonstrate this functionality, an alternative set of print commands, shown here, could have been used to split the statement of results into two lines of text. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Print values and uncertainties for fit parameters
+print('Vin={0:.2f}V +/- {1:.2f}V '.format(fit[0],sigma[0]))
+print('Rfixed={0:.2f}ohms +/- {1:.2f}ohms'.format(fit[1], sigma[1]))
+</code></pre></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labpython-curvefit-5-7">To produce a theory curve based on these fit parameters, we first generate an array of values for <span class="process-math">\(R_\text{pot}\)</span> associated with our theoretical prediction, and then evaluate a theoretical prediction for <span class="process-math">\(V_\text{out}\)</span> for each of these <span class="process-math">\(R_\text{pot}\)</span> values. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Create arrays containing values for the best fit curve 
+Rpot_fit=np.linspace(0,10000, 100);
+Vout_fit=fit[0]*Rpot_fit/(fit[1]+Rpot_fit);
+</code></pre></div> Here, <code class="code-inline tex2jax_ignore">Rpot_fit</code> is an array containing 100 values spaced linearly in the range (0,10000). These values are plugged into Equation <a href="sec-labpython-curvefit.html#eqn-labpython-curvefit-theory" class="xref" data-knowl="./knowl/xref/eqn-labpython-curvefit-theory.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 13.3.1">(13.3.1)</a> to generate an array of values for <code class="code-inline tex2jax_ignore">Vout_fit</code> .<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labpython-curvefit-5-8">The remainder of the code contains plotting commands along the lines of those discussed in <a href="sec-labpython-plotting.html" class="internal" title="Section 13.2: Producing Line Plots">Section 13.2</a>. <div class="code-box"><pre class="program clipboardable"><code class="language-py"># Plot experiment data and best fit curve on the same axes
+plt.plot(Rpot, Vout, 'o', label='Data');
+plt.plot(Rpot_fit, Vout_fit, label='Fit')
+plt.xlim(0,10500);
+plt.ylim(0,3.5);
+plt.xlabel(r'Resistance ($\Omega$)')
+plt.ylabel(r'$V_\text{out}$')
+plt.legend();
+plt.show();
+</code></pre></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labpython-curvefit-5-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Breakdown of curve fitting routine"><a href="#sec-labpython-curvefit-5" title="Copy heading and permalink for Paragraphs: Breakdown of curve fitting routine" aria-label="Copy heading and permalink for Paragraphs: Breakdown of curve fitting routine">🔗</a></div></section><div class="autopermalink" data-description="Section 13.3: Fitting a Curve to Data"><a href="#sec-labpython-curvefit" title="Copy heading and permalink for Section 13.3: Fitting a Curve to Data" aria-label="Copy heading and permalink for Section 13.3: Fitting a Curve to Data">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-labpython-plotting.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-labpython-montecarlo.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
