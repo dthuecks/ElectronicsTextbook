@@ -5,93 +5,49 @@
     <p>
         Frequently, curve fitting will be used to extract results from experimental data. In this section, we demonstrate use of <c>scipy.optimize.curve_fit</c>, the curve fitting function provided within SciPy. 
     </p>
-    <p>        
-        Curve fitting is accomplished by calling <c>curve_fit(func, xdata, ydata, p0) </c> which returns <c>[param, param_cov]</c> for the following inputs and outputs:
-        <ul>
-            <li>
-                <p>
-                    Inputs:
-                    <ul>
-                        <li>
-                            <p>
-                                func : The name of a user-defined function that defines the fitting equation.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                xdata : An array containing data for the independent variable.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                ydata : An array containing data for the dependent variable.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                p0 : (Optional) An array containing initial guesses for the fitting parameter values. [INCLUDE FURTHER DISCUSSION OF WHEN THIS MIGHT BE USEFUL TO USE.]
-                            </p>
-                        </li>
-                    </ul> 
-                </p>
-            </li>
-            <li>
-                <p>
-                    Outputs:
-                    <ul>
-                        <li>
-                            <p>
-                                param : An array containing values for the fitting parameters that provide the best fit of our function to the provided data.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                param_cov : The covariance matrix for our fit parameters. For our purposes, it is sufficient to know that <c>numpy.sqrt(numpy.diag(pcov))</c> approximates the standard deviation of the fit parameters that arises from discrepancies between data and the best fit curve.
-                            </p>
-                        </li>
-                    </ul>
-                </p>
-            </li>
-        </ul>
-        While additional input arguments and returns are available for the <c>curve_fit</c> function, the above parameters will be sufficient for all tasks in this text. Please see the official SciPy documentation for further functionality.
-    </p>
     <p>
-        Below, we illustrate this curve fitting technique for the case of a laboratory investigation into the behavior of the resistor-based voltage divider shown in <xref ref="fig-labpython-vdiv-circuit"/>.
-        [FIGURE IN PREVIOUS SECTION... ADJUST TEXT]
-        Here, <m>R_\text{pot}</m> is a potentiometer (or variable resistor) that the experimenter controls. 
+        Let's illustrate this process through an example. Assume that we have conducted an experiment in which we investigated the behavior of a voltage divider circuit shown in <xref ref="fig-labpython-vdiv-circuit"/> where <m>V_\text{in}</m> and <m>R_\text{fixed}</m> are treated as being unknown. We collect measurements of <m>V_\text{out}</m> as we vary and measure <m>R_\text{pot}</m>. A curve fitting process can then be employed to find <m>V_\text{in}</m> and <m>R_\text{fixed}</m> from fit parameters, where
+        <md number="yes" xml:id="eqn-labpython-curvefit-theory">
+            V_\text{out}=\frac{R_\text{pot}}{R+R_\text{pot}}
+        </md>
+        is our fitting function. Here, an executable routine is provided that uses the <c>curve_fit</c> function from the <c>scipy.optimize</c> module to perform a curve fit to data, with a code break-down with explanation following. When examining the results provided by this curve fitting routine, note that values of <m>V_\text{in}=5.0\text{V}</m> and <m>R_\text{fixed}=5\text{k}\Omega</m> were used when generating the synthetic data in this example.
     </p>
-    <p>
-        If an experiment is conducted to collect <m>V_\text{out}</m> data as <m>R_\text{pot}</m> varies, a curve fit can be used to estimate values for <m>V_\text{in}</m> and <m>R_\text{fixed}</m> in our experiment. The Python code below demonstrates this process.
-    </p>    
     <sage language="python">
         <input>
-            globals().clear() # Clear all variables from previous code runs
+            # FULL ROUTINE
+            
+            # Clear all variables from previous code runs
+            globals().clear() 
+            
+            # Import functions for use in this program 
             import numpy as np
             import scipy.optimize as opt
             import matplotlib.pyplot as plt
 
-            plt.close('all') # Close all open figures
+            # Close all open figures
+            plt.close('all') 
 
             # Define our fitting function
             def func(R, Vin, Rfix):
-                return Vin*R/(Rfix+R)
+                out = Vin * R/(Rfix + R)
+                return out
 
             # Create arrays containing data from experiment 
             Rpot = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
             Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
 
             # Perform curve fitting
-            param, param_cov = opt.curve_fit(func, Rpot, Vout);
+            fit, fit_cov = opt.curve_fit(func, Rpot, Vout);
             
             # Calculate standard deviation on fit parameters (associated with data scatter)
-            sigma=np.sqrt(np.diag(param_cov));
+            sigma=np.sqrt(np.diag(fit_cov));
             
             # Print values and uncertainties for fit parameters
-            print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(param[0],sigma[0],param[1], sigma[1]))
+            print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(fit[0],sigma[0],fit[1], sigma[1]))
             
             # Create arrays containing values for the best fit curve (useful for plotting best fit curve)
             Rpot_fit=np.linspace(0,10000, 100);
-            Vout_fit=param[0]*Rpot_fit/(param[1]+Rpot_fit);
+            Vout_fit=fit[0]*Rpot_fit/(fit[1]+Rpot_fit);
 
             # Plot experiment data and best fit curve on the same axes
             plt.plot(Rpot, Vout, 'o', label='Data');
@@ -101,15 +57,115 @@
             plt.xlabel(r'Resistance ($\Omega$)')
             plt.ylabel(r'$V_\text{out}$')
             plt.legend();
-            plt.show();
-            
+            plt.show();   
         </input>
-        <output>
-            
+        <output>   
         </output>
     </sage>
-    <p>
-        [INCLUDE A PREFIGURE PLOT SHOWING RESULT OF THE CODE ALONG WITH THE ACCOMPANYING TEXT OUTPUT.] When generating the synthetic data in the above example, values of <m>V_\text{in}=5.0\text{V}</m> and <m>R_\text{fixed}=5\text{k}\Omega</m> were used. 
-    </p>
+
+    <paragraphs>
+        <title>Breakdown of curve fitting routine</title>
+        <p>
+            Let's take a closer look at the pieces that go into this Python routine. We start by initializing our variable and function space.
+            <program language="python">
+                <code>
+                # Clear all variables from previous code runs
+                globals().clear() 
+                
+                # Import functions for use in this program 
+                import numpy as np
+                import scipy.optimize as opt
+                import matplotlib.pyplot as plt
+
+                # Close all open figures
+                plt.close('all') 
+                </code>
+            </program>
+            We ensure that all variables in the variable-space are cleared out and don't carry over from other code boxes in the textbook. We then import functions from NumPy, SciPy, and MatPlotLib.pyplot packages that we'll wish to use. Finally, we close all plot windows that may exist from other instances of running code in this textbook.
+        </p>
+        <p>
+            The <c>curve_fit</c> function that we intend to use must be given information about the functional form of our fitting equation. This information will be provided by a function <c>func</c> that we define based on Equation <xref ref="eqn-labpython-curvefit-theory"/>. Once defined, <c>func</c> will be an input provided to the <c>curve_fit</c> function.
+            <program language="python">
+                <code>
+                    # Define our fitting function
+                    def func(R, Vin, Rfix):
+                        out = Vin * R/(Rfix + R)
+                        return out
+                </code>
+            </program>
+            The first line of our function definition always begins with <c>def</c>, followed by the name of the function we're defining and its arguments. The <c>curve_fit</c> function expects the first argument of <c>func</c> to represent our data's independent variable (often the horizontal axis of a plot). In this example, <c>R</c> will represent <m>R_\text{pot}</m>. Any additional arguments specified for <c>func</c> represent fitting parameters that will be determined by the curve fitting process. In this example, these fit parameters <c>Vin</c> and <c>Rfix</c> will represent <m>V_\text{in}</m> and <m>R_\text{fixed}</m> respectively. The next line(s) contain the actual functional form for our fitting function which will be dictated by Equation <xref ref="eqn-labpython-curvefit-theory"/> in terms of the argument names above. The <c>out</c> variable represents our data's dependent variable (often the vertical axis of a plot) and represents <m>V_\text{out}</m> in this example. The final line of the function definition for <c>func</c> will return to <c>curve_fit</c> a value of <c>out</c> based on the argument values that <c>curve_fit</c> provided to <c>func</c>.
+        </p>
+        <p>
+            The next lines of code represent the introduction of experimental data <m>\left(R_\text{pot}, V_\text{out}\right)</m> into the routine. There are only ten data points in this example, so it is not too onerous to enter the data by hand directly into the routine. For larger data sets, it is instead recommended that data import routines similar to those shown in <xref ref="sec-labpython-dataload"/> be used.
+            <program language="python">
+                <code>
+                    # Create arrays containing data from experiment 
+                    Rpot = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]);
+                    Vout = np.array([0.815, 1.332, 1.880, 2.238, 2.614, 2.777, 2.881, 3.289, 2.974, 3.096]);
+                </code>
+            </program>
+        </p>
+        <p>
+            We are now ready to perform a curve fit to our data. The <c>curve_fit</c> function takes as inputs the name of the fitting function, the variable name for the independent variable, and the variable name for the dependent variable. Further inputs and options are available but optional, and can be found in official documentation for SciPy. 
+            <program language="python">
+                <code>
+                    # Perform curve fitting
+                    fit, fit_cov = opt.curve_fit(func, Rpot, Vout);
+                </code>
+            </program>
+            Here, we provide the name of our defined function <c>func</c>, the name of our independent variable data <c>Rpot</c>, and the name of our dependent variable data <c>Vout</c>. The <c>curve_fit</c> function will then return its estimate for values of the fit parameters as an array of values in <c>fit</c> and something called the covariance as an array of values in <c>fit_cov</c>. A full description of the meaning of the covariance matrix can be found in data analysis or statistics texts. For our purposes, the covariance can be used to provide estimates of the one standard deviation uncertainty (arising from scatter in the data) for each of the fit parameters stored in <c>fit</c>.
+            <program language="python">
+                <code>
+                    # Calculate standard deviation on fit parameters (associated with data scatter)
+                    sigma=np.sqrt(np.diag(fit_cov));
+                </code>
+            </program>
+        </p>
+        <p>
+            Estimates for the fit parameters and data-scatter uncertainties are printed for the user.
+            <program language="python">
+                <code>
+                    # Print values and uncertainties for fit parameters
+                    print('Vin={0:.2f}V +/- {1:.2f}V and Rfixed={2:.2f}ohms +/- {3:.2f}ohms'.format(fit[0],sigma[0],fit[1], sigma[1]))
+                </code>
+            </program>
+            In this print command, the structure of the string that will be displayed is provided first, followed by values taken from variables present in our program. As an example, the portion of the command reading <c>Rfixed={2:.2f}ohms</c> indicates that the spot enclosed by the curly brackets should be replaced by the second element (since the number before the colon is a <sq>2</sq>) in the <c>format</c> attribute (<c>fit[1]</c> in this case). The <sq>:.2f</sq> indicates that the number placed in this spot should be a floating point number (because of the <sq>f</sq>) that is truncated two digits after the decimal point (because of the <sq>:.2</sq>). To better demonstrate this functionality, an alternative set of print commands, shown here, could have been used to split the statement of results into two lines of text.
+            <program language="python">
+                <code>
+                    # Print values and uncertainties for fit parameters
+                    print('Vin={0:.2f}V +/- {1:.2f}V '.format(fit[0],sigma[0]))
+                    print('Rfixed={0:.2f}ohms +/- {1:.2f}ohms'.format(fit[1], sigma[1]))
+                </code>
+            </program>
+        </p>
+        <p>
+            To produce a theory curve based on these fit parameters, we first generate an array of values for <m>R_\text{pot}</m> associated with our theoretical prediction, and then evaluate a theoretical prediction for <m>V_\text{out}</m> for each of these <m>R_\text{pot}</m> values. 
+            <program language="python">
+                <code>
+                    # Create arrays containing values for the best fit curve 
+                    Rpot_fit=np.linspace(0,10000, 100);
+                    Vout_fit=fit[0]*Rpot_fit/(fit[1]+Rpot_fit);
+                </code>
+            </program>
+            Here, <c>Rpot_fit</c> is an array containing 100 values spaced linearly in the range (0,10000). These values are plugged into Equation <xref ref="eqn-labpython-curvefit-theory"/> to generate an array of values for <c>Vout_fit</c> .
+        </p>
+        <p>
+            The remainder of the code contains plotting commands along the lines of those discussed in <xref ref="sec-labpython-plotting"/>.
+            <program language="python">
+                <code>
+                    # Plot experiment data and best fit curve on the same axes
+                    plt.plot(Rpot, Vout, 'o', label='Data');
+                    plt.plot(Rpot_fit, Vout_fit, label='Fit')
+                    plt.xlim(0,10500);
+                    plt.ylim(0,3.5);
+                    plt.xlabel(r'Resistance ($\Omega$)')
+                    plt.ylabel(r'$V_\text{out}$')
+                    plt.legend();
+                    plt.show();
+                </code>
+            </program>
+        </p>
+
+    </paragraphs>
 
 </section>

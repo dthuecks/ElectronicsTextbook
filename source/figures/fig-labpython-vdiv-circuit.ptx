@@ -3,7 +3,7 @@
     \draw (start)   to[battery, l_=$V_\text{in}$] ++(0,-4) coordinate(end);
     \draw (start)   to[short] ++(2,0)
                     to[R, -*, l_=$R_\text{fixed}$] ++(0,-2) coordinate(c)
-                    to[R, -*, l_=$R_\text{pot}$] ++(0,-2) coordinate(d)
+                    to[vR, -*, l_=$R_\text{pot}$] ++(0,-2) coordinate(d)
                     to[short] (end);
 
     
