@@ -4,7 +4,7 @@
     <title>Capacitor Charging and Discharging Behaviors</title>
 
     <p>
-        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="fig-ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>. Assume that the internal battery resistance is much smaller than the circuit resistor so that <m>r_e \ll R</m> and <m>\left(\Delta V\right)_C\approx V_0</m> at <m>t=0</m>.
+        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="fig-ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>. Assume that the internal battery resistance is much smaller than the circuit resistor so that <m>r_e \ll R</m> and the voltage difference <m>V_C\approx V_0</m> across the capacitor at <m>t=0</m>.
     </p>
     <figure xml:id="fig-ac-capdischarge">
         <caption>A circuit for examining a discharging capacitor.</caption>
@@ -47,9 +47,9 @@
         <me>
             \frac{Q}{C} - IR = 0
         </me>.
-        If we take the time derivative of both sides and recognize that <m>I=dQ/dt</m>, we get
+        Taking the time derivative of the above equation will allow us to eliminate <m>Q</m> dependence in favor of <m>I</m>, so let's revisit the relationship between <m>Q</m> and <m>I</m>. Since the current <m>I</m> causes positive charges to leave the positively-charged capacitor plate and return to the negatively-charged plate, the current will cause a reduction in <m>Q</m> as time advances, meaning <m>I=-dQ/dt</m>. With this information, we find that
         <me>
-            \frac{I}{C} - R\frac{dI}{dt} = 0
+            -\frac{I}{C} - R\frac{dI}{dt} = 0
         </me>
         or, after rearranging:
         <me>
@@ -132,8 +132,8 @@
         This has an exponential solution of the form
         <me>
             V'=V_C - V_0 = A e^{-t/RC}
-        </me>
-        which can be rearranged into
+        </me>.
+        The initial condition <m>V_c(t=0)=0</m> requires that <m>A=-V_0</m>. Thus, our result can be rearranged into
         <me>
             V_C = V_0\left(1-e^{-t/RC}\right)
         </me>.

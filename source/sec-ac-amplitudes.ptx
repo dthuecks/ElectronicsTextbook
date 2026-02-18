@@ -9,21 +9,21 @@
             <ol>
                 <li>
                     <p>
-                        Peak-to-Peak voltage <m>V_{p-p}</m> is the voltage difference <m>V_\text{max}-V_\text{min}</m>.
+                        Peak voltage <m>V_p</m> corresponds to the traditional definition of amplitude for a sinusoidal waveform where <m>V_p = V_\text{max}</m>.
                     </p>
                 </li>
                 <li>
                     <p>
-                        Peak voltage (or amplitude) <m>V_\text{peak}=A=V_{p-p}/2</m>.
+                        Peak-to-Peak voltage <m>V_{pp}=V_\text{max}-V_\text{min} = 2V_p</m>.
                     </p>
                 </li>
                 <li>
                     <p>
-                        Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data <m>\left(V(t_i)\right)</m> where <m>t_i</m> are the values of time for which <m>n</m> measurements were recorded. Then,  
+                        Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data <m>\left(V(t_i)\right)</m> containing <m>n</m> measurements where <m>t_i</m> <m>\left(i=1..(n-1)\right)</m> are the discrete values of time for which measurements were recorded. Then,  
                         <me>
                             V_\text{rms}=\sqrt{\frac{\sum\limits_{i=1}^{n} V_i^2}{n}}
                         </me>
-                        which is <m>V_\text{peak}/\sqrt{2}</m> for sinusoidal waves.
+                        which is <m>V_p/\sqrt{2}</m> for sinusoidal waves.
                     </p>
                 </li>
                 <li>
@@ -36,7 +36,7 @@
                 </li>
                 <li>
                     <p>
-                        Power in a signal <m>P_2</m> relative to the power in some other signal <m>P_1</m> can be represented using a logarithmic scale called decibels, where
+                        Power in a signal <m>P_2</m> (with amplitude <m>A_2</m>) relative to the power in some other signal <m>P_1</m> (with amplitude <m>A_1</m>) can be represented using a logarithmic scale called decibels, where
                         <md>
                             <mrow>P_\text{dB} \amp =10\log_{10}\left(\frac{P_2}{P_1}\right)</mrow>
                             <mrow> \amp = 20\log_{10}\left(\frac{A_2}{A_1}\right) </mrow>
