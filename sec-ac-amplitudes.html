@@ -302,24 +302,24 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">With AC signals, there are multiple ways to represent amplitude. Here, we will examine methods of characterizing voltage amplitudes, but all methods discussed apply equally well to any other sinusoidally-varying quantity.</div>
 <ol class="decimal" id="sec-ac-amplitudes-2-1-1">
 <li id="sec-ac-amplitudes-2-1-1-1">
-<div class="para" id="sec-ac-amplitudes-2-1-1-1-1">Peak-to-Peak voltage <span class="process-math">\(V_{p-p}\)</span> is the voltage difference <span class="process-math">\(V_\text{max}-V_\text{min}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-ac-amplitudes-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-ac-amplitudes-2-1-1-1-1">Peak voltage <span class="process-math">\(V_p\)</span> corresponds to the traditional definition of amplitude for a sinusoidal waveform where <span class="process-math">\(V_p = V_\text{max}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-ac-amplitudes-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1"><a href="#sec-ac-amplitudes-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
 <li id="sec-ac-amplitudes-2-1-1-2">
-<div class="para" id="sec-ac-amplitudes-2-1-1-2-1">Peak voltage (or amplitude) <span class="process-math">\(V_\text{peak}=A=V_{p-p}/2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-ac-amplitudes-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-ac-amplitudes-2-1-1-2-1">Peak-to-Peak voltage <span class="process-math">\(V_{pp}=V_\text{max}-V_\text{min} = 2V_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-ac-amplitudes-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2"><a href="#sec-ac-amplitudes-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
 <li id="sec-ac-amplitudes-2-1-1-3">
 <div class="para logical" id="sec-ac-amplitudes-2-1-1-3-1">
-<div class="para">Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data <span class="process-math">\(\left(V(t_i)\right)\)</span> where <span class="process-math">\(t_i\)</span> are the values of time for which <span class="process-math">\(n\)</span> measurements were recorded. Then,</div>
-<div class="displaymath process-math" id="sec-ac-amplitudes-2-1-1-3-1-4">
+<div class="para">Root-mean-square (RMS) amplitude is calculated by examining a single cycle of data <span class="process-math">\(\left(V(t_i)\right)\)</span> containing <span class="process-math">\(n\)</span> measurements where <span class="process-math">\(t_i\)</span> <span class="process-math">\(\left(i=1..(n-1)\right)\)</span> are the discrete values of time for which measurements were recorded. Then,</div>
+<div class="displaymath process-math" id="sec-ac-amplitudes-2-1-1-3-1-5">
 \begin{equation*}
 V_\text{rms}=\sqrt{\frac{\sum\limits_{i=1}^{n} V_i^2}{n}}
 \end{equation*}
 </div>
-<div class="para">which is <span class="process-math">\(V_\text{peak}/\sqrt{2}\)</span> for sinusoidal waves.</div>
+<div class="para">which is <span class="process-math">\(V_p/\sqrt{2}\)</span> for sinusoidal waves.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-ac-amplitudes-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3"><a href="#sec-ac-amplitudes-2-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
@@ -338,8 +338,8 @@ P_\text{avg}=I_\text{rms}^2 R = \frac{V_\text{rms}^2}{R}\text{.}
 </li>
 <li id="sec-ac-amplitudes-2-1-1-5">
 <div class="para logical" id="sec-ac-amplitudes-2-1-1-5-1">
-<div class="para">Power in a signal <span class="process-math">\(P_2\)</span> relative to the power in some other signal <span class="process-math">\(P_1\)</span> can be represented using a logarithmic scale called decibels, where</div>
-<div class="displaymath process-math" id="sec-ac-amplitudes-2-1-1-5-1-3">
+<div class="para">Power in a signal <span class="process-math">\(P_2\)</span> (with amplitude <span class="process-math">\(A_2\)</span>) relative to the power in some other signal <span class="process-math">\(P_1\)</span> (with amplitude <span class="process-math">\(A_1\)</span>) can be represented using a logarithmic scale called decibels, where</div>
+<div class="displaymath process-math" id="sec-ac-amplitudes-2-1-1-5-1-5">
 \begin{align*}
 P_\text{dB} \amp =10\log_{10}\left(\frac{P_2}{P_1}\right)\\
 \amp = 20\log_{10}\left(\frac{A_2}{A_1}\right) \text{.}
