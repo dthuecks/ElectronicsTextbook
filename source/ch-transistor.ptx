@@ -3,6 +3,23 @@
 <chapter xml:id="ch-transistor" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Transistors</title>
 
+  <introduction>
+    <p>
+      In this chapter, we move away from <term>passive electronic components</term> and transition to <term>active electronic components</term>. Unlike passive components, active electronic components require an external power source as part of its operation. This external power source allows active components to amplify voltage and current, allowing for signal gains greater than one and resulting in power amplification.
+    </p>
+    <p>
+      The first active component that we will examine is the transistor. Invented in 1947, transistors are arguably one of the most important inventions of the 20th century. Transistors provide better reliability, efficiency, and speed than vacuum tubes while having a much smaller size. Since 1970, the size of transistors has reduced from from <m>10^4</m>nm to approximately 3nm (smaller than a human DNA strand).<fn><url href="https://spectrum.ieee.org/transistor-density" />, <url href="https://www.kla.com/wp-content/uploads/Transistor-75-year-timeline_Final.pdf"></url></fn> This dramatic reduction in transistor size has been mirrored by a similar reduction in manufacturing cost, two of the main factors behind Moore's law [CITE AND DEFINE] and the greatly-increased prevalance of small but powerful consumer electronics (such as smartphones, smart watches, and notebook computers).   
+    </p>
+    <p>
+      There are two major classifications for transistors: the Bipolar Junction Transistor (BJT) and the Field-Effect Transistor (FET). We will direct our focus to BJTs in this text, using them to illustrate the basics of transistor behavior and operation. With the background provided here, one will be prepared to learn about FETs from other texts if desired.
+    </p>
+  </introduction>
+
+  <xi:include href="./sec-transistor-introduction.ptx" />
+
+  <xi:include href="./sec-transistor-behavior.ptx" />
+
+  <xi:include href="./sec-transistor-switching.ptx" />
     
 
 </chapter>

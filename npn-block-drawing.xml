@@ -1,0 +1,58 @@
+<diagram dimensions="(200,200)" margins="5">
+  <definition> start=(8,8) </definition>
+  <definition> L=2 </definition>
+  <definition> H=1 </definition>
+  <coordinates bbox="(0,0,18,18)">
+    <grid-axes xlabel="x" ylabel="y"/>
+    <rectangle lower-left="start" dimensions="(L,2*H)" fill="green" stroke="black" thickness="1" fill-opacity="0.2"/>
+    <rectangle lower-left="start+(0,2*H)" dimensions="(L,H)" fill="blue" fill-opacity="0.2"/>
+    <rectangle lower-left="start+(0,3*H)" dimensions="(L,2*H)" fill="green" stroke="black" thickness="1" fill-opacity="0.2"/>
+    <rectangle lower-left="start" dimensions="(L,5*H)" stroke="black"/>
+    <label anchor="start+(L/2,H)" alignment="center">
+      n
+    </label>
+    <label anchor="start+(0,2*H)+(L/2,H/2)" alignment="center">
+      p
+    </label>
+    <label anchor="start+(0,3*H)+(L/2,H)" alignment="center">
+      n
+    </label>
+
+    <path start="start+(0,2.5)" stroke="black" >
+      <rlineto point="(-L,0)" /> <!-- line to relative point -->
+    </path>
+    <point p="start+(-L,2.5)" size="4" stroke="black" fill="white"/>
+    <label anchor="start+(-L,2.5)" alignment="north" rotate="0" offset="(-15,5)" >
+        Base
+    </label>
+    
+    <path start="start+(L/2,0)" stroke="black" >
+      <rlineto point="(0,-L)"/>
+    </path>
+    <point p="start+(L/2,-L)" size="4" stroke="black" fill="white"/>
+    <label anchor="start+(L/2,-L)" alignment="west" rotate="0" offset="(-5,0)" >
+        Emitter
+    </label>
+    
+    <path start="start+(L/2,5*H)" stroke="black" >
+      <rlineto point="(0,L)"/>
+    </path>
+    <point p="start+(L/2,5*H+L)" size="4" stroke="black" fill="white"/>
+    <label anchor="start+(L/2,5*H+L)" alignment="west" rotate="0" offset="(-5,0)" >
+        Collector
+    </label>
+
+    
+  </coordinates>
+
+  <annotations>
+    <annotation ref="figure"
+                text="The graph of a function and its tangent line at the point a equals 1">
+      <annotation ref="graph-group" text="The graph and its tangent line">
+        <annotation ref="graph" text="The graph of the function f" sonify="yes"/>
+        <annotation ref="point" text="The point a comma f of a"/>
+        <annotation ref="tangent" text="The tangent line to the graph of f at the point"/>
+      </annotation>
+    </annotation>
+  </annotations>
+</diagram>

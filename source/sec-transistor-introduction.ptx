@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-transistor-introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Introduction to transistors</title>
+
+    <p>
+        There are two types of BJTs, the npn transistor and the pnp transistor, pictured in <xref ref="fig-transistor-BJT-types"/>.
+    </p>
+    <figure xml:id="fig-transistor-BJT-types">
+        <caption></caption>
+        <sidebyside widths="45% 45%" valign="bottom">
+            <figure xml:id="fig-transistor-BJT-types-npn">
+                <caption></caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/fig-transistor-BJT-types-npn.tex" />
+                </latex-image></image>
+            </figure>
+            <figure xml:id="fig-transistor-BJT-types-pnp">
+                <caption></caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/fig-transistor-BJT-types-pnp.tex" />
+                </latex-image></image>
+            </figure>
+        </sidebyside>
+    </figure>
+
+</section>
