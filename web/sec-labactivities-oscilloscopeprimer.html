@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lab: Oscilloscope Primer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Electronics">
+<meta property="book:author" content="Derek J. Thuecks">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="electronics.thuecks" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<p class="byline">Derek J. Thuecks</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-labactivities-voltagedivider.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-labactivities.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-labactivities-rc-highpass.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth4 parts focused" data-preexpanded-levels="0" data-max-levels="4"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-analysis.html" class="internal"><span class="codenumber">I</span> <span class="title">Circuit Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-introduction-review.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Review from Introductory Physics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-circuit-schematics.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Circuit Schematic: A Visual Model of a Circuit</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-dc.html" class="internal"><span class="codenumber">2</span> <span class="title">DC Circuits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-kirchhoff.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Kirchhoff’s Laws</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-voltage-source-symbol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Voltage Source Symbols</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-series_parallel.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Series and Parallel Resistors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dc-analysis.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuit Analysis Methods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-reduction" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Analysis: Circuit Reduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-branch" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Analysis: Branch Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-analysis.html#subsec-dc-analysis-mesh" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Analysis: Mesh Method</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-superposition.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Superposition Theorem</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dc-thevenin.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Thévenin’s and Norton’s Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-dc-thevenin-norton-circuits" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Behavior of Thévenin/Norton circuits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-dc-proof-thevenin" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Proof of Thevenin’s and Norton’s Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dc-thevenin.html#subsec-finding-thevenin" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Finding Thevenin Equivalent Circuits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-batteries.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Application of Thevenin Equivalent Cicruits: Batteries</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-dc-uses.html" class="internal"><span class="codenumber">2.8</span> <span class="title">DC Circuit Uses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-ac.html" class="internal"><span class="codenumber">3</span> <span class="title">AC Circuits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-sinusoidal.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Sinusoidal Signals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-amplitudes.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Characterizing Signal Size</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-complexsigs.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Complex Signals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-complexZ.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Complex Impedance</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-capcharging.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Capacitor Charging and Discharging Behaviors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-highpass.html" class="internal"><span class="codenumber">3.6</span> <span class="title">RC High-pass filter</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-phasors.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Phasors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-python.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Using Python in AC circuits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ac-thevenin.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Input and Output Impedance</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-diode.html" class="internal"><span class="codenumber">4</span> <span class="title">Diodes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-semiconductors.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Semiconductors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-behavior.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Diode behavior</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-types.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Diode Types</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-diode-circuit-analytic.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Analysis of diode circuits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-diode-analytic-analysis" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Analytic circuit treatment</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diode-circuit-analytic.html#sub-diode-python-analysis" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Python circuit treatment</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-rectifier.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Full-Wave Rectifier</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-diode-usefulcircuits.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Useful Diode Circuits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-transistor.html" class="internal"><span class="codenumber">5</span> <span class="title">Transistors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-transistor-introduction.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Introduction to transistors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-transistor-behavior.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Transistor behavior</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-transistor-switching.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Transistor switching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-opamp.html" class="internal"><span class="codenumber">6</span> <span class="title">Operational Amplifiers</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-opamp-ideal.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Ideal OpAmp</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-digital.html" class="internal"><span class="codenumber">7</span> <span class="title">Digital Electronics</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-advancedcircuits.html" class="internal"><span class="codenumber">8</span> <span class="title">Advanced Circuits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-lab.html" class="internal"><span class="codenumber">II</span> <span class="title">Laboratory</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-safety.html" class="internal"><span class="codenumber">9</span> <span class="title">Lab Safety</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labnotebook.html" class="internal"><span class="codenumber">10</span> <span class="title">Guide to Laboratory Notebooks</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-equipment.html" class="internal"><span class="codenumber">11</span> <span class="title">Introduction to Equipment in the Laboratory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-protoboard.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Prototyping Board (or Breadboard)</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-dmm.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Digital Multimeter (DMM)</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-oscilloscope.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Oscilloscopes (BK Precision 2190E or 2542B)</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equipment-fngen.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Function Generator</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-equipment-components.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Electronics components</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-color-codes" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Resistor Color Codes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#sec-components-potentiometers" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Potentiometers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#subsec-components-switches" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Switches</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equipment-components.html#subsec-components-cables-connectors" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Wires, Cables, and Connectors</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-labhints.html" class="internal"><span class="codenumber">12</span> <span class="title">Troubleshooting Hints</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-labpython.html" class="internal"><span class="codenumber">13</span> <span class="title">Data Analysis with Python</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-dataload.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Loading Data Files</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-plotting.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Producing Line Plots</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-curvefit.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Fitting a Curve to Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labpython-montecarlo.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Propagating Uncertainties Through Curve Fits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-labactivities.html" class="internal"><span class="codenumber">14</span> <span class="title">Lab Activities</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-voltagedivider.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Lab: Voltage Divider</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-labactivities-oscilloscopeprimer.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Lab: Oscilloscope Primer</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-rc-highpass.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Lab: RC High-Pass Filter</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-rlc-resonant.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Lab: RLC Resonant Circuit</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-iv-characteristic.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Lab: I-V Characteristic for Diodes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-ac2dc.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Lab: AC to DC Conversion Using Diode Bridge Rectifier</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="app-python.html" class="internal"><span class="codenumber">A</span> <span class="title">Numerical Methods</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="subapp-python-newtonmethod.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Newton’s Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="app-matrices.html" class="internal"><span class="codenumber">B</span> <span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-labactivities-oscilloscopeprimer"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lab: Oscilloscope Primer</span>
+</h2>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-2">
+<em class="alert">Objective:</em> Through the course of this lab, you will familiarize yourself with the operation of a the BK Precision 2190E Digital Oscilloscope (or scope).  You will use the scope to measure an AC voltage signal from the internal function generator of the scope, and from an external function generator.  Our goal will be to understand how to display a signal on the scope, measure frequency and amplitude values, and trigger the scope properly by adjusting the triggering threshold and other trigger settings.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-3">
+<em class="alert">Equipment:</em> Function generator, oscilloscope, oscilloscope probe, BNC coaxial cable.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-4">
+<em class="alert">Lab Notebook:</em> In your theory section of the report, you should discuss any functions of the oscilloscope that we use today and their purpose.  In the data section, you should include the signal data and photos asked for throughout the lab.  You do not need a procedure, results or conclusion section for this lab. Otherwise, please follow the lab notebook guidelines provided in <a href="ch-labnotebook.html" class="internal" title="Chapter 10: Guide to Laboratory Notebooks">Chapter 10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-5"><h3 class="heading"><span class="title">THE OSCILLOSCOPE INTERFACE.</span></h3>
+<div class="para logical" id="sec-labactivities-oscilloscopeprimer-5-2">
+<div class="para">The oscilloscope interface seems quite complicated at first, but in order to measure one signal vs. time we will only need a few functions.</div>
+<ol class="decimal" id="sec-labactivities-oscilloscopeprimer-5-2-1">
+<li id="sec-labactivities-oscilloscopeprimer-5-2-1-1">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-5-2-1-1-1">Turn on your scope using the power button on the top of the case.  Wait for it to start and then hit the “Default Setup” button- it is blue in the upper right of the front face.   You should see the following display:<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/img-labactivities-oscilloscope-default.jpg" class="contained" alt="(for accessibility)"></div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-5-2-1-2">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-5-2-1-2-1">The scope has the ability to display two signals at once.  Turn on the channel two display by hitting the “2” button.  A pink line, representing the voltage plugged into the channel 2 BNC input connector, should now appear on top of Channel 1’s  yellow line.  (Both voltages are zero at the moment as nothing is plugged into either channel.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-5-2-1-3">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-5-2-1-3-1">You can use the <em class="alert">small knobs</em> below the “1” and “2” buttons to vertically displace the signal lines on the display.  Try it and see if you can move channel 1 upwards and channel two downwards as shown below:<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/img-labactivities-oscilloscope-position.jpg" class="contained" alt="(for accessibility)"></div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-5-2-1-4">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-5-2-1-4-1">Turn off channel 2 by hitting the “2” button.  Re-center signal 1 on the x-axis. Turn off the channel 2 menu that appeared on the right of the screen by hitting the “Menu On/Off” button.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-labactivities-oscilloscopeprimer-5-2-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="para">To explore more of the functions of the scope we will need to look at a signal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: THE OSCILLOSCOPE INTERFACE"><a href="#sec-labactivities-oscilloscopeprimer-5" title="Copy heading and permalink for Paragraphs: THE OSCILLOSCOPE INTERFACE" aria-label="Copy heading and permalink for Paragraphs: THE OSCILLOSCOPE INTERFACE">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-6"><h3 class="heading"><span class="title">MEASURING THE BUILT-IN TEST SIGNAL.</span></h3>
+<div class="para logical" id="sec-labactivities-oscilloscopeprimer-6-2">
+<div class="para">The oscilloscope has a built in test signal.  It is a 1KHz square wave, and can be measured by connecting an <dfn class="terminology">oscilloscope probe</dfn> to the two metal clips in the lower right of the front face. <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/img-labactivities-oscilloscope-testsig.jpg" class="contained" alt="(for accessibility)"></div>
+</div>
+<ol class="decimal" id="sec-labactivities-oscilloscopeprimer-6-2-3">
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-1">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-1-1">Find your oscilloscope probe. Plug it into the <dfn class="terminology">Channel 1</dfn> BNC connector on the oscilloscope.  <em class="alert">Set the attenuation switch on the probe to 1X.</em> (10X means the voltage measured in attenuated by 10- useful for high voltage projects.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-2">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-2-1">The probe has two clips.  The side <dfn class="terminology">alligator clip</dfn> must be connected to ground.  The center <dfn class="terminology">hook clip</dfn> is connected to the point in a circuit where you want to measure the voltage.  Find the metal leads for the test signal (shown above in the figure).  Connect the oscilloscope probe to the test signal clips, clipping the probe ground to the test signal ground and the probe’s center hook to the test signal clip that is marked as a 1 kHz square wave. Channel 1 should display the test signal as shown below: <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/img-labactivities-oscilloscope-testsig-disp.jpg" class="contained" alt="(for accessibility)"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-3">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-3-1">Take a picture of your channel 1 display for your lab notebook.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-4">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-4-1">You should see the oscilloscope’s vertical and horizontal scales on the display screen.  The CH1 = 1.00V  marker means that the vertical grid spacing (between horizontal dotted lines) represents a change of 1.00 V.  The M = 500 μs  marker means there is a 500 μs spacing between each vertical dotted line. <em class="alert">What is the amplitude of this square wave?  Include this value in your report.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-5">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-5-1">Try to change the vertical (voltage) scale by using the large CH 1 knob on the front panel. Also try to change the horizontal (time) scale by using the large knob marked ’Horizontal’ on the front panel.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-6">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-6-1">Change the horizontal scale to display the wave on a 100 μs timescale and a 2V vertical scale.  <em class="alert">Take a picture of the output to include in your report.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-6-2-3-7">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-6-2-3-7-1">Return the waveform to its default view. You can do this either by reversing your changes made above or, even easier, by just hitting the <dfn class="terminology">Default Setup</dfn> button again.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7"><a href="#sec-labactivities-oscilloscopeprimer-6-2-3-7" title="Copy heading and permalink for Item 7" aria-label="Copy heading and permalink for Item 7">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL"><a href="#sec-labactivities-oscilloscopeprimer-6" title="Copy heading and permalink for Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL" aria-label="Copy heading and permalink for Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-7"><h3 class="heading"><span class="title">MEASURING A SINE WAVE.</span></h3>
+<div class="para logical" id="sec-labactivities-oscilloscopeprimer-7-2">
+<div class="para">Now we will use an external function generator to produce an AC sine wave signal for us to measure.</div>
+<ol class="decimal" id="sec-labactivities-oscilloscopeprimer-7-2-1">
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-1">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-1-1">With the function generator turned off, disconnect the oscilloscope probe.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-2">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-2-1">Use a BNC cable to connect the function generator <em class="alert">output</em> to the oscilloscope Channel 1 input.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-3">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-3-1">Turn on the function generator. We want a 1V amplitude 1kHz sine wave signal to measure. Press the ‘Amp’ menu button and type in 1.0 and then press <span class="process-math">\(V_{pp}\text{.}\)</span> Then, click <dfn class="terminology">Freq</dfn> and type 1.0 and click the <dfn class="terminology">kHz</dfn> button. At this point, there is still no signal being produced. Press the <dfn class="terminology">Output</dfn> button to start producing the desired signal. The <dfn class="terminology">Output</dfn> button should now be glowing, indicating that the function generator output is active.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-4">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-4-1">The display should show a sine wave, but probably too zoomed in to see the whole wave.  Hit the <dfn class="terminology">Auto</dfn> button to autoscale the display to the signal.  The following image shows the correctly auto-scaled sine wave.  Click the ‘Measure’ button on the oscilloscope and select parameters that you might want to measure for each channel, including the Peak-to-Peak Amplitude <span class="process-math">\((V_{pp})\)</span> and frequency of the signal. <em class="alert">What are the values of these parameters? Record values in your notebook along with an image of the oscilloscope display.</em> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/img-labactivities-oscilloscope-sine-disp.jpg" class="contained" alt="(for accessibility)"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-5">
+<div class="para logical" id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1">
+<div class="para">To make sure you understand the different settings of the function generator and scope, do the following:</div>
+<ol class="lower-alpha lower-alpha-level-1" id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1">
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-1">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-1-1">Set the function generator to display a 500Hz signal with a 20V pk-pk amplitude<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.a"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-1" title="Copy heading and permalink for Item 5.a" aria-label="Copy heading and permalink for Item 5.a">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-2">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-2-1">Display the signal on the scope with a 10V vertical scale and a 1ms timescale.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.b"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-2" title="Copy heading and permalink for Item 5.b" aria-label="Copy heading and permalink for Item 5.b">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-3">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-3-1">Take a picture of this output and include with your report.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.c"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1-1-3" title="Copy heading and permalink for Item 5.c" aria-label="Copy heading and permalink for Item 5.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-6">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-6-1">Note that you can use the <dfn class="terminology">position</dfn> knob to move the signal up and down on the screen. This is purely moving the 0V reference position on the screen. The position of this reference point is indicated by the yellow arrow with a ‘1’ in it.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-7-2-1-7">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-7-2-1-7-1">Also note that you can adjust the vertical <dfn class="terminology">Zoom</dfn>, or scaling for each channel independently. As you adjust the CH1 knob, you can see that the value ‘CH1=___V’ changes in the bottom left corner. This number indicates the change in voltage vertically across one of the small boxes in the grid displayed on screen for the Channel 1 signal. You can also adjust the horizontal scaling in the same way, with the ‘M___ms’ number providing the change in time horizontally across one of the small boxes in your grid. You will often need to adjust these appropriately to see your desired signal. Note: You should always try to maximize the vertical size of each signal that you are trying to measure to get the most precise measurements using the built-in ‘measure’ feature and using the cursors (explained below). If you have a periodic signal, it is often desirable to have 3-5 periods displayed in order to use the built-in ‘measure’ feature.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7"><a href="#sec-labactivities-oscilloscopeprimer-7-2-1-7" title="Copy heading and permalink for Item 7" aria-label="Copy heading and permalink for Item 7">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: MEASURING A SINE WAVE"><a href="#sec-labactivities-oscilloscopeprimer-7" title="Copy heading and permalink for Paragraphs: MEASURING A SINE WAVE" aria-label="Copy heading and permalink for Paragraphs: MEASURING A SINE WAVE">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-8"><h3 class="heading"><span class="title">USING THE CURSORS.</span></h3>
+<div class="para logical" id="sec-labactivities-oscilloscopeprimer-8-2">
+<div class="para">With complicated signals, the auto measured output for amplitude and frequency cannot necessarily be trusted. In these cases, it’s better to do manual measurements with the oscilloscope’s cursor functionality.</div>
+<ol class="decimal" id="sec-labactivities-oscilloscopeprimer-8-2-1">
+<li id="sec-labactivities-oscilloscopeprimer-8-2-1-1">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-1-1">Set up the function generator to produce a 1kHz, 20V pk-pk sine wave.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-8-2-1-2">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-2-1">Display this signal on the scope, auto-scaled.  Hit the <dfn class="terminology">Run/Stop</dfn> button to freeze the signal for better analysis.  The button should light up red when data acquisition is stopped.  (Don’t forget it’s stopped and that you’re no longer measuring real time data!)<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-8-2-1-3">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-3-1">To manually measure the period of the wave, we will use vertical cursors.  Hit the <dfn class="terminology">Cursors</dfn> button on the top center of the scope control panel.  In the menu that appears, change the mode to <dfn class="terminology">Manual</dfn>.  Then change the type to <dfn class="terminology">Time</dfn> and ensure that the source is <dfn class="terminology">CH1</dfn>.  You should see two dotted lines appear on the display.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-8-2-1-4">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-4-1">You can move the position of the lines by selecting cursor A or B in the screen menu and then turning the small knob in the upper left of the control panel.  Try to move cursor A onto a peak of the wave.  Do the same for cursor B.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-4-2">
+<em class="alert">NOTE: If you can only see one cursor line on the screen, it might be that the other is off the edge of the display.  Try selecting the invisible cursor and moving the knob until it appears in view. Sometimes you might need to zoom out in time or voltage to find the cursors.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-8-2-1-5">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-5-1">The cursors appear with readouts that tell you the time location for each individual cursor (with respect to the trigger, which will be discussed next), the time interval between the two cursors, and the associated frequency.  Do these values make sense?  <em class="alert">Record these values and take a photo of the screen for your report.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-8-2-1-6">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-8-2-1-6-1">Switch the cursor type to Voltage to get horizontal cursors.  Place them so that you can measure the pk-pk voltage amplitude.  <em class="alert">Record the pk-pk voltage, and take a photo for your report.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec-labactivities-oscilloscopeprimer-8-2-1-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: USING THE CURSORS"><a href="#sec-labactivities-oscilloscopeprimer-8" title="Copy heading and permalink for Paragraphs: USING THE CURSORS" aria-label="Copy heading and permalink for Paragraphs: USING THE CURSORS">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-9"><h3 class="heading"><span class="title">Triggering.</span></h3>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-2">The oscilloscope needs to know where the wave starts in order to display a nice, steady display output.  This process of finding the start of the waveform is called <dfn class="terminology">triggering</dfn>.  The trigger determines the location of your signal with respect to the scope’s definition of t=0s. The blue T in the image below indicates the time location of the trigger. <div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/images/img-labactivities-oscilloscope-triggerzero.jpg" class="contained" alt="(for accessibility)"></div> Using the trigger menu and cursor wheel, we can set the trigger level at whatever voltage threshold we want. When the experimental signal crosses the trigger level that we set, the oscilloscope calls that time t=0s and all other times are measured with respect to that time. The oscilloscope can be told to trigger off of CH1, CH2, or even other external signals. It can also be told to trigger when the signal rises through the trigger level or falls through the trigger level.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-labactivities-oscilloscopeprimer-9-3">
+<div class="para">For a simple AC sine wave, triggering is pretty easy to set up with the Auto-scale feature, but for other signals you may need to manually adjust the trigger settings.</div>
+<ol class="decimal" id="sec-labactivities-oscilloscopeprimer-9-3-1">
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-1">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-1-1">Make sure the scope is in RUN mode, not STOP mode.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-2">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-2-1">With the AC sine signal displayed, find the <dfn class="terminology">Trig Menu</dfn> button on the control panel (on the right, under Auto).  Hit this button to bring up the trigger settings menu.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-3">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-3-1">In this menu, we say how we want the scope to find the beginning of the signal.  By default, Type is set to <dfn class="terminology">Edge</dfn>, Source is set to <dfn class="terminology">CH1</dfn>, and Slope is set to <dfn class="terminology">Up</dfn>.  This means we are telling the scope to search for an edge with a rising slope on channel 1, and place everything such that that edge is at t=0s.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-4">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-4-1">Try to set the slope type to <dfn class="terminology">Down</dfn>.  Discuss in your report how the display changes.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-5">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-5-1">We also need to tell the scope how big of a voltage actually counts as a signal.  This is especially important if we have a noisy experiment.  We don’t want to accidentally trigger on noise instead of our real signal.  This function is controlled by the <dfn class="terminology">Trigger Level</dfn> (or just <dfn class="terminology">Level</dfn>) knob on the control panel (lower right).<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-6">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-6-1">Try adjusting the trigger level and you should see the level line appear on the display.  Any voltage signal with a peak below this line will not be considered a signal.  Try moving the level to above the sine wave peak.  Describe what happens in your report.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+<li id="sec-labactivities-oscilloscopeprimer-9-3-1-7">
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-3-1-7-1">Adjust the level knob to manually regain good triggering.  As a rule of thumb, it is good to have the trigger level around 30% below the peak of your signal.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7"><a href="#sec-labactivities-oscilloscopeprimer-9-3-1-7" title="Copy heading and permalink for Item 7" aria-label="Copy heading and permalink for Item 7">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-4">The location of the trigger’s t=0s can be adjusted left or right on the screen using the <dfn class="terminology">Horizontal Position</dfn> knob. <em class="alert">A word of advice: if the trigger time is offset from the middle of the screen and you change the time resolution on the scope, the trigger indicator may be outside of the window of view on the display. This can sometimes cause confusion if you do not realize that you are looking at a portion of the signal well after (or before) the trigger time.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-labactivities-oscilloscopeprimer-9-5">In more advanced contexts one can trigger all oscilloscope channels off of Channel 1, Channel 2, or off of a third external trigger.  We will discuss these options later on in the course, as needed.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Triggering"><a href="#sec-labactivities-oscilloscopeprimer-9" title="Copy heading and permalink for Paragraphs: Triggering" aria-label="Copy heading and permalink for Paragraphs: Triggering">🔗</a></div></section><div class="autopermalink" data-description="Section 14.2: Lab: Oscilloscope Primer"><a href="#sec-labactivities-oscilloscopeprimer" title="Copy heading and permalink for Section 14.2: Lab: Oscilloscope Primer" aria-label="Copy heading and permalink for Section 14.2: Lab: Oscilloscope Primer">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-labactivities-voltagedivider.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-labactivities-rc-highpass.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
