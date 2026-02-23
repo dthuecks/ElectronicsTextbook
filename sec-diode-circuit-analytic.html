@@ -488,9 +488,14 @@ f(V_D) = \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)
 f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}\text{.}
 \end{equation*}
 </div>
-<div class="para">Using these equations, we implement Newton’s Method (<a href="subapp-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>) using the following code: <div id="sub-diode-python-analysis-2-15" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para">Using these equations, we implement Newton’s Method (<a href="subapp-python-newtonmethod.html" class="internal" title="Section A.1: Newton’s Method">Section A.1</a>) using the following code: <div id="sub-diode-python-analysis-2-15" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># Clear all variables that may be present from previous code run on this page.
+globals().clear()
+
+import numpy as np
 import scipy.constants as sc
 import matplotlib.pyplot as plt
+
+plt.close('all') # Close all open figures
 
 t = np.linspace(0,1,500);
 Vin_array = 5*np.sin(20*t);
@@ -585,7 +590,6 @@ f'(V_D) =\amp \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)\frac{I_0}{V_T}e^{
 <div class="para"><div id="sub-diode-python-analysis-3-3-1-14" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># Clear all variables that may be present from previous code run on this page.
 globals().clear()
 
-# Voltage divider with (R1+diode) in parallel with R2. R3 is the Vout resistor.
 import numpy as np
 import scipy.constants as sc
 import matplotlib.pyplot as plt

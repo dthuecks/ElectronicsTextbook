@@ -538,34 +538,16 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.8",
   "title": "Using Python in AC circuits",
-  "body": " Using Python in AC circuits  Just as with DC circuits, we can let Python do most of the mathematical manipulation for us when determining circuit behavior. As an example, we'll examine the behavior of the circuit in .   A generic LRC circuit. Let , , and for our analysis.    Using Kirchhoff's laws and the branch method, we find the following equations . Rearranging these equations facilitates writing these equations as a matrix equation which can be solved using Python:     Bandgap RLC Circuit    Bandgap RLC Circuit.    Plot the gain and phase curves for the circuit in .         If we examine the circuit in , we find that it is exactly the same circuit as we examined in except we are now measuring across the resistor instead of across the inductor and capacitor. This means that the matrix equation will be identical, as will our solutions for all of the currents.      RLC Circuit Analysis Using Differential Equations and Python   "
+  "body": " Using Python in AC circuits  Just as with DC circuits, we can let Python do most of the mathematical manipulation for us when determining circuit behavior. As an example, we'll examine the behavior of voltage gain and phase for the circuit in .   Bandgap RLC Circuit.    Using Kirchhoff's laws and the branch method, we find the following equations . Rearranging these equations into facilitates efforts to recast this system of equations as a matrix equation which can be solved using Python: Here, we have made use of the abs function in NumPy to find the voltage gain by measuring the magnitude of , and we have used the angle function from Numpy to find the phase of at an instant in time when is purely real.  Examining the results of our analysis, we see that this circuit has and at both high and low frequencies. There is a frequency at [PROVIDE EQUATION] at which and . This circuit is called an RLC bandgap filter as it allows signals at most frequencies through unchanged, but has a band (defined by values of L and C) where frequency components are cut out. This can be especially useful if there is a source of noise with a single well-defined frequency contaminating a signal.    "
 },
 {
-  "id": "ac-python-LRC-circuit",
+  "id": "ac-python-bandgap-circuit",
   "level": "2",
-  "url": "sec-ac-python.html#ac-python-LRC-circuit",
+  "url": "sec-ac-python.html#ac-python-bandgap-circuit",
   "type": "Figure",
   "number": "3.8.1",
   "title": "",
-  "body": " A generic LRC circuit. Let , , and for our analysis.   "
-},
-{
-  "id": "sec-ac-python-5",
-  "level": "2",
-  "url": "sec-ac-python.html#sec-ac-python-5",
-  "type": "Example",
-  "number": "3.8.2",
-  "title": "Bandgap RLC Circuit.",
-  "body": " Bandgap RLC Circuit    Bandgap RLC Circuit.    Plot the gain and phase curves for the circuit in .         If we examine the circuit in , we find that it is exactly the same circuit as we examined in except we are now measuring across the resistor instead of across the inductor and capacitor. This means that the matrix equation will be identical, as will our solutions for all of the currents.    "
-},
-{
-  "id": "sec-ac-python-6",
-  "level": "2",
-  "url": "sec-ac-python.html#sec-ac-python-6",
-  "type": "Example",
-  "number": "3.8.4",
-  "title": "RLC Circuit Analysis Using Differential Equations and Python.",
-  "body": " RLC Circuit Analysis Using Differential Equations and Python  "
+  "body": " Bandgap RLC Circuit.   "
 },
 {
   "id": "sec-ac-thevenin",
