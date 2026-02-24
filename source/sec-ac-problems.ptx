@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="sec-ac-homework" xmlns:xi="http://www.w3.org/2001/XInclude">
+<section xml:id="sec-ac-homework" xmlns:xi="http://www.w3.org/2001/XInclude" component="instructor">
   <title>Problems</title>
   <ol>
     <li>
@@ -36,7 +36,7 @@
     </li>
     <li>
         <p>
-            Design a low-pass RC filter that will attenuate a 60-Hz sinusoidal voltage by 12 dB relative to the dc gain. Use a <m>100\Omega</m> resistance. Explain in words why the low-pass RC filter attenuates the high frequencies.
+            What size capacitor would you need if you want to design a low-pass RC filter that will attenuate a 60-Hz sinusoidal voltage signal by 12dB assuming the resistor has <m>R=100\Omega</m>? 
         </p>
     </li>
     <li>
@@ -69,7 +69,19 @@
     </li>
     <li>
         <p>
-            Use phasors to derive an expression for the voltage gain and phase shift for the following LR circuit.
+            Find the voltage gain and phase shift for the following LR circuit using the following methods:
+            <ol>
+                <li>
+                    <p>
+                        Phasor method.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Kirchhoff's laws and either the branch or mesh method.
+                    </p>
+                </li>
+            </ol>
             <figure xml:id="fig-dc-homework-a135551">
                 <caption></caption>
                 <image width="70%">
@@ -87,7 +99,7 @@
     </li>
     <li>
         <p>
-            Use Python to plot the gain-versus-frequency curve and phase-versus-frequency curve for the circuit in <xref ref="fig-ac-homework-7"/>. I'd strongly recommend using Python to solve your system of equations.
+            Use Kirchhoff's laws (branch or mesh method) to find a system of equations that one could solve for the voltage gain as a function of frequency for the circuit in <xref ref="fig-ac-homework-7"/>. Then, use Python to solve this system of equations and plot the gain-versus-frequency curve and phase-versus-frequency curve for this circuit.
             <figure xml:id="fig-ac-homework-7">
                 <caption></caption>
                 <image><latex-image>

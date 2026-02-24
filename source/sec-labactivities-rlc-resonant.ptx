@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- THIS NEEDS TO BE EXAMINED CLOSELY AND RE-WRITTEN. LOOK CAREFULLY AT REAL EXPERIMENTAL RESULTS AND ADJUST ACCORDINGLY -->
+ 
 <section xml:id="sec-labactivities-rlc-resonant" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Lab: RLC Resonant Circuit</title>
     <p> 
@@ -47,17 +49,17 @@
             <ul>
                 <li>
                     <p>
-                        What behaviors do you observe as <m>\omega\rightarrow 0</m>?
+                        What voltage gain and phase behaviors do you expect to observe as <m>\omega\rightarrow 0</m>?
                     </p>
                 </li>
                 <li>
                     <p>
-                        What behaviors do you observe as <m>\omega\rightarrow\infty</m>?
+                        What voltage gain and phase behaviors do you expect to observe as <m>\omega\rightarrow\infty</m>?
                     </p>
                 </li>
                 <li>
                     <p>
-                        Are there special frequencies that are appropriate to discuss? What are they? What happens at that frequency?
+                        At what frequency <m>f_0</m> do you expect the highest voltage gain? Express your answer as a function of variables <m>L</m> and <m>C</m> and show your work. What do you expect voltage gain and phase to be at frequency <m>f_0</m>?
                     </p>
                 </li>
             </ul>
@@ -68,11 +70,16 @@
         <title>RLC CIRCUIT EXPERIMENTS</title>
         <p></p>
         <p>
-            In your lab notebook, describe a procedure that you intend to follow. This procedure should be designed to address the points that you’ve discussed above in the theory section. Here are a few questions you may wish to consider:
+            In your lab notebook, describe a procedure that you intend to follow to make measurements of voltage gain <m>G_V</m> and the phase difference between output and input voltages <m>\phi=\phi_\text{out}-\phi_\text{in}</m>. Here are a few questions you may wish to consider:
             <ul>
                 <li>
                     <p>
-                        What quantities do you wish to observe, based on the theory above?
+                        How will you confirm the values associated with your circuit components? <alert>Note:</alert> You will be unable to verify the inductance <m>L</m>, but you should be able to measure values for other components.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        In this experiment, you will need to measure <m>V_\text{in}</m>, <m>V_\text{out}</m>, and <m>\phi=\phi_\text{out}-\phi_\text{in}</m> for many values of frequency increasing from 200~Hz.
                     </p>
                 </li>
                 <li>
@@ -92,12 +99,29 @@
                 </li>
                 <li>
                     <p>
-                        What variable are you going to vary? How many measurements will you use? How are you going to determine measurement spacing?
+                        Plan to display your results on a plot with a logarithmic frequency axis and a linear Gain and phase axis using the <c>semilogx</c> command instead of the <c>plot</c> command.
                     </p>
                 </li>
                 <li>
                     <p>
-                        How are you going to display your results? How will you relate your results back to theoretical predictions?
+                        At how many frequencies will you take data? How are you going to determine measurement spacing?
+                        <ul>
+                            <li>
+                                <p>
+                                    When determining your answers to this question, consider that you likely don't need a high density of data points in regions where you expect little variation in <m>G_V</m> and <m>\phi</m>, but you will want a higher density of data points in regions where you expect high variation in these quantities.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    To determine frequency ranges associated with high and low variation in gain and phase, it can be helpful to perform a quick informal scan of experimental parameters to find the experimental resonant frequency while not actually recording gain and phase measurements. With this information, you can better determine the distribution of frequencies at which to record data.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Since you will be using a logarithmic horizontal axis, your frequency selections should take this into account.
+                                </p>
+                            </li>
+                        </ul>
                     </p>
                 </li>
                 <li>
@@ -105,25 +129,46 @@
                         How will you identify when you are at or near the resonant frequency?
                     </p>
                 </li>
+                <li>
+                    <p>
+                        When comparing to theoretical predictions, use the equations that result from the analysis in <xref ref="sec-ac-phasor-example-rlc-resonant-circuit"/> to generate theoretical curves for <m>G_V</m> and <m>\phi</m> vs frequency, plotting the theoretical curves as a different colored line on the same axes as the experimental data in each case.
+                    </p>
+                </li>
             </ul>
         </p>
         <p>
             Build your circuit on the prototyping board. When laying out your circuit, it can be useful to build it in a way that is clean and similar to the circuit diagram when possible. See <xref ref="img-labactivities-rlc-resonant-layout"/> for an illustration of how one may do this.
             <figure xml:id="img-labactivities-rlc-resonant-layout">
-                <caption>[CREATE NEW IMAGE] Suggested prototyping board layout.</caption>
+                <caption>Suggested prototyping board layout created using Fritzing. This deliberate placement of CH1 and CH2 connections means that the oscilloscopes phase measurement for <c>CH1-CH2</c> will correspond to a measurement of <m>\phi_\text{out}-\phi_\text{in}</m> as we desire.</caption>
                 <image source="images/img-labactivities-rlc-resonant-layout.jpg" width="50%">
                 </image>
             </figure>
         </p>
         <p>
-            As you proceed to conduct your experiment, discuss any changes you have to make to your procedure and the reason for those changes. Additionally, if you observe some behavior that you were not expecting or that confuses you, make a note of it in your notebook. Also, please remember that when using the oscilloscope to measure signals, you should 1) adjust the vertical scaling on each channel so that the signals are displayed as large as possible on the screen, and 2) adjust the timebase so that there are 3-5 cycles displayed on the oscilloscope screen. Adjust these oscilloscope settings as needed for each frequency at which you take data.
+            As you proceed to conduct your experiment, discuss any changes you have to make to your procedure and the reason for those changes. Additionally, if you observe some behavior that you were not expecting or that confuses you, make a note of it in your notebook. 
         </p>
         <p>
-            <alert>Tip:</alert> Your starting input voltage should be sinusoidal with amplitude <m>V_{\text{in},0}=10\text{V}_\text{p-p}</m> and an initial frequency of <m>f=200</m>Hz. Monitor <m>V_{\text{in},0}</m> and do your best to maintain this input amplitude throughout the experiment (though it may not be possible).
+            <alert>Reminder on oscilloscope operation:</alert> Before recording any measurement values into your notebook, you must first 
+            <ol>
+                <li>
+                    <p>
+                        center each signal vertically on the oscilloscope display and adjust the vertical scaling on each channel so that the signals are magnified as much as possible on the screen.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        adjust the timebase so that there are 3-5 cycles displayed on the oscilloscope screen. 
+                    </p>
+                </li>
+            </ol>
+            You should ensure these optimal settings are satisfied <alert>for each frequency</alert> at which you take data.
+        </p>
+        <p>
+            <alert>Tip:</alert> Your starting input voltage should be sinusoidal with amplitude <m>V_{\text{in},0}=10\text{V}_\text{pp}</m> and an initial frequency of <m>f=200</m>Hz. 
         </p>
 
         <p>
-            Once you’ve completed the experiment above, return to the resonance frequency that you observed and do the following:
+            After completing the experiment above, return to the resonance frequency that you observed and do the following:
             <ul>
                 <li>
                     <p>
@@ -132,7 +177,7 @@
                 </li>
                 <li>
                     <p>
-                        Move the oscilloscope Channel 1 probe to the node marked X on the circuit diagram. 
+                        Move the oscilloscope Channel 2 probe to the node marked X on the circuit diagram. 
                     </p>
                 </li>
                 <li>
@@ -147,7 +192,7 @@
                 </li>
                 <li>
                     <p>
-                        Use options in the MATH menu to subtract the Channel 2 signal from the Channel 1 signal.
+                        Use options in the MATH menu to subtract the Channel 1 signal from the Channel 2 signal.
                         <ul>
                             <li>
                                 <p>
@@ -159,12 +204,17 @@
                                     <alert>Q:</alert> What do you observe?
                                 </p>
                             </li>
+                            <li>
+                                <p>
+                                    <alert>Q:</alert> Take a photo displaying the <c>MATH</c> signal as well as your <m>V_\text{out}</m> signal and place it in your notebook. What is the peak-to-peak amplitude of the <c>MATH</c> signal? What is its phase relative to <m>V_\text{out}</m>?
+                                </p>
+                            </li>
                         </ul>
                     </p>
                 </li>
                 <li>
                     <p>
-                        Turn off your circuit. Switch the positions of L and C in your circuit (leaving the Channel 1 probe where it is) and repeat the previous bullet points. 
+                        Turn off your circuit. Switch the positions of L and C in your circuit (leaving the Channel 2 probe where it is) and repeat the previous bullet points. 
                         <ul>
                             <li>
                                 <p>
@@ -174,6 +224,11 @@
                             <li>
                                 <p>
                                     <alert>Q:</alert> What do you observe?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <alert>Q:</alert> Take a photo displaying the <c>MATH</c> signal as well as your <m>V_\text{out}</m> signal and place it in your notebook. What is the peak-to-peak amplitude of the <c>MATH</c> signal? What is its phase relative to <m>V_\text{out}</m>?
                                 </p>
                             </li>
                         </ul>
@@ -201,7 +256,20 @@
                 </li>
                 <li>
                     <p>
-                        Address any discrepancies that you may have seen along with any issues you may have run into. Speculate regarding solutions/explanations related to these discrepancies/issues.
+                        Address any discrepancies that you may have seen along with any issues you may have run into. Speculate regarding solutions/explanations related to these discrepancies/issues. This lab has been designed such that there <alert>will</alert> be discrepancies between observation and our theory. 
+                        <ul>
+                            <li>
+                                <p>
+                                    Part of this is because there may be a discrepancy between the quoted inductance value <m>L</m> and the actual inductance of your physical component. 
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    We must also confront the idea that real inductors do not necessarily behave as nicely as the ideal inductors that we discuss in class. The behavior of a real inductor can be better approximated by an inductance <m>L_\text{inductor}</m> in series with an internal resistance <m>R_\text{inductor}</m>, and then that combination in parallel with a parasitic capacitance <m>C_\text{inductor}</m>.
+                                </p>
+                            </li>
+                        </ul>
+                        
                     </p>
                 </li>
             </ul> Include this discussion in your lab notebook.

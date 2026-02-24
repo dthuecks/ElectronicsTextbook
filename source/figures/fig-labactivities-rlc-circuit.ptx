@@ -1,11 +1,11 @@
 \begin{circuitikz}
     \draw (0,0)     coordinate(start);
     \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,6)
-                    to[short, -*] ++(3,0) coordinate(ch1)
-                    to[L, *-, l_=\SI{4}{\milli\henry}] ++(0,-2) coordinate(x)
+                    to[short, -*] ++(3,0) coordinate(ch2)
+                    to[L, *-, l_=\SI{4.7}{\milli\henry}] ++(0,-2) coordinate(x)
                     node[anchor=west]{X}
-                    to[C, *-, l_=\SI{100}{\nano\farad}] ++(0,-2) coordinate(ch2)
-                    to[R, *-, l_=\SI{50}{\ohm}] ++(0,-2)
+                    to[C, *-, l_=\SI{100}{\nano\farad}] ++(0,-2) coordinate(ch1)
+                    to[R, *-, l_=\SI{51}{\ohm}] ++(0,-2)
                     to[short, -*] ([xshift=1.5cm] start)
                     node[sground] {}
                     to[short] (start);

@@ -91,7 +91,7 @@
                     </me>,
                     iterating to some desired tolerance.
                     <sage language="python">
-                        <input><xi:include parse="text" href="./codes/python-diode-full-wave-rectifier.ptx" /></input>
+                        <input><xi:include parse="text" href="./codes/python-diode-full-wave-rectifier.py" /></input>
                         <output>
 
                         </output>

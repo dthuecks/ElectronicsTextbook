@@ -1,7 +1,6 @@
 # Clear all variables that may be present from previous code run on this page.
 globals().clear()
 
-# Voltage divider with (R1+diode) in parallel with R2. R3 is the Vout resistor.
 import numpy as np
 import scipy.constants as sc
 import matplotlib.pyplot as plt

@@ -28,6 +28,6 @@
 
 <xi:include href="./sec-ac-thevenin.ptx" />
 
-<xi:include href="./sec-ac-homework.ptx" />
+<xi:include href="./sec-ac-problems.ptx" />
 
 </chapter>

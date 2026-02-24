@@ -5,7 +5,9 @@
 <!-- This file, the project manifest, provides the overall configuration for your PreTeXt project. To edit the content of your document, open `source/main.ptx`. See https://pretextbook.org/doc/guide/html/processing-CLI.html#cli-project-manifest. -->
 <project ptx-version="2">
   <targets>
-    <target name="web" format="html" />
+    <target name="web" format="html" /> <!--publication="publication.ptx" output-dir="public" />-->
+    <!-- Removed @deploy-dir for instructor so that it will not deploy -->
+    <!--<target name="instructor-web" format="html" publication="publication-instructor.ptx" output-dir="instructor" />-->
     <target name="print" format="pdf" />
   </targets>
 </project>

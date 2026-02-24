@@ -1,6 +1,11 @@
+# Clear all variables that may be present from previous code run on this page.
+globals().clear()
+
 import numpy as np
 import scipy.constants as sc
 import matplotlib.pyplot as plt
+
+plt.close('all') # Close all open figures
 
 t = np.linspace(0,1,500);
 Vin_array = 5*np.sin(20*t);

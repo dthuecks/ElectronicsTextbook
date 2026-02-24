@@ -171,7 +171,7 @@
             </me>.
             Using these equations, we implement Newton's Method (<xref ref="subapp-python-newtonmethod"/>) using the following code:
             <sage language="python">
-            <input><xi:include parse="text" href="./codes/python-diode-simple-example.ptx" /></input>
+            <input><xi:include parse="text" href="./codes/python-diode-simple-example.py" /></input>
             <output>
             </output>
             </sage> 
@@ -235,7 +235,7 @@
                         <mrow>f'(V_D) =\amp \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)\frac{I_0}{V_T}e^{V_D/V_T} + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)</mrow>
                     </md>
                     <sage language="python">
-                        <input><xi:include parse="text" href="./codes/python-diode-example4.ptx" /></input>
+                        <input><xi:include parse="text" href="./codes/python-diode-example4.py" /></input>
                         <output>
                             
                         </output>
