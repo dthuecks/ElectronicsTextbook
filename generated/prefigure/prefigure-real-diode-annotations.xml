@@ -1,0 +1,86 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-real-diode-figure" speech2="The graph of a function and its tangent line at the point a equals 1">
+      <grouped>prefigure-real-diode-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-real-diode-grid-axes</active>
+        <active>prefigure-real-diode-graph-group</active>
+      </children>
+      <components>
+        <active>prefigure-real-diode-grid-axes</active>
+        <active>prefigure-real-diode-graph-group</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-real-diode-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-real-diode-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-real-diode-grid</active>
+        <active>prefigure-real-diode-axes</active>
+      </children>
+      <components>
+        <active>prefigure-real-diode-grid</active>
+        <active>prefigure-real-diode-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-real-diode-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-real-diode-grid" speech2="The coordinate grid">
+      <active>prefigure-real-diode-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-real-diode-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-real-diode-axes" speech2="The coordinate axes">
+      <active>prefigure-real-diode-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-real-diode-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-real-diode-graph-group" speech2="The graph and its tangent line">
+      <grouped>prefigure-real-diode-graph-group</grouped>
+      <position>2</position>
+      <children>
+        <active>prefigure-real-diode-graph</active>
+        <active>prefigure-real-diode-point</active>
+        <active>prefigure-real-diode-tangent</active>
+      </children>
+      <components>
+        <active>prefigure-real-diode-graph</active>
+        <active>prefigure-real-diode-point</active>
+        <active>prefigure-real-diode-tangent</active>
+      </components>
+      <parents>
+        <grouped>prefigure-real-diode-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-real-diode-graph" speech2="The graph of the function f" sonify="yes">
+      <active>prefigure-real-diode-graph</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-real-diode-graph-group</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-real-diode-graph</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-real-diode-point" speech2="The point a comma f of a">
+      <active>prefigure-real-diode-point</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-real-diode-graph-group</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-real-diode-tangent" speech2="The tangent line to the graph of f at the point">
+      <active>prefigure-real-diode-tangent</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-real-diode-graph-group</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
