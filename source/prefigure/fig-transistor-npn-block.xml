@@ -1,9 +1,9 @@
-<diagram dimensions="(200,200)" margins="5">
-  <definition> start=(8,8) </definition>
+<diagram dimensions="(100,200)" margins="5" xmlns="https://prefigure.org">
+  <definition> start=(4,3) </definition>
   <definition> L=2 </definition>
   <definition> H=1 </definition>
-  <coordinates bbox="(0,0,18,18)">
-    <grid-axes xlabel="x" ylabel="y"/>
+  <coordinates bbox="(0,0,7,11)">
+    <!--<grid-axes xlabel="x" ylabel="y"/>-->
     <rectangle lower-left="start" dimensions="(L,2*H)" fill="green" stroke="black" thickness="1" fill-opacity="0.2"/>
     <rectangle lower-left="start+(0,2*H)" dimensions="(L,H)" fill="blue" fill-opacity="0.2"/>
     <rectangle lower-left="start+(0,3*H)" dimensions="(L,2*H)" fill="green" stroke="black" thickness="1" fill-opacity="0.2"/>

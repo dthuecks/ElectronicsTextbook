@@ -10,16 +10,20 @@
         <caption></caption>
         <sidebyside widths="45% 45%" valign="bottom">
             <figure xml:id="fig-transistor-BJT-types-npn">
-                <caption></caption>
-                <image><latex-image>
-                    <xi:include parse="text" href="./figures/fig-transistor-BJT-types-npn.tex" />
-                </latex-image></image>
+                <caption>npn transistor.</caption>
+                <image>
+                    <prefigure xmlns="https://prefigure.org" label="fig-transistor-npn-block">
+                        <xi:include href="./prefigure/fig-transistor-npn-block.xml" />
+                    </prefigure>
+                </image>
             </figure>
             <figure xml:id="fig-transistor-BJT-types-pnp">
-                <caption></caption>
-                <image><latex-image>
-                    <xi:include parse="text" href="./figures/fig-transistor-BJT-types-pnp.tex" />
-                </latex-image></image>
+                <caption>pnp transistor.</caption>
+                <image>
+                    <prefigure xmlns="https://prefigure.org" label="fig-transistor-pnp-block">
+                        <xi:include href="./prefigure/fig-transistor-pnp-block.xml" />
+                    </prefigure>
+                </image>
             </figure>
         </sidebyside>
     </figure>

@@ -6,7 +6,7 @@
     <subsection xml:id="sub-diode-analytic-analysis">
         <title>Analytic circuit treatment</title>
     <p>
-        How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in <xref ref="fig-diode-cartoon"/>. Given this diode behavior, one can occasionally determine by inspection the conditions under which the diode is on or off.For example, let's analyze the circuit in <xref ref="fig-diode-simple-example"/>.
+        How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in <xref ref="fig-diode-cartoon"/>. Let's use this behavior to analyze the circuit in <xref ref="fig-diode-simple-example"/>.
         <figure xml:id="fig-diode-simple-example">
             <image width="50%">
                 <shortdescription></shortdescription>
@@ -15,13 +15,21 @@
                 </latex-image>
             </image>
         </figure>
-        In this circuit, 
-        <md>
-            <mrow>\tilde{V}_\text{out} \amp =\tilde{V}_\text{in}-V_F \amp \text{(Diode on)} </mrow>
-            <mrow> \tilde{V}_\text{out} \amp = 0 \amp \text{(Diode off)} </mrow>
-        </md>
-        which is plotted in <xref ref="fig-diode-simple-example-plot"/>.
-        
+        As the input voltage varies, it is not immediately obvious under what conditions the diode is on or off. Thus, our analysis will consist of us guessing at the diode state, analyzing the circuit, and looking for self-consistent solutions (indicating we guessed correctly) or contradictory statements (indicating we guessed incorrectly).
+    </p>
+    <p> 
+        Let's start out guessing that the diode is off, requiring that the diode current <m>I_D=0</m>. It follows from Ohm's law that there is no voltage change across the resistor <m>R</m>, thus <m>V_\text{out} = 0</m>. Kirchhoff's Voltage law requires <m>V_D=V_{in}</m> which is a self-consistent solution for all times when <m>V_D \lt V_F</m>. For any times when <m>V_D \gt V_F</m>, we have a statement that contradicts our known diode behavior which states that <m>V_D=V_F</m> when the diode is on. 
+    </p> 
+    <p>   
+        For time periods where <m>V_D \gt V_F</m> in the above analysis, we will instead assume that the diode is on meaning that the voltage change across the diode will lock at <m>V_D=V_F</m>. Under this condition, Kirchhoff's loop law requires that <m>V_\text{out}=V_\text{in}-V_F</m>. These results are not contradictory to any other circuit behaviors so must be correct. The final result of our circuit analysis for all times is found by splicing together the time intervals for the diode's off and on behaviors as demonstrated in the following code and is plotted in <xref ref="fig-diode-simple-example-plot"/>.
+        <sage language="python">
+            <input>
+                <xi:include parse="text" href="./codes/python-diode-simple-example.py" />
+            </input>
+            <output>
+            </output>
+        </sage>  
+
         <figure xml:id="fig-diode-simple-example-plot"> 
             <image width="75%">
                 <shortdescription></shortdescription>
@@ -30,7 +38,7 @@
         </figure>      
     </p>        
     <p>
-        With experience, the approach above may eventually be enough for you to solve some relatively simple diode circuits. When one is first learning to analyze diode circuits, or when analyzing more complicated circuits, the above method may not work. In such a case, one continues to use the cartoon diode behavior and guesses at whether each diode is off or on for a given instantaneous value of the input voltage. The remaining circuit elements are then analyzed under the assumption that the initial guesses are correct. In order to determine the veracity of the initial guesses, one looks for inconsistencies or impossibilities that arise from the rest of the circuit analysis. If an impossible situation occurs, then one knows that the initial assumptions were incorrect. In this scenario, one adjusts the initial guesses and re-analyzes the circuit, repeating until no inconsistencies occur. Stated differently, the steps to follow are:
+        To summarize, the method of analysis above makes use of the cartoon diode behavior and requires guesses at whether each diode is off or on for a given instantaneous value of the input voltage. The remaining circuit elements are then analyzed under the assumption that the initial guesses are correct. In order to determine the veracity of the initial guesses, one looks for inconsistencies or impossibilities that arise from the rest of the circuit analysis. If an impossible situation occurs, then one knows that the initial assumptions were incorrect. In this scenario, one adjusts the initial guesses and re-analyzes the circuit, repeating until no inconsistencies occur. Stated differently, the steps to follow are:
         <ol>
             <li>
                 <p>
@@ -53,7 +61,6 @@
                 </p>
             </li>
         </ol>
-        Let's use this procedure for <xref ref="fig-diode-simple-example"/>. If we assume that the diode is on when <m>\tilde{V}_\text{in}=-1.0</m>V, then <m>\tilde{V}_\text{out}=-0.4</m>V. But, this would require a current directed counterclockwise around the circuit which is not allowed by the diode. This inconsistency indicates that our assumption about the diode being on is incorrect in this case. If we change our assumption and instead state that the diode is off when <m>\tilde{V}_\text{in}=-1.0</m>V, then <m>\tilde{V}_\text{out}=0</m>V since no current passes through the output resistor.
     </p>
 
     <example>
@@ -84,7 +91,7 @@
                     </li>
                     <li>
                         <p>
-                            Case 2: Both diodes are on. Then, <m>V_A=+0.6</m>V. Using Ohm's law, <m>I_1=0.88</m>mA. Also, we'd see that <m>V=0</m> due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that <m>I_3=0.5</m>mA. The KCL is then used to determine that <m>I_2=I_1-I_3=0.38</m>mA. There is no inconsistency here, meaning that we were correct in our assumptions and <m>V_B=0</m>. Though it is unnecessary (there can be only one correct answer!), we will examine the remaining cases.
+                            Case 2: Both diodes are on. Then, <m>V_A=+0.6</m>V. Using Ohm's law, <m>I_1=0.88</m>mA. Also, we'd see that <m>V_B=0</m> due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that <m>I_3=0.5</m>mA. The KCL is then used to determine that <m>I_2=I_1-I_3=0.38</m>mA. There is no inconsistency here, meaning that we were correct in our assumptions and <m>V_B=0</m>. Though it is unnecessary (there can be only one correct answer!), we will examine the remaining cases.
                         </p>
                     </li>
                     <li>
@@ -130,7 +137,7 @@
                     </li>
                     <li>
                         <p>
-                            Case 2: Both diodes are on. Then, <m>V_A=+0.6</m>V. Using Ohm's law, <m>I_1=0.44</m>mA. Also, we'd see that <m>V=0</m> due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that <m>I_3=1.0</m>mA. The KCL is then used to determine that <m>I_2=I_1-I_3=-0.56</m>mA. This is impossible since we've assumed ideal diodes which do not allow current to pass in the reverse direction.
+                            Case 2: Both diodes are on. Then, <m>V_A=+0.6</m>V. Using Ohm's law, <m>I_1=0.44</m>mA. Also, we'd see that <m>V_B=0</m> due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that <m>I_3=1.0</m>mA. The KCL is then used to determine that <m>I_2=I_1-I_3=-0.56</m>mA. This is impossible since we've assumed ideal diodes which do not allow current to pass in the reverse direction.
                         </p>
                     </li>
                     <li>
@@ -171,7 +178,7 @@
             </me>.
             Using these equations, we implement Newton's Method (<xref ref="subapp-python-newtonmethod"/>) using the following code:
             <sage language="python">
-            <input><xi:include parse="text" href="./codes/python-diode-simple-example.py" /></input>
+            <input><xi:include parse="text" href="./codes/python-diode-exponential-example.py" /></input>
             <output>
             </output>
             </sage> 

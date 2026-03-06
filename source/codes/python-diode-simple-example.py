@@ -2,42 +2,31 @@
 globals().clear()
 
 import numpy as np
-import scipy.constants as sc
 import matplotlib.pyplot as plt
 
 plt.close('all') # Close all open figures
 
-t = np.linspace(0,1,500);
-Vin_array = 5*np.sin(20*t);
-Vout = np.zeros(np.size(t));
-Varr = np.zeros(np.size(t));
+# Define input parameters
+VF = 0.6 # Forward turn-on voltage for diode
+A = 5 # volts; amplitude for sinusoidal signal
+w = 20 # rad/s; frequency of sinusoidal input voltage
+t0 = 0 # initial time
+t1 = 1 # final time
+nt = 500 # number of points in time array
 
-R, T, I0 = [1e4, 293, 3.0e-12] # in Ohms, Kelvin, Amps
-VT = sc.k * T / sc.e;
+# Create time and V_in arrays
+t = np.linspace(t0,t1,nt);
+Vin = A*np.sin(w*t);
 
-target = 1.0e-8 # User-defined tolerance for final answer
-
-for i1 in range(np.size(t)):
-    Vin = Vin_array[i1]
-
-    # Initial guesses for the solution
-    V = 3.0
-
-    # Main loop
-    error = 1.0
-    while error > target:
-        f = Vin - V - I0*R*(np.exp(sc.e*V/(sc.k*T))-1);
-        fp = -1-I0*R*sc.e/(sc.k*T)*np.exp(sc.e*V/(sc.k*T))
-        DeltaV = f/fp
-        V -= DeltaV
-        error = DeltaV
-    Vout[i1]=Vin-V
-    Varr[i1]=V
+# Arrays resulting from analytical work
+VD = Vin.copy() # V_D = V_in when the diode is off
+VD[VD>VF] = VF # Find all times when VD>VF from the previous step. Diode should instead be on.
+Vout = Vin - VD # V_out from KVL for all times.
 
 plt.figure(1)
-plt.plot(t,Vin_array, 'b', label='$V_{in}$')
+plt.plot(t,Vin, 'b', label='$V_{in}$')
 plt.plot(t,Vout,'r-.', label='$V_{out}$')
-plt.plot(t,Varr,'k--',label='$V_D$')
+plt.plot(t,VD,'k--',label='$V_D$')
 plt.legend()
 plt.xlabel('Time (s)')
 plt.ylabel('Voltage (V)')
