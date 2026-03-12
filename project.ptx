@@ -7,7 +7,8 @@
   <targets>
     <target name="web" format="html" /> <!--publication="publication.ptx" output-dir="public" />-->
     <!-- Removed @deploy-dir for instructor so that it will not deploy -->
-    <target name="instructor-web" format="html" publication="publication-instructor.ptx" />
+    <target name="instructor" format="html" publication="publication-instructor.ptx" />
+    <target name="draft" format="html" publication="publication-draft.ptx" />
     <target name="print" format="pdf" />
   </targets>
 </project>
