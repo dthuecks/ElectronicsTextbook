@@ -7,7 +7,7 @@
 <path transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M-1.49442 0H1.49442"/>
 </g>
 <pattern id="pattern_2" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" x="0" y="0" width="2.98883" height="2.98883">
-<g transform="matrix(.7071136,-.7071136,-.7071136,-.7071136,625.79556,409.4188)">
+<g transform="matrix(.70711359,-.70711359,-.70711359,-.70711359,625.79556,409.41877)">
 <use x="0" y="0" xlink:href="#pattern_tile_2"/>
 <use x="0" y="-2.98883" xlink:href="#pattern_tile_2"/>
 <use x="-2.98883" y="0" xlink:href="#pattern_tile_2"/>
@@ -21,7 +21,7 @@
 <path transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M-1.49442 0H1.49442"/>
 </g>
 <pattern id="pattern_4" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" x="0" y="0" width="2.98883" height="2.98883">
-<g transform="matrix(.7071136,-.7071136,-.7071136,-.7071136,625.79556,409.4188)">
+<g transform="matrix(.70711359,-.70711359,-.70711359,-.70711359,625.79556,409.41877)">
 <use x="0" y="0" xlink:href="#pattern_tile_4"/>
 <use x="0" y="-2.98883" xlink:href="#pattern_tile_4"/>
 <use x="-2.98883" y="0" xlink:href="#pattern_tile_4"/>
@@ -35,7 +35,7 @@
 <path transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M-1.49442 0H1.49442"/>
 </g>
 <pattern id="pattern_6" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" x="0" y="0" width="2.98883" height="2.98883">
-<g transform="matrix(.7071136,-.7071136,-.7071136,-.7071136,625.79556,409.4188)">
+<g transform="matrix(.70711359,-.70711359,-.70711359,-.70711359,625.79556,409.41877)">
 <use x="0" y="0" xlink:href="#pattern_tile_6"/>
 <use x="0" y="-2.98883" xlink:href="#pattern_tile_6"/>
 <use x="-2.98883" y="0" xlink:href="#pattern_tile_6"/>
@@ -49,7 +49,7 @@
 <path transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M-1.49442 0H1.49442"/>
 </g>
 <pattern id="pattern_8" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" x="0" y="0" width="2.98883" height="2.98883">
-<g transform="matrix(.7071136,-.7071136,-.7071136,-.7071136,625.79556,409.4188)">
+<g transform="matrix(.70711359,-.70711359,-.70711359,-.70711359,625.79556,409.41877)">
 <use x="0" y="0" xlink:href="#pattern_tile_8"/>
 <use x="0" y="-2.98883" xlink:href="#pattern_tile_8"/>
 <use x="-2.98883" y="0" xlink:href="#pattern_tile_8"/>
@@ -72,7 +72,7 @@
 <path transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M-1.49442 0H1.49442"/>
 </g>
 <pattern id="pattern_11" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" x="0" y="0" width="2.98883" height="2.98883">
-<g transform="matrix(.7071136,-.7071136,-.7071136,-.7071136,625.79556,409.4188)">
+<g transform="matrix(.70711359,-.70711359,-.70711359,-.70711359,625.79556,409.41877)">
 <use x="0" y="0" xlink:href="#pattern_tile_11"/>
 <use x="0" y="-2.98883" xlink:href="#pattern_tile_11"/>
 <use x="-2.98883" y="0" xlink:href="#pattern_tile_11"/>
@@ -101,21 +101,21 @@
 </defs>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M0-7.08669V21.2601H56.69362V-7.08669ZM56.69362 21.2601"/>
 <g clip-path="url(#clip_1)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_2)" x="553.26779" y="293.55415" width="61.263856" height="61.263856"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_2)" x="553.26779" y="293.55415" width="61.263856" height="61.263826"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M0 7.08669V-21.2601H56.69362V7.08669ZM56.69362-21.2601"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M70.867 3.54333V31.89014H127.56062V3.54333ZM127.56062 31.89014"/>
 <g clip-path="url(#clip_3)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_4)" x="595.86477" y="235.92308" width="61.263917" height="61.26387"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_4)" x="595.86477" y="235.92307" width="61.263917" height="61.263887"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M70.867-3.54333V-31.89014H127.56062V-3.54333ZM127.56062-31.89014"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#ff0000" d="M141.73404 3.54333V31.89014H198.42766V3.54333ZM198.42766 31.89014"/>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#0000ff" d="M141.73404-3.54333V-31.89014H198.42766V-3.54333ZM198.42766-31.89014"/>
 <g clip-path="url(#clip_5)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_6)" x="646.5424" y="186.37265" width="55.125307" height="55.12529"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_6)" x="646.5424" y="186.37265" width="55.125307" height="55.125276"/>
 </g>
 <g clip-path="url(#clip_7)">
-<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_8)" x="671.5992" y="211.42938" width="45.1026" height="45.1026"/>
+<rect transform="matrix(.7071,-.7071,-.7071,-.7071,-153,732)" fill="url(#pattern_8)" x="671.5992" y="211.42938" width="45.1026" height="45.10257"/>
 </g>
 <path transform="matrix(1.00006,0,0,-1.00005,2.2949982,82.80554)" stroke-width=".79701" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#000000" d="M212.60106 56.69362H269.29469"/>
 <use data-text="I" xlink:href="#font_9_65" transform="matrix(9.963197,0,0,-9.963098,223.69928,22.280522)"/>

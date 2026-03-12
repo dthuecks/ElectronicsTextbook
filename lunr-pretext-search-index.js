@@ -682,7 +682,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.2",
   "title": "Diode behavior",
-  "body": " Diode behavior  When we put p-type and n-type semiconductors together as in , we get a diode . When a voltage difference is applied across the diode, interesting behaviors can be observed.     Forward-biased.        Reverse biased.        When the voltage is applied across the diode as in , we say the diode is forward-biased . Valence-band holes in the valence band of the p-type semiconductor and conduction-band electrons in the n-type semiconductor move toward the pn junction. At the junction, electrons in the n-type semiconductor fall across the pn junction into p-type semiconductor holes. Since the valence band is a lower energy level than the conduction band, this is accomplished easily. Electrons are also pulled out of the p-type into the wire, generating more valence-band holes. These electrons travel through the circuit and replenish the conduction-band electrons when they enter the n-type semiconductor. This process can proceed indefinitely, resulting in sustained current flow through the diode.  If the bias is reversed as in , we say the diode is reverse-biased . In this case, valence-band holes and conduction-band electrons move away from the pn junction in their respective semiconductors. While electrons can leave the n-type semiconductor, travel through the circuit, and fill the holes in the p-type semiconductor, this will quickly come to a halt because no new holes are formed at the p-n boundary.  Using the behaviors observed above, we find that diodes act similar to one-directional wires. The behavior is captured in .       In this figure, is the voltage drop across the diode. When , the diode is off meaning no current flows through the diode and it acts as a circuit break. When , the diode is on meaning the diode starts acting like a wire, albiet with a voltage drop in the direction of current. In this cartoon picture, the voltage drop across the diode will remain as long as the diode is on regardless of the size of the current through the diode. Likewise, a diode that is off will allow no current regardless of the voltage change applied across the diode. Thus, a diode acts a bit like a unidirectional wire, allowing current to flow in one direction but not the other.  In the above discussion, we see that a diode turns on when the applied voltage drop across the diode reaches a value of , which we call the forward turn-on voltage . More colloquially, it is often referred to as the diode voltage drop . The origin of this diode voltage drop will be developed below.  In the explanations above, we've treated a diode as being made of a p-type and n-type semiconductor joined together. Typically, the reality is that a single semiconductor crystal is grown and the pn-junction refers to the point in the crystal at which the doping changed from one impurity to another. This means that the boundary between the semiconductor types is not necessarily as clearly defined as we're treating it to be. Our phenomenological exploration of diode behavior does not require the level of precision that a more complex junction model would provide, so we will continue treating the pn-junction as a sharp boundary.  While our exploration of diode behavior using were successful in explaining the unidirectional current properties, it fails to explain the reason for the forward turn-on voltage shown in . We attempt to rectify this shortcoming here.  We will refer to as we examine the behavior of charge carriers within our diode's semiconductors.  In equilibrium, a depletion layer forms around the pn-junction, and within that depletion layer is an electric field pointing from the n-type to p-type semiconductor.      Initially, thermal motions and electrostatic forces lead charge carriers to distribute uniformly throughout most of each semiconductor type. Near the pn-junction, the random thermal motions of the n-type charge carriers will occasionally fall  [REVISE]The p-n junction refers to the the boundary between the semiconductor types, though the reality is that a single semiconductor crystal is grown and the doping type is changed partway through the growth process. For the sake of this quaThe bias voltage creates an applied electric field in the diode, accelerating charge carriers toward the p-n junction. Conduction-band electrons in the n-type semiconductor fall across the p-n junction into valence-band holes. It takes some finite time for the charge carriers to redistribute in each semiconductor, resulting in the formation of a thin depletion layer (indicated by dashed lines). Inside the boundary of this depletion layer, there is a deficit of electrons in the n-type semiconductor and a surplus of electrons in the p-type semiconductor, resulting in a second electric field within the depletion layer. If the depletion layer is characterized by thickness , then this results in a voltage difference . In order for charge carriers to redistribute and maintain a current, we must have . This means that the applied voltage bias must be at least as large as some in order to generate an applied electric field that is larger than and can sustain the requisite charge carrier motions to maintain a current through the diode. [CLEAN THIS LAST PART UP. How are related? Be careful with definitions and be precise.]  The size of the diode voltage drop depends on the materials used in diode construction. In diodes constructed using silicon-based semiconductors, V. If germanium-based semiconductors are used to construct the diode, V. For the purposes of this text, we will assume that diodes are silicon-based with V.  We can also be a bit more precise and realistic in our description of diode behavior. Instead of the behavior described in , we can instead relate the current through the diode in the forward direction to the voltage applied across the diode : where and are the voltages on the p-type and n-type semiconductor sides respectively, is the saturation current, is Boltzmann's constant, and is temperature. The value of is dependent on the materials used to construct the diode. For silicon, . The diode behavior is graphically represented in .   More realistic diode behavior.     I0=1e-12  T=293  n=1  kB=1.38e-23  e=1.6e-19  VT=kB*T\/e  f(x)=I0*(exp(x\/(n*VT))-1)                   The saturation current is the current that can bleed through the diode even when reverse-biased. This current is typically very small and can be found in the specifications for a real diode. For the purposes of this text, I will often assume that A. I will also typically assume room temperature K.  Also discuss failure modes of diodes. Breakdown. Curve with fires.  "
+  "body": " Diode behavior  When we put p-type and n-type semiconductors together as in , we get a diode . When a voltage difference is applied across the diode, interesting behaviors can be observed.     Forward-biased.        Reverse biased.        When the voltage is applied across the diode as in , we say the diode is forward-biased . Valence-band holes in the valence band of the p-type semiconductor and conduction-band electrons in the n-type semiconductor move toward the pn junction. At the junction, electrons in the n-type semiconductor fall across the pn junction into p-type semiconductor holes. Since the valence band is a lower energy level than the conduction band, this is accomplished easily. Electrons are also pulled out of the p-type into the wire, generating more valence-band holes. These electrons travel through the circuit and replenish the conduction-band electrons when they enter the n-type semiconductor. This process can proceed indefinitely, resulting in sustained current flow through the diode.  If the bias is reversed as in , we say the diode is reverse-biased . In this case, valence-band holes and conduction-band electrons move away from the pn junction in their respective semiconductors. While electrons can leave the n-type semiconductor, travel through the circuit, and fill the holes in the p-type semiconductor, this will quickly come to a halt because no new holes are formed at the p-n boundary.  Using the behaviors observed above, we find that diodes act similar to one-directional wires. The behavior is captured in .       In this figure, is the voltage drop across the diode from the p-type to n-type diode terminals and is called the forward turn-on voltage . When , the diode is off meaning no current flows through the diode and it acts as a circuit break. When , the diode is on meaning the diode starts acting like a wire, albiet with a voltage drop in the direction of current. The value of varies based on the semiconductor material that the diode is made from, with V for Silicon, V for Germanium, and varied values for other materials. For the purposes of this text, we will assume that diodes are silicon-based with V.  When using the behavior shown in to analyze circuits containing diodes, the voltage drop across the diode will remain as long as the diode is on regardless of the size of the current through the diode. Likewise, a diode that is off will allow no current regardless of the voltage change applied across the diode. Thus, a diode acts much like a unidirectional wire, allowing current to flow in one direction but not the other.   Origin of the forward turn-on voltage  We've seen that much of the cartoon behavior of a diode shown in can be understood qualitatively through an examination of , though this examination failed to predict the forward turn-on voltage . In , the diode fails to conduct current while . In order to understand the origins of , we will examine a more sophisticated treatment of charge carrier motions at the pn-junction.  A diode is made by joining p-type and n-type semiconductors together, but the typical reality is that a single semiconductor crystal is grown and the p-n junction refers to the region in the crystal where doping has been changed from one impurity to another. This means that the boundary between the semiconductor types is not as clearly defined as we're treating it to be. Nonethetless, our phenomenological exploration of diode behavior does not require the level of precision that a more complex junction model would provide, so we will continue treating the pn-junction as a sharp boundary.   represents a diode and takes a close look at the region around the p-n junction. In this figure, the e symbols represent electrons in the conducting band of the n-type semiconductor and the circles represent holes in the valence band of the p-type semiconductor. Charge carriers distribute themselves uniformly throughout most of each semiconductor.  Charge carriers distribute uniformly within each semiconductor due to thermal motions.        Near the p-n junction boundary in the n-type semiconductor, thermal motions will cause some electrons to fall from the n-type conducting band into electron holes near the junction in the p-type valence band. These electrons lose energy as they fall from the conduction band to the valence band and become trapped on the p-type side of the p-n junction. Consequently, holes appear in the n-type conduction band in spaces vacated by the falling electrons. A depletion layer is formed around the boundary as shown in .  In equilibrium, a depletion layer forms around the pn-junction. An electric field forms in this depletion layer pointing from the n-type to p-type semiconductor.      This depletion layer is so named because mobile charge carriers have been depleted in this layer. Electrons that have fallen into the valence band holes have no other holes around them in which to move. Likewise, the holes that appear in the n-type portion of the depletion layer are surrounded by other holes in the conduction band. The electrons that have fallen into the p-type valence band result in a negative charge imbalance (since boron has one fewer proton than Silicon) and the new n-type conduction band holes likewise result in a positive charge imbalance, producing an electric field directed across the depletion layer from the n-type to p-type semiconductor. This depletion layer electric field will repel any further charge carriers that would otherwise enter the depletion layer region, leaving the depletion layer without mobile charge carriers in the equilibrium state of this diode.  In order for our diode to conduct current when forward biased, an electric field must be applied externally that will overcome the repulsive effects of and allow new charge carriers to enter the depletion layer. Assuming a depletion layer thickness , the potential at the n-type boundary of the depletion layer will be higher than the potential at the p-type boundary of the depletion layer by an amount . Since the diode's semiconductor regions outside of the depletion layer are highly conductive, any bias voltage applied externally across the diode will appear unchanged across the depletion layer. This means that a bias voltage is required for current to be conducted through the diode, as shown in .    Behavior of real diodes  We can also be a bit more precise and realistic in our description of diode behavior. Instead of the behavior described in , we can instead relate the current through the diode in the forward direction to the voltage applied across the diode : where is the saturation current, is Boltzmann's constant, and is temperature. The value of is dependent on the materials used to construct the diode. For silicon, . The diode behavior is graphically represented in .   More realistic diode behavior.     I0=1e-12  T=293  n=1  kB=1.38e-23  e=1.6e-19  VT=kB*T\/e  f(x)=I0*(exp(x\/(n*VT))-1)                  The saturation current is the current that can bleed through the diode even when reverse-biased. This current is typically very small and can be found in the specifications for a real diode. For the purposes of this text, I will often assume that A. I will also typically assume room temperature K.   "
 },
 {
   "id": "sec-diode-behavior-2",
@@ -703,58 +703,49 @@ var ptx_lunr_docs = [
   "body": "reverse-biased "
 },
 {
-  "id": "fig-diode-cartoon",
+  "id": "sec-diode-behavior-4",
   "level": "2",
-  "url": "sec-diode-behavior.html#fig-diode-cartoon",
-  "type": "Figure",
-  "number": "4.2.2",
-  "title": "",
-  "body": "      "
-},
-{
-  "id": "sec-diode-behavior-5",
-  "level": "2",
-  "url": "sec-diode-behavior.html#sec-diode-behavior-5",
+  "url": "sec-diode-behavior.html#sec-diode-behavior-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "forward turn-on voltage diode voltage drop "
+  "body": "forward turn-on voltage "
 },
 {
-  "id": "sec-diode-behavior-6",
+  "id": "subsec-forward-voltage-3",
   "level": "2",
-  "url": "sec-diode-behavior.html#sec-diode-behavior-6",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "pn-junction "
-},
-{
-  "id": "fig-diode-depletionlayer",
-  "level": "2",
-  "url": "sec-diode-behavior.html#fig-diode-depletionlayer",
-  "type": "Figure",
-  "number": "4.2.3",
-  "title": "",
-  "body": " In equilibrium, a depletion layer forms around the pn-junction, and within that depletion layer is an electric field pointing from the n-type to p-type semiconductor.      "
-},
-{
-  "id": "sec-diode-behavior-9",
-  "level": "2",
-  "url": "sec-diode-behavior.html#sec-diode-behavior-9",
+  "url": "sec-diode-behavior.html#subsec-forward-voltage-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "p-n junction "
 },
 {
+  "id": "fig-diode-depletionlayer-step1",
+  "level": "2",
+  "url": "sec-diode-behavior.html#fig-diode-depletionlayer-step1",
+  "type": "Figure",
+  "number": "4.2.3",
+  "title": "",
+  "body": " Charge carriers distribute uniformly within each semiconductor due to thermal motions.      "
+},
+{
+  "id": "subsec-forward-voltage-5",
+  "level": "2",
+  "url": "sec-diode-behavior.html#subsec-forward-voltage-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "depletion layer "
+},
+{
   "id": "fig-real-diode",
   "level": "2",
   "url": "sec-diode-behavior.html#fig-real-diode",
   "type": "Figure",
-  "number": "4.2.4",
+  "number": "4.2.5",
   "title": "",
-  "body": " More realistic diode behavior.     I0=1e-12  T=293  n=1  kB=1.38e-23  e=1.6e-19  VT=kB*T\/e  f(x)=I0*(exp(x\/(n*VT))-1)                   "
+  "body": " More realistic diode behavior.     I0=1e-12  T=293  n=1  kB=1.38e-23  e=1.6e-19  VT=kB*T\/e  f(x)=I0*(exp(x\/(n*VT))-1)                  "
 },
 {
   "id": "sec-diode-types",
@@ -1405,29 +1396,11 @@ var ptx_lunr_docs = [
   "body": "bridge full-wave rectifier "
 },
 {
-  "id": "subapp-python-newtonmethod",
-  "level": "1",
-  "url": "subapp-python-newtonmethod.html",
-  "type": "Section",
-  "number": "A.1",
-  "title": "Newton’s Method",
-  "body": " Newton's Method   FINDING THE ROOT OF ONE NONLINEAR EQUATION   Newton's method is a computational algorithm that can be used to find the roots of an equation. Let's illustrate with an example.      In , the solid blue line represents the function . Assume that is an unknown root of such that . We may be able to guess at an approximate value of the root , but this is unlikely to be very precise. Exmining , we can see that we can find a better approximation of the function's root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess, which can be rearranged to find our new estimate We'll call this new approximated root . It's very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire using until is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function's root. Note that this method requires knowledge of the functional form of our function as well as knowledge of or the ability to calculate the analytic form of .  We can be a little more rigorous with the theory underlying Newton's method. Let's assume that we have a function that has a root such that . We can expand our function as a Taylor series around some initial guess for the root, , giving us . Evaluating this expansion at the root gives us . If we divide both sides by and assume that all terms that are order two or higher in are small, then or where is our estimate of the root based on one iteration of this method. Now, the closer is to the real root , the better our estimate will be. So, once we have , we can use this as our new guess for another iteration, giving us a result identical to what we found above, , which we iterate until is less than some user-defined tolerance that defines the desired precision.  A word of caution: Newton's method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method.    FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS   Write your equations in the following form: with roots . The Taylor expansion for can be written as so that . Each value can represent the -th equation in a system of equations. This system can be written in vector form as where is the matrix with elements . Since is a root of the equations, we have so that where . Thus, we can get a good estimate of our root, , using where now. This is a set of ordinary linear simultaneous equations of the form which can be solved using the linalg.solve package in NumPy. Once we've solved for , our new estimate of the root is .    Wheatstone Bridge example   "
-},
-{
-  "id": "fig-python-newtonmethodplot",
-  "level": "2",
-  "url": "subapp-python-newtonmethod.html#fig-python-newtonmethodplot",
-  "type": "Figure",
-  "number": "A.1.1",
-  "title": "",
-  "body": "     "
-},
-{
   "id": "app-matrices",
   "level": "1",
   "url": "app-matrices.html",
   "type": "Appendix",
-  "number": "B",
+  "number": "A",
   "title": "Matrices",
   "body": " Matrices   Properties of Matrices    A matrix is an array of numbers . In order to use matrices to solve systems of equations, we must understand how to multiply matrices using the dot product.  Suppose we have matrix that has the form where is the matrix element in the -th row and -th column. Now, if we multiply a matrix by a scalar, we find .  Let's now say that we want to multiply matrices and to find where . First off, is only defined if has a number of columns that is equal to the number of rows of . In other words, is only defined for matrices where is an matrix and is an matrix. Now we have . The elements of are given by where is the number of columns of and equivalently the number of rows in . In other words, and . In other words, in order to find , you can multiply, element-by-element, the cells in row i of with the cells in column k of . The resulting matrix will have the same number of rows as and same number of columns as .  The identity matrix , typically labeled is another concept that will be necessary to understand. The identity matrix is defined such that for any matrix . In order to have this property, the identity matrix must be a square matrix with dimensions (same number of rows and columns) with values of 1 on the diagonal and 0 everywhere else: . The identity matrix can have any value of in order to make the desired matrix multiplication work.  Now, let's say that we have an equation and let's further assume that we have prior knowledge of both and . How do we find ? We cannot perform division with matrices. Instead, we use the concept of an inverse matrix . Let's define to be the inverse matrix of such that . Then, we can multiply both sides of our equation by to get . You can learn how to find given knowledge of in a linear algebra course. For our purposes, we will just rely on Python to invert matrices.    Connecting to systems of equations    Coming soon.   "
 },
@@ -1448,6 +1421,24 @@ var ptx_lunr_docs = [
   "number": "",
   "title": "",
   "body": "inverse matrix "
+},
+{
+  "id": "subapp-python-newtonmethod",
+  "level": "1",
+  "url": "subapp-python-newtonmethod.html",
+  "type": "Section",
+  "number": "B.1",
+  "title": "Newton’s Method",
+  "body": " Newton's Method   FINDING THE ROOT OF ONE NONLINEAR EQUATION   Newton's method is a computational algorithm that can be used to find the roots of an equation. Let's illustrate with an example.      In , the solid blue line represents the function . Assume that is an unknown root of such that . We may be able to guess at an approximate value of the root , but this is unlikely to be very precise. Exmining , we can see that we can find a better approximation of the function's root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess, which can be rearranged to find our new estimate We'll call this new approximated root . It's very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire using until is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function's root. Note that this method requires knowledge of the functional form of our function as well as knowledge of or the ability to calculate the analytic form of .  We can be a little more rigorous with the theory underlying Newton's method. Let's assume that we have a function that has a root such that . We can expand our function as a Taylor series around some initial guess for the root, , giving us . Evaluating this expansion at the root gives us . If we divide both sides by and assume that all terms that are order two or higher in are small, then or where is our estimate of the root based on one iteration of this method. Now, the closer is to the real root , the better our estimate will be. So, once we have , we can use this as our new guess for another iteration, giving us a result identical to what we found above, , which we iterate until is less than some user-defined tolerance that defines the desired precision.  A word of caution: Newton's method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method.    FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS   Write your equations in the following form: with roots . The Taylor expansion for can be written as so that . Each value can represent the -th equation in a system of equations. This system can be written in vector form as where is the matrix with elements . Since is a root of the equations, we have so that where . Thus, we can get a good estimate of our root, , using where now. This is a set of ordinary linear simultaneous equations of the form which can be solved using the linalg.solve package in NumPy. Once we've solved for , our new estimate of the root is .    Wheatstone Bridge example   "
+},
+{
+  "id": "fig-python-newtonmethodplot",
+  "level": "2",
+  "url": "subapp-python-newtonmethod.html#fig-python-newtonmethodplot",
+  "type": "Figure",
+  "number": "B.1.1",
+  "title": "",
+  "body": "     "
 },
 {
   "id": "backmatter-4",
