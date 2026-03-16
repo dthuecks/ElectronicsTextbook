@@ -83,7 +83,7 @@
                     </me>.
                     Then, Newton's method can be used in Python to estimate the circuit behavior governed by
                     <me>
-                        \nabla\vec{f}\left(\vec{V}\right) \cdot \vec{V} = \vec{f}\left(\vec{V}\right)
+                        \nabla\vec{f}\left(\vec{V}\right) \cdot \Delta \vec{V} = \vec{f}\left(\vec{V}\right)
                     </me>
                     to solve for <m>\Delta\vec{x}</m> and find our new root estimate
                     <me>
