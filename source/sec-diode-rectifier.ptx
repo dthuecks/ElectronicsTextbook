@@ -38,6 +38,35 @@
                 </p>
             </li>
         </ol>
+        An animation showing this behavior more comprehensively is shown in <xref ref="circuitjs-diode-full-rectifier"/>.
+        <figure xml:id="circuitjs-diode-full-rectifier">
+            <caption>Animation showing behavior of the diode full-wave bridge rectifier. Both <m>V_\text{in}</m> and <m>V_\text{out}</m> are shown underneath the circuit; place the mouse over the input signal or the resistor to highlight the appropriate curve in the oscilloscope display. Color represents voltage, with green representing positive voltage and red representing negative voltage. Current within the circuit can be displayed by clicking the three horizontal lines to open the menu. Under <sq>Options</sq>, select <sq>Show current</sq>. Simulation speed can be adjusted by clicking the two vertical lines in the upper right of the figure, revealing sliders. </caption>
+            <interactive circuitjs="" width="100%">
+                <source>
+                    $ 1 0.000005 10.20027730826997 53 5 50 5e-11
+                    v 160 352 160 64 0 1 800 5 0 0 0.5
+                    w 160 64 304 64 0
+                    w 304 64 304 128 0
+                    d 304 128 368 192 2 default
+                    d 304 256 368 192 2 default
+                    d 240 192 304 128 2 default
+                    d 240 192 304 256 2 default
+                    w 304 256 304 352 0
+                    w 304 352 160 352 0
+                    w 240 192 240 288 0
+                    w 368 192 416 192 0
+                    w 240 288 416 288 0
+                    r 416 192 416 288 0 100
+                    x 463 248 500 251 4 20 Vout
+
+                    o 0 4 0 4102 5 0.05 0 4 0 3 12 0 12 3
+
+                </source>
+            </interactive>
+        </figure>
+        
+        
+        
         
         <example>
             <title>Solution Using Newton's method in Python</title>
@@ -101,4 +130,5 @@
         </example>
         
     </p>
+    
 </section>
