@@ -15,7 +15,7 @@
             </latex-image>
         </image>
         </figure>
-        In <xref ref="fig-python-newtonmethodplot"/>, the solid blue line represents the function <m>f(x)</m>. Assume that <m>x^*</m> is an unknown root of <m>f(x)</m> such that <m>f(x^*)=0</m>. We may be able to guess at an approximate value of the root <m>x=x_0</m>, but this is unlikely to be very precise. Exmining <xref ref="fig-python-newtonmethodplot"/>, we can see that we can find a better approximation of the function's root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess, 
+        In <xref ref="fig-python-newtonmethodplot"/>, the solid blue line represents the function <m>f(x)</m>. Assume that <m>x^*</m> is an unknown root of <m>f(x)</m> such that <m>f(x^*)=0</m>. We may be able to guess at an approximate value of the root <m>x=x_0</m>, but this is unlikely to be very precise. Examining <xref ref="fig-python-newtonmethodplot"/>, we can see that we can find a better approximation of the function's root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess, 
         <me>
             f'(x_0) = \frac{f(x_0)-0}{x_0-x_1}
         </me>
