@@ -39,7 +39,7 @@
             </li>
         </ol>
         An animation showing this behavior more comprehensively is shown in <xref ref="circuitjs-diode-full-rectifier"/>.
-        <figure xml:id="circuitjs-diode-full-rectifier">
+        <!--<figure xml:id="circuitjs-diode-full-rectifier-old">
             <caption>Animation showing behavior of the diode full-wave bridge rectifier. Both <m>V_\text{in}</m> and <m>V_\text{out}</m> are shown underneath the circuit; place the mouse over the input signal or the resistor to highlight the appropriate curve in the oscilloscope display. Color represents voltage, with green representing positive voltage and red representing negative voltage. Current within the circuit can be displayed by clicking the three horizontal lines to open the menu. Under <sq>Options</sq>, select <sq>Show current</sq>. Simulation speed can be adjusted by clicking the two vertical lines in the upper right of the figure, revealing sliders. </caption>
             <interactive circuitjs="" width="100%">
                 <source>
@@ -58,13 +58,16 @@
                     w 240 288 416 288 0
                     r 416 192 416 288 0 100
                     x 463 248 500 251 4 20 Vout
-
                     o 0 4 0 4102 5 0.05 0 4 0 3 12 0 12 3
 
                 </source>
             </interactive>
-        </figure>
+        </figure> -->
         
+        <figure xml:id="circuitjs-diode-full-rectifier">
+            <caption>Animation showing behavior of the diode full-wave bridge rectifier. Both <m>V_\text{in}</m> and <m>V_\text{out}</m> are shown underneath the circuit; place the mouse over the input signal or the resistor to highlight the appropriate curve in the oscilloscope display. Color represents voltage, with green representing positive voltage and red representing negative voltage. Current within the circuit can be displayed by clicking the three horizontal lines to open the menu. Under <sq>Options</sq>, select <sq>Show current</sq>. Simulation speed can be adjusted by clicking the two vertical lines in the upper right of the figure, revealing sliders. </caption>
+            <interactive xml:id="interactive-phet-fourier" iframe="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIOuRATAJwAsdNx2dA7AQMyogBGiRXKAAc+CItlQA3CP1QBbTPwCmAWiQoAfACgoUYJKgAPREgBs2KB2pQzF03VTwEEqAHcnKWDIQAOAvIBDQ0lZAHptXWBXIxNzKHtLFniHWBwEcJ09aOMEDiSEvLobKh9HNIzIgBMY3KSkEstTHxsaKjKENqg5AHtESqUYAIBXABs0dIi9apzCqCoiU0bmpFb2zp6+geGxiczgacQqOgsVqkSi+tLUjvlehH7B0fGKqZqjk9bzuYW1283HnYvKI1WbzRazKydJwSIHZRAQ6y2SzUdowybAnLvFpnLElK7Q3aROG5JrYqB0MzY1GErJvY5zHzNCmLPHUoHQHLMslc1nXFzeJD+IGGGp0UwcOZ0ZriCXzTxOFIYMCHFxoJSIABq3SGz3R3SgSgAdmkoBghIgUk5DKZUObnAhJpEhFAQvbTeQxDSnS74agMB68NgSC9verkJ1XS5-WFHXpnWH6lJfe6KEGacBQt1tBnwBBtEA" preview="" width="95%" />
+        </figure>
         
         
         
