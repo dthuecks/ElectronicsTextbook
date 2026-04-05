@@ -1,49 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-opamp-ideal" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>The Ideal OpAmp</title>
+    <title>Ideal Op-amp Behavior</title>
     <p>
-        The schematic symbol for an ideal op-amp is provided in <xref ref="fig-opamp-ideal-schematic"/>, where <m>V_-</m> and <m>V_+</m> are called the <term>inverting input</term> and <term>non-inverting input</term> respectively. The amplifier output is given as <m>V_\text{out}</m>. Op-amps require an external voltage source for operation, just as transistors require <m>V_{CC}</m> and <m>V_{EE}</m> as supply voltages. These two supply voltages are marked as <m>V_{s+}</m> and <m>V_{s-}</m>, though these connections are sometimes left out in circuit diagrams. 
-        <figure xml:id="fig-opamp-ideal-schematic">
-            <caption>Schematic symbol for an ideal op-amp. The inverting and non-inverting inputs are specified as <m>V_-</m> and <m>V_+</m>. The two voltages <m>V_{s+}</m> and <m>V_{s-}</m> are supplied by an external power source.</caption>
-            <image width="50%">
-                <shortdescription></shortdescription>
-                <latex-image>
-                    <xi:include parse="text" href="./figures/fig-opamp-ideal-schematic.tex" />
-                </latex-image>  
-            </image>
-        </figure>
+        Previously, we have seen that transistors are very useful in buffering AC signals. An emitter-follower circuit placed between an AC voltage source and a load circuit increases the input impedance of the load, effectively lightening the load and making it easier for the AC voltage source to drive the load circuit. While the common-emitter amplifier circuit added the additional benefit of AC voltage gain, it did so by weakening its buffering capabilities. More than that, increases in AC voltage gain also lead to degradation of bandwidth performance and circuit stability. 
     </p>
     <p>
-        <xref ref="fig-opamp-pin-diagrams" /> shows a top-view pin diagram for two general-purpose op-amps. The half-moon shape allows one to identify pin 1, with remaining pins being counted in a counter-clockwise manner.
-        <figure xml:id="fig-opamp-pin-diagrams">
-            <caption>Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.</caption>
-            <sidebyside widths="44% 46%" margins="auto" valign="top">
-                
-                <figure xml:id="fig-opamp-LM741-pin-diagram">
-                    <caption>LM741</caption>
-                    <image>
-                    <shortdescription></shortdescription>
-                    <latex-image>
-                        <xi:include parse="text" href="./figures/fig-opamp-LM741-pin-diagram.tex" />
-                    </latex-image>        
-                    </image>
-                </figure>
-                <figure xml:id="fig-opamp-LM358-pin-diagram">
-                    <caption>LM358</caption>
-                    <image>
-                    <shortdescription></shortdescription>
-                    <latex-image>
-                        <xi:include parse="text" href="./figures/fig-opamp-LM358-pin-diagram.tex" />
-                    </latex-image>        
-                    </image>
-                </figure>
-            </sidebyside>
-        </figure>
-
-        
+        The operational amplifier has been designed to serve as a voltage amplifier, but has been designed to do so while maintaining and vastly improving upon signal buffering, amplification, stability, and bandwidth behaviors when compared to the transistor circuits that we have studied. The behavior of ideal op-amps are governed by four rules:
+        <ol>
+            <li>
+                <p>
+                    The output voltage is the open-loop gain <m>A_0</m> multiplying the difference between the noninverting and inverting inputs <m>v_\text{out}=A_0\left(V_+ - V_-\right)</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Open-loop gain <m>A_0=\infty</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Input impedance <m>Z_\text{in}=\infty</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Output impedance <m>Z_\text{out}=0</m>.
+                </p>
+            </li>
+        </ol>
+        The symbols above have been previously defined in <xref ref="fig-opamp-ideal-symbol"/>. These ideal op-amp rules often work quite well in describing the behavior of real op-amps, though these real components have actual parameters <m>10^4\lt A_0 \lt 10^6</m>, <m>10^6\Omega \lt Z_\text{in} \lt 10^{12}\Omega</m>, and <m>10\Omega \lt Z_\text{out} \lt 1000\Omega</m>. The op-amp output voltage <m>V_\text{out}</m> is constrained to values between the two supply voltages <m>V_{S+}</m> and <m>V_{S-}</m>.
     </p>
+    <p>
+        Like transistors, op-amp behaviors can be modified based on how they are incorporated into circuits containing other discrete circuit components. Before we discuss these more advanced applications, let's apply these four ideal op-amp rules to the examples below.
+    </p>
+    <example>
+        <title>Non-inverting open-loop amplifier</title>
+        <statement>
+            <p>
+                Determine <m>V_\text{out}</m> for the circuit pictured in <xref ref="opamp-ideal-noninverting-open"/>, assuming <m>V_\text{in}</m> is a sinusoidal signal.
+                <figure xml:id="opamp-ideal-noninverting-open">
+                    <caption>Non-inverting open-loop amplifier.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/fig-opamp-noninvert-open-loop.tex" />
+                    </latex-image></image>
+                </figure>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Using the ideal op-amp rules, <m>V_\text{out}=A_0 \left(V_+ - V_-\right) = A_0 V_\text{in}</m> since <m>V_+=V_\text{in}</m> and <m>V_-= 0</m>. Therefore, the voltage gain is <m>G_V = A_0=\infty</m>. Since the gain is considered to be infinite, <m>V_\text{out}</m> will be a square wave with the same phase and frequency as <m>V_\text{in}</m> and an amplitude limited by the op-amp supply voltages <m>V_{S+}, V_{S-}</m>. The results are plotted in <xref ref="fig-opamp-noninvert-open-loop-plot"/>.
+                <figure xml:id="fig-opamp-noninvert-open-loop-plot">
+                    <caption>Input and output voltages for the non-inverting open-loop amplifier.</caption>
+                    <image>
+                    <prefigure xmlns="https://prefigure.org" label="fig-opamp-noninvert-open-loop-plot">
+                        <xi:include href="./prefigure/fig-opamp-noninvert-open-loop-plot.xml" />
+                    </prefigure>
+                </image>
+                </figure>
+            </p>
+        </solution>
+    </example>
 
+    <example>
+        <title>Inverting open-loop amplifier</title>
+        <statement>
+            <p>
+                Determine <m>V_\text{out}</m> for the circuit pictured in <xref ref="opamp-ideal-inverting-open"/> assuming <m>V_\text{in}</m> is a sinusoidal signal.
+                <figure xml:id="opamp-ideal-inverting-open">
+                    <caption>Non-inverting open-loop amplifier.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/fig-opamp-invert-open-loop.tex" />
+                    </latex-image></image>
+                </figure>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Using the ideal op-amp rules, <m>V_\text{out}=A_0 \left(V_+ - V_-\right) = -A_0 V_\text{in}</m> since <m>V_-=V_\text{in}</m> and <m>V_+= 0</m>. Therefore, the voltage gain is <m>G_V = -A_0=-\infty</m>. Since the gain is considered to be infinite, <m>V_\text{out}</m> will be a square wave with the same phase and frequency as <m>V_\text{in}</m> and an amplitude limited by the op-amp supply voltages <m>V_{S+}, V_{S-}</m>. The results are plotted in <xref ref="fig-opamp-invert-open-loop-plot"/>.
+                <figure xml:id="fig-opamp-invert-open-loop-plot">
+                    <caption>Input and output voltages for the inverting open-loop amplifier.</caption>
+                    <image>
+                    <prefigure xmlns="https://prefigure.org" label="fig-opamp-invert-open-loop-plot">
+                        <xi:include href="./prefigure/fig-opamp-invert-open-loop-plot.xml" />
+                    </prefigure>
+                </image>
+                </figure>
+            </p>
+        </solution>
+    </example>
     
 
 </section>

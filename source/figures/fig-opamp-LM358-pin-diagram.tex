@@ -22,11 +22,16 @@
     \draw (C.pin 2) -- ($(C.pin 2)!0.1!(C.pin 7)$)
                     |- (opampA.-);
     \draw (C.pin 3) -| (opampA.+);
+    \draw (C.pin 4) -- ($(C.pin 5)!0.5!(C.pin 4)$) coordinate(tmp)
+                    to[short, -*] ([yshift=-0.75mm] tmp |- opampA.down)
+                    -- ([xshift=0.3mm, yshift=-0.75mm] opampA.down)
+                    -- ([xshift=-0.3mm, yshift=-0.75mm] opampB.down);
     \draw (C.pin 5) -| (opampB.+);
     \draw (C.pin 6) -| (opampB.-);
     \draw (C.pin 7) -- ($(C.pin 7)!0.1!(C.pin 2)$)
                     |- (opampB.out);
-    \draw (C.pin 8) -- ($(C.pin 8)!0.5!(C.pin 1)$)
-                    |- (opampA.down)
-                    -- (opampB.down);
+    \draw (C.pin 8) -- ($(C.pin 8)!0.5!(C.pin 1)$) coordinate(tmp)
+                    to[short, -*] ([yshift=0.75mm] tmp |- opampA.down)
+                    -- ([xshift=-0.3mm, yshift=0.75mm] opampA.down)
+                    -- ([xshift=0.3mm, yshift=0.75mm] opampB.down);
 \end{circuitikz}
