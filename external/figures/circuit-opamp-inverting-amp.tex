@@ -1,0 +1,13 @@
+\begin{circuitikz}
+    \draw (0,0)     node[op amp] (opamp) {}
+    (opamp.+)       -- ++(-1,0)
+                    node[ground] {}                   
+    (opamp.-)       to[short, *-] ++(0,1) coordinate(tmp)
+                    to[R, l^=$R_2$, i<^=$I_2$] (tmp -| opamp.out)
+                    to[short, -*] (opamp.out)
+    (opamp.-)       to[R, l_=$R_1$, i<^=$I_1$, -o] ++ (-2.5,0)
+                    node[left] {$V_\text{in}$}
+    (opamp.out)     to[short,-o] ++(1,0)
+                    node[right] {$V_\text{out}$};
+                    
+\end{circuitikz}

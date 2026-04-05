@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-equipment-dmm">
+    <title>Digital Multimeter (DMM)</title>
+
+    <p>
+        The handheld digital multimeter (or DMM) is commonly used to measure
+        <ul>
+            <li>
+                <p>
+                    voltage (DC and AC),
+                </p>
+            </li>
+            <li>
+                <p>
+                    current (DC and AC),
+                </p>
+            </li>
+            <li>
+                <p>
+                    resistance,
+                </p>
+            </li>
+            <li>
+                <p>
+                    continuity, and
+                </p>
+            </li>
+            <li>
+                <p>
+                    other lesser-used quantities such as frequency.
+                </p>
+            </li>
+        </ul>
+    </p>
+    <sidebyside>
+        <p>
+            In voltage and current modes, the internal design of the DMM is such that it has negligible effect on the circuit being measured. That said, you should always spare a moment to consider whether the input impedance in each mode is of the appropriate size to minimize the effect on the measured circuit. 
+        </p> 
+        
+        <image source="images/img-dmm.jpg">
+            <shortdescription>(for accessibility)</shortdescription>
+        </image>
+    </sidebyside>
+    <p>   
+        The use of the DMM varies based on what quantity is being measured. Note that the meter must be connected:
+        <ul>
+            <li>
+                <p>
+                    in parallel to measure voltage or resistance, and
+                </p>
+            </li>
+            <li>
+                <p>
+                    in series to measure current.
+                </p>
+            </li>
+        </ul>
+        
+    </p>
+    <image source="images/img-dmm-series-parallel.jpg">
+        <shortdescription>(for accessibility)</shortdescription>
+    </image>
+</section>

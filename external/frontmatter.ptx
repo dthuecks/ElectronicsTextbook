@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division will contain all content before the -->
+<!-- first chapter. Fill in and comment/uncomment to see how this -->
+<!-- works. -->
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <bibinfo>
+  
+    <author>
+      <personname>Derek J. Thuecks</personname>
+      <department>Department of Physics</department>
+      <institution>Washington College</institution>
+    </author>
+    <date>
+      <today />
+    </date>
+
+    <website>
+      <url href="https://dthuecks.github.io/ElectronicsTextbook/Electronics.html" visual="dthuecks.github.io/ElectronicsTextbook/Electronics.html">Textbook (Online Edition)</url>
+    </website>
+    <website>
+      <url href="https://github.com/dthuecks/ElectronicsTextbook" visual="github.com/dthuecks/ElectronicsTextbook">Project Source Files on GitHub</url>
+    </website>
+
+    <copyright>
+      <year>2024-2026</year>
+      <holder>Derek J Thuecks</holder>
+      <shortlicense> This work and all project source files are licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> creativecommons.org/licenses/by-sa/4.0</url>
+      </shortlicense>
+    </copyright>
+  
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+  <!--<xi:include href="preface.ptx"/>-->
+
+  <colophon xml:id="front-colophon">
+    <colophon-items/>
+  </colophon>
+</frontmatter>
+

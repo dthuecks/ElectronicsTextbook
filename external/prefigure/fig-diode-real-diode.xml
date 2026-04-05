@@ -1,0 +1,24 @@
+<diagram dimensions="(500,300)" margins="5" xmlns="https://prefigure.org">
+  <definition>I0=1e-12</definition>
+  <definition>T=293</definition>
+  <definition>n=1</definition>
+  <definition>kB=1.38e-23</definition>
+  <definition>e=1.6e-19</definition>
+  <definition>VT=kB*T/e</definition>  
+  <definition>f(x)=I0*(exp(x/(n*VT))-1)</definition>
+  <coordinates bbox="(-1,-0.05,1.0,0.4)">
+    <grid-axes xlabel="V_D (Volts)" ylabel="I_D (A)"/>
+    <graph at="graph" function="f"/>
+  </coordinates>
+
+  <annotations>
+    <annotation ref="figure"
+                text="The graph of a function and its tangent line at the point a equals 1">
+      <annotation ref="graph-group" text="The graph and its tangent line">
+        <annotation ref="graph" text="The graph of the function f" sonify="yes"/>
+        <annotation ref="point" text="The point a comma f of a"/>
+        <annotation ref="tangent" text="The tangent line to the graph of f at the point"/>
+      </annotation>
+    </annotation>
+  </annotations>
+</diagram>

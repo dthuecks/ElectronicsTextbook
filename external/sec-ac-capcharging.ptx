@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-capcharging" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Capacitor Charging and Discharging Behaviors</title>
+
+    <p>
+        Let's start examining circuits containing resistors, capacitors, and inductors. We'll start with the circuit in <xref ref="fig-ac-capdischarge"/>. We want to evaluate the voltage across the capacitor (and resistor) as a function of time if the switch starts closed and opens suddenly at time <m>t=0</m>. Assume that the internal battery resistance is much smaller than the circuit resistor so that <m>r_e \ll R</m> and the voltage difference <m>V_C\approx V_0</m> across the capacitor at <m>t=0</m>.
+    </p>
+    <figure xml:id="fig-ac-capdischarge">
+        <caption>A circuit for examining a discharging capacitor.</caption>
+        <image width="50%"><latex-image>
+            \begin{circuitikz}
+                \draw (0,4) coordinate(start);
+                \draw (start)   to[short] ++(0,-1.3)
+                                to[/tikz/circuitikz/bipoles/length=15pt, R, l_=$r_e$] ++(0,-.6)
+                                to[battery, l_=$V_0$] ++(0,-0.8)
+                                to[short] ++(0,-1.3);
+                \draw (start)   to[ospst] ++ (4,0) coordinate(a)
+                                to[C,l_=$C$] ++ (0,-4) coordinate(b)
+                                to[short] ++ (-4,0);
+                \draw (a)       to[short,*-] ++ (4,0)
+                                to[R,l_=$R$] ++ (0,-4)
+                                to[short, -*] ++ (-4,0);
+            \end{circuitikz}
+        </latex-image></image>
+    </figure>
+    <p>
+        <!--Using 
+        <md>
+            <mrow>I \amp = \pm C\frac{\text{d}V}{\text{d}t} </mrow>
+            <mrow>I \amp = \frac{V}{R} </mrow>
+        </md>
+        where the sign choice is determined by whether the capacitor is charging (+) or discharging (-). Combining these equations, we find 
+        <me>
+            C\frac{\text{d}V}{\text{d}t}= -\frac{V}{R}
+        </me>
+        for a discharging capacitor. Rearranging this equation, we find that
+        <me>
+            \frac{\text{d}V}{\text{d}t}=-\frac{1}{RC} V
+        </me>-->
+
+        We can use KVL to examine the circuit. Since the switch is opened at <m>t=0</m>, we only have a single KVL equation
+        <me>
+            V_C - IR = 0
+        </me>
+        where <m>V_C</m> is the voltage difference between the capacitor plates. For a capacitor, <m>Q=CV_c</m>, so
+        <me>
+            \frac{Q}{C} - IR = 0
+        </me>.
+        Taking the time derivative of the above equation will allow us to eliminate <m>Q</m> dependence in favor of <m>I</m>, so let's revisit the relationship between <m>Q</m> and <m>I</m>. Since the current <m>I</m> causes positive charges to leave the positively-charged capacitor plate and return to the negatively-charged plate, the current will cause a reduction in <m>Q</m> as time advances, meaning <m>I=-dQ/dt</m>. With this information, we find that
+        <me>
+            -\frac{I}{C} - R\frac{dI}{dt} = 0
+        </me>
+        or, after rearranging:
+        <me>
+            \frac{dI}{dt}=-\frac{1}{RC} I(t)
+        </me>.
+        By inspection, the solution to this differential equation is
+        <me>
+            I(t)=I_0 e^{-t/RC}
+        </me>
+        where <m>I_0=I(t=0)</m>. Now, this current can be plugged back into our original equation <m>V_C - IR=0</m> to find
+        <me>
+            V_C(t)=I_0 R e^{-t/RC} = V_0 e^{-t/\tau} 
+        </me>
+        where <m>V_C(t=0)=V_0 = I_0 R</m> at the instant that the switch opens and we've defined something called the <term>RC time constant</term> <m>\tau=RC</m> which is a characteristic response time associated with this RC circuit. We plot this discharging behavior in <xref ref="ac-capdischargeplot"/>.
+    </p>
+    <figure xml:id="ac-capdischargeplot">
+            <caption>Discharging capacitor.</caption>
+            <image width="50%"><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                every major tick/.append style={very thick, major tick length=10pt, black},
+                xmin=-0.5,xmax=5,
+                xtick={1},xticklabels={$\tau=RC$},
+                ymin=-0.5,ymax=5,
+                ytick={4/e,4},yticklabels={$V_0/e$,$V_0$},
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={$t$},ylabel={$V(t)$},
+                ]
+                \addplot[color=blue, domain=0:8]{4*e^(-x/1)};
+                \addplot[dashed] coordinates {(1,0)(1,4/e)};  
+                \addplot[dashed] coordinates {(0,4/e)(1,4/e)};
+                \end{axis}
+            \end{tikzpicture}
+        </latex-image></image>
+    </figure>
+    <p>
+        Similarly, we can examine the behavior of a charging capacitor by examing the behavior of the circuit in <xref ref="ac-capcharge"/>. Here, we do not worry about the battery's internal resistance <m>r_e</m> as <m>r_e \ll R</m> typically, meaning that the charging behavior will be determined by <m>R+r_e\approx R</m>.
+    </p>
+    <figure xml:id="ac-capcharge">
+        <caption>A circuit for examining a charging capacitor.</caption>
+        <image width="50%"><latex-image>
+            \begin{circuitikz}
+                \draw (0,4) coordinate(start);
+                \draw (start)   to[battery, l_=$V_0$] ++(0,-4);
+                \draw (start)   to[cspst, i>=$I$] ++ (2,0) 
+                                to[R, l_=$R$] ++ (3,0) coordinate(a)
+                                to[C,l_=$C$, i>=$I$] ++ (0,-4) coordinate(b)
+                                to[short, i>=$I$] ++ (-5,0);
+            \end{circuitikz}
+        </latex-image></image>
+    </figure>
+    <p>
+        Applying the loop law, we find that
+        <me>
+            V_0-IR-V_C = 0
+        </me>
+        where <m>V_C</m> is the voltage difference across the capacitor.
+        Remembering that
+        <me>
+            I=C\frac{\text{d}V}{\text{d}t}
+        </me>
+        we find that
+        <me>
+            V_0 - RC\frac{\text{d}V}{\text{d}t} - V_C = 0
+        </me>
+        or
+        <me>
+            V_0 - V_C = RC\frac{\text{d}V}{\text{d}t}
+        </me>.
+        Since <m>V_0</m> is a constant, we can write this as
+        <me>
+            V_0 - V_C = RC\frac{\text{d}}{\text{d}t}\left(V_C - V_0\right)
+        </me>.
+        If we define <m>V'=V_C - V_0</m>, then this becomes
+        <me>
+            \frac{\text{d}V'}{\text{d}t}=-\frac{1}{RC}V'
+        </me>.
+        This has an exponential solution of the form
+        <me>
+            V'=V_C - V_0 = A e^{-t/RC}
+        </me>.
+        The initial condition <m>V_c(t=0)=0</m> requires that <m>A=-V_0</m>. Thus, our result can be rearranged into
+        <me>
+            V_C = V_0\left(1-e^{-t/RC}\right)
+        </me>.
+        This shows that the capacitor charges from 0% to 63% in <m>\Delta t=RC</m>.    
+    </p>
+    <figure xml:id="ac-capchargeplot">
+            <caption>Charging capacitor.</caption>
+            <image width="50%"><latex-image>
+            \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                every major tick/.append style={very thick, major tick length=10pt, black},
+                xmin=-0.5,xmax=5,
+                xtick={1},xticklabels={$\tau=RC$},
+                ymin=-0.5,ymax=5,
+                ytick={4*(1-e^(-1)),4},yticklabels={$V_0(1-e)$,$V_0$},
+                x label style={anchor=west},
+                y label style={anchor=west},
+                xlabel={$t$},ylabel={$V(t)$},
+                ]
+                \addplot[color=blue, domain=0:8]{4*(1-e^(-x))};
+                \addplot[dashed] coordinates {(1,0)(1,4-4/e)};  
+                \addplot[dashed] coordinates {(0,4-4/e)(1,4-4/e)};
+                \addplot[dashed] coordinates {(0,4)(5,4)};
+                \end{axis}
+            \end{tikzpicture}
+        </latex-image></image>
+    </figure>
+    <p>
+        When charging a capacitor, energy is being stored in the electric field
+        <me>
+            U_C = \frac{1}{2} C V^2 = \frac{Q^2}{2C} = \frac{1}{2} QV
+        </me>.
+        Likewise, inductors can store energy. As the current through an inductor increases, energy is stored i nthe magnetic field
+        <me>
+            U_L = \frac{1}{2}LI^2
+        </me>.        
+    </p>
+
+</section>

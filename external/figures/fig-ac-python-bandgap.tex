@@ -1,0 +1,17 @@
+\begin{circuitikz}
+    \draw (0,0) to[sinusoidal voltage source, l^=$V_\text{in}$, i^>=$I_1$] ++ (0,3)
+                to[short, -*] ++ (0.5, 0) coordinate(a)
+                to[short] ++ (0,.5)
+                to[C, l^=$C$, i>_=$I_2$] ++ (3,0)
+                to[short] ++ (0,-.5)
+                to[short, *-] ++ (0.5,0) coordinate(b)
+                to[R, l^=$R$] ++ (0,-3) coordinate(c)
+                to[short] ++ (-4,0);
+    \draw (a)   to[short] ++ (0,-.5)
+                to[L, l_=$L$, i>_=$I_3$] ++ (3,0)
+                to[short] ++ (0,.5);
+    \draw (b)   to[short, -o] ++ (2,0);
+    \draw (c)   to[short, -o] ++ (2,0);
+    \draw ([xshift = 2cm, yshift=1.5cm] c)
+                node{\text{$V_\text{out}$}};    
+\end{circuitikz}

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-circuit-analytic" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Analysis of diode circuits</title>
+
+    <subsection xml:id="sub-diode-analytic-analysis">
+        <title>Analytic circuit treatment</title>
+    <p>
+        How do we analyze circuits containing diodes? The simplest way is to use the cartoonish behavior demonstrated in <xref ref="fig-diode-cartoon"/>. Let's use this behavior to analyze the circuit in <xref ref="fig-diode-simple-example"/>.
+        <figure xml:id="fig-diode-simple-example">
+            <image width="50%">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-diode-simple-example.ptx" />
+                </latex-image>
+            </image>
+        </figure>
+        As the input voltage varies, it is not immediately obvious under what conditions the diode is on or off. Thus, our analysis will consist of us guessing at the diode state, analyzing the circuit, and looking for self-consistent solutions (indicating we guessed correctly) or contradictory statements (indicating we guessed incorrectly).
+    </p>
+    <p> 
+        Let's start out guessing that the diode is off, requiring that the diode current <m>I_D=0</m>. It follows from Ohm's law that there is no voltage change across the resistor <m>R</m>, thus <m>V_\text{out} = 0</m>. Kirchhoff's Voltage law requires <m>V_D=V_{in}</m> which is a self-consistent solution for all times when <m>V_D \lt V_F</m>. For any times when <m>V_D \gt V_F</m>, we have a statement that contradicts our known diode behavior which states that <m>V_D=V_F</m> when the diode is on. 
+    </p> 
+    <p>   
+        For time periods where <m>V_D \gt V_F</m> in the above analysis, we will instead assume that the diode is on meaning that the voltage change across the diode will lock at <m>V_D=V_F</m>. Under this condition, Kirchhoff's loop law requires that <m>V_\text{out}=V_\text{in}-V_F</m>. These results are not contradictory to any other circuit behaviors so must be correct. The final result of our circuit analysis for all times is found by splicing together the time intervals for the diode's off and on behaviors as demonstrated in the following code and is plotted in <xref ref="fig-diode-simple-example-plot"/>.
+        <sage language="python">
+            <input>
+                <xi:include parse="text" href="./codes/python-diode-simple-example.py" />
+            </input>
+            <output>
+            </output>
+        </sage>  
+
+        <figure xml:id="fig-diode-simple-example-plot"> 
+            <image width="75%">
+                <shortdescription></shortdescription>
+                <sageplot><xi:include parse="text" href="./sageplots/fig-diode-simple-example-plot.ptx" /></sageplot>
+            </image>
+        </figure>      
+    </p>        
+    <p>
+        To summarize, the method of analysis above makes use of the cartoon diode behavior and requires guesses at whether each diode is off or on for a given instantaneous value of the input voltage. The remaining circuit elements are then analyzed under the assumption that the initial guesses are correct. In order to determine the veracity of the initial guesses, one looks for inconsistencies or impossibilities that arise from the rest of the circuit analysis. If an impossible situation occurs, then one knows that the initial assumptions were incorrect. In this scenario, one adjusts the initial guesses and re-analyzes the circuit, repeating until no inconsistencies occur. Stated differently, the steps to follow are:
+        <ol>
+            <li>
+                <p>
+                    Check the conditions in the circuit and see if it is possible to achieve a forward voltage drop <m>V_F</m> across the diode. If it is completely impossible, then the diode will be off and you can treat it as a circuit break. If it is possible that the diode may be forward biased, then continue on to the next steps.
+                </p>
+            </li>
+            <li>
+                <p>
+                    For each diode in your circuit, guess whether the diode is on or off. For each diode that is on, let the voltage drop <m>\left(\Delta V\right)_D=V_F</m> be locked. For each diode that is off, treat the diode as a circuit break meaning no current can pass through it.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Analyze the rest of the circuit elements and search for inconsistencies. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    If any results of your analysis conflict with your guesses about diodes that are on/off, then go back and change your guesses until there are no inconsistencies.
+                </p>
+            </li>
+        </ol>
+    </p>
+
+    <example>
+        <title>Diode example #2</title>
+        <statement>
+            <figure xml:id="fig-diode-example2">
+                <caption>Diode example #2.</caption>
+                <image width="30%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-diode-example2-circuit.ptx" />
+                </latex-image></image>
+            </figure>
+            <p>
+                Find the voltage <m>V_B</m> in <xref ref="fig-diode-example2"/> assuming <m>V_F=0.6</m>V.
+            </p>
+                
+        </statement>
+        <answer>
+            <me>V_B=0</me>
+        </answer>
+        <solution>
+            <p>
+                Let's examine this case-by-case.
+                <ul>
+                    <li>
+                        <p>
+                            Case 1: Both diodes are off. Then, <m>I_2=I_3=0</m> so that <m>I_1=0</m> as well. So, <m>V_A=+5</m>V. This is inconsistent with our assumption, since this results in a bias that is both large enough and in the correct direction to turn on diode <m>D2</m>. Thus, the assumptions in this case cannot be true.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Case 2: Both diodes are on. Then, <m>V_A=+0.6</m>V. Using Ohm's law, <m>I_1=0.88</m>mA. Also, we'd see that <m>V_B=0</m> due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that <m>I_3=0.5</m>mA. The KCL is then used to determine that <m>I_2=I_1-I_3=0.38</m>mA. There is no inconsistency here, meaning that we were correct in our assumptions and <m>V_B=0</m>. Though it is unnecessary (there can be only one correct answer!), we will examine the remaining cases.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Case 3: Diode 2 is off while diode 3 is on. In this case, our circuit acts as a voltage divider, with <m>10.0\text{V}-0.6\text{V}=9.4</m>V across the two resistors. So, <me>V_A=-5.0\text{V} + \frac{2}{3}(9.4\text{V}) + 0.6\text{V}=1.87\text{V}</me> which is more than enough to turn on diode two. Thus, this case cannot be valid.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Case 4: Diode 2 is on while diode 3 is off. In this case, <m>V_A=0.7</m>V. This is identical to <m>V_A</m> in case 2 meaning that diode 3 should activate. This conflicts with our assumption that diode 3 is off. Thus, this case cannot be valid.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Diode example #3</title>
+        <statement>
+            <figure xml:id="fig-diode-example3">
+                <caption>Diode example #3.</caption>
+                <image width="30%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-diode-example3-circuit.ptx" />
+                </latex-image></image>
+            </figure>
+            <p>
+                Find the voltage <m>V_B</m> in <xref ref="fig-diode-example3"/> assuming <m>V_F=0.6</m>V. Note that this is identical to the previous problem except that the two resistors have been swapped.
+            </p>
+                
+        </statement>
+        <answer>
+            <me>V_B=-1.87\text{V}</me>
+        </answer>
+        <solution>
+            <p>
+                Let's examine this case-by-case.
+                <ul>
+                    <li>
+                        <p>
+                            Case 1: Both diodes are off. Then, <m>I_2=I_3=0</m> so that <m>I_1=0</m> as well. So, <m>V_A=+5</m>V. This is inconsistent with our assumption, since this results in a bias that is both large enough and in the correct direction to turn on diode <m>D2</m>. Thus, the assumptions in this case cannot be true.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Case 2: Both diodes are on. Then, <m>V_A=+0.6</m>V. Using Ohm's law, <m>I_1=0.44</m>mA. Also, we'd see that <m>V_B=0</m> due to the diode drop from point A to point B. Given this information, Ohm's law can again be applied to tell us that <m>I_3=1.0</m>mA. The KCL is then used to determine that <m>I_2=I_1-I_3=-0.56</m>mA. This is impossible since we've assumed ideal diodes which do not allow current to pass in the reverse direction.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Case 3: Diode 2 is off while diode 3 is on. In this case, our circuit acts as a voltage divider, with <m>10.0\text{V}-0.6\text{V}=9.4</m>V across the two resistors. So, <me>V_B=-5.0\text{V} + \frac{1}{3}(9.4\text{V}) + 0.6\text{V}=-1.87\text{V}</me> and <m>V_A = V_B + 0.6\text{V}=-1.27\text{V}</m> which would not turn on <m>D_2</m>. Thus, everything is consistent and this must be the valid scenario.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Case 4: Diode 2 is on while diode 3 is off. In this case, <m>V_A=0.7</m>V. This is identical to <m>V_A</m> in case 2 meaning that diode 3 should activate. This conflicts with our assumption that diode 3 is off. Thus, this case cannot be valid.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </solution>
+    </example>
+    </subsection>
+
+    <subsection xml:id="sub-diode-python-analysis">
+        <title>Python circuit treatment</title>
+
+        <p>
+            Let's revisit the circuit in <xref ref="fig-diode-simple-example"/>. This time, we will use an improved mathematical representation of diode behavior from <xref ref="eqn-diode-exponential"/>, reproduced here as
+            <me>
+                I_D = I_0\left(e^{V_D/nV_T} - 1\right)
+            </me>.
+            Assuming we're using a silicon-based diode, we can assume <m>I_0\approx 3\times 10^{12}</m>A, <m>V_T = k_B T/e</m>, room temperature is <m>T\approx 293</m>K, and <m>n\approx 1</m>. The KVL can be used to write
+            <me>
+                \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)=0
+            </me>.
+            This is a nonlinear equation that cannot easily be solved analytically for <m>V_D</m>, so we'll use computational methods to estimate <m>V_D</m>. Specifically, we'll use Newton's Method which is described in <xref ref="subapp-python-newtonmethod"/>. In order to use this method, we'll let 
+            <me>
+                f(V_D) = \tilde{V}_\text{in} - V_D - I_0 R \left(e^{V_D/nV_T}-1\right)
+            </me>
+            and then calculate the first derivative
+            <me>
+                f'(V_D) = -1-\frac{I_0 R}{V_T} e^{V_D/V_T}
+            </me>.
+            Using these equations, we implement Newton's Method (<xref ref="subapp-python-newtonmethod"/>) using the following code:
+            <sage language="python">
+            <input><xi:include parse="text" href="./codes/python-diode-exponential-example.py" /></input>
+            <output>
+            </output>
+            </sage> 
+
+            <image width="75%">
+                <shortdescription></shortdescription>
+                <sageplot><xi:include parse="text" href="./sageplots/fig-diode-simple-example-plot-python.ptx" /></sageplot>
+            </image>   
+        </p>
+
+        <example>
+            <title>Diode Example #4</title>
+            
+            
+            <statement>
+                <p>
+                    Examine the circuit in <xref ref="fig-diode-example4-circuit"/>. Plot the time behavior of <m>I_1(t)</m>, <m>I_2(t)</m>, <m>I_3(t)</m>, <m>V_\text{in}(t)</m>, <m>V_\text{out}(t)</m>, and the voltage across the diode <m>V_D(t)</m>.
+                </p>
+                <figure xml:id="fig-diode-example4-circuit">
+                    <caption></caption>
+                    <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="./figures/fig-diode-example4-circuit.ptx" />
+                    </latex-image>    
+                        
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    We can write down an equation for KCL
+                    <me>
+                        I_3 = I_1 + I_2
+                    </me>.
+                    Using Ohm's law, 
+                    <md>
+                        <mrow>I_1 =\amp I_D </mrow>
+                        <mrow>I_2 =\amp \frac{V_\text{in}-V_2}{R_2} </mrow>
+                        <mrow>I_3  =\amp \frac{V_2}{R_3} </mrow>
+                    </md>
+                    where <m>V_2</m> is the voltage at the top side of <m>V_\text{out}</m> (at the junction between <m>R_2</m>, <m>R_3</m>, and <m>D_1</m>). 
+                    Combining these equations, we find
+                    <me>
+                        I_D + \frac{V_\text{in}-V_2}{R_2} - \frac{V_2}{R_3} = 0
+                    </me>.
+                    We also get an additional equation by examining the circuit branch containing the diode: 
+                    <me>
+                        V_2 = V_\text{in}-I_D R_1 - V_D
+                    </me>. Plugging into the previous equation, we thus find that
+                    <me>
+                        I_D + \frac{I_D R_1+V_D}{R_2} - \frac{V_\text{in}-I_D R_1 - V_D}{R_3} = 0
+                    </me>.
+                    If we now group all of the <m>I_D</m> terms, we find
+                    <me>
+                        \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)I_D + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)V_D - \frac{V_\text{in}}{R_3} = 0
+                    </me>.
+                    We can then use Newton's method to solve for the currents letting
+                    <md>
+                        <mrow>f(V_D) =\amp  \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)I_0\left(e^{V_D/V_T}-1\right) + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)V_D - \frac{V_\text{in}}{R_3}</mrow>
+                        <mrow>f'(V_D) =\amp \left(1+\frac{R_1}{R_2} + \frac{R_1}{R_3}\right)\frac{I_0}{V_T}e^{V_D/V_T} + \left(\frac{1}{R_2} + \frac{1}{R_3}\right)</mrow>
+                    </md>
+                    <sage language="python">
+                        <input><xi:include parse="text" href="./codes/python-diode-example4.py" /></input>
+                        <output>
+                            
+                        </output>
+                    </sage>  
+                </p>
+            </solution>
+        </example>
+
+        
+    
+    </subsection>
+</section>

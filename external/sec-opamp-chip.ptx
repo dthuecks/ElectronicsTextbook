@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-opamp-chip" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>The Op-amp Chip</title>
+    <p>
+        The operational amplifier is an integrated circuit that has been designed to act as a voltage amplifier. The 741 op-amp was one of the first low-cost, high-performance, general-purpose operational amplifiers. <xref ref="fig-opamp-741-schematic"/> shows a circuit schematic for the 741 op-amp, revealing 24 transistors, 11 resistors, and one capacitor. 
+        <figure xml:id="fig-opamp-741-schematic">
+            <caption>A schematic diagram showing the voltage amplifier circuit design for the general-purpose 741 op-amp. (Source: User Omegatron, <url href="https://commons.wikimedia.org/wiki/File:741_op-amp_schematic.svg">741 op-amp schematic</url>, October 2011, Wikimedia Commons. Public Domain.)</caption>
+            <image source="images/741_op-amp_schematic.svg" width="90%"/>
+                <shortdescription></shortdescription>      
+        </figure>
+        The smallest 741 op-amp chips are manufactured using the SOIC-8 package which measures approximately 4mm<m>\times</m>5mm<m>\times</m>1.75mm, though other more modern models can be as small as 0.88mm<m>\times</m>0.58mm<m>\times</m>0.33mm.[<url href="https://fscdn.rohm.com/en/products/databook/datasheet/ic/amp_linear/opamp/tlr377gyz-e.pdf">TEMP LINK</url>] A look at the internal layout of a real physical 741 op-amp can be seen in this <url href="https://www.righto.com/2015/10/inside-ubiquitous-741-op-amp-circuits.html">linked blog post</url>, which also provides an interactive chip viewer that allows the reader to view the op-amp chip's physical layout and click on physical components to have the corresponding element in the circuit schematic highlighted. This image shows that the sole capacitor occupies a rather large percentage of the chip's area.
+    </p>
+    
+    <p>
+        In circuit schematics, the ideal op-amp is represented by the symbol shown in <xref ref="fig-opamp-ideal-symbol"/>, where <m>V_-</m> and <m>V_+</m> are called the <term>inverting input</term> and <term>non-inverting input</term> respectively. The amplifier output is given as <m>V_\text{out}</m>. Op-amps are active circuit components and require external voltage sources for operation, just as transistors require <m>V_{CC}</m> and <m>V_{EE}</m> as supply voltages. These two supply voltages are marked as <m>V_{s+}</m> and <m>V_{s-}</m>, though these connections are sometimes left out in circuit diagrams. 
+        <figure xml:id="fig-opamp-ideal-symbol">
+            <caption>Schematic symbol for an ideal op-amp. The inverting and non-inverting inputs are specified as <m>V_-</m> and <m>V_+</m>. The two voltages <m>V_{s+}</m> and <m>V_{s-}</m> are supplied by an external power source.</caption>
+            <image width="50%">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-opamp-ideal-symbol.tex" />
+                </latex-image>  
+            </image>
+        </figure>
+    </p>
+    <p>
+        <xref ref="fig-opamp-pin-diagrams" /> shows a top-view pin diagram for two general-purpose op-amps. The half-moon shape allows one to identify pin 1, with remaining pins being counted in a counter-clockwise manner.
+        <figure xml:id="fig-opamp-pin-diagrams">
+            <caption>Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.</caption>
+            <sidebyside widths="44% 46%" margins="auto" valign="top">
+                
+                <figure xml:id="fig-opamp-LM741-pin-diagram">
+                    <caption>LM741</caption>
+                    <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="./figures/fig-opamp-LM741-pin-diagram.tex" />
+                    </latex-image>        
+                    </image>
+                </figure>
+                <figure xml:id="fig-opamp-LM358-pin-diagram">
+                    <caption>LM358</caption>
+                    <image>
+                    <shortdescription></shortdescription>
+                    <latex-image>
+                        <xi:include parse="text" href="./figures/fig-opamp-LM358-pin-diagram.tex" />
+                    </latex-image>        
+                    </image>
+                </figure>
+            </sidebyside>
+        </figure>
+    </p>
+</section>

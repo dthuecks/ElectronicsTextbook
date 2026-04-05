@@ -1,0 +1,62 @@
+\begin{tikzpicture} [scale=0.8]                          
+    \def\nx{8} % Number of dot x locations
+    \def\ny{4} % Number of dot y locations
+    \def\sep{2cm} % dot separation
+    \def\re{0.75cm} % Electron size
+    \def\c{blue} % Color of central nucleus and electrons
+    
+                                            
+    % p-n junction
+    \foreach \ix in {0, ..., \inteval{\nx-1}}
+        {
+        \foreach \iy  in {0, ..., \inteval{\ny-1}}
+            {
+            \def\x{{\ix*\sep}}
+            \def\y{{\iy*\sep}}
+            \draw (\x,\y) coordinate(a);
+            \pgfmathparse{less(\ix,\nx/2+1)}  
+            \ifnum\pgfmathresult=1 % p-type
+                \node at (a) [ultra thick, blue, circle, draw, minimum size = \re] {};
+            \else
+                \node at (a) [ultra thick, blue, circle, draw, minimum size = \re] {$-$};
+            \fi
+
+            \pgfmathparse{(\ix==ceil(\nx/2))}  
+            \ifnum\pgfmathresult=1% p-type
+                \draw[-latex, ultra thick, red] ([xshift=-\re/2] a) -- ([xshift={-\sep+\re/2}] a);
+                \draw   ([xshift=-\sep] a) node[ultra thick, red, centered]{$-$};
+            \else
+            \fi    
+            }
+        }
+
+        \draw ([xshift={-0.5*\sep}] 0,{-0.35*\sep}) coordinate(b);
+        \draw[ultra thick] 
+            (b) -- ([xshift={-0.5*\sep}] 0,{(\ny-.35)*\sep})
+            node[above, scale=1.5] {$+V$};
+        \draw[ultra thick] 
+            ([xshift={(\nx-0.5)*\sep}] 0,{-0.35*\sep}) -- ([xshift={(\nx-.5)*\sep}] 0,{(\ny-.35)*\sep})
+            node[above, scale=1.5] {$-V$};
+        \node at ([xshift={\nx/4*\sep}, yshift={\ny/2*\sep}] b) [ultra thick, color=black, rectangle, 
+            draw, minimum width={(\nx-1.85)/2*\sep},minimum height={(\ny-0.8)*\sep},label=p-type] {};
+        \node at ([xshift={3*\nx/4*\sep}, yshift={\ny/2*\sep}] b) [ultra thick, color=black, 
+            rectangle, draw, minimum width={(\nx-1.85)/2*\sep},minimum height={(\ny-0.8)*\sep},label=n-type] {};
+        \draw[ultra thick, blue, dashed] ([xshift={3*(\nx)/8*\sep} ] {-\sep/2},{-.35*\sep}) -- ++(0,{(\ny)*\sep});
+        \draw[ultra thick, blue, dashed] ([xshift={5*(\nx)/8*\sep} ] {-\sep/2},{-.35*\sep}) -- ++(0,{(\ny)*\sep});
+
+        \draw [ultra thick, decorate,decoration={brace,amplitude=10pt,raise=2ex}] ([xshift={3*(\nx)/8*\sep} ] {-\sep/2},{(\ny-.5)*\sep}) -- ([xshift={5*(\nx)/8*\sep} ] {-\sep/2},{(\ny-.5)*\sep}) node[midway,yshift=3em]{$\Delta x$};
+
+        \draw [ultra thick, -latex, color=blue]  ([xshift={4.5*(\nx)/8*\sep} ] {-\sep/2},{(-.75)*\sep}) -- ([xshift={3.5*(\nx)/8*\sep} ] {-\sep/2},{(-.75)*\sep}) node[midway, yshift=1em]{$\vec{E}_d$};
+
+        \draw [ultra thick, -latex, color=blue]  ([xshift={2*(\nx)/8*\sep} ] {-\sep/2},{(-1.0)*\sep}) -- ([xshift={6*(\nx)/8*\sep} ] {-\sep/2},{(-1.0)*\sep})  node[midway, yshift=-1em]{$\vec{E}_\text{bias}$};
+
+
+        \node at (0,{-2*\sep}) [ultra thick, blue, circle, draw, minimum size = \re, label={[align=center]right:hole in\\valence band}] {};
+
+        \node at ({3*\sep},{-2*\sep}) [ultra thick, blue, circle, draw, minimum size = \re, label={[align=center]right:electron in\\conducting band}] {$-$};
+
+        \node at (0,{-3*\sep}) [ultra thick, blue, circle,minimum size = \re, label={[align=center]right:fixed ion\\donor atom}] {$+$};
+
+        \node at ({3*\sep},{-3*\sep}) [ultra thick, blue, circle,minimum size = \re,label={[align=center]right:fixed electron\\in valence band}] {$-$};
+        
+\end{tikzpicture}

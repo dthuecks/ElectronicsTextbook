@@ -1,0 +1,9 @@
+\begin{circuitikz}
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[battery, invert, l^=$\SI{5}{\text{V}}$] ++(0,3)
+                    to[R, -*, l^=\SI{880}{\ohm}, i^>=$I_1$] ++(3,0) coordinate(tmp)
+                    to[R, -*, l^=\SI{1.2}{\kilo\ohm}, i^>=$I_2$] (tmp |- start);
+    \draw (tmp)     to[short] ++(2,0) coordinate(tmp)
+                    to[D, i^>=$I_D$] (tmp |- start)
+                    to[short] (start);
+\end{circuitikz}

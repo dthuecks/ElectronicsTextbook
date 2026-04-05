@@ -1,0 +1,52 @@
+\begin{tikzpicture} [scale=0.8]                          
+    \def\nx{8} % Number of dot x locations
+    \def\ny{4} % Number of dot y locations
+    \def\sep{2cm} % dot separation
+    \def\re{0.75cm} % Electron size
+    \def\c{blue} % Color of central nucleus and electrons
+                                           
+    % Semiconductor valence holes and conducting band electrons
+    \foreach \ix in {0, ..., \inteval{\nx-1}}
+        {
+        \foreach \iy  in {0, ..., \inteval{\ny-1}}
+            {
+            \def\x{{(\ix+0.5)*\sep}}
+            \def\y{{(\iy+0.5)*\sep}}
+            \draw (\x,\y) coordinate(a);
+            \pgfmathparse{less(\ix,\nx/2-1)}  
+            \ifnum\pgfmathresult=1 % p-type
+                \node at (a) [ultra thick, blue, circle, draw, minimum size = \re] {};
+            \fi
+            \pgfmathparse{greater(\ix,\nx/2)}  
+            \ifnum\pgfmathresult=1 % n-type
+                \node at (a) [blue] {\Huge e};
+            \fi
+
+            % Conducting band electrons falling into valence holes
+            \pgfmathparse{(\ix==ceil(\nx/2))}  
+            \ifnum\pgfmathresult=1 %
+                \node at (a) [ultra thick, red, circle, draw, minimum size = \re] {};    
+                \draw[-latex, ultra thick, red] ([xshift=-\re/2*1.6] a) -- ([xshift={-\sep+\re/2}] a);
+                \draw   ([xshift=-\sep] a) node[ultra thick, red, centered]{\Huge e};
+            \else
+            \fi    
+            }
+        }
+
+    % Semiconductor boundaries and labels
+    \draw[ultra thick] (0,0) rectangle ({\nx*\sep/2},{\ny*\sep});
+    \node at ({\nx*\sep/4},{\ny*\sep}) [font=\huge, above] {p-type};
+    \draw[ultra thick] ({\nx*\sep/2},0) rectangle ({\nx*\sep},{\ny*\sep});
+    \node at ({3*\nx*\sep/4},{\ny*\sep}) [font=\huge, above] {n-type};        
+    
+    % Boundary of depletion layer
+    \draw[ultra thick, blue, dashed] ({(\nx/2-1)*\sep},0) -- ({(\nx/2-1)*\sep},{\ny*\sep});
+    \draw[ultra thick, blue, dashed] ({(\nx/2+1)*\sep},0) -- ({(\nx/2+1)*\sep},{\ny*\sep});
+
+    % Depletion layer label
+    \draw [ultra thick, decorate,decoration={brace,amplitude=10pt,raise=1ex}] ({(\nx/2-1)*\sep},{\ny*\sep}) -- ({(\nx/2+1)*\sep},{\ny*\sep}) node[midway,yshift=3em, align=center, text width=2cm]{\Large Depletion Layer};
+
+    % Depletion layer electric field
+    \draw[ultra thick, -latex, color=blue] ({(\nx/2+.5)*\sep},{-0.2*\sep}) -- ({(\nx/2-.5)*\sep},{-0.2*\sep}) node[midway, yshift=-1.8em]{\huge $\vec{E}_d$};
+      
+\end{tikzpicture}

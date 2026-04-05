@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction</title>
+
+    <introduction>
+    <p> 
+        Electronic devices surround us. Computers, phones, televisions, watches, cars, building wiring, and many other examples all rely on electricity. All of these applications ultimately rely on energy from electricity, and this electricity must be controlled using circuits comprising wires, resistors, capacitors, and many other components.
+    </p>
+    <p>
+        This text serves as a survey of electronics principles and design. While you will not learn to build a smartphone in this text, you will instead learn about the fundamental building blocks of electronic circuits. Focus will be placed on how electronic components work, both alone and in tandem, as we learn the rules that govern the behavior of circuit elements. While we will occasionally delve into the physical principles underlying the behavior of circuit elements, such topics are more appropriate for a course in undergraduate electrodynamics. So, while we will not focus much on the physics principles behind electronic components, we will instead focus on the rules governing circuit design and behavior. 
+    </p>
+    </introduction>
+
+<section xml:id="sec-introduction-review" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Review from Introductory Physics</title>
+  
+    <p> 
+        Electrical devices are powered by electricity, the movement of charges (which we call <term>current</term>) through a circuit. These charges move due to <term>voltage</term> differences applied by batteries or power supplies. Thus, if we intend to understand the behavior of electrical circuits, we must first remember what we learned in our introductory physics course.
+    </p>
+
+    <p>
+        In the presence of charged objects, the space around the objects is altered. This alteration can be represented as a vector field which we call the <term> electric field</term> (which has SI units of V/m). The electric field at a position <m>\vec{r}</m> relative to a point charge source <m>Q</m> is given by
+        <me>
+            \vec{E}=\frac{Q}{4\pi\varepsilon_0 r^2}\hat{r}
+        </me>
+        where <m>\varepsilon_0</m> is the permitivity of free space (a constant of nature). The electric field has SI units of V/m. While the electric field is a useful construct, it can be convenient to represent this space modification using a scalar field called the <term>electric potential</term> (with SI units of Volts). For a point charge <m>Q</m>, the electric potential some distance <m>r</m> away from the source charge is
+        <me>
+        V(\vec{r})=\frac{Q}{4\pi\varepsilon_0 r}
+        </me>.
+        When discussing circuits, this scalar field is often called the <term>voltage</term>. The relationship linking these 
+        two representations is described by
+        <me>
+        \vec{E}=-\nabla V = -\left[\frac{\partial V}{\partial x}\hat{x} + \frac{\partial V}{\partial y}\hat{y} + 
+        \frac{\partial V}{\partial z}\hat{z}\right]
+        </me>.
+        While both representations have their uses, voltage will be much more commonly used and referenced when analyzing the 
+        behavior of electrical circuits.
+    </p>
+    
+    <p>
+        In circuits, voltage differences lead to electric fields that cause charges to move. <term>Current</term> quantifies the movement of charge through circuit components. More precisely, current is the amount of charge passing by some point in a circuit per unit time, or
+        <me>
+            I=\frac{dQ}{dt}
+        </me>.
+        In many materials (e.g. metals), positive charges are largely immobile since they are associated with the nuclei of atoms in a material. Thus, electrons are typically the charge carrier in circuits, constituting the current. Unfortunately, there was still much unknown about atomic theory when initial experiments on electricity were conducted, with the consequence that the direction of current is defined to be in the direction that positive charge carriers would be moving if they were responsible for the current. This means that current often has a direction that is opposite to the direction in which the actual charge carriers are moving.
+    </p>
+</section>
+
+<section xml:id="sec-circuit-schematics" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Circuit Schematic: A Visual Model of a Circuit</title>
+    <p>
+        Before we can jump into analyzing the behavior of a circuit, we must first identify features of the circuit that are likely to contribute most importantly to the overall circuit behavior to within some desired degree of accuracy. Such a process is an example of model building, a common activity in physics and one that is a bit of an art form. Model building requires practioners to balance model simplicity (a desirable quality that simplifies circuit analysis) with the model's ability to represent the real behavior of a physical circuit if it were to be built. A model that is too complex, it may become difficult, costly (in time or money), or impossible to use in generating predictions of circuit behavior. On the other hand, a model that is too simple may leave out important qualities, leading to predictions that have little semblance to reality. Finding the proper balance between simplicity and completeness is an activity that practitioners learn over time and through experience. 
+        
+    </p>
+    <p>    
+        A <term>circuit schematic</term>, like the one shown in <xref ref="fig-intro-schematic"/> is a visual model of a circuit. Rather than presenting an artistic representation or photograph of a real circuit, a circuit schematic represents the circuit construction and includes enough information about the behavior of circuit components and the connections between them while leaving out information that is unimportant for our particular purposes. 
+    </p>
+    <figure xml:id="fig-intro-schematic">
+        <caption></caption>
+        <image width="70%">
+            <shortdescription></shortdescription>
+            <latex-image>
+                <xi:include parse="text" href="./figures/fig-ac-python-LRC-circuit.ptx" />
+            </latex-image>
+        </image>
+    </figure>
+    <p>
+    In <xref ref="fig-intro-schematic"/>, circuit components are represented using standard symbols that are defined in <xref ref="tbl-intro-circuit-symbols"/>. We find an AC voltage source, a resistor, a capacitor, and an inductor, all labeled with variable names. Lines in the circuit schematic represent wire connections between components. If a dot is present where two lines intersect, it indicates a junction where two wires that are connected. Arrows (and associated labels) are used to represent the current present in various parts of the circuit.
+        <table xml:id="tbl-intro-circuit-symbols"> 
+            <title> Circuit Symbols </title>
+                <xi:include href="./figures/tbl-intro-circuit-symbols.ptx" />
+        </table>
+    </p>    
+</section>
+
+</chapter>

@@ -1,0 +1,18 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[short, o-*, i^=$I$] ++(1,0) coordinate(b)
+                    to[R, -*, l_=\SI{12}{\kilo\ohm}] ++(2,0) coordinate(c)
+                    to[R, -*, l_=\SI{1}{\kilo\ohm}] ++(2,0) coordinate(d)
+                    to[short, -o, i^=$I$] ++(1,0) coordinate(end);
+    \draw (b)       to[short] ++(0,-1)
+                    to[R, l_=\SI{12}{\kilo\ohm}] ++(2,0)
+                    to[short] ++(0,1);
+    \draw (b)       to[short] ++(0,1) coordinate(a)
+                    to[R, l_=\SI{12}{\kilo\ohm}] ++(2,0)
+                    to[short] ++(0,-1);
+    \draw (a)       to[short, *-] ++(0,1)
+                    to[R, l^=\SI{4}{\kilo\ohm}] ++(4,0)
+                    to[short] ++(0,-2);
+    \draw (start)   node[anchor=south east]{-6V};
+    \draw (end)     node[anchor=south west]{-18V};
+\end{circuitikz}

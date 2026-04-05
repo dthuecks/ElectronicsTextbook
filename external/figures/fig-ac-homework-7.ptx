@@ -1,0 +1,14 @@
+\begin{circuitikz}
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,2)
+                    to[C, l^=\SI{1}{\micro\farad}] ++(3,0) coordinate(a)
+                    to[R, *-*, l_=\SI{1}{\kilo\ohm}] (a|-start)
+                    to[short] (start);
+    \draw (a)       to[R, l^=\SI{100}{\kilo\ohm}] ++(3,0) coordinate(b)
+                    to[C, *-*, l_=\SI{100}{\pico\farad}] (b|-start)
+                    to[short] (a|-start);
+    \draw (b)       to[short, -o] ++(2,0) coordinate(Vout1);
+    \draw (b|-start)
+                    to[short, -o] (Vout1|-start) coordinate(Vout2);
+    \path (Vout1) -- (Vout2) node[midway]{$V_\text{out}$};
+\end{circuitikz}

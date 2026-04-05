@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-labpython" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Data Analysis with Python</title>
+
+    <introduction>
+        In this chapter, we'll review some useful programming techniques that will be useful for data manipulation, analysis, and visualization.
+    </introduction>
+
+    <xi:include href="./sec-labpython-dataload.ptx" />
+    <xi:include href="./sec-labpython-plotting.ptx" />
+    <xi:include href="./sec-labpython-curvefit.ptx" />
+    <xi:include href="./sec-labpython-montecarlo.ptx" />
+
+</chapter>

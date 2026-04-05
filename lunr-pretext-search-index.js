@@ -928,18 +928,27 @@ var ptx_lunr_docs = [
   "body": " Transistor switching  "
 },
 {
-  "id": "sec-opamp-ideal",
+  "id": "sec-opamp-chip",
   "level": "1",
-  "url": "sec-opamp-ideal.html",
+  "url": "sec-opamp-chip.html",
   "type": "Section",
   "number": "6.1",
-  "title": "The Ideal OpAmp",
-  "body": " The Ideal OpAmp  The schematic symbol for an ideal op-amp is provided in , where and are called the inverting input and non-inverting input respectively. The amplifier output is given as . Op-amps require an external voltage source for operation, just as transistors require and as supply voltages. These two supply voltages are marked as and , though these connections are sometimes left out in circuit diagrams.  Schematic symbol for an ideal op-amp. The inverting and non-inverting inputs are specified as and . The two voltages and are supplied by an external power source.         shows a top-view pin diagram for two general-purpose op-amps. The half-moon shape allows one to identify pin 1, with remaining pins being counted in a counter-clockwise manner.  Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.    LM741        LM358          "
+  "title": "The Op-amp Chip",
+  "body": " The Op-amp Chip  The operational amplifier is an integrated circuit that has been designed to act as a voltage amplifier. The 741 op-amp was one of the first low-cost, high-performance, general-purpose operational amplifiers. shows a circuit schematic for the 741 op-amp, revealing 24 transistors, 11 resistors, and one capacitor.  A schematic diagram showing the voltage amplifier circuit design for the general-purpose 741 op-amp. (Source: User Omegatron, 741 op-amp schematic , October 2011, Wikimedia Commons. Public Domain.)    The smallest 741 op-amp chips are manufactured using the SOIC-8 package which measures approximately 4mm 5mm 1.75mm, though other more modern models can be as small as 0.88mm 0.58mm 0.33mm.[ TEMP LINK ] A look at the internal layout of a real physical 741 op-amp can be seen in this linked blog post , which also provides an interactive chip viewer that allows the reader to view the op-amp chip's physical layout and click on physical components to have the corresponding element in the circuit schematic highlighted. This image shows that the sole capacitor occupies a rather large percentage of the chip's area.  In circuit schematics, the ideal op-amp is represented by the symbol shown in , where and are called the inverting input and non-inverting input respectively. The amplifier output is given as . Op-amps are active circuit components and require external voltage sources for operation, just as transistors require and as supply voltages. These two supply voltages are marked as and , though these connections are sometimes left out in circuit diagrams.  Schematic symbol for an ideal op-amp. The inverting and non-inverting inputs are specified as and . The two voltages and are supplied by an external power source.         shows a top-view pin diagram for two general-purpose op-amps. The half-moon shape allows one to identify pin 1, with remaining pins being counted in a counter-clockwise manner.  Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.    LM741        LM358          "
 },
 {
-  "id": "sec-opamp-ideal-2",
+  "id": "fig-opamp-741-schematic",
   "level": "2",
-  "url": "sec-opamp-ideal.html#sec-opamp-ideal-2",
+  "url": "sec-opamp-chip.html#fig-opamp-741-schematic",
+  "type": "Figure",
+  "number": "6.1.1",
+  "title": "",
+  "body": " A schematic diagram showing the voltage amplifier circuit design for the general-purpose 741 op-amp. (Source: User Omegatron, 741 op-amp schematic , October 2011, Wikimedia Commons. Public Domain.)    "
+},
+{
+  "id": "sec-opamp-chip-3",
+  "level": "2",
+  "url": "sec-opamp-chip.html#sec-opamp-chip-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -948,11 +957,83 @@ var ptx_lunr_docs = [
 {
   "id": "fig-opamp-pin-diagrams",
   "level": "2",
-  "url": "sec-opamp-ideal.html#fig-opamp-pin-diagrams",
+  "url": "sec-opamp-chip.html#fig-opamp-pin-diagrams",
   "type": "Figure",
-  "number": "6.1.2",
+  "number": "6.1.3",
   "title": "",
   "body": " Sample top-view pin diagrams for two general-purpose op-amp chips, the LM741 and the LM358. This particular pin diagram is specific to the general purpose LM741 op-amp chip. Other op-amp chips may have different pin diagrams.    LM741        LM358        "
+},
+{
+  "id": "sec-opamp-ideal",
+  "level": "1",
+  "url": "sec-opamp-ideal.html",
+  "type": "Section",
+  "number": "6.2",
+  "title": "Ideal Op-amp Behavior",
+  "body": " Ideal Op-amp Behavior  Previously, we have seen that transistors are very useful in buffering AC signals. An emitter-follower circuit placed between an AC voltage source and a load circuit increases the input impedance of the load, effectively lightening the load and making it easier for the AC voltage source to drive the load circuit. While the common-emitter amplifier circuit added the additional benefit of AC voltage gain, it did so by weakening its buffering capabilities. More than that, increases in AC voltage gain also lead to degradation of bandwidth performance and circuit stability.  The operational amplifier has been designed to serve as a voltage amplifier, but has been designed to do so while maintaining and vastly improving upon signal buffering, amplification, stability, and bandwidth behaviors when compared to the transistor circuits that we have studied. The behavior of ideal op-amps are governed by four rules:   The output voltage is the open-loop gain multiplying the difference between the noninverting and inverting inputs .    Open-loop gain .    Input impedance .    Output impedance .   The symbols above have been previously defined in . These ideal op-amp rules often work quite well in describing the behavior of real op-amps, though these real components have actual parameters , , and . The op-amp output voltage is constrained to values between the two supply voltages and .  Like transistors, op-amp behaviors can be modified based on how they are incorporated into circuits containing other discrete circuit components. Before we discuss these more advanced applications, let's apply these four ideal op-amp rules to the examples below.   Non-inverting open-loop amplifier   Determine for the circuit pictured in , assuming is a sinusoidal signal.  Non-inverting open-loop amplifier.       Using the ideal op-amp rules, since and . Therefore, the voltage gain is . Since the gain is considered to be infinite, will be a square wave with the same phase and frequency as and an amplitude limited by the op-amp supply voltages . The results are plotted in .  Input and output voltages for the non-inverting open-loop amplifier.     f(x)=2*sin(x)  g(x)=5*(sin(x))\/fabs(sin(x))    Time (s)  Voltage (V)    -V_{S}    -V_\\text{in,0}    V_\\text{in,0}    V_{S}      V_\\text{in}  V_\\text{out}            Inverting open-loop amplifier   Determine for the circuit pictured in assuming is a sinusoidal signal.  Non-inverting open-loop amplifier.       Using the ideal op-amp rules, since and . Therefore, the voltage gain is . Since the gain is considered to be infinite, will be a square wave with the same phase and frequency as and an amplitude limited by the op-amp supply voltages . The results are plotted in .  Input and output voltages for the inverting open-loop amplifier.     f(x)=2*sin(x)  g(x)=-5*(sin(x))\/fabs(sin(x))    Time (s)  Voltage (V)    -V_{S}    -V_\\text{in,0}    V_\\text{in,0}    V_{S}      V_\\text{in}  V_\\text{out}           "
+},
+{
+  "id": "sec-opamp-ideal-5",
+  "level": "2",
+  "url": "sec-opamp-ideal.html#sec-opamp-ideal-5",
+  "type": "Example",
+  "number": "6.2.1",
+  "title": "Non-inverting open-loop amplifier.",
+  "body": " Non-inverting open-loop amplifier   Determine for the circuit pictured in , assuming is a sinusoidal signal.  Non-inverting open-loop amplifier.       Using the ideal op-amp rules, since and . Therefore, the voltage gain is . Since the gain is considered to be infinite, will be a square wave with the same phase and frequency as and an amplitude limited by the op-amp supply voltages . The results are plotted in .  Input and output voltages for the non-inverting open-loop amplifier.     f(x)=2*sin(x)  g(x)=5*(sin(x))\/fabs(sin(x))    Time (s)  Voltage (V)    -V_{S}    -V_\\text{in,0}    V_\\text{in,0}    V_{S}      V_\\text{in}  V_\\text{out}          "
+},
+{
+  "id": "sec-opamp-ideal-6",
+  "level": "2",
+  "url": "sec-opamp-ideal.html#sec-opamp-ideal-6",
+  "type": "Example",
+  "number": "6.2.4",
+  "title": "Inverting open-loop amplifier.",
+  "body": " Inverting open-loop amplifier   Determine for the circuit pictured in assuming is a sinusoidal signal.  Non-inverting open-loop amplifier.       Using the ideal op-amp rules, since and . Therefore, the voltage gain is . Since the gain is considered to be infinite, will be a square wave with the same phase and frequency as and an amplitude limited by the op-amp supply voltages . The results are plotted in .  Input and output voltages for the inverting open-loop amplifier.     f(x)=2*sin(x)  g(x)=-5*(sin(x))\/fabs(sin(x))    Time (s)  Voltage (V)    -V_{S}    -V_\\text{in,0}    V_\\text{in,0}    V_{S}      V_\\text{in}  V_\\text{out}          "
+},
+{
+  "id": "sec-opamp-neg-feedback",
+  "level": "1",
+  "url": "sec-opamp-neg-feedback.html",
+  "type": "Section",
+  "number": "6.3",
+  "title": "Negative Feedback",
+  "body": " Negative Feedback  In the previous section, we saw that operational amplifiers are quite effective at taking sinusoidal signals (or any time varying signal) and producing a square wave output according to . Based on these examples alone, it may seem like op-amps have limited usefulness.  Op-amps are almost always used with negative feedback , where a conducting path is placed between and the inverting input as shown in .  A circuit employing negative feedback on an op-amp has a conducting path placed that connects and the inverting input .     We gain the following two golden rules of op-amps that must be satisfied when analyzing circuits containing op-amps with negative feedback:   The output of the op-amp will do whatever it needs to do to ensure that .    No current flows into or out of the op-amp inputs and , though there may be a lot of current that can flow to or from the op-amp output.   The first golden rule results from the behavior that we examined in the previous section and can be illustrated by looking at three cases, and we'll assume that and . In case 1, , resulting in . Negative feedback would then cause , switching us from case 1 to case 2. In case 2, , resulting in . Negative feedback would then cause , returning us to case 1. Instead of an unstable output where oscillates uncontrollably between , the op-amp instead settles into case 3 where . In reality, there must be a very small difference between the two op-amp inputs, otherwise would result in case 3. The voltage difference between op-amp inputs in this case will typically be on the order of microvolts and thus will be ignored.  Since for an op-amp with negative feedback, the circuit in turns out to be a buffer amplifier with voltage gain since we must have . This means that this op-amp circuit provides a benefit similar to that provided by the BJT emitter-follower circuit, except better. There is no voltage drop between at the npn base and at the npn emitter. Additionally, the input and output impedances of this op-amp circuit are much enhanced over the emitter-follower circuit.  Op-amp circuits with negative feedback can provide voltage gains other than one and infinity through the placement of additional resistors. Let's analyze the inverting amplifier circuit in to see how this works.  This circuit will use negative feedback to produce a voltage gain .   Applying the first golden rule, we find that , meaning is a virtual ground since the op-amp rules require Volts but is not itself connected to the real circuit ground. Next, recognize that and . Since the golden rules require that no current can enter or leave an op-amp input, Kirchhoff's junction law requires that or . Plugging in our expressions for the currents, we find that which results in a voltage gain . Like the common-emitter amplifier, this circuit applies a negative gain to our input signal, and the magnitude of the gain is dependent on the chosen values of external resistors. This op-amp inverting amplifier does not suffer from the same stability issues as the common-emitter amplifier, and this op-amp circuit maintains much higher input impedance and much lower output impedance than seen with the common-emitter amplifier.   Non-inverting amplifier   Determine for the circuit pictured in .  Non-inverting amplifier.       As before, the golden rules require that . This time, instead of a virtual ground we find that . Since no current can enter\/leave the op-amp inputs, we must have . Using Ohm's law, so that . Combining these results, . Thus, the voltage gain for this circuit is given by .    INSERT A NOTE DISTINGUISHING BETWEEN OPEN-LOOP GAIN AND CLOSED-LOOP GAIN (FROM NEGATIVE FEEDBACK)  "
+},
+{
+  "id": "sec-opamp-neg-feedback-3",
+  "level": "2",
+  "url": "sec-opamp-neg-feedback.html#sec-opamp-neg-feedback-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "negative feedback "
+},
+{
+  "id": "sec-opamp-neg-feedback-4",
+  "level": "2",
+  "url": "sec-opamp-neg-feedback.html#sec-opamp-neg-feedback-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "golden rules of op-amps "
+},
+{
+  "id": "sec-opamp-neg-feedback-6",
+  "level": "2",
+  "url": "sec-opamp-neg-feedback.html#sec-opamp-neg-feedback-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "inverting amplifier virtual ground "
+},
+{
+  "id": "sec-opamp-neg-feedback-7",
+  "level": "2",
+  "url": "sec-opamp-neg-feedback.html#sec-opamp-neg-feedback-7",
+  "type": "Example",
+  "number": "6.3.3",
+  "title": "Non-inverting amplifier.",
+  "body": " Non-inverting amplifier   Determine for the circuit pictured in .  Non-inverting amplifier.       As before, the golden rules require that . This time, instead of a virtual ground we find that . Since no current can enter\/leave the op-amp inputs, we must have . Using Ohm's law, so that . Combining these results, . Thus, the voltage gain for this circuit is given by .   "
 },
 {
   "id": "ch-digital",

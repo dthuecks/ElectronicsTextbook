@@ -1,0 +1,25 @@
+\begin{circuitikz}
+    \draw (0,0) coordinate(start);
+    \draw ([xshift=2cm] start)
+                node[cute spdt up arrow, xscale=-1] (Sw) {};
+    \draw (Sw.in)
+                to[R, l^=\SI{20}{\kilo\ohm}] ++(2,0) coordinate(A)
+                to[C,*-*, l^=\SI{5}{\micro\farad}] ++(0,-2) coordinate(B)
+                to[short] (start|-B);
+    \draw (Sw.out 2)
+                node[anchor=south east]{Y}
+                to[R,-*, l^=\SI{80}{\kilo\ohm}] (Sw.out 2 |-B);
+    \draw (Sw.out 1)
+                node[anchor=south west]{X}
+                to[short] (start |- Sw.out 1);
+    \draw (start |- Sw.out 1)   
+                to[battery, l_=\SI{10}{\volt}] (start |- B);
+    \draw (A)   to[short, *-o] ++(2,0)
+                node[anchor=south west]{A} coordinate(Vout1);
+    \draw (B)   to[short, *-o] (Vout1|-B)
+                node[anchor=north west]{B} coordinate(Vout2);
+    \path (Vout1) -- (Vout2) node[midway]{$V_\text{out}$};
+    
+\end{circuitikz}
+
+

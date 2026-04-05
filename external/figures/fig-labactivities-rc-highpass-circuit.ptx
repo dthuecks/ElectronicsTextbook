@@ -1,0 +1,12 @@
+\begin{circuitikz}
+    \draw (0,0)     coordinate(start);
+    \draw (start)   to[sinusoidal voltage source, l^=$V_\text{in}$] ++(0,2)
+                    to[C, l^=$C$] ++(2,0) coordinate(a)
+                    to[R, *-*, l_=$R$] ++(0,-2) coordinate(b)
+                    to[short] (start);
+    \draw (a)       to[short, -o] ++(2,0) coordinate(Voutp);
+    \draw (b)       to[short, -o] (Voutp |- b) coordinate(Voutn);
+    \path (Voutp) -- (Voutn) node[midway]{$V_\text{out}$};
+
+
+\end{circuitikz}

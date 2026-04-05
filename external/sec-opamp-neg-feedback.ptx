@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-opamp-neg-feedback" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Negative Feedback</title>
+
+    <p>
+        In the previous section, we saw that operational amplifiers are quite effective at taking sinusoidal <m>V_\text{in}</m> signals (or any time varying signal) and producing a square wave output according to <m>V_\text{out}=\text{sign}\left(V_\text{in}\right)</m>. Based on these examples alone, it may seem like op-amps have limited usefulness.
+    </p>
+    <p>
+        Op-amps are almost always used with <term>negative feedback</term>, where a conducting path is placed between <m>V_\text{out}</m> and the inverting input <m>V_-</m> as shown in <xref ref="fig-opamp-negfeedback"/>.
+        <figure xml:id="fig-opamp-negfeedback">
+            <caption>A circuit employing negative feedback on an op-amp has a conducting path placed that connects <m>V_\text{out}</m> and the inverting input <m>V_-</m>.</caption>
+            <image><latex-image>
+                <xi:include parse="text" href="./figures/fig-opamp-negfeedback.tex" />
+            </latex-image></image>
+        </figure>
+    </p>
+    <p>
+        We gain the following two <term>golden rules of op-amps</term> that must be satisfied when analyzing circuits containing op-amps with negative feedback:
+        <ol>
+            <li>
+                <p>
+                    The output of the op-amp will do whatever it needs to do to ensure that <m>V_+ = V_-</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    No current flows into or out of the op-amp inputs <m>V_+</m> and <m>V_-</m>, though there may be a lot of current that can flow to or from the op-amp output.
+                </p>
+            </li>
+        </ol>
+        The first golden rule results from the behavior that we examined in the previous section and can be illustrated by looking at three cases, and we'll assume that <m>\left| V_+\right|\lt \left|V_s\right|</m> and <m>\left| V_-\right|\lt \left|V_s\right|</m>. In case 1, <m>V_+ \gt V_-</m>, resulting in <m>V_\text{out}=+V_S</m>. Negative feedback would then cause <m>V_- = +V_s \gt V_+</m>, switching us from case 1 to case 2. In case 2, <m>V_+ \lt V_-</m>, resulting in <m>v_\text{out}=-V_s</m>. Negative feedback would then cause <m>V_- = -V_s \lt V_+</m>, returning us to case 1. Instead of an unstable output where <m>V_\text{out}</m> oscillates uncontrollably between <m>\pm V_s</m>, the op-amp instead settles into case 3 where <m>V_+ = V_-</m>. In reality, there must be a very small difference between the two op-amp inputs, otherwise <m>V_\text{out}=0</m> would result in case 3. The voltage difference between op-amp inputs in this case will typically be on the order of microvolts and thus will be ignored.
+    </p>
+    <p>
+        Since <m>V_+ = V_-</m> for an op-amp with negative feedback, the circuit in <xref ref="fig-opamp-negfeedback"/> turns out to be a buffer amplifier with voltage gain <m>G_V = 1</m> since we must have <m>V_\text{out}=V_\text{in}</m>. This means that this op-amp circuit provides a benefit similar to that provided by the BJT emitter-follower circuit, except better. There is no voltage drop between <m>V_\text{in}</m> at the npn base and <m>V_\text{out}</m> at the npn emitter. Additionally, the input and output impedances of this op-amp circuit are much enhanced over the emitter-follower circuit.
+    </p>
+    <p>
+        Op-amp circuits with negative feedback can provide voltage gains other than one and infinity through the placement of additional resistors. Let's analyze the <term>inverting amplifier</term> circuit in <xref ref="circuit-opamp-inverting-amp"/> to see how this works.
+        <figure xml:id="circuit-opamp-inverting-amp">
+            <caption>This circuit will use negative feedback to produce a voltage gain <m>G_V = -R_2/R_1</m>.</caption>
+            <image><latex-image>
+                <xi:include parse="text" href="./figures/circuit-opamp-inverting-amp.tex" />
+            </latex-image></image>
+        </figure>
+        Applying the first golden rule, we find that <m>V_- = V_+ = 0</m>, meaning <m>V_-</m> is a <term>virtual ground</term> since the op-amp rules require <m>V_- = 0</m> Volts but <m>V_-</m> is not itself connected to the real circuit ground. Next, recognize that 
+        <md>
+            I_1 = \frac{V_\text{in}-V_-}{R_1} = \frac{V_\text{in}}{R_1}
+        </md>
+        and
+        <md>
+            I_2 = \frac{V_\text{out}-V_-}{R_2} = \frac{V_\text{out}}{R_2}
+        </md>.
+        Since the golden rules require that no current can enter or leave an op-amp input, Kirchhoff's junction law requires that <m>I_1 + I_2 = 0</m> or <m>I_2 = -I_1</m>. Plugging in our expressions for the currents, we find that
+        <md>
+            \frac{V_\text{out}}{R_2} = -\frac{V_\text{in}}{R_1}
+        </md>
+        which results in a voltage gain
+        <md>
+            G_v = \frac{V_\text{out}}{V_\text{in}} = -\frac{R_2}{R_1}
+        </md>.
+        Like the common-emitter amplifier, this circuit applies a negative gain to our input signal, and the magnitude of the gain is dependent on the chosen values of external resistors. This op-amp inverting amplifier does not suffer from the same stability issues as the common-emitter amplifier, and this op-amp circuit maintains much higher input impedance and much lower output impedance than seen with the common-emitter amplifier.    
+    </p>
+    <example>
+        <title>Non-inverting amplifier</title>
+        <statement>
+            <p>
+                Determine <m>G_V</m> for the circuit pictured in <xref ref="circuit-opamp-noninverting-amp"/>.
+                <figure xml:id="circuit-opamp-noninverting-amp">
+                    <caption>Non-inverting amplifier.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-opamp-noninverting-amp.tex" />
+                    </latex-image></image>
+                </figure>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                As before, the golden rules require that <m>V_+ = V_-</m>. This time, instead of a virtual ground we find that <m>V_- = V_\text{in}</m>. Since no current can enter/leave the op-amp inputs, we must have <m>I_1 = I_2</m>. Using Ohm's law, 
+                <md>
+                    I_1 = V_\text{in}/R_1
+                </md>
+                so that 
+                <md>
+                    V_\text{out} - V_\text{in} = I_1 R_2
+                </md>. 
+                Combining these results,
+                <md>
+                    V_\text{out} = V_\text{in} + \frac{R_2}{R_1} V_\text{in} = \left(1+\frac{R_2}{R_1}\right) V_\text{in}
+                </md>.
+                Thus, the voltage gain for this circuit is given by 
+                <md>
+                    G_V = 1+\frac{R_2}{R_1}
+                </md>.
+            </p>
+        </solution>
+    </example>
+    <p>
+        INSERT A NOTE DISTINGUISHING BETWEEN OPEN-LOOP GAIN AND CLOSED-LOOP GAIN (FROM NEGATIVE FEEDBACK)
+    </p>
+
+    
+
+</section>

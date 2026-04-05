@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dc-homework" xmlns:xi="http://www.w3.org/2001/XInclude" component="instructor">
+  <title>Problems</title>
+  <ol>
+    <li>
+        <p>
+            For the circuit in <xref ref="fig-dc-homework-a1"/>, calculate the voltage at points A, B, and C if (a) A is the common, (b) B is the common, and (c) C is the common. 
+        
+            <figure xml:id="fig-dc-homework-a1">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a1.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            In the circuit shown in <xref ref="fig-dc-homework-a2"/>, calculate the voltages at points A, B, and C.
+            <figure xml:id="fig-dc-homework-a2">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a2.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            A fixed <m>1.0\text{k}\Omega</m> resistor and a <m>4.0\text{k}\Omega</m> potentiometer are connected in series across a 5V battery of negligible internal resistance. Calculate the maximum and minimum values of <m>V_{AB}</m> based on possible potentiometer settings. (See <xref ref="sec-components-potentiometers"/> for an explanation of potentiometers.)
+            <figure xml:id="fig-dc-homework-a3">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a3.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the current <m>I</m> in <xref ref="fig-dc-homework-a4"/>.
+            <figure xml:id="fig-dc-homework-a4">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a4.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the equivalent resistance between points A and B in <xref ref="fig-dc-homework-a5"/>.
+            <figure xml:id="fig-dc-homework-a5">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a5.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Use the branch method to determine values and directions for <m>I_1</m> and <m>I_2</m> in <xref ref="fig-dc-homework-a6"/>.
+            <figure xml:id="fig-dc-homework-a6">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a6.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Use the mesh method to determine values and directions for <m>I_1</m>, <m>I_2</m>, and <m>I_3</m> in <xref ref="fig-dc-homework-a7"/>.
+            <figure xml:id="fig-dc-homework-a7">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a7.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Determine an expression for <m>V_2</m> that results in zero current through resistor <m>R_3</m>. Your <m>V_2</m> expression may only depend on <m>V_1</m>, <m>R_1</m>, <m>R_2</m>, <m>R_3</m>, <m>R_4</m>, and <m>R_5</m>.
+            <figure xml:id="fig-dc-homework-a7p5">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a7p5.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the Thevenin equivalents for the circuit in <xref ref="fig-dc-homework-a8"/>.
+            <figure xml:id="fig-dc-homework-a8">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a8.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <p>
+            Calculate the Thevenin equivalents for the circuit in <xref ref="fig-dc-homework-a9"/>.
+            <figure xml:id="fig-dc-homework-a9">
+                <caption></caption>
+                <image width="70%">
+                <latex-image>
+                    <xi:include parse="text" href="./figures/fig-dc-homework-a9.ptx" />
+                </latex-image>
+                </image>
+            </figure>
+        </p>
+    </li>
+  </ol>
+
+</section>

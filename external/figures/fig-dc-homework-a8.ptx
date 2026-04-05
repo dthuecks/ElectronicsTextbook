@@ -1,0 +1,9 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,0) coordinate(start);
+    \draw (start)   to[R, l^=$R_1$] ++(0,3)
+                    to[short, -*] ++(2,0) coordinate(c)
+                    to[battery, -*, l^=$V_{bb1}$] ++(0,-3) coordinate(d)
+                    to[short] (start);
+    \draw (c)       to[R, -o, l^=$R_2$] ++(2,0) coordinate(a);
+    \draw (d)       to[battery, -o, l_=$V_{bb2}$] ++(2,0) coordinate(b);
+\end{circuitikz}

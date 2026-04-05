@@ -1,0 +1,15 @@
+\begin{circuitikz}
+    \draw (0,0) coordinate(start);
+    \draw (start) 
+        node[vcc] {+5V}
+        to[R, l_=\SI{5}{\kilo\ohm}, i>_=$I_1$] ++(0,-3) coordinate(A)
+        to[diode, *-, l_=$D_2$, i_>=$I_2$] ++(0,-2)
+        node[ground] {};
+    \draw (A)
+        to[short, i^>=$I_3$] ++(2,0)
+        to[diode, -*, l^=$D_3$] ++(0,-2) coordinate(B)
+        to[R, l^=\SI{10}{\kilo\ohm}] ++(0,-2)
+        node[vee] {-5V};
+    \draw (A) node[anchor=east] {$A$};
+    \draw (B) node[anchor=west] {$B$};   
+\end{circuitikz}

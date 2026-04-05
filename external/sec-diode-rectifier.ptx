@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-rectifier" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Full-Wave Rectifier</title>
+    <p>
+        Let's look at a full-wave rectifier circuit pictured in <xref ref="fig-diode-full-wave-rectifier"/>. 
+        <figure xml:id="fig-diode-full-wave-rectifier">
+            <caption></caption>
+            <image><latex-image>
+                <xi:include parse="text" href="figures/fig-diode-full-wave-rectifier-circuit.ptx" />
+            </latex-image></image>
+        </figure>
+        Let's examine this circuit analytically through several cases.
+        <ol>
+            <li>
+                <p>
+                    Times when <m>V_\text{in}\gt 2V_F</m>:
+                </p>
+                <p>
+                    In this case, <m>V_A=V_\text{in}\gt V_1,\ V_2,\ V_B</m>. This means that diode <m>D_2</m> will conduct current <m>i_2</m> while <m>i_3=0</m>. Since <m>V_2\gt V_B</m>, diode <m>D_4</m> will remain off meaning that current will flow across the resistor <m>R</m>, dropping voltage in the process. Then, since <m>V_A\gt V_1</m>, we confirm that diode <m>D_1</m> remains off. Consequently, diode <m>D_3</m> will conduct current <m>i_4</m>. Since there was a voltage drop across <m>R</m> and <m>D_3</m>, we find that <m>V_B \lt V_2</m>, confirming our assertion that <m>D_4</m> is off. This current path is represented in <xref ref="fig-diode-full-rectifier-pos-color"/>
+                    <figure xml:id="fig-diode-full-rectifier-pos-color">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="figures/fig-diode-full-rectifier-pos-color.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </li>
+            <li>
+                <p>
+                    In a similar way, we find that <xref ref="fig-diode-full-wave-rectifier-neg-color"/> shows the current path when <m>V_\text{in}\lt -2V_F</m>.
+                    <figure xml:id="fig-diode-full-wave-rectifier-neg-color">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="figures/fig-diode-full-rectifier-neg-color.ptx" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </li>
+        </ol>
+        An animation showing this behavior more comprehensively is shown in <xref ref="circuitjs-diode-full-rectifier"/>.
+        <!--<figure xml:id="circuitjs-diode-full-rectifier-old">
+            <caption>Animation showing behavior of the diode full-wave bridge rectifier. Both <m>V_\text{in}</m> and <m>V_\text{out}</m> are shown underneath the circuit; place the mouse over the input signal or the resistor to highlight the appropriate curve in the oscilloscope display. Color represents voltage, with green representing positive voltage and red representing negative voltage. Current within the circuit can be displayed by clicking the three horizontal lines to open the menu. Under <sq>Options</sq>, select <sq>Show current</sq>. Simulation speed can be adjusted by clicking the two vertical lines in the upper right of the figure, revealing sliders. </caption>
+            <interactive circuitjs="" width="100%">
+                <source>
+                    $ 1 0.000005 10.20027730826997 53 5 50 5e-11
+                    v 160 352 160 64 0 1 800 5 0 0 0.5
+                    w 160 64 304 64 0
+                    w 304 64 304 128 0
+                    d 304 128 368 192 2 default
+                    d 304 256 368 192 2 default
+                    d 240 192 304 128 2 default
+                    d 240 192 304 256 2 default
+                    w 304 256 304 352 0
+                    w 304 352 160 352 0
+                    w 240 192 240 288 0
+                    w 368 192 416 192 0
+                    w 240 288 416 288 0
+                    r 416 192 416 288 0 100
+                    x 463 248 500 251 4 20 Vout
+                    o 0 4 0 4102 5 0.05 0 4 0 3 12 0 12 3
+
+                </source>
+            </interactive>
+        </figure> -->
+        
+        <figure xml:id="circuitjs-diode-full-rectifier">
+            <caption>Animation showing behavior of the diode full-wave bridge rectifier. Both <m>V_\text{in}</m> and <m>V_\text{out}</m> are shown underneath the circuit; place the mouse over the input signal or the resistor to highlight the appropriate curve in the oscilloscope display. Color represents voltage, with green representing positive voltage and red representing negative voltage. Current within the circuit can be displayed by clicking the three horizontal lines to open the menu. Under <sq>Options</sq>, select <sq>Show current</sq>. Simulation speed can be adjusted by clicking the two vertical lines in the upper right of the figure, revealing sliders. </caption>
+            <interactive xml:id="interactive-phet-fourier" iframe="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIOuRATAJwAsdNx2dA7AQMyogBGiRXKAAc+CItlQA3CP1QBbTPwCmAWiQoAfACgoUYJKgAPREgBs2KB2pQzF03VTwEEqAHcnKWDIQAOAvIBDQ0lZAHptXWBXIxNzKHtLFniHWBwEcJ09aOMEDiSEvLobKh9HNIzIgBMY3KSkEstTHxsaKjKENqg5AHtESqUYAIBXABs0dIi9apzCqCoiU0bmpFb2zp6+geGxiczgacQqOgsVqkSi+tLUjvlehH7B0fGKqZqjk9bzuYW1283HnYvKI1WbzRazKydJwSIHZRAQ6y2SzUdowybAnLvFpnLElK7Q3aROG5JrYqB0MzY1GErJvY5zHzNCmLPHUoHQHLMslc1nXFzeJD+IGGGp0UwcOZ0ZriCXzTxOFIYMCHFxoJSIABq3SGz3R3SgSgAdmkoBghIgUk5DKZUObnAhJpEhFAQvbTeQxDSnS74agMB68NgSC9verkJ1XS5-WFHXpnWH6lJfe6KEGacBQt1tBnwBBtEA" preview="" width="95%" />
+        </figure>
+        
+        
+        
+        <example>
+            <title>Solution Using Newton's method in Python</title>
+            <statement>
+                <p>
+                    We find KCL equations for the junctions labeled <m>V_1</m> and <m>V_2</m>
+                    <mdn>
+                        <mrow xml:id="eqn-diode-rectifier-kcl-a">0 = \amp I_3 + I_6 - I_4 </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-kcl-b">0 = \amp I_2 - I_5 - I_6 </mrow>
+                    </mdn>.
+                    We can also write down expressions for the currents by examining voltage changes across components  
+                    <mdn>
+                        <mrow xml:id="eqn-diode-rectifier-currents-a">I_2 = \amp I_0\left(e^{\left(V_\text{in}-V_2\right)/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-b">I_3 = \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-c">I_4 = \amp I_0\left(e^{V_1/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-d">I_5 = \amp -I_0\left(e^{-V_2/V_T}-1\right) </mrow>
+                        <mrow xml:id="eqn-diode-rectifier-currents-e">I_6 = \amp \frac{V_2-V_1}{R} </mrow>
+                    </mdn>.
+                    Combining <xref ref="eqn-diode-rectifier-kcl-a"/>-<xref ref="eqn-diode-rectifier-kcl-b"/> with <xref ref="eqn-diode-rectifier-currents-a"/>-<xref ref="eqn-diode-rectifier-currents-e"/>, we find that
+                    <md>
+                        <mrow>0 =  \amp -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R} </mrow>
+                        <mrow>0 = \amp I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) - \frac{V_2 - V_1}{R} </mrow>
+                    </md>.
+                    Using Newton's method in <xref ref="subapp-python-newtonmethod"/>, we'll set
+                    <me>
+                        \vec{f}(\vec{V})=
+                            \begin{pmatrix}
+                                -I_0\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T} - 2\right) + \frac{V_2-V_1}{R}\\
+                                I_0\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}-2\right) - \frac{V_2-V_1}{R}
+                            \end{pmatrix}
+                    </me>
+                    where
+                    <me>
+                        \vec{V}=\begin{pmatrix} V_1 \\ V_2\end{pmatrix}
+                    </me>.
+                    Given <m>\vec{f}(\vec{V})</m>, we then calculate
+                    <me>
+                        \nabla\vec{f}\left(\vec{V}\right) = 
+                            \begin{pmatrix}
+                                -\frac{I_0}{V_T}\left(e^{\left(V_1-V_\text{in}\right)/V_T} + e^{V_1/V_T}\right)-\frac{1}{R} \amp \frac{1}{R}\\
+                                \frac{1}{R} \amp -\frac{I_0}{V_T}\left(e^{-V_2/V_T}+e^{\left(V_\text{in}-V_2\right)/V_T}\right) - \frac{1}{R}
+                            \end{pmatrix}
+                    </me>.
+                    Then, Newton's method can be used in Python to estimate the circuit behavior governed by
+                    <me>
+                        \nabla\vec{f}\left(\vec{V}\right) \cdot \Delta \vec{V} = \vec{f}\left(\vec{V}\right)
+                    </me>
+                    to solve for <m>\Delta\vec{x}</m> and find our new root estimate
+                    <me>
+                        \vec{x}' = \vec{x}-\Delta\vec{x}
+                    </me>,
+                    iterating to some desired tolerance.
+                    <sage language="python">
+                        <input><xi:include parse="text" href="./codes/python-diode-full-wave-rectifier.py" /></input>
+                        <output>
+
+                        </output>
+                    </sage>                 
+                </p>
+            </statement>
+        </example>
+        
+    </p>
+    
+</section>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ac-python">
+    <title>Using Python in AC circuits</title>
+    <p>
+        Just as with DC circuits, we can let Python do most of the mathematical manipulation for us when determining circuit behavior. As an example, we'll examine the behavior of the circuit in <xref ref="ac-python-LRC-circuit"/>.
+    </p>
+    <figure xml:id="ac-python-LRC-circuit">
+        <caption>A generic LRC circuit. Let <m>R=1\text{k}\Omega</m>, <m>C=1 \mu\text{F}</m>, and <m>L=1\text{mH}</m> for our analysis.</caption>
+        <image width="50%"><latex-image>
+            \begin{circuitikz}
+                \draw (0,0)     to[sinusoidal voltage source, l^=$\tilde{V}_\text{in}$] ++ (0,3)
+                                to[R, l_=$R$, i>_=$I_1$] ++ (3,0) coordinate(a)
+                                to[C, l_=$C$, i>_=$I_2$] ++ (0,-3)
+                                to[short] ++ (-3,0);
+                \draw (a)       to[short, *-] ++ (2,0) coordinate(b)
+                                to[L, l_=$L$, i>_=$I_3$] ++ (0,-3) coordinate(c)
+                                to[short, -*] ++ (-2,0);
+                \draw (b)       to[short, -o] ++ (2,0);
+                \draw (c)       to[short, -o] ++ (2,0);
+                \draw ([xshift = 2cm, yshift=1.5cm] c)
+                                node{\text{$V_\text{out}$}};
+            \end{circuitikz}
+        </latex-image></image>
+    </figure>
+    <p>
+        Using Kirchhoff's laws and the branch method, we find the following equations
+        <md>
+            <mrow>\tilde{I}_1 - \tilde{I}_2 - \tilde{I}_3 \amp = 0 </mrow>
+            <mrow>\tilde{V}_\text{in} - R \tilde{I}_1 - \frac{1}{i \omega C}  \tilde{I}_2 \amp = 0  </mrow>
+            <mrow>\frac{1}{i \omega C}\tilde{I}_2 - i\omega L \tilde{I}_3 \amp = 0 </mrow>
+        </md>.
+        Rearranging these equations
+        <md>
+            <mrow>\tilde{I}_1 - \tilde{I}_2 - \tilde{I}_3 \amp = 0 </mrow>
+            <mrow> - R \tilde{I}_1 + \frac{i}{\omega C}  \tilde{I}_2 \amp = - \tilde{V}_\text{in}  </mrow>
+            <mrow> - \frac{i}{\omega C}\tilde{I}_2 - i\omega L \tilde{I}_3 \amp = 0 </mrow>
+        </md>
+        facilitates writing these equations as a matrix equation
+        <me>
+            \begin{pmatrix} 
+                1 \amp - 1 \amp - 1 \\ 
+                -R_1  \amp \frac{i}{\omega C} \amp 0 \\ 
+                0 \amp -\frac{i}{\omega C} \amp - i\omega L 
+            \end{pmatrix} 
+            \begin{pmatrix} \tilde{I}_1 \\ \tilde{I}_2 \\ \tilde{I}_3 \end{pmatrix} =  
+            \begin{pmatrix} 0 \\ -\tilde{V}_\text{in} \\ 0 \end{pmatrix}
+        </me>
+        which can be solved using Python:
+        <sage  language="python">
+            <input>
+                import numpy as np
+                import scipy.linalg as linalg
+                import matplotlib.pyplot as plt
+
+                f = np.logspace(0,8,1000)
+                w_arr = 2*np.pi * f
+                Vin = 1 # Volts
+                R, C, L = [1000, 1e-9, 1e-3] # Ohms, Farads, Henrys
+
+                Gv = np.zeros(np.size(w_arr));
+                phi = np.zeros(np.size(w_arr));
+
+                for i in range(np.size(w_arr)):
+                    w = w_arr[i];
+                    A = np.array([[1, -1, -1],[-R, 1j/(w*C), 0],[0, -1j/(w*C), -1j*w*L]]);
+                    v = np.array([0, -Vin, 0]);
+                    
+                    x = linalg.solve(A,v);
+                    Gv[i] = np.abs(x[2]*1j*w*L) # Voltage Gain where I3=x[2]
+                    phi[i] = np.angle(x[2]*1j*w*L) # Phase of output (assuming Vin is at zero phase)
+
+                fig, axs = plt.subplots(2,1,sharex=True)
+                
+                axs[0].semilogx(f,Gv)
+                axs[1].semilogx(f,phi)
+                # set labels -- Note that $\\phi$ is used in the ylabel below in order to avoid deprication warning
+                plt.setp(axs[0], ylabel='Voltage Gain')
+                plt.setp(axs[1], xlabel='Frequency (Hz)', ylabel='$\\phi_{out}-\\phi_{in}$', yticks=[-np.pi/2,0,np.pi/2], yticklabels=['$-\\pi/2$', 0, '$\\pi/2$']) 
+                plt.show()
+            </input>
+            <output>
+                <image>
+                <sageplot>
+                import numpy as np
+                import scipy.linalg as linalg
+                import matplotlib.pyplot as plt
+
+                f = np.logspace(0,8,1000)
+                w_arr = 2*np.pi * f
+                Vin = 1 # Volts
+                R, C, L = [1000, 1e-9, 1e-3] # Ohms, Farads, Henrys
+                Gv = np.zeros(np.size(w_arr));
+                phi = np.zeros(np.size(w_arr));
+
+                for i in range(np.size(w_arr)):
+                    w = w_arr[i];
+                    A = np.array([[1, -1, -1],[-R, 1j/(w*C), 0],[0, -1j/(w*C), -1j*w*L]]);
+                    v = np.array([0, -Vin, 0]);
+                    
+                    x = linalg.solve(A,v);
+                    Gv[i] = np.abs(x[2]*1j*w*L) # Voltage Gain where I3=x[2]
+                    phi[i] = np.angle(x[2]*1j*w*L) # Phase of output (assuming Vin is at zero phase)
+                p1 = list_plot(list(zip(f,Gv)), scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
+                p2 = list_plot(list(zip(f,phi)), scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
+                graphics_array([p1,p2],2,1)
+        </sageplot>
+        </image>  
+            </output>
+        </sage>
+        
+        <image>
+        <sageplot>
+        import numpy as np
+        import scipy.linalg as linalg
+        import matplotlib.pyplot as plt
+
+        f = np.logspace(0,8,1000)
+        w_arr = 2*np.pi * f
+        Vin = 1 # Volts
+        R, C, L = [1000, 1e-9, 1e-3] # Ohms, Farads, Henrys
+        Gv = np.zeros(np.size(w_arr));
+        phi = np.zeros(np.size(w_arr));
+
+        for i in range(np.size(w_arr)):
+            w = w_arr[i];
+            A = np.array([[1, -1, -1],[-R, 1j/(w*C), 0],[0, -1j/(w*C), -1j*w*L]]);
+            v = np.array([0, -Vin, 0]);
+                    
+            x = linalg.solve(A,v);
+            Gv[i] = np.abs(x[2]*1j*w*L) # Voltage Gain where I3=x[2]
+            phi[i] = np.angle(x[2]*1j*w*L) # Phase of output (assuming Vin is at zero phase)
+        p1 = list_plot(list(zip(f,Gv)), scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
+        p2 = list_plot(list(zip(f,phi)), scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
+        graphics_array([p1,p2],2,1)
+        </sageplot>
+        </image>  
+    </p>
+    <example>
+        <title>Bandgap RLC Circuit</title>
+        <statement>
+            <figure xml:id="ac-python-bandgap-circuit">
+                <caption>Bandgap RLC Circuit.</caption>
+                <image><latex-image>
+                    \begin{circuitikz}
+                        \draw (0,0) to[sinusoidal voltage source, l^=$\tilde{V}_\text{in}$, i^>=$I_1$] ++ (0,3)
+                                    to[short, -*] ++ (0.5, 0) coordinate(a)
+                                    to[short] ++ (0,.5)
+                                    to[C, l^=$C$, i>_=$I_2$] ++ (3,0)
+                                    to[short] ++ (0,-.5)
+                                    to[short, *-] ++ (0.5,0) coordinate(b)
+                                    to[R, l^=$R$] ++ (0,-3) coordinate(c)
+                                    to[short] ++ (-4,0);
+                        \draw (a)   to[short] ++ (0,-.5)
+                                    to[L, l_=$L$, i>_=$I_3$] ++ (3,0)
+                                    to[short] ++ (0,.5);
+                        \draw (b)   to[short, -o] ++ (2,0);
+                        \draw (c)   to[short, -o] ++ (2,0);
+                        \draw ([xshift = 2cm, yshift=1.5cm] c)
+                                    node{\text{$V_\text{out}$}};    
+                    \end{circuitikz}
+                </latex-image></image>
+            </figure>
+            <p>
+                Plot the gain and phase curves for the circuit in <xref ref="ac-python-bandgap-circuit"/>.
+            </p>
+                
+        </statement>
+        <answer>
+            <image>
+            <sageplot>
+            import numpy as np
+            import scipy.linalg as linalg
+            import matplotlib.pyplot as plt
+
+            f = np.logspace(0,8,1000)
+            w_arr = 2*np.pi * f
+            Vin = 1 # Volts
+            R, C, L = [1000, 1e-9, 1e-3] # Ohms, Farads, Henrys
+            Gv = np.zeros(np.size(w_arr));
+            phi = np.zeros(np.size(w_arr));
+
+            for i in range(np.size(w_arr)):
+                w = w_arr[i];
+                A = np.array([[1, -1, -1],[-R, 1j/(w*C), 0],[0, -1j/(w*C), -1j*w*L]]);
+                v = np.array([0, -Vin, 0]);
+                    
+                x = linalg.solve(A,v);
+                Gv[i] = np.abs(x[0]*R) # Voltage Gain where I3=x[2]
+                phi[i] = np.angle(x[0]*R) # Phase of output (assuming Vin is at zero phase)
+            p1 = list_plot(list(zip(f,Gv)), scale='semilogx', axes_labels=['','Gain $G_V$'], frame=True, ticks=[[],None])
+            p2 = list_plot(list(zip(f,phi)), scale='semilogx', axes_labels=['Frequency (Hz)','$\phi_{out}-\phi_{in}$'], frame=True,ticks=[None,pi/2],tick_formatter=[None,pi])
+            graphics_array([p1,p2],2,1)
+            </sageplot>
+            </image>      
+        </answer>
+        <solution>
+            <p>
+                If we examine the circuit in <xref ref="ac-python-bandgap-circuit"/>, we find that it is exactly the same circuit as we examined in <xref ref="ac-python-LRC-circuit"/> except we are now measuring <m>V_\text{out}</m> across the resistor instead of across the inductor and capacitor. This means that the matrix equation will be identical, as will our solutions for all of the currents. 
+            </p>                  
+            <sage language="python">
+            <input>
+                import numpy as np
+                import scipy.linalg as linalg
+                import matplotlib.pyplot as plt
+
+                f = np.logspace(0,8,10000)
+                w_arr = 2*np.pi * f
+                Vin = 1 # Volts
+                R, C, L = [1000, 1e-9, 1e-3] # Ohms, Farads, Henrys
+
+                Gv = np.zeros(np.size(w_arr));
+                phi = np.zeros(np.size(w_arr));
+
+                for i in range(np.size(w_arr)):
+                    w = w_arr[i];
+                    A = np.array([[1, -1, -1],[-R, 1j/(w*C), 0],[0, -1j/(w*C), -1j*w*L]]);
+                    v = np.array([0, -Vin, 0]);
+                    
+                    x = linalg.solve(A,v);
+                    Gv[i] = np.abs(x[0]*R) # Voltage Gain where I3=x[2]
+                    phi[i] = np.angle(x[0]*R) # Phase of output (assuming Vin is at zero phase)
+
+                fig, axs = plt.subplots(2,1,sharex=True)
+                
+                axs[0].semilogx(f,Gv)
+                axs[1].semilogx(f,phi)
+                # set labels -- Note that $\\phi$ is used in the ylabel below in order to avoid deprication warning
+                plt.setp(axs[0], ylabel='Voltage Gain')
+                plt.setp(axs[1], xlabel='Frequency (Hz)', ylabel='$\\phi_{out}-\\phi_{in}$', yticks=[-np.pi/2,0,np.pi/2], yticklabels=['$-\\pi/2$', 0, '$\\pi/2$']) 
+                plt.show()
+            </input>
+            <output>
+            </output>
+            </sage> 
+            
+        </solution>
+    </example>
+    <example>
+        <title>RLC Circuit Analysis Using Differential Equations and Python</title>
+    </example>
+</section>

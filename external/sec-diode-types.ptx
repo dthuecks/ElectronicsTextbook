@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-diode-types" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Diode Types</title>
+
+    <p>
+        Diodes come in many different types, each built to accomplish some task. [include circuit symbol for standard diodes. below, include symbols for special diodes.]
+    </p>        
+        
+    <p>
+        For instance, <term>Zener diodes</term> are designed to allow operation both when forward biased and reverse biased. [FIGURE TO COME].
+    </p>
+    <p> 
+        Light-emitting diodes (LEDs) are the basis of many light bulbs and other light indicators. LEDs are designed so that when the diode is forward biased, electrons and holes are pushed toward each other at the p-n junction. When an electron falls across the p-n junction from the conduction band to the lower-energy valence band (a process called recombination), the electron releases energy in the form of light. The color and intensity of this light depends on the materials used to construct the diode. LEDs are very energy-efficient, especially compared to incandescent light bulbs.
+    </p>
+
+    <p>
+        Photodiodes are a bit like LEDs operating in reverse. When light hits a photodiode surface, energy is depositied into atoms. This energy kicks an electron from the valence band in the p-type semiconductor into the conduction band of the n-type semiconductor. Electrons are accelerated away from the depletion layer by <m>\vec{E}_d</m>, driving current from the n-type to p-type semiconductor, which is the opposite direction of current in standard diodes. Photodiodes are at the heart of solar panel technology as well as many light sensors.
+    </p>
+
+</section>

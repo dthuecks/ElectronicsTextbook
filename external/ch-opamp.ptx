@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-opamp" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Operational Amplifiers</title>
+
+  <introduction>
+        <p>
+          In the last chapter, we examined single-transistor circuits that provide voltage amplification, current amplification, switching circuits, and signal buffering. These behaviors can be improved even further through the design of more complex circuits using multiple transistors, resistors, capacitors, and other components. Given the small size that can be achieved in transistor construction, these complex multi-transistor circuits can be built on a single small silicon chip. The ability to create silicon chips containing specialized multi-transistor circuit revolutionized electronics development.   
+        </p>
+
+        <p>
+          The operational amplifier (or op-amp) is one example of an <term>integrated circuit</term> in which a single small chip component contains many discrete circuit elements (such as transistors, resistors, capacitors, and diodes) connected together into a circuit. Thus, an integrated circuit chip will be much smaller than an equivalent circuit that is built with discrete components, and will often perform much better since the chip's internal components are precisely designed to work in concert with each other.
+        </p>
+
+        <p>
+          We will start this chapter by introducing op-amps in more detail along with the rules governing op-amp behavior. We will then examine several useful circuits that feature op-amps.
+        </p>
+  </introduction>  
+
+  <xi:include href="./sec-opamp-chip.ptx" />
+  <xi:include href="./sec-opamp-ideal.ptx" />
+  <xi:include href="./sec-opamp-neg-feedback.ptx" />
+
+</chapter>

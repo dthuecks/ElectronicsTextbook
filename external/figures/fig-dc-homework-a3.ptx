@@ -1,0 +1,13 @@
+\begin{circuitikz}[american voltages]
+    \draw (0,4) coordinate(start);
+    \draw (start)   to[battery, v_=\SI{5}{V}] ++(0,-4);
+    \draw (start)   to[short] ++(2,0)
+                    to[R, l_=\SI{1}{\kilo\ohm}] ++(0,-2)
+                    to[pR, n=mypot, l_=\SI{4}{\kilo\ohm}] ++(0,-2) coordinate(c)
+                    to[short] ++(-2,0);
+    \draw (mypot.wiper) to[short,-o] ++(.5,0) coordinate(a);
+    \draw (c) to[short, -o] ([yshift=-1cm] a) coordinate(b);
+    \draw (a) node[anchor=south west]{A};
+    \draw (b) node[anchor=north west]{B};
+    
+\end{circuitikz}

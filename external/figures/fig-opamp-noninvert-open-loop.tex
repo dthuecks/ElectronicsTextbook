@@ -1,0 +1,10 @@
+\begin{circuitikz}
+    \draw (0,0)     node[op amp, yscale=-1] (opamp) {}
+    (opamp.+)       to[short, -o] ++ (-1,0)
+                    node[left] {$V_\text{in}$}
+    (opamp.-)       -- ++(-0.5,0)
+                    -- ++(0,-0.5)
+                    node[ground]{}
+    (opamp.out)     to[short, -o] ++(1,0)
+                    node[right] {$V_\text{out}$};
+\end{circuitikz}

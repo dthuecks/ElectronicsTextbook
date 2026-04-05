@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-diode-ac2dc" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: AC to DC Conversion Using Diode Bridge Rectifier</title>
+    <p> 
+        <alert>Objective:</alert> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exercise. Consider the following questions:
+        <ul>
+            <li>
+                <p>
+                    What kind of circuit(s) or components are you exploring?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What is new about this circuit as compared to circuits previously studied? Ignore the differential amplifier aspect of the circuit setup for the time being.
+                </p>
+            </li>
+            <li>
+                <p>
+                    What theoretical predictions do you have regarding circuit behavior?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What effects do you expect to observe?
+                </p>
+            </li>
+        </ul>
+         Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, digital oscilloscope, DMM, INA117P differential amplifier chip, 4 x 1N4001 silicon diodes, 3.3k<m>\Omega</m> resistor, five capacitors in the range from 1<m>\mu</m>F to 500<m>\mu</m>F.
+    </p>
+    
+    <paragraphs>
+        <title>Introduction</title>
+        <p></p>
+        <p>
+            The operation of many electronic devices depend on a DC voltage source, but the electricity delivered to households in the United States is 60-Hz AC voltage. Today, we'll explore one method of converting AC voltage to DC voltage using the <term>diode bridge full-wave rectifier</term> with a smoothing capacitor as pictured in <xref ref="fig-labactivities-diode-ac2dc-circuit"/>. 
+            <figure xml:id="fig-labactivities-diode-ac2dc-circuit">
+                <caption></caption>
+                <image width="70%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-labactivities-diode-ac2dc-circuit.tex" />
+                </latex-image></image>
+            </figure>
+           This circuit converts an AC input voltage to a nearly-constant output voltage, though a small <sq>ripple</sq> will remain. Larger values of smoothing capacitance will reduce the size of this ripple and thus will improve the quality of the DC voltage output. High-capacitance capacitors are typically more expensive and physically larger than small capacitors, so there is incentive to keep the capacitance as small as possible. Thus, devices that require DC voltages often specify a maximum ripple size that they can tolerate. 
+        </p>
+        <p>
+            Your goal in this experiment is to predict the optimal smoothing capacitance one would use to ensure a 5% ripple on <m>V_\text{out}</m>. The ripple size depends on the smoothing capacitance (which you will determine), the input signal frequency (which we will assume to be 120-Hz) and the load resistance provided by the device across the output (here, represented by the 3.3-k<m>\Omega</m> resistor).
+        </p> 
+
+        <p>
+            Before conducting the experiment, be sure to review the behavior of the unsmoothed diode bridge full-wave rectifier circuit in <xref ref="sec-diode-rectifier"/>. 
+        </p>
+        <p>
+            <alert>NOTE:</alert> One downside of the circuit shown in <xref ref="fig-labactivities-diode-ac2dc-circuit"/> is that neither <m>V_\text{out}</m> terminal is connected to ground. This means that we cannot simply connect a single oscilloscope probe across <m>V_\text{out}</m> since the ground provided by the oscilloscope and the ground provided by the function generator would conflict. We will use a differential amplifier chip based on operational amplifiers that takes <m>V_1</m> and <m>V_2</m> as inputs and produces a single output signal <m>V_\text{out}=V_2-V_1</m> referenced to ground. The details of this differential amplifier's operation and the behavior of operational amplifiers in general will be treated later.   
+        </p>      
+        
+    </paragraphs>
+
+    <paragraphs>
+        <title>EXPERIMENT</title>
+        <p></p>        
+        <p>
+            Once you've reviewed the above information, complete the following steps.
+        </p>    
+        <ol>
+            <li>
+                <p>
+                    Use your DMM to determine exact values for your resistor and your capacitors. 
+                </p>
+                <p>
+                    <alert>Warning:</alert> The capacitors that you are using are called <sq>electrolytic capacitors</sq> and are polarized, meaning that they only work when the negative lead (often marked with a negative sign) is at a lower voltage than the positive lead. When measuring the capacitance with the DMM, connect the COM to the negative capacitor lead. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Plug in your prototyping board but keep it turned off for the moment.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Set up a DMM to measure the variable V+ (yellow) voltage with respect to Ground (black). Pay attention to which of the four top rows correspond to +V and Ground. Turn on the prototyping board.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Adjust the appropriate prototyping board knob so that the +V strip is +15V relative to Ground. Repeat the process above to set -V to be -15V relative to Ground. Do not touch these knobs for the rest of this lab session.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Turn off your prototyping board.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Construct the circuit shown in <xref ref="fig-labactivities-diode-ac2dc-circuit"/> on your prototyping board, but leave the smoothing capacitor out of the circuit. The input voltage <m>V_\text{in}</m> will be provided by your function generator.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Connect the <m>\pm 15</m>V supplies and Grounds to the INA117P differential amplifier chip as shown in <xref ref="img-labactivities-diode-ac2dc-diffamp"/>. Note that your instructor should have already inserted the INA117P chip into your prototyping board in the correct orientation.
+                </p>
+                <figure xml:id="img-labactivities-diode-ac2dc-diffamp">
+                    <caption>Differential amplifier setup.</caption>
+                    <image source="images/img-labactivities-diode-ac2dc-diffamp.jpg" width="100%">
+                        <shortdescription>(for accessibility)</shortdescription>
+                    </image>
+                </figure>
+            </li>
+            <li>
+                <p>
+                    Connect points <m>V_1</m> and <m>V_2</m> from your diode bridge rectifier circuit to the differential amplifier chip as shown in <xref ref="img-labactivities-diode-ac2dc-diffamp"/>
+                </p>                
+            </li>
+            <li>
+                <p>
+                    Set up the oscilloscope to measure <m>V_\text{in}</m> on CH1 and <m>V_\text{out}</m> <alert>from the differential amplifier</alert> on CH2. Turn on the oscilloscope.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Turn on the function generator (but leave the OUTPUT disabled). Set the generator to produce a 120-Hz sinusoidal voltage with a peak amplitude of 5-V. Then, enable the OUTPUT.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Adjust the CH1 vertical scale so that the input signal is as large as possible without cutting off any of the signal. Adjust the horizontal timebase such that you can see 3-5 periods of the sinusoidal signal.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the CURSOR functionality to measure the amplitude of <m>V_\text{in}</m>.
+                </p>
+                <p>
+                    <alert>Q: </alert> Record your <m>V_\text{in}</m> amplitude in your lab notebook.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Enter the CH2 menu and choose DC coupling. Adjust the CH2 vertical scale to be identical to the CH1 vertical scale.
+                </p>
+                <p>
+                    <alert>P: </alert> Insert into your lab notebook a photograph of the oscilloscope screen displaying <m>V_\text{in}</m> and <m>V_\text{out}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Repeat the following steps for each smoothing capacitor you've been given:
+                    <ol>
+                        <li>
+                            <p>
+                                Disable the function generator output and turn off the prototyping board.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Add the next largest smoothing capacitor to the circuit. If the smoothing capacitor is currently absent from the circuit, add the smallest capacitor.
+                            </p>
+                            <p>
+                                <alert>Warning: Pay attention to the capacitor polarity in the circuit schematic. If the capacitor is wired in backwards, it may be destroyed (sometimes resulting in a puff of smoke or small flame). Remember that <m>V_2 \gt V_1</m> always in this circuit.</alert>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Enable the function generator output and turn on the prototyping board.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Enter the CH2 menu and choose DC coupling. Adjust the CH2 vertical scale to be identical to the CH1 vertical scale.
+                            </p>
+                            <p>
+                                <alert>P: </alert> Insert into your lab notebook a photograph of the oscilloscope screen displaying <m>V_\text{in}</m> and <m>V_\text{out}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Enter the CH2 menu and choose AC coupling. This will remove the DC offset and allow you to vertically magnify the display of the AC ripple piece of <m>V_\text{out}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Adjust the CH2 vertical scale to maximize the displayed size of the AC ripple signal and use the oscilloscope's <alert>cursor functionality</alert> to measure the peak-to-peak amplitude of the AC ripple.
+                            </p>
+                            <p>
+                                <alert>Q: </alert> Record the ripple size and smoothing capacitance in your lab notebook.
+                            </p>
+                            <p>
+                                <alert>P: </alert> Insert into your lab notebook a photograph of the oscilloscope screen displaying <m>V_\text{in}</m> and <m>V_\text{out}</m>.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Disable the function generator OUTPUT and turn off your oscilloscope.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use Python to perform the following analysis:
+                    <ol>
+                        <li>
+                            <p>
+                                Perform a curve fit to your <m>\left(\Delta V\right)_\text{ripple}</m> vs smoothing capacitance
+                                data. Assume a function of the form <m>\left(\Delta V\right)_\text{ripple}=AC^B</m> where <m>A</m> and <m>B</m> are fitting parameters and <m>C</m> is your capacitance variable.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Plot ripple voltage size vs smoothing capacitance and use symbols to display your data points. Overplot a line representing your curve fit.
+                            </p>
+                        </li>
+                    </ol>    
+                </p>
+                <p>
+                    <alert>P: </alert> Include your plot in your lab notebook.
+                </p>
+                <p>
+                    <alert>Q: </alert> Provide your fit parameters in your lab notebook.
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    Predict the minimum smoothing capacitance one would require to ensure a 5% ripple on <m>V_\text{out}</m>. 
+                </p>
+                <p>
+                    <alert>Q: </alert> Include this result in your lab notebook.
+                </p>
+            </li>
+        </ol>
+        <p>
+            Provide a discussion in your lab notebook based on standard lab notebook guidelines.
+        </p>    
+    </paragraphs>
+</section>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-safety" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Lab Safety</title>
+
+    <introduction>
+      <p>
+        The laboratory is a place to gain hands-on experience with course content, become proficient with standard lab tools, and to learn techniques in experimental design, analysis, and troubleshooting. It requires only a small amount of effort to protect you, your classmates, and the equipment from damage or injury. In this lab, the main hazards to protect against include electrical shock, fire, and burns.
+      </p>
+    </introduction>
+    <paragraphs>
+      <title>General Precautions</title>
+      <ul>
+        <li>
+          <p>
+            Keep your work area organized and uncluttered.
+          </p>
+        </li>
+        <li>
+          <p>
+            Avoid tripping hazards by keeping cables off of the floor.
+          </p>
+        </li>
+        <li>
+          <p>
+            Turn off all power when making physical changes to circuit components.
+          </p>
+        </li>
+        <li>
+          <p>
+            Even after turning power off, use a wire to connect the two ends of each capacitor and inductor in your circuit before reaching into the circuit with your fingers. Capacitors and inductors can store energy, maintaining a voltage difference between their terminals even after the power to the circuit has been turned off.
+          </p>
+        </li>
+        <li>
+          <p>
+            Be wary of circuit components that have become hot. Check the temperature of components before solidly grabbing them.
+          </p>
+        </li>
+        <li>
+          <p>
+            If you smell smoke or something burning, turn off your circuit <em>immediately</em>. Only start troubleshooting once the circuit is off.
+          </p>
+        </li>
+        <li>
+          <p>
+            Practice reaching into your circuit with a single hand (rather than both simultaneously) to reduce the risk of current passing through the core of your body.
+          </p>
+        </li>
+        <li>
+          <p>
+            Never work with electronics if your hands, clothes, or equipment are wet.
+          </p>
+        </li>
+        <li>
+          <p>
+            Food and drink are allowed only in designated areas in the lab room. Ask your instructor where this designated area is. Food and drink are prohibited everywhere else in the lab room.
+          </p>
+        </li>
+        <li>
+          <p>
+            In case of emergency involving risk of life or an uncontrollable fire, call 911. Notify the instructor of any accident that involves injury or equipment damage.
+          </p>
+        </li>
+      </ul>
+    </paragraphs>
+    <p>
+      The primary sources of electric power that you will encounter in the lab are the 120V AC wall/table outlets and the DC power supplies (that may provide up to 30V DC) between their terminals. Higher voltages may be present inside lab equipment. Never stick any unauthorized objects/fingers into outlets or inside equipment.
+    </p>
+    <p>
+      When working with electricity, the main danger to avoid is a situation where current passes through your body. While voltage can also be dangerous, it is only very high voltages (which should not be present in the lab) that could cause arcs and burns that are dangerous on their own. In the circumstances you'll encounter in the lab, voltage is only dangerous in that it can induce a current to pass through your body.
+    </p>
+    <p>
+      The danger posed by currents passing through your body depend on 1) the size of the current and 2) the path that the current follows through your body. The highest risk is associated with a current that passes through the core of your body (namely, your heart). This is why you should learn to use only one hand when reaching into a circuit to insert/remove circuit components.
+    </p>
+    <p>
+      The danger posed by current passing through the heart changes based on the size of the current. Breathing can start becoming labored for currents as low as 20mA. By 75mA, breathing may cease until the current is removed. In the 100mA-200mA range, ventricular fibrillation of the heart occurs. This is a condition where the electrical signals that tell your heart to pump are disrupted, resulting in a quivering of the ventricles instead of pumping. This is the most dangerous situation as sudden cardiac death may occur. Above 200mA, a person's chances for survival are actually better. At 200mA or above, the heart actually clamps rather than going into ventricular fibrilation, and beating will often resume if the voltage is removed quickly.  
+    </p>
+    <p>
+      In our lab, you are unlikely to encounter life-threatening situations as long as you do not disassemble lab equipment or stick items into the outlet. The resistance provided by your skin and internal body (hand-to-hand or hand-to-leg) is often as high as <m>500,000\Omega</m> as long as your skin is dry. According to Ohm's Law, one would need somewhere on the order of 10kV to result in a 20mA current through the body <em>assuming dry skin</em>. If the skin is wet, however, the combined resistance of your skin and body could drop as low as <m>1500\Omega</m>, meaning that a voltage difference as low as 30V could result in 20mA passing through the body and could lead to difficulty breathing.
+    </p>
+    <p>
+      To complicate the above picture, the current at which heart fibrillation occurs is lowered for alternating current (AC) as compared to values for direct current (DC). A shock that causes a current of 30mA AC could cause heart fibrillation. Additionally, voltages higher than 400V can cause dielectric breakdown of the skin (which is the main contributor to the body's resistance), meaning the body's resistance could drop as low as a few hundred ohms and lower the voltage threshhold for fibrillation.
+    </p>
+    <p>
+      In most educational labs at this level of instruction, you're unlikely to face significant dangers to life, though there are still risks of light injury. As long as one keeps hands dry and avoids shocks from the outlet or equipment internals, the risk of injury is quite low. All the same, it is best to always be cognizant of potential danger and to take steps to miminize the risk of discomfort/injury.
+    </p>
+    <p>
+      [CITATIONS NEEDED FOR ABOVE INFORMATION]
+    </p>
+</chapter>

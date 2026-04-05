@@ -1,0 +1,8 @@
+\begin{circuitikz}
+    \draw (0,0)                     node[op amp] (opamp) {}
+    (opamp.+)                       node[left] {$V_+$}
+    (opamp.-)                       node[left] {$V_-$}
+    (opamp.out)                     node[right] {$V_\text{out}$}
+    (opamp.up)      --++(0,0.5)     node[above] {$V_{s+}$}
+    (opamp.down)    --++(0,-0.5)    node[below] {$V_{s-}$};
+\end{circuitikz}

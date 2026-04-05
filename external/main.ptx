@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- we first include a file which contains the docinfo element: -->
+  <xi:include href="./docinfo.ptx" />
+
+  <book xml:id="Electronics">
+    <title>Electronics</title>
+    <subtitle>A Guide for Physicists (DRAFT -- in development)</subtitle>
+
+    <!-- Include frontmatter -->
+    <xi:include href="./frontmatter.ptx" />
+
+    <!-- Include chapters -->
+    <part xml:id="part-analysis">
+      <title>Circuit Analysis</title>
+      <xi:include href="./ch-introduction.ptx" />
+      <xi:include href="./ch-DC.ptx" />
+      <xi:include href="./ch-AC.ptx" />
+      <xi:include href="./ch-diode.ptx" />
+      <xi:include href="./ch-transistor.ptx" />
+      <xi:include href="./ch-opamp.ptx" />
+      <xi:include href="./ch-digital.ptx" />
+      <xi:include href="./ch-advancedcircuits.ptx" />
+    </part>
+
+    <part xml:id="part-lab">
+      <title>Laboratory</title>
+      <xi:include href="./ch-safety.ptx" />
+      <xi:include href="./ch-labnotebook.ptx" />
+      <xi:include href="./ch-equipment.ptx" />
+      <xi:include href="./ch-labhints.ptx" />
+      <xi:include href="./ch-labpython.ptx" />
+      <xi:include href="./ch-labactivities.ptx" />
+    </part>
+
+    <!-- Include backmatter -->
+    <xi:include href="./backmatter.ptx" />
+
+  </book>
+</pretext>
