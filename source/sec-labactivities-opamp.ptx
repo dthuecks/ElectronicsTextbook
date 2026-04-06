@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-opamp" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: Operational Amplifiers</title>
+
+    <p> 
+        <alert>Objective:</alert> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exercise. Consider the following questions:
+        <ul>
+            <li>
+                <p>
+                    What kind of circuit(s) or components are you exploring?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What is new about this circuit as compared to circuits previously studied? Ignore the differential amplifier aspect of the circuit setup for the time being.
+                </p>
+            </li>
+            <li>
+                <p>
+                    What theoretical predictions do you have regarding circuit behavior?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What effects do you expect to observe?
+                </p>
+            </li>
+        </ul>
+         Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, digital oscilloscope, oscilloscope probes, DMM, LM358 op-amp, resistors (1k, 5.1k, 10k), 1 nF capacitor.
+    </p>
+    
+    <paragraphs>
+        <title>Introduction and theory</title>
+        <p></p>
+        <p>
+            Operational amplifiers are employed in a broad spectrum of analog circuits designed to amplify, filter, buffer, sum, integrate, differentiate, and so on. Such circuits require few external discrete components beyond the op amps themselves, and they require very little sophistication on the part of the user. All op amp circuits fall in either the <term>inverting</term> or the <term>non-inverting</term> configuration. An example of an inverting configuration is shown in <xref ref="circuit-labactivities-opamp-inverting-amp"/>. 
+            <figure xml:id="circuit-labactivities-opamp-inverting-amp">
+                <caption>Inverting amplifier</caption>
+                <image width="70%"><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-labactivities-opamp-inverting-amp.tex" />
+                </latex-image></image>
+            </figure>   
+        </p>
+        <p>
+            In the first part of this lab, you will investigate the gain and bandwidth of an inverting amplifier. The gain should remain flat over a wide range of frequencies and should agree with the theoretical-predicted gain. At high frequencies, the gain will start decreasing in a very predictable way. In the second part of this experiment, you will investigate the behavior of a differentiator, verifying its behavior for several input signals.
+        </p>
+        <p>
+            In this introduction/theory section, include generalized circuit diagrams for the two circuits you will be examining. Then proceed to discuss the relevant theoretical predictions that you hope to experimentally verify. 
+        </p>
+    </paragraphs>
+    <paragraphs>
+        <title>Experiment: Inverting amplifier</title>
+        <p></p>
+        <p>
+            Construct the inverting amplifier circuit using a general purpose LM358 op amp. The pin diagram for the LM358 (8-pin DIP) is shown in <xref ref="fig-labactivities-opamp-lm358-pins"/>. Note that you are given a top-down view of the chip; take careful note of the <sq>divot</sq> location on the chip. On your prototyping board, the op-amp should be placed across the <sq>gap</sq> that exists between neighboring five-hole rows, with op amp pins 1-4 on one side of the gap and pins 5-8 on the other side of the gap. Use pins 1-5 for this experiment, as they contain the two supply voltages as well as the inputs and output for op-amp A. You will not use op-amp B (pins 5-7) today. <alert>You should use <m>\pm 5</m> Volts for <m>V_{S\pm}</m>.</alert>
+            <figure xml:id="fig-labactivities-opamp-lm358-pins">
+                <caption>Inverting amplifier</caption>
+                <image width="70%"><latex-image>
+                    <xi:include parse="text" href="./figures/fig-opamp-LM358-pin-diagram.tex" />
+                </latex-image></image>
+            </figure>   
+        </p>
+        <p>
+            Proceed to measure the gain of your amplifier using a small (1.0V <alert>peak-to-peak</alert> or so) sinusoidal input signal at frequencies ranging from 10 Hz to 2 MHz. Determine appropriate frequencies within this range that will allow you to convincingly demonstrate the expected bandwidth properties for this op-amp through a plot of gain vs frequency with frequency represented on a logarithmic axis. Consider the following when designing your procedure:
+            <ul>
+                <li>
+                    <p>
+                        How are you going to space your frequencies out in the range given above?
+                        <ul>
+                            <li>
+                                <p>
+                                    Must these be evenly spaced?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Consider taking fewer data points in ranges where the gain is expected to be relatively constant, but take more densely-sampled data points where you expect your gain to be changing quickly with frequency.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The Gain Bandwidth Product (GBWP) for the LM358 op-amp has a typical value of 700 kHz.
+                        <ul>
+                            <li>
+                                <p>
+                                    In what approximate frequency range do you expect to see your gain changing fastest for the amplifier gain present in your circuit?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Is there a way to quickly check this experimentally before you start taking real data?
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+            <alert>Your results should include a plot of Gain vs frequency where frequency is plotted on a logarithmic axis.</alert>
+        </p>
+    </paragraphs>
+    <paragraphs>
+        <title>Experiment: Differentiator</title>
+        <p></p>
+        <p>
+            Assemble the differentiator circuit shown in <xref ref="circuit-labactivities-opamp-differentiator"/>. Note the added presence of the 1 k<m>\Omega</m> input resistor; it is present to lessen the noise sensitivity of the differentiator.
+            <figure xml:id="circuit-labactivities-opamp-differentiator">
+                <caption>Inverting amplifier</caption>
+                <image width="70%"><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-labactivities-opamp-differentiator.tex" />
+                </latex-image></image>
+            </figure>   
+        </p>
+        <p>
+            Examine the behavior of this circuit for an input sine-wave signal (1 Volt peak-to-peak, 4 kHz). Include clear screenshots/photos of the observed behavior, making sure your volts/div scope settings are optimal and that both <m>V_\text{in}</m> and <m>v_\text{out}</m> are displayed. Repeat your observations for a triangle wave input signal. Then, repeat observations for both square wave and triangle wave signals for f=20 kHz and f=5 Hz, including screenshots for each. Discuss your observations. In particular, be specific about what you would expect to see on <m>v_\text{out}</m> for each <m>V_\text{in}</m> that you use and discuss how your observations conform or conflict with your expectations.
+        </p>
+        
+    </paragraphs>
+    
+
+</section>

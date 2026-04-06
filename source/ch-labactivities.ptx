@@ -9,15 +9,12 @@
     </introduction>
 
     <xi:include href="sec-labactivities-voltagedivider.ptx" />
-
     <xi:include href="sec-labactivities-oscilloscopeprimer.ptx" />
-
     <xi:include href="sec-labactivities-rc-highpass.ptx" />
-
     <xi:include href="sec-labactivities-rlc-resonant.ptx" />
-
     <xi:include href="sec-labactivities-diode-iv-characteristic.ptx" />
-
     <xi:include href="sec-labactivities-diode-ac2dc.ptx" />
+    <xi:include href="sec-labactivities-opamp.ptx" />
+    
     
 </chapter>
