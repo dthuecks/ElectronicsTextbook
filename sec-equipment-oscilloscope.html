@@ -35,11 +35,11 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
         "newcommand",
+        "textmacros",
         "knowl"
       ]
     }
@@ -72,10 +72,10 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
+      "[tex]/textmacros",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
@@ -127,7 +127,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.f6b4a33441cf25ab.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.720279673ae692d7.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
-<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
@@ -293,6 +293,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-rlc-resonant.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Lab: RLC Resonant Circuit</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-iv-characteristic.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Lab: I-V Characteristic for Diodes</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-ac2dc.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Lab: AC to DC Conversion Using Diode Bridge Rectifier</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-opamp.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Lab: Operational Amplifiers</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -309,13 +310,17 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-equipment-oscilloscope"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-equipment-oscilloscope">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Oscilloscopes (BK Precision 2190E or 2542B)</span>
 </h2>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
+<div class="sidebyside">
+<div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
 <div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="external/images/img-oscilloscope-2190e.jpg" class="contained" alt="(for accessibility)"></div></div>
 <div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="external/images/img-oscilloscope-2542b.jpg" class="contained" alt="(for accessibility)"></div></div>
-</div></div>
+</div>
+</div>
 <div class="para" id="sec-equipment-oscilloscope-3">The oscilloscope is an extremely versatile instrument. It can be used to measure both steady and time-dependent voltages, frequency, time duration, phase difference, and harmonic distortion. Some oscilloscopes automatically test transistors, perform spectral analysis, integrate, differentiate, sum, subtract, filter, and store electrical signals. Anyone working in an experimental science should be able to use an oscilloscope with considerable confidence.<div class="autopermalink" data-description="Paragraph"><a href="#sec-equipment-oscilloscope-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec-equipment-oscilloscope-4">
@@ -514,11 +519,13 @@ eBookConfig.enable_chatcodes =  false;
 <li id="sec-equipment-oscilloscope-6-2-6">
 <div class="para logical" id="sec-equipment-oscilloscope-6-2-6-1">
 <div class="para">Measure menu:</div>
-<ul class="circle" id="sec-equipment-oscilloscope-6-2-6-1-1"><li id="sec-equipment-oscilloscope-6-2-6-1-1-1">
+<ul class="circle" id="sec-equipment-oscilloscope-6-2-6-1-1">
+<li id="sec-equipment-oscilloscope-6-2-6-1-1-1">
 <div class="para" id="sec-equipment-oscilloscope-6-2-6-1-1-1-1">You can select various measurements and which channel to measure. Be very careful with automatic measurements (again these can be deceptive). Generally use cursors to make accurate measurements. Note that the automatic mode searches for the very top and bottom of the signals (when measuring voltages) which may not provide an accurate value for the actual amplitude as noise on the signal may artificially inflate the max/min values.<div class="autopermalink" data-description="Paragraph"><a href="#sec-equipment-oscilloscope-6-2-6-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec-equipment-oscilloscope-6-2-6-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li></ul>
+</li>
+</ul>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-equipment-oscilloscope-6-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec-equipment-oscilloscope-6-2-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
@@ -570,7 +577,10 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 <div class="para" id="sec-equipment-oscilloscope-6-3">For further details, please read <a class="external" href="https://www.physics.purdue.edu/~jones105/phys536_Spring2009/labs/A%20Shortish%20Guide%20to%20Using%20an%20Oscilloscope.pdf" target="_blank">A Shortish Guide to Using an Oscilloscope</a>, posted to the course webpage.<div class="autopermalink" data-description="Paragraph"><a href="#sec-equipment-oscilloscope-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: Hints regarding oscilloscope controls"><a href="#sec-equipment-oscilloscope-6" title="Copy heading and permalink for Paragraphs: Hints regarding oscilloscope controls" aria-label="Copy heading and permalink for Paragraphs: Hints regarding oscilloscope controls">🔗</a></div></section><div class="autopermalink" data-description="Section 11.3: Oscilloscopes (BK Precision 2190E or 2542B)"><a href="#sec-equipment-oscilloscope" title="Copy heading and permalink for Section 11.3: Oscilloscopes (BK Precision 2190E or 2542B)" aria-label="Copy heading and permalink for Section 11.3: Oscilloscopes (BK Precision 2190E or 2542B)">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Paragraphs: Hints regarding oscilloscope controls"><a href="#sec-equipment-oscilloscope-6" title="Copy heading and permalink for Paragraphs: Hints regarding oscilloscope controls" aria-label="Copy heading and permalink for Paragraphs: Hints regarding oscilloscope controls">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 11.3: Oscilloscopes (BK Precision 2190E or 2542B)"><a href="#sec-equipment-oscilloscope" title="Copy heading and permalink for Section 11.3: Oscilloscopes (BK Precision 2190E or 2542B)" aria-label="Copy heading and permalink for Section 11.3: Oscilloscopes (BK Precision 2190E or 2542B)">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-equipment-dmm.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-equipment-fngen.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

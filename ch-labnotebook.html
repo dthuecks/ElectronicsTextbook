@@ -35,11 +35,11 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
         "newcommand",
+        "textmacros",
         "knowl"
       ]
     }
@@ -72,10 +72,10 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
+      "[tex]/textmacros",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
@@ -127,7 +127,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.f6b4a33441cf25ab.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.720279673ae692d7.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
-<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
@@ -293,6 +293,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-rlc-resonant.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Lab: RLC Resonant Circuit</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-iv-characteristic.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Lab: I-V Characteristic for Diodes</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-ac2dc.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Lab: AC to DC Conversion Using Diode Bridge Rectifier</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-opamp.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Lab: Operational Amplifiers</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -309,10 +310,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-labnotebook"><h2 class="heading">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="chapter" id="ch-labnotebook">
+<h2 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Guide to Laboratory Notebooks</span>
 </h2>
-<section class="introduction" id="ch-labnotebook-2"><div class="para logical" id="ch-labnotebook-2-1">
+<section class="introduction" id="ch-labnotebook-2">
+<div class="para logical" id="ch-labnotebook-2-1">
 <div class="para">In Physics 352, you will learn to keep a formal laboratory notebook. Rather than using a paper lab notebook, we are instead going to keep electronic notebooks. Electronic lab notebooks are seeing increasing use in research labs for several reasons:</div>
 <ul class="disc" id="ch-labnotebook-2-1-1">
 <li id="ch-labnotebook-2-1-1-1">
@@ -339,7 +343,8 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Paragraph"><a href="#ch-labnotebook-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ch-labnotebook-2-2">Good notebook skills will be essential to you as a practicing scientist, so it is important that you get in the habit of keeping good records early. The lab notebook is a diary of your activities each time you sit down to conduct an experiment. The following information is intended to help you practice good scientific record-keeping skills.<div class="autopermalink" data-description="Paragraph"><a href="#ch-labnotebook-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="paragraphs" id="ch-labnotebook-3"><h2 class="heading"><span class="title">General Formatting and Info.</span></h2>
+</div></section>
+<section class="paragraphs" id="ch-labnotebook-3"><h2 class="heading"><span class="title">General Formatting and Info.</span></h2>
 <div class="para logical" id="ch-labnotebook-3-2">
 <ol class="decimal" id="ch-labnotebook-3-2-1">
 <li id="ch-labnotebook-3-2-1-1">
@@ -375,7 +380,9 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#ch-labnotebook-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: General Formatting and Info"><a href="#ch-labnotebook-3" title="Copy heading and permalink for Paragraphs: General Formatting and Info" aria-label="Copy heading and permalink for Paragraphs: General Formatting and Info">🔗</a></div></section><section class="paragraphs" id="ch-labnotebook-4"><h2 class="heading"><span class="title">Sections of Your Lab Notebook.</span></h2>
+<div class="autopermalink" data-description="Paragraphs: General Formatting and Info"><a href="#ch-labnotebook-3" title="Copy heading and permalink for Paragraphs: General Formatting and Info" aria-label="Copy heading and permalink for Paragraphs: General Formatting and Info">🔗</a></div>
+</section>
+<section class="paragraphs" id="ch-labnotebook-4"><h2 class="heading"><span class="title">Sections of Your Lab Notebook.</span></h2>
 <div class="para" id="ch-labnotebook-4-2">I would recommend creating a new subfolder for each experiment in the ‘Labs’ folder of your electronic lab notebook. Inside a lab’s subfolder, you can include further subfolders or pages as you see fit. Your notebook entry for each lab should be divided into several sections which are described below. If the lab has multiple sub-experiments, group all sections for a single sub-experiment together and keep it separate from other sub-experiment details.<div class="autopermalink" data-description="Paragraph"><a href="#ch-labnotebook-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ol class="decimal" id="ch-labnotebook-4-3">
@@ -462,7 +469,10 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Item 8"><a href="#ch-labnotebook-4-3-8" title="Copy heading and permalink for Item 8" aria-label="Copy heading and permalink for Item 8">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraphs: Sections of Your Lab Notebook"><a href="#ch-labnotebook-4" title="Copy heading and permalink for Paragraphs: Sections of Your Lab Notebook" aria-label="Copy heading and permalink for Paragraphs: Sections of Your Lab Notebook">🔗</a></div></section><div class="autopermalink" data-description="Chapter 10: Guide to Laboratory Notebooks"><a href="#ch-labnotebook" title="Copy heading and permalink for Chapter 10: Guide to Laboratory Notebooks" aria-label="Copy heading and permalink for Chapter 10: Guide to Laboratory Notebooks">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Paragraphs: Sections of Your Lab Notebook"><a href="#ch-labnotebook-4" title="Copy heading and permalink for Paragraphs: Sections of Your Lab Notebook" aria-label="Copy heading and permalink for Paragraphs: Sections of Your Lab Notebook">🔗</a></div>
+</section><div class="autopermalink" data-description="Chapter 10: Guide to Laboratory Notebooks"><a href="#ch-labnotebook" title="Copy heading and permalink for Chapter 10: Guide to Laboratory Notebooks" aria-label="Copy heading and permalink for Chapter 10: Guide to Laboratory Notebooks">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="ch-safety.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-equipment.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

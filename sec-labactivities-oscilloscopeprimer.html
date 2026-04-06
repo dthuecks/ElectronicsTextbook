@@ -35,11 +35,11 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
         "newcommand",
+        "textmacros",
         "knowl"
       ]
     }
@@ -72,10 +72,10 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
+      "[tex]/textmacros",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
@@ -127,7 +127,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.f6b4a33441cf25ab.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.720279673ae692d7.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
-<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
@@ -293,6 +293,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-rlc-resonant.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Lab: RLC Resonant Circuit</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-iv-characteristic.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Lab: I-V Characteristic for Diodes</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-ac2dc.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Lab: AC to DC Conversion Using Diode Bridge Rectifier</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-opamp.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Lab: Operational Amplifiers</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -309,7 +310,9 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-labactivities-oscilloscopeprimer"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-labactivities-oscilloscopeprimer">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lab: Oscilloscope Primer</span>
 </h2>
 <div class="para" id="sec-labactivities-oscilloscopeprimer-2">
@@ -351,7 +354,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">To explore more of the functions of the scope we will need to look at a signal.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: THE OSCILLOSCOPE INTERFACE"><a href="#sec-labactivities-oscilloscopeprimer-5" title="Copy heading and permalink for Paragraphs: THE OSCILLOSCOPE INTERFACE" aria-label="Copy heading and permalink for Paragraphs: THE OSCILLOSCOPE INTERFACE">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-6"><h3 class="heading"><span class="title">MEASURING THE BUILT-IN TEST SIGNAL.</span></h3>
+<div class="autopermalink" data-description="Paragraphs: THE OSCILLOSCOPE INTERFACE"><a href="#sec-labactivities-oscilloscopeprimer-5" title="Copy heading and permalink for Paragraphs: THE OSCILLOSCOPE INTERFACE" aria-label="Copy heading and permalink for Paragraphs: THE OSCILLOSCOPE INTERFACE">🔗</a></div>
+</section>
+<section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-6"><h3 class="heading"><span class="title">MEASURING THE BUILT-IN TEST SIGNAL.</span></h3>
 <div class="para logical" id="sec-labactivities-oscilloscopeprimer-6-2">
 <div class="para">The oscilloscope has a built in test signal.  It is a 1KHz square wave, and can be measured by connecting an <dfn class="terminology">oscilloscope probe</dfn> to the two metal clips in the lower right of the front face. <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/img-labactivities-oscilloscope-testsig.jpg" class="contained" alt="(for accessibility)"></div>
 </div>
@@ -395,7 +400,9 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL"><a href="#sec-labactivities-oscilloscopeprimer-6" title="Copy heading and permalink for Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL" aria-label="Copy heading and permalink for Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-7"><h3 class="heading"><span class="title">MEASURING A SINE WAVE.</span></h3>
+<div class="autopermalink" data-description="Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL"><a href="#sec-labactivities-oscilloscopeprimer-6" title="Copy heading and permalink for Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL" aria-label="Copy heading and permalink for Paragraphs: MEASURING THE BUILT-IN TEST SIGNAL">🔗</a></div>
+</section>
+<section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-7"><h3 class="heading"><span class="title">MEASURING A SINE WAVE.</span></h3>
 <div class="para logical" id="sec-labactivities-oscilloscopeprimer-7-2">
 <div class="para">Now we will use an external function generator to produce an AC sine wave signal for us to measure.</div>
 <ol class="decimal" id="sec-labactivities-oscilloscopeprimer-7-2-1">
@@ -457,7 +464,9 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: MEASURING A SINE WAVE"><a href="#sec-labactivities-oscilloscopeprimer-7" title="Copy heading and permalink for Paragraphs: MEASURING A SINE WAVE" aria-label="Copy heading and permalink for Paragraphs: MEASURING A SINE WAVE">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-8"><h3 class="heading"><span class="title">USING THE CURSORS.</span></h3>
+<div class="autopermalink" data-description="Paragraphs: MEASURING A SINE WAVE"><a href="#sec-labactivities-oscilloscopeprimer-7" title="Copy heading and permalink for Paragraphs: MEASURING A SINE WAVE" aria-label="Copy heading and permalink for Paragraphs: MEASURING A SINE WAVE">🔗</a></div>
+</section>
+<section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-8"><h3 class="heading"><span class="title">USING THE CURSORS.</span></h3>
 <div class="para logical" id="sec-labactivities-oscilloscopeprimer-8-2">
 <div class="para">With complicated signals, the auto measured output for amplitude and frequency cannot necessarily be trusted. In these cases, it’s better to do manual measurements with the oscilloscope’s cursor functionality.</div>
 <ol class="decimal" id="sec-labactivities-oscilloscopeprimer-8-2-1">
@@ -497,7 +506,9 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: USING THE CURSORS"><a href="#sec-labactivities-oscilloscopeprimer-8" title="Copy heading and permalink for Paragraphs: USING THE CURSORS" aria-label="Copy heading and permalink for Paragraphs: USING THE CURSORS">🔗</a></div></section><section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-9"><h3 class="heading"><span class="title">Triggering.</span></h3>
+<div class="autopermalink" data-description="Paragraphs: USING THE CURSORS"><a href="#sec-labactivities-oscilloscopeprimer-8" title="Copy heading and permalink for Paragraphs: USING THE CURSORS" aria-label="Copy heading and permalink for Paragraphs: USING THE CURSORS">🔗</a></div>
+</section>
+<section class="paragraphs" id="sec-labactivities-oscilloscopeprimer-9"><h3 class="heading"><span class="title">Triggering.</span></h3>
 <div class="para" id="sec-labactivities-oscilloscopeprimer-9-2">The oscilloscope needs to know where the wave starts in order to display a nice, steady display output.  This process of finding the start of the waveform is called <dfn class="terminology">triggering</dfn>.  The trigger determines the location of your signal with respect to the scope’s definition of t=0s. The blue T in the image below indicates the time location of the trigger. <div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/images/img-labactivities-oscilloscope-triggerzero.jpg" class="contained" alt="(for accessibility)"></div> Using the trigger menu and cursor wheel, we can set the trigger level at whatever voltage threshold we want. When the experimental signal crosses the trigger level that we set, the oscilloscope calls that time t=0s and all other times are measured with respect to that time. The oscilloscope can be told to trigger off of CH1, CH2, or even other external signals. It can also be told to trigger when the signal rises through the trigger level or falls through the trigger level.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec-labactivities-oscilloscopeprimer-9-3">
@@ -545,7 +556,10 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="sec-labactivities-oscilloscopeprimer-9-5">In more advanced contexts one can trigger all oscilloscope channels off of Channel 1, Channel 2, or off of a third external trigger.  We will discuss these options later on in the course, as needed.<div class="autopermalink" data-description="Paragraph"><a href="#sec-labactivities-oscilloscopeprimer-9-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraphs: Triggering"><a href="#sec-labactivities-oscilloscopeprimer-9" title="Copy heading and permalink for Paragraphs: Triggering" aria-label="Copy heading and permalink for Paragraphs: Triggering">🔗</a></div></section><div class="autopermalink" data-description="Section 14.2: Lab: Oscilloscope Primer"><a href="#sec-labactivities-oscilloscopeprimer" title="Copy heading and permalink for Section 14.2: Lab: Oscilloscope Primer" aria-label="Copy heading and permalink for Section 14.2: Lab: Oscilloscope Primer">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Paragraphs: Triggering"><a href="#sec-labactivities-oscilloscopeprimer-9" title="Copy heading and permalink for Paragraphs: Triggering" aria-label="Copy heading and permalink for Paragraphs: Triggering">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 14.2: Lab: Oscilloscope Primer"><a href="#sec-labactivities-oscilloscopeprimer" title="Copy heading and permalink for Section 14.2: Lab: Oscilloscope Primer" aria-label="Copy heading and permalink for Section 14.2: Lab: Oscilloscope Primer">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-labactivities-voltagedivider.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-labactivities-rc-highpass.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

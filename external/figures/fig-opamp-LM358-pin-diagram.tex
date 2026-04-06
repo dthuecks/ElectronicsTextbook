@@ -5,11 +5,11 @@
     \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 1) {$V_\text{out,A}$};
     \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 2) {$V_{-,A}$};
     \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 3) {$V_{+,A}$};
-    \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 4) {GND};
+    \node [left, xshift=-2mm, font=\tiny, align=center] at (C.pin 4) {$V_{S-}$};
     \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 5) {$V_{+,B}$};
     \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 6) {$V_{-,B}$};
     \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 7) {$V_\text{out,B}$};
-    \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 8) {$V_{s+}$};
+    \node [right, xshift=+2mm, font=\tiny, align=center] at (C.pin 8) {$V_{S+}$};
     % Place op-amp schematic connections inside chip pin diagram
     \path ($(C.pin 1)!0.4!(C.pin 3)$) coordinate (Avert);
     \path ($(C.pin 2)!0.3!(C.pin 7)$) coordinate (Ahoriz);

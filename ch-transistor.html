@@ -35,11 +35,11 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
         "newcommand",
+        "textmacros",
         "knowl"
       ]
     }
@@ -72,10 +72,10 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
+      "[tex]/textmacros",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
@@ -127,7 +127,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.f6b4a33441cf25ab.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.720279673ae692d7.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
-<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
@@ -293,6 +293,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-rlc-resonant.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Lab: RLC Resonant Circuit</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-iv-characteristic.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Lab: I-V Characteristic for Diodes</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-diode-ac2dc.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Lab: AC to DC Conversion Using Diode Bridge Rectifier</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-labactivities-opamp.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Lab: Operational Amplifiers</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -309,12 +310,15 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-transistor"><h2 class="heading">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-transistor">
+<h2 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Transistors</span>
 </h2>
-<section class="introduction" id="ch-transistor-2"><div class="para" id="ch-transistor-2-1">In this chapter, we move away from <dfn class="terminology">passive electronic components</dfn> and transition to <dfn class="terminology">active electronic components</dfn>. Unlike passive components, active electronic components require an external power source as part of its operation. This external power source allows active components to amplify voltage and current, allowing for signal gains greater than one and resulting in power amplification.<div class="autopermalink" data-description="Paragraph"><a href="#ch-transistor-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="ch-transistor-2">
+<div class="para" id="ch-transistor-2-1">In this chapter, we move away from <dfn class="terminology">passive electronic components</dfn> and transition to <dfn class="terminology">active electronic components</dfn>. Unlike passive components, active electronic components require an external power source as part of its operation. This external power source allows active components to amplify voltage and current, allowing for signal gains greater than one and resulting in power amplification.<div class="autopermalink" data-description="Paragraph"><a href="#ch-transistor-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ch-transistor-2-2">The first active component that we will examine is the transistor. Invented in 1947, transistors are arguably one of the most important inventions of the 20th century. Transistors provide better reliability, efficiency, and speed than vacuum tubes while having a much smaller size. Since 1970, the size of transistors has reduced from from <span class="process-math">\(10^4\)</span>nm to approximately 3nm (smaller than a human DNA strand).<details class="ptx-footnote" aria-live="polite" id="ch-transistor-2-2-2"><summary class="ptx-footnote__number" title="Footnote 5.0.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ch-transistor-2-2-2">
+<div class="para" id="ch-transistor-2-2">The first active component that we will examine is the transistor. Invented in 1947, transistors are arguably one of the most important inventions of the 20th century. Transistors provide better reliability, efficiency, and speed than vacuum tubes while having a much smaller size. Since 1970, the size of transistors has reduced from from <span class="process-math">\(10^4\)</span>nm to approximately 3nm (smaller than a human DNA strand).<details class="ptx-footnote" aria-live="polite" id="ch-transistor-2-2-2"><summary class="ptx-footnote__number" title="Footnote 5.0.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="ch-transistor-2-2-2">
 <a class="external" href="https://spectrum.ieee.org/transistor-density" target="_blank"><code class="code-inline tex2jax_ignore">https://spectrum.ieee.org/transistor-density</code></a>, <a class="external" href="https://www.kla.com/wp-content/uploads/Transistor-75-year-timeline_Final.pdf" target="_blank"><code class="code-inline tex2jax_ignore">https://www.kla.com/wp-content/uploads/Transistor-75-year-timeline_Final.pdf</code></a>
 </div></details> This dramatic reduction in transistor size has been mirrored by a similar reduction in manufacturing cost, two of the main factors behind Moore’s law [CITE AND DEFINE] and the greatly-increased prevalance of small but powerful consumer electronics (such as smartphones, smart watches, and notebook computers).<div class="autopermalink" data-description="Paragraph"><a href="#ch-transistor-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
