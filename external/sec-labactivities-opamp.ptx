@@ -118,13 +118,13 @@
             </figure>   
         </p>
         <p>
-            Examine the behavior of this circuit for an input sine-wave signal (1 Volt peak-to-peak, 4 kHz). Include clear screenshots/photos of the observed behavior, making sure your volts/div scope settings are optimal and that both <m>V_\text{in}</m> and <m>v_\text{out}</m> are displayed. 
+            Examine the behavior of this circuit for an input sine-wave signal (1 Volt peak-to-peak, 4 kHz). Include clear screenshots/photos of the observed behavior, making sure your volts/div scope settings are optimal and that both <m>V_\text{in}</m> and <m>V_\text{out}</m> are displayed. 
         </p>
         <p>
             Repeat your observations for a triangle wave input signal. Then, repeat observations for both square wave and triangle wave signals for f=20 kHz and f=5 Hz, including screenshots for each. 
         </p>
         <p>
-            Discuss your observations. In particular, be specific about what you would expect to see on <m>v_\text{out}</m> for each <m>V_\text{in}</m> that you use and discuss how your observations conform or conflict with your expectations.
+            Discuss your observations. In particular, be specific about what you would expect to see on <m>V_\text{out}</m> for each <m>V_\text{in}</m> that you use and discuss how your observations conform or conflict with your expectations.
         </p>
         
     </paragraphs>

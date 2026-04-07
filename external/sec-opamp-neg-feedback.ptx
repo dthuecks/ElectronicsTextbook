@@ -7,7 +7,7 @@
         In the previous section, we saw that operational amplifiers are quite effective at taking sinusoidal <m>V_\text{in}</m> signals (or any time varying signal) and producing a square wave output according to <m>V_\text{out}=\text{sign}\left(V_\text{in}\right)</m>. Based on these examples alone, it may seem like op-amps have limited usefulness.
     </p>
     <p>
-        Op-amps are almost always used with <term>negative feedback</term>, where a conducting path is placed between <m>V_\text{out}</m> and the inverting input <m>V_-</m> as shown in <xref ref="fig-opamp-negfeedback"/>.
+        Op-amps are frequently used with <term>negative feedback</term> in which a conducting path is placed between <m>V_\text{out}</m> and the inverting input <m>V_-</m> as shown in <xref ref="fig-opamp-negfeedback"/>.
         <figure xml:id="fig-opamp-negfeedback">
             <caption>A circuit employing negative feedback on an op-amp has a conducting path placed that connects <m>V_\text{out}</m> and the inverting input <m>V_-</m>.</caption>
             <image><latex-image>
@@ -60,6 +60,7 @@
         </md>.
         Like the common-emitter amplifier, this circuit applies a negative gain to our input signal, and the magnitude of the gain is dependent on the chosen values of external resistors. This op-amp inverting amplifier does not suffer from the same stability issues as the common-emitter amplifier, and this op-amp circuit maintains much higher input impedance and much lower output impedance than seen with the common-emitter amplifier.    
     </p>
+
     <example>
         <title>Non-inverting amplifier</title>
         <statement>
@@ -90,6 +91,44 @@
                 Thus, the voltage gain for this circuit is given by 
                 <md>
                     G_V = 1+\frac{R_2}{R_1}
+                </md>.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Weighted summing amplifier</title>
+        <statement>
+            <p>
+                Determine <m>V_\text{out}</m> for the circuit pictured in <xref ref="circuit-opamp-weighted-summing"/>.
+                <figure xml:id="circuit-opamp-weighted-summing">
+                    <caption>Weighted summing amplifier.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-opamp-weighted-summing.tex" />
+                    </latex-image></image>
+                </figure>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The golden rules require that <m>V_+ = V_-</m>, meaning that <m>V_+</m> is grounded and <m>V_-</m> is a virtual ground. We can then use Ohm's law three times to find 
+                <md>
+                    I_1 = \frac{V_1}{R_1},\qquad I_2 = \frac{V_2}{R_2},\qquad I_3 = \frac{V_3}{R_3}
+                </md>.
+                When Kirchhoff's junction law is applied at the <m>V_-</m> junction, we find
+                <md>
+                    <mrow> I_\text{tot} \amp = I_1 + I_2 + I_3 </mrow>
+                    <mrow> \amp = \frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3} </mrow>
+                </md>.
+                Since <m>V_- = 0</m>, one further application of Ohm's law gives
+                <md>
+                    <mrow> V_\text{out} - \cancelto{0}{V_-} \amp = -I_\text{tot} R_f</mrow>
+                    <mrow> \amp = -R_f \left(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\right) </mrow>
+                </md>
+                based on the chosen <m>I_\text{tot}</m> direction in <xref ref="circuit-opamp-weighted-summing"/>.
+                In the special case where <m>R_1 = R_2 = R_3</m>, this results in
+                <md>
+                    V_\text{out} = -\frac{R_f}{R_1}\left(V_1 + V_2 + V_3\right)
                 </md>.
             </p>
         </solution>
