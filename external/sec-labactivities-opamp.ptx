@@ -30,7 +30,7 @@
          Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
     </p>
     <p>
-        <alert>Equipment:</alert> Proto-board, digital oscilloscope, oscilloscope probes, DMM, LM358 op-amp, resistors (1k, 5.1k, 10k), 1 nF capacitor.
+        <alert>Equipment:</alert> Proto-board, function generator, digital oscilloscope, oscilloscope probes, DMM, LM358 op-amp, resistors (1k, 5.1k, 10k), 1 nF capacitor.
     </p>
     
     <paragraphs>
@@ -56,7 +56,7 @@
         <title>Experiment: Inverting amplifier</title>
         <p></p>
         <p>
-            Construct the inverting amplifier circuit using a general purpose LM358 op amp. The pin diagram for the LM358 (8-pin DIP) is shown in <xref ref="fig-labactivities-opamp-lm358-pins"/>. Note that you are given a top-down view of the chip; take careful note of the <sq>divot</sq> location on the chip. On your prototyping board, the op-amp should be placed across the <sq>gap</sq> that exists between neighboring five-hole rows, with op amp pins 1-4 on one side of the gap and pins 5-8 on the other side of the gap. Use pins 1-5 for this experiment, as they contain the two supply voltages as well as the inputs and output for op-amp A. You will not use op-amp B (pins 5-7) today. <alert>You should use <m>\pm 5</m> Volts for <m>V_{S\pm}</m>.</alert>
+            Construct the inverting amplifier circuit using a general purpose LM358 op amp. The pin diagram for the LM358 (8-pin DIP) is shown in <xref ref="fig-labactivities-opamp-lm358-pins"/>. Note that you are given a top-down view of the chip; take careful note of the <sq>divot</sq> location on the chip. On your prototyping board, the op-amp should be placed across the <sq>gap</sq> that exists between neighboring five-hole rows, with op amp pins 1-4 on one side of the gap and pins 5-8 on the other side of the gap. Use pins 1-5 for this experiment, as they contain the two supply voltages as well as the inputs and output for op-amp A. You will not use op-amp B (pins 5-7) today. <alert>You should use <m>\pm 15</m> Volts for <m>V_{S\pm}</m>.</alert>
             <figure xml:id="fig-labactivities-opamp-lm358-pins">
                 <caption>Pin diagram for the LM358 general-purpose operational amplifier (PDIP package).</caption>
                 <image width="70%"><latex-image>
@@ -65,7 +65,7 @@
             </figure>   
         </p>
         <p>
-            Proceed to measure the gain of your amplifier using a small (1.0V <alert>peak-to-peak</alert> or so) sinusoidal input signal at frequencies ranging from 10 Hz to 2 MHz. Determine appropriate frequencies within this range that will allow you to convincingly demonstrate the expected bandwidth properties for this op-amp through a plot of gain vs frequency with frequency represented on a logarithmic axis. Consider the following when designing your procedure:
+            Proceed to measure the gain of your amplifier using a small (2.0V <alert>peak-to-peak</alert> or so) sinusoidal input signal at frequencies ranging from 10 Hz to 2 MHz. Determine appropriate frequencies within this range that will allow you to convincingly demonstrate the expected bandwidth properties for this op-amp through a plot of gain vs frequency with frequency represented on a logarithmic axis. Consider the following when designing your procedure:
             <ul>
                 <li>
                     <p>
