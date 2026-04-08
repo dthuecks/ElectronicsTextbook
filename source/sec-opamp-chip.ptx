@@ -31,7 +31,7 @@
             <sidebyside widths="44% 46%" margins="auto" valign="top">
                 
                 <figure xml:id="fig-opamp-LM741-pin-diagram">
-                    <caption>LM741</caption>
+                    <caption>Pin diagram, LM741 (PDIP package)</caption>
                     <image>
                     <shortdescription></shortdescription>
                     <latex-image>
@@ -40,7 +40,7 @@
                     </image>
                 </figure>
                 <figure xml:id="fig-opamp-LM358-pin-diagram">
-                    <caption>LM358</caption>
+                    <caption>Pin diagram, LM358 (PDIP package)</caption>
                     <image>
                     <shortdescription></shortdescription>
                     <latex-image>

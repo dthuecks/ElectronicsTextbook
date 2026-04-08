@@ -6,30 +6,33 @@
         Previously, we have seen that transistors are very useful in buffering AC signals. An emitter-follower circuit placed between an AC voltage source and a load circuit increases the input impedance of the load, effectively lightening the load and making it easier for the AC voltage source to drive the load circuit. While the common-emitter amplifier circuit added the additional benefit of AC voltage gain, it did so by weakening its buffering capabilities. More than that, increases in AC voltage gain also lead to degradation of bandwidth performance and circuit stability. 
     </p>
     <p>
-        The operational amplifier has been designed to serve as a voltage amplifier, but has been designed to do so while maintaining and vastly improving upon signal buffering, amplification, stability, and bandwidth behaviors when compared to the transistor circuits that we have studied. The behavior of ideal op-amps are governed by four rules:
+        The operational amplifier has been designed to serve as a differential voltage amplifier, but has been designed to do so while maintaining and vastly improving upon signal buffering, amplification, stability, and bandwidth behaviors when compared to the transistor circuits that we have studied. The behavior of ideal op-amps are governed by four rules:
         <ol>
             <li>
                 <p>
-                    The output voltage is the open-loop gain <m>A_0</m> multiplying the difference between the noninverting and inverting inputs <m>v_\text{out}=A_0\left(V_+ - V_-\right)</m>.
+                    The output voltage reflects the difference between the noninverting and inverting inputs multiplied by a constant <m>A_o</m> so that <m>v_\text{out}=A_0\left(V_+ - V_-\right)</m>.
                 </p>
             </li>
             <li>
                 <p>
-                    Open-loop gain <m>A_0=\infty</m>.
+                    The <term>open-loop gain</term> is assumed to be <m>A_o=\infty</m>. The open-loop gain represents the op-amp's built-in voltage gain when no feedback is present. We will discuss positive and negative feedback in the coming sections.
                 </p>
             </li>
             <li>
                 <p>
-                    Input impedance <m>Z_\text{in}=\infty</m>.
+                    Input impedance is assumed to be very high, <m>Z_\text{in}=\infty</m>.
                 </p>
             </li>
             <li>
                 <p>
-                    Output impedance <m>Z_\text{out}=0</m>.
+                    The output impedance is assumed to be very low, <m>Z_\text{out}=0</m>.
                 </p>
             </li>
         </ol>
-        The symbols above have been previously defined in <xref ref="fig-opamp-ideal-symbol"/>. These ideal op-amp rules often work quite well in describing the behavior of real op-amps, though these real components have actual parameters <m>10^4\lt A_0 \lt 10^6</m>, <m>10^6\Omega \lt Z_\text{in} \lt 10^{12}\Omega</m>, and <m>10\Omega \lt Z_\text{out} \lt 1000\Omega</m>. The op-amp output voltage <m>V_\text{out}</m> is constrained to values between the two supply voltages <m>V_{S+}</m> and <m>V_{S-}</m>.
+        The symbols above have been previously defined in <xref ref="fig-opamp-ideal-symbol"/>. These ideal op-amp rules often work quite well in describing the behavior of real op-amps, though real op-amps have open-loop gain <m>A_o = 10^4 - 10^6</m>, input impedance <m>Z_\text{in}=10^6\Omega - 10^{12}\Omega</m>, and open-loop output impedance <m>Z_\text{out} = 10\Omega - 100\Omega</m>, though <m>Z_\text{out}</m> becomes much smaller (often less than one ohm) when negative feedback (discussed later) is employed. The op-amp output voltage <m>V_\text{out}</m> is constrained to values between the two supply voltages <m>V_{S+}</m> and <m>V_{S-}</m>.
+    </p>
+    <p>
+        On its own, an op-amp can be used for several purposes. We've already seen that an op-amp without feedback converts time-varying signals into square waves. This behavior can also be used as a comparator, where the output voltage can provide a very rapid comparison between input signals, with <m>V_\text{out}</m> saturating at either the upper or lower supply voltage depending on whether <m>V_+</m> is greater than or less than <m>V_-</m>. Op-amps can also be used in switching applications in which one op-amp input is set at a threshold value and then the op-amp output value depends sensitively on whether the other op-amp input exceeds this threshold setting.
     </p>
     <p>
         Like transistors, op-amp behaviors can be modified based on how they are incorporated into circuits containing other discrete circuit components. Before we discuss these more advanced applications, let's apply these four ideal op-amp rules to the examples below.
@@ -53,10 +56,10 @@
                 <figure xml:id="fig-opamp-noninvert-open-loop-plot">
                     <caption>Input and output voltages for the non-inverting open-loop amplifier.</caption>
                     <image>
-                    <prefigure xmlns="https://prefigure.org" label="fig-opamp-noninvert-open-loop-plot">
-                        <xi:include href="./prefigure/fig-opamp-noninvert-open-loop-plot.xml" />
-                    </prefigure>
-                </image>
+                        <prefigure xmlns="https://prefigure.org" label="fig-opamp-noninvert-open-loop-plot">
+                            <xi:include href="./prefigure/fig-opamp-noninvert-open-loop-plot.xml" />
+                        </prefigure>
+                    </image>
                 </figure>
             </p>
         </solution>

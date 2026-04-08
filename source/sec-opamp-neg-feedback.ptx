@@ -7,7 +7,7 @@
         In the previous section, we saw that operational amplifiers are quite effective at taking sinusoidal <m>V_\text{in}</m> signals (or any time varying signal) and producing a square wave output according to <m>V_\text{out}=\text{sign}\left(V_\text{in}\right)</m>. Based on these examples alone, it may seem like op-amps have limited usefulness.
     </p>
     <p>
-        Op-amps are almost always used with <term>negative feedback</term>, where a conducting path is placed between <m>V_\text{out}</m> and the inverting input <m>V_-</m> as shown in <xref ref="fig-opamp-negfeedback"/>.
+        Op-amps are frequently used with <term>negative feedback</term> in which a conducting path is placed between <m>V_\text{out}</m> and the inverting input <m>V_-</m> as shown in <xref ref="fig-opamp-negfeedback"/>.
         <figure xml:id="fig-opamp-negfeedback">
             <caption>A circuit employing negative feedback on an op-amp has a conducting path placed that connects <m>V_\text{out}</m> and the inverting input <m>V_-</m>.</caption>
             <image><latex-image>
@@ -34,70 +34,173 @@
     <p>
         Since <m>V_+ = V_-</m> for an op-amp with negative feedback, the circuit in <xref ref="fig-opamp-negfeedback"/> turns out to be a buffer amplifier with voltage gain <m>G_V = 1</m> since we must have <m>V_\text{out}=V_\text{in}</m>. This means that this op-amp circuit provides a benefit similar to that provided by the BJT emitter-follower circuit, except better. There is no voltage drop between <m>V_\text{in}</m> at the npn base and <m>V_\text{out}</m> at the npn emitter. Additionally, the input and output impedances of this op-amp circuit are much enhanced over the emitter-follower circuit.
     </p>
-    <p>
-        Op-amp circuits with negative feedback can provide voltage gains other than one and infinity through the placement of additional resistors. Let's analyze the <term>inverting amplifier</term> circuit in <xref ref="circuit-opamp-inverting-amp"/> to see how this works.
-        <figure xml:id="circuit-opamp-inverting-amp">
-            <caption>This circuit will use negative feedback to produce a voltage gain <m>G_V = -R_2/R_1</m>.</caption>
-            <image><latex-image>
-                <xi:include parse="text" href="./figures/circuit-opamp-inverting-amp.tex" />
-            </latex-image></image>
-        </figure>
-        Applying the first golden rule, we find that <m>V_- = V_+ = 0</m>, meaning <m>V_-</m> is a <term>virtual ground</term> since the op-amp rules require <m>V_- = 0</m> Volts but <m>V_-</m> is not itself connected to the real circuit ground. Next, recognize that 
-        <md>
-            I_1 = \frac{V_\text{in}-V_-}{R_1} = \frac{V_\text{in}}{R_1}
-        </md>
-        and
-        <md>
-            I_2 = \frac{V_\text{out}-V_-}{R_2} = \frac{V_\text{out}}{R_2}
-        </md>.
-        Since the golden rules require that no current can enter or leave an op-amp input, Kirchhoff's junction law requires that <m>I_1 + I_2 = 0</m> or <m>I_2 = -I_1</m>. Plugging in our expressions for the currents, we find that
-        <md>
-            \frac{V_\text{out}}{R_2} = -\frac{V_\text{in}}{R_1}
-        </md>
-        which results in a voltage gain
-        <md>
-            G_v = \frac{V_\text{out}}{V_\text{in}} = -\frac{R_2}{R_1}
-        </md>.
-        Like the common-emitter amplifier, this circuit applies a negative gain to our input signal, and the magnitude of the gain is dependent on the chosen values of external resistors. This op-amp inverting amplifier does not suffer from the same stability issues as the common-emitter amplifier, and this op-amp circuit maintains much higher input impedance and much lower output impedance than seen with the common-emitter amplifier.    
-    </p>
-    <example>
-        <title>Non-inverting amplifier</title>
-        <statement>
-            <p>
-                Determine <m>G_V</m> for the circuit pictured in <xref ref="circuit-opamp-noninverting-amp"/>.
-                <figure xml:id="circuit-opamp-noninverting-amp">
-                    <caption>Non-inverting amplifier.</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-opamp-noninverting-amp.tex" />
-                    </latex-image></image>
-                </figure>
-            </p>
-        </statement>
-        <solution>
-            <p>
-                As before, the golden rules require that <m>V_+ = V_-</m>. This time, instead of a virtual ground we find that <m>V_- = V_\text{in}</m>. Since no current can enter/leave the op-amp inputs, we must have <m>I_1 = I_2</m>. Using Ohm's law, 
-                <md>
-                    I_1 = V_\text{in}/R_1
-                </md>
-                so that 
-                <md>
-                    V_\text{out} - V_\text{in} = I_1 R_2
-                </md>. 
-                Combining these results,
-                <md>
-                    V_\text{out} = V_\text{in} + \frac{R_2}{R_1} V_\text{in} = \left(1+\frac{R_2}{R_1}\right) V_\text{in}
-                </md>.
-                Thus, the voltage gain for this circuit is given by 
-                <md>
-                    G_V = 1+\frac{R_2}{R_1}
-                </md>.
-            </p>
-        </solution>
-    </example>
-    <p>
-        INSERT A NOTE DISTINGUISHING BETWEEN OPEN-LOOP GAIN AND CLOSED-LOOP GAIN (FROM NEGATIVE FEEDBACK)
-    </p>
+    <paragraphs>
+        <title>Further examples with negative feedback</title>
+        <p>
+            Op-amp circuits with negative feedback can provide voltage gains other than one and infinity through the placement of additional resistors. Let's analyze the <term>inverting amplifier</term> circuit in <xref ref="circuit-opamp-inverting-amp"/> to see how this works.
+            <figure xml:id="circuit-opamp-inverting-amp">
+                <caption>This circuit will use negative feedback to produce a voltage gain <m>G_V = -R_2/R_1</m>.</caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-opamp-inverting-amp.tex" />
+                </latex-image></image>
+            </figure>
+            Applying the first golden rule, we find that <m>V_- = V_+ = 0</m>, meaning <m>V_-</m> is a <term>virtual ground</term> since the op-amp rules require <m>V_- = 0</m> Volts but <m>V_-</m> is not itself connected to the real circuit ground. Next, recognize that 
+            <md>
+                I_1 = \frac{V_\text{in}-V_-}{R_1} = \frac{V_\text{in}}{R_1}
+            </md>
+            and
+            <md>
+                I_2 = \frac{V_\text{out}-V_-}{R_2} = \frac{V_\text{out}}{R_2}
+            </md>.
+            Since the golden rules require that no current can enter or leave an op-amp input, Kirchhoff's junction law requires that <m>I_1 + I_2 = 0</m> or <m>I_2 = -I_1</m>. Plugging in our expressions for the currents, we find that
+            <md>
+                \frac{V_\text{out}}{R_2} = -\frac{V_\text{in}}{R_1}
+            </md>
+            which results in a voltage gain
+            <md>
+                G_v = \frac{V_\text{out}}{V_\text{in}} = -\frac{R_2}{R_1}
+            </md>.
+            Like the common-emitter amplifier, this circuit applies a negative gain to our input signal, and the magnitude of the gain is dependent on the chosen values of external resistors. This op-amp inverting amplifier does not suffer from the same stability issues as the common-emitter amplifier, and this op-amp circuit maintains much higher input impedance and much lower output impedance than seen with the common-emitter amplifier.    
+        </p>
 
-    
+        <example>
+            <title>Non-inverting amplifier</title>
+            <statement>
+                <p>
+                    Determine <m>G_V</m> for the circuit pictured in <xref ref="circuit-opamp-noninverting-amp"/>.
+                    <figure xml:id="circuit-opamp-noninverting-amp">
+                        <caption>Non-inverting amplifier.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-opamp-noninverting-amp.tex" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    As before, the golden rules require that <m>V_+ = V_-</m>. This time, instead of a virtual ground we find that <m>V_- = V_\text{in}</m>. Since no current can enter/leave the op-amp inputs, we must have <m>I_1 = I_2</m>. Using Ohm's law, 
+                    <md>
+                        I_1 = V_\text{in}/R_1
+                    </md>
+                    so that 
+                    <md>
+                        V_\text{out} - V_\text{in} = I_1 R_2
+                    </md>. 
+                    Combining these results,
+                    <md>
+                        V_\text{out} = V_\text{in} + \frac{R_2}{R_1} V_\text{in} = \left(1+\frac{R_2}{R_1}\right) V_\text{in}
+                    </md>.
+                    Thus, the voltage gain for this circuit is given by 
+                    <md>
+                        G_V = 1+\frac{R_2}{R_1}
+                    </md>.
+                </p>
+            </solution>
+        </example>
 
+        <example>
+            <title>Weighted summing amplifier</title>
+            <statement>
+                <p>
+                    Determine <m>V_\text{out}</m> for the circuit pictured in <xref ref="circuit-opamp-weighted-summing"/>.
+                    <figure xml:id="circuit-opamp-weighted-summing">
+                        <caption>Weighted summing amplifier.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-opamp-weighted-summing.tex" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The golden rules require that <m>V_+ = V_-</m>, meaning that <m>V_+</m> is grounded and <m>V_-</m> is a virtual ground. We can then use Ohm's law three times to find 
+                    <md>
+                        I_1 = \frac{V_1}{R_1},\qquad I_2 = \frac{V_2}{R_2},\qquad I_3 = \frac{V_3}{R_3}
+                    </md>.
+                    When Kirchhoff's junction law is applied at the <m>V_-</m> junction, we find
+                    <md>
+                        <mrow> I_\text{tot} \amp = I_1 + I_2 + I_3 </mrow>
+                        <mrow> \amp = \frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3} </mrow>
+                    </md>.
+                    Since <m>V_- = 0</m>, one further application of Ohm's law gives
+                    <md>
+                        <mrow> V_\text{out} - \cancelto{0}{V_-} \amp = -I_\text{tot} R_f</mrow>
+                        <mrow> \amp = -R_f \left(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\right) </mrow>
+                    </md>
+                    based on the chosen <m>I_\text{tot}</m> direction in <xref ref="circuit-opamp-weighted-summing"/>.
+                    In the special case where <m>R_1 = R_2 = R_3</m>, this results in
+                    <md>
+                        V_\text{out} = -\frac{R_f}{R_1}\left(V_1 + V_2 + V_3\right)
+                    </md>.
+                </p>
+            </solution>
+        </example>
+
+        <example>
+            <title>Differentiator</title>
+            <statement>
+                <p>
+                    Determine the behavior of <m>V_\text{out}</m> for the circuit pictured in <xref ref="circuit-opamp-differentiator"/>.
+                    <figure xml:id="circuit-opamp-differentiator">
+                        <caption>Differentiator.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-opamp-differentiator.tex" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We find that <m>V_-</m> is a virtual ground since <m>V_+</m> is connected to ground. Also, the currents through the capacitor and resistor are identical since no current can enter/leave the op-amp inputs.
+                </p>
+                <p>
+                    We have seen in introductory physics that <m>\Delta V_C = Q/C</m> where <m>\Delta V_C = V_\text{in}-V_-</m>. Therefore, <m>V_\text{in}=Q/C</m>. We can use Ohm's law to show <m>0-V_\text{out}=IR</m>. In introductory physics, we also learned that <m>I=\text{d}Q/\text{d}t</m>. Combining these expressions, we find that 
+                    <md>
+                        I=C\frac{\text{d}V_\text{in}}{\text{d}t}
+                    </md>
+                    and thus
+                    <md>
+                        V_\text{out} = -RC\frac{\text{d}V_\text{in}}{\text{d}t}
+                    </md>.
+                    This result reveals this circuit's ability to produce an output voltage <m>V_\text{out}</m> that is a constant multiplying the time derivative of <m>V_\text{in}</m>. 
+                </p>
+            </solution>
+        </example>
+<!--
+        <example>
+            <title>Integrator</title>
+            <statement>
+                <p>
+                    Determine the behavior of <m>V_\text{out}</m> for the circuit pictured in <xref ref="circuit-opamp-integrator"/>.
+                    <figure xml:id="circuit-opamp-integrator">
+                        <caption>Differentiator.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-opamp-integrator.tex" />
+                        </latex-image></image>
+                    </figure>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We find that <m>V_-</m> is a virtual ground since <m>V_+</m> is connected to ground. Also, the currents through the capacitor and resistor are identical since no current can enter/leave the op-amp inputs.
+                </p>
+                <p>
+                    We have seen in introductory physics that <m>\Delta V_C = Q/C</m> where <m>\Delta V_C = V_\text{in}-V_-</m>. Therefore, <m>V_\text{in}=Q/C</m>. We can use Ohm's law to show <m>0-V_\text{out}=IR</m>. In introductory physics, we also learned that <m>I=\text{d}Q/\text{d}t</m>. Combining these expressions, we find that 
+                    <md>
+                        I=C\frac{\text{d}V_\text{in}}{\text{d}t}
+                    </md>
+                    and thus
+                    <md>
+                        V_\text{out} = -RC\frac{\text{d}V_\text{in}}{\text{d}t}
+                    </md>.
+                    This result reveals this circuit's ability to produce an output voltage <m>V_\text{out}</m> that is a constant multiplying the time derivative of <m>V_\text{in}</m>. 
+                </p>
+            </solution>
+        </example>
+    -->
+
+        <p>
+            INSERT A NOTE DISTINGUISHING BETWEEN OPEN-LOOP GAIN AND CLOSED-LOOP GAIN (FROM NEGATIVE FEEDBACK)
+        </p>
+    </paragraphs>
 </section>

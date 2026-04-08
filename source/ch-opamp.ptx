@@ -20,5 +20,7 @@
   <xi:include href="./sec-opamp-chip.ptx" />
   <xi:include href="./sec-opamp-ideal.ptx" />
   <xi:include href="./sec-opamp-neg-feedback.ptx" />
+  <xi:include href="./sec-opamp-pos-feedback.ptx" />
+  <xi:include href="./sec-opamp-more-examples.ptx" />
 
 </chapter>
