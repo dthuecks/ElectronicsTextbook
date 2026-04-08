@@ -36,6 +36,10 @@
         <md>
             V_\text{in} = -\frac{R_1}{R_2} V_\text{out}
         </md>.
-        So, if <m>V_\text{out}=+V_S</m> initially, then the output state will only change once <m>V_\text{in}</m> crosses <m>-\frac{R_1}{R_2} V_S</m> from above. Likewise, if in some second time period we find <m>V_\text{out}=-V_S</m> initially, then the output state will only change once <m>V_\text{in}</m> crosses <m>\frac{R_1}{R_2} V_S</m> from below.
+        So, if <m>V_\text{out}=+V_S</m> initially, then the output state will only change once <m>V_\text{in}</m> crosses <m>-\frac{R_1}{R_2} V_S</m> from above. Likewise, if in some second time period we find <m>V_\text{out}=-V_S</m> initially, the output state will only change once <m>V_\text{in}</m> crosses <m>\frac{R_1}{R_2} V_S</m> from below.
+        
+    </p>
+    <p>
+        [INCLUDE PLOTS]
     </p>
 </section>

@@ -56,10 +56,10 @@
                 <figure xml:id="fig-opamp-noninvert-open-loop-plot">
                     <caption>Input and output voltages for the non-inverting open-loop amplifier.</caption>
                     <image>
-                    <prefigure xmlns="https://prefigure.org" label="fig-opamp-noninvert-open-loop-plot">
-                        <xi:include href="./prefigure/fig-opamp-noninvert-open-loop-plot.xml" />
-                    </prefigure>
-                </image>
+                        <prefigure xmlns="https://prefigure.org" label="fig-opamp-noninvert-open-loop-plot">
+                            <xi:include href="./prefigure/fig-opamp-noninvert-open-loop-plot.xml" />
+                        </prefigure>
+                    </image>
                 </figure>
             </p>
         </solution>
