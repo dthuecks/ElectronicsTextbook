@@ -37,7 +37,8 @@
     \pgfplotsset{compat=1.18}
   </latex-image-preamble>
 
-  
+  <!-- Specify location of data folder (for PreFigure at minimum, perhaps for PreTeXt?)-->
+  <directories data="data" />
 
   <!-- It is possible to rename elements: -->
   <rename element="question" xml:lang="en-US">Python example</rename> 

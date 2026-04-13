@@ -1,0 +1,26 @@
+<diagram dimensions="(350,200)" margins="(41,25,50,10)" xmlns="https://prefigure.org">
+  <definition> f0 = 1.2 </definition> <!-- Open-loop bandwidth in Hz -->
+  <definition> A0 = 1e6 </definition> <!-- DC Open-loop Gain -->
+  <definition> A1 = 10 </definition> <!-- DC negative feedback gain -->
+  <definition> f1 = A0*f0/A1 </definition>
+  <definition>G0(x) = A0/sqrt(1+(x/f0)^2)</definition> <!-- Open loop gain -->
+  <definition>G1(x) = A1 / sqrt(1+(x/f1)^2)</definition> <!-- negative fb gain -->
+
+  <coordinates bbox="(0.1,0.1,3*10^6,10^7)" scales="loglog">
+    <axes arrows="1">
+      <xlabel alignment="e"> <m>f</m> (Hz) </xlabel>
+      <ylabel alignment="e"> <m>G_V</m> </ylabel>
+    </axes>          
+    
+    <graph at="open" function="G0" domain="(0.1,3e6)" stroke="green" />
+    <graph at="neg" function="G1" domain="(0.1,3e6)" stroke="blue" dash="4 2"/>
+    <legend anchor="(3*10^6, 10^7)"
+            alignment="sw" opacity="0.9"
+            scale="0.9" vertical-skip="10">
+      <item ref="open"><m>G_{V,\text{open loop}}</m></item>
+      <item ref="neg"><m>G_V = 10</m></item>
+      
+    </legend>
+      
+  </coordinates>     
+</diagram>

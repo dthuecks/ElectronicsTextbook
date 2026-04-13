@@ -1,0 +1,47 @@
+<diagram dimensions="(350,200)" margins="(41,0,5,10)" xmlns="https://prefigure.org">
+  <read name="data" filename="data-opamp-schmitt-trigger.csv" delimiter=','/>  
+  <definition>t=data['t']</definition>
+  <definition>Vin=data['Vin']</definition>
+  <definition>Vout=data['Vout']</definition>
+  <definition>plot_t_Vin = zip_lists(t,Vin)</definition>
+  <definition>plot_t_Vin = zip_lists(t,Vin)</definition>
+  <definition>plot_t_Vout = zip_lists(t,Vout)</definition>
+  <definition> VT = 0.75 </definition>
+  <definition> tmax = 30 </definition>
+
+  <coordinates bbox="(-5,-6,37,6)">
+    <axes decorations="no" arrows="1">
+      <xlabel alignment="s"><m>t</m></xlabel>
+      <ylabel alignment="e"><m>V</m></ylabel>
+    </axes>          
+    <tick-mark location="-5" axis="vertical">
+      <m>-V_{S}</m>
+    </tick-mark>
+    <tick-mark location="-2" axis="vertical">
+      <m>-V_\text{in,0}</m>
+    </tick-mark>
+    <tick-mark location="2" axis="vertical">
+      <m>V_\text{in,0}</m>
+    </tick-mark>
+    <tick-mark location="5" axis="vertical">
+      <m>V_{S}</m>
+    </tick-mark>
+    <tick-mark location="-VT" axis="vertical">
+      <m>-V_T</m>
+    </tick-mark>
+    <tick-mark location="VT" axis="vertical">
+      <m>V_T</m>
+    </tick-mark>
+    <polygon at="Vin" points="plot_t_Vin" stroke="blue"/>
+    <polygon at="Vout" points="plot_t_Vout" stroke="red" dash="6 1"/>
+    <line endpoints="((0,-VT),(tmax,-VT))" stroke="green" dash="2 2"/>
+    <line endpoints="((0,VT),(tmax,VT))" stroke="green" dash="2 2"/>
+    <legend anchor="(bbox[2], bbox[3])"
+            alignment="sw" opacity="0.9"
+            scale="0.9" vertical-skip="10">
+      <item ref="Vin"><m>V_\text{in}</m></item>
+      <item ref="Vout"><m>V_\text{out}</m></item>
+    </legend>
+      
+  </coordinates>     
+</diagram>

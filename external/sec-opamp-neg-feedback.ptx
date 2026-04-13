@@ -199,8 +199,22 @@
         </example>
     -->
 
+    
+    </paragraphs>
+
+    <paragraphs>
+        <title>Frequency response of negative feedback amplifiers</title>
         <p>
-            INSERT A NOTE DISTINGUISHING BETWEEN OPEN-LOOP GAIN AND CLOSED-LOOP GAIN (FROM NEGATIVE FEEDBACK)
+            <figure xml:id="plot-opamp-freq-response">
+                <caption>The frequency response of amplifiers using negative feedback depends on the circuit gain selected through design. As gain drops, bandwidth increases.</caption>
+                <image width="70%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="plot-opamp-freq-response-img">
+                        <xi:include href="./prefigure/plot-opamp-freq-response.xml" />
+                    </prefigure>
+                </image>
+            </figure>
         </p>
+        
     </paragraphs>
 </section>
