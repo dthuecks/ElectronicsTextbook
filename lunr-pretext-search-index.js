@@ -1132,7 +1132,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.1",
   "title": "Digital gates and truth tables",
-  "body": " Digital gates and truth tables  Digital circuits are built using a variety of gates that accept digital inputs with values of 0 or 1 and produce a digital output based on a specific gate's operation. We characterize the behavior of digital gates using truth tables . shows the digital gates that will be the building blocks for our digital circuits and the truth tables that describe their behaviors.     Buffer gate         0  0    1  1      AND gate          0  0  0    0  1  0    1  0  0    1  1  1        OR gate          0  0  0    0  1  1    1  0  1    1  1  1      XOR gate          0  0  0    0  1  1    1  0  1    1  1  0        NOT gate         0  1    1  0      NAND gate          0  0  1    0  1  1    1  0  1    1  1  0        NOR gate          0  0  1    0  1  0    1  0  0    1  1  0      XNOR gate          0  0  1    0  1  0    1  0  0    1  1  1         Note in how a circle on a gate output results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in .  A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs and .            0  0  1  1    0  1  0  0    1  0  1  1    1  1  0  1       "
+  "body": " Digital gates and truth tables  Digital circuits are built using a variety of gates that accept digital inputs with values of 0 or 1 and produce a digital output based on a specific gate's operation. We characterize the behavior of digital gates using truth tables . shows the digital gates that will be the building blocks for our digital circuits and the truth tables that describe their behaviors.     Buffer gate         0  0    1  1      AND gate          0  0  0    0  1  0    1  0  0    1  1  1        OR gate          0  0  0    0  1  1    1  0  1    1  1  1      XOR gate          0  0  0    0  1  1    1  0  1    1  1  0        NOT gate         0  1    1  0      NAND gate          0  0  1    0  1  1    1  0  1    1  1  0        NOR gate          0  0  1    0  1  0    1  0  0    1  1  0      XNOR gate          0  0  1    0  1  0    1  0  0    1  1  1         Take note of the symbols used to represent logic functions in our expressions for above: the dot represents AND, represents OR, represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss Boolean algebra in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in .  A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs and .            0  0  1  1    0  1  0  0    1  0  1  1    1  1  0  1       "
 },
 {
   "id": "sec-digital-gates-2",
@@ -1144,13 +1144,13 @@ var ptx_lunr_docs = [
   "body": "gates truth tables "
 },
 {
-  "id": "fig-digital-negate-port",
+  "id": "sec-digital-gates-3",
   "level": "2",
-  "url": "sec-digital-gates.html#fig-digital-negate-port",
-  "type": "Figure",
-  "number": "7.1.2",
+  "url": "sec-digital-gates.html#sec-digital-gates-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs and .            0  0  1  1    0  1  0  0    1  0  1  1    1  1  0  1     "
+  "body": "Boolean algebra "
 },
 {
   "id": "ch-advancedcircuits",

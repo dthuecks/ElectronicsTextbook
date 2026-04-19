@@ -78,7 +78,7 @@
     </figure>
     </p>
     <p>
-        Note in <xref ref="fig-digital-symbols-tables"/> how a circle on a gate output results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <xref ref="fig-digital-negate-port"/>.
+        Take note of the symbols used to represent logic functions in our expressions for <m>Y</m> above: the dot <sq><m>\cdot</m></sq> represents AND, <sq><m>+</m></sq> represents OR, <sq><m>\oplus</m></sq> represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss <term>Boolean algebra</term> in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <xref ref="fig-digital-negate-port"/>.
         <figure xml:id="fig-digital-negate-port">
             <caption>A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs <m>A</m> and <m>\overline{B}</m>.</caption>
             <sidebyside>
