@@ -16,38 +16,21 @@
                     <xi:include href="./tables/tbl-digital-buffer.ptx" />
                 </figure>
                 <figure>
-                    <caption>AND gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-AND.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-AND.ptx" />
-                </figure>
-            </sidebyside>
-
-            <sidebyside>
-                <figure>
-                    <caption>OR gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-OR.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-OR.ptx" />
-                </figure>
-                <figure>
-                    <caption>XOR gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-XOR.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-XOR.ptx" />
-                </figure>
-            </sidebyside>
-
-            <sidebyside>
-                <figure>
                     <caption>NOT gate</caption>
                     <image><latex-image>
                         <xi:include parse="text" href="./figures/circuit-digital-NOT.tex" />
                     </latex-image></image>            
                     <xi:include href="./tables/tbl-digital-NOT.ptx" />
+                </figure>
+            </sidebyside>
+
+            <sidebyside>
+                <figure>
+                    <caption>AND gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-AND.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-AND.ptx" />
                 </figure>
                 <figure>
                     <caption>NAND gate</caption>
@@ -60,11 +43,28 @@
 
             <sidebyside>
                 <figure>
+                    <caption>OR gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-OR.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-OR.ptx" />
+                </figure>
+                <figure>
                     <caption>NOR gate</caption>
                     <image><latex-image>
                         <xi:include parse="text" href="./figures/circuit-digital-NOR.tex" />
                     </latex-image></image>            
                     <xi:include href="./tables/tbl-digital-NOR.ptx" />
+                </figure>
+            </sidebyside>
+
+            <sidebyside>
+                <figure>
+                    <caption>XOR gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-XOR.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-XOR.ptx" />
                 </figure>
                 <figure>
                     <caption>XNOR gate</caption>
@@ -78,7 +78,7 @@
     </figure>
     </p>
     <p>
-        Take note of the symbols used to represent logic functions in our expressions for <m>Y</m> above: the dot <sq><m>\cdot</m></sq> represents AND, <sq><m>+</m></sq> represents OR, <sq><m>\oplus</m></sq> represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss <term>Boolean algebra</term> in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <xref ref="fig-digital-negate-port"/>.
+        Take note of the symbols used to represent logic functions in our expressions for output <m>Y</m> above: the dot <sq><m>\cdot</m></sq> represents AND, <sq><m>+</m></sq> represents OR, <sq><m>\oplus</m></sq> represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss <term>Boolean algebra</term> in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <xref ref="fig-digital-negate-port"/>.
         <figure xml:id="fig-digital-negate-port">
             <caption>A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs <m>A</m> and <m>\overline{B}</m>.</caption>
             <sidebyside>
@@ -89,7 +89,50 @@
             </sidebyside>
         </figure>
     </p>
+    <p>
+        Two of the gate types shown in <xref ref="fig-digital-symbols-tables"/> hold special prominence. The NAND and NOR gates are known as <term>universal gates</term>, which means that the behavior of any logic function (Buffer, NOT, AND, OR, XOR, NAND, NOR, or XNOR) can be reproduced using a combination of several universal gates of a single type. For example, XNOR functionality can be reproduced solely using NAND gates that are connected together properly. This property causes universal gates to be very popular in circuit design as it allows manufacturers to minimize the number of gate types used in a circuit which can often result in a reduction in manufacturing costs.
+    </p>
+    <example xml:id="ex-digital-NOT-from-NAND"> 
+        <title>Creating a NOT gate using only NAND gates</title>
+        <statement>
+            <p>
+                Use truth tables to show that NOT functionality can be replicated by the circuit shown in <xref ref="circuit-digital-NOT-from-NAND"/> which uses only one NAND gate.
+                <figure xml:id="circuit-digital-NOT-from-NAND">
+                    <caption>NAND circuit providing NOT functionality.</caption>
+                    <image width="50%"><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-NOT-from-NAND.tex" />
+                    </latex-image></image>
+                </figure>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The NAND truth table can be used, letting <m>B=A</m>, to show
+                <xi:include href="./tables/tbl-digital-NOT-from-NAND.ptx" /> 
+                which is identical to the NOT truth table.
+            </p>
+        </solution>
+    </example>
 
-    
-
+    <example> 
+        <title>Creating an AND gate using NAND gates</title>
+        <statement>
+            <p>
+                Use truth tables to show that AND functionality can be replicated by the circuit shown in <xref ref="circuit-digital-AND-from-NAND"/> which uses two NAND gates.
+                <figure xml:id="circuit-digital-AND-from-NAND">
+                    <caption>NAND circuit providing AND functionality.</caption>
+                    <image width="50%"><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-AND-from-NAND.tex" />
+                    </latex-image></image>
+                </figure>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                First, note that the right-most NAND gate is in a configuration to replicate the NOT gate according to <xref ref="ex-digital-NOT-from-NAND"/>. Thus, the output <m>Y</m> is just the inverse of the standard NAND output 
+                <xi:include href="./tables/tbl-digital-AND-from-NAND.ptx" /> 
+                which is identical to the AND truth table.
+            </p>
+        </solution>
+    </example>
 </section>

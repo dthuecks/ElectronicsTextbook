@@ -1,0 +1,32 @@
+<tabular halign="center">
+    <row header="yes" bottom="minor" >
+        <cell right="minor"><m>A</m></cell> 
+        <cell right="minor"><m>B</m></cell>
+        <cell right="minor"><m>\overline{A + B}</m></cell>
+        <cell><m>Y=\overline{\overline{A + B}}</m></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell> 
+        <cell>0</cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell>
+        <cell right="minor">1</cell> 
+        <cell>0</cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell>
+        <cell right="minor">1</cell> 
+        <cell>0</cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">1</cell>
+        <cell right="minor">0</cell> 
+        <cell>1</cell>
+    </row>
+</tabular>

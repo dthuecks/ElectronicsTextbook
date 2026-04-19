@@ -1132,7 +1132,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.1",
   "title": "Digital gates and truth tables",
-  "body": " Digital gates and truth tables  Digital circuits are built using a variety of gates that accept digital inputs with values of 0 or 1 and produce a digital output based on a specific gate's operation. We characterize the behavior of digital gates using truth tables . shows the digital gates that will be the building blocks for our digital circuits and the truth tables that describe their behaviors.     Buffer gate         0  0    1  1      AND gate          0  0  0    0  1  0    1  0  0    1  1  1        OR gate          0  0  0    0  1  1    1  0  1    1  1  1      XOR gate          0  0  0    0  1  1    1  0  1    1  1  0        NOT gate         0  1    1  0      NAND gate          0  0  1    0  1  1    1  0  1    1  1  0        NOR gate          0  0  1    0  1  0    1  0  0    1  1  0      XNOR gate          0  0  1    0  1  0    1  0  0    1  1  1         Take note of the symbols used to represent logic functions in our expressions for above: the dot represents AND, represents OR, represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss Boolean algebra in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in .  A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs and .            0  0  1  1    0  1  0  0    1  0  1  1    1  1  0  1       "
+  "body": " Digital gates and truth tables  Digital circuits are built using a variety of gates that accept digital inputs with values of 0 or 1 and produce a digital output based on a specific gate's operation. We characterize the behavior of digital gates using truth tables . shows the digital gates that will be the building blocks for our digital circuits and the truth tables that describe their behaviors.     Buffer gate         0  0    1  1      NOT gate         0  1    1  0        AND gate          0  0  0    0  1  0    1  0  0    1  1  1      NAND gate          0  0  1    0  1  1    1  0  1    1  1  0        OR gate          0  0  0    0  1  1    1  0  1    1  1  1      NOR gate          0  0  1    0  1  0    1  0  0    1  1  0        XOR gate          0  0  0    0  1  1    1  0  1    1  1  0      XNOR gate          0  0  1    0  1  0    1  0  0    1  1  1         Take note of the symbols used to represent logic functions in our expressions for output above: the dot represents AND, represents OR, represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss Boolean algebra in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in .  A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs and .            0  0  1  1    0  1  0  0    1  0  1  1    1  1  0  1       Two of the gate types shown in hold special prominence. The NAND and NOR gates are known as universal gates , which means that the behavior of any logic function (Buffer, NOT, AND, OR, XOR, NAND, NOR, or XNOR) can be reproduced using a combination of several universal gates of a single type. For example, XNOR functionality can be reproduced solely using NAND gates that are connected together properly. This property causes universal gates to be very popular in circuit design as it allows manufacturers to minimize the number of gate types used in a circuit which can often result in a reduction in manufacturing costs.   Creating a NOT gate using only NAND gates   Use truth tables to show that NOT functionality can be replicated by the circuit shown in which uses only one NAND gate.  NAND circuit providing NOT functionality.       The NAND truth table can be used, letting , to show       0  1    1  0   which is identical to the NOT truth table.     Creating an AND gate using NAND gates   Use truth tables to show that AND functionality can be replicated by the circuit shown in which uses two NAND gates.  NAND circuit providing AND functionality.       First, note that the right-most NAND gate is in a configuration to replicate the NOT gate according to . Thus, the output is just the inverse of the standard NAND output         0  0  1  0    0  1  1  0    1  0  1  0    1  1  0  1   which is identical to the AND truth table.    "
 },
 {
   "id": "sec-digital-gates-2",
@@ -1151,6 +1151,60 @@ var ptx_lunr_docs = [
   "number": "",
   "title": "",
   "body": "Boolean algebra "
+},
+{
+  "id": "sec-digital-gates-4",
+  "level": "2",
+  "url": "sec-digital-gates.html#sec-digital-gates-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "universal gates "
+},
+{
+  "id": "ex-digital-NOT-from-NAND",
+  "level": "2",
+  "url": "sec-digital-gates.html#ex-digital-NOT-from-NAND",
+  "type": "Example",
+  "number": "7.1.3",
+  "title": "Creating a NOT gate using only NAND gates.",
+  "body": " Creating a NOT gate using only NAND gates   Use truth tables to show that NOT functionality can be replicated by the circuit shown in which uses only one NAND gate.  NAND circuit providing NOT functionality.       The NAND truth table can be used, letting , to show       0  1    1  0   which is identical to the NOT truth table.   "
+},
+{
+  "id": "sec-digital-gates-6",
+  "level": "2",
+  "url": "sec-digital-gates.html#sec-digital-gates-6",
+  "type": "Example",
+  "number": "7.1.5",
+  "title": "Creating an AND gate using NAND gates.",
+  "body": " Creating an AND gate using NAND gates   Use truth tables to show that AND functionality can be replicated by the circuit shown in which uses two NAND gates.  NAND circuit providing AND functionality.       First, note that the right-most NAND gate is in a configuration to replicate the NOT gate according to . Thus, the output is just the inverse of the standard NAND output         0  0  1  0    0  1  1  0    1  0  1  0    1  1  0  1   which is identical to the AND truth table.   "
+},
+{
+  "id": "sec-digital-boolean",
+  "level": "1",
+  "url": "sec-digital-boolean.html",
+  "type": "Section",
+  "number": "7.2",
+  "title": "Boolean algebra",
+  "body": " Boolean algebra  The analysis of digital circuits and their behaviors can be conducted in two ways: 1) the method of exhaustion, and 2) Boolean algebra. The method of exhaustion is a brute-force method in which each gate in a circuit is evaluated in turn based on the inputs values it receives. We used this method in the previous section as we were evaluating circuits constructed solely with NAND gates. Boolean algebra is a mathematical formalism used for two-state variables and the operations that act on these variables. This formalism allows us to analyze circuits containing multiple gates through equation manipulation.  Boolean algebra, like standard algebra, is governed by rules that determine how mathematical operations interact. The following Boolean identities provide these rules by which we must adhere.  Boolean identities                                                                           "
+},
+{
+  "id": "sec-digital-boolean-2",
+  "level": "2",
+  "url": "sec-digital-boolean.html#sec-digital-boolean-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "method of exhaustion Boolean algebra "
+},
+{
+  "id": "sec-digital-boolean-3-1",
+  "level": "2",
+  "url": "sec-digital-boolean.html#sec-digital-boolean-3-1",
+  "type": "List",
+  "number": "7.2.1",
+  "title": "Boolean identities",
+  "body": " Boolean identities                                                                         "
 },
 {
   "id": "ch-advancedcircuits",

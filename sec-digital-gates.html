@@ -146,7 +146,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-digital.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-digital.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-advancedcircuits.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-digital.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-digital.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-digital-boolean.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -251,7 +251,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-digital.html" class="internal"><span class="codenumber">7</span> <span class="title">Digital Electronics</span></a></div>
-<ul class="structural toc-item-list contains-active"><li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-digital-gates.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Digital gates and truth tables</span></a></div></li></ul>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-digital-gates.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Digital gates and truth tables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-digital-boolean.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Boolean algebra</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-advancedcircuits.html" class="internal"><span class="codenumber">8</span> <span class="title">Advanced Circuits</span></a></div></li>
 </ul>
@@ -349,6 +352,29 @@ eBookConfig.enable_chatcodes =  false;
 <table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=\overline{A}\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+</table>
+<figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NOT gate<div class="autopermalink" data-description="Figure 7.1.1(b)"><a href="#fig-digital-symbols-tables-1-1-2" title="Copy heading and permalink for Figure 7.1.1(b)" aria-label="Copy heading and permalink for Figure 7.1.1(b)">🔗</a></div></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sidebyside">
+<div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;grid-template-columns:41.1764705882353% 41.1764705882353%;column-gap:15%;">
+<div class="sbspanel sbspanel--top top" style="">
+<figure class="figure figure-like" id="fig-digital-symbols-tables-1-2-1"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-2-1-2.svg" role="img" class="contained"></div>
+<table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
 <th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(B\)</span></th>
 <th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=A \cdot B\)</span></th>
 </tr>
@@ -373,102 +399,11 @@ eBookConfig.enable_chatcodes =  false;
 <td class="c m b0 r0 l0 t0 lines">1</td>
 </tr>
 </table>
-<figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>AND gate<div class="autopermalink" data-description="Figure 7.1.1(b)"><a href="#fig-digital-symbols-tables-1-1-2" title="Copy heading and permalink for Figure 7.1.1(b)" aria-label="Copy heading and permalink for Figure 7.1.1(b)">🔗</a></div></figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="sidebyside">
-<div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;grid-template-columns:41.1764705882353% 41.1764705882353%;column-gap:15%;">
-<div class="sbspanel sbspanel--top top" style="">
-<figure class="figure figure-like" id="fig-digital-symbols-tables-1-2-1"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-2-1-2.svg" role="img" class="contained"></div>
-<table class="tabular">
-<tr class="header-horizontal">
-<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
-<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(B\)</span></th>
-<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=A + B\)</span></th>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r0 l0 t0 lines">0</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r0 l0 t0 lines">1</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r0 l0 t0 lines">1</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r0 l0 t0 lines">1</td>
-</tr>
-</table>
-<figcaption><span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>OR gate<div class="autopermalink" data-description="Figure 7.1.1(c)"><a href="#fig-digital-symbols-tables-1-2-1" title="Copy heading and permalink for Figure 7.1.1(c)" aria-label="Copy heading and permalink for Figure 7.1.1(c)">🔗</a></div></figcaption>
+<figcaption><span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>AND gate<div class="autopermalink" data-description="Figure 7.1.1(c)"><a href="#fig-digital-symbols-tables-1-2-1" title="Copy heading and permalink for Figure 7.1.1(c)" aria-label="Copy heading and permalink for Figure 7.1.1(c)">🔗</a></div></figcaption>
 </figure>
 </div>
 <div class="sbspanel sbspanel--top top" style="">
 <figure class="figure figure-like" id="fig-digital-symbols-tables-1-2-2"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-2-2-2.svg" role="img" class="contained"></div>
-<table class="tabular">
-<tr class="header-horizontal">
-<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
-<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(B\)</span></th>
-<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=A \oplus B\)</span></th>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r0 l0 t0 lines">0</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r0 l0 t0 lines">1</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r0 l0 t0 lines">1</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r0 l0 t0 lines">0</td>
-</tr>
-</table>
-<figcaption><span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>XOR gate<div class="autopermalink" data-description="Figure 7.1.1(d)"><a href="#fig-digital-symbols-tables-1-2-2" title="Copy heading and permalink for Figure 7.1.1(d)" aria-label="Copy heading and permalink for Figure 7.1.1(d)">🔗</a></div></figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="sidebyside">
-<div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;grid-template-columns:41.1764705882353% 41.1764705882353%;column-gap:15%;">
-<div class="sbspanel sbspanel--top top" style="">
-<figure class="figure figure-like" id="fig-digital-symbols-tables-1-3-1"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-3-1-2.svg" role="img" class="contained"></div>
-<table class="tabular">
-<tr class="header-horizontal">
-<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
-<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=\overline{A}\)</span></th>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">0</td>
-<td class="c m b0 r0 l0 t0 lines">1</td>
-</tr>
-<tr>
-<td class="c m b0 r1 l0 t0 lines">1</td>
-<td class="c m b0 r0 l0 t0 lines">0</td>
-</tr>
-</table>
-<figcaption><span class="codenumber">(e)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NOT gate<div class="autopermalink" data-description="Figure 7.1.1(e)"><a href="#fig-digital-symbols-tables-1-3-1" title="Copy heading and permalink for Figure 7.1.1(e)" aria-label="Copy heading and permalink for Figure 7.1.1(e)">🔗</a></div></figcaption>
-</figure>
-</div>
-<div class="sbspanel sbspanel--top top" style="">
-<figure class="figure figure-like" id="fig-digital-symbols-tables-1-3-2"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-3-2-2.svg" role="img" class="contained"></div>
 <table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
@@ -496,7 +431,7 @@ eBookConfig.enable_chatcodes =  false;
 <td class="c m b0 r0 l0 t0 lines">0</td>
 </tr>
 </table>
-<figcaption><span class="codenumber">(f)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NAND gate<div class="autopermalink" data-description="Figure 7.1.1(f)"><a href="#fig-digital-symbols-tables-1-3-2" title="Copy heading and permalink for Figure 7.1.1(f)" aria-label="Copy heading and permalink for Figure 7.1.1(f)">🔗</a></div></figcaption>
+<figcaption><span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NAND gate<div class="autopermalink" data-description="Figure 7.1.1(d)"><a href="#fig-digital-symbols-tables-1-2-2" title="Copy heading and permalink for Figure 7.1.1(d)" aria-label="Copy heading and permalink for Figure 7.1.1(d)">🔗</a></div></figcaption>
 </figure>
 </div>
 </div>
@@ -504,7 +439,39 @@ eBookConfig.enable_chatcodes =  false;
 <div class="sidebyside">
 <div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;grid-template-columns:41.1764705882353% 41.1764705882353%;column-gap:15%;">
 <div class="sbspanel sbspanel--top top" style="">
-<figure class="figure figure-like" id="fig-digital-symbols-tables-1-4-1"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-4-1-2.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="fig-digital-symbols-tables-1-3-1"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-3-1-2.svg" role="img" class="contained"></div>
+<table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(B\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=A + B\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+</table>
+<figcaption><span class="codenumber">(e)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>OR gate<div class="autopermalink" data-description="Figure 7.1.1(e)"><a href="#fig-digital-symbols-tables-1-3-1" title="Copy heading and permalink for Figure 7.1.1(e)" aria-label="Copy heading and permalink for Figure 7.1.1(e)">🔗</a></div></figcaption>
+</figure>
+</div>
+<div class="sbspanel sbspanel--top top" style="">
+<figure class="figure figure-like" id="fig-digital-symbols-tables-1-3-2"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-3-2-2.svg" role="img" class="contained"></div>
 <table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
@@ -532,7 +499,43 @@ eBookConfig.enable_chatcodes =  false;
 <td class="c m b0 r0 l0 t0 lines">0</td>
 </tr>
 </table>
-<figcaption><span class="codenumber">(g)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NOR gate<div class="autopermalink" data-description="Figure 7.1.1(g)"><a href="#fig-digital-symbols-tables-1-4-1" title="Copy heading and permalink for Figure 7.1.1(g)" aria-label="Copy heading and permalink for Figure 7.1.1(g)">🔗</a></div></figcaption>
+<figcaption><span class="codenumber">(f)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NOR gate<div class="autopermalink" data-description="Figure 7.1.1(f)"><a href="#fig-digital-symbols-tables-1-3-2" title="Copy heading and permalink for Figure 7.1.1(f)" aria-label="Copy heading and permalink for Figure 7.1.1(f)">🔗</a></div></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sidebyside">
+<div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;grid-template-columns:41.1764705882353% 41.1764705882353%;column-gap:15%;">
+<div class="sbspanel sbspanel--top top" style="">
+<figure class="figure figure-like" id="fig-digital-symbols-tables-1-4-1"><div class="image-box"><img src="generated/latex-image/fig-digital-symbols-tables-1-4-1-2.svg" role="img" class="contained"></div>
+<table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(B\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=A \oplus B\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+</table>
+<figcaption><span class="codenumber">(g)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>XOR gate<div class="autopermalink" data-description="Figure 7.1.1(g)"><a href="#fig-digital-symbols-tables-1-4-1" title="Copy heading and permalink for Figure 7.1.1(g)" aria-label="Copy heading and permalink for Figure 7.1.1(g)">🔗</a></div></figcaption>
 </figure>
 </div>
 <div class="sbspanel sbspanel--top top" style="">
@@ -573,7 +576,7 @@ eBookConfig.enable_chatcodes =  false;
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 7.1.1"><a href="#fig-digital-symbols-tables" title="Copy heading and permalink for Figure 7.1.1" aria-label="Copy heading and permalink for Figure 7.1.1">🔗</a></div></figcaption>
 </figure><div class="autopermalink" data-description="Paragraph"><a href="#sec-digital-gates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-digital-gates-3">Take note of the symbols used to represent logic functions in our expressions for <span class="process-math">\(Y\)</span> above: the dot ‘<span class="process-math">\(\cdot\)</span>’ represents AND, ‘<span class="process-math">\(+\)</span>’ represents OR, ‘<span class="process-math">\(\oplus\)</span>’ represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss <dfn class="terminology">Boolean algebra</dfn> in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <a href="sec-digital-gates.html#fig-digital-negate-port" class="xref" data-knowl="./knowl/xref/fig-digital-negate-port.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.1.2">Figure 7.1.2</a>. 
+<div class="para" id="sec-digital-gates-3">Take note of the symbols used to represent logic functions in our expressions for output <span class="process-math">\(Y\)</span> above: the dot ‘<span class="process-math">\(\cdot\)</span>’ represents AND, ‘<span class="process-math">\(+\)</span>’ represents OR, ‘<span class="process-math">\(\oplus\)</span>’ represents XOR, and a bar over a symbol represents NOT. These symbols will be used when we discuss <dfn class="terminology">Boolean algebra</dfn> in the next section. Also note how a circle on a gate output on a circuit symbol above results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <a href="sec-digital-gates.html#fig-digital-negate-port" class="xref" data-knowl="./knowl/xref/fig-digital-negate-port.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.1.2">Figure 7.1.2</a>. 
 <figure class="figure figure-like" id="fig-digital-negate-port">
 <div class="sidebyside">
 <div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
@@ -615,11 +618,94 @@ eBookConfig.enable_chatcodes =  false;
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs <span class="process-math">\(A\)</span> and <span class="process-math">\(\overline{B}\text{.}\)</span><div class="autopermalink" data-description="Figure 7.1.2"><a href="#fig-digital-negate-port" title="Copy heading and permalink for Figure 7.1.2" aria-label="Copy heading and permalink for Figure 7.1.2">🔗</a></div></figcaption>
 </figure><div class="autopermalink" data-description="Paragraph"><a href="#sec-digital-gates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section 7.1: Digital gates and truth tables"><a href="#sec-digital-gates" title="Copy heading and permalink for Section 7.1: Digital gates and truth tables" aria-label="Copy heading and permalink for Section 7.1: Digital gates and truth tables">🔗</a></div>
+<div class="para" id="sec-digital-gates-4">Two of the gate types shown in <a href="sec-digital-gates.html#fig-digital-symbols-tables" class="xref" data-knowl="./knowl/xref/fig-digital-symbols-tables.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.1.1">Figure 7.1.1</a> hold special prominence. The NAND and NOR gates are known as <dfn class="terminology">universal gates</dfn>, which means that the behavior of any logic function (Buffer, NOT, AND, OR, XOR, NAND, NOR, or XNOR) can be reproduced using a combination of several universal gates of a single type. For example, XNOR functionality can be reproduced solely using NAND gates that are connected together properly. This property causes universal gates to be very popular in circuit design as it allows manufacturers to minimize the number of gate types used in a circuit which can often result in a reduction in manufacturing costs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-digital-gates-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-digital-NOT-from-NAND" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Creating a NOT gate using only NAND gates.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-digital-NOT-from-NAND-2-1">Use truth tables to show that NOT functionality can be replicated by the circuit shown in <a href="sec-digital-gates.html#circuit-digital-NOT-from-NAND" class="xref" data-knowl="./knowl/xref/circuit-digital-NOT-from-NAND.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.1.4">Figure 7.1.4</a> which uses only one NAND gate. 
+<figure class="figure figure-like" id="circuit-digital-NOT-from-NAND"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-digital-NOT-from-NAND-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NAND circuit providing NOT functionality.<div class="autopermalink" data-description="Figure 7.1.4"><a href="#circuit-digital-NOT-from-NAND" title="Copy heading and permalink for Figure 7.1.4" aria-label="Copy heading and permalink for Figure 7.1.4">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Paragraph"><a href="#ex-digital-NOT-from-NAND-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-digital-NOT-from-NAND-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-digital-NOT-from-NAND-3-1">The NAND truth table can be used, letting <span class="process-math">\(B=A\text{,}\)</span> to show <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=\overline{A \cdot A}\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+</table></div> which is identical to the NOT truth table.<div class="autopermalink" data-description="Paragraph"><a href="#ex-digital-NOT-from-NAND-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.1.3.1"><a href="#ex-digital-NOT-from-NAND-3" title="Copy heading and permalink for Solution 7.1.3.1" aria-label="Copy heading and permalink for Solution 7.1.3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 7.1.3: Creating a NOT gate using only NAND gates"><a href="#ex-digital-NOT-from-NAND" title="Copy heading and permalink for Example 7.1.3: Creating a NOT gate using only NAND gates" aria-label="Copy heading and permalink for Example 7.1.3: Creating a NOT gate using only NAND gates">🔗</a></div>
+</article></details>
+<details id="sec-digital-gates-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Creating an AND gate using NAND gates.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="sec-digital-gates-6-2-1">Use truth tables to show that AND functionality can be replicated by the circuit shown in <a href="sec-digital-gates.html#circuit-digital-AND-from-NAND" class="xref" data-knowl="./knowl/xref/circuit-digital-AND-from-NAND.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.1.6">Figure 7.1.6</a> which uses two NAND gates. 
+<figure class="figure figure-like" id="circuit-digital-AND-from-NAND"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-digital-AND-from-NAND-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>NAND circuit providing AND functionality.<div class="autopermalink" data-description="Figure 7.1.6"><a href="#circuit-digital-AND-from-NAND" title="Copy heading and permalink for Figure 7.1.6" aria-label="Copy heading and permalink for Figure 7.1.6">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Paragraph"><a href="#sec-digital-gates-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sec-digital-gates-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="sec-digital-gates-6-3-1">First, note that the right-most NAND gate is in a configuration to replicate the NOT gate according to <a href="sec-digital-gates.html#ex-digital-NOT-from-NAND" class="xref" data-knowl="./knowl/xref/ex-digital-NOT-from-NAND.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.3: Creating a NOT gate using only NAND gates">Example 7.1.3</a>. Thus, the output <span class="process-math">\(Y\)</span> is just the inverse of the standard NAND output <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(A\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(B\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\overline{A + B}\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(Y=\overline{\overline{A + B}}\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r1 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+</table></div> which is identical to the AND truth table.<div class="autopermalink" data-description="Paragraph"><a href="#sec-digital-gates-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.1.5.1"><a href="#sec-digital-gates-6-3" title="Copy heading and permalink for Solution 7.1.5.1" aria-label="Copy heading and permalink for Solution 7.1.5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 7.1.5: Creating an AND gate using NAND gates"><a href="#sec-digital-gates-6" title="Copy heading and permalink for Example 7.1.5: Creating an AND gate using NAND gates" aria-label="Copy heading and permalink for Example 7.1.5: Creating an AND gate using NAND gates">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section 7.1: Digital gates and truth tables"><a href="#sec-digital-gates" title="Copy heading and permalink for Section 7.1: Digital gates and truth tables" aria-label="Copy heading and permalink for Section 7.1: Digital gates and truth tables">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="ch-digital.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-advancedcircuits.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch-digital.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-digital-boolean.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

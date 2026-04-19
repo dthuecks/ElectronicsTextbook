@@ -1,0 +1,10 @@
+\begin{circuitikz}
+    \draw (0,0)         node[nand port , number inputs=2] (nand2) {}
+    (nand2.in 1)        to[short] (nand2.in 2)
+    (nand2.out)         node[right]{Y};
+    \coordinate (tmp)   at ($(nand2.in 1)!0.5!(nand2.in 2)$);
+    \draw (tmp)         to[short, *-] ++(-0.5,0) coordinate(tmp);
+    \draw (tmp)         node[nand port, number inputs=2, anchor=out] (nand1) {}
+    (nand1.in 1)        node[left]{A}
+    (nand1.in 2)        node[left]{B};
+\end{circuitikz}

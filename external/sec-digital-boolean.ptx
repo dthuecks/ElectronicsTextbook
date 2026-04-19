@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-digital-boolean" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Boolean algebra</title>
+    <p>
+        The analysis of digital circuits and their behaviors can be conducted in two ways: 1) the method of exhaustion, and 2) Boolean algebra. The <term>method of exhaustion</term> is a brute-force method in which each gate in a circuit is evaluated in turn based on the inputs values it receives. We used this method in the previous section as we were evaluating circuits constructed solely with NAND gates. <term>Boolean algebra</term> is a mathematical formalism used for two-state variables and the operations that act on these variables. This formalism allows us to analyze circuits containing multiple gates through equation manipulation.
+    </p>
+    <p>
+        Boolean algebra, like standard algebra, is governed by rules that determine how mathematical operations interact. The following Boolean identities provide these rules by which we must adhere.
+        <list>
+            <title>Boolean identities</title>
+            
+            
+            <ol cols="1">
+                <li>
+                    <m>A+B = B+A</m>
+                </li>
+                <li>
+                    <m>A \cdot B = B \cdot A</m>
+                </li>
+                <li>
+                    <m> A+(B+C) = (A+B) + C</m>
+                </li>
+                <li>
+                    <m>A\cdot(B\cdot C) = (A\cdot B)\cdot C </m>
+                </li>
+                <li>
+                    <m>A\cdot(B+C) = A\cdot B + A\cdot C </m>
+                </li>
+                <li>
+                    <m>(A+B)\cdot(C+D) = A\cdot C + A\cdot D + B\cdot C + B\cdot D </m>
+                </li>
+                <li>
+                    <m>\overline{1}=0 </m>
+                </li>
+                <li>
+                    <m>\overline{0}=1 </m>
+                </li>
+                <li>
+                    <m>A\cdot 0 = 0 </m>
+                </li>
+                <li>
+                    <m>A\cdot 1 = A </m>
+                </li>
+                <li>
+                    <m>A + 0 = A </m>
+                </li>
+                <li>
+                    <m>A + 1 = 1 </m>
+                </li>
+                <li>
+                    <m>A + A = A </m>
+                </li>
+                <li>
+                    <m>A \cdot A = A </m>
+                </li>
+                <li>
+                    <m>\overline{\overline{A}} = A </m>
+                </li>
+                <li>
+                    <m>A + \overline{A} = 1 </m>
+                </li>
+                <li>
+                    <m>A \cdot \overline{A} = 0 </m>
+                </li>
+                <li>
+                    <m>\overline{A + B} = \overline{A} \cdot \overline{B} </m>
+                </li>
+                <li>
+                    <m>\overline{A\cdot B} = \overline{A} + \overline{B} </m>
+                </li>
+                <li>
+                    <m>A + \overline{A}\cdot B = A+B </m>
+                </li>
+                <li>
+                    <m>\overline{A}+A\cdot B = \overline{A} + B </m>
+                </li>
+                <li>
+                    <m>A \oplus B = \overline{A}\cdot B + A\cdot\overline{B} = (A+B)\cdot(\overline{A\cdot B}) </m>
+                </li>
+                <li>
+                    <m>\overline{A\oplus B} = A\cdot B + \overline{A}\cdot\overline{B} </m>
+                </li>
+            </ol>
+        </list>
+    </p>
+
+    
+
+</section>
