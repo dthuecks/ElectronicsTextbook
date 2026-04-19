@@ -1,0 +1,7 @@
+\begin{circuitikz}
+    \draw (0,0)     node[xor port , number inputs=2] (gate) {}
+    (gate.in 1)     node[left]{A}
+    (gate.in 2)     node[left]{B}
+    (gate.out)      node[right]{Y};
+    \node at (gate.bin 2) [ocirc, left]{};
+\end{circuitikz}

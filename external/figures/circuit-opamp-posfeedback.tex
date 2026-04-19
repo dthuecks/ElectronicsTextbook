@@ -2,7 +2,7 @@
     \draw (0,0)     node[op amp] (opamp) {}
     (opamp.-)       to[short, -o] ++ (-1,0)
                     node[left] {$V_\text{in}$}
-    (opamp.+)       to[short, *-] ++(0,-1) coordinate(tmp)
+    (opamp.+)       to[short] ++(0,-1) coordinate(tmp)
                     -- (tmp -| opamp.out)
                     to[short, -*] (opamp.out)
     (opamp.out)     to[short,-o] ++(1,0)

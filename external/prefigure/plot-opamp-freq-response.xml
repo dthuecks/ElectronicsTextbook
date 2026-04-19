@@ -14,6 +14,15 @@
     
     <graph at="open" function="G0" domain="(0.1,3e6)" stroke="green" />
     <graph at="neg" function="G1" domain="(0.1,3e6)" stroke="blue" dash="4 2"/>
+    <line endpoints="((f0,10^(-6)),(f0,10^(6)))" stroke="black" dash="2 2" infinite="yes"/>
+    <line endpoints="((f1,10^(-6)),(f1,10^(6)))" stroke="black" dash="2 2" infinite="yes"/>
+    <label anchor="(f0,10^3)" alignment="east">
+      <m>f_0</m>
+    </label>
+    <label anchor="(f1,10^3)" alignment="east">
+      <m>f_1</m>
+    </label>
+
     <legend anchor="(3*10^6, 10^7)"
             alignment="sw" opacity="0.9"
             scale="0.9" vertical-skip="10">

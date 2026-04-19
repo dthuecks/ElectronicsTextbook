@@ -1,0 +1,26 @@
+<tabular halign="center">
+    <row header="yes" bottom="minor" >
+        <cell right="minor"><m>A</m></cell> 
+        <cell right="minor"><m>B</m></cell> 
+        <cell><m>Y</m></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">0</cell> 
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell>
+        <cell></cell>
+    </row><row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">1</cell>
+        <cell></cell>
+    </row>
+</tabular>

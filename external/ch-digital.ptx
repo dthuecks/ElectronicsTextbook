@@ -2,7 +2,12 @@
 
 <chapter xml:id="ch-digital" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Digital Electronics</title>
+  <introduction>
+    <p>
+          
+    </p>
+  </introduction>  
 
-    
+  <xi:include href="./sec-digital-gates.ptx" />
 
 </chapter>

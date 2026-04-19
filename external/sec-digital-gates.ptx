@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-digital-gates" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Digital gates and truth tables</title>
+
+    <p>
+        Digital circuits are built using a variety of <term>gates</term> that accept digital inputs with values of 0 or 1 and produce a digital output based on a specific gate's operation. We characterize the behavior of digital gates using <term>truth tables</term>. <xref ref="fig-digital-symbols-tables"/> shows the digital gates that will be the building blocks for our digital circuits and the truth tables that describe their behaviors.
+        <figure xml:id="fig-digital-symbols-tables">
+        <sbsgroup widths="35% 35%" >
+            <sidebyside>
+                <figure>
+                    <caption>Buffer gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-buffer.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-buffer.ptx" />
+                </figure>
+                <figure>
+                    <caption>AND gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-AND.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-AND.ptx" />
+                </figure>
+            </sidebyside>
+
+            <sidebyside>
+                <figure>
+                    <caption>OR gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-OR.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-OR.ptx" />
+                </figure>
+                <figure>
+                    <caption>XOR gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-XOR.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-XOR.ptx" />
+                </figure>
+            </sidebyside>
+
+            <sidebyside>
+                <figure>
+                    <caption>NOT gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-NOT.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-NOT.ptx" />
+                </figure>
+                <figure>
+                    <caption>NAND gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-NAND.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-NAND.ptx" />
+                </figure>
+            </sidebyside>
+
+            <sidebyside>
+                <figure>
+                    <caption>NOR gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-NOR.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-NOR.ptx" />
+                </figure>
+                <figure>
+                    <caption>XNOR gate</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-XNOR.tex" />
+                    </latex-image></image>            
+                    <xi:include href="./tables/tbl-digital-XNOR.ptx" />
+                </figure>
+            </sidebyside>
+        </sbsgroup>
+    </figure>
+    </p>
+    <p>
+        Note in <xref ref="fig-digital-symbols-tables"/> how a circle on a gate output results in the inversion of the original gate output. This circle symbol can be thought of as shorthand for the placement of a NOT gate, and this functionality can be used on any gate port as seen in <xref ref="fig-digital-negate-port"/>.
+        <figure xml:id="fig-digital-negate-port">
+            <caption>A demonstration showing use of a circle symbol in place of a NOT gate for an OR gate input. This gate operates as a standard OR gate for inputs <m>A</m> and <m>\overline{B}</m>.</caption>
+            <sidebyside>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-digital-or-mod.tex" />
+                </latex-image></image>
+                <xi:include href="./tables/tbl-digital-OR-mod.ptx" />
+            </sidebyside>
+        </figure>
+    </p>
+
+    
+
+</section>
