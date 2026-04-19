@@ -1,0 +1,53 @@
+<diagram dimensions="(350,200)" margins="(40,30,5,8)" xmlns="https://prefigure.org">
+  <read name="data_pos" filename="data-opamp-schmitt-trigger-pos.csv" delimiter=','/>  
+  <definition>tp=data_pos['t']</definition>
+  <definition>Vinp=data_pos['Vin']</definition>
+  <definition>Voutp=data_pos['Vout']</definition>
+  <definition>plot_pos = zip_lists(Vinp,Voutp)</definition>
+
+  <read name="data_neg" filename="data-opamp-schmitt-trigger-neg.csv" delimiter=','/>  
+  <definition>tn=data_neg['t']</definition>
+  <definition>Vinn=data_neg['Vin']</definition>
+  <definition>Voutn=data_neg['Vout']</definition>
+  <definition>plot_neg = zip_lists(Vinn,Voutn)</definition>
+
+  <definition> VT = 0.5 </definition>
+
+  <coordinates bbox="(-2.5,-6,3,6)">
+    <axes decorations="no" arrows="1" h-frame="bottom" v-frame="left">
+      <xlabel alignment="nw"><m>V_\text{in}</m></xlabel>
+      <ylabel alignment="e"><m>V_\text{out}</m></ylabel>
+    </axes>          
+    <tick-mark location="-5" axis="vertical">
+      <m>-V_{S}</m>
+    </tick-mark>
+    <tick-mark location="5" axis="vertical">
+      <m>V_{S}</m>
+    </tick-mark><tick-mark location="0" axis="vertical">
+      <m>0</m>
+    </tick-mark>
+    
+    <tick-mark location="-2" axis="horizontal">
+      <m>-V_\text{in,0}</m>
+    </tick-mark>
+    <tick-mark location="2" axis="horizontal">
+      <m>V_\text{in,0}</m>
+    </tick-mark>
+    <tick-mark location="-VT" axis="horizontal">
+      <m>-V_T</m>
+    </tick-mark>
+    <tick-mark location="VT" axis="horizontal">
+      <m>V_T</m>
+    </tick-mark>
+    <polygon at="p" points="plot_pos" stroke="blue"/>
+    <polygon at="n" points="plot_neg" stroke="red" dash="4 4"/>
+    <line endpoints="((bbox[0],0),(bbox[2],0))" stroke="black"/>
+    <legend anchor="(3,-4)"
+            alignment="nw" opacity="0.9"
+            scale="0.9" vertical-skip="10">
+      <item ref="p"><m>V_\text{out} = +V_S</m></item>
+      <item ref="n"><m>V_\text{out} = -V_S </m></item>
+    </legend>
+      
+  </coordinates>     
+</diagram>

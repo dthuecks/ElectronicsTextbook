@@ -36,10 +36,27 @@
         <md>
             V_\text{in} = -\frac{R_1}{R_2} V_\text{out}
         </md>.
-        So, if <m>V_\text{out}=+V_S</m> initially, then the output state will only change once <m>V_\text{in}</m> crosses <m>-\frac{R_1}{R_2} V_S</m> from above. Likewise, if in some second time period we find <m>V_\text{out}=-V_S</m> initially, the output state will only change once <m>V_\text{in}</m> crosses <m>\frac{R_1}{R_2} V_S</m> from below.
-        
+        So, if <m>V_\text{out}=+V_S</m> initially, then the output state will only change once <m>V_\text{in}</m> crosses the threshold voltage <m> -\frac{R_1}{R_2} V_S = -V_T</m>. Likewise, if in some second time period we find <m>V_\text{out}=-V_S</m> initially, the output state will only change once <m>V_\text{in}</m> crosses the threshold voltage <m> + \frac{R_1}{R_2} V_S = +V_T</m>. Combined, <m>V_\text{out}</m> changes from <m>\mp V_S \rightarrow \pm V_S</m> when <m>V_\text{in}=\pm V_T</m>
     </p>
     <p>
-        [INCLUDE PLOTS]
+        <figure xml:id="plot-opamp-schmitt-trigger">
+            <caption>This plot shows the response of <m>V_\text{out}</m> based on when <m>V_\text{in}</m> satisfies the necessary condition related to the threshold voltages <m>\pm V_T</m>.</caption>
+            <image width="70%">
+                <shortdescription></shortdescription>
+                <prefigure xmlns="https://prefigure.org" label="plot-opamp-schmitt-trigger-img">
+                    <xi:include href="./prefigure/plot-opamp-schmitt-trigger.xml" />
+                </prefigure>
+            </image>
+        </figure>
+
+        <figure xml:id="plot-opamp-hysteresis">
+            <caption>The hysteresis associated with the Schmitt trigger is demonstrated more clearly in a plot of <m>V_\text{out}</m> vs <m>V_\text{in}</m>. The value of <m>V_\text{out}</m> in the region <m>-V_T \lt V_\text{in} \lt +V_T</m> is dependent on the output state at the previous time point.</caption>
+            <image width="70%">
+                <shortdescription></shortdescription>
+                <prefigure xmlns="https://prefigure.org" label="plot-opamp-hysteresis-img">
+                    <xi:include href="./prefigure/plot-opamp-hysteresis.xml" />
+                </prefigure>
+            </image>
+        </figure>
     </p>
 </section>

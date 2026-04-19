@@ -3,7 +3,7 @@
     (opamp.+)       to[short, -o] ++(-1,0)
                     node[left]{$V_\text{in}$}
     (opamp.-)       to[short] ++(-.5,0)
-                    to[short, *-*] ++(0,-1) coordinate(tmp)
+                    to[short, -*] ++(0,-1) coordinate(tmp)
                     to[R, l_=$R_2$, i<^=$I_2$] (tmp -| opamp.out)
                     to[short, -*] (opamp.out)
     (tmp)           to[R, l_=$R_1$, i_>=$I_1$] ++ (0,-2)
