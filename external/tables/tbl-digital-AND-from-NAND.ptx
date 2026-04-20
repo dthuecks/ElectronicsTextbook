@@ -2,8 +2,8 @@
     <row header="yes" bottom="minor" >
         <cell right="minor"><m>A</m></cell> 
         <cell right="minor"><m>B</m></cell>
-        <cell right="minor"><m>\overline{A + B}</m></cell>
-        <cell><m>Y=\overline{\overline{A + B}}</m></cell>
+        <cell right="minor"><m>\overline{A \cdot B}</m></cell>
+        <cell><m>Y=\overline{\overline{A \cdot B}}</m></cell>
     </row>
     <row>
         <cell right="minor">0</cell> 
