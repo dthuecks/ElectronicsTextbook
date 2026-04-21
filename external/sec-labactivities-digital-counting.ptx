@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-labactivities-digital-adder" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Lab: Digital Circuits - 4-Bit Adder</title>
+
+    <p> 
+        <alert>Objective:</alert> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exercise. Consider the following questions:
+        <ul>
+            <li>
+                <p>
+                    What kind of circuit(s) or components are you exploring?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What is new about this circuit as compared to circuits previously studied? 
+                </p>
+            </li>
+            <li>
+                <p>
+                    What theoretical predictions do you have regarding circuit behavior?
+                </p>
+            </li>
+            <li>
+                <p>
+                    What effects do you expect to observe?
+                </p>
+            </li>
+        </ul>
+         Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.
+    </p>
+    <p>
+        <alert>Equipment:</alert> Proto-board, 74LS00 Quad 2-Input NAND Gates, 74LS86 Quad 2-Input XOR Gates.
+    </p>
+    
+    <paragraphs>
+        <title>Introduction and theory</title>
+        <p></p>
+        <p>
+            Today we will be looking at an example where we use a digital circuit for computation. While the circuit we examine will be far from our advanced modern computing capabilities, it nonetheless provides insight into some of the foundational building blocks that computing is built upon. We will be using two chips in this circuit, each containing either four NAND gates or four XOR gates. The 74LS00 and 74LS86 pinouts are provided in <xref ref="img-labactivities-digital-adder-pinouts"/>.
+            <figure xml:id="img-labactivities-digital-adder-pinouts">
+                <caption></caption>
+                <image source="images/74LS00-series-pinouts.jpg">
+                    <shortdescription>(for accessibility)</shortdescription>
+                </image>
+            </figure>
+        </p>
+        <p>
+            Digital computation uses the binary, or base-2, number system. In the binary number system, we will refer to <term>bits</term> rather than the <term>digits</term> used in a base-10 system. Each digit in a base-10 number can take on any one of 10 values (0-9) which is then multiplied by <m>10^n</m> where <m>n</m> is the number of digits to the left of the decimal point. For example, base-10 number 1092 can be understood as <m>1\times 10^3 + 0\times 10^2 + 9\times 10^1 + 2\times 10^0</m>. Likewise, each bit in a binary number can take on one of two possible values (0 and 1) with these values multiplying a power of 2. So, the binary number 1011 can be understood as <m>1\times 2^3 + 0\times 2^2 + 1\times 2^1 + 1\times 2^0</m>. This means that the binary number 1011 represents 11 in base-10.
+        </p>
+        <p>
+            The circuit we'll be examining today is called the digital full-adder. 
+            <figure xml:id="circuit-labactivities-digital-full-adder">
+                <caption>Circuit schematic for the full-adder circuit. <alert>Note:</alert> Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present. </caption>
+                <image width="70%"><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-labactivities-digital-full-adder.tex" />
+                </latex-image></image>
+            </figure>
+            On its own, the full-adder can be used to add two 1-bit numbers represented by <m>A_n</m> and <m>B_n</m>, providing resulting <sq>S</sq>um <m>S_n</m>. If both <m>A_n</m> and <m>B_n</m> are equal to 1, the sum should be equal to 2, but the number 2 is not an allowed value for a bit. So, <m>S_n</m> will be 1 and we will track the extra that doesn't fit in <m>S_n</m> and place the leftover 1 into the <sq>C</sq>arry output <m>C_{n}</m>. This <m>C_n</m> result gets carried over into the next higher bit.
+        </p>
+        <p>
+            Calculations with larger numbers can be completed using multiple full-adders chained together. The circuit in <xref ref="circuit-labactivities-digital-3bit-addition"/> accepts two 3-bit numbers as inputs and provides an output that is a 4-bit number 
+            <md>
+                \underline{A_2}\ \underline{A_1}\ \underline{A_0} + \underline{B_2}\ \underline{B_1}\ \underline{B_0} = 
+                \underline{C_2}\ \underline{S_2}\ \underline{S_1}\ \underline{S_0}
+            </md>.
+            <figure xml:id="circuit-labactivities-digital-3bit-addition">
+                <caption>Circuit schematic for the full-adder circuit. <alert>Note:</alert> Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present. </caption>
+                <image width="90%"><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-labactivities-digital-3bit-addition.tex" />
+                </latex-image></image>
+            </figure>
+        </p>
+    </paragraphs>
+
+    <paragraphs>
+        <title>Experiment: Build and test a full-adder logic circuit</title>
+        <p></p>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        Build a full-adder using three NAND gates and two XOR gates as shown in <xref ref="circuit-labactivities-digital-full-adder"/>. Here are a few tips to help you design the circuit layout on the prototyping board:
+                        <ul>
+                            <li>
+                                <p>
+                                    Place the 74LS00 and 74LS86 chips across the central vertical gap with a 4-6 row vertical gap between them. The 74LS86 should be above the 74LS00. This may have already been completed by your instructor.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Counting from the left side of the prototyping board, connect the sixth vertical distribution strip (column of vertically-connected holes) to ground and connect the seventh vertical distribution strip to +5 Volts.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Connect each of the third, fourth, and fifth vertical distribution strips to a separate logic switch (labeled <m>S_1</m> through <m>S_8</m>). <alert>Note:</alert> Ensure that the +5 option is selected (rather than the +V option) in the Logic Switch section of the prototyping board. You will use switch <m>S_1</m> for input <m>A_n</m>, <m>S_2</m> for input <m>B_n</m>, and <m>S_3</m> for input <m>C_{n-1}</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Use XOR gates 1 and 2 on the 74LS86 chip. Use NAND gates 1, 2, and 3 on the 74LS00 for the three NAND gates in order from left to right as they appear in <xref ref="circuit-labactivities-digital-full-adder"/>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Connect your <m>S_n</m> and <m>C_n</m> outputs to pins 1 and 2 in the Logic Indicators section of the prototyping board. Ensure that the +5 and CMOS options are selected with the switches in this section.
+                                </p>
+                            </li>
+                        </ul>   
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Set all circuit inputs to 0 with the logic switches and turn on the board. You should see the first two LOW (green) LEDs light up indicating that outputs <m>S_n</m> and <m>C_n</m> are 0 (LOW) when all inputs are low.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Proceed to test all possible input combinations and record the output values, recording your results in the following truth table.
+                        <xi:include href="./tables/tbl-labactivities-digital-adder.ptx" />
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Confirm with your instructor that your circuit is working properly.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </paragraphs>
+
+    <paragraphs>
+        <title>Experiment: Add two 4-bit numbers</title>
+        <p></p>
+        <p>
+            Combine the full-adders from multiple groups into a circuit that will compute the base-10 sum <m>13+6</m>, providing an answer in binary. Check to make sure that this binary representation converts to the correct base-10 answer. Use <xref ref="circuit-labactivities-digital-3bit-addition"/> as a guide.
+        </p>
+        <p>
+            <alert>Note:</alert> Do <em>NOT</em> disassemble your circuits. I'm asking you to use long wires to connect together circuits from multiple prototyping boards. Your instructor will assist with this process.
+        </p>
+    </paragraphs>
+
+</section>

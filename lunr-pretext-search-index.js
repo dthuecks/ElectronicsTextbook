@@ -1693,6 +1693,51 @@ var ptx_lunr_docs = [
   "body": " Inverting amplifier   "
 },
 {
+  "id": "sec-labactivities-digital-adder",
+  "level": "1",
+  "url": "sec-labactivities-digital-adder.html",
+  "type": "Section",
+  "number": "14.8",
+  "title": "Lab: Digital Circuits - 4-Bit Adder",
+  "body": " Lab: Digital Circuits - 4-Bit Adder   Objective: In your lab notebook, write a few sentences stating your objective in conducting this laboratory exercise. Consider the following questions:   What kind of circuit(s) or components are you exploring?    What is new about this circuit as compared to circuits previously studied?    What theoretical predictions do you have regarding circuit behavior?    What effects do you expect to observe?   Your answers should be specific to the type of circuit you are examining, but do not discuss specific component values.   Equipment: Proto-board, 74LS00 Quad 2-Input NAND Gates, 74LS86 Quad 2-Input XOR Gates.   Introduction and theory   Today we will be looking at an example where we use a digital circuit for computation. While the circuit we examine will be far from our advanced modern computing capabilities, it nonetheless provides insight into some of the foundational building blocks that computing is built upon. We will be using two chips in this circuit, each containing either four NAND gates or four XOR gates. The 74LS00 and 74LS86 pinouts are provided in .    (for accessibility)     Digital computation uses the binary, or base-2, number system. In the binary number system, we will refer to bits rather than the digits used in a base-10 system. Each digit in a base-10 number can take on any one of 10 values (0-9) which is then multiplied by where is the number of digits to the left of the decimal point. For example, base-10 number 1092 can be understood as . Likewise, each bit in a binary number can take on one of two possible values (0 and 1) with these values multiplying a power of 2. So, the binary number 1011 can be understood as . This means that the binary number 1011 represents 11 in base-10.  The circuit we'll be examining today is called the digital full-adder.  Circuit schematic for the full-adder circuit. Note: Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present.   On its own, the full-adder can be used to add two 1-bit numbers represented by and , providing resulting S um . If both and are equal to 1, the sum should be equal to 2, but the number 2 is not an allowed value for a bit. So, will be 1 and we will track the extra that doesn't fit in and place the leftover 1 into the C arry output . This result gets carried over into the next higher bit.  Calculations with larger numbers can be completed using multiple full-adders chained together. The circuit in accepts two 3-bit numbers as inputs and provides an output that is a 4-bit number .  Circuit schematic for the full-adder circuit. Note: Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present.       Experiment: Build and test a full-adder logic circuit      Build a full-adder using three NAND gates and two XOR gates as shown in . Here are a few tips to help you design the circuit layout on the prototyping board:   Place the 74LS00 and 74LS86 chips across the central vertical gap with a 4-6 row vertical gap between them. The 74LS86 should be above the 74LS00. This may have already been completed by your instructor.    Counting from the left side of the prototyping board, connect the sixth vertical distribution strip (column of vertically-connected holes) to ground and connect the seventh vertical distribution strip to +5 Volts.    Connect each of the third, fourth, and fifth vertical distribution strips to a separate logic switch (labeled through ). Note: Ensure that the +5 option is selected (rather than the +V option) in the Logic Switch section of the prototyping board. You will use switch for input , for input , and for input .    Use XOR gates 1 and 2 on the 74LS86 chip. Use NAND gates 1, 2, and 3 on the 74LS00 for the three NAND gates in order from left to right as they appear in     Connect your and outputs to pins 1 and 2 in the Logic Indicators section of the prototyping board. Ensure that the +5 and CMOS options are selected with the switches in this section.       Set all circuit inputs to 0 with the logic switches and turn on the board. You should see the first two LOW (green) LEDs light up indicating that outputs and are 0 (LOW) when all inputs are low.    Proceed to test all possible input combinations and record the output values, recording your results in the following truth table.          0  0  0      0  0  1      0  1  0      0  1  1      1  0  0      1  0  1      1  1  0      1  1  1         Confirm with your instructor that your circuit is working properly.       Experiment: Add two 4-bit numbers   Combine the full-adders from multiple groups into a circuit that will compute the base-10 sum , providing an answer in binary. Check to make sure that this binary representation converts to the correct base-10 answer. Use as a guide.   Note: Do NOT disassemble your circuits. I'm asking you to use long wires to connect together circuits from multiple prototyping boards. Your instructor will assist with this process.   "
+},
+{
+  "id": "img-labactivities-digital-adder-pinouts",
+  "level": "2",
+  "url": "sec-labactivities-digital-adder.html#img-labactivities-digital-adder-pinouts",
+  "type": "Figure",
+  "number": "14.8.1",
+  "title": "",
+  "body": "   (for accessibility)   "
+},
+{
+  "id": "sec-labactivities-digital-adder-4-4",
+  "level": "2",
+  "url": "sec-labactivities-digital-adder.html#sec-labactivities-digital-adder-4-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "bits digits "
+},
+{
+  "id": "circuit-labactivities-digital-full-adder",
+  "level": "2",
+  "url": "sec-labactivities-digital-adder.html#circuit-labactivities-digital-full-adder",
+  "type": "Figure",
+  "number": "14.8.2",
+  "title": "",
+  "body": " Circuit schematic for the full-adder circuit. Note: Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present.   "
+},
+{
+  "id": "circuit-labactivities-digital-3bit-addition",
+  "level": "2",
+  "url": "sec-labactivities-digital-adder.html#circuit-labactivities-digital-3bit-addition",
+  "type": "Figure",
+  "number": "14.8.3",
+  "title": "",
+  "body": " Circuit schematic for the full-adder circuit. Note: Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present.   "
+},
+{
   "id": "app-matrices",
   "level": "1",
   "url": "app-matrices.html",

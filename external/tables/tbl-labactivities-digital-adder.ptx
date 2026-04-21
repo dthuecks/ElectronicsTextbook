@@ -1,0 +1,67 @@
+<tabular halign="center">
+    <row header="yes" bottom="minor" >
+        <cell right="minor"><m>A_n</m></cell> 
+        <cell right="minor"><m>B_n</m></cell> 
+        <cell right="minor"><m>C_{n-1}</m></cell> 
+        <cell right="minor"><m>S_n</m></cell> 
+        <cell><m>C_n</m></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor">1</cell> 
+        <cell right="minor"></cell>
+        <cell></cell>
+    </row>
+    
+    
+</tabular>

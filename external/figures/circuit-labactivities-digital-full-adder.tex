@@ -1,0 +1,39 @@
+\begin{circuitikz}
+    % Place two XOR gates and three NAND gates
+    \draw (0,0)     coordinate(x1)
+                    node[xor port , number inputs=2] (xor1) {}
+    ([yshift=-0.5cm] xor1.out)
+                    node[xor port, number inputs=2, anchor=in 1] (xor2) {}
+    ([yshift=-3.5cm] x1) 
+                    node[nand port, number inputs=2] (nand1) {}
+    ([yshift=0.5cm] nand1.in 1 -| xor2.in 1) 
+                    node[nand port, number inputs=2, anchor=in 2] (nand2) {}
+    (nand1.out -| nand2.out)
+                    node[nand port, number inputs=2, anchor=in 2] (nand3) {}
+    
+    % Place full-adder inputs
+    (xor1.in 1)     to[short] ++(-0.5,0) coordinate(j1)
+                    to[short] ++(-0.5,0) coordinate(iA)
+                    node[left] {$A_n$} 
+    (xor1.in 2)     to[short] (\tikztostart -| iA)
+                    node[left] {$B_n$}
+    (xor2.in 2)     to[short] (\tikztostart -| iA)
+                    node[left] {$C_{n-1}$}
+
+    % Place connections between logic gates
+    (xor1.out)      to[short, -*] (xor2.in 1)
+    (j1)            to[short, *-] (j1 |- nand1.in 2)
+                    to[short] (nand1.in 2)
+    (xor1.in 2)     to[short, *-] (nand1.in 1)
+    (xor2.in 1)     to[short] (nand2.in 1)
+    ([xshift=-1cm] xor2.in 1 |- xor2.in 2)
+                    to[short, *-] (\tikztostart |- nand2.in 2)
+                    to[short] (nand2.in 2)
+    (nand1.out)     to[short] (nand3.in 2)
+    (nand2.out)     to[short] (nand3.in 1)
+                    
+    % Place full-adder outputs
+    (nand3.out)     node[right] {$C_n$}
+    (xor2.out)      to[short] (xor2.out -| nand3.out)
+                    node[right] {$S_n$};            
+\end{circuitikz}
