@@ -9,5 +9,7 @@
   </introduction>  
 
   <xi:include href="./sec-digital-gates.ptx" />
+  <xi:include href="./sec-digital-boolean.ptx" />
+
 
 </chapter>

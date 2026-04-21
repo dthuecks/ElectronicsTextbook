@@ -1,0 +1,8 @@
+\begin{circuitikz}
+    \draw (0,0)         node[nand port , number inputs=2] (gate) {}
+    (gate.in 1)         to[short] (gate.in 2)
+    (gate.out)          node[right]{Y};
+    \coordinate (tmp)   at ($(gate.in 1)!0.5!(gate.in 2)$);
+    \draw (tmp)         to[short, *-] ++(-0.5,0)
+                        node[left] {A};
+\end{circuitikz}
