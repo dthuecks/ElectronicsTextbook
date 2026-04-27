@@ -1,0 +1,24 @@
+\begin{circuitikz}
+    \draw (0,0)             node[nand port, number inputs=2](nand1){}
+    ([yshift=-2cm] nand1)   node[nand port, number inputs=2](nand2){}
+    ([xshift=3cm, yshift=-1cm] nand1)
+                            node[nand port, number inputs=2](nand3){};
+    
+    \draw (nand1.in 1)  to[short] (nand1.in 2);                           
+    \coordinate (tmp)   at ($(nand1.in 1)!0.5!(nand1.in 2)$);
+    \draw (tmp)         to[short, *-] ++(-0.5,0)
+                        node[left](A){$A$};
+    
+    \draw (nand2.in 1)  to[short] (nand2.in 2);
+    \coordinate (tmp)   at ($(nand2.in 1)!0.5!(nand2.in 2)$);
+    \draw (tmp -| A)    node[](B){$B$}
+    (tmp)         to[short, *-] (B)
+
+    (nand1.out)         to[short] (nand1.out |- nand3.in 1)
+                        to[short] (nand3.in 1)
+
+    (nand2.out)         to[short] (nand2.out |- nand3.in 2)
+                        to[short] (nand3.in 2)
+
+    (nand3.out)         node[right]{$A+B$};    
+\end{circuitikz}

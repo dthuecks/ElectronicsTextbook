@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-digital-karnaugh" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Karnaugh Maps</title>
+    <p>
+        Often, one may have a particular circuit behavior in mind but not know what logic gate configuration will achieve the desired result. A <term>Karnaugh maps</term> is a tool that can be used to determine the simplest circuit comprised of AND and OR gates that will produce our desired behavior. Once we have our desired circuit design using AND and OR gates, Boolean algebra can be used to explore alternative circuits that will demonstrate the same behaviors while using other types of logic gates.
+    </p>
+    <p>
+        There are two types of Karnaugh maps: the Sum-of-Products (SOP) Karnaugh maps and the Product-of-Sums (POS) Karnaugh maps. While we will devote most of our focus to the SOP Karnaugh maps, we will briefly treat POS Karnaugh maps as well.
+    </p>
+
+    <subsection xml:id="subsec-digital-karnaugh-sop">
+        <title>Karnaugh Maps (Sum-of-Products)</title>
+        <p>
+            Because Karnaugh maps assist in the design of a circuit that will demonstrate a particular desired behavior, our procedure begins with specifying our desired behavior in the form of a truth table. For this example, we will use the truth table in <xref ref="tbl-digital-karnaugh-sop-example"/>.
+            <table xml:id="tbl-digital-karnaugh-sop-example">
+                <xi:include href="./tables/tbl-digital-karnaugh-sop-example.ptx" />
+            </table>
+            This truth table is then used in constructing a Karnaugh map according to the following steps:
+            <ol>
+                <li>
+                    <p>
+                        Divide your inputs into two groups. One group will have possible input values listed along the top row and the other group will have possible input values listed down the first column. Each group must contain either one or two inputs. For this example, I will group inputs <m>A</m> and <m>B</m> into one group (top row) and input <m>C</m> into the second group (left column).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        For each group of inputs, list the possible combinations of input values in Gray code along their associated row or column of the map. <term>Gray code</term> requires an ordering in which only one input changes values between neighboring elements. So, the <m>AB</m> grouping will list the possible input value combinations in the following order: 00, 01, 11, 10. The <m>C</m> group will have entries of 0 and 1.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        All other entries in the map will be filled in according to the circuit outputs displayed in <xref ref="tbl-digital-karnaugh-sop-example"/>. For example, the map location representing the intersection between <m>AB=01</m> and <m>C=0</m> will contain the value of 1 since the <m>ABC=010</m> entry of the truth table contains an output value of 1.
+                    </p>
+                </li>
+            </ol>
+            The resulting Karnaugh map can be seen in <xref ref="map-digital-karnaugh-sop-example-s1"/>.
+            <figure xml:id="map-digital-karnaugh-sop-example-s1">
+                <caption></caption>
+                <image width="70%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="map-digital-karnaugh-sop-example-s1-img">
+                        <xi:include href="./prefigure/map-digital-karnaugh-sop-example-s1.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+        </p>
+        <p>
+            Examine the Karnaugh map and draw rectangles around groups of 1s, ensuring that each group contains a number of elements that is equal to an integer power of 2 and ensuring that every 1 that appears in the Karnaugh map is contained in at least one group. This results in the Karnaugh map in <xref ref="map-digital-karnaugh-sop-example-s2"/>.
+            <figure xml:id="map-digital-karnaugh-sop-example-s2">
+                <caption></caption>
+                <image width="70%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="map-digital-karnaugh-sop-example-s2-img">
+                        <xi:include href="./prefigure/map-digital-karnaugh-sop-example-s2.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+            For each group of 1s, determine which circuit inputs remain constant for all elements in that group. These inputs will be joined together by the AND function with the caveat that an input will be inverted if it remains constant with a value of zero for a given grouping. In our example, the 2x2 grouping has input <m>A=0</m> as the only input value common to all elements in the group, so this grouping is representative of the Boolean expression <m>\overline{A}</m>. The 1x2 grouping has both <m>B=1</m> and <m>C=1</m> common to all elements in the group, so this grouping is representative of the Boolean expression <m>B\cdot C</m>. The Boolean expression representing the full circuit functionality is then given by joining our AND groups together with ORs, resulting in <m>Q=\overline{A} + B\cdot C</m>.
+        </p>
+        <p>
+            Use of the largest possible rectangles and fewest groups will ensure that the resulting circuit design is the simplest possible.
+        </p>
+        
+    </subsection>
+    
+
+</section>

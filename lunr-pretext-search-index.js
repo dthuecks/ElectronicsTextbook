@@ -1186,7 +1186,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.2",
   "title": "Boolean algebra",
-  "body": " Boolean algebra  The analysis of digital circuits and their behaviors can be conducted in two ways: 1) the method of exhaustion, and 2) Boolean algebra. The method of exhaustion is a brute-force method in which each gate in a circuit is evaluated in turn based on the inputs values it receives. We used this method in the previous section as we were evaluating circuits constructed solely with NAND gates. Boolean algebra is a mathematical formalism used for two-state variables and the operations that act on these variables. This formalism allows us to analyze circuits containing multiple gates through equation manipulation.  Boolean algebra, like standard algebra, is governed by rules that determine how mathematical operations interact. The following Boolean identities provide these rules by which we must adhere.  Boolean identities                                                                           "
+  "body": " Boolean algebra  The analysis of digital circuits and their behaviors can be conducted in two ways: 1) the method of exhaustion, and 2) Boolean algebra. The method of exhaustion is a brute-force method in which each gate in a circuit is evaluated in turn based on the inputs values it receives. We used this method in the previous section as we were evaluating circuits constructed solely with NAND gates. Boolean algebra is a mathematical formalism used for two-state variables and the operations that act on these variables. This formalism allows us to analyze circuits containing multiple gates through equation manipulation.  Boolean algebra, like standard algebra, is governed by rules that determine how mathematical operations interact. The following Boolean identities provide these rules by which we must adhere.  Boolean identities                                                                           Let's look at a few examples demonstrating the use of Boolean algebra.   Boolean algebra: NOT gate from NAND gates   Use Boolean algebra to build a NOT gate from one NAND gate.    We want the result for input using only NAND gates. Starting with our desired result, we find that . So, NOT-gate functionality can be produced using the circuit in .     Boolean algebra: AND gate from NAND gates   Use Boolean algebra to make an AND gate from two NAND gates.    We want the result . Starting with our desired result, we find that . So, AND-gate functionality can be produced using the circuit in .     Boolean algebra: OR gate from NAND gates   Use Boolean algebra to make an OR gate from three NAND gates.    We want the result and want expressions containing AND-like functions instead of OR-like functions. DeMorgan's theorems (identities 18 and 19) are thus going to be instrumental to our effort. Starting with our desired result, we find that which describes the circuit in .  NAND circuit providing AND functionality.        Boolean algebra: Circuit simplification   Content not yet available.    "
 },
 {
   "id": "sec-digital-boolean-2",
@@ -1205,6 +1205,78 @@ var ptx_lunr_docs = [
   "number": "7.2.1",
   "title": "Boolean identities",
   "body": " Boolean identities                                                                         "
+},
+{
+  "id": "sec-digital-boolean-5",
+  "level": "2",
+  "url": "sec-digital-boolean.html#sec-digital-boolean-5",
+  "type": "Example",
+  "number": "7.2.2",
+  "title": "Boolean algebra: NOT gate from NAND gates.",
+  "body": " Boolean algebra: NOT gate from NAND gates   Use Boolean algebra to build a NOT gate from one NAND gate.    We want the result for input using only NAND gates. Starting with our desired result, we find that . So, NOT-gate functionality can be produced using the circuit in .   "
+},
+{
+  "id": "sec-digital-boolean-6",
+  "level": "2",
+  "url": "sec-digital-boolean.html#sec-digital-boolean-6",
+  "type": "Example",
+  "number": "7.2.3",
+  "title": "Boolean algebra: AND gate from NAND gates.",
+  "body": " Boolean algebra: AND gate from NAND gates   Use Boolean algebra to make an AND gate from two NAND gates.    We want the result . Starting with our desired result, we find that . So, AND-gate functionality can be produced using the circuit in .   "
+},
+{
+  "id": "sec-digital-boolean-7",
+  "level": "2",
+  "url": "sec-digital-boolean.html#sec-digital-boolean-7",
+  "type": "Example",
+  "number": "7.2.4",
+  "title": "Boolean algebra: OR gate from NAND gates.",
+  "body": " Boolean algebra: OR gate from NAND gates   Use Boolean algebra to make an OR gate from three NAND gates.    We want the result and want expressions containing AND-like functions instead of OR-like functions. DeMorgan's theorems (identities 18 and 19) are thus going to be instrumental to our effort. Starting with our desired result, we find that which describes the circuit in .  NAND circuit providing AND functionality.      "
+},
+{
+  "id": "sec-digital-boolean-8",
+  "level": "2",
+  "url": "sec-digital-boolean.html#sec-digital-boolean-8",
+  "type": "Example",
+  "number": "7.2.6",
+  "title": "Boolean algebra: Circuit simplification.",
+  "body": " Boolean algebra: Circuit simplification   Content not yet available.   "
+},
+{
+  "id": "sec-digital-karnaugh",
+  "level": "1",
+  "url": "sec-digital-karnaugh.html",
+  "type": "Section",
+  "number": "7.3",
+  "title": "Karnaugh Maps",
+  "body": " Karnaugh Maps  Often, one may have a particular circuit behavior in mind but not know what logic gate configuration will achieve the desired result. A Karnaugh maps is a tool that can be used to determine the simplest circuit comprised of AND and OR gates that will produce our desired behavior. Once we have our desired circuit design using AND and OR gates, Boolean algebra can be used to explore alternative circuits that will demonstrate the same behaviors while using other types of logic gates.  There are two types of Karnaugh maps: the Sum-of-Products (SOP) Karnaugh maps and the Product-of-Sums (POS) Karnaugh maps. While we will devote most of our focus to the SOP Karnaugh maps, we will briefly treat POS Karnaugh maps as well.   Karnaugh Maps (Sum-of-Products)  Because Karnaugh maps assist in the design of a circuit that will demonstrate a particular desired behavior, our procedure begins with specifying our desired behavior in the form of a truth table. For this example, we will use the truth table in .          0  0  0  0    0  0  1  0   0  1  0  0    0  1  1  1    1  0  0  0    1  0  1  1   1  1  0  1    1  1  1  1    This truth table is then used in constructing a Karnaugh map according to the following steps:   Divide your inputs into two groups. One group will have possible input values listed along the top row and the other group will have possible input values listed down the first column. Each group must contain either one or two inputs. For this example, I will group inputs and into one group (top row) and input into the second group (left column).    For each group of inputs, list the possible combinations of input values in Gray code along their associated row or column of the map. Gray code requires an ordering in which only one input changes values between neighboring elements. So, the grouping will list the possible input value combinations in the following order: 00, 01, 11, 10. The group will have entries of 0 and 1.    All other entries in the map will be filled in according to the circuit outputs displayed in . For example, the map location representing the intersection between and will contain the value of 1 since the entry of the truth table contains an output value of 1.   The resulting Karnaugh map can be seen in .           AB  C  00  01  11  10  0  1  1  1  0  0  1  1  1  0        Examine the Karnaugh map and draw rectangles around groups of 1s, ensuring that each group contains a number of elements that is equal to an integer power of 2 and ensuring that every 1 that appears in the Karnaugh map is contained in at least one group. This results in the Karnaugh map in .           AB  C  00  01  11  10  0  1  1  1  0  0  1  1  1  0        For each group of 1s, determine which circuit inputs remain constant for all elements in that group. These inputs will be joined together by the AND function with the caveat that an input will be inverted if it remains constant with a value of zero for a given grouping. In our example, the 2x2 grouping has input as the only input value common to all elements in the group, so this grouping is representative of the Boolean expression . The 1x2 grouping has both and common to all elements in the group, so this grouping is representative of the Boolean expression . The Boolean expression representing the full circuit functionality is then given by joining our AND groups together with ORs, resulting in .  Use of the largest possible rectangles and fewest groups will ensure that the resulting circuit design is the simplest possible.   "
+},
+{
+  "id": "sec-digital-karnaugh-2",
+  "level": "2",
+  "url": "sec-digital-karnaugh.html#sec-digital-karnaugh-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Karnaugh maps "
+},
+{
+  "id": "subsec-digital-karnaugh-sop-2",
+  "level": "2",
+  "url": "sec-digital-karnaugh.html#subsec-digital-karnaugh-sop-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Gray code "
+},
+{
+  "id": "map-digital-karnaugh-sop-example-s2",
+  "level": "2",
+  "url": "sec-digital-karnaugh.html#map-digital-karnaugh-sop-example-s2",
+  "type": "Figure",
+  "number": "7.3.3",
+  "title": "",
+  "body": "          AB  C  00  01  11  10  0  1  1  1  0  0  1  1  1  0        "
 },
 {
   "id": "ch-advancedcircuits",

@@ -1,0 +1,8 @@
+<tabular halign="center">
+    <row header="yes" bottom="minor" >
+        <cell right="minor"></cell> <cell><m>00</m></cell> <cell><m>00</m></cell> <cell><m>00</m></cell> <cell><m>00</m></cell>
+    </row>
+    <row>
+        <cell right="minor"><m>0</m></cell> <cell></cell> <cell></cell> <cell></cell> <cell></cell>
+    </row>
+</tabular>

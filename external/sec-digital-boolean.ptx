@@ -84,7 +84,79 @@
             </ol>
         </list>
     </p>
+    <p>
+        Let's look at a few examples demonstrating the use of Boolean algebra.   
+    </p>
+    <example>
+        <title> Boolean algebra: NOT gate from NAND gates </title>
+        <statement>
+            <p>
+                Use Boolean algebra to build a NOT gate from one NAND gate.
+            </p>
+        </statement>
+        <answer>
+            <p>
+                We want the result <m>\overline{A}</m> for input <m>A</m> using only NAND gates. Starting with our desired result, we find that
+                <md>
+                    \overline{A} = \overline{A\cdot A}\qquad \text{(Identity 14)}
+                </md>.
+                So, NOT-gate functionality can be produced using the circuit in <xref ref="circuit-digital-NOT-from-NAND"/>.   
+            </p>
+        </answer>
+    </example>
 
-    
+    <example>
+        <title> Boolean algebra: AND gate from NAND gates </title>
+        <statement>
+            <p>
+                Use Boolean algebra to make an AND gate from two NAND gates.
+            </p>
+        </statement>
+        <answer>
+            <p>
+                We want the result <m>A\cdot B</m>. Starting with our desired result, we find that
+                <md>
+                    <mrow>A\cdot B \amp = \overline{\overline{A\cdot B}} \amp \text{(identity 15)\ } </mrow>
+                    <mrow> \amp = \overline{\left(\overline{A\cdot B}\right)\cdot \left(\overline{A\cdot B}\right)} \amp \text{(identity 14)} </mrow>
+                </md>.
+                So, AND-gate functionality can be produced using the circuit in <xref ref="circuit-digital-AND-from-NAND"/>.   
+            </p>
+        </answer>
+    </example>
+
+    <example>
+        <title> Boolean algebra: OR gate from NAND gates </title>
+        <statement>
+            <p>
+                Use Boolean algebra to make an OR gate from three NAND gates.
+            </p>
+        </statement>
+        <answer>
+            <p>
+                We want the result <m>A+B</m> and want expressions containing AND-like functions instead of OR-like functions. DeMorgan's theorems (identities 18 and 19) are thus going to be instrumental to our effort. Starting with our desired result, we find that
+                <md>
+                    <mrow>A+B \amp = \overline{\overline{A+B}} \amp \text{(identity 15)} </mrow>
+                    <mrow> \amp = \overline{\overline{A}\cdot\overline{B}} \amp \text{(identity 18)} </mrow>
+                    <mrow> \amp = \overline{\left(\overline{A\cdot A}\right)\cdot \left(\overline{B\cdot B}\right)} \amp \text{(identity 14)} </mrow>
+                </md>
+                which describes the circuit in <xref ref="circuit-digital-OR-from-NAND"/>. 
+                <figure xml:id="circuit-digital-OR-from-NAND">
+                    <caption>NAND circuit providing AND functionality.</caption>
+                    <image width="70%"><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-OR-from-NAND.tex" />
+                    </latex-image></image>
+                </figure>  
+            </p>
+        </answer>
+    </example>
+
+    <example>
+        <title> Boolean algebra: Circuit simplification </title>
+        <statement>
+            <p>
+                Content not yet available.
+            </p>
+        </statement>
+    </example>
 
 </section>

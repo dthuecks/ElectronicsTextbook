@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="map-digital-karnaugh-sop-example-s1-img-figure" width="300" height="200" viewBox="0 0 300 200">
+  <defs>
+    <clipPath id="map-digital-karnaugh-sop-example-s1-img-clipPath-0">
+      <rect x="0.0" y="0.0" width="300.0" height="200.0"/>
+    </clipPath>
+    <clipPath id="map-digital-karnaugh-sop-example-s1-img-clipPath-1">
+      <rect x="0.0" y="0.0" width="300.0" height="200.0"/>
+    </clipPath>
+  </defs>
+  <line id="map-digital-karnaugh-sop-example-s1-img-line-0" x1="60.0" y1="200.0" x2="60.0" y2="66.7" stroke="black" stroke-width="2" fill="none"/>
+  <line id="map-digital-karnaugh-sop-example-s1-img-line-1" x1="60.0" y1="66.7" x2="300.0" y2="66.7" stroke="black" stroke-width="2" fill="none"/>
+  <line id="map-digital-karnaugh-sop-example-s1-img-line-2" x1="60.0" y1="66.7" x2="0.0" y2="0.0" stroke="black" stroke-width="2" fill="none"/>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-0" transform="translate(28.0,13.3) scale(1.5,1.5) translate(0.0,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-0">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">AB</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-1" transform="translate(32.0,46.7) scale(1.5,1.5) translate(-9.8,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-1">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">C</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-2" transform="translate(90.0,33.3) scale(2.0,2.0) translate(-8.9,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-2">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">00</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-3" transform="translate(150.0,33.3) scale(2.0,2.0) translate(-8.9,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-3">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">01</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-4" transform="translate(210.0,33.3) scale(2.0,2.0) translate(-8.9,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-4">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">11</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-5" transform="translate(270.0,33.3) scale(2.0,2.0) translate(-8.9,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-5">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">10</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-6" transform="translate(30.0,100.0) scale(2.0,2.0) translate(-4.5,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-6">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-7" transform="translate(30.0,166.7) scale(2.0,2.0) translate(-4.5,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-7">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">1</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-8" transform="translate(90.0,100.0) scale(2.0,2.0) translate(-4.5,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-8">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">1</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-9" transform="translate(150.0,100.0) scale(2.0,2.0) translate(-4.5,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-9">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">1</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-10" transform="translate(210.0,100.0) scale(2.0,2.0) translate(-4.5,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-10">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-11" transform="translate(270.0,100.0) scale(2.0,2.0) translate(-4.5,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-11">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-12" transform="translate(90.0,166.7) scale(2.0,2.0) translate(-4.5,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-12">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">1</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-13" transform="translate(150.0,166.7) scale(2.0,2.0) translate(-4.5,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-13">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">1</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-14" transform="translate(210.0,166.7) scale(2.0,2.0) translate(-4.5,-5.1)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-14">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">1</text>
+    </g>
+  </g>
+  <g id="map-digital-karnaugh-sop-example-s1-img-label-15" transform="translate(270.0,166.7) scale(2.0,2.0) translate(-4.5,-5.3)">
+    <g id="map-digital-karnaugh-sop-example-s1-img-g-15">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0</text>
+    </g>
+  </g>
+</svg>

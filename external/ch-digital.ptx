@@ -10,6 +10,7 @@
 
   <xi:include href="./sec-digital-gates.ptx" />
   <xi:include href="./sec-digital-boolean.ptx" />
+  <xi:include href="./sec-digital-karnaugh.ptx" />
 
 
 </chapter>
