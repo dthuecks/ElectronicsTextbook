@@ -133,7 +133,7 @@
     <subsection xml:id="subsec-dc-proof-thevenin">
         <title>Proof of Thevenin's and Norton's Theorems</title>
         <p>
-            Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>\ell</m> DC voltage sources <m>V</m>, and <m>k</m> ideal current sources <m>I</m>. We will also assume <m>j</m> unknown currents <m>i</m> that are dependent on the size of the voltage difference <m>\Delta v_\text{ext}</m> across the output terminals of the circuit.
+            The branch method of circuit analysis is the basis for our proof. Let's assume that inside of a box we have a circuit with two leads exiting the box (<xref ref="dc-thevenin-box"/>). The circuit in the box is comprised of a complicated network of resistors <m>R</m>, <m>\ell</m> DC voltage sources <m>V</m>, and <m>k</m> ideal current sources <m>I</m>. We will also assume <m>j</m> unknown currents <m>i</m> that are dependent on the size of the voltage difference <m>\Delta v_\text{ext}</m> across the output terminals of the circuit. 
         </p>
 
         <figure xml:id="dc-thevenin-box">
@@ -155,15 +155,15 @@
         </figure>
 
         <p>
-            Let's assume that if we apply the branch circuit analysis method, we end up with <m>N_1</m> independent junction law equations and <m>N_2</m> loop law equations. Each junction law equation will have the form
+            Assume that our analysis results in <m>N_1</m> independent KCL equations. Each KCL equation can be expressed as
             <men xml:id="eqn-dc-thevenin-kcl">
                 a_{r,\text{ext}} i_{\text{ext}} + \sum\limits_{n=1}^j a_{rn} i_n + \sum\limits_{n=1}^k b_{rn} I_n=0
             </men>
-            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_n</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations. Here, <m>i_\text{ext}</m> is the current that passes out of our circuit, through some external load, and back into our circuit.    
+            where <m>a_{rn}</m> and <m>b_{rn}</m> have values of +1, -1, or 0 depending on whether the currents <m>i_n</m> and <m>I_n</m> are entering, exiting, or not present at a junction and <m>r</m> is an index counting over KCL equations.   
         </p>
 
         <p>
-            We will also end up with <m>N_2</m> independent loop law equations. All loops chosen for KVL analysis must be absent known current sources <m>I_n</m>. This restriction will not cost us anything because the current is already known on circuit legs containing circuit sources. Each of these loop law equations will have the form
+            Analysis will also provide <m>N_2</m> independent KVL equations, analyzing loops that are absent known current sources <m>I_n</m>. This restriction will not cost us anything because this proof relies on knowledge of the currents through each circuit segment. Each KVL equation has the form
             <!--
             <men xml:id="eqn-dc-thevenin-kvl">
                 m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_n + c_{r,\text{ext}} i_\text{ext} 
@@ -174,7 +174,7 @@
                 m_{r,\text{ext}} \Delta v_\text{ext} + \sum\limits_{n=1}^\ell m_{rn} V_n + c_{r,\text{ext}} i_\text{ext} 
                 + \sum\limits_{n=1}^j c_{rn} i_n = 0
             </men>.
-            The variables <m>m_{rn}</m> have values of either +1, or -1 depending on the battery orientation relative to the direction travelled around the loop, or a value of 0 for batteries not present in a given loop. <!--Variables <m>c_{rn}</m> and <m>d_{rn}</m> have--> Variable <m>c_{r_n}</m> has units of resistance because each nonzero term in these sums represents a voltage change described by Ohm's Law. Here, the index <m>r</m> counts over KVL equations. 
+            The variables <m>m_{rn}</m> have values of either +1, or -1 depending on the battery orientation relative to the direction traveled around the loop, or a value of 0 for batteries not present in a given loop. <!--Variables <m>c_{rn}</m> and <m>d_{rn}</m> have--> Variable <m>c_{r_n}</m> has units of resistance because each nonzero term in these sums represents a voltage change described by Ohm's Law. Here, the index <m>r</m> counts over KVL equations. 
         </p>
 
         <p>
