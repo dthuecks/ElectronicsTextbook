@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-digital-binary" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Binary numbers</title>
+    <p>
+        Digital computation uses the binary, or base-2, number system. In the binary number system, we will refer to <term>bits</term> rather than <term>digits</term> which are used in the decimal (base-10) system. Each digit in a base-10 number can assume any one of ten values (0-9) which is then multiplied by <m>10^n</m> where <m>n</m> is the number of digits to the left of the decimal point. For example, decimal number 1092 can be understood as <m>1\times 10^3 + 0\times 10^2 + 9\times 10^1 + 2\times 10^0</m>. Likewise, each bit in a binary number can take on one of two possible values (0 and 1) with these values multiplying a power of 2. So, the binary number 1011 can be understood as <m>1\times 2^3 + 0\times 2^2 + 1\times 2^1 + 1\times 2^0</m>. This means that the binary number 1011 represents 11 in decimal. <xref ref="tbl-binary-to-decimal"/> provides a list of all 4-bit binary numbers and their decimal counterparts.
+        <table xml:id="tbl-binary-to-decimal">
+            <title>Binary to decimal equivalents for every 4-bit number.</title>
+            <xi:include href="./tables/tbl-binary-to-decimal.ptx" />
+        </table> 
+    </p>
+    <p>
+        A binary number comprised of <m>n</m> bits has <m>2^n</m> possible values, and 
+        DISCUSS BINARY POINT (LIKE DECIMAL POINT)
+    </p>
+    
+
+</section>

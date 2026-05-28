@@ -59,7 +59,50 @@
             For each group of 1s, determine which circuit inputs remain constant for all elements in that group. These inputs will be joined together by the AND function with the caveat that an input will be inverted if it remains constant with a value of zero for a given grouping. In our example, the 2x2 grouping has input <m>A=0</m> as the only input value common to all elements in the group, so this grouping is representative of the Boolean expression <m>\overline{A}</m>. The 1x2 grouping has both <m>B=1</m> and <m>C=1</m> common to all elements in the group, so this grouping is representative of the Boolean expression <m>B\cdot C</m>. The Boolean expression representing the full circuit functionality is then given by joining our AND groups together with ORs, resulting in <m>Q=\overline{A} + B\cdot C</m>.
         </p>
         <p>
-            Use of the largest possible rectangles and fewest groups will ensure that the resulting circuit design is the simplest possible.
+            When identifying groups of 1s, larger groupings will result in a simpler final circuit. In our example, we could have used the alternative groupings shown in <xref ref="map-digital-karnaugh-sop-example-alt"/>
+            <figure xml:id="map-digital-karnaugh-sop-example-alt">
+                <caption></caption>
+                <image width="70%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="map-digital-karnaugh-sop-example-alt-img">
+                        <xi:include href="./prefigure/map-digital-karnaugh-sop-example-alt.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+            This results in one group with <m>A=0</m> and <m>C=0</m>, one group with <m>A=0</m> and <m>C=1</m>, and one group with <m>B=1</m> and <m>C=1</m>. The final Boolean expression would then be given by <m>Q=\overline{A}\cdot\overline{C} + \overline{A}\cdot C + B\cdot C</m>.
+        </p>
+        <p>
+            SEE COURSE NOTES FOR WORKED EXAMPLES.
+        </p>
+        
+    </subsection>
+
+    <subsection xml:id="subsec-digital-karnaugh-pos">
+        <title>Karnaugh Maps (Product-of-Sums)</title>
+        <p>
+            In development. Include the following:
+            <ol>
+                <li>
+                    <p>
+                        Use DeMorgan's theorem to connect SOP to POS methods
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Description of approach
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Example or two
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        When to use POS instead of SOP
+                    </p>
+                </li>
+            </ol>
         </p>
         
     </subsection>
