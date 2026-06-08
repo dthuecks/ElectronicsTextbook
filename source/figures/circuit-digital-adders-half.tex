@@ -1,0 +1,25 @@
+\begin{circuitikz}
+    \draw (0,0)             node[xor port, number inputs=2](xor1){}
+    ([yshift=-1.5cm] xor1)  node[and port, number inputs=2](and1){}
+    
+    (xor1.in 1)             to[short] ++(-0.5,0) coordinate(tmp)
+                            to[short, *-] (\tikztostart |- and1.in 1)
+                            to[short] (and1.in 1)
+    
+    (xor1.in 2)             to[short,-*] (and1.in 2)
+
+    (tmp)                   to[short] ++(-1,0) coordinate(A)
+                            node[above](){$A$}
+    (and1.in 2)             to[short] (\tikztostart -| A) coordinate(B)
+                            node[below](){$B$}
+
+    (xor1.out)              to[short] ++(0.5,0) coordinate(S)
+                            node[above](){$S$}
+    (and1.out)              to[short] (\tikztostart -| S) coordinate(C)
+                            node[below](){$C$}
+    ;
+
+    \draw[thick] ([xshift=0.5cm,yshift=0.5cm] A) 
+                            rectangle ([yshift=-.75cm] and1.out)
+    ;
+\end{circuitikz}
