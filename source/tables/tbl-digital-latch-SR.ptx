@@ -1,64 +1,37 @@
 <tabular halign="center">
     <row header="yes" bottom="minor" >
-        <cell right="minor"><m>C_{n-1}</m></cell> 
-        <cell right="minor"><m>A_n</m></cell> 
-        <cell right="minor"><m>B_n</m></cell> 
-        <cell right="minor"><m>S_n</m></cell>
-        <cell><m>C_n</m></cell>
-
+        <cell right="minor"><m>S</m></cell> 
+        <cell right="minor"><m>R</m></cell> 
+        <cell right="minor"><m>Q</m></cell> 
+        <cell right="minor"><m>\overline{Q}</m></cell>
+        <cell>Condition</cell>
     </row>
     <row>
         <cell right="minor">0</cell>
         <cell right="minor">0</cell> 
-        <cell right="minor">0</cell>
-        <cell right="minor">0</cell> 
-        <cell>0</cell>
-    </row>
-    <row>
-        <cell right="minor">0</cell>
-        <cell right="minor">0</cell> 
-        <cell right="minor">1</cell>
-        <cell right="minor">1</cell>
-        <cell>0</cell>
-    </row><row>
-        <cell right="minor">0</cell>
-        <cell right="minor">1</cell> 
-        <cell right="minor">0</cell>
-        <cell right="minor">1</cell>
-        <cell>0</cell>
+        <cell right="minor"><m>Q</m></cell>
+        <cell right="minor"><m>\overline{Q}</m></cell> 
+        <cell>Hold</cell>
     </row>
     <row>
         <cell right="minor">0</cell>
         <cell right="minor">1</cell> 
-        <cell right="minor">1</cell>
         <cell right="minor">0</cell>
-        <cell>1</cell>
-    </row>
-    <row>
         <cell right="minor">1</cell>
-        <cell right="minor">0</cell> 
-        <cell right="minor">0</cell>
-        <cell right="minor">1</cell> 
-        <cell>0</cell>
+        <cell>Reset</cell>
     </row>
     <row>
         <cell right="minor">1</cell>
         <cell right="minor">0</cell> 
         <cell right="minor">1</cell>
-        <cell right="minor">0</cell>
-        <cell>1</cell>
-    </row><row>
-        <cell right="minor">1</cell>
-        <cell right="minor">1</cell> 
-        <cell right="minor">0</cell>
-        <cell right="minor">0</cell>
-        <cell>1</cell>
+        <cell right="minor">0</cell> 
+        <cell>Set</cell>
     </row>
     <row>
         <cell right="minor">1</cell>
         <cell right="minor">1</cell> 
-        <cell right="minor">1</cell>
-        <cell right="minor">1</cell>
-        <cell>1</cell>
+        <cell right="minor">0</cell>
+        <cell right="minor">0</cell>
+        <cell>Forbidden</cell>
     </row>
 </tabular>

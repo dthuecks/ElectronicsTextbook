@@ -1,28 +1,22 @@
-<diagram dimensions="(300,200)" margins="0" xmlns="https://prefigure.org">
-  <coordinates bbox="(-1.5,-1.5,3.5,1.5)">
-    <line endpoints="((-0.5,-1.5),(-0.5,0.5))"/>
-    <line endpoints="((-0.5,0.5),(3.5,0.5))"/>
-    <line endpoints="((-0.5,0.5),(-1.5,1.5))"/>
-    <label anchor="(-1.1,1.3)" alignment="east"  scale="1.5"> AB </label>
-    <label anchor="(-.9,0.8)" alignment="west"  scale="1.5"> C </label>
+<diagram dimensions="(300, 100)" margins="(25,15,5,5)" xmlns="https://prefigure.org">
+  <definition> Qmax = 3 </definition> <!-- Maximum output bit of counter -->
+  <definition> xshift = 0 </definition> <!-- Initial delay before clock starts -->
+  <definition> yshiftmax = 2*Qmax + 0.5</definition> <!-- Maximum vertical offset for Q0 -->
 
-    <label anchor="(0,1)" justify="center" scale="2"> 00 </label>
-    <label anchor="(1,1)" justify="center" scale="2"> 01 </label>
-    <label anchor="(2,1)" justify="center" scale="2"> 11 </label>
-    <label anchor="(3,1)" justify="center" scale="2"> 10 </label>
+  <coordinates bbox="[0,0,2**(Qmax+2)+xshift,yshiftmax + 1.5]">
+    <axes decorations="no" arrows="0">
+          <xlabel alignment="sw" scale="0.75">Time</xlabel>
+    </axes>
 
-    <label anchor="(-1,0)" justify="center" scale="2"> 0 </label>
-    <label anchor="(-1,-1)" justify="center" scale="2"> 1 </label>
-
-    <label anchor="(0,0)" justify="center" scale="2"> 1 </label>
-    <label anchor="(1,0)" justify="center" scale="2"> 1 </label>
-    <label anchor="(2,0)" justify="center" scale="2"> 0 </label>
-    <label anchor="(3,0)" justify="center" scale="2"> 0 </label>
-
-    <label anchor="(0,-1)" justify="center" scale="2"> 1 </label>
-    <label anchor="(1,-1)" justify="center" scale="2"> 1 </label>
-    <label anchor="(2,-1)" justify="center" scale="2"> 1 </label>
-    <label anchor="(3,-1)" justify="center" scale="2"> 0 </label>
-
+    <!-- Draw Q signals which shift on falling edge of previous Q (or CLK if Q0) -->
+    <repeat parameter="k=0..Qmax">
+      <definition> k2=k+1 </definition>
+      <group>
+        <definition> yshiftk=yshiftmax-2*k </definition>
+        <definition> g(x)=x-x + yshiftk </definition>
+        <graph function="g" domain="(0,xshift)" stroke="blue"/>
+        <label anchor="(0,yshiftk+0.5)" alignment="west" rotate="0" scale="0.75"><m>Q_${k}</m></label>
+      </group>
+    </repeat>
   </coordinates>
 </diagram>

@@ -61,7 +61,7 @@
         We'll call this the <sq>Hold</sq> state since both <m>Q</m> and <m>\overline{Q}</m> remain unchanged with whatever values they held before entering the Hold state.
     </p>
     <p>
-        The truth table in <xref ref="tbl-digital-latch-SR"/> collects the results of our analysis above. An alternate representation of this behavior can be seen in a <term>timing diagram</term> like the one shown in <xref ref="plot-digital-latch-SR-timing"/>.
+        The truth table in <xref ref="tbl-digital-latch-SR"/> collects the results of our analysis above. The behavior of the SR latch can alternatively be demonstrated in the <term>timing diagram</term> in <xref ref="plot-digital-latch-SR-timing"/>, showing the time response of the outputs based on input changes in time.
         <table xml:id="tbl-digital-latch-SR">
             <title>SR latch truth table.</title>
             <xi:include href="./tables/tbl-digital-latch-SR.ptx" />
