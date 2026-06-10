@@ -1,22 +1,57 @@
-<diagram dimensions="(300, 100)" margins="(25,15,5,5)" xmlns="https://prefigure.org">
+<diagram dimensions="(400, 200)" margins="(25,15,5,5)" xmlns="https://prefigure.org">
   <definition> Qmax = 3 </definition> <!-- Maximum output bit of counter -->
   <definition> xshift = 0 </definition> <!-- Initial delay before clock starts -->
   <definition> yshiftmax = 2*Qmax + 0.5</definition> <!-- Maximum vertical offset for Q0 -->
 
-  <coordinates bbox="[0,0,2**(Qmax+2)+xshift,yshiftmax + 1.5]">
+  <coordinates bbox="[0,0,8,10]">
     <axes decorations="no" arrows="0">
           <xlabel alignment="sw" scale="0.75">Time</xlabel>
     </axes>
+    
+    <transform>
+      <translate by="(0,6.5)"/>
+      <polygon points="((0,1),(1,1),(1,0),(4,0),(4,1),(5,1),(5,0),(6,0),(6,1),(7,1),(7,0),(8,0))" stroke="blue" thickness="4"/>
+      <label anchor="(0,0.5)" alignment="west" rotate="0" scale="0.75"><m>S</m></label>
+    </transform>
 
-    <!-- Draw Q signals which shift on falling edge of previous Q (or CLK if Q0) -->
-    <repeat parameter="k=0..Qmax">
-      <definition> k2=k+1 </definition>
-      <group>
-        <definition> yshiftk=yshiftmax-2*k </definition>
-        <definition> g(x)=x-x + yshiftk </definition>
-        <graph function="g" domain="(0,xshift)" stroke="blue"/>
-        <label anchor="(0,yshiftk+0.5)" alignment="west" rotate="0" scale="0.75"><m>Q_${k}</m></label>
-      </group>
-    </repeat>
+    <transform>
+      <translate by="(0,4.5)"/>
+      <polygon points="((0,0),(2,0),(2,1),(3,1),(3,0),(6,0),(6,1),(7,1),(7,0),(8,0))" stroke="blue" thickness="4"/>
+      <label anchor="(0,0.5)" alignment="west" rotate="0" scale="0.75"><m>R</m></label>
+    </transform>
+
+    <transform>
+      <translate by="(0,2.5)"/>
+      <polygon points="((0,1),(2,1),(2,0),(4,0),(4,1),(6,1),(6,0),(7,0))" stroke="blue" thickness="4"/>
+      <rectangle lower-left="(7,0)" dimensions="(1,1)" fill="blue" opacity="30%" />
+      <label anchor="(7.5,0.5)"> ? </label>
+      <label anchor="(0,0.5)" alignment="west" rotate="0" scale="0.75"><m>Q</m></label>
+    </transform>
+
+    <transform>
+      <translate by="(0,0.5)"/>
+      <polygon points="((0,0),(2,0),(2,1),(4,1),(4,0),(6,0),(6,1),(7,1))" stroke="blue" thickness="4"/>
+      <rectangle lower-left="(7,0)" dimensions="(1,1)" fill="blue" opacity="30%" />
+      <label anchor="(7.5,0.5)"> ? </label>
+      <label anchor="(0,0.5)" alignment="west" rotate="0" scale="0.75"><m>\overline{Q}</m></label>
+    </transform>
+
+    <line endpoints="((1,0),(1,1))" stroke="green" dash="4 4" infinite="yes" />
+    <line endpoints="((2,0),(2,1))" stroke="green" dash="4 4" infinite="yes" />
+    <line endpoints="((3,0),(3,1))" stroke="green" dash="4 4" infinite="yes" />
+    <line endpoints="((4,0),(4,1))" stroke="green" dash="4 4" infinite="yes" />
+    <line endpoints="((5,0),(5,1))" stroke="green" dash="4 4" infinite="yes" />
+    <line endpoints="((6,0),(6,1))" stroke="green" dash="4 4" infinite="yes" />
+    <line endpoints="((7,0),(7,1))" stroke="green" dash="4 4" infinite="yes" />
+    
+    <label anchor="(0.5,9)" justify="center"> Set </label>
+    <label anchor="(1.5,9)" justify="center"> Hold </label>
+    <label anchor="(2.5,9)" justify="center"> Reset </label>
+    <label anchor="(3.5,9)" justify="center"> Hold </label>
+    <label anchor="(4.5,9)" justify="center"> Set </label>
+    <label anchor="(5.5,9)" justify="center"> Hold </label>
+    <label anchor="(6.5,9)" justify="center"> Forbid </label>
+    <label anchor="(7.5,9)" justify="center"> Unk </label>
+
   </coordinates>
 </diagram>

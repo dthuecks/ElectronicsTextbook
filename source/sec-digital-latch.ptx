@@ -6,77 +6,128 @@
     <p>
         So far, we've limited our treatment of digital circuits to those with outputs that are fully determined by input values at any given instant. In this section, we'll study <term>sequential logic</term>, a branch of digial electronics in which circuit outputs depend on input values at that instant in addition to the history of input values. Though the <sq>memory</sq> that we'll observe in sequential logic circuits is rudimentary compared to that demonstrated by random access memory (RAM) and solid-state drives (SSDs) in computers, the circuits we'll examine are the fundamental building blocks that make the more advanced applications possible.
     </p>  
-    <p>
-        The first sequential logic circuit element that we'll examine is called a <term>latch</term>. <xref ref="circuit-digital-latch-SR"/> shows the construction of an <term>SR latch</term> with inputs <m>S</m>, <m>R</m> and outputs <m>Q</m>, <m>\overline{Q}</m>.
-        <figure xml:id="circuit-digital-latch-SR">
-            <caption>SR latch circuit element.</caption>
-            <image width="50%"><latex-image>
-                <xi:include parse="text" href="./figures/circuit-digital-latch-SR.tex" />
-            </latex-image></image>
-        </figure>
-    </p>
-    <p>
-        The SR latch is designed such that <m>Q=1</m> when <m>S=1</m> and <m>R=0</m>; we'll call this the <sq>Set</sq> state. Likewise, the latch is designed so that <m>Q=0</m> when <m>S=0</m> and <m>R=1</m>; this is called the <sq>Reset</sq> state. The output labeled <m>\overline{Q}</m> is in the state opposite to output <m>Q</m> in both of these cases, the desired result implied by the naming convention used for these outputs. Analysis of the internal NOR gates for these two input states requires that the outputs satisfy 
-        <md>
-           <mrow number="yes" xml:id="eqn-digital-latch-SR-NOR">Q \amp = \overline{R + \overline{Q}}</mrow>
-           <mrow>\overline{Q} \amp =  \overline{S + Q}</mrow> 
-        </md>.
-        <xref first="ex-digital-latch-SR-set" last="ex-digital-latch-SR-reset" text="global">Examples</xref> show that our SR latch design does indeed satisfy the desired behaviors for the Set and Reset input states. 
-    </p> 
-    <example xml:id="ex-digital-latch-SR-set">
-        <title>Analysis of Set and Reset states for SR latch</title>
-        <statement>
-            <p>
-                Determine the output values for the SR latch in the Set state.
-            </p>
-        </statement>
-        <solution>
-            <p>
-                In the Set state, <m>S=1</m> and <m>R=0</m>. Since <m>S=1</m>, the bottom NOR gate must produce <m>\overline{Q}=0</m> regardless of the value of <m>Q</m>. Then, since <m>R=0</m> and <m>\overline{Q}=0</m>, the top NOR gate produces <m>Q=1</m>. This is a self-consistent solution describing the SR latch behavior.
-            </p>
-        </solution>
-    </example>
-    <example xml:id="ex-digital-latch-SR-reset">
-        <title>Analysis of Set and Reset states for SR latch</title>
-        <statement>
-            <p>
-                Determine the output values for the SR latch in the Reset state.
-            </p>
-        </statement>
-        <solution>
-            <p>
-                In the Reset state, <m>S=0</m> and <m>R=1</m>. Since <m>R=1</m>, the top NOR gate must produce <m>Q=0</m> regardless of the value of <m>\overline{Q}</m>. Then, since <m>S=0</m> and <m>Q=0</m>, the bottom NOR gate produces <m>\overline{Q}=1</m>. This is a self-consistent solution describing the SR latch behavior.
-            </p>
-        </solution>
-    </example>
-    <p>
-        The third input state that we'll consider is <m>S=1</m> and <m>R=1</m>. Just as for the two cases above, the output state for this case is fully determined by the input state values, resulting in <m>Q=0</m> and <m>\overline{Q}=0</m>. This state will be called the <sq>Forbidden</sq> state and should be avoided in standard operation because the outputs are not inverses of each other as the naming convention indicates they should be.
-    </p>
-    <p>
-        The final input that we must examine is the case where <m>S=0</m> and <m>R=0</m>. Unlike the cases above, the feedback of output values to the NOR gate inputs must be considered. Combining <xref ref="eqn-digital-latch-SR-NOR"/> with <m>S=R=0</m> and Boolean Identity 11 (from <xref ref="digital-boolean-identities"/>), we find that <m>Q=\overline{\overline{Q}}=Q</m> and <m>\overline{Q} = \overline{Q}</m>. Though these look like identity statements, we must be careful in our interpretation. Logic gates take a finite amount of time to respond and update output values due to changes in input values. If we examine the NOR gate inputs at time <m>t=t_0</m> and assume a logic gate response time <m>\delta t</m>, our analysis would determine output values at <m>t_1=t_0 + \delta t</m>. Thus, when <m>S(t_0)=0</m> and <m>R(t_0)=0</m>, we find 
-        <md>
-            <mrow>Q(t_1) \amp =\overline{R(t_0) + \overline{Q(t_0)}} = Q(t_0)</mrow>
-            <mrow>\overline{Q(t_1)} \amp = \overline{S(t_0) + Q(t_0)}=\overline{Q(t_0)} </mrow>
-        </md>.
-        We'll call this the <sq>Hold</sq> state since both <m>Q</m> and <m>\overline{Q}</m> remain unchanged with whatever values they held before entering the Hold state.
-    </p>
-    <p>
-        The truth table in <xref ref="tbl-digital-latch-SR"/> collects the results of our analysis above. The behavior of the SR latch can alternatively be demonstrated in the <term>timing diagram</term> in <xref ref="plot-digital-latch-SR-timing"/>, showing the time response of the outputs based on input changes in time.
-        <table xml:id="tbl-digital-latch-SR">
-            <title>SR latch truth table.</title>
-            <xi:include href="./tables/tbl-digital-latch-SR.ptx" />
-        </table>
-        <figure xml:id="plot-digital-latch-SR-timing">
-            <caption></caption>
-            <image width="70%">
-                <shortdescription></shortdescription>
-                <prefigure xmlns="https://prefigure.org" label="fig-digital-latch-SR-timing-img">
-                    <xi:include href="./prefigure/plot-digital-latch-SR-timing.xml" />
-                </prefigure>
-            </image>
-        </figure>
-    </p>
+    <subsection xml:id="subsec-digital-latch-SR-CrossNOR">
+        <title>SR Cross-NOR Latch</title>
+        
+        <p>
+            The first sequential logic circuit element that we'll examine is called a <term>latch</term>. <xref ref="circuit-digital-latch-SR"/> shows the construction of an <term>SR cross-NOR latch</term> with inputs <m>S</m>, <m>R</m> and outputs <m>Q</m>, <m>\overline{Q}</m>.
+            <figure xml:id="circuit-digital-latch-SR">
+                <caption>SR cross-NOR latch circuit element.</caption>
+                <image width="50%"><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-digital-latch-SR.tex" />
+                </latex-image></image>
+            </figure>
+        </p>
+        <p>
+            The SR cross-NOR latch is designed such that <m>Q=1</m> when <m>S=1</m> and <m>R=0</m>; we'll call this the <sq>Set</sq> state. Likewise, the latch is designed so that <m>Q=0</m> when <m>S=0</m> and <m>R=1</m>; this is called the <sq>Reset</sq> state. The output labeled <m>\overline{Q}</m> is in the state opposite to output <m>Q</m> in both of these cases, the desired result implied by the naming convention used for these outputs. Analysis of the internal NOR gates for these two input states requires that the outputs satisfy 
+            <md>
+            <mrow number="yes" xml:id="eqn-digital-latch-SR-NOR">Q \amp = \overline{R + \overline{Q}}</mrow>
+            <mrow>\overline{Q} \amp =  \overline{S + Q}</mrow> 
+            </md>.
+            <xref first="ex-digital-latch-SR-set" last="ex-digital-latch-SR-reset" text="global">Examples</xref> show that our latch design does indeed satisfy the desired behaviors for the Set and Reset input states. 
+        </p> 
+        <example xml:id="ex-digital-latch-SR-set">
+            <title>Analysis of Set and Reset states for SR cross-NOR latch</title>
+            <statement>
+                <p>
+                    Determine the output values for the SR cross-NOR latch in the Set state.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    In the Set state, <m>S=1</m> and <m>R=0</m>. Since <m>S=1</m>, the bottom NOR gate must produce <m>\overline{Q}=0</m> regardless of the value of <m>Q</m>. Then, since <m>R=0</m> and <m>\overline{Q}=0</m>, the top NOR gate produces <m>Q=1</m>. This is a self-consistent solution describing the latch behavior.
+                </p>
+            </solution>
+        </example>
+        <example xml:id="ex-digital-latch-SR-reset">
+            <title>Analysis of Set and Reset states for SR cross-NOR latch</title>
+            <statement>
+                <p>
+                    Determine the output values for the SR cross-NOR latch in the Reset state.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    In the Reset state, <m>S=0</m> and <m>R=1</m>. Since <m>R=1</m>, the top NOR gate must produce <m>Q=0</m> regardless of the value of <m>\overline{Q}</m>. Then, since <m>S=0</m> and <m>Q=0</m>, the bottom NOR gate produces <m>\overline{Q}=1</m>. This is a self-consistent solution describing the latch behavior.
+                </p>
+            </solution>
+        </example>
+        <p>
+            The third input state that we'll consider is <m>S=1</m> and <m>R=1</m>. Just as for the two cases above, the output state for this case is fully determined by the input state values, resulting in <m>Q=0</m> and <m>\overline{Q}=0</m>. This state will be called the <sq>Forbidden</sq> state and should be avoided in standard operation because the outputs are not inverses of each other as the naming convention indicates they should be.
+        </p>
+        <p>
+            The final input that we must examine is the case where <m>S=0</m> and <m>R=0</m>. Unlike the cases above, the feedback of output values to the NOR gate inputs must be considered. Combining <xref ref="eqn-digital-latch-SR-NOR"/> with <m>S=R=0</m> and Boolean Identity 11 (from <xref ref="digital-boolean-identities"/>), we find that <m>Q=\overline{\overline{Q}}=Q</m> and <m>\overline{Q} = \overline{Q}</m>. Though these look like identity statements, we must be careful in our interpretation. Logic gates take a finite amount of time to respond and update output values due to changes in input values. If we examine the NOR gate inputs at time <m>t=t_0</m> and assume a logic gate response time <m>\delta t</m>, our analysis would determine output values at <m>t_1=t_0 + \delta t</m>. Thus, when <m>S(t_0)=0</m> and <m>R(t_0)=0</m>, we find 
+            <md>
+                <mrow>Q(t_1) \amp =\overline{R(t_0) + \overline{Q(t_0)}} = Q(t_0)</mrow>
+                <mrow>\overline{Q(t_1)} \amp = \overline{S(t_0) + Q(t_0)}=\overline{Q(t_0)} </mrow>
+            </md>.
+            We'll call this the <sq>Hold</sq> state since both <m>Q</m> and <m>\overline{Q}</m> remain unchanged with whatever values they held before entering the Hold state.
+        </p>
+        <p>
+            The truth table in <xref ref="tbl-digital-latch-SR"/> collects our results for the SR cross-NOR latch from above. The behavior of this latch can alternatively be demonstrated in the <term>timing diagram</term> in <xref ref="plot-digital-latch-SR-timing"/>, showing the time response of the outputs based on input changes in time.
+            <table xml:id="tbl-digital-latch-SR">
+                <title>SR cross-NOR latch truth table.</title>
+                <xi:include href="./tables/tbl-digital-latch-SR.ptx" />
+            </table>
+            <figure xml:id="plot-digital-latch-SR-timing">
+                <caption>Example timing diagram for the SR cross-NOR latch. Note that the state labeled <sq>unk</sq> has outputs that are undetermined; outputs <m>Q</m> and <m>\overline{Q}</m> must be inverses but the final state will be determined by a race to see which output reaches a HI state first. This unpredictability is the reason the <sq>forbidden</sq> state should be avoided for our uses.</caption>
+                <image width="80%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="fig-digital-latch-SR-timing-img">
+                        <xi:include href="./prefigure/plot-digital-latch-SR-timing.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+        </p>
+    </subsection>
     
     
+    <subsection xml:id="subsec-digital-latch-SR-CrossNAND">
+        <title>SR Cross-NAND Latch</title>
+        <p>
+            The <term>SR cross-NAND latch</term> shown in <xref ref="circuit-digital-latch-SR-crossNAND"/> is a variation on the latch described above. In contrast to the previous latch, the SR cross-NAND latch tracks which input was most recently LO.
+            <figure xml:id="circuit-digital-latch-SR-crossNAND">
+                <sidebyside valign="middle">
+                    <figure>
+                        <caption>SR cross-NAND latch circuit element.</caption>
+                        <image width="50%"><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-SR-crossNAND.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <table>
+                        <title>SR cross-NAND latch truth table.</title>
+                        <xi:include href="./tables/tbl-digital-latch-SR-crossNAND.ptx" />
+                    </table>
 
+                </sidebyside>
+            </figure>
+        </p>
+        <p>
+            One application that makes use of the SR cross-NAND latch is the <term>switch debouncer</term>. When using a mechanical switch to turn current off and on through a load (as in <xref ref="circuit-digital-latch-debouncer-mechanical"/>), the connection at the instant of physical contact closing the switch can be be flaky and/or unstable, with the switch <sq>bouncing</sq> back and forth between open and closed several times before a solid connection is made. The instability in the mechanical switch's connection leads to the current rapidly oscillating between off and on through the load. This undesirable behavior is rectified through the use of a switch debouncer (as shown in <xref ref="circuit-digital-latch-debouncer-debouncer"/>). Connecting the switch to <m>\overline{S}</m> causes the latch inputs take values <m>\overline{S}=0</m> and <m>\overline{R}=1</m>, resulting in the latch Set state and allowing current to pass through the load. Likewise, when the switch is connected to <m>\overline{R}</m>, the latch enters the Reset state and no current flows through the load. During the switch transition between <m>\overline{S}</m> and <m>\overline{R}</m>, both <m>\overline{S}=\overline{R}=+5</m>V causing the switch to enter the Hold state. Therefore, any flakiness that may occur as the switch's physical connection is made or broken does not result in any flakiness in the current through the load. Instead, the load current depends on the most recent connection only and maintains the output behavior even if the physical connection is unstable or flaky.
+            <figure>
+                <caption>A switch debouncer is used to reduce the <sq>flakines</sq> of mechanical switches by entering the Hold state during the transition between switch positions.</caption>
+                <sidebyside widths="17% 80%" valign="middle">
+                    <figure xml:id="circuit-digital-latch-debouncer-mechanical">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-mechanical.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <figure xml:id="circuit-digital-latch-debouncer-debouncer">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-debouncer.tex" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
+            </figure>
+        </p>
+        <p>
+            APPLICATION: LATCHED TEMPERATURE OR LIGHT ALARM.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec-digital-latch-clocked">
+        <title>Clocked latches</title>
+        
+    </subsection>
 </section>

@@ -1,0 +1,42 @@
+\begin{circuitikz}
+    
+    % Place logic gates and switch
+    \draw (0,0)             node[nand port, number inputs=2](nand1){}
+    ([yshift=-2cm] nand1)   node[nand port, number inputs=2](nand2){}
+    ([xshift=-1.0cm] $(nand1.in 1)! 0.5!(nand2.in 2)$)
+                            node[cute spdt up arrow](spdt1){}
+    
+    % Internal latch connections
+    (nand1.in 2)            to[short] ++(0,-0.5)
+                            to[short] ([yshift=0.5cm] nand2.out)
+                            to[short] (nand2.out)
+    (nand2.in 1)            to[short] ++(0,0.5)
+                            to[short] ([yshift=-0.5cm] nand1.out)
+                            to[short] (nand1.out)
+
+    % Mechanical switch circuit
+    (spdt1.in)              to[short] ++(-0.5,0)
+                            node[sground](grd){}
+    (spdt1.out 1)           to[short] (\tikztostart |- nand1.in 1) coordinate(top)
+                            to[short] (nand1.in 1)
+    (spdt1.out 2)           to[short] (\tikztostart |- nand2.in 2) coordinate(btm)
+                            to[short] (nand2.in 2)
+    (top)                   to[R, *-] ([xshift=-1cm]\tikztostart -| grd) 
+                            coordinate(pwr)
+                            to[short] (\tikztostart |- btm)
+                            to[R, -*] (btm)
+    (pwr)                   to[short,*-] ++(0,0.5)
+                            node[vcc]{+5V}
+    
+    % Latch inputs
+    (top)                   node[anchor=south west](){$\overline{S}$}
+    (btm)                   node[anchor=north west](){$\overline{R}$}
+    
+    % Latch outputs
+    (nand1.out)             node[above](){$Q$}
+                            to[short, *-] ++(1.0,0) coordinate(Q)
+                            to[generic, l^=$Z_\text{load}$] (\tikztostart |- nand2.out)
+                            node[sground]{}
+    ;
+
+\end{circuitikz}
