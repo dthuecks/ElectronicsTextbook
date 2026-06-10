@@ -1,0 +1,36 @@
+\begin{circuitikz}
+
+\tikzset{fa/.style={muxdemux,
+    muxdemux def={Lh=3.5, Rh=3.5, w=3.5,
+    NR=2, NL=3, NB=0, NT=0,},
+    muxdemux label={L1=$A_n$, L2=$B_n$, L3=$C_{n-1}$,
+    R1=$S_n$, R2=$C_n$},
+    }}
+
+\draw(0, 0)             coordinate(start)
+                        node[fa, align=center](fa0){Full\\ Adder} ++(3,0)
+([xshift=+3.75cm] start) node[fa, align=center](fa1){Full\\ Adder} ++(3,0)
+([xshift=+7.5cm] start)   node[fa, align=center](fa2){Full\\ Adder} ++(3,0)
+
+(fa0.lpin 1)            node[left]{$A_0$}
+(fa0.lpin 2)            node[left]{$B_0$}
+(fa0.lpin 3)            node[ground]{}
+(fa0.rpin 1)            node[right]{$S_0$}
+
+(fa1.lpin 1)            node[left]{$A_1$}
+(fa1.lpin 2)            node[left]{$B_1$}
+(fa1.rpin 1)            node[right]{$S_1$}
+
+(fa2.lpin 1)            node[left]{$A_2$}
+(fa2.lpin 2)            node[left]{$B_2$}
+(fa2.rpin 1)            node[right]{$S_2$}
+(fa2.rpin 2)            node[right]{$C_2$}
+
+(fa0.rpin 2)            to[short] ($(fa0.rpin 2)! 0.5! (fa0.rpin 2 -| fa1.lpin 3)$)
+                        to[short] (\tikztostart |- fa1.lpin 3)
+                        to[short] (fa1.lpin 3)
+(fa1.rpin 2)            to[short] ($(fa1.rpin 2)! 0.5! (fa1.rpin 2 -| fa2.lpin 3)$)
+                        to[short] (\tikztostart |- fa2.lpin 3)
+                        to[short] (fa2.lpin 3);
+
+\end{circuitikz}

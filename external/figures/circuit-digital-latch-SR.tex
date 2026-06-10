@@ -1,0 +1,28 @@
+\begin{circuitikz}
+    
+    % Place logic gates
+    \draw (0,0)             node[nor port, number inputs=2](nor1){}
+    ([yshift=-2cm] nor1)    node[nor port, number inputs=2](nor2){}
+    
+    % Internal connections
+    (nor1.in 2)             to[short] ++(0,-0.5)
+                            to[short] ([yshift=0.5cm] nor2.out)
+                            to[short] (nor2.out)
+    (nor2.in 1)             to[short] ++(0,0.5)
+                            to[short] ([yshift=-0.5cm] nor1.out)
+                            to[short] (nor1.out)
+    
+    % Latch inputs
+    (nor1.in 1)             to[short] ++(-0.5,0) coordinate(R)
+                            node[left](){$R$}
+    (nor2.in 2)             to[short] (\tikztostart -| R)
+                            node[left](){$S$}
+    
+    % Latch outputs
+    (nor1.out)              to[short, *-] ++(0.5,0) coordinate(Q)
+                            node[right](){$Q$}
+    (nor2.out)              to[short, *-] (\tikztostart -| Q)
+                            node[right](){$\overline{Q}$}
+    ;
+
+\end{circuitikz}

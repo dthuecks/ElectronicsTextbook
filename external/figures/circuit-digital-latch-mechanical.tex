@@ -1,0 +1,10 @@
+\begin{circuitikz}
+    
+    % Place logic gates and switch
+    \draw (0,0)     node[vcc]{+5V}
+                    to[generic, l^=$Z_\text{load}$] ++(0,-2)
+                    to[cute closing switch] ++(0,-1.5)
+                    node[sground]{}
+    ;
+
+\end{circuitikz}

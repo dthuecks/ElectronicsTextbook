@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-digital-adders" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Adders</title>
+
+    <p>
+        In this section, we will discuss <term>adders</term> which are circuit elements that perform the addition operation in binary arithmetic. The first circuit element that we'll examine is the <term>half-adder</term>, which is shown in <xref ref="circuit-digital-adders-half"/>. 
+        <figure xml:id="circuit-digital-adders-half">
+            <caption>The half-adder.</caption>
+            <image width="50%"><latex-image>
+                <xi:include parse="text" href="./figures/circuit-digital-adders-half.tex" />
+            </latex-image></image>
+        </figure>
+        A half-adder chip component takes two inputs <m>A</m> and <m>B</m> and produces two outputs: the <term>sum</term> <m>S=A\oplus B</m> and the <term>carry</term> <m>C=A\cdot B</m>. The half-adder truth table is given by <xref ref="tbl-digital-adders-half"/>.
+        <table xml:id="tbl-digital-adders-half">
+            <title>Half-adder truth table</title>
+            <xi:include href="./tables/tbl-digital-adder-half.ptx" />
+        </table>
+        This behavior characterizes binary addition, where <m>S</m> is the binary sum of <m>A</m> and <m>B</m>. In the event that <m>A=1</m> and <m>B=1</m>, we are forced to <sq>carry</sq> a value of one over into the next highest bit using <m>C=1</m> because <m>S</m> cannot take the value of 2 in binary. In words, this means that <m>A</m> plus <m>B</m> equals <m>S</m> and we carry <m>C</m> to the next bit.
+    </p>
+    <p>
+        To handle addition for multi-bit numbers, our adder must be able to produce output values for <m>S</m> and <m>C</m> that account for any values <sq>carried</sq> from the next lowest bit in addition to the values of <m>A</m> and <m>B</m> as demonstrated by the truth table in <xref ref="tbl-digital-adders-full"/>.
+        <table xml:id="tbl-digital-adders-full">
+            <title>Full-adder truth table for the <m>n</m>th bit.</title>
+            <xi:include href="./tables/tbl-digital-adder-full.ptx" />
+        </table>
+        Here, <m>A_n</m>, <m>B_n</m>, <m>S_n</m>, and <m>C_n</m> are defined for the <m>n</m>th bit identically to the half-adder. The <m>C_{n-1}</m> input did not appear in the half-adder and represents the act of <sq>carrying</sq> overflow values from the <m>(n-1)</m>th bit to the <m>n</m>th bit. <xref ref="tbl-digital-adders-full"/> is the truth table associated with the <term>full-adder</term> circuit element. The full-adder circuit element can be built using the logic gate arrangement in <xref ref="circuit-digital-adders-full"/>.
+        <figure xml:id="circuit-digital-adders-full">
+            <caption>The full-adder.</caption>
+            <image width="70%"><latex-image>
+                <xi:include parse="text" href="./figures/circuit-digital-adders-full.tex" />
+            </latex-image></image>
+        </figure>
+    </p>
+    <p>
+        The adders described above can be used to perform addition on multi-bit numbers, with one full-adder used for each bit. The addition of two 3-bit numbers 
+        <md>
+            \underline{A_2}\ \underline{A_1}\ \underline{A_0} + 
+            \underline{B_2}\ \underline{B_1}\ \underline{B_0} = 
+            \underline{C_2}\ \underline{S_2}\ \underline{S_1}\ \underline{S_0}
+        </md>
+        will be computed by the circuit in <xref ref="circuit-digital-adder-3bit"/>.
+        <figure xml:id="circuit-digital-adder-3bit">
+            <caption>Circuit schematic for the 3-bit adder circuit. </caption>
+            <image width="90%"><latex-image>
+                <xi:include parse="text" href="./figures/circuit-digital-adder-3bit.tex" />
+            </latex-image></image>
+        </figure>
+        The full-adder associated with the lowest bit position can of course be replaced by a half-adder and achieve the same functionality.
+    </p>
+</section>

@@ -1216,9 +1216,9 @@ var ptx_lunr_docs = [
   "body": "method of exhaustion Boolean algebra "
 },
 {
-  "id": "sec-digital-boolean-3-1",
+  "id": "digital-boolean-identities",
   "level": "2",
-  "url": "sec-digital-boolean.html#sec-digital-boolean-3-1",
+  "url": "sec-digital-boolean.html#digital-boolean-identities",
   "type": "List",
   "number": "7.2.1",
   "title": "Boolean identities",
@@ -1312,7 +1312,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.4",
   "title": "Binary numbers",
-  "body": " Binary numbers  Digital computation uses the binary, or base-2, number system. In the binary number system, we will refer to bits rather than digits which are used in the decimal (base-10) system. Each digit in a base-10 number can assume any one of ten values (0-9) which is then multiplied by where is the number of digits to the left of the decimal point. For example, decimal number 1092 can be understood as . Likewise, each bit in a binary number can take on one of two possible values (0 and 1) with these values multiplying a power of 2. So, the binary number 1011 can be understood as . This means that the binary number 1011 represents 11 in decimal. provides a list of all 4-bit binary numbers and their decimal counterparts.  Binary to decimal equivalents for every 4-bit number.    Binary  Decimal    0000  00    0001  01    0010  02    0011  03    0100  04    0101  05    0110  06    0111  07    1000  08    1001  09    1010  10    1011  11    1100  12    1101  13    1110  14    1111  15      A binary number comprised of bits has possible values, and DISCUSS BINARY POINT (LIKE DECIMAL POINT)  "
+  "body": " Binary numbers  Digital computation uses the binary, or base-2, number system. In the binary number system, we will refer to bits rather than digits which are used in the decimal (base-10) system. Each digit in a base-10 number can assume any one of ten values (0-9) which is then multiplied by where is the number of digits to the left of the decimal point. For example, decimal number 1092 can be understood as . Likewise, each bit in a binary number can take on one of two possible values (0 and 1) with these values multiplying a power of 2. So, the binary number 1011 can be understood as . This means that the binary number 1011 represents 11 in decimal. A binary number comprised of bits has possible values. provides a list of all fifteen 4-bit positive integers with decimal counterparts.  Binary to decimal equivalents for every 4-bit positive integer.    Binary  Decimal    0000  00    0001  01    0010  02    0011  03    0100  04    0101  05    0110  06    0111  07    1000  08    1001  09    1010  10    1011  11    1100  12    1101  13    1110  14    1111  15      Decimal integers can be subdivided by powers of ten through the use of the decimal point. Similarly, binary integers can be subdivided by powers of two through the use of the binary point. For example, the binary number 11.01 represents which is equivalent to the decimal number 3.25. In other words, bits to the left of the binary point represent positive powers of two while bits to the right of the binary point represent negative powers of two.  "
 },
 {
   "id": "sec-digital-binary-2",
@@ -1324,13 +1324,130 @@ var ptx_lunr_docs = [
   "body": "bits digits "
 },
 {
-  "id": "ch-advancedcircuits",
+  "id": "sec-digital-adders",
   "level": "1",
-  "url": "ch-advancedcircuits.html",
+  "url": "sec-digital-adders.html",
+  "type": "Section",
+  "number": "7.5",
+  "title": "Adders",
+  "body": " Adders  In this section, we will discuss adders which are circuit elements that perform the addition operation in binary arithmetic. The first circuit element that we'll examine is the half-adder , which is shown in .  The half-adder.   A half-adder chip component takes two inputs and and produces two outputs: the sum  and the carry  . The half-adder truth table is given by .  Half-adder truth table          0  0  0  0    0  1  1  0   1  0  1  0    1  1  0  1    This behavior characterizes binary addition, where is the binary sum of and . In the event that and , we are forced to carry a value of one over into the next highest bit using because cannot take the value of 2 in binary. In words, this means that plus equals and we carry to the next bit.  To handle addition for multi-bit numbers, our adder must be able to produce output values for and that account for any values carried from the next lowest bit in addition to the values of and as demonstrated by the truth table in .  Full-adder truth table for the th bit.           0  0  0  0  0    0  0  1  1  0   0  1  0  1  0    0  1  1  0  1    1  0  0  1  0    1  0  1  0  1   1  1  0  0  1    1  1  1  1  1    Here, , , , and are defined for the th bit identically to the half-adder. The input did not appear in the half-adder and represents the act of carrying overflow values from the th bit to the th bit. is the truth table associated with the full-adder circuit element. The full-adder circuit element can be built using the logic gate arrangement in .  The full-adder.     The adders described above can be used to perform addition on multi-bit numbers, with one full-adder used for each bit. The addition of two 3-bit numbers will be computed by the circuit in .  Circuit schematic for the 3-bit adder circuit.   The full-adder associated with the lowest bit position can of course be replaced by a half-adder and achieve the same functionality.  "
+},
+{
+  "id": "sec-digital-adders-2",
+  "level": "2",
+  "url": "sec-digital-adders.html#sec-digital-adders-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "adders half-adder sum carry "
+},
+{
+  "id": "sec-digital-adders-3",
+  "level": "2",
+  "url": "sec-digital-adders.html#sec-digital-adders-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "full-adder "
+},
+{
+  "id": "circuit-digital-adder-3bit",
+  "level": "2",
+  "url": "sec-digital-adders.html#circuit-digital-adder-3bit",
+  "type": "Figure",
+  "number": "7.5.5",
+  "title": "",
+  "body": " Circuit schematic for the 3-bit adder circuit.   "
+},
+{
+  "id": "sec-digital-latch",
+  "level": "1",
+  "url": "sec-digital-latch.html",
+  "type": "Section",
+  "number": "7.6",
+  "title": "Latches",
+  "body": " Latches  So far, we've limited our treatment of digital circuits to those with outputs that are fully determined by input values at any given instant. In this section, we'll study sequential logic , a branch of digial electronics in which circuit outputs depend on input values at that instant in addition to the history of input values. Though the memory that we'll observe in sequential logic circuits is rudimentary compared to that demonstrated by random access memory (RAM) and solid-state drives (SSDs) in computers, the circuits we'll examine are the fundamental building blocks that make the more advanced applications possible.   SR Cross-NOR Latch  The first sequential logic circuit element that we'll examine is called a latch . shows the construction of an SR cross-NOR latch with inputs , and outputs , .  SR cross-NOR latch circuit element.     The SR cross-NOR latch is designed such that when and ; we'll call this the Set state. Likewise, the latch is designed so that when and ; this is called the Reset state. The output labeled is in the state opposite to output in both of these cases, the desired result implied by the naming convention used for these outputs. Analysis of the internal NOR gates for these two input states requires that the outputs satisfy . Examples show that our latch design does indeed satisfy the desired behaviors for the Set and Reset input states.   Analysis of Set and Reset states for SR cross-NOR latch   Determine the output values for the SR cross-NOR latch in the Set state.    In the Set state, and . Since , the bottom NOR gate must produce regardless of the value of . Then, since and , the top NOR gate produces . This is a self-consistent solution describing the latch behavior.     Analysis of Set and Reset states for SR cross-NOR latch   Determine the output values for the SR cross-NOR latch in the Reset state.    In the Reset state, and . Since , the top NOR gate must produce regardless of the value of . Then, since and , the bottom NOR gate produces . This is a self-consistent solution describing the latch behavior.    The third input state that we'll consider is and . Just as for the two cases above, the output state for this case is fully determined by the input state values, resulting in and . This state will be called the Forbidden state and should be avoided in standard operation because the outputs are not inverses of each other as the naming convention indicates they should be.  The final input that we must examine is the case where and . Unlike the cases above, the feedback of output values to the NOR gate inputs must be considered. Combining with and Boolean Identity 11 (from ), we find that and . Though these look like identity statements, we must be careful in our interpretation. Logic gates take a finite amount of time to respond and update output values due to changes in input values. If we examine the NOR gate inputs at time and assume a logic gate response time , our analysis would determine output values at . Thus, when and , we find . We'll call this the Hold state since both and remain unchanged with whatever values they held before entering the Hold state.  The truth table in collects our results for the SR cross-NOR latch from above. The behavior of this latch can alternatively be demonstrated in the timing diagram in , showing the time response of the outputs based on input changes in time.  SR cross-NOR latch truth table.        Condition    0  0    Hold    0  1  0  1  Reset    1  0  1  0  Set    1  1  0  0  Forbidden      Example timing diagram for the SR cross-NOR latch. Note that the state labeled unk has outputs that are undetermined; outputs and must be inverses but the final state will be determined by a race to see which output reaches a HI state first. This unpredictability is the reason the forbidden state should be avoided for our uses.      Qmax = 3   xshift = 0   yshiftmax = 2*Qmax + 0.5     Time      S      R       ?  Q       ?  \\overline{Q}          Set  Hold  Reset  Hold  Set  Hold  Forbid  Unk          SR Cross-NAND Latch  The SR cross-NAND latch shown in is a variation on the latch described above. In contrast to the previous latch, the SR cross-NAND latch tracks which input was most recently LO.    SR cross-NAND latch circuit element.     SR cross-NAND latch truth table.        Condition    0  0    Forbidden    0  1  0  1  Set    1  0  1  0  Reset    1  1  0  0  Hold        One application that makes use of the SR cross-NAND latch is the switch debouncer . When using a mechanical switch to turn current off and on through a load (as in ), the connection at the instant of physical contact closing the switch can be be flaky and\/or unstable, with the switch bouncing back and forth between open and closed several times before a solid connection is made. The instability in the mechanical switch's connection leads to the current rapidly oscillating between off and on through the load. This undesirable behavior is rectified through the use of a switch debouncer (as shown in ). Connecting the switch to causes the latch inputs take values and , resulting in the latch Set state and allowing current to pass through the load. Likewise, when the switch is connected to , the latch enters the Reset state and no current flows through the load. During the switch transition between and , both V causing the switch to enter the Hold state. Therefore, any flakiness that may occur as the switch's physical connection is made or broken does not result in any flakiness in the current through the load. Instead, the load current depends on the most recent connection only and maintains the output behavior even if the physical connection is unstable or flaky.  A switch debouncer is used to reduce the flakines of mechanical switches by entering the Hold state during the transition between switch positions.              APPLICATION: LATCHED TEMPERATURE OR LIGHT ALARM.    Clocked latches   "
+},
+{
+  "id": "sec-digital-latch-2",
+  "level": "2",
+  "url": "sec-digital-latch.html#sec-digital-latch-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sequential logic "
+},
+{
+  "id": "subsec-digital-latch-SR-CrossNOR-2",
+  "level": "2",
+  "url": "sec-digital-latch.html#subsec-digital-latch-SR-CrossNOR-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "latch SR cross-NOR latch "
+},
+{
+  "id": "ex-digital-latch-SR-set",
+  "level": "2",
+  "url": "sec-digital-latch.html#ex-digital-latch-SR-set",
+  "type": "Example",
+  "number": "7.6.2",
+  "title": "Analysis of Set and Reset states for SR cross-NOR latch.",
+  "body": " Analysis of Set and Reset states for SR cross-NOR latch   Determine the output values for the SR cross-NOR latch in the Set state.    In the Set state, and . Since , the bottom NOR gate must produce regardless of the value of . Then, since and , the top NOR gate produces . This is a self-consistent solution describing the latch behavior.   "
+},
+{
+  "id": "ex-digital-latch-SR-reset",
+  "level": "2",
+  "url": "sec-digital-latch.html#ex-digital-latch-SR-reset",
+  "type": "Example",
+  "number": "7.6.3",
+  "title": "Analysis of Set and Reset states for SR cross-NOR latch.",
+  "body": " Analysis of Set and Reset states for SR cross-NOR latch   Determine the output values for the SR cross-NOR latch in the Reset state.    In the Reset state, and . Since , the top NOR gate must produce regardless of the value of . Then, since and , the bottom NOR gate produces . This is a self-consistent solution describing the latch behavior.   "
+},
+{
+  "id": "subsec-digital-latch-SR-CrossNOR-8",
+  "level": "2",
+  "url": "sec-digital-latch.html#subsec-digital-latch-SR-CrossNOR-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "timing diagram "
+},
+{
+  "id": "subsec-digital-latch-SR-CrossNAND-2",
+  "level": "2",
+  "url": "sec-digital-latch.html#subsec-digital-latch-SR-CrossNAND-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "SR cross-NAND latch "
+},
+{
+  "id": "subsec-digital-latch-SR-CrossNAND-3",
+  "level": "2",
+  "url": "sec-digital-latch.html#subsec-digital-latch-SR-CrossNAND-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "switch debouncer "
+},
+{
+  "id": "sec-digital-flipflop",
+  "level": "1",
+  "url": "sec-digital-flipflop.html",
+  "type": "Section",
+  "number": "7.7",
+  "title": "Flip-flops",
+  "body": " Flip-flops  "
+},
+{
+  "id": "ch-oscillators",
+  "level": "1",
+  "url": "ch-oscillators.html",
   "type": "Chapter",
   "number": "8",
-  "title": "Advanced Circuits",
-  "body": " Advanced Circuits  "
+  "title": "Oscillators",
+  "body": " Oscillators  "
 },
 {
   "id": "sec-equipment-protoboard",

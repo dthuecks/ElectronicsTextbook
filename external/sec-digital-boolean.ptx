@@ -7,10 +7,8 @@
     </p>
     <p>
         Boolean algebra, like standard algebra, is governed by rules that determine how mathematical operations interact. The following Boolean identities provide these rules by which we must adhere.
-        <list>
+        <list xml:id="digital-boolean-identities">
             <title>Boolean identities</title>
-            
-            
             <ol cols="1">
                 <li>
                     <m>A+B = B+A</m>
