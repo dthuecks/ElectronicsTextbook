@@ -51,7 +51,7 @@
     <label anchor="(4.5,9)" justify="center"> Set </label>
     <label anchor="(5.5,9)" justify="center"> Hold </label>
     <label anchor="(6.5,9)" justify="center"> Forbid </label>
-    <label anchor="(7.5,9)" justify="center"> Unk </label>
+    <label anchor="(7.5,9)" justify="center"> Hold </label>
 
   </coordinates>
 </diagram>
