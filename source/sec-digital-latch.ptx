@@ -56,7 +56,7 @@
             The third input state that we'll consider is <m>S=1</m> and <m>R=1</m>. Just as for the two cases above, the output state for this case is fully determined by the input state values, resulting in <m>Q=0</m> and <m>\overline{Q}=0</m>. This state will be called the <sq>Forbidden</sq> state and should be avoided in standard operation because the outputs are not inverses of each other as the naming convention indicates they should be.
         </p>
         <p>
-            The final input that we must examine is the case where <m>S=0</m> and <m>R=0</m>. Unlike the cases above, the feedback of output values to the NOR gate inputs must be considered. Combining <xref ref="eqn-digital-latch-SR-NOR"/> with <m>S=R=0</m> and Boolean Identity 11 (from <xref ref="digital-boolean-identities"/>), we find that <m>Q=\overline{\overline{Q}}=Q</m> and <m>\overline{Q} = \overline{Q}</m>. Though these look like identity statements, we must be careful in our interpretation. Logic gates take a finite amount of time to respond and update output values due to changes in input values. If we examine the NOR gate inputs at time <m>t=t_0</m> and assume a logic gate response time <m>\delta t</m>, our analysis would determine output values at <m>t_1=t_0 + \delta t</m>. Thus, when <m>S(t_0)=0</m> and <m>R(t_0)=0</m>, we find 
+            The final input that we must examine is the case where <m>S=0</m> and <m>R=0</m>. Unlike the cases above, the feedback of output values to the NOR gate inputs must be considered. Combining <xref ref="eqn-digital-latch-SR-NOR"/> with <m>S=R=0</m> and Boolean Identity 11 (from <xref ref="digital-boolean-identities"/>), we find that <m>Q=\overline{\overline{Q_0}}=Q_0</m> and <m>\overline{Q} = \overline{Q_0}</m> where the subscript zero represents the output states prior to entering the <sq>Hold</sq> state. Though these look similar to identity statements, we must be careful in our interpretation. Logic gates take a finite amount of time to respond and update output values due to changes in input values. If we examine the NOR gate inputs at time <m>t=t_0</m> and assume a logic gate response time <m>\delta t</m>, our analysis would determine output values at <m>t_1=t_0 + \delta t</m>. Thus, when <m>S(t_0)=0</m> and <m>R(t_0)=0</m>, we find 
             <md>
                 <mrow>Q(t_1) \amp =\overline{R(t_0) + \overline{Q(t_0)}} = Q(t_0)</mrow>
                 <mrow>\overline{Q(t_1)} \amp = \overline{S(t_0) + Q(t_0)}=\overline{Q(t_0)} </mrow>
@@ -70,7 +70,7 @@
                 <xi:include href="./tables/tbl-digital-latch-SR.ptx" />
             </table>
             <figure xml:id="plot-digital-latch-SR-timing">
-                <caption>Example timing diagram for the SR cross-NOR latch. Note that the state labeled <sq>unk</sq> has outputs that are undetermined; outputs <m>Q</m> and <m>\overline{Q}</m> must be inverses but the final state will be determined by a race to see which output reaches a HI state first. This unpredictability is the reason the <sq>forbidden</sq> state should be avoided for our uses.</caption>
+                <caption>Example timing diagram for the SR cross-NOR latch. Note that the final state has undetermined outputs. Outputs <m>Q</m> and <m>\overline{Q}</m> must be inverses of each other in this final state, but a race will determine which latch output reaches a HI state first with the other output renaming low. This unpredictability is the reason the <sq>forbidden</sq> state should be avoided for our uses.</caption>
                 <image width="80%">
                     <shortdescription></shortdescription>
                     <prefigure xmlns="https://prefigure.org" label="fig-digital-latch-SR-timing-img">
@@ -127,7 +127,74 @@
         </p>
     </subsection>
     <subsection xml:id="subsec-digital-latch-clocked">
-        <title>Clocked latches</title>
+        <title>Gated latches</title>
+
+        <p>
+            There are latch applications where it may be beneficial to quickly enable or disable latch input control over the latch outputs. <xref ref="circuit-digital-latch-SR-gated"/> shows the circuit for a <term>gated</term> SR latch. This latch will have standard behavior as long as gate=1, though it operates based on which input is HI (whereas the cross-NAND SR latch operates based on which input is LO). Whenever gate=0, the circuit enters the <sq>Hold</sq> state regardless of the states held by inputs <m>S</m> and <m>R</m>.
+            <figure xml:id="circuit-digital-latch-SR-gated">
+                <sidebyside valign="middle">
+                    <figure>
+                        <caption>Gated SR latch.</caption>
+                        <image width="50%"><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-SR-gated.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <table>
+                        <title>Clocked SR latch truth table.</title>
+                        <xi:include href="./tables/tbl-digital-latch-SR-gated.ptx" />
+                    </table>
+                </sidebyside>
+            </figure>
+        </p>
+        <p>
+            PROVIDE EXAMPLE APPLICATIONS
+        </p>
+        <p>
+            All of the SR latch variants above suffer from the same issue, namely the accessibility of the state that we've labeled <sq>forbidden</sq>. It would be very beneficial to have a latch circuit for which the <sq>forbidden</sq> state were inaccessible. We will examine two possible solutions to this problem that are each modifications to our original cross-NAND SR latch.
+        </p>
+        <p>
+            The <term>JK latch</term> uses feedback of the latch outputs back to the latch inputs to convert the <sq>forbidden</sq> state (when both inputs are HI) into a <sq>toggle</sq> state in which <m>Q</m> and <m>\overline{Q}</m> swap values. <xref ref="circuit-digital-latch-JK"/> provides the circuit diagram and truth table for the JK latch.
+            <figure xml:id="circuit-digital-latch-JK">
+                <sidebyside valign="middle">
+                    <figure>
+                        <caption>Circuit diagram for the JK latch.</caption>
+                        <image width="50%"><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-JK.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <table>
+                        <title>Truth table for the JK latch.</title>
+                        <xi:include href="./tables/tbl-digital-latch-JK.ptx" />
+                    </table>
+                </sidebyside>
+            </figure>
+        </p>
+        <p>
+            While the JK latch uses feedback to repurpose the <sq>forbidden</sq> state that appeared with SR latches, the <term>D latch</term> is designed instead to make it impossible to access that forbidden state at all. <xref ref="circuit-digital-latch-D-ver1"/> shows a modified SR latch version of the D latch, while <xref ref="circuit-digital-latch-D-ver2"/> provides an alternate configuration. Both D latch circuits behave identically, producing the truth table in <xref ref="tbl-digital-latch-D"/>.
+            <figure xml:id="circuit-digital-latch-D">
+                <sidebyside valign="middle" widths="45% 45%">
+                    <figure xml:id="circuit-digital-latch-D-ver1">
+                        <caption>Circuit diagram for the D latch. This circuit is based on the gated SR latch.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-D-ver1.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <figure xml:id="circuit-digital-latch-D-ver2">
+                        <caption>Alternative circuit diagram for the D latch, providing the same behavior as the circuit in <xref ref="circuit-digital-latch-D-ver1" text="local"/></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-D-ver2.tex" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
+            </figure>
+            <table xml:id="tbl-digital-latch-D">
+                <title>Truth table for the D latch.</title>
+                <xi:include href="./tables/tbl-digital-latch-D.ptx" />
+            </table>
+        </p>
+        <p>
+            INCLUDE CIRCUIT SYMBOLS FOR LATCHES SOMEWHERE IN THIS SECTION.
+        </p>
         
     </subsection>
 </section>

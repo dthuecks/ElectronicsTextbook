@@ -3,7 +3,9 @@
     % Place logic gates
     \draw (0,0)             node[nand port, number inputs=2](nand1){}
     ([yshift=-2cm] nand1)   node[nand port, number inputs=2](nand2){}
-    
+    (nand1.in 1)            node[nand port, number inputs=2, anchor=out](nand3){}
+    (nand2.in 2)            node[nand port, number inputs=2, anchor=out](nand4){}
+
     % Internal connections
     (nand1.in 2)            to[short] ++(0,-0.4)
                             to[short] ([yshift=0.4cm] nand2.in 1 -| nand2.out)
@@ -11,12 +13,16 @@
     (nand2.in 1)            to[short] ++(0,0.4)
                             to[short] ([yshift=-0.4cm] nand1.in 2 -| nand1.out)
                             to[short] (nand1.out)
+    (nand3.in 2)            to[short] (nand4.in 1)
     
     % Latch inputs
-    (nand1.in 1)            to[short] ++(-0.5,0) coordinate(R)
-                            node[left](){$\overline{S}$}
-    (nand2.in 2)            to[short] (\tikztostart -| R)
-                            node[left](){$\overline{R}$}
+    (nand3.in 1)            to[short] ++(-0.5,0) coordinate(R)
+                            node[left](){$S$}
+    (nand4.in 2)            to[short] (\tikztostart -| R)
+                            node[left](){$R$}
+    ($(nand3.in 2)! 0.5!(nand4.in 1)$)
+                            to[short, *-] (\tikztostart -| R)
+                            node[left](){gate}
     
     % Latch outputs
     (nand1.out)             to[short, *-] ++(0.5,0) coordinate(Q)

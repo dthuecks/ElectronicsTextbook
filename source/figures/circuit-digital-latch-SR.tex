@@ -5,11 +5,11 @@
     ([yshift=-2cm] nor1)    node[nor port, number inputs=2](nor2){}
     
     % Internal connections
-    (nor1.in 2)             to[short] ++(0,-0.5)
-                            to[short] ([yshift=0.5cm] nor2.out)
+    (nor1.in 2)             to[short] ++(0,-0.4)
+                            to[short] ([yshift=0.4cm] nor2.in 1 -| nor2.out)
                             to[short] (nor2.out)
-    (nor2.in 1)             to[short] ++(0,0.5)
-                            to[short] ([yshift=-0.5cm] nor1.out)
+    (nor2.in 1)             to[short] ++(0,0.4)
+                            to[short] ([yshift=-0.4cm] nor1.in 2 -| nor1.out)
                             to[short] (nor1.out)
     
     % Latch inputs
