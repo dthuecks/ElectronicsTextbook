@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="prefigure-real-diode-figure" width="510" height="310" viewBox="0 0 510 310">
   <defs>
-    <clipPath id="prefigure-real-diode-clipPath-0">
+    <clipPath id="prefigure-real-diode-__clipPath-0">
       <rect x="5.0" y="5.0" width="500.0" height="300.0"/>
     </clipPath>
-    <clipPath id="prefigure-real-diode-clipPath-1">
+    <clipPath id="prefigure-real-diode-__clipPath-1">
       <rect x="5.0" y="5.0" width="500.0" height="300.0"/>
     </clipPath>
   </defs>
@@ -30,20 +30,20 @@
       <line x1="5.0" y1="5.0" x2="505.0" y2="5.0"/>
     </g>
     <g id="prefigure-real-diode-axes" stroke="black" stroke-width="2">
-      <line id="prefigure-real-diode-line-19" x1="5.0" y1="271.7" x2="505.0" y2="271.7" stroke="black" stroke-width="2"/>
+      <line id="prefigure-real-diode-__line-19" x1="5.0" y1="271.7" x2="505.0" y2="271.7" stroke="black" stroke-width="2"/>
       <g>
-        <line id="prefigure-real-diode-line-20" x1="130.0" y1="274.7" x2="130.0" y2="268.7"/>
-        <line id="prefigure-real-diode-line-21" x1="380.0" y1="274.7" x2="380.0" y2="268.7"/>
+        <line id="prefigure-real-diode-__line-20" x1="130.0" y1="274.7" x2="130.0" y2="268.7"/>
+        <line id="prefigure-real-diode-__line-21" x1="380.0" y1="274.7" x2="380.0" y2="268.7"/>
       </g>
-      <line id="prefigure-real-diode-line-22" x1="255.0" y1="305.0" x2="255.0" y2="5.0" stroke="black" stroke-width="2"/>
+      <line id="prefigure-real-diode-__line-22" x1="255.0" y1="305.0" x2="255.0" y2="5.0" stroke="black" stroke-width="2"/>
       <g>
-        <line id="prefigure-real-diode-line-23" x1="252.0" y1="205.0" x2="258.0" y2="205.0"/>
-        <line id="prefigure-real-diode-line-24" x1="252.0" y1="138.3" x2="258.0" y2="138.3"/>
-        <line id="prefigure-real-diode-line-25" x1="252.0" y1="71.7" x2="258.0" y2="71.7"/>
+        <line id="prefigure-real-diode-__line-23" x1="252.0" y1="205.0" x2="258.0" y2="205.0"/>
+        <line id="prefigure-real-diode-__line-24" x1="252.0" y1="138.3" x2="258.0" y2="138.3"/>
+        <line id="prefigure-real-diode-__line-25" x1="252.0" y1="71.7" x2="258.0" y2="71.7"/>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-0" transform="translate(501.0,267.7) translate(-79.8,-18.1)">
-      <g id="prefigure-real-diode-g-0">
+    <g id="prefigure-real-diode-__label-0" transform="translate(501.0,267.7) translate(-79.8,-18.1)">
+      <g id="prefigure-real-diode-__g-0">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px" width="79.848px" height="18.096px" role="img" focusable="false" viewBox="0 -750 4411.5 1000" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-2-TEX-I-1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"/>
@@ -114,8 +114,8 @@
         </svg>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-1" transform="translate(259.0,9.0) translate(0.0,-0.0)">
-      <g id="prefigure-real-diode-g-1">
+    <g id="prefigure-real-diode-__label-1" transform="translate(259.0,9.0) translate(0.0,-0.0)">
+      <g id="prefigure-real-diode-__g-1">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px" width="47.720px" height="18.096px" role="img" focusable="false" viewBox="0 -750 2636.5 1000" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-3-TEX-I-1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"/>
@@ -154,8 +154,8 @@
         </svg>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-2" transform="translate(130.0,282.7) translate(-14.6,-0.0)">
-      <g id="prefigure-real-diode-g-2">
+    <g id="prefigure-real-diode-__label-2" transform="translate(130.0,282.7) translate(-14.6,-0.0)">
+      <g id="prefigure-real-diode-__g-2">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="29.160px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1611 688" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-4-TEX-N-2D" d="M11 179V252H277V179H11Z"/>
@@ -176,8 +176,8 @@
         </svg>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-3" transform="translate(380.0,282.7) translate(-11.6,-0.0)">
-      <g id="prefigure-real-diode-g-3">
+    <g id="prefigure-real-diode-__label-3" transform="translate(380.0,282.7) translate(-11.6,-0.0)">
+      <g id="prefigure-real-diode-__g-3">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="23.128px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1278 688" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-5-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
@@ -196,8 +196,8 @@
         </svg>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-4" transform="translate(244.0,205.0) translate(-23.1,-6.2)">
-      <g id="prefigure-real-diode-g-4">
+    <g id="prefigure-real-diode-__label-4" transform="translate(244.0,205.0) translate(-23.1,-6.2)">
+      <g id="prefigure-real-diode-__g-4">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="23.128px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1278 688" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-6-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
@@ -216,8 +216,8 @@
         </svg>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-5" transform="translate(244.0,138.3) translate(-23.1,-6.2)">
-      <g id="prefigure-real-diode-g-5">
+    <g id="prefigure-real-diode-__label-5" transform="translate(244.0,138.3) translate(-23.1,-6.2)">
+      <g id="prefigure-real-diode-__g-5">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="23.128px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1278 688" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-7-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
@@ -236,8 +236,8 @@
         </svg>
       </g>
     </g>
-    <g id="prefigure-real-diode-label-6" transform="translate(244.0,71.7) translate(-23.1,-6.2)">
-      <g id="prefigure-real-diode-g-6">
+    <g id="prefigure-real-diode-__label-6" transform="translate(244.0,71.7) translate(-23.1,-6.2)">
+      <g id="prefigure-real-diode-__g-6">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="23.128px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1278 688" x="0.0" y="0.0">
           <defs>
             <path id="prefigure-real-diode-MJX-8-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
@@ -257,5 +257,5 @@
       </g>
     </g>
   </g>
-  <path id="prefigure-real-diode-graph" stroke="blue" stroke-width="2" fill="none" d="M 5.0 271.7 L 10.0 271.7 L 15.0 271.7 L 20.0 271.7 L 25.0 271.7 L 30.0 271.7 L 35.0 271.7 L 40.0 271.7 L 45.0 271.7 L 50.0 271.7 L 55.0 271.7 L 60.0 271.7 L 65.0 271.7 L 70.0 271.7 L 75.0 271.7 L 80.0 271.7 L 85.0 271.7 L 90.0 271.7 L 95.0 271.7 L 100.0 271.7 L 105.0 271.7 L 110.0 271.7 L 115.0 271.7 L 120.0 271.7 L 125.0 271.7 L 130.0 271.7 L 135.0 271.7 L 140.0 271.7 L 145.0 271.7 L 150.0 271.7 L 155.0 271.7 L 160.0 271.7 L 165.0 271.7 L 170.0 271.7 L 175.0 271.7 L 180.0 271.7 L 185.0 271.7 L 190.0 271.7 L 195.0 271.7 L 200.0 271.7 L 205.0 271.7 L 210.0 271.7 L 215.0 271.7 L 220.0 271.7 L 225.0 271.7 L 230.0 271.7 L 235.0 271.7 L 240.0 271.7 L 245.0 271.7 L 250.0 271.7 L 255.0 271.7 L 260.0 271.7 L 265.0 271.7 L 270.0 271.7 L 275.0 271.7 L 280.0 271.7 L 285.0 271.7 L 290.0 271.7 L 295.0 271.7 L 300.0 271.7 L 305.0 271.7 L 310.0 271.7 L 315.0 271.7 L 320.0 271.7 L 325.0 271.7 L 330.0 271.7 L 335.0 271.7 L 340.0 271.7 L 345.0 271.7 L 350.0 271.7 L 355.0 271.7 L 360.0 271.7 L 365.0 271.6 L 370.0 271.6 L 375.0 271.5 L 380.0 271.4 L 385.0 271.1 L 390.0 270.4 L 395.0 268.9 L 400.0 265.5 L 405.0 258.0 L 410.0 241.6 L 415.0 205.2 L 420.0 125.0 L 425.0 -51.9" clip-path="url(#prefigure-real-diode-clipPath-1)"/>
+  <path id="prefigure-real-diode-graph" stroke="blue" stroke-width="2" fill="none" d="M 5.0 271.7 L 10.0 271.7 L 15.0 271.7 L 20.0 271.7 L 25.0 271.7 L 30.0 271.7 L 35.0 271.7 L 40.0 271.7 L 45.0 271.7 L 50.0 271.7 L 55.0 271.7 L 60.0 271.7 L 65.0 271.7 L 70.0 271.7 L 75.0 271.7 L 80.0 271.7 L 85.0 271.7 L 90.0 271.7 L 95.0 271.7 L 100.0 271.7 L 105.0 271.7 L 110.0 271.7 L 115.0 271.7 L 120.0 271.7 L 125.0 271.7 L 130.0 271.7 L 135.0 271.7 L 140.0 271.7 L 145.0 271.7 L 150.0 271.7 L 155.0 271.7 L 160.0 271.7 L 165.0 271.7 L 170.0 271.7 L 175.0 271.7 L 180.0 271.7 L 185.0 271.7 L 190.0 271.7 L 195.0 271.7 L 200.0 271.7 L 205.0 271.7 L 210.0 271.7 L 215.0 271.7 L 220.0 271.7 L 225.0 271.7 L 230.0 271.7 L 235.0 271.7 L 240.0 271.7 L 245.0 271.7 L 250.0 271.7 L 255.0 271.7 L 260.0 271.7 L 265.0 271.7 L 270.0 271.7 L 275.0 271.7 L 280.0 271.7 L 285.0 271.7 L 290.0 271.7 L 295.0 271.7 L 300.0 271.7 L 305.0 271.7 L 310.0 271.7 L 315.0 271.7 L 320.0 271.7 L 325.0 271.7 L 330.0 271.7 L 335.0 271.7 L 340.0 271.7 L 345.0 271.7 L 350.0 271.7 L 355.0 271.7 L 360.0 271.7 L 365.0 271.6 L 370.0 271.6 L 375.0 271.5 L 380.0 271.4 L 385.0 271.1 L 390.0 270.4 L 395.0 268.9 L 400.0 265.5 L 405.0 258.0 L 410.0 241.6 L 415.0 205.2 L 420.0 125.0 L 425.0 -51.9" clip-path="url(#prefigure-real-diode-__clipPath-1)"/>
 </svg>

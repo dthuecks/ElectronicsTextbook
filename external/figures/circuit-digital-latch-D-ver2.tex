@@ -1,0 +1,37 @@
+\begin{circuitikz}
+    
+    % Place logic gates
+    \draw (0,0)             node[and port, number inputs=2](and1){}
+    ([yshift=-2cm] and1)    node[and port, number inputs=2](and2){}
+    ([xshift=2.5cm] $(and1)!0.5!(and2)$)
+                            node[or port, number inputs=2](or1){}
+    (and2.in 1)             node[not port, anchor=out](not1){}
+    ([yshift=-2cm] or1.out) node[not port, anchor=in](not2){}
+
+    % Internal connections
+    (not1.in)               to[short] (\tikztostart |- and1.in 2)
+                            coordinate(j1)
+                            to[short] (and1.in 2)
+    (and1.out)              to[short] (\tikztostart -| or1.in 1)
+                            to[short] (or1.in 1)
+    (and2.out)              to[short] (\tikztostart -| or1.in 2)
+                            to[short] (or1.in 2)
+    (and2.in 2)             to[short] (\tikztostart |- not2.in)
+                            to[short] (not2.in) 
+                            to[short, *-] (or1.out)
+
+    % Inputs
+    ($(not1.in)!0.5!(j1)$)  to[short, *-] ++(-0.5,0)
+                            coordinate(gate)
+                            node[left]{gate}
+    (and1.in 1)             to[short] (\tikztostart -| gate)
+                            node[left]{$D$}
+
+    % Outputs
+    (or1.out)               to[short, *-] (\tikztostart -| not2.out)
+                            node[right]{$Q$}
+    (not2.out)              node[right]{$\overline{Q}$}
+
+    ;
+
+\end{circuitikz}

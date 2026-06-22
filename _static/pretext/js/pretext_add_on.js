@@ -11,9 +11,17 @@
  *******************************************************************************
  */
 
-/*
-console.log("thisbrowser.userAgent", window.navigator.userAgent);
-*/
+// stub for i18next to future-proof the code. We don't actually use it for
+// anything right now, but it will be needed if we want to localize the
+// accessibility search status messages.
+window.i18next = window.i18next || {
+    t(key, params = {}) {
+        for (const param in params) {
+            key = key.replace(`{{${param}}}`, params[param]);
+        }
+        return key;
+    }
+};
 
 /* scrollbar width from https://stackoverflow.com/questions/13382516/getting-scroll-bar-width-using-javascript */
 function getScrollbarWidth() {
@@ -122,15 +130,33 @@ window.addEventListener("load",function(event) {
     /* click an image to magnify */
     $('body').on('click','.image-box > img:not(.draw_on_me):not(.mag_popup), .sbspanel > img:not(.draw_on_me):not(.mag_popup), figure > img:not(.draw_on_me):not(.mag_popup), figure > div > img:not(.draw_on_me):not(.mag_popup)', function(){
         var img_big = document.createElement('div');
-        img_big.setAttribute('style', 'background:#fff;');
+        const content_element = document.getElementById('ptx-content');
         img_big.setAttribute('class', 'mag_popup_container');
-        img_big.innerHTML = '<img src="' + $(this).attr("src") + '" style="width:100%" class="mag_popup"/>';
+        img_big.innerHTML = `<img src="${$(this).attr("src")}" style="width:100%;" class="mag_popup"/>`;
  // place_to_put_big_img = $(this).parents(".sbsrow, figure, li").last();
         place_to_put_big_img = $(this).parents(".image-box, .sbsrow, figure, li, .cols2 article:nth-of-type(2n)").last();
   // for .cols2, the even ones have to go inside the previous odd one
         if (place_to_put_big_img.prop("tagName") == "ARTICLE") {
            place_to_put_big_img = place_to_put_big_img.prev().children().first();
         }
+
+        // find ancestor so that place_to_put_big_img's position is relative to that ancestor
+        var img_big_parent = place_to_put_big_img[0].parentElement;
+        while (img_big_parent.id !== "ptx-content") {
+           const computed_position = getComputedStyle(img_big_parent).position;
+           if (computed_position !== "static") {
+              break;
+           }
+           img_big_parent = img_big_parent.parentElement;
+        }
+
+        const content_element_computed_style = getComputedStyle(content_element);
+        const content_padding_left  = parseFloat(content_element_computed_style.paddingLeft );
+        const content_padding_right = parseFloat(content_element_computed_style.paddingRight);
+        const img_big_offset = content_element.getBoundingClientRect().left - img_big_parent.getBoundingClientRect().left + content_padding_left;
+        const doc_width = content_element.offsetWidth - content_padding_left - content_padding_right;
+        img_big.setAttribute('style', `width:${doc_width.toString()}px; left:${img_big_offset.toString()}px;`);
+
         $(img_big).insertBefore(place_to_put_big_img);
     });
 
@@ -1226,7 +1252,7 @@ function setDarkMode(isDark) {
     const modeButton = document.getElementById("light-dark-button");
     if (modeButton) {
         modeButton.querySelector('.icon').innerText = isDark ? "light_mode" : "dark_mode";
-        modeButton.querySelector('.name').innerText = isDark ? "Light Mode" : "Dark Mode";
+        modeButton.querySelector('.name').innerText = isDark ? window.i18next.t("Light Mode") : window.i18next.t("Dark Mode");
     }
 }
 
@@ -1247,38 +1273,181 @@ window.addEventListener("DOMContentLoaded", function(event) {
     });
 });
 
-// Share button and embed in LMS code
-window.addEventListener("DOMContentLoaded", function(event) {
-    const shareButton = document.getElementById("embed-button");
-    if (shareButton) {
-        const sharePopup = document.getElementById("embed-popup");
-        const embedCode = "<iframe src='" + window.location.href + "?embed' width='100%' height='1000px' frameborder='0'></iframe>";
-        const embedTextbox = document.getElementById("embed-code-textbox");
-        if (embedTextbox) {
-            embedTextbox.value = embedCode;
+
+class PTXDialog {
+    static hasNativeCommandInvokers() {
+        return 'commandForElement' in HTMLButtonElement.prototype;
+    }
+    // dialogElement: should be a <dialog> element
+    // openButton: is an optional element that triggers the dialog to open and will receive focus again when the dialog closes
+    //             if provided, will automatically have an event listener added to open the dialog on click
+    // options can include:
+    // - kind: whether the dialog is "modal" (the default), "light-close" or "non-modal"
+    //   - "modal" traps focus and must be dismissed with the close button or escape
+    //   - "light-close" are model, but close if the user clicks outside the dialog
+    //   - "non-modal" do not trap focus and can be interacted with while open
+    // - closeButton: button element that should close the dialog when clicked
+    //                If not provided for a modal dialog, one will be added.
+    constructor(dialogElement, openButton = null, options = {}) {
+        this.dialog = dialogElement;
+        this.controlElement = openButton;
+        this.kind = options.kind || "modal";
+        this.isModal = this.kind === "modal" || this.kind === "light-close";
+
+        this.openButton = openButton;
+        if (this.openButton && !PTXDialog.hasNativeCommandInvokers()) {
+            this.openButton.addEventListener("click", () => this.open());
         }
-        shareButton.addEventListener("click", function() {
-            sharePopup.classList.toggle("hidden");
-        });
-        const copyButton = document.getElementById("copy-embed-button");
-        if (copyButton) {
-            copyButton.addEventListener("click", function() {
-                const embedTextbox = document.getElementById("embed-code-textbox");
-                if (embedTextbox) {
-                    navigator.clipboard.writeText(embedCode).then(() => {
-                        console.log("Embed code copied to clipboard!");
-                    }).catch(err => {
-                        console.error("Failed to copy embed code: ", err);
-                    });
-                    //copyButton.innerHTML = "✓✓";
-                    // show confirmation for 2 seconds:
-                    copyButton.querySelector('.icon').innerText = "library_add_check";
-                    setTimeout(function() {
-                        copyButton.querySelector('.icon').innerText = "content_copy";
-                        sharePopup.classList.add("hidden");
-                    }, 450);
+
+        this.closeButton = options.closeButton;
+        // add a close button unless the dialog already has one as identified in options
+        if (!this.closeButton && this.isModal) {
+            const topBar = document.createElement("div");
+            topBar.classList.add("ptx-dialog-topbar");
+            this.dialog.prepend(topBar);
+            this.closeButton = document.createElement("button");
+            this.closeButton.classList.add("ptx-dialog-close-button");
+            this.closeButton.setAttribute("aria-label", "Close dialog");
+            this.closeButton.innerHTML = `<span class="material-symbols-outlined">close</span>`;
+            topBar.appendChild(this.closeButton);
+        }
+        if (this.closeButton) {
+            this.closeButton.addEventListener("click", () => this.close());
+        }
+
+        if (PTXDialog.hasNativeCommandInvokers()) {
+            // If the browser supports command invokers, we can just use the native dialog element and its showModal and close methods.
+            this.open = () => {
+              if(this.isModal) {
+                this.dialog.showModal();
+              } else {
+                this.dialog.show();
+              }
+            };
+            this.close = () => {
+                this.dialog.close();
+                if (this.controlElement) {
+                    this.controlElement.focus();
+                }
+            };
+            this.toggle = () => {
+                if (this.dialog.open) {
+                    this.close();
+                } else {
+                    this.open();
+                }
+            };
+        } else {
+            // Otherwise, we use the fallback functions defined above to manage the dialog state.
+            this.open = () => this.openDialogFallback();
+            this.close = () => this.closeDialogFallback();
+            this.toggle = () => this.toggleDialogFallback();
+        }
+
+        if (this.kind === "light-close") {
+            // Add event listener to close the dialog if the user clicks outside of it
+            this.dialog.addEventListener("click", (event) => {
+                if (event.target === this.dialog) {
+                    // need to ask for bounding rext and do manual check
+                    // to include border and padding area of the dialog
+                    const rect = this.dialog.getBoundingClientRect();
+                    const isInDialog = (
+                        rect.top <= event.clientY &&
+                        event.clientY <= rect.top + rect.height &&
+                        rect.left <= event.clientX &&
+                        event.clientX <= rect.left + rect.width
+                    );
+                    if (!isInDialog) {
+                        this.close();
+                    }
                 }
             });
+        }
+    }
+
+    openDialogFallback() {
+        if (this.dialog && typeof this.dialog.showModal === "function" && !this.dialog.open) {
+            if(this.isModal) {
+              this.dialog.showModal();
+            } else {
+              this.dialog.show();
+            }
+        }
+    }
+
+    closeDialogFallback() {
+        if (this.dialog && typeof this.dialog.close === "function" && this.dialog.open) {
+            this.dialog.close();
+        }
+        if (this.controlElement) {
+            this.controlElement.focus();
+        }
+    }
+
+    toggleDialogFallback() {
+        if (!this.dialog) {
+            return;
+        }
+        if (this.dialog.open) {
+            this.closeDialogFallback();
+        } else {
+            this.openDialogFallback();
+        }
+    }
+}
+
+
+// Share button and embed in LMS code
+window.addEventListener("DOMContentLoaded", function(event) {
+    const shareButton = document.getElementById("ptx-embed-button");
+    const sharePopupElement = document.getElementById("ptx-embed-popup");
+    if (!shareButton || !sharePopupElement) {
+        return;
+    }
+    const closeBtn = document.getElementById("ptx-embed-close-button");
+
+    const sharePopup = new PTXDialog(
+        sharePopupElement,
+        shareButton,
+        {
+            kind: "light-close",
+            closeButton: closeBtn
+        }
+    );
+
+    const embedCode = "<iframe src='" + window.location.href + "?embed' width='100%' height='1000px' frameborder='0'></iframe>";
+    const embedTextbox = document.getElementById("ptx-embed-code-textbox");
+    if (embedTextbox) {
+        embedTextbox.value = embedCode;
+    }
+
+    const copyButton = document.getElementById("ptx-embed-copy-button");
+    if (copyButton) {
+        if (navigator.clipboard) {
+            copyButton.addEventListener("click", function() {
+                const embedTextbox = document.getElementById("ptx-embed-code-textbox");
+                if (embedTextbox) {
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(embedCode).then(() => {
+                            console.log("Embed code copied to clipboard!");
+                            copyButton.querySelector('.icon').innerText = "library_add_check";
+                            setTimeout(function() {
+                                copyButton.querySelector('.icon').innerText = "content_copy";
+                                sharePopup.close();
+                                shareButton.focus();
+                            }, 450);
+                        }).catch(err => {
+                            console.error("Failed to copy embed code: ", err);
+                        });
+                    } else {
+                        console.warn("Clipboard API not supported, falling back to manual copy.");
+                    }
+                }
+            });
+        } else {
+            // If clipboard API is not supported, hide the copy button and
+            // rely on users to manually copy from the textbox
+            copyButton.style.display = "none";
         }
     }
 });
@@ -1337,3 +1506,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 // END Support for code-copy button functionality
+
+// PTXDialog is used by pretext_search.js, which is a separately-loaded script.
+// isDarkMode is called from XSL-generated inline <script> blocks (e.g. mermaid).
+// When this file is bundled into pretext-core.js (IIFE format), both are scoped
+// to the bundle. Assigning them to window makes them reachable globally.
+window.PTXDialog = PTXDialog;
+window.isDarkMode = isDarkMode;

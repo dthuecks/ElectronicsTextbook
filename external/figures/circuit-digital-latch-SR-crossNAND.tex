@@ -2,14 +2,14 @@
     
     % Place logic gates
     \draw (0,0)             node[nand port, number inputs=2](nand1){}
-    ([yshift=-2cm] nand1)    node[nand port, number inputs=2](nand2){}
+    ([yshift=-2cm] nand1)   node[nand port, number inputs=2](nand2){}
     
     % Internal connections
-    (nand1.in 2)            to[short] ++(0,-0.5)
-                            to[short] ([yshift=0.5cm] nand2.out)
+    (nand1.in 2)            to[short] ++(0,-0.4)
+                            to[short] ([yshift=0.4cm] nand2.in 1 -| nand2.out)
                             to[short] (nand2.out)
-    (nand2.in 1)            to[short] ++(0,0.5)
-                            to[short] ([yshift=-0.5cm] nand1.out)
+    (nand2.in 1)            to[short] ++(0,0.4)
+                            to[short] ([yshift=-0.4cm] nand1.in 2 -| nand1.out)
                             to[short] (nand1.out)
     
     % Latch inputs

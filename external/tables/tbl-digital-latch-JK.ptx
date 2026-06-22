@@ -1,0 +1,50 @@
+<tabular halign="center">
+    <row header="yes" bottom="minor" >
+        <cell right="minor">gate</cell>
+        <cell right="minor"><m>J</m></cell> 
+        <cell right="minor"><m>K</m></cell> 
+        <cell right="minor"><m>Q</m></cell> 
+        <cell right="minor"><m>\overline{Q}</m></cell>
+        <cell>Condition</cell>
+    </row>
+    <row>
+        <cell right="minor">0</cell>
+        <cell right="minor">X</cell>
+        <cell right="minor">X</cell> 
+        <cell right="minor"><m>Q_0</m></cell>
+        <cell right="minor"><m>\overline{Q_0}</m></cell> 
+        <cell>Hold</cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell>
+        <cell right="minor">0</cell>
+        <cell right="minor">0</cell> 
+        <cell right="minor"><m>Q_0</m></cell>
+        <cell right="minor"><m>\overline{Q_0}</m></cell> 
+        <cell>Hold</cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell>
+        <cell right="minor">1</cell> 
+        <cell right="minor">0</cell>
+        <cell right="minor">1</cell>
+        <cell>Reset</cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell>
+        <cell right="minor">1</cell>
+        <cell right="minor">0</cell> 
+        <cell right="minor">1</cell>
+        <cell right="minor">0</cell> 
+        <cell>Set</cell>
+    </row>
+    <row>
+        <cell right="minor">1</cell>
+        <cell right="minor">1</cell>
+        <cell right="minor">1</cell> 
+        <cell right="minor"><m>\overline{Q_0}</m></cell>
+        <cell right="minor"><m>Q_0</m></cell>
+        <cell>Toggle</cell>
+    </row>
+</tabular>

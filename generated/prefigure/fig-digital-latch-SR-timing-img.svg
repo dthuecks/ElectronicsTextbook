@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="fig-digital-latch-SR-timing-img-figure" width="430" height="220" viewBox="0 0 430 220">
   <defs>
-    <clipPath id="fig-digital-latch-SR-timing-img-clipPath-0">
+    <clipPath id="fig-digital-latch-SR-timing-img-__clipPath-0">
       <rect x="25.0" y="5.0" width="400.0" height="200.0"/>
     </clipPath>
-    <clipPath id="fig-digital-latch-SR-timing-img-clipPath-1">
+    <clipPath id="fig-digital-latch-SR-timing-img-__clipPath-1">
       <rect x="25.0" y="5.0" width="400.0" height="200.0"/>
     </clipPath>
   </defs>
   <g id="fig-digital-latch-SR-timing-img-axes" stroke="black" stroke-width="2">
-    <line id="fig-digital-latch-SR-timing-img-line-0" x1="25.0" y1="205.0" x2="425.0" y2="205.0" stroke="black" stroke-width="2"/>
-    <line id="fig-digital-latch-SR-timing-img-line-1" x1="25.0" y1="205.0" x2="25.0" y2="5.0" stroke="black" stroke-width="2"/>
+    <line id="fig-digital-latch-SR-timing-img-__line-0" x1="25.0" y1="205.0" x2="425.0" y2="205.0" stroke="black" stroke-width="2"/>
+    <line id="fig-digital-latch-SR-timing-img-__line-1" x1="25.0" y1="205.0" x2="25.0" y2="5.0" stroke="black" stroke-width="2"/>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-0" transform="translate(422.0,209.0) scale(0.75,0.75) translate(-34.7,-0.0)">
-    <g id="fig-digital-latch-SR-timing-img-g-0">
+  <g id="fig-digital-latch-SR-timing-img-__label-0" transform="translate(422.0,209.0) scale(0.75,0.75) translate(-34.7,-0.0)">
+    <g id="fig-digital-latch-SR-timing-img-__g-0">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Time</text>
     </g>
   </g>
-  <path id="fig-digital-latch-SR-timing-img-path-0" d="M 25.0 55.0 L 75.0 55.0 L 75.0 75.0 L 225.0 75.0 L 225.0 55.0 L 275.0 55.0 L 275.0 75.0 L 325.0 75.0 L 325.0 55.0 L 375.0 55.0 L 375.0 75.0 L 425.0 75.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-clipPath-1)"/>
-  <g id="fig-digital-latch-SR-timing-img-label-1" transform="translate(21.0,65.0) scale(0.75,0.75) rotate(-0.0) translate(-11.7,-6.6)">
-    <g id="fig-digital-latch-SR-timing-img-g-1">
+  <path id="fig-digital-latch-SR-timing-img-__path-0" d="M 25.0 55.0 L 75.0 55.0 L 75.0 75.0 L 225.0 75.0 L 225.0 55.0 L 275.0 55.0 L 275.0 75.0 L 325.0 75.0 L 325.0 55.0 L 375.0 55.0 L 375.0 75.0 L 425.0 75.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-__clipPath-1)"/>
+  <g id="fig-digital-latch-SR-timing-img-__label-1" transform="translate(21.0,65.0) scale(0.75,0.75) rotate(-0.0) translate(-11.7,-6.6)">
+    <g id="fig-digital-latch-SR-timing-img-__g-1">
       <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="11.672px" height="13.160px" role="img" focusable="false" viewBox="0 -705 645 727" x="0.0" y="0.0">
         <defs>
           <path id="fig-digital-latch-SR-timing-img-MJX-2-TEX-I-1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"/>
@@ -33,9 +33,9 @@
       </svg>
     </g>
   </g>
-  <path id="fig-digital-latch-SR-timing-img-path-1" d="M 25.0 115.0 L 125.0 115.0 L 125.0 95.0 L 175.0 95.0 L 175.0 115.0 L 325.0 115.0 L 325.0 95.0 L 375.0 95.0 L 375.0 115.0 L 425.0 115.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-clipPath-1)"/>
-  <g id="fig-digital-latch-SR-timing-img-label-2" transform="translate(21.0,105.0) scale(0.75,0.75) rotate(-0.0) translate(-13.7,-6.4)">
-    <g id="fig-digital-latch-SR-timing-img-g-2">
+  <path id="fig-digital-latch-SR-timing-img-__path-1" d="M 25.0 115.0 L 125.0 115.0 L 125.0 95.0 L 175.0 95.0 L 175.0 115.0 L 325.0 115.0 L 325.0 95.0 L 375.0 95.0 L 375.0 115.0 L 425.0 115.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-__clipPath-1)"/>
+  <g id="fig-digital-latch-SR-timing-img-__label-2" transform="translate(21.0,105.0) scale(0.75,0.75) rotate(-0.0) translate(-13.7,-6.4)">
+    <g id="fig-digital-latch-SR-timing-img-__g-2">
       <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.384px" width="13.736px" height="12.744px" role="img" focusable="false" viewBox="0 -683 759 704" x="0.0" y="0.0">
         <defs>
           <path id="fig-digital-latch-SR-timing-img-MJX-3-TEX-I-1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"/>
@@ -50,15 +50,15 @@
       </svg>
     </g>
   </g>
-  <path id="fig-digital-latch-SR-timing-img-path-2" d="M 25.0 135.0 L 125.0 135.0 L 125.0 155.0 L 225.0 155.0 L 225.0 135.0 L 325.0 135.0 L 325.0 155.0 L 375.0 155.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-clipPath-1)"/>
-  <path id="fig-digital-latch-SR-timing-img-path-3" d="M 375.0 155.0 L 425.0 155.0 L 425.0 135.0 L 375.0 135.0 Z" stroke="none" opacity="30%" stroke-width="2" fill="blue"/>
-  <g id="fig-digital-latch-SR-timing-img-label-3" transform="translate(400.0,145.0) translate(-3.7,-5.2)">
-    <g id="fig-digital-latch-SR-timing-img-g-3">
+  <path id="fig-digital-latch-SR-timing-img-__path-2" d="M 25.0 135.0 L 125.0 135.0 L 125.0 155.0 L 225.0 155.0 L 225.0 135.0 L 325.0 135.0 L 325.0 155.0 L 375.0 155.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-__clipPath-1)"/>
+  <path id="fig-digital-latch-SR-timing-img-__path-3" d="M 375.0 155.0 L 425.0 155.0 L 425.0 135.0 L 375.0 135.0 Z" stroke="none" opacity="30%" stroke-width="2" fill="blue"/>
+  <g id="fig-digital-latch-SR-timing-img-__label-3" transform="translate(400.0,145.0) translate(-3.7,-5.2)">
+    <g id="fig-digital-latch-SR-timing-img-__g-3">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">?</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-4" transform="translate(21.0,145.0) scale(0.75,0.75) rotate(-0.0) translate(-14.3,-8.1)">
-    <g id="fig-digital-latch-SR-timing-img-g-4">
+  <g id="fig-digital-latch-SR-timing-img-__label-4" transform="translate(21.0,145.0) scale(0.75,0.75) rotate(-0.0) translate(-14.3,-8.1)">
+    <g id="fig-digital-latch-SR-timing-img-__g-4">
       <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.512px" width="14.320px" height="16.256px" role="img" focusable="false" viewBox="0 -704 791 898" x="0.0" y="0.0">
         <defs>
           <path id="fig-digital-latch-SR-timing-img-MJX-4-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"/>
@@ -73,15 +73,15 @@
       </svg>
     </g>
   </g>
-  <path id="fig-digital-latch-SR-timing-img-path-4" d="M 25.0 195.0 L 125.0 195.0 L 125.0 175.0 L 225.0 175.0 L 225.0 195.0 L 325.0 195.0 L 325.0 175.0 L 375.0 175.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-clipPath-1)"/>
-  <path id="fig-digital-latch-SR-timing-img-path-5" d="M 375.0 195.0 L 425.0 195.0 L 425.0 175.0 L 375.0 175.0 Z" stroke="none" opacity="30%" stroke-width="2" fill="blue"/>
-  <g id="fig-digital-latch-SR-timing-img-label-5" transform="translate(400.0,185.0) translate(-3.7,-5.2)">
-    <g id="fig-digital-latch-SR-timing-img-g-5">
+  <path id="fig-digital-latch-SR-timing-img-__path-4" d="M 25.0 195.0 L 125.0 195.0 L 125.0 175.0 L 225.0 175.0 L 225.0 195.0 L 325.0 195.0 L 325.0 175.0 L 375.0 175.0" stroke="blue" stroke-width="4" fill="none" clip-path="url(#fig-digital-latch-SR-timing-img-__clipPath-1)"/>
+  <path id="fig-digital-latch-SR-timing-img-__path-5" d="M 375.0 195.0 L 425.0 195.0 L 425.0 175.0 L 375.0 175.0 Z" stroke="none" opacity="30%" stroke-width="2" fill="blue"/>
+  <g id="fig-digital-latch-SR-timing-img-__label-5" transform="translate(400.0,185.0) translate(-3.7,-5.2)">
+    <g id="fig-digital-latch-SR-timing-img-__g-5">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">?</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-6" transform="translate(21.0,185.0) scale(0.75,0.75) rotate(-0.0) translate(-14.3,-11.0)">
-    <g id="fig-digital-latch-SR-timing-img-g-6">
+  <g id="fig-digital-latch-SR-timing-img-__label-6" transform="translate(21.0,185.0) scale(0.75,0.75) rotate(-0.0) translate(-14.3,-11.0)">
+    <g id="fig-digital-latch-SR-timing-img-__g-6">
       <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.512px" width="14.320px" height="21.992px" role="img" focusable="false" viewBox="0 -1021 791 1215" x="0.0" y="0.0">
         <defs>
           <path id="fig-digital-latch-SR-timing-img-MJX-5-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"/>
@@ -104,50 +104,50 @@
       </svg>
     </g>
   </g>
-  <line id="fig-digital-latch-SR-timing-img-line-2" x1="75.0" y1="205.0" x2="75.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <line id="fig-digital-latch-SR-timing-img-line-3" x1="125.0" y1="205.0" x2="125.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <line id="fig-digital-latch-SR-timing-img-line-4" x1="175.0" y1="205.0" x2="175.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <line id="fig-digital-latch-SR-timing-img-line-5" x1="225.0" y1="205.0" x2="225.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <line id="fig-digital-latch-SR-timing-img-line-6" x1="275.0" y1="205.0" x2="275.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <line id="fig-digital-latch-SR-timing-img-line-7" x1="325.0" y1="205.0" x2="325.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <line id="fig-digital-latch-SR-timing-img-line-8" x1="375.0" y1="205.0" x2="375.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-  <g id="fig-digital-latch-SR-timing-img-label-7" transform="translate(50.0,25.0) translate(-11.5,-5.3)">
-    <g id="fig-digital-latch-SR-timing-img-g-7">
+  <line id="fig-digital-latch-SR-timing-img-__line-2" x1="75.0" y1="205.0" x2="75.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <line id="fig-digital-latch-SR-timing-img-__line-3" x1="125.0" y1="205.0" x2="125.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <line id="fig-digital-latch-SR-timing-img-__line-4" x1="175.0" y1="205.0" x2="175.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <line id="fig-digital-latch-SR-timing-img-__line-5" x1="225.0" y1="205.0" x2="225.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <line id="fig-digital-latch-SR-timing-img-__line-6" x1="275.0" y1="205.0" x2="275.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <line id="fig-digital-latch-SR-timing-img-__line-7" x1="325.0" y1="205.0" x2="325.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <line id="fig-digital-latch-SR-timing-img-__line-8" x1="375.0" y1="205.0" x2="375.0" y2="5.0" stroke="green" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <g id="fig-digital-latch-SR-timing-img-__label-7" transform="translate(50.0,25.0) translate(-11.5,-5.3)">
+    <g id="fig-digital-latch-SR-timing-img-__g-7">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">Set</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-8" transform="translate(100.0,25.0) translate(-15.9,-5.4)">
-    <g id="fig-digital-latch-SR-timing-img-g-8">
+  <g id="fig-digital-latch-SR-timing-img-__label-8" transform="translate(100.0,25.0) translate(-15.9,-5.4)">
+    <g id="fig-digital-latch-SR-timing-img-__g-8">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Hold</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-9" transform="translate(150.0,25.0) translate(-19.9,-5.2)">
-    <g id="fig-digital-latch-SR-timing-img-g-9">
+  <g id="fig-digital-latch-SR-timing-img-__label-9" transform="translate(150.0,25.0) translate(-19.9,-5.2)">
+    <g id="fig-digital-latch-SR-timing-img-__g-9">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">Reset</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-10" transform="translate(200.0,25.0) translate(-15.9,-5.4)">
-    <g id="fig-digital-latch-SR-timing-img-g-10">
+  <g id="fig-digital-latch-SR-timing-img-__label-10" transform="translate(200.0,25.0) translate(-15.9,-5.4)">
+    <g id="fig-digital-latch-SR-timing-img-__g-10">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Hold</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-11" transform="translate(250.0,25.0) translate(-11.5,-5.3)">
-    <g id="fig-digital-latch-SR-timing-img-g-11">
+  <g id="fig-digital-latch-SR-timing-img-__label-11" transform="translate(250.0,25.0) translate(-11.5,-5.3)">
+    <g id="fig-digital-latch-SR-timing-img-__g-11">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">Set</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-12" transform="translate(300.0,25.0) translate(-15.9,-5.4)">
-    <g id="fig-digital-latch-SR-timing-img-g-12">
+  <g id="fig-digital-latch-SR-timing-img-__label-12" transform="translate(300.0,25.0) translate(-15.9,-5.4)">
+    <g id="fig-digital-latch-SR-timing-img-__g-12">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Hold</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-13" transform="translate(350.0,25.0) translate(-22.0,-5.4)">
-    <g id="fig-digital-latch-SR-timing-img-g-13">
+  <g id="fig-digital-latch-SR-timing-img-__label-13" transform="translate(350.0,25.0) translate(-22.0,-5.4)">
+    <g id="fig-digital-latch-SR-timing-img-__g-13">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Forbid</text>
     </g>
   </g>
-  <g id="fig-digital-latch-SR-timing-img-label-14" transform="translate(400.0,25.0) translate(-15.9,-5.4)">
-    <g id="fig-digital-latch-SR-timing-img-g-14">
+  <g id="fig-digital-latch-SR-timing-img-__label-14" transform="translate(400.0,25.0) translate(-15.9,-5.4)">
+    <g id="fig-digital-latch-SR-timing-img-__g-14">
       <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Hold</text>
     </g>
   </g>
