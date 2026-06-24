@@ -126,20 +126,20 @@
             APPLICATION: LATCHED TEMPERATURE OR LIGHT ALARM.
         </p>
     </subsection>
-    <subsection xml:id="subsec-digital-latch-clocked">
+    <subsection xml:id="subsec-digital-latch-gated">
         <title>Gated latches</title>
 
         <p>
-            There are latch applications where it may be beneficial to quickly enable or disable latch input control over the latch outputs. <xref ref="circuit-digital-latch-SR-gated"/> shows the circuit for a <term>gated</term> SR latch. This latch will have standard behavior as long as gate=1, though it operates based on which input is HI (whereas the cross-NAND SR latch operates based on which input is LO). Whenever gate=0, the circuit enters the <sq>Hold</sq> state regardless of the states held by inputs <m>S</m> and <m>R</m>.
-            <figure xml:id="circuit-digital-latch-SR-gated">
+            There are latch applications where it may be beneficial to quickly enable or disable latch input control over the latch outputs. <xref ref="fig-digital-latch-SR-gated"/> shows the circuit and truth table for a <term>gated</term> SR latch. When <m>EN=1</m>, the latch is <term>enabled</term> meaning that the latch outputs are determined by the latch inputs. When <m>EN=0</m>, the inputs are disabled and the latch enters the <sq>Hold</sq> state independent of the values of <m>S</m> and <m>R</m>. The implementation of the gating functionality shown in <xref ref="circuit-digital-latch-SR-gated"/> results in a latch with <term>active high</term> inputs. This means that the latch, when enabled, has outputs that respond to inputs that are high. So, the Set state requires <m>EN=1</m>, <m>S=1</m>, and <m>R=0</m>. This behavior is in contrast to the un-gated cross-NAND SR latch which has <term>active low</term> inputs.  
+            <figure xml:id="fig-digital-latch-SR-gated">
                 <sidebyside valign="middle">
-                    <figure>
+                    <figure xml:id="circuit-digital-latch-SR-gated">
                         <caption>Gated SR latch.</caption>
                         <image width="50%"><latex-image>
                             <xi:include parse="text" href="./figures/circuit-digital-latch-SR-gated.tex" />
                         </latex-image></image>
                     </figure>
-                    <table>
+                    <table xml:id="tbl-digital-latch-SR-gated">
                         <title>Clocked SR latch truth table.</title>
                         <xi:include href="./tables/tbl-digital-latch-SR-gated.ptx" />
                     </table>
@@ -170,27 +170,22 @@
             </figure>
         </p>
         <p>
-            While the JK latch uses feedback to repurpose the <sq>forbidden</sq> state that appeared with SR latches, the <term>D latch</term> is designed instead to make it impossible to access that forbidden state at all. <xref ref="circuit-digital-latch-D-ver1"/> shows a modified SR latch version of the D latch, while <xref ref="circuit-digital-latch-D-ver2"/> provides an alternate configuration. Both D latch circuits behave identically, producing the truth table in <xref ref="tbl-digital-latch-D"/>.
+            While the JK latch uses feedback to repurpose the <sq>forbidden</sq> state that appeared with SR latches, the <term>D latch</term> is designed instead to make it impossible to access that forbidden state at all. <xref ref="circuit-digital-latch-D-ver1"/> shows a modified SR latch version of the D latch, producing the truth table in <xref ref="tbl-digital-latch-D"/>.
             <figure xml:id="circuit-digital-latch-D">
                 <sidebyside valign="middle" widths="45% 45%">
                     <figure xml:id="circuit-digital-latch-D-ver1">
-                        <caption>Circuit diagram for the D latch. This circuit is based on the gated SR latch.</caption>
+                        <caption>Circuit diagram for the D latch.</caption>
                         <image><latex-image>
                             <xi:include parse="text" href="./figures/circuit-digital-latch-D-ver1.tex" />
                         </latex-image></image>
                     </figure>
-                    <figure xml:id="circuit-digital-latch-D-ver2">
-                        <caption>Alternative circuit diagram for the D latch, providing the same behavior as the circuit in <xref ref="circuit-digital-latch-D-ver1" text="local"/></caption>
-                        <image><latex-image>
-                            <xi:include parse="text" href="./figures/circuit-digital-latch-D-ver2.tex" />
-                        </latex-image></image>
-                    </figure>
+                    <table xml:id="tbl-digital-latch-D">
+                        <title>Truth table for the D latch.</title>
+                        <xi:include href="./tables/tbl-digital-latch-D.ptx" />
+                    </table>
                 </sidebyside>
             </figure>
-            <table xml:id="tbl-digital-latch-D">
-                <title>Truth table for the D latch.</title>
-                <xi:include href="./tables/tbl-digital-latch-D.ptx" />
-            </table>
+            
         </p>
         <p>
             INCLUDE CIRCUIT SYMBOLS FOR LATCHES SOMEWHERE IN THIS SECTION.

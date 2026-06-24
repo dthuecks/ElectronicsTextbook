@@ -2,7 +2,83 @@
 
 <section xml:id="sec-digital-flipflop" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Flip-flops</title>
+    <p>
+        In the last section, we discussed latches which are <term>level-triggered</term> circuits with output levels that depend on the input levels at any particular instant of time. <term>Flip-flops</term>, the topic for this section, are <term>edge-triggered</term> devices with output levels that change only at the instant at which a <term>clock</term> signal (CLK) transitions between high and low in a particular direction.
+    </p>
+    <p>
+        Our first D flip-flop circuit design is shown in <xref ref="fig-digital-flipflop-D"/> with its circuit symbol. 
+        <figure xml:id="fig-digital-flipflop-D">
+            <caption>
+                D flip-flop. 
+            </caption>
+            <sidebyside widths="70% 20%">
+                <figure xml:id="circuit-digital-flipflop-D">
+                    <caption>Circuit schematic.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-flopflop-D.tex" />
+                    </latex-image></image>
+                </figure>
+                <figure xml:id="symbol-digital-flipflop-D">
+                    <caption>Circuit symbol.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/symbol-digital-flopflop-D.tex" />
+                    </latex-image></image>
+                </figure>
+            </sidebyside>
+        </figure>
+        This circuit acts much like the D latch from the previous section except that the outputs are only allowed to change at instants when the CLK signal transitions from LOW to HIGH. This behavior is shown in <xref ref="tbl-digital-flipflop-D"/>. 
+        <table xml:id="tbl-digital-flipflop-D">
+            <title>tbl-digital-flipflop-D</title>
+            <xi:include href="./tables/tbl-digital-flipflop-D.ptx" />
+        </table>
+        This behavior is also demonstrated in a <term>timing diagram</term> which provides plots vs time for reference points of interest. As an example, <xref ref="timing-digital-flipflop-D"/> 
+        <figure xml:id="timing-digital-flipflop-D">
+            <caption>Timing diagram for the circuit pictured in <xref ref="circuit-digital-flipflop-D"/>.</caption>
+            <image width="100%">
+                <shortdescription></shortdescription>
+                <prefigure xmlns="https://prefigure.org" label="timing-digital-flipflop-D-img">
+                    <xi:include href="./prefigure/timing-digital-flipflop-D.xml" />
+                </prefigure>
+            </image>
+        </figure>
+    </p>
+    <p>
+        D flip-flop that triggers on falling edge
+        <figure xml:id="fig-digital-flipflop-D-falling">
+            <caption>
+                D flip-flop. 
+            </caption>
+            <sidebyside widths="70% 20%">
+                <figure xml:id="circuit-digital-flipflop-D-falling">
+                    <caption>Circuit schematic.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/circuit-digital-flopflop-D-falling.tex" />
+                    </latex-image></image>
+                </figure>
+                <figure xml:id="symbol-digital-flipflop-D-falling">
+                    <caption>Circuit symbol.</caption>
+                    <image><latex-image>
+                        <xi:include parse="text" href="./figures/symbol-digital-flopflop-D-falling.tex" />
+                    </latex-image></image>
+                </figure>
+            </sidebyside>
+        </figure>
 
+        <table xml:id="tbl-digital-flipflop-D-falling">
+            <title>tbl-digital-flipflop-D</title>
+            <xi:include href="./tables/tbl-digital-flipflop-D-falling.ptx" />
+        </table>
+        
+        <figure xml:id="timing-digital-flipflop-D-falling">
+            <caption>Timing diagram for the circuit pictured in <xref ref="circuit-digital-flipflop-D-falling"/>.</caption>
+            <image width="100%">
+                <shortdescription></shortdescription>
+                <prefigure xmlns="https://prefigure.org" label="timing-digital-flipflop-D-falling-img">
+                    <xi:include href="./prefigure/timing-digital-flipflop-D-falling.xml" />
+                </prefigure>
+            </image>
+        </figure>
+    </p>
     
 
 </section>

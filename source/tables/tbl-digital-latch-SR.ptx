@@ -7,31 +7,31 @@
         <cell>Condition</cell>
     </row>
     <row>
-        <cell right="minor">0</cell>
-        <cell right="minor">0</cell> 
+        <cell right="minor"><m>0</m></cell>
+        <cell right="minor"><m>0</m></cell> 
         <cell right="minor"><m>Q_0</m></cell>
         <cell right="minor"><m>\overline{Q_0}</m></cell> 
         <cell>Hold</cell>
     </row>
     <row>
-        <cell right="minor">0</cell>
-        <cell right="minor">1</cell> 
-        <cell right="minor">0</cell>
-        <cell right="minor">1</cell>
+        <cell right="minor"><m>0</m></cell>
+        <cell right="minor"><m>1</m></cell> 
+        <cell right="minor"><m>0</m></cell>
+        <cell right="minor"><m>1</m></cell>
         <cell>Reset</cell>
     </row>
     <row>
-        <cell right="minor">1</cell>
-        <cell right="minor">0</cell> 
-        <cell right="minor">1</cell>
-        <cell right="minor">0</cell> 
+        <cell right="minor"><m>1</m></cell>
+        <cell right="minor"><m>0</m></cell> 
+        <cell right="minor"><m>1</m></cell>
+        <cell right="minor"><m>0</m></cell> 
         <cell>Set</cell>
     </row>
     <row>
-        <cell right="minor">1</cell>
-        <cell right="minor">1</cell> 
-        <cell right="minor">0</cell>
-        <cell right="minor">0</cell>
+        <cell right="minor"><m>1</m></cell>
+        <cell right="minor"><m>1</m></cell> 
+        <cell right="minor"><m>0</m></cell>
+        <cell right="minor"><m>0</m></cell>
         <cell>Forbidden</cell>
     </row>
 </tabular>

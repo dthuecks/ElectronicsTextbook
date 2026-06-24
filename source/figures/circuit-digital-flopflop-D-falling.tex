@@ -1,0 +1,33 @@
+\begin{circuitikz}
+    \tikzset{Dlatch/.style={flipflop,
+        flipflop def={t1=$D$, t3=EN, t6=$Q$, t4={\ctikztextnot{$Q$}},
+    }}}
+
+    % Placement of digital components
+    \draw(0, 0)             coordinate(start)
+                            node[Dlatch, align=center](D1){Latch\\ 1}
+    ([xshift=3cm] start)    node[Dlatch, align=center](D2){Latch\\ 2}
+    ([yshift=-2cm] start)       
+                            node[not port](not2){}
+
+    % Internal connections
+    (D1.pin 6)              to[short] (D2.pin 1)
+    (D1.pin 3)              to[short] (\tikztostart |- not2.in)
+                            to[short] (not2.in)
+    (not2.out)              to[short] (\tikztostart -| D2.pin 3)
+                            to[short] (D2.pin 3)
+
+    % Inputs
+    (D1.pin 1)              to[short] ++(-0.5,0) coordinate(D)
+                            node[left](){$D$}
+    (not2.in -| D1.pin 3)   to[short,*-] (\tikztostart -| D)
+                           node[left](){CLK}
+
+    % Outputs
+    (D2.pin 6)              to[short] ++(0.5,0)
+                            coordinate(Q)
+                            node[right](){$Q$}
+    (D2.pin 4)              to[short] (\tikztostart -| Q)
+                            node[right](){$\overline{Q}$}
+;
+\end{circuitikz}
