@@ -15,8 +15,6 @@
   <xi:include href="./sec-digital-adders.ptx" />
   <xi:include href="./sec-digital-latch.ptx" />
   <xi:include href="./sec-digital-flipflop.ptx" />
-
-
-
+  <xi:include href="./sec-digital-shiftreg.ptx" />
 
 </chapter>

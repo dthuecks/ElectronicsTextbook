@@ -1,8 +1,6 @@
 \begin{circuitikz}
     \tikzset{
-        Dflipflop rising/.style={flipflop,
-        flipflop def={t1=$D$, t3=$C$, t6=$Q$, t4={\ctikztextnot{$Q$}},
-        c3=1}},
+        D latch/.style={flipflop, flipflop def={t1=$D$, t3=$E$, t6=$Q$, t4=\ctikztextnot{$Q$}}},
         %
         add async PC/.style={flipflop def={%
             tu={\ctikztextnot{\texttt{PRE}}}, td={\ctikztextnot{\texttt{CLR}}}}},
@@ -10,7 +8,7 @@
 
     % Placement of digital components
     \draw(0, 0)             coordinate(start)
-                            node[Dflipflop rising, add async PC, align=center](D1){}
+                            node[D latch, add async PC](D1){}
     
 ;
 \end{circuitikz}

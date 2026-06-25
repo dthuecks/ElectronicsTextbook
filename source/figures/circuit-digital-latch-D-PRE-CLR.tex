@@ -2,9 +2,12 @@
     
     % Place logic gates
     \draw (0,0)             node[nand port, number inputs=2](nand1){}
-    ([yshift=-2cm] nand1)    node[nand port, number inputs=2](nand2){}
-    (nand1.in 1)            node[nand port, number inputs=2, anchor=out](nand3){}
-    (nand2.in 2)            node[nand port, number inputs=2, anchor=out](nand4){}
+    ([yshift=-2cm] nand1)   node[nand port, number inputs=2](nand2){}
+    (nand1.in 1)            node[and port, number inputs=2, anchor=out](and5){}
+    (nand2.in 2)            node[and port, number inputs=2, anchor=out](and6){}
+    (and5.in 2)            node[nand port, number inputs=2, anchor=out](nand3){}
+    (and6.in 1)            node[nand port, number inputs=2, anchor=out](nand4){}
+
     ([xshift=-1cm] $(nand3.in 2)! 0.5!(nand4.in 1)$)
                             node[not port, rotate=-90](not1){}
 
@@ -27,6 +30,10 @@
     ($(nand3.in 2)! 0.5!(nand4.in 1)$)
                             to[short, *-] ++(0.5,0)
                             node[right](){$E$}
+    (and5.in 1)             to[short] ++(0,0.5)
+                            node[above](){\ctikztextnot{PRE}}
+    (and6.in 2)             to[short] ++(0,-0.5)
+                            node[below](){\ctikztextnot{CLR}}
     
     % Latch outputs
     (nand1.out)             to[short, *-] ++(0.5,0) coordinate(Q)

@@ -1,0 +1,11 @@
+\begin{circuitikz}
+    \tikzset{SR latch/.style={flipflop,
+        flipflop def={t1=$S$, t3=$R$, t6=$Q$, t4={\ctikztextnot{$Q$}},
+    }}}
+
+    % Placement of digital components
+    \draw(0, 0)             coordinate(start)
+                            node[SR latch, align=center](SR1){}
+    
+;
+\end{circuitikz}

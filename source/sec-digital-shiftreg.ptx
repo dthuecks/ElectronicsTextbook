@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-digital-shiftreg" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Shift Registers and Counters</title>
+    <p>
+        Having established the behavior of flip-flops, we move on to applications that make use of these circuit elements. In particular, we will examine shift registers and the counters that are based on them.
+    </p>
+    <subsection xml:id="subsec-digital-shiftreg-shiftreg">
+        <title>Shift Registers</title>
+        <p>
+            Let's examine a circuit that is called a <term>shift register</term>. An example of a shift register circuit is provided in <xref ref="circuit-digital-shiftreg-shiftreg"/>
+            <figure xml:id="circuit-digital-shiftreg-shiftreg">
+                <caption>Shift register circuit constructed using four D flip-flops that are each triggered by the falling edge on the clock signal <m>C</m>.</caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-digital-shiftreg-shiftreg.tex" />
+                </latex-image></image>
+            </figure>
+
+
+
+            <figure xml:id="timing-digital-shiftreg-shiftreg">
+                <caption></caption>
+                <image width="100%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="timing-digital-shiftreg-shiftreg-img">
+                        <xi:include href="./prefigure/timing-digital-shiftreg-shiftreg.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+        </p>
+        
+    </subsection>
+    
+
+</section>

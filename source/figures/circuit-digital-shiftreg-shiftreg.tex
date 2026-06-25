@@ -1,0 +1,51 @@
+\begin{circuitikz}
+    \tikzset{
+        Dflipflop falling/.style={flipflop,
+        flipflop def={t1=$D$, t3=$C$, t6=$Q$, t4={\ctikztextnot{$Q$}},
+        c3=1, n3=1}},
+        %
+        add async PC/.style={flipflop def={%
+            tu={\ctikztextnot{\texttt{PRE}}}, td={\ctikztextnot{\texttt{CLR}}}}},
+    }
+
+    % Placement of digital components
+    \draw(0, 0)                 coordinate(start)
+                                node[Dflipflop falling](D1){}
+    ([xshift=0.5cm] D1.pin 6)   node[Dflipflop falling, anchor=pin 1](D2){}
+    ([xshift=0.5cm] D2.pin 6)   node[Dflipflop falling, anchor=pin 1](D3){}
+    ([xshift=0.5cm] D3.pin 6)   node[Dflipflop falling, anchor=pin 1](D4){}
+
+    % Internal connections
+    (D1.pin 6)                  to[short] (D2.pin 1)     
+    (D2.pin 6)                  to[short] (D3.pin 1)     
+    (D3.pin 6)                  to[short] (D4.pin 1)
+    (D1.pin 3)                  to[short] ++(0,-1)
+                                coordinate(j1)
+                                to[short] (j1 -| D4.pin 3)
+                                to[short] (D4.pin 3)
+    (D2.pin 3)                  to[short, -*] (\tikztostart |- j1)     
+    (D3.pin 3)                  to[short, -*] (\tikztostart |- j1)     
+    
+    
+    % Inputs
+    (j1)                        to[short, *-] ++(-0.5,0)
+                                coordinate(C)
+                                node[left](){$C$}
+    (D1.pin 1)                  to[short] (\tikztostart -| C)
+                                node[left](){In}
+
+    % Outputs
+    ($(D1.pin 6)!0.5!(D2.pin 1)$)  
+                                to[short,*-] ++(0,0.5)
+                                coordinate(Q1)
+                                node[above](){$Q_1$}
+    ($(D2.pin 6)!0.5!(D3.pin 1)$)
+                                to[short,*-] (\tikztostart |- Q1)
+                                node[above](){$Q_2$}
+    ($(D3.pin 6)!0.5!(D4.pin 1)$)
+                                to[short,*-] (\tikztostart |- Q1)
+                                node[above](){$Q_3$}
+    (D4.pin 6)                  to[short] (\tikztostart |- Q1)
+                                node[above](){$Q_4$}
+;
+\end{circuitikz}

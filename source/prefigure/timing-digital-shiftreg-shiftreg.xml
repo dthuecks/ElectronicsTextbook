@@ -1,0 +1,141 @@
+<diagram dimensions="(300, 150)" margins="(40,15,5,10)" xmlns="https://prefigure.org">
+    
+  <!-- Definitions for plotting, providing vertical offsets for multiple signals as well as a common horiz. offset-->
+  <definition> yshiftmax = 9</definition> <!-- Maximum vertical offset for Q0 -->
+  <definition> yshiftclk = yshiftmax + 3 </definition> <!-- Vertical offset for CLK signal, leaving space for numbers -->
+
+  <!-- Set up plotting area -->
+  <coordinates bbox="[0,0,24,12.5]">
+    <grid-axes decorations="no" arrows="0" spacings="((0,1,24),(0,1,12))">
+          <xlabel alignment="sw" scale="0.75">Time</xlabel>
+    </grid-axes>
+
+    <!-- Signals -->
+    <group at="CLK">
+      <definition> CLK(x)=(-sin(pi*x)/sqrt((sin(pi*x))**2)+1)/2 </definition>
+      <transform>
+        <translate by="(0,11)"/>
+        <graph function="CLK" domain="(0,24)" N="10000" stroke="blue"/>
+      </transform>
+      <label anchor="(0,11.5)" alignment="west" rotate="0" scale="0.75"><m>C</m></label>
+    </group>
+
+    <group at="In">
+      <transform>
+        <translate by="(0,9)"/>
+          <path start="(0,0)" stroke="blue">
+            <horizontal distance="2.3"/>
+            <vertical distance="1"/>
+            <horizontal distance="3.1"/>
+            <vertical distance="-1"/>
+            <horizontal distance="4.3"/>
+            <vertical distance="1"/>
+            <horizontal distance="3"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,9.5)" alignment="west" rotate="0" scale="0.75">In</label>
+    </group>
+    
+    <group at="Q1">
+      <transform>
+        <translate by="(0,7)"/>
+          <path start="(0,0)" stroke="blue">
+            <horizontal distance="4"/>
+            <vertical distance="1"/>
+            <horizontal distance="2"/>
+            <vertical distance="-1"/>
+            <horizontal distance="4"/>
+            <vertical distance="1"/>
+            <horizontal distance="4"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,7.5)" alignment="west" rotate="0" scale="0.75"><m>Q_1</m></label>
+    </group>
+
+    <group at="Q2">
+      <transform>
+        <translate by="(0,5)"/>
+          <path start="(0,0)" stroke="blue">
+            <horizontal distance="6"/>
+            <vertical distance="1"/>
+            <horizontal distance="2"/>
+            <vertical distance="-1"/>
+            <horizontal distance="4"/>
+            <vertical distance="1"/>
+            <horizontal distance="4"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,5.5)" alignment="west" rotate="0" scale="0.75"><m>Q_2</m></label>
+    </group>
+
+    <group at="Q3">
+      <transform>
+        <translate by="(0,3)"/>
+          <path start="(0,0)" stroke="blue">
+            <horizontal distance="8"/>
+            <vertical distance="1"/>
+            <horizontal distance="2"/>
+            <vertical distance="-1"/>
+            <horizontal distance="4"/>
+            <vertical distance="1"/>
+            <horizontal distance="4"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,3.5)" alignment="west" rotate="0" scale="0.75"><m>Q_3</m></label>
+    </group>
+
+    <group at="Q4">
+      <transform>
+        <translate by="(0,1)"/>
+          <path start="(0,0)" stroke="blue">
+            <horizontal distance="10"/>
+            <vertical distance="1"/>
+            <horizontal distance="2"/>
+            <vertical distance="-1"/>
+            <horizontal distance="4"/>
+            <vertical distance="1"/>
+            <horizontal distance="4"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,1.5)" alignment="west" rotate="0" scale="0.75"><m>Q_4</m></label>
+    </group>
+
+    <group at="transitions">
+      <line endpoints="((2.3,9),(4,8))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((5.4,9),(6,8))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((9.7,9),(10,8))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((12.7,9),(14,8))" stroke="red" arrows="1" dash="4 2"/>
+
+      <line endpoints="((4,7),(6,6))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((6,7),(8,6))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((10,7),(12,6))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((14,7),(16,6))" stroke="red" arrows="1" dash="4 2"/>
+
+      <line endpoints="((6,5),(8,4))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((8,5),(10,4))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((12,5),(14,4))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((16,5),(18,4))" stroke="red" arrows="1" dash="4 2"/>
+
+      <line endpoints="((8,3),(10,2))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((10,3),(12,2))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((14,3),(16,2))" stroke="red" arrows="1" dash="4 2"/>
+      <line endpoints="((18,3),(20,2))" stroke="red" arrows="1" dash="4 2"/>
+    
+      <repeat parameter="k=1..12">
+        <line endpoints="((2*k,12.6),(2*k,15))" stroke="green" />
+      </repeat>   
+      
+    </group>
+
+  </coordinates>
+</diagram>

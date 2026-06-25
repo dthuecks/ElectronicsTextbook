@@ -1,12 +1,16 @@
 \begin{circuitikz}
-    \tikzset{Dlatch/.style={flipflop,
-        flipflop def={t1=$D$, t3=EN, t6=$Q$, t4={\ctikztextnot{$Q$}},
-    }}}
+    \tikzset{
+        Dlatch/.style={flipflop,
+        flipflop def={t1=$D$, t3=EN, t6=$Q$, t4={\ctikztextnot{$Q$}}}},
+    %
+        add async PC/.style={flipflop def={%
+            tu={\ctikztextnot{\texttt{PRE}}}, td={\ctikztextnot{\texttt{CLR}}}}},
+    }
 
     % Placement of digital components
     \draw(0, 0)             coordinate(start)
                             node[Dlatch, align=center](D1){Latch\\ 1}
-    ([xshift=3cm] start)    node[Dlatch, align=center](D2){Latch\\ 2}
+    ([xshift=3cm] start)    node[Dlatch, add async PC, align=center](D2){Latch\\ 2}
     ([yshift=-2cm] start)       
                             node[not port](not2){}
 
@@ -21,7 +25,9 @@
     (D1.pin 1)              to[short] ++(-0.5,0) coordinate(D)
                             node[left](){$D$}
     (not2.in -| D1.pin 3)   to[short,*-] (\tikztostart -| D)
-                           node[left](){CLK}
+                            node[left](){$C$}
+    (D2.up)                 node[above](){\ctikztextnot{PRE}}
+    (D2.down)               node[below](){\ctikztextnot{CLR}}
 
     % Outputs
     (D2.pin 6)              to[short] ++(0.5,0)
