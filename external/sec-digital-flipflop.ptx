@@ -6,32 +6,35 @@
         In the last section, we discussed latches which are <term>level-triggered</term> circuits with output levels that depend on the input levels at any particular instant of time. <term>Flip-flops</term>, the topic for this section, are <term>edge-triggered</term> devices with output levels that change only at the instant at which a <term>clock</term> signal (CLK) transitions between high and low in a particular direction.
     </p>
     <p>
-        Our first D flip-flop circuit design is shown in <xref ref="fig-digital-flipflop-D"/> with its circuit symbol. 
+        Our first D flip-flop circuit design is shown in <xref ref="fig-digital-flipflop-D"/> along with its circuit symbol and truth table. 
         <figure xml:id="fig-digital-flipflop-D">
             <caption>
-                D flip-flop. 
+                D flip-flop that triggers on the rising edge of the CLK signal. <xref text="local" ref="circuit-digital-flipflop-D"/> shows the circuit schematic, <xref text="local" ref="symbol-digital-flipflop-D"/> shows the circuit symbol where the wedge shape on the CLK input distinguishes itself from the symbol for a D latch, and <xref ref="tbl-digital-flipflop-D"/> shows the truth table for this flip-flop.   
             </caption>
-            <sidebyside widths="70% 20%">
-                <figure xml:id="circuit-digital-flipflop-D">
-                    <caption>Circuit schematic.</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-flopflop-D.tex" />
-                    </latex-image></image>
-                </figure>
-                <figure xml:id="symbol-digital-flipflop-D">
-                    <caption>Circuit symbol.</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/symbol-digital-flopflop-D.tex" />
-                    </latex-image></image>
-                </figure>
-            </sidebyside>
+            <sbsgroup>
+                <sidebyside>
+                    <figure xml:id="circuit-digital-flipflop-D">
+                        <caption>Circuit schematic.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-flopflop-D.tex" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
+                <sidebyside widths="25% 40%" valign="middle">
+                    <figure xml:id="symbol-digital-flipflop-D">
+                        <caption>Circuit symbol.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/symbol-digital-flopflop-D.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <table xml:id="tbl-digital-flipflop-D">
+                        <title>tbl-digital-flipflop-D</title>-->
+                        <xi:include href="./tables/tbl-digital-flipflop-D.ptx" />
+                    </table>
+                </sidebyside>
+            </sbsgroup>
         </figure>
-        This circuit acts much like the D latch from the previous section except that the outputs are only allowed to change at instants when the CLK signal transitions from LOW to HIGH. This behavior is shown in <xref ref="tbl-digital-flipflop-D"/>. 
-        <table xml:id="tbl-digital-flipflop-D">
-            <title>tbl-digital-flipflop-D</title>
-            <xi:include href="./tables/tbl-digital-flipflop-D.ptx" />
-        </table>
-        This behavior is also demonstrated in a <term>timing diagram</term> which provides plots vs time for reference points of interest. As an example, <xref ref="timing-digital-flipflop-D"/> 
+        This circuit acts much like the D latch from the previous section except that the outputs are only allowed to change at instants when the CLK signal transitions from LOW to HIGH (<xref ref="tbl-digital-flipflop-D"/>). The timing diagram in <xref ref="timing-digital-flipflop-D"/> demonstrates the response of the flip-flop output to a time-varying CLK and <m>D</m> input signal. 
         <figure xml:id="timing-digital-flipflop-D">
             <caption>Timing diagram for the circuit pictured in <xref ref="circuit-digital-flipflop-D"/>.</caption>
             <image width="100%">
@@ -42,33 +45,62 @@
             </image>
         </figure>
     </p>
+    <example>
+        <title>Intermediate stages of rising-edge D flip-flop.</title>
+        <statement>
+            <p>
+                Use the behavior of D latches to show that the circuit in <xref ref="timing-digital-flipflop-D"/> does indeed produce the timing diagram shown in timing-digital-flipflop-D. To accomplish this, assume <m>C</m> and <m>D</m> as shown in the original timing diagram and also assume that <m>Q_1=0</m> at <m>t=0</m>. Produce lines showing the time behavior of <m>EN_1</m>, <m>Q_1</m>, <m>EN_2</m>, and finally <m>Q=Q_2</m>. Explain the rationale used to draw each signal.
+            </p>
+        </statement>
+        <answer>
+            <figure xml:id="timing-digital-flipflop-D-full">
+                <caption>Timing diagram for the circuit pictured in <xref ref="circuit-digital-flipflop-D"/>.</caption>
+                <image width="100%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="timing-digital-flipflop-D-full-img">
+                        <xi:include href="./prefigure/timing-digital-flipflop-D-full.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+        </answer>
+        <solution>
+            <p>
+                To come.
+            </p>
+        </solution>
+    </example>
     <p>
-        D flip-flop that triggers on falling edge
+        Removal of one NOT gate from the flip-flop circuit above produces a D flip-flop that triggers on falling edge of the CLK signal instead of the rising edge. The circuit schematic, circuit symbol, and truth table are shown in <xref ref="fig-digital-flipflop-D-falling"/>.
         <figure xml:id="fig-digital-flipflop-D-falling">
             <caption>
-                D flip-flop. 
+                D flip-flop that triggers on the falling edge of the CLK signal. <xref text="local" ref="circuit-digital-flipflop-D-falling"/> shows the circuit schematic, <xref text="local" ref="symbol-digital-flipflop-D-falling"/> shows the circuit symbol where the addition of a bubble on the CLK input indicates the falling-edge response, and <xref ref="tbl-digital-flipflop-D-falling"/> shows the truth table for this flip-flop.   
             </caption>
-            <sidebyside widths="70% 20%">
-                <figure xml:id="circuit-digital-flipflop-D-falling">
-                    <caption>Circuit schematic.</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-flopflop-D-falling.tex" />
-                    </latex-image></image>
-                </figure>
-                <figure xml:id="symbol-digital-flipflop-D-falling">
-                    <caption>Circuit symbol.</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/symbol-digital-flopflop-D-falling.tex" />
-                    </latex-image></image>
-                </figure>
-            </sidebyside>
+            <sbsgroup>
+                <sidebyside>
+                    <figure xml:id="circuit-digital-flipflop-D-falling">
+                        <caption>Circuit schematic.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-flopflop-D-falling.tex" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
+                <sidebyside widths="25% 40%" valign="middle">
+                    <figure xml:id="symbol-digital-flipflop-D-falling">
+                        <caption>Circuit symbol.</caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/symbol-digital-flopflop-D-falling.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <table xml:id="tbl-digital-flipflop-D-falling">
+                        <title>tbl-digital-flipflop-D</title>-->
+                        <xi:include href="./tables/tbl-digital-flipflop-D-falling.ptx" />
+                    </table>
+                </sidebyside>
+            </sbsgroup>
         </figure>
-
-        <table xml:id="tbl-digital-flipflop-D-falling">
-            <title>tbl-digital-flipflop-D</title>
-            <xi:include href="./tables/tbl-digital-flipflop-D-falling.ptx" />
-        </table>
         
+        <!-- Have students produce timing diagram for falling-edge D flip-flop as a homework problem -->
+        <!--
         <figure xml:id="timing-digital-flipflop-D-falling">
             <caption>Timing diagram for the circuit pictured in <xref ref="circuit-digital-flipflop-D-falling"/>.</caption>
             <image width="100%">
@@ -78,6 +110,8 @@
                 </prefigure>
             </image>
         </figure>
+    -->
+            
     </p>
     
 

@@ -1,6 +1,6 @@
 <tabular halign="center">
     <row header="yes" bottom="minor" >
-        <cell right="minor">CLK</cell> 
+        <cell right="minor"><m>C</m></cell> 
         <cell right="minor"><m>D</m></cell> 
         <cell right="minor"><m>Q</m></cell> 
         <cell right="minor"><m>\overline{Q}</m></cell> 

@@ -5,7 +5,7 @@
   <definition> yshiftclk = yshiftmax + 3 </definition> <!-- Vertical offset for CLK signal, leaving space for numbers -->
 
   <!-- Set up plotting area -->
-  <coordinates bbox="[0,0,16,12.5]">
+  <coordinates bbox="[0,0,16,6.5]">
     <grid-axes decorations="no" arrows="0" spacings="((0,1,16),(0,1,15))">
           <xlabel alignment="sw" scale="0.75">Time</xlabel>
     </grid-axes>
@@ -14,16 +14,16 @@
     <group at="CLK">
       <definition> CLK(x)=(-sin(pi*x)/sqrt((sin(pi*x))**2)+1)/2 </definition>
       <transform>
-        <translate by="(0,11)"/>
-        <graph function="CLK" domain="(0,16)" N="10000" stroke="red"/>
+        <translate by="(0,5)"/>
+        <graph function="CLK" domain="(0,16)" N="10000" stroke="blue"/>
       </transform>
-      <label anchor="(0,11.5)" alignment="west" rotate="0" scale="0.75">CLK</label>
+      <label anchor="(0,5.5)" alignment="west" rotate="0" scale="0.75"><m>C</m></label>
     </group>
 
     <group at="D">
       <transform>
-        <translate by="(0,9)"/>
-          <path start="(0,0)" stroke="red">
+        <translate by="(0,3)"/>
+          <path start="(0,0)" stroke="blue">
             <horizontal distance="4.5"/>
             <vertical distance="1"/>
             <horizontal distance="5"/>
@@ -33,47 +33,13 @@
             <horizontal distance="3"/>
           </path>
       </transform>
-      <label anchor="(0,9.5)" alignment="west" rotate="0" scale="0.75"><m>D</m></label>
+      <label anchor="(0,3.5)" alignment="west" rotate="0" scale="0.75"><m>D</m></label>
     </group>
     
-    <group at="EN1">
-      <definition> EN1(x)=-CLK(x) </definition>
-      <transform>
-        <translate by="(0,8)"/>
-        <graph function="EN1" domain="(0,16)" N="10000" stroke="blue"  dash="4 1"/>
-      </transform>
-      <label anchor="(0,7.5)" alignment="west" rotate="0" scale="0.75"><m>EN_1</m></label>
-    </group>
-
-    <group at="Q1">
-      <transform>
-        <translate by="(0,5)"/>
-          <path start="(0,0)" stroke="blue" dash="4 1">
-            <horizontal distance="4.5"/>
-            <vertical distance="1"/>
-            <horizontal distance="5.5"/>
-            <vertical distance="-1"/>
-            <horizontal distance="4"/>
-            <vertical distance="1"/>
-            <horizontal distance="2"/>
-          </path>
-      </transform>
-      <label anchor="(0,5.5)" alignment="west" rotate="0" scale="0.75"><m>Q_1</m></label>
-    </group>
-    
-    <group at="EN2">
-      <definition> EN1(x)=CLK(x) </definition>
-      <transform>
-        <translate by="(0,3)"/>
-        <graph function="EN1" domain="(0,16)" N="10000" stroke="blue" dash="4 1"/>
-      </transform>
-      <label anchor="(0,3.5)" alignment="west" rotate="0" scale="0.75"><m>EN_2</m></label>
-    </group>
-
     <group at="Q">
       <transform>
         <translate by="(0,1)"/>
-          <path start="(0,0)" stroke="red">
+          <path start="(0,0)" stroke="blue">
             <horizontal distance="5"/>
             <vertical distance="1"/>
             <horizontal distance="6"/>
@@ -85,6 +51,12 @@
           </path>
       </transform>
       <label anchor="(0,1.5)" alignment="west" rotate="0" scale="0.75"><m>Q</m></label>
+    </group>
+
+    <group at="transitions">
+      <line endpoints="((5,-2),(5,4))" stroke="green" infinite="yes" dash="4 2"/>
+      <line endpoints="((11,-2),(11,4))" stroke="green" infinite="yes" dash="4 2"/>
+      <line endpoints="((15,-2),(15,4))" stroke="green" infinite="yes" dash="4 2"/>
     </group>
 
   </coordinates>

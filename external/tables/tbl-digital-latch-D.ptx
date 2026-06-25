@@ -1,6 +1,6 @@
 <tabular halign="center">
     <row header="yes" bottom="minor" >
-        <cell right="minor"><m>EN</m></cell>
+        <cell right="minor"><m>E</m></cell>
         <cell right="minor"><m>D</m></cell> 
         <cell right="minor"><m>Q</m></cell> 
         <cell right="minor"><m>\overline{Q}</m></cell>

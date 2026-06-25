@@ -10,12 +10,22 @@
         <title>SR Cross-NOR Latch</title>
         
         <p>
-            The first sequential logic circuit element that we'll examine is called a <term>latch</term>. <xref ref="circuit-digital-latch-SR"/> shows the construction of an <term>SR cross-NOR latch</term> with inputs <m>S</m>, <m>R</m> and outputs <m>Q</m>, <m>\overline{Q}</m>.
-            <figure xml:id="circuit-digital-latch-SR">
-                <caption>SR cross-NOR latch circuit element.</caption>
-                <image width="50%"><latex-image>
-                    <xi:include parse="text" href="./figures/circuit-digital-latch-SR.tex" />
-                </latex-image></image>
+            The first sequential logic circuit element that we'll examine is called a <term>latch</term>. <xref ref="circuit-digital-latch-SR"/> shows the <term>SR cross-NOR latch</term> with inputs <m>S</m>, <m>R</m> and outputs <m>Q</m>, <m>\overline{Q}</m>.
+            <figure xml:id="fig-digital-latch-SR">
+                <sidebyside widths="40% 25%" valign="middle">
+                    <figure xml:id="circuit-digital-latch-SR">
+                        <caption></caption>
+                        <image width="50%"><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-latch-SR.tex" />
+                        </latex-image></image>
+                    </figure>
+                    <figure xml:id="symbol-digital-latch-SR">
+                        <caption></caption>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/symbol-digital-latch-SR.tex" />
+                        </latex-image></image>
+                    </figure>
+                </sidebyside>
             </figure>
         </p>
         <p>
@@ -81,25 +91,33 @@
         </p>
     </subsection>
     
-    
     <subsection xml:id="subsec-digital-latch-SR-CrossNAND">
         <title>SR Cross-NAND Latch</title>
         <p>
             The <term>SR cross-NAND latch</term> shown in <xref ref="circuit-digital-latch-SR-crossNAND"/> is a variation on the latch described above. In contrast to the previous latch, the SR cross-NAND latch tracks which input was most recently LO.
             <figure xml:id="circuit-digital-latch-SR-crossNAND">
-                <sidebyside valign="middle">
-                    <figure>
-                        <caption>SR cross-NAND latch circuit element.</caption>
-                        <image width="50%"><latex-image>
-                            <xi:include parse="text" href="./figures/circuit-digital-latch-SR-crossNAND.tex" />
-                        </latex-image></image>
-                    </figure>
-                    <table>
-                        <title>SR cross-NAND latch truth table.</title>
-                        <xi:include href="./tables/tbl-digital-latch-SR-crossNAND.ptx" />
-                    </table>
-
-                </sidebyside>
+                <sbsgroup widths="40% 25%" valign="middle">
+                    <sidebyside valign="middle">
+                        <figure>
+                            <caption>SR cross-NAND latch circuit element.</caption>
+                            <image width="50%"><latex-image>
+                                <xi:include parse="text" href="./figures/circuit-digital-latch-SR-crossNAND.tex" />
+                            </latex-image></image>
+                        </figure>
+                        <figure xml:id="symbol-digital-latch-SR-crossNAND">
+                            <caption></caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/symbol-digital-latch-SR-crossNAND.tex" />
+                            </latex-image></image>
+                        </figure>
+                    </sidebyside>
+                    <sidebyside widths="100%">
+                        <table>
+                            <title>SR cross-NAND latch truth table.</title>
+                            <xi:include href="./tables/tbl-digital-latch-SR-crossNAND.ptx" />
+                        </table>
+                    </sidebyside>
+                </sbsgroup>
             </figure>
         </p>
         <p>
@@ -126,24 +144,35 @@
             APPLICATION: LATCHED TEMPERATURE OR LIGHT ALARM.
         </p>
     </subsection>
+
     <subsection xml:id="subsec-digital-latch-gated">
         <title>Gated latches</title>
 
         <p>
-            There are latch applications where it may be beneficial to quickly enable or disable latch input control over the latch outputs. <xref ref="fig-digital-latch-SR-gated"/> shows the circuit and truth table for a <term>gated</term> SR latch. When <m>EN=1</m>, the latch is <term>enabled</term> meaning that the latch outputs are determined by the latch inputs. When <m>EN=0</m>, the inputs are disabled and the latch enters the <sq>Hold</sq> state independent of the values of <m>S</m> and <m>R</m>. The implementation of the gating functionality shown in <xref ref="circuit-digital-latch-SR-gated"/> results in a latch with <term>active high</term> inputs. This means that the latch, when enabled, has outputs that respond to inputs that are high. So, the Set state requires <m>EN=1</m>, <m>S=1</m>, and <m>R=0</m>. This behavior is in contrast to the un-gated cross-NAND SR latch which has <term>active low</term> inputs.  
+            There are latch applications where it may be beneficial to quickly enable or disable latch input control over the latch outputs. <xref ref="fig-digital-latch-SR-gated"/> shows the circuit and truth table for a <term>gated</term> SR latch. When <m>E=1</m>, the latch is <term>enabled</term> meaning that the latch outputs are determined by the latch inputs. When <m>E=0</m>, the inputs are disabled and the latch enters the <sq>Hold</sq> state independent of the values of <m>S</m> and <m>R</m>. The implementation of the gating functionality shown in <xref ref="circuit-digital-latch-SR-gated"/> results in a latch with <term>active high</term> inputs. This means that the latch, when enabled, has outputs that respond to inputs that are high. So, the Set state requires <m>E=1</m>, <m>S=1</m>, and <m>R=0</m>. This behavior is in contrast to the un-gated cross-NAND SR latch which has <term>active low</term> inputs.  
             <figure xml:id="fig-digital-latch-SR-gated">
-                <sidebyside valign="middle">
-                    <figure xml:id="circuit-digital-latch-SR-gated">
-                        <caption>Gated SR latch.</caption>
-                        <image width="50%"><latex-image>
-                            <xi:include parse="text" href="./figures/circuit-digital-latch-SR-gated.tex" />
-                        </latex-image></image>
-                    </figure>
-                    <table xml:id="tbl-digital-latch-SR-gated">
-                        <title>Clocked SR latch truth table.</title>
-                        <xi:include href="./tables/tbl-digital-latch-SR-gated.ptx" />
-                    </table>
-                </sidebyside>
+                <sbsgroup widths="60% 25%" valign="middle">
+                    <sidebyside>
+                        <figure xml:id="circuit-digital-latch-SR-gated">
+                            <caption>Gated SR latch.</caption>
+                            <image width="50%"><latex-image>
+                                <xi:include parse="text" href="./figures/circuit-digital-latch-SR-gated.tex" />
+                            </latex-image></image>
+                        </figure>
+                        <figure xml:id="symbol-digital-latch-SR-gated">
+                            <caption></caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/symbol-digital-latch-SR-gated.tex" />
+                            </latex-image></image>
+                        </figure>
+                    </sidebyside>
+                    <sidebyside widths="100%">
+                        <table xml:id="tbl-digital-latch-SR-gated">
+                            <title>Clocked SR latch truth table.</title>
+                            <xi:include href="./tables/tbl-digital-latch-SR-gated.ptx" />
+                        </table>
+                    </sidebyside>
+                </sbsgroup>
             </figure>
         </p>
         <p>
@@ -155,41 +184,90 @@
         <p>
             The <term>JK latch</term> uses feedback of the latch outputs back to the latch inputs to convert the <sq>forbidden</sq> state (when both inputs are HI) into a <sq>toggle</sq> state in which <m>Q</m> and <m>\overline{Q}</m> swap values. <xref ref="circuit-digital-latch-JK"/> provides the circuit diagram and truth table for the JK latch.
             <figure xml:id="circuit-digital-latch-JK">
-                <sidebyside valign="middle">
-                    <figure>
-                        <caption>Circuit diagram for the JK latch.</caption>
-                        <image width="50%"><latex-image>
-                            <xi:include parse="text" href="./figures/circuit-digital-latch-JK.tex" />
-                        </latex-image></image>
-                    </figure>
-                    <table>
-                        <title>Truth table for the JK latch.</title>
-                        <xi:include href="./tables/tbl-digital-latch-JK.ptx" />
-                    </table>
-                </sidebyside>
+                <sbsgroup>
+                    <sidebyside widths="60% 25%" valign="middle">
+                        <figure>
+                            <caption>Circuit diagram for the JK latch.</caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/circuit-digital-latch-JK.tex" />
+                            </latex-image></image>
+                        </figure>
+                        <figure xml:id="symbol-digital-latch-JK">
+                            <caption></caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/symbol-digital-latch-JK.tex" />
+                            </latex-image></image>
+                        </figure>
+                    </sidebyside>
+                    <sidebyside widths="100%">
+                        <table>
+                            <title>Truth table for the JK latch.</title>
+                            <xi:include href="./tables/tbl-digital-latch-JK.ptx" />
+                        </table>
+                    </sidebyside>
+                </sbsgroup>
             </figure>
         </p>
         <p>
-            While the JK latch uses feedback to repurpose the <sq>forbidden</sq> state that appeared with SR latches, the <term>D latch</term> is designed instead to make it impossible to access that forbidden state at all. <xref ref="circuit-digital-latch-D-ver1"/> shows a modified SR latch version of the D latch, producing the truth table in <xref ref="tbl-digital-latch-D"/>.
-            <figure xml:id="circuit-digital-latch-D">
-                <sidebyside valign="middle" widths="45% 45%">
-                    <figure xml:id="circuit-digital-latch-D-ver1">
-                        <caption>Circuit diagram for the D latch.</caption>
-                        <image><latex-image>
-                            <xi:include parse="text" href="./figures/circuit-digital-latch-D-ver1.tex" />
-                        </latex-image></image>
-                    </figure>
-                    <table xml:id="tbl-digital-latch-D">
-                        <title>Truth table for the D latch.</title>
-                        <xi:include href="./tables/tbl-digital-latch-D.ptx" />
-                    </table>
-                </sidebyside>
+            While the JK latch uses feedback to repurpose the <sq>forbidden</sq> state that appeared with SR latches, the <term>D latch</term> is designed instead to make it impossible to access that forbidden state at all. <xref ref="fig-digital-latch-D"/> shows a modified SR latch version of the D latch with its truth table.
+            <figure xml:id="fig-digital-latch-D">
+                <sbsgroup>
+                    <sidebyside valign="middle" widths="60% 25%">
+                        <figure xml:id="circuit-digital-latch-D-ver1">
+                            <caption>Circuit diagram for the D latch.</caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/circuit-digital-latch-D-ver1.tex" />
+                            </latex-image></image>
+                        </figure>
+                        <figure xml:id="symbol-digital-latch-D">
+                            <caption></caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/symbol-digital-latch-D.tex" />
+                            </latex-image></image>
+                        </figure>
+                    </sidebyside>
+                    <sidebyside widths="100%">
+                        <table xml:id="tbl-digital-latch-D">
+                            <title>Truth table for the D latch.</title>
+                            <xi:include href="./tables/tbl-digital-latch-D.ptx" />
+                        </table>
+                    </sidebyside>
+                </sbsgroup>
             </figure>
-            
         </p>
+    </subsection>
+
+    <subsection xml:id="subsec-digital-latch-preset-reset">
+        <title>Preset and Clear</title>
         <p>
-            INCLUDE CIRCUIT SYMBOLS FOR LATCHES SOMEWHERE IN THIS SECTION.
+            There are applications in which it is beneficial to place a latch into a specific state while overriding all gate and input states. Many latch circuits incorporate <term>Preset</term> and <term>Clear</term> inputs for just this purpose. The modified D latch circuit in <xref ref="fig-digital-latch-D-PRE-CLR"/> provides an example of this functionality with <em>active low</em> Preset and Clear inputs.
+            <figure xml:id="fig-digital-latch-D-PRE-CLR">
+                <sbsgroup>
+                    <sidebyside valign="middle" widths="60% 25%">
+                        <figure xml:id="circuit-digital-latch-D-PRE-CLR">
+                            <caption>Circuit diagram for the D latch.</caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/circuit-digital-latch-D-PRE-CLR.tex" />
+                            </latex-image></image>
+                        </figure>
+                        <figure xml:id="symbol-digital-latch-D-PRE-CLR">
+                            <caption></caption>
+                            <image><latex-image>
+                                <xi:include parse="text" href="./figures/symbol-digital-latch-D-PRE-CLR.tex" />
+                            </latex-image></image>
+                        </figure>
+                    </sidebyside>
+                    <sidebyside widths="100%">
+                        <table xml:id="tbl-digital-latch-D-PRE-CLR">
+                            <title>Truth table for the D latch.</title>
+                            <xi:include href="./tables/tbl-digital-latch-D-PRE-CLR.ptx" />
+                        </table>
+                    </sidebyside>
+                </sbsgroup>
+            </figure>
         </p>
         
     </subsection>
+
+    
 </section>

@@ -1,0 +1,11 @@
+\begin{circuitikz}
+    \tikzset{JK latch/.style={flipflop,
+        flipflop def={t1=$D$, t3=$E$, t6=$Q$, t4={\ctikztextnot{$Q$}},
+    }}}
+
+    % Placement of digital components
+    \draw(0, 0)             coordinate(start)
+                            node[JK latch, align=center](JK1){}
+    
+;
+\end{circuitikz}
