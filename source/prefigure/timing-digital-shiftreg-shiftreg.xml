@@ -30,7 +30,11 @@
             <vertical distance="-1"/>
             <horizontal distance="4.3"/>
             <vertical distance="1"/>
-            <horizontal distance="3"/>
+            <horizontal distance="1"/>
+            <vertical distance="-1"/>
+            <horizontal distance="0.35"/>
+            <vertical distance="1"/>
+            <horizontal distance="1.65"/>
             <vertical distance="-1"/>
             <horizontal distance="19"/>
           </path>
@@ -134,7 +138,6 @@
       <repeat parameter="k=1..12">
         <line endpoints="((2*k,12.6),(2*k,15))" stroke="green" />
       </repeat>   
-      
     </group>
 
   </coordinates>

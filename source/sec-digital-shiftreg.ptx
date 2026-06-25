@@ -15,7 +15,7 @@
                     <xi:include parse="text" href="./figures/circuit-digital-shiftreg-shiftreg.tex" />
                 </latex-image></image>
             </figure>
-
+            In this circuit, the input signal (In) is assumed to be controlled by some external source (another circuit or a person) and the signal can change between high and low at any time. 
 
 
             <figure xml:id="timing-digital-shiftreg-shiftreg">
