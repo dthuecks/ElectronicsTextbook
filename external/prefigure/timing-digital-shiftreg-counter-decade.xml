@@ -1,0 +1,109 @@
+<diagram dimensions="(300, 150)" margins="(40,15,5,5)" xmlns="https://prefigure.org">
+    
+  <!-- Definitions for plotting, providing vertical offsets for multiple signals as well as a common horiz. offset-->
+  <definition> yshiftmax = 9</definition> <!-- Maximum vertical offset for Q0 -->
+  <definition> yshiftclk = yshiftmax + 3 </definition> <!-- Vertical offset for CLK signal, leaving space for numbers -->
+
+  <!-- Set up plotting area -->
+  <coordinates bbox="[0,0,11,12.5]">
+    <grid-axes decorations="no" arrows="0" spacings="((0,1,24),(0,1,12))">
+          <xlabel alignment="sw" scale="0.75">Time (s)</xlabel>
+    </grid-axes>
+
+    <!-- Signals -->
+    <group at="CLK">
+      <definition> f=2*pi </definition>
+      <definition> CLK(x)=(-sin(f*x)/sqrt((sin(f*x))**2)+1)/2 </definition>
+      <transform>
+        <translate by="(0,11)"/>
+        <graph function="CLK" domain="(0,24)" N="10000" stroke="blue"/>
+      </transform>
+      <label anchor="(0,11.5)" alignment="west" rotate="0" scale="0.75">CLK</label>
+    </group>
+
+    <group at="Q0">
+      <definition> f=2*pi/2 </definition>
+      <definition> Q(x)=(-sin(f*x)/sqrt((sin(f*x))**2)+1)/2 </definition>
+      <transform>
+        <translate by="(0,7)"/>
+        <graph function="Q" domain="(0,24)" N="10000" stroke="blue"/>
+      </transform>
+      <label anchor="(0,7.5)" alignment="west" rotate="0" scale="0.75"><m>Q_0</m></label>
+    </group>
+
+    <group at="Q1">
+      <definition> f=2*pi/4 </definition>
+      <definition> Q(x)=(-sin(f*x)/sqrt((sin(f*x))**2)+1)/2 </definition>
+      <transform>
+        <translate by="(0,5)"/>
+        <path start="(0,0)" stroke="blue">
+            <horizontal distance="2"/>
+            <vertical distance="1"/>
+            <horizontal distance="2"/>
+            <vertical distance="-1"/>
+            <horizontal distance="2"/>
+            <vertical distance="1"/>
+            <horizontal distance="2"/>
+            <vertical distance="-1"/>
+            <horizontal distance="2"/>
+            <vertical distance="1"/>
+            <horizontal distance=".05"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,5.5)" alignment="west" rotate="0" scale="0.75"><m>Q_1</m></label>
+    </group>
+
+    <group at="Q2">
+      <definition> f=2*pi/8 </definition>
+      <definition> Q(x)=(-sin(f*x)/sqrt((sin(f*x))**2)+1)/2 </definition>
+      <transform>
+        <translate by="(0,3)"/>
+        <path start="(0,0)" stroke="blue">
+            <horizontal distance="4"/>
+            <vertical distance="1"/>
+            <horizontal distance="4"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,3.5)" alignment="west" rotate="0" scale="0.75"><m>Q_2</m></label>
+    </group>
+
+    <group at="Q3">
+      <definition> f=2*pi/16 </definition>
+      <definition> Q(x)=(-sin(f*x)/sqrt((sin(f*x))**2)+1)/2 </definition>
+      <transform>
+        <translate by="(0,1)"/>
+        <path start="(0,0)" stroke="blue">
+            <horizontal distance="8"/>
+            <vertical distance="1"/>
+            <horizontal distance="2.05"/>
+            <vertical distance="-1"/>
+            <horizontal distance="19"/>
+          </path>
+      </transform>
+      <label anchor="(0,1.5)" alignment="west" rotate="0" scale="0.75"><m>Q_3</m></label>
+    </group>
+
+    <!-- Counting Labels -->
+    <label anchor="(.5,9.5)" font-size="12" color="green">0</label>
+    <label anchor="(1.5,9.5)" font-size="12" color="green">1</label>
+    <label anchor="(2.5,9.5)" font-size="12" color="green">2</label>
+    <label anchor="(3.5,9.5)" font-size="12" color="green">3</label>
+    <label anchor="(4.5,9.5)" font-size="12" color="green">4</label>
+    <label anchor="(5.5,9.5)" font-size="12" color="green">5</label>
+    <label anchor="(6.5,9.5)" font-size="12" color="green">6</label>
+    <label anchor="(7.5,9.5)" font-size="12" color="green">7</label>
+    <label anchor="(8.5,9.5)" font-size="12" color="green">8</label>
+    <label anchor="(9.5,9.5)" font-size="12" color="green">9</label>
+    <label anchor="(10.5,9.5)" font-size="12" color="green">0</label>
+    <label anchor="(11.5,9.5)" font-size="12" color="green">1</label>
+    <label anchor="(12.5,9.5)" font-size="12" color="green">2</label>
+    <label anchor="(13.5,9.5)" font-size="12" color="green">3</label>
+    <label anchor="(14.5,9.5)" font-size="12" color="green">4</label>
+    <label anchor="(15.5,9.5)" font-size="12" color="green">5</label>
+    <label anchor="(16.5,9.5)" font-size="12" color="green">6</label>
+  </coordinates>
+</diagram>

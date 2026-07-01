@@ -1510,7 +1510,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.8",
   "title": "Shift Registers and Counters",
-  "body": " Shift Registers and Counters  Having established the behavior of flip-flops, we move on to applications that make use of these circuit elements. In particular, we will examine shift registers and the counters that are based on them.   Shift Registers  Let's examine a circuit that is called a shift register . An example of a shift register circuit is provided in   Shift register circuit constructed using four D flip-flops that are each triggered by the falling edge on the clock signal .   In this circuit, the input signal (In) is assumed to be controlled by some external source (another circuit or a person) and the signal can change between high and low at any time.        yshiftmax = 9   yshiftclk = yshiftmax + 3      Time     CLK(x)=(-sin(pi*x)\/sqrt((sin(pi*x))**2)+1)\/2      C                      In                  Q_1                  Q_2                  Q_3                  Q_4                               "
+  "body": " Shift Registers and Counters  Having established the behavior of flip-flops, we move on to applications that make use of these circuit elements. In particular, we will examine shift registers and the counters that are based on them.   Shift Registers  Let's examine a circuit that is called a shift register . An example of a shift register circuit is provided in   Shift register circuit constructed using four D flip-flops that are each triggered by the falling edge on the clock signal .   In this circuit, the input signal (In) is assumed to be controlled by some external source (another circuit or a person) and can change between high and low at any time. Output reproduces an approximation to this input signal, though only allows changes between low and high on the negative edge of the clock signal CLK. In a sense, the resolution with which the flip-flop reproduces the input signal is limited by the CLK frequency which is why the pulse lengths in are not identical to those in the input signal and is why the circled input signal transitions do not appear in . Outputs , , and are all identical to except that each output is time delayed by from the output before it. shows this behavior where circuit outputs at some instant are not dependent on the input at that instant. Instead, , , and depend on the state of progressively further in the past and is a sampled version of the input signal. Memory in this context is represented by circuit output behavior that is based on past rather than present input signal behavior.  This shift register timing diagram reflects the behavior of the shift register circuit in . The output represents the sampling of the input signal based on the negative edge triggering of flip-flop 1. Outputs , , and are identical to except they are time delayed by one clock period relative to the previous output signal.       yshiftmax = 9   yshiftclk = yshiftmax + 3      Time     CLK(x)=(-sin(pi*x)\/sqrt((sin(pi*x))**2)+1)\/2      CLK                      In                  Q_0                  Q_1                  Q_2                  Q_3                                       Counters  We can use the memory functionality demonstrated by flip-flop circuits above to produce a circuit that counts . Let's first start with the flip-flop configuration that is called a mod-2 counter . This circuit, shown in , takes a square-wave clock input and produces a square-wave output with half of the clock's frequency.  Mod-2 counter circuit.     The circuit shown in uses four mod-2 counters in a cascading configuration. The output of one mod-2 counter serves as the input to the next mod-2 counter in the chain, resulting in square-wave outputs that have frequencies that get progressively smaller by a factor of two for each subsequent flip-flop. This circuit is called an asynchronous 4-bit counter . It counts from 0 to 15 in binary before resetting to 0, with representing the value of the -th bit of a 4-bit number as a function of time.    The term asynchronous is used because the four flip-flops in the circuit are not triggered at the same time. Instead, each flip-flop is triggered by changes in the output state of the flip-flop appearing to its left. Because a flip-flop takes a finite time to change its output upon triggering, this leads to a ripple effect in which a small delay in flip-flop triggering propagates left to right through the counter circuit.  Timing diagram for the asynchronous 4-bit counter.       yshiftmax = 9   yshiftclk = yshiftmax + 3      Time (s)     f=2*pi  CLK(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      CLK    f=2*pi\/2  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      Q_0    f=2*pi\/4  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      Q_1    f=2*pi\/8  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      Q_2    f=2*pi\/16  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      Q_3    0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  0        The Preset and Clear flip-flop inputs can be used to modify the asynchronous 4-bit counter circuit in to truncate the count and cause the counter to reset before it reaches 15. For example, an asynchronous decade counter will count from 0-9 before resetting back to 0. In order to truncate the count, the circuit must reset to the 4-bit binary number 0000 instead of proceeding to 1010 (the binary equivalent to the digit 10). So, the circuit must send a clear signal to all four flip-flops immediately upon the outputs reaching , , , and . This condition can be simplified as this output is the first time at which both and simultaneously. Since the CLR inputs are active low , a single NAND gate provides this truncation when the gate has inputs , and an output that connects to all four flip-flop CLR inputs. shows the asynchronous decade counter circuit while shows the counting functionality.      Timing diagram for the asynchronous decade counter.       yshiftmax = 9   yshiftclk = yshiftmax + 3      Time (s)     f=2*pi  CLK(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      CLK    f=2*pi\/2  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2      Q_0    f=2*pi\/4  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2                    Q_1    f=2*pi\/8  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2            Q_2    f=2*pi\/16  Q(x)=(-sin(f*x)\/sqrt((sin(f*x))**2)+1)\/2            Q_3    0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6         Divide-by-5 and Divide-by-100 counters   Assign as homework questions.      Seven-segment LED Display   "
 },
 {
   "id": "subsec-digital-shiftreg-shiftreg-2",
@@ -1520,6 +1520,42 @@ var ptx_lunr_docs = [
   "number": "",
   "title": "",
   "body": "shift register "
+},
+{
+  "id": "subsec-digital-shiftreg-counters-2",
+  "level": "2",
+  "url": "sec-digital-shiftreg.html#subsec-digital-shiftreg-counters-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mod-2 counter "
+},
+{
+  "id": "subsec-digital-shiftreg-counters-3",
+  "level": "2",
+  "url": "sec-digital-shiftreg.html#subsec-digital-shiftreg-counters-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "asynchronous 4-bit counter asynchronous ripple effect "
+},
+{
+  "id": "subsec-digital-shiftreg-counters-4",
+  "level": "2",
+  "url": "sec-digital-shiftreg.html#subsec-digital-shiftreg-counters-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "asynchronous decade counter "
+},
+{
+  "id": "subsec-digital-shiftreg-counters-5",
+  "level": "2",
+  "url": "sec-digital-shiftreg.html#subsec-digital-shiftreg-counters-5",
+  "type": "Example",
+  "number": "7.8.8",
+  "title": "Divide-by-5 and Divide-by-100 counters.",
+  "body": " Divide-by-5 and Divide-by-100 counters   Assign as homework questions.   "
 },
 {
   "id": "ch-oscillators",

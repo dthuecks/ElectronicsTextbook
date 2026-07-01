@@ -10,42 +10,42 @@
 
     % Placement of digital components
     \draw(0, 0)                 coordinate(start)
-                                node[Dflipflop falling](D1){1}
+                                node[Dflipflop falling](D0){0}
+    ([xshift=0.5cm] D0.pin 6)   node[Dflipflop falling, anchor=pin 1](D1){1}
     ([xshift=0.5cm] D1.pin 6)   node[Dflipflop falling, anchor=pin 1](D2){2}
     ([xshift=0.5cm] D2.pin 6)   node[Dflipflop falling, anchor=pin 1](D3){3}
-    ([xshift=0.5cm] D3.pin 6)   node[Dflipflop falling, anchor=pin 1](D4){4}
 
     % Internal connections
+    (D0.pin 6)                  to[short] (D1.pin 1)     
     (D1.pin 6)                  to[short] (D2.pin 1)     
-    (D2.pin 6)                  to[short] (D3.pin 1)     
-    (D3.pin 6)                  to[short] (D4.pin 1)
-    (D1.pin 3)                  to[short] ++(0,-1)
+    (D2.pin 6)                  to[short] (D3.pin 1)
+    (D0.pin 3)                  to[short] ++(0,-1)
                                 coordinate(j1)
-                                to[short] (j1 -| D4.pin 3)
-                                to[short] (D4.pin 3)
+                                to[short] (j1 -| D3.pin 3)
+                                to[short] (D3.pin 3)
+    (D1.pin 3)                  to[short, -*] (\tikztostart |- j1)     
     (D2.pin 3)                  to[short, -*] (\tikztostart |- j1)     
-    (D3.pin 3)                  to[short, -*] (\tikztostart |- j1)     
     
     
     % Inputs
     (j1)                        to[short, *-] ++(-0.5,0)
                                 coordinate(C)
-                                node[left](){$C$}
-    (D1.pin 1)                  to[short] (\tikztostart -| C)
+                                node[left](){CLK}
+    (D0.pin 1)                  to[short] (\tikztostart -| C)
                                 node[left](){In}
 
     % Outputs
-    ($(D1.pin 6)!0.5!(D2.pin 1)$)  
+    ($(D0.pin 6)!0.5!(D1.pin 1)$)  
                                 to[short,*-] ++(0,0.5)
-                                coordinate(Q1)
+                                coordinate(Q0)
+                                node[above](){$Q_0$}
+    ($(D1.pin 6)!0.5!(D2.pin 1)$)
+                                to[short,*-] (\tikztostart |- Q0)
                                 node[above](){$Q_1$}
     ($(D2.pin 6)!0.5!(D3.pin 1)$)
-                                to[short,*-] (\tikztostart |- Q1)
+                                to[short,*-] (\tikztostart |- Q0)
                                 node[above](){$Q_2$}
-    ($(D3.pin 6)!0.5!(D4.pin 1)$)
-                                to[short,*-] (\tikztostart |- Q1)
+    (D3.pin 6)                  to[short] (\tikztostart |- Q0)
                                 node[above](){$Q_3$}
-    (D4.pin 6)                  to[short] (\tikztostart |- Q1)
-                                node[above](){$Q_4$}
 ;
 \end{circuitikz}

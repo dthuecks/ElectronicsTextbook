@@ -1,10 +1,10 @@
 \begin{circuitikz}
     
     % Place logic gates
-    \draw (0,0)             node[nand port, number inputs=2](nand1){}
-    ([yshift=-2cm] nand1)   node[nand port, number inputs=2](nand2){}
-    (nand1.in 1)            node[and port, number inputs=2, anchor=out](and5){}
-    (nand2.in 2)            node[and port, number inputs=2, anchor=out](and6){}
+    \draw (0,0)            node[nand port, number inputs=2](nand1){}
+    ([yshift=-2cm] nand1)  node[nand port, number inputs=2](nand2){}
+    (nand1.in 1)           node[and port, number inputs=2, anchor=out](and5){}
+    (nand2.in 2)           node[and port, number inputs=2, anchor=out](and6){}
     (and5.in 2)            node[nand port, number inputs=2, anchor=out](nand3){}
     (and6.in 1)            node[nand port, number inputs=2, anchor=out](nand4){}
 

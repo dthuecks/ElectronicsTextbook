@@ -17,7 +17,7 @@
         <translate by="(0,11)"/>
         <graph function="CLK" domain="(0,24)" N="10000" stroke="blue"/>
       </transform>
-      <label anchor="(0,11.5)" alignment="west" rotate="0" scale="0.75"><m>C</m></label>
+      <label anchor="(0,11.5)" alignment="west" rotate="0" scale="0.75">CLK</label>
     </group>
 
     <group at="In">
@@ -42,7 +42,7 @@
       <label anchor="(0,9.5)" alignment="west" rotate="0" scale="0.75">In</label>
     </group>
     
-    <group at="Q1">
+    <group at="Q0">
       <transform>
         <translate by="(0,7)"/>
           <path start="(0,0)" stroke="blue">
@@ -57,10 +57,10 @@
             <horizontal distance="19"/>
           </path>
       </transform>
-      <label anchor="(0,7.5)" alignment="west" rotate="0" scale="0.75"><m>Q_1</m></label>
+      <label anchor="(0,7.5)" alignment="west" rotate="0" scale="0.75"><m>Q_0</m></label>
     </group>
 
-    <group at="Q2">
+    <group at="Q1">
       <transform>
         <translate by="(0,5)"/>
           <path start="(0,0)" stroke="blue">
@@ -75,10 +75,10 @@
             <horizontal distance="19"/>
           </path>
       </transform>
-      <label anchor="(0,5.5)" alignment="west" rotate="0" scale="0.75"><m>Q_2</m></label>
+      <label anchor="(0,5.5)" alignment="west" rotate="0" scale="0.75"><m>Q_1</m></label>
     </group>
 
-    <group at="Q3">
+    <group at="Q2">
       <transform>
         <translate by="(0,3)"/>
           <path start="(0,0)" stroke="blue">
@@ -93,10 +93,10 @@
             <horizontal distance="19"/>
           </path>
       </transform>
-      <label anchor="(0,3.5)" alignment="west" rotate="0" scale="0.75"><m>Q_3</m></label>
+      <label anchor="(0,3.5)" alignment="west" rotate="0" scale="0.75"><m>Q_2</m></label>
     </group>
 
-    <group at="Q4">
+    <group at="Q3">
       <transform>
         <translate by="(0,1)"/>
           <path start="(0,0)" stroke="blue">
@@ -111,30 +111,33 @@
             <horizontal distance="19"/>
           </path>
       </transform>
-      <label anchor="(0,1.5)" alignment="west" rotate="0" scale="0.75"><m>Q_4</m></label>
+      <label anchor="(0,1.5)" alignment="west" rotate="0" scale="0.75"><m>Q_3</m></label>
     </group>
 
     <group at="transitions">
+      <!-- Input to Q0 -->
       <line endpoints="((2.3,9),(4,8))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((5.4,9),(6,8))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((9.7,9),(10,8))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((12.7,9),(14,8))" stroke="red" arrows="1" dash="4 2"/>
-
+      <!-- Circle input signal transition not captured by Q0 -->
+      <ellipse center="(10.875,9.5)" axes="(.5,1)" stroke="red" dash="4 2"/>
+      <!-- Q0 to Q1 -->
       <line endpoints="((4,7),(6,6))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((6,7),(8,6))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((10,7),(12,6))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((14,7),(16,6))" stroke="red" arrows="1" dash="4 2"/>
-
+      <!-- Q1 to Q2 -->
       <line endpoints="((6,5),(8,4))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((8,5),(10,4))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((12,5),(14,4))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((16,5),(18,4))" stroke="red" arrows="1" dash="4 2"/>
-
+      <!-- Q2 to Q3 -->
       <line endpoints="((8,3),(10,2))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((10,3),(12,2))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((14,3),(16,2))" stroke="red" arrows="1" dash="4 2"/>
       <line endpoints="((18,3),(20,2))" stroke="red" arrows="1" dash="4 2"/>
-    
+      <!-- Markers indicating negative edges on CLK signal -->
       <repeat parameter="k=1..12">
         <line endpoints="((2*k,12.6),(2*k,15))" stroke="green" />
       </repeat>   

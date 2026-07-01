@@ -312,6 +312,577 @@
     }
   });
 
+  // ../../js/src/pretext-dialog.js
+  var PTXDialog2 = class _PTXDialog {
+    static hasNativeCommandInvokers() {
+      return "commandForElement" in HTMLButtonElement.prototype;
+    }
+    // dialogElement: should be a <dialog> element
+    // openButton: is an optional element that triggers the dialog to open and will receive focus again when the dialog closes
+    //             if provided, will automatically have an event listener added to open the dialog on click
+    // options can include:
+    // - kind: whether the dialog is "modal" (the default), "light-close" or "non-modal"
+    //   - "modal" traps focus and must be dismissed with the close button or escape
+    //   - "light-close" are model, but close if the user clicks outside the dialog
+    //   - "non-modal" do not trap focus and can be interacted with while open
+    // - closeButton: button element that should close the dialog when clicked
+    //                If not provided for a modal dialog, one will be added.
+    constructor(dialogElement, openButton = null, options = {}) {
+      this.dialog = dialogElement;
+      this.controlElement = openButton;
+      this.kind = options.kind || "modal";
+      this.isModal = this.kind === "modal" || this.kind === "light-close";
+      if (!this.dialog) {
+        console.log("PTXDialog: No dialog element provided.");
+        return;
+      }
+      this.dialog.setAttribute("aria-modal", this.isModal ? "true" : "false");
+      if (_PTXDialog.hasNativeCommandInvokers()) {
+        if (this.isModal) {
+          this.dialog.closedBy = this.kind !== "light-close" ? "closerequest" : "any";
+        } else {
+          this.dialog.closedBy = "none";
+        }
+      }
+      if (this.controlElement) {
+        this.controlElement.setAttribute("aria-expanded", "false");
+        this.controlElement.setAttribute("aria-controls", this.dialog.id);
+        if (_PTXDialog.hasNativeCommandInvokers()) {
+          this.controlElement.commandFor = this.dialog.id;
+        }
+        if (this.isModal) {
+          this.controlElement.addEventListener("click", () => this.open());
+        } else {
+          this.controlElement.addEventListener("click", () => this.toggle());
+        }
+      }
+      this.closeButton = options.closeButton;
+      if (!this.closeButton && this.isModal) {
+        const topBar = document.createElement("div");
+        topBar.classList.add("ptx-dialog-topbar");
+        this.dialog.prepend(topBar);
+        this.closeButton = document.createElement("button");
+        this.closeButton.classList.add("button", "ptx-dialog-close-button");
+        this.closeButton.setAttribute("aria-label", "Close dialog");
+        this.closeButton.innerHTML = `<span class="material-symbols-outlined">close</span>`;
+        topBar.appendChild(this.closeButton);
+      }
+      if (this.closeButton) {
+        this.closeButton.addEventListener("click", () => this.close());
+      }
+      if (!this.isModal) {
+        const topBar = document.createElement("div");
+        topBar.classList.add("ptx-dialog-topbar");
+        this.topBar = topBar;
+        this.dialog.prepend(topBar);
+      }
+      if (_PTXDialog.hasNativeCommandInvokers()) {
+        this.open = () => {
+          if (this.isModal) {
+            this.dialog.showModal();
+          } else {
+            this.dialog.show();
+          }
+          if (this.controlElement) {
+            this.setExpanded(true);
+          }
+        };
+        this.close = () => {
+          this.dialog.close();
+          if (this.controlElement) {
+            this.controlElement.focus();
+            this.setExpanded(false);
+          }
+        };
+        this.toggle = () => {
+          if (this.dialog.open) {
+            this.close();
+          } else {
+            this.open();
+          }
+        };
+      } else {
+        this.open = () => this.openDialogFallback();
+        this.close = () => this.closeDialogFallback();
+        this.toggle = () => this.toggleDialogFallback();
+      }
+      if (!_PTXDialog.hasNativeCommandInvokers() && this.kind === "light-close") {
+        this.dialog.addEventListener("click", (event2) => {
+          if (event2.target === this.dialog) {
+            const rect = this.dialog.getBoundingClientRect();
+            const isInDialog = rect.top <= event2.clientY && event2.clientY <= rect.top + rect.height && rect.left <= event2.clientX && event2.clientX <= rect.left + rect.width;
+            if (!isInDialog) {
+              this.close();
+            }
+          }
+        });
+      }
+      if (this.isModal) {
+        this.dialog.addEventListener("keydown", (event2) => {
+          if (event2.key === "Escape") {
+            this.close();
+          }
+        });
+      }
+      if (!this.isModal) {
+        const topBar = this.dialog.querySelector(".ptx-dialog-topbar");
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+        topBar.addEventListener("pointerover", (e2) => {
+          topBar.style.cursor = "move";
+        });
+        topBar.addEventListener("pointerdown", (e2) => {
+          isDragging = true;
+          const dialogRect = this.dialog.getBoundingClientRect();
+          offsetX = e2.clientX - dialogRect.left;
+          offsetY = e2.clientY - dialogRect.top;
+          topBar.setPointerCapture(e2.pointerId);
+        });
+        topBar.addEventListener("pointermove", (e2) => {
+          if (!isDragging) return;
+          const newX = e2.clientX - offsetX;
+          const newY = e2.clientY - offsetY;
+          this.dialog.style.left = `${newX}px`;
+          this.dialog.style.top = `${newY}px`;
+          this.dialog.style.bottom = "auto";
+          this.dialog.style.right = "auto";
+        });
+        topBar.addEventListener("pointerup", (e2) => {
+          isDragging = false;
+          topBar.releasePointerCapture(e2.pointerId);
+        });
+        window.addEventListener("resize", (event2) => {
+          this.dialog.style.left = "";
+          this.dialog.style.right = "";
+          if (this.dialog.getBoundingClientRect().top > window.innerHeight) {
+            this.dialog.style.top = "20px";
+          }
+        });
+      }
+    }
+    setExpanded(expanded) {
+      if (this.controlElement) {
+        this.controlElement.setAttribute("aria-expanded", expanded ? "true" : "false");
+        if (expanded) {
+          this.controlElement.classList.add("open");
+        } else {
+          this.controlElement.classList.remove("open");
+        }
+      }
+    }
+    openDialogFallback() {
+      if (this.dialog && typeof this.dialog.showModal === "function" && !this.dialog.open) {
+        if (this.isModal) {
+          this.dialog.showModal();
+        } else {
+          this.dialog.show();
+        }
+        this.setExpanded(true);
+      }
+    }
+    closeDialogFallback() {
+      if (this.dialog && typeof this.dialog.close === "function" && this.dialog.open) {
+        this.dialog.close();
+        this.setExpanded(false);
+      }
+      if (this.controlElement) {
+        this.controlElement.focus();
+      }
+    }
+    toggleDialogFallback() {
+      if (!this.dialog) {
+        return;
+      }
+      if (this.dialog.open) {
+        this.closeDialogFallback();
+      } else {
+        this.openDialogFallback();
+      }
+    }
+  };
+  window.PTXDialog = PTXDialog2;
+
+  // ../../js/src/pretext-dropdown.js
+  var PTXDropdown2 = class {
+    // dropdownElement: menu element to show and hide
+    // openButton: element that toggles the dropdown and receives focus on close
+    constructor(dropdownElement, openButton = null, options = {}) {
+      this.dropdown = dropdownElement;
+      this.controlElement = openButton;
+      this.closeOnSelect = options.closeOnSelect !== false;
+      if (!this.dropdown) {
+        console.warn("PTXDropdown: No dropdown element provided.");
+        return;
+      }
+      this.dropdown.hidden = true;
+      if (this.controlElement) {
+        this.controlElement.setAttribute("aria-expanded", "false");
+        this.controlElement.setAttribute("aria-controls", this.dropdown.id);
+        this.controlElement.addEventListener("click", (event2) => {
+          event2.preventDefault();
+          this.toggle();
+        });
+        this.controlElement.addEventListener("keydown", (event2) => {
+          if (event2.key === "ArrowDown" || event2.key === "Enter" || event2.key === " ") {
+            event2.preventDefault();
+            this.open({ focusMenu: true });
+          }
+        });
+        this.controlElement.addEventListener("keydown", (event2) => {
+          if (event2.key === "Escape" && this.isOpen()) {
+            event2.preventDefault();
+            this.close();
+          }
+        });
+      }
+      this.dropdown.addEventListener("keydown", (event2) => this.handleKeydown(event2));
+      this.dropdown.addEventListener("click", (event2) => {
+        if (this.closeOnSelect && event2.target.closest('[role="menuitem"], a, button')) {
+          this.close({ restoreFocus: false });
+        }
+      });
+      document.addEventListener("click", (event2) => {
+        if (!this.isOpen()) return;
+        if (this.dropdown.contains(event2.target) || this.controlElement?.contains(event2.target)) {
+          return;
+        }
+        this.close({ restoreFocus: false });
+      });
+    }
+    isOpen() {
+      return !this.dropdown.hidden;
+    }
+    setExpanded(expanded) {
+      this.dropdown.hidden = !expanded;
+      this.dropdown.classList.toggle("open", expanded);
+      if (this.controlElement) {
+        this.controlElement.setAttribute("aria-expanded", expanded ? "true" : "false");
+        this.controlElement.classList.toggle("open", expanded);
+      }
+    }
+    open(options = {}) {
+      this.dropdown.querySelectorAll("a").forEach((link) => {
+        link.setAttribute("tabindex", "-1");
+      });
+      this.setExpanded(true);
+      if (options.focusMenu) {
+        this.focusFirstItem();
+      }
+    }
+    close(options = {}) {
+      this.setExpanded(false);
+      if (options.restoreFocus !== false && this.controlElement) {
+        this.controlElement.focus();
+      }
+    }
+    toggle() {
+      if (this.isOpen()) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+    menuItems() {
+      return Array.from(this.dropdown.querySelectorAll('[role="menuitem"], a, button')).filter((item) => !item.hasAttribute("disabled") && item.getAttribute("aria-disabled") !== "true");
+    }
+    focusFirstItem() {
+      this.menuItems()[0]?.focus();
+    }
+    focusLastItem() {
+      const items = this.menuItems();
+      items[items.length - 1]?.focus();
+    }
+    focusNextItem(currentItem, direction) {
+      const items = this.menuItems();
+      if (!items.length) return;
+      const currentIndex = items.indexOf(currentItem);
+      const nextIndex = currentIndex === -1 ? 0 : (currentIndex + direction + items.length) % items.length;
+      items[nextIndex].focus();
+    }
+    handleKeydown(event2) {
+      switch (event2.key) {
+        case "Escape":
+          event2.preventDefault();
+          this.close();
+          break;
+        case "ArrowDown":
+          event2.preventDefault();
+          this.focusNextItem(document.activeElement, 1);
+          break;
+        case "ArrowUp":
+          event2.preventDefault();
+          this.focusNextItem(document.activeElement, -1);
+          break;
+        case "Home":
+          event2.preventDefault();
+          this.focusFirstItem();
+          break;
+        case "End":
+          event2.preventDefault();
+          this.focusLastItem();
+          break;
+        case "Tab":
+          this.close({ restoreFocus: false });
+          break;
+      }
+    }
+  };
+  window.PTXDropdown = PTXDropdown2;
+
+  // ../../js/src/readability-options.js
+  function getSavedTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      return savedTheme;
+    }
+    return "system";
+  }
+  function setSavedTheme(theme) {
+    if (theme === "system") {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", theme);
+    }
+  }
+  function applyThemeChoice(theme) {
+    if (theme === "system") {
+      setDarkMode2(isDarkMode());
+    } else {
+      setDarkMode2(theme === "dark");
+    }
+  }
+  function isDarkMode() {
+    if (document.documentElement.dataset.darkmode === "disabled")
+      return false;
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark")
+      return true;
+    else if (currentTheme === "light")
+      return false;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function setDarkMode2(isDark) {
+    if (document.documentElement.dataset.darkmode === "disabled")
+      return;
+    const parentHtml = document.documentElement;
+    const iframes = document.querySelectorAll("iframe[data-dark-mode-enabled]");
+    if (isDark) {
+      parentHtml.classList.add("dark-mode");
+    } else {
+      parentHtml.classList.remove("dark-mode");
+    }
+    for (const iframe of iframes) {
+      try {
+        const iframeHtml = iframe.contentWindow.document.documentElement;
+        if (isDark) {
+          iframeHtml.classList.add("dark-mode");
+        } else {
+          iframeHtml.classList.remove("dark-mode");
+        }
+      } catch (err) {
+        console.warn("Dark mode sync to iframe failed:", err);
+      }
+    }
+  }
+  function getSavedLineHeight() {
+    const savedLineHeight = localStorage.getItem("lineHeight");
+    if (isValidLineHeight(savedLineHeight)) {
+      return savedLineHeight;
+    }
+    return null;
+  }
+  function isValidLineHeight(value) {
+    return value !== null && !isNaN(value) && Number(value) > 0 && Number(value) < 5;
+  }
+  function formatLineHeight(value) {
+    return Number(value).toFixed(2);
+  }
+  function applyLineHeight(lineHeight) {
+    if (isValidLineHeight(lineHeight)) {
+      document.documentElement.style.setProperty("--ptx-content-line-height", lineHeight);
+    }
+  }
+  function updateLineHeightOutput(output, lineHeight) {
+    if (output) {
+      output.value = formatLineHeight(lineHeight);
+    }
+  }
+  function getSavedFontSize() {
+    const savedFontSize = localStorage.getItem("fontSize");
+    if (isValidFontSize(savedFontSize)) {
+      return savedFontSize;
+    }
+    return null;
+  }
+  function isValidFontSize(value) {
+    return value !== null && !isNaN(value) && Number(value) > 0 && Number(value) < 5;
+  }
+  function formatFontSize(value) {
+    return `${Math.round(Number(value) * 100)}%`;
+  }
+  function applyFontSize(fontSize) {
+    if (isValidFontSize(fontSize)) {
+      document.documentElement.style.setProperty("--ptx-content-font-size", formatFontSize(fontSize));
+    }
+  }
+  function updateFontSizeOutput(output, fontSize) {
+    if (output) {
+      output.value = formatFontSize(fontSize);
+    }
+  }
+  function getSavedAccessiblePermalinks() {
+    return localStorage.getItem("accessiblePermalinks") === "true";
+  }
+  function setSavedAccessiblePermalinks(accessiblePermalinks) {
+    if (accessiblePermalinks) {
+      localStorage.setItem("accessiblePermalinks", "true");
+    } else {
+      localStorage.removeItem("accessiblePermalinks");
+    }
+  }
+  function setAutopermalinksAccessible(accessible) {
+    const autopermalinks = document.querySelectorAll(".autopermalink");
+    autopermalinks.forEach((permalink) => {
+      const link = permalink.querySelector("a");
+      if (!link) {
+        return;
+      }
+      if (accessible) {
+        permalink.removeAttribute("aria-hidden");
+        link.setAttribute("tabindex", "0");
+      } else {
+        permalink.setAttribute("aria-hidden", "true");
+        link.setAttribute("tabindex", "-1");
+      }
+    });
+  }
+  function resetReadabilityOptions(options) {
+    localStorage.removeItem("theme");
+    localStorage.removeItem("lineHeight");
+    localStorage.removeItem("fontSize");
+    localStorage.removeItem("accessiblePermalinks");
+    const systemThemeInput = document.getElementById("ptx-readability-theme-system");
+    if (systemThemeInput) {
+      systemThemeInput.checked = true;
+    }
+    applyThemeChoice("system");
+    if (options.lineHeightInput) {
+      options.lineHeightInput.value = options.defaultLineHeight;
+      updateLineHeightOutput(options.lineHeightOutput, options.defaultLineHeight);
+      document.documentElement.style.removeProperty("--ptx-content-line-height");
+    }
+    if (options.fontSizeInput) {
+      options.fontSizeInput.value = options.defaultFontSize;
+      updateFontSizeOutput(options.fontSizeOutput, options.defaultFontSize);
+      applyFontSize(options.defaultFontSize);
+    }
+    if (options.accessiblePermalinksInput) {
+      options.accessiblePermalinksInput.checked = false;
+      setAutopermalinksAccessible(false);
+    }
+  }
+  window.addEventListener("DOMContentLoaded", function() {
+    const readabilityButton = document.getElementById("ptx-readability-options-button");
+    const readabilityPopupElement = document.getElementById("ptx-readability-options-popup");
+    if (!readabilityButton || !readabilityPopupElement || !window.PTXDialog) {
+      return;
+    }
+    const closeButton = document.getElementById("ptx-readability-options-close-button");
+    new window.PTXDialog(
+      readabilityPopupElement,
+      readabilityButton,
+      {
+        closeButton
+      }
+    );
+    const themeInputs = readabilityPopupElement.querySelectorAll('input[name="ptx-readability-theme"]');
+    const savedTheme = getSavedTheme();
+    for (const input of themeInputs) {
+      input.checked = input.value === savedTheme;
+      input.addEventListener("change", function() {
+        if (!this.checked) {
+          return;
+        }
+        setSavedTheme(this.value);
+        applyThemeChoice(this.value);
+      });
+    }
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function() {
+        if (getSavedTheme() === "system") {
+          applyThemeChoice("system");
+        }
+      });
+    }
+    setDarkMode2(isDarkMode());
+    const lineHeightInput = document.getElementById("ptx-readability-line-height");
+    const lineHeightOutput = document.getElementById("ptx-readability-line-height-value");
+    const defaultLineHeight = lineHeightInput ? lineHeightInput.defaultValue : null;
+    const savedLineHeight = getSavedLineHeight();
+    if (lineHeightInput) {
+      if (savedLineHeight) {
+        lineHeightInput.value = savedLineHeight;
+        applyLineHeight(savedLineHeight);
+      }
+      updateLineHeightOutput(lineHeightOutput, lineHeightInput.value);
+      lineHeightInput.addEventListener("input", function() {
+        updateLineHeightOutput(lineHeightOutput, this.value);
+        if (!isValidLineHeight(this.value)) {
+          return;
+        }
+        localStorage.setItem("lineHeight", this.value);
+        applyLineHeight(this.value);
+      });
+    }
+    const fontSizeInput = document.getElementById("ptx-readability-font-size");
+    const fontSizeOutput = document.getElementById("ptx-readability-font-size-value");
+    const defaultFontSize = fontSizeInput ? fontSizeInput.defaultValue : null;
+    const savedFontSize = getSavedFontSize();
+    if (fontSizeInput) {
+      if (savedFontSize) {
+        fontSizeInput.value = savedFontSize;
+        applyFontSize(savedFontSize);
+      }
+      updateFontSizeOutput(fontSizeOutput, fontSizeInput.value);
+      fontSizeInput.addEventListener("input", function() {
+        updateFontSizeOutput(fontSizeOutput, this.value);
+        if (!isValidFontSize(this.value)) {
+          return;
+        }
+        localStorage.setItem("fontSize", this.value);
+        applyFontSize(this.value);
+      });
+    }
+    const accessiblePermalinksInput = document.getElementById("ptx-readability-accessible-permalinks");
+    if (accessiblePermalinksInput) {
+      accessiblePermalinksInput.checked = getSavedAccessiblePermalinks();
+      accessiblePermalinksInput.addEventListener("change", function() {
+        setSavedAccessiblePermalinks(this.checked);
+        setAutopermalinksAccessible(this.checked);
+      });
+    }
+    setAutopermalinksAccessible(getSavedAccessiblePermalinks());
+    const resetButton = document.getElementById("ptx-readability-reset-button");
+    if (resetButton) {
+      resetButton.addEventListener("click", function() {
+        resetReadabilityOptions({
+          fontSizeInput,
+          fontSizeOutput,
+          defaultFontSize,
+          accessiblePermalinksInput,
+          defaultLineHeight,
+          lineHeightInput,
+          lineHeightOutput
+        });
+      });
+    }
+  });
+  setDarkMode2(isDarkMode());
+  applyLineHeight(getSavedLineHeight());
+  applyFontSize(getSavedFontSize());
+  window.isDarkMode = isDarkMode;
+
   // ../../js/pretext.js
   function getOffsetTop(e2) {
     if (!e2) return 0;
@@ -346,16 +917,24 @@
     toc.scrollTop = tocEntryTop - tocTop - 0.4 * self.innerHeight;
   }
   function toggletoc() {
-    thesidebar = document.getElementById("ptx-sidebar");
-    if (thesidebar.classList.contains("hidden") || thesidebar.classList.contains("visible")) {
-      thesidebar.classList.toggle("hidden");
-      thesidebar.classList.toggle("visible");
-    } else if (thesidebar.offsetParent === null) {
-      thesidebar.classList.toggle("visible");
+    let ptxSidebar = document.getElementById("ptx-sidebar");
+    let sideBarIsHidden = ptxSidebar.classList.contains("hidden") || !ptxSidebar.classList.contains("visible") && ptxSidebar.offsetParent === null;
+    if (sideBarIsHidden) {
+      ptxSidebar.classList.add("visible");
+      ptxSidebar.classList.remove("hidden");
     } else {
-      thesidebar.classList.toggle("hidden");
+      ptxSidebar.classList.remove("visible");
+      ptxSidebar.classList.add("hidden");
     }
-    scrollTocToActive();
+    sideBarIsHidden = !sideBarIsHidden;
+    let ptxTocButton = document.getElementById("ptx-toc-toggle");
+    ptxTocButton.setAttribute("aria-expanded", !sideBarIsHidden);
+    if (!sideBarIsHidden) {
+      scrollTocToActive();
+      document.querySelector("#ptx-toc").focus();
+    } else {
+      ptxTocButton.focus();
+    }
   }
   function samePageLink(a) {
     if (!(a instanceof HTMLAnchorElement)) return false;
@@ -369,43 +948,55 @@
     }
   }
   window.addEventListener("DOMContentLoaded", function(event2) {
-    thetocbutton = document.getElementsByClassName("toc-toggle")[0];
-    thetocbutton.addEventListener("click", (e2) => {
+    let tocButton = document.getElementById("ptx-toc-toggle");
+    tocButton.addEventListener("click", (e2) => {
       toggletoc();
       e2.stopPropagation();
     });
-    if (getComputedStyle(document.documentElement).getPropertyValue("--auto-collapse-toc") == "yes") {
-      const sidebar = document.getElementById("ptx-sidebar");
+    let ptxSidebar = document.getElementById("ptx-sidebar");
+    let sideBarIsHidden = ptxSidebar.classList.contains("hidden") || !ptxSidebar.classList.contains("visible") && ptxSidebar.offsetParent === null;
+    tocButton.setAttribute("aria-expanded", !sideBarIsHidden);
+    const autoCollapseToc = getComputedStyle(document.documentElement).getPropertyValue("--auto-collapse-toc") == "yes";
+    if (autoCollapseToc) {
       window.addEventListener("click", function(event3) {
-        if (sidebar.classList.contains("visible")) {
-          if (!event3.composedPath().includes(sidebar)) {
+        if (ptxSidebar.classList.contains("visible")) {
+          if (!event3.composedPath().includes(ptxSidebar)) {
             toggletoc();
           }
         }
       });
-      sidebar.addEventListener("click", function(event3) {
+      ptxSidebar.addEventListener("click", function(event3) {
         if (samePageLink(event3.target.closest("a"))) {
           toggletoc();
         }
       });
       window.addEventListener("pageshow", (e2) => {
         if (e2.persisted) {
-          sidebar.classList.remove("visible");
-          sidebar.classList.add("hidden");
+          ptxSidebar.classList.remove("visible");
+          ptxSidebar.classList.add("hidden");
+          tocButton.setAttribute("aria-expanded", "false");
         }
       });
     }
+    window.addEventListener("keydown", function(event3) {
+      if (event3.key === "Escape" && ptxSidebar.classList.contains("visible") && (getComputedStyle(ptxSidebar).position === "fixed" || autoCollapseToc)) {
+        toggletoc();
+      }
+    });
   });
-  function toggleTOCItem(expander) {
+  function toggleTOCItem(expander, event2 = null) {
     let listItem = expander.closest(".toc-item");
     listItem.classList.toggle("expanded");
     let expanded = listItem.classList.contains("expanded");
-    let itemType = getTOCItemType(listItem);
+    let groupName = listItem.querySelector(".toc-title-box").innerText;
     if (expanded) {
-      expander.title = "Close" + (itemType !== "" ? " " + itemType : "");
+      expander.title = "Close " + groupName;
+      expander.setAttribute("aria-expanded", "true");
     } else {
-      expander.title = "Expand" + (itemType !== "" ? " " + itemType : "");
+      expander.title = "Expand " + groupName;
+      expander.setAttribute("aria-expanded", "false");
     }
+    expander.setAttribute("aria-label", expander.title);
     for (const childUL of listItem.querySelectorAll(":scope > ul.toc-item-list")) {
       for (const childItem of childUL.querySelectorAll(":scope > li.toc-item")) {
         if (expanded) {
@@ -417,13 +1008,15 @@
         }
       }
     }
-  }
-  function getTOCItemType(item) {
-    for (let className of item.classList) {
-      if (className !== "toc-item" && className.length > 3 && className.slice(0, 4) === "toc-")
-        return className.slice(4);
+    if (expanded && expander === document.activeElement && event2 && event2 instanceof KeyboardEvent) {
+      const firstChildItem = listItem.querySelector(":scope > ul.toc-item-list > li.toc-item");
+      if (firstChildItem) {
+        const firstChildLink = firstChildItem.querySelector("a");
+        if (firstChildLink) {
+          firstChildLink.focus();
+        }
+      }
     }
-    return "";
   }
   function getTOCItemDepth(item) {
     let depth = 0;
@@ -451,21 +1044,27 @@
       let depth = getTOCItemDepth(tocItem);
       if (hasChildren && depth < maxDepth) {
         let expander = document.createElement("button");
+        expander.type = "button";
         expander.classList.add("toc-expander");
         expander.classList.add("toc-chevron-surround");
         expander.title = "toc-expander";
         expander.innerHTML = '<span class="icon material-symbols-outlined" aria-hidden="true"></span>';
+        const subList = tocItem.querySelector(".toc-item-list");
+        expander.controlledGroup = subList.id;
+        expander.setAttribute("aria-controls", subList.id);
+        expander.setAttribute("aria-expanded", "false");
         tocItem.querySelector(".toc-title-box").append(expander);
-        expander.addEventListener("click", () => {
-          toggleTOCItem(expander);
+        expander.addEventListener("click", (e2) => {
+          toggleTOCItem(expander, e2);
         });
         let isActive = tocItem.classList.contains("contains-active") || tocItem.classList.contains("active");
         let preExpanded = isActive || depth < preexpandedLevels;
-        let itemType = getTOCItemType(tocItem);
         if (preExpanded) {
           toggleTOCItem(expander);
         } else {
-          expander.title = "Expand" + (itemType !== "" ? " " + itemType : "");
+          let groupName = tocItem.querySelector(".toc-title-box").innerText;
+          expander.title = "Expand " + groupName;
+          expander.setAttribute("aria-label", expander.title);
         }
       }
     }
@@ -501,21 +1100,6 @@
       return key;
     }
   };
-  function getScrollbarWidth() {
-    var outer = document.createElement("div");
-    outer.style.visibility = "hidden";
-    outer.style.width = "100px";
-    outer.style.msOverflowStyle = "scrollbar";
-    document.body.appendChild(outer);
-    var widthNoScroll = outer.offsetWidth;
-    outer.style.overflow = "scroll";
-    var inner = document.createElement("div");
-    inner.style.width = "100%";
-    outer.appendChild(inner);
-    var widthWithScroll = inner.offsetWidth;
-    outer.parentNode.removeChild(outer);
-    return widthNoScroll - widthWithScroll;
-  }
   async function copyPermalink(linkNode) {
     if (!navigator.clipboard) {
       console.log("Error: Clipboard API not available");
@@ -705,53 +1289,60 @@
     console.log("processing workspace");
     MathJax.typesetPromise();
   }
-  function pretext_geogebra_calculator_onload() {
-    $("#calculator-toggle").focus();
-    var inputfield = $("input.gwt-SuggestBox.TextField")[0];
-    console.log("inputfield", inputfield);
-    inputfield.focus();
-  }
   window.addEventListener("load", function(event2) {
-    var scrollWidth = getScrollbarWidth();
-    if (navigator.userAgent.match(/Mozilla/i) != null) {
+    const calcDialogElement = document.getElementById("ptx-calculator-container");
+    const calcButtonElement = document.getElementById("ptx-calculator-toggle");
+    if (!calcDialogElement || !calcButtonElement) {
+      return;
     }
-    console.log("scrollWidth", scrollWidth);
-    calcoffsetR = 5;
-    calcoffsetB = 5;
-    $("body").on("mouseover", "#geogebra-calculator canvas", function() {
-      $("body").css("overflow", "hidden");
-      $("html").css("margin-right", "15px");
-      $("#calculator-container").css("right", (calcoffsetR + scrollWidth).toString() + "px");
-      $("#calculator-container").css("bottom", (calcoffsetB + scrollWidth).toString() + "px");
-    });
-    $("body").on("mouseout", "#geogebra-calculator canvas", function() {
-      $("body").css("overflow", "scroll");
-      $("html").css("margin-right", "0");
-      $("#calculator-container").css("right", calcoffsetR.toString() + "px");
-      $("#calculator-container").css("bottom", calcoffsetB.toString() + "px");
-    });
-    $("body").on("click", "#calculator-toggle", function() {
-      if ($("#calculator-container").css("display") == "none") {
-        $("#calculator-container").css("display", "block");
-        $("#calculator-toggle").addClass("open");
-        $("#calculator-toggle").attr("title", "Hide calculator");
-        $("#calculator-toggle").attr("aria-expanded", "true");
-        create_calc_script = document.getElementById("create_ggb_calc");
-        if (!create_calc_script) {
-          var ggbscript = document.createElement("script");
-          ggbscript.id = "create_ggb_calc";
-          ggbscript.innerHTML = "ggbApp.inject('geogebra-calculator')";
-          document.body.appendChild(ggbscript);
+    const calcDialog = new PTXDialog(calcDialogElement, calcButtonElement, { "kind": "non-modal" });
+    const focusCalcInput = function() {
+      const inputField = document.querySelector("#ptx-geogebra-calculator input.gwt-SuggestBox.TextField");
+      if (inputField) {
+        inputField.focus();
+      }
+    };
+    function initGeogebra() {
+      const fixedParams = {
+        showToolBar: true,
+        showAlgebraInput: true,
+        perspective: "G/A",
+        algebraInputPosition: "bottom",
+        appletOnLoad: focusCalcInput,
+        scaleContainerClass: "ptx-calculator-container",
+        allowUpscale: false,
+        autoHeight: false
+      };
+      const generatedParams = typeof ggbParams === "object" && ggbParams ? ggbParams : {};
+      const params = { ...generatedParams, ...fixedParams };
+      let applet2 = new GGBApplet(params, true);
+      applet2.inject("ptx-geogebra-calculator");
+      return applet2;
+    }
+    let applet;
+    calcButtonElement.addEventListener("click", function() {
+      if (calcDialog.dialog.open) {
+        let initialized = calcDialogElement.dataset.initialized || false;
+        if (!initialized) {
+          applet = initGeogebra();
+          calcDialogElement.dataset.initialized = true;
         } else {
-          pretext_geogebra_calculator_onload();
+          focusCalcInput();
         }
-      } else {
-        $("#calculator-container").css("display", "none");
-        $("#calculator-toggle").removeClass("open");
-        $("#calculator-toggle").attr("title", "Show calculator");
-        $("#calculator-toggle").attr("aria-expanded", "false");
       }
     });
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.target === calcDialogElement && applet && applet.getAppletObject()) {
+          const width = entry.contentRect.width;
+          const height = entry.contentRect.height;
+          const topBarHeight = calcDialogElement.querySelector(".ptx-dialog-topbar").clientHeight || 0;
+          applet.getAppletObject().setSize(width, height - topBarHeight);
+          applet.getAppletObject().recalculateEnvironments();
+        }
+      }
+    });
+    resizeObserver.observe(calcDialogElement);
   });
   window.addEventListener(
     "load",
@@ -1400,158 +1991,6 @@
       console.log("finished adjusting workspace");
     }
   });
-  function isDarkMode() {
-    if (document.documentElement.dataset.darkmode === "disabled")
-      return false;
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark")
-      return true;
-    else if (currentTheme === "light")
-      return false;
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-  function setDarkMode(isDark) {
-    if (document.documentElement.dataset.darkmode === "disabled")
-      return;
-    const parentHtml = document.documentElement;
-    const iframes = document.querySelectorAll("iframe[data-dark-mode-enabled]");
-    if (isDark) {
-      parentHtml.classList.add("dark-mode");
-    } else {
-      parentHtml.classList.remove("dark-mode");
-    }
-    for (const iframe of iframes) {
-      try {
-        const iframeHtml = iframe.contentWindow.document.documentElement;
-        if (isDark) {
-          iframeHtml.classList.add("dark-mode");
-        } else {
-          iframeHtml.classList.remove("dark-mode");
-        }
-      } catch (err) {
-        console.warn("Dark mode sync to iframe failed:", err);
-      }
-    }
-    const modeButton = document.getElementById("light-dark-button");
-    if (modeButton) {
-      modeButton.querySelector(".icon").innerText = isDark ? "light_mode" : "dark_mode";
-      modeButton.querySelector(".name").innerText = isDark ? window.i18next.t("Light Mode") : window.i18next.t("Dark Mode");
-    }
-  }
-  setDarkMode(isDarkMode());
-  window.addEventListener("DOMContentLoaded", function(event2) {
-    const isDark = isDarkMode();
-    setDarkMode(isDark);
-    const modeButton = document.getElementById("light-dark-button");
-    modeButton.addEventListener("click", function() {
-      const wasDark = isDarkMode();
-      setDarkMode(!wasDark);
-      localStorage.setItem("theme", wasDark ? "light" : "dark");
-    });
-  });
-  var PTXDialog = class _PTXDialog {
-    static hasNativeCommandInvokers() {
-      return "commandForElement" in HTMLButtonElement.prototype;
-    }
-    // dialogElement: should be a <dialog> element
-    // openButton: is an optional element that triggers the dialog to open and will receive focus again when the dialog closes
-    //             if provided, will automatically have an event listener added to open the dialog on click
-    // options can include:
-    // - kind: whether the dialog is "modal" (the default), "light-close" or "non-modal"
-    //   - "modal" traps focus and must be dismissed with the close button or escape
-    //   - "light-close" are model, but close if the user clicks outside the dialog
-    //   - "non-modal" do not trap focus and can be interacted with while open
-    // - closeButton: button element that should close the dialog when clicked
-    //                If not provided for a modal dialog, one will be added.
-    constructor(dialogElement, openButton = null, options = {}) {
-      this.dialog = dialogElement;
-      this.controlElement = openButton;
-      this.kind = options.kind || "modal";
-      this.isModal = this.kind === "modal" || this.kind === "light-close";
-      this.openButton = openButton;
-      if (this.openButton && !_PTXDialog.hasNativeCommandInvokers()) {
-        this.openButton.addEventListener("click", () => this.open());
-      }
-      this.closeButton = options.closeButton;
-      if (!this.closeButton && this.isModal) {
-        const topBar = document.createElement("div");
-        topBar.classList.add("ptx-dialog-topbar");
-        this.dialog.prepend(topBar);
-        this.closeButton = document.createElement("button");
-        this.closeButton.classList.add("ptx-dialog-close-button");
-        this.closeButton.setAttribute("aria-label", "Close dialog");
-        this.closeButton.innerHTML = `<span class="material-symbols-outlined">close</span>`;
-        topBar.appendChild(this.closeButton);
-      }
-      if (this.closeButton) {
-        this.closeButton.addEventListener("click", () => this.close());
-      }
-      if (_PTXDialog.hasNativeCommandInvokers()) {
-        this.open = () => {
-          if (this.isModal) {
-            this.dialog.showModal();
-          } else {
-            this.dialog.show();
-          }
-        };
-        this.close = () => {
-          this.dialog.close();
-          if (this.controlElement) {
-            this.controlElement.focus();
-          }
-        };
-        this.toggle = () => {
-          if (this.dialog.open) {
-            this.close();
-          } else {
-            this.open();
-          }
-        };
-      } else {
-        this.open = () => this.openDialogFallback();
-        this.close = () => this.closeDialogFallback();
-        this.toggle = () => this.toggleDialogFallback();
-      }
-      if (this.kind === "light-close") {
-        this.dialog.addEventListener("click", (event2) => {
-          if (event2.target === this.dialog) {
-            const rect = this.dialog.getBoundingClientRect();
-            const isInDialog = rect.top <= event2.clientY && event2.clientY <= rect.top + rect.height && rect.left <= event2.clientX && event2.clientX <= rect.left + rect.width;
-            if (!isInDialog) {
-              this.close();
-            }
-          }
-        });
-      }
-    }
-    openDialogFallback() {
-      if (this.dialog && typeof this.dialog.showModal === "function" && !this.dialog.open) {
-        if (this.isModal) {
-          this.dialog.showModal();
-        } else {
-          this.dialog.show();
-        }
-      }
-    }
-    closeDialogFallback() {
-      if (this.dialog && typeof this.dialog.close === "function" && this.dialog.open) {
-        this.dialog.close();
-      }
-      if (this.controlElement) {
-        this.controlElement.focus();
-      }
-    }
-    toggleDialogFallback() {
-      if (!this.dialog) {
-        return;
-      }
-      if (this.dialog.open) {
-        this.closeDialogFallback();
-      } else {
-        this.openDialogFallback();
-      }
-    }
-  };
   window.addEventListener("DOMContentLoaded", function(event2) {
     const shareButton = document.getElementById("ptx-embed-button");
     const sharePopupElement = document.getElementById("ptx-embed-popup");
@@ -1648,8 +2087,13 @@
             `.trim());
     }
   });
-  window.PTXDialog = PTXDialog;
-  window.isDarkMode = isDarkMode;
+  window.addEventListener("DOMContentLoaded", () => {
+    const userDropdownButton = document.getElementById("ptx-user-dropdown-button");
+    const userDropdownContent = document.getElementById("ptx-user-dropdown-content");
+    if (userDropdownButton && userDropdownContent) {
+      new PTXDropdown(userDropdownContent, userDropdownButton);
+    }
+  });
 
   // ../../js/src/pretext-core.js
   var import_knowl = __toESM(require_knowl());
