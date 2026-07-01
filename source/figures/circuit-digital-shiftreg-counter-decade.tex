@@ -1,0 +1,73 @@
+\begin{circuitikz}
+    \tikzset{
+        Dflipflop falling/.style={flipflop,
+        flipflop def={t1=$C$, t3=$D$, t6=$Q$, t4={\ctikztextnot{$Q$}},
+        c1=1, n1=1}},
+        %
+        add async PC/.style={flipflop def={%
+            tu={\ctikztextnot{\texttt{CLR}}}}},
+    }
+
+    % Placement of digital components
+    \draw(0, 0)                 coordinate(start)
+                                node[Dflipflop falling, add async PC](D0){0}
+    ([xshift=0.5cm] D0.pin 6)   node[Dflipflop falling, add async PC, anchor=pin 1](D1){1}
+    ([xshift=0.5cm] D1.pin 6)   node[Dflipflop falling, add async PC, anchor=pin 1](D2){2}
+    ([xshift=0.5cm] D2.pin 6)   node[Dflipflop falling, add async PC, anchor=pin 1](D3){3}
+    ([yshift=4cm] D1)           node[nand port, number inputs=2, rotate=180](NAND0){}
+
+    % Internal connections
+    (D0.pin 6)                  to[short] (D1.pin 1)     
+    (D1.pin 6)                  to[short] (D2.pin 1)     
+    (D2.pin 6)                  to[short] (D3.pin 1)
+    (D0.pin 3)                  to[short] ++(0,-.75)
+                                coordinate(btm)
+                                to[short] (\tikztostart -| D0.pin 4)
+                                to[short] (D0.pin 4)
+    (D1.pin 3)                  to[short] (\tikztostart |- btm)
+                                to[short] (\tikztostart -| D1.pin 4)
+                                to[short] (D1.pin 4)
+    (D2.pin 3)                  to[short] (\tikztostart |- btm)
+                                to[short] (\tikztostart -| D2.pin 4)
+                                to[short] (D2.pin 4)
+    (D3.pin 3)                  to[short] (\tikztostart |- btm)
+                                to[short] (\tikztostart -| D3.pin 4)
+                                to[short] (D3.pin 4)
+
+    % Inputs
+    (D0.pin 1)                  to[short] ++(-0.5,0)
+                                coordinate(C)
+                                node[left](){CLK}
+    
+    % Outputs
+    ($(D0.pin 6)!0.5!(D1.pin 1)$)  
+                                to[short,*-] ++(0,0.75)
+                                coordinate(Q0)
+                                node[left](){$Q_0$}
+    ($(D1.pin 6)!0.5!(D2.pin 1)$)
+                                to[short,*-] (\tikztostart |- Q0)
+                                coordinate(Q1)
+                                node[left](){$Q_1$}
+    ($(D2.pin 6)!0.5!(D3.pin 1)$)
+                                to[short,*-] (\tikztostart |- Q0)
+                                coordinate(Q2)
+                                node[left](){$Q_2$}
+    (D3.pin 6)                  to[short] (\tikztostart |- Q0)
+                                coordinate(Q3)
+                                node[left](){$Q_3$}
+    
+    % Truncation circuit
+    (D0.up)                     to[short] ++(0,1)
+                                coordinate(CLR)
+                                to[short] (\tikztostart -| D3.up)
+                                to[short] (D3.up)
+    (D1.up)                     to[short,-*] (\tikztostart |- CLR)
+    (D2.up)                     to[short,-*] (\tikztostart |- CLR)
+    (Q1)                        to[short] (\tikztostart |- NAND0.in 1)
+                                to[short] (NAND0.in 1)
+    (Q3)                        to[short] (\tikztostart |- NAND0.in 2)
+                                to[short] (NAND0.in 2)
+    (NAND0.out)                 to[short, -*] (\tikztostart |- CLR)
+
+;
+\end{circuitikz}

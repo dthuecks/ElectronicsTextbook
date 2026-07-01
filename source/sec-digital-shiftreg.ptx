@@ -15,11 +15,9 @@
                     <xi:include parse="text" href="./figures/circuit-digital-shiftreg-shiftreg.tex" />
                 </latex-image></image>
             </figure>
-            In this circuit, the input signal (In) is assumed to be controlled by some external source (another circuit or a person) and the signal can change between high and low at any time. 
-
-
+            In this circuit, the input signal (In) is assumed to be controlled by some external source (another circuit or a person) and can change between high and low at any time. Output <m>Q_0</m> reproduces an approximation to this input signal, though only allows changes between low and high on the negative edge of the clock signal CLK. In a sense, the <sq>resolution</sq> with which the flip-flop reproduces the input signal is limited by the CLK frequency which is why the pulse lengths in <m>Q_0</m> are not identical to those in the input signal and is why the circled input signal transitions do not appear in <m>Q_0</m>. Outputs <m>Q_1</m>, <m>Q_2</m>, and <m>Q_3</m> are all identical to <m>Q_0</m> except that each output is time delayed by <m>\Delta t=1/f_\text{CLK}</m> from the output before it. <xref ref="timing-digital-shiftreg-shiftreg"/> shows this behavior where circuit outputs at some instant are not dependent on the input at that instant. Instead, <m>Q_1</m>, <m>Q_2</m>, and <m>Q_3</m> depend on the state of <m>Q_0</m> progressively further in the past and <m>Q_0</m> is a sampled version of the input signal. <em>Memory</em> in this context is represented by circuit output behavior that is based on past rather than present input signal behavior.
             <figure xml:id="timing-digital-shiftreg-shiftreg">
-                <caption></caption>
+                <caption>This shift register timing diagram reflects the behavior of the shift register circuit in <xref ref="circuit-digital-shiftreg-shiftreg"/>. The output <m>Q_0</m> represents the sampling of the input signal based on the negative edge triggering of flip-flop 1. Outputs <m>Q_1</m>, <m>Q_2</m>, and <m>Q_3</m> are identical to <m>Q_0</m> except they are time delayed by one clock period relative to the previous output signal.</caption>
                 <image width="100%">
                     <shortdescription></shortdescription>
                     <prefigure xmlns="https://prefigure.org" label="timing-digital-shiftreg-shiftreg-img">
@@ -27,9 +25,70 @@
                     </prefigure>
                 </image>
             </figure>
+        </p>   
+    </subsection>
+    <subsection xml:id="subsec-digital-shiftreg-counters">
+        <title>Counters</title>
+        <p>
+            We can use the memory functionality demonstrated by flip-flop circuits above to produce a circuit that <em>counts</em>. Let's first start with the flip-flop configuration that is called a <term>mod-2 counter</term>. This circuit, shown in <xref ref="circuit-digital-shiftreg-counter-mod2"/>, takes a square-wave clock input and produces a square-wave output with half of the clock's frequency.
+            <figure xml:id="circuit-digital-shiftreg-counter-mod2">
+                <caption>Mod-2 counter circuit.</caption>
+                <image width="50%"><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-digital-shiftreg-counter-mod2.tex" />
+                </latex-image></image>
+            </figure>
         </p>
+        <p>            
+            The circuit shown in <xref ref="circuit-digital-shiftreg-counter-4bit"/> uses four mod-2 counters in a cascading configuration. The output of one mod-2 counter serves as the input to the next mod-2 counter in the chain, resulting in square-wave outputs that have frequencies that get progressively smaller by a factor of two for each subsequent flip-flop. This circuit is called an <term>asynchronous 4-bit counter</term>. It counts from 0 to 15 in binary before resetting to 0, with <m>Q_i</m> representing the value of the <m>i</m>-th bit of a 4-bit number as a function of time. 
+            <figure xml:id="circuit-digital-shiftreg-counter-4bit">
+                <caption></caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-digital-shiftreg-counter-4bit.tex" />
+                </latex-image></image>
+            </figure>            
+            The term <term>asynchronous</term> is used because the four flip-flops in the circuit are not triggered at the same time. Instead, each flip-flop is triggered by changes in the output state of the flip-flop appearing to its left. Because a flip-flop takes a finite time to change its output upon triggering, this leads to a <term>ripple effect</term> in which a small delay in flip-flop triggering propagates left to right through the counter circuit.
+            <figure xml:id="timing-digital-shiftreg-counter-4bit">
+                <caption>Timing diagram for the asynchronous 4-bit counter.</caption>
+                <image width="100%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="timing-digital-shiftreg-counter-4bit-img">
+                        <xi:include href="./prefigure/timing-digital-shiftreg-counter-4bit.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+        </p>
+        <p>
+            The Preset and Clear flip-flop inputs can be used to modify the asynchronous 4-bit counter circuit in <xref ref="circuit-digital-shiftreg-counter-4bit"/> to truncate the count and cause the counter to reset before it reaches 15. For example, an <term>asynchronous decade counter</term> will count from 0-9 before resetting back to 0. In order to truncate the count, the circuit must reset to the 4-bit binary number 0000 instead of proceeding to 1010 (the binary equivalent to the digit 10). So, the circuit must send a clear signal to all four flip-flops immediately upon the outputs reaching <m>Q_3=1</m>, <m>Q_2=0</m>, <m>Q_1=1</m>, and <m>Q_0=0</m>. This condition can be simplified as this output is the first time at which both <m>Q_3=1</m> and <m>Q_1=1</m> simultaneously. Since the CLR inputs are <em>active low</em>, a single NAND gate provides this truncation when the gate has inputs <m>Q_1</m>,<m>Q_3</m> and an output that connects to all four flip-flop CLR inputs. <xref ref="circuit-digital-shiftreg-counter-decade"/> shows the asynchronous decade counter circuit while <xref ref="timing-digital-shiftreg-counter-decade"/> shows the counting functionality.
+            <figure xml:id="circuit-digital-shiftreg-counter-decade">
+                <caption></caption>
+                <image><latex-image>
+                    <xi:include parse="text" href="./figures/circuit-digital-shiftreg-counter-decade.tex" />
+                </latex-image></image>
+            </figure>            
+            <figure xml:id="timing-digital-shiftreg-counter-decade">
+                <caption>Timing diagram for the asynchronous decade counter.</caption>
+                <image width="100%">
+                    <shortdescription></shortdescription>
+                    <prefigure xmlns="https://prefigure.org" label="timing-digital-shiftreg-counter-decade-img">
+                        <xi:include href="./prefigure/timing-digital-shiftreg-counter-decade.xml" />
+                    </prefigure>
+                </image>
+            </figure>
+        </p>
+        <example>
+            <title>Divide-by-5 and Divide-by-100 counters</title>
+            <statement>
+                <p>
+                    Assign as homework questions.
+                </p>
+            </statement>
+            
+            
+        </example>
+    </subsection>
+    <subsection xml:id="subsec-digital-shiftreg-LED-display">
+        <title>Seven-segment LED Display</title>
         
     </subsection>
-    
 
 </section>
