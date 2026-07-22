@@ -205,6 +205,7 @@
     <paragraphs>
         <title>Frequency response of negative feedback amplifiers</title>
         <p>
+            ADD DISCUSSION OF THE FREQUENCY RESPONSE OF NEGATIVE FEEDBACK AMPLIFIERS AND DISCUSS THE EQUATION GOVERNING THE PLOT IN <xref ref="plot-opamp-freq-response"/>.
             <figure xml:id="plot-opamp-freq-response">
                 <caption>The frequency response of amplifiers using negative feedback depends on the circuit gain selected through design. As gain drops, bandwidth increases.</caption>
                 <image width="70%">
