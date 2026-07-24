@@ -2062,11 +2062,20 @@ var ptx_lunr_docs = [
   "body": " Circuit schematic for the full-adder circuit. Note: Locations where lines cross in the schematic are only connected if a junction dot appears. There is no connection where wires cross if there is no dot present.   "
 },
 {
+  "id": "app-complexnumbers",
+  "level": "1",
+  "url": "app-complexnumbers.html",
+  "type": "Appendix",
+  "number": "A",
+  "title": "Introduction to Complex Numbers",
+  "body": " Introduction to Complex Numbers  "
+},
+{
   "id": "app-matrices",
   "level": "1",
   "url": "app-matrices.html",
   "type": "Appendix",
-  "number": "A",
+  "number": "B",
   "title": "Matrices",
   "body": " Matrices   Properties of Matrices    A matrix is an array of numbers . In order to use matrices to solve systems of equations, we must understand how to multiply matrices using the dot product.  Suppose we have matrix that has the form where is the matrix element in the -th row and -th column. Now, if we multiply a matrix by a scalar, we find .  Let's now say that we want to multiply matrices and to find where . First off, is only defined if has a number of columns that is equal to the number of rows of . In other words, is only defined for matrices where is an matrix and is an matrix. Now we have . The elements of are given by where is the number of columns of and equivalently the number of rows in . In other words, and . In other words, in order to find , you can multiply, element-by-element, the cells in row i of with the cells in column k of . The resulting matrix will have the same number of rows as and same number of columns as .  The identity matrix , typically labeled is another concept that will be necessary to understand. The identity matrix is defined such that for any matrix . In order to have this property, the identity matrix must be a square matrix with dimensions (same number of rows and columns) with values of 1 on the diagonal and 0 everywhere else: . The identity matrix can have any value of in order to make the desired matrix multiplication work.  Now, let's say that we have an equation and let's further assume that we have prior knowledge of both and . How do we find ? We cannot perform division with matrices. Instead, we use the concept of an inverse matrix . Let's define to be the inverse matrix of such that . Then, we can multiply both sides of our equation by to get . You can learn how to find given knowledge of in a linear algebra course. For our purposes, we will just rely on Python to invert matrices.    Connecting to systems of equations    Coming soon.   "
 },
@@ -2093,7 +2102,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "subapp-python-newtonmethod.html",
   "type": "Section",
-  "number": "B.1",
+  "number": "C.1",
   "title": "Newton’s Method",
   "body": " Newton's Method   FINDING THE ROOT OF ONE NONLINEAR EQUATION   Newton's method is a computational algorithm that can be used to find the roots of an equation. Let's illustrate with an example.      In , the solid blue line represents the function . Assume that is an unknown root of such that . We may be able to guess at an approximate value of the root , but this is unlikely to be very precise. Examining , we can see that we can find a better approximation of the function's root by using a straight-line (dashed red curve) with the same slope as our function at the location of our initial guess, which can be rearranged to find our new estimate We'll call this new approximated root . It's very possible that this new guess still lacks the precision that we desire, so we can repeat the process again, iterating as many times as we desire using until is less than some user-defined tolerance that defines the desired precision, as the change in the estimate to our root from one iteration to the next should become smaller as our estimate approaches the real value of the function's root. Note that this method requires knowledge of the functional form of our function as well as knowledge of or the ability to calculate the analytic form of .  We can be a little more rigorous with the theory underlying Newton's method. Let's assume that we have a function that has a root such that . We can expand our function as a Taylor series around some initial guess for the root, , giving us . Evaluating this expansion at the root gives us . If we divide both sides by and assume that all terms that are order two or higher in are small, then or where is our estimate of the root based on one iteration of this method. Now, the closer is to the real root , the better our estimate will be. So, once we have , we can use this as our new guess for another iteration, giving us a result identical to what we found above, , which we iterate until is less than some user-defined tolerance that defines the desired precision.  A word of caution: Newton's method is not foolproof and it can fail sometimes. Please take a look at other computational methods textbooks or webpages to investigate these failure modes. For the purposes of this text, try several different initial guesses if your first choice leads to a failure of the method.    FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS   Write your equations in the following form: with roots . The Taylor expansion for can be written as so that . Each value can represent the -th equation in a system of equations. This system can be written in vector form as where is the matrix with elements . Since is a root of the equations, we have so that where . Thus, we can get a good estimate of our root, , using where now. This is a set of ordinary linear simultaneous equations of the form which can be solved using the linalg.solve package in NumPy. Once we've solved for , our new estimate of the root is .    Wheatstone Bridge example   "
 },
@@ -2102,14 +2111,14 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subapp-python-newtonmethod.html#fig-python-newtonmethodplot",
   "type": "Figure",
-  "number": "B.1.1",
+  "number": "C.1.1",
   "title": "",
   "body": "     "
 },
 {
-  "id": "backmatter-4",
+  "id": "backmatter-5",
   "level": "1",
-  "url": "backmatter-4.html",
+  "url": "backmatter-5.html",
   "type": "Colophon",
   "number": "",
   "title": "Colophon",
