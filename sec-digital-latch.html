@@ -29,13 +29,13 @@ htmlPresentation: false,
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="og:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="book:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
+<meta name="twitter:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="og:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="book:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
 <meta name="twitter:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta property="og:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.44"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -70,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="Electronics.html"><span class="title">Electronics: A Guide for Physicists</span> <span class="subtitle">Version 0.1 (In Active Development)</span></a></div>
 <p class="byline">Derek J. Thuecks</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -301,15 +301,15 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-digital-latch">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Latches</span>
-</h2>
+</h1>
 <div class="para" id="sec-digital-latch-2">So far, we’ve limited our treatment of digital circuits to those with outputs that are fully determined by input values at any given instant. In this section, we’ll study <dfn class="terminology">sequential logic</dfn>, a branch of digial electronics in which circuit outputs depend on input values at that instant in addition to the history of input values. Though the ‘memory’ that we’ll observe in sequential logic circuits is rudimentary compared to that demonstrated by random access memory (RAM) and solid-state drives (SSDs) in computers, the circuits we’ll examine are the fundamental building blocks that make the more advanced applications possible.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-digital-latch-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <section class="subsection" id="subsec-digital-latch-SR-CrossNOR">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">SR Cross-NOR Latch</span>
-</h3>
+</h2>
 <div class="para" id="subsec-digital-latch-SR-CrossNOR-2">The first sequential logic circuit element that we’ll examine is called a <dfn class="terminology">latch</dfn>. <a href="sec-digital-latch.html#circuit-digital-latch-SR" class="xref" data-knowl="./knowl/xref/circuit-digital-latch-SR.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.1(a)">Figure 7.6.1(a)</a> shows the <dfn class="terminology">SR cross-NOR latch</dfn> with inputs <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(R\)</span> and outputs <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(\overline{Q}\text{.}\)</span> 
 <figure class="figure figure-like" id="fig-digital-latch-SR">
 <div class="sidebyside">
@@ -341,9 +341,9 @@ Q \amp = \overline{R + \overline{Q}}\tag{7.6.1}\\
 <a href="sec-digital-latch.html#ex-digital-latch-SR-set" class="xref" data-knowl="./knowl/xref/ex-digital-latch-SR-set.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.6.2: Analysis of Set and Reset states for SR cross-NOR latch">Examples 7.6.2–7.6.3</a> show that our latch design does indeed satisfy the desired behaviors for the Set and Reset input states.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-digital-latch-SR-CrossNOR-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ex-digital-latch-SR-set" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ex-digital-latch-SR-set" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analysis of Set and Reset states for SR cross-NOR latch.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="ex-digital-latch-SR-set-2-1">Determine the output values for the SR cross-NOR latch in the Set state.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-digital-latch-SR-set-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -357,9 +357,9 @@ Q \amp = \overline{R + \overline{Q}}\tag{7.6.1}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 7.6.2: Analysis of Set and Reset states for SR cross-NOR latch"><a tabindex="-1" href="#ex-digital-latch-SR-set" title="Copy heading and permalink for Example 7.6.2: Analysis of Set and Reset states for SR cross-NOR latch" aria-label="Copy heading and permalink for Example 7.6.2: Analysis of Set and Reset states for SR cross-NOR latch">🔗</a></div>
 </article></details>
-<details id="ex-digital-latch-SR-reset" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ex-digital-latch-SR-reset" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analysis of Set and Reset states for SR cross-NOR latch.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="ex-digital-latch-SR-reset-2-1">Determine the output values for the SR cross-NOR latch in the Reset state.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-digital-latch-SR-reset-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -432,9 +432,9 @@ Q(t_1) \amp =\overline{R(t_0) + \overline{Q(t_0)}} = Q(t_0)\\
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.1: SR Cross-NOR Latch"><a tabindex="-1" href="#subsec-digital-latch-SR-CrossNOR" title="Copy heading and permalink for Subsection 7.6.1: SR Cross-NOR Latch" aria-label="Copy heading and permalink for Subsection 7.6.1: SR Cross-NOR Latch">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-digital-latch-SR-CrossNAND">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">SR Cross-NAND Latch</span>
-</h3>
+</h2>
 <div class="para" id="subsec-digital-latch-SR-CrossNAND-2">The <dfn class="terminology">SR cross-NAND latch</dfn> shown in <a href="sec-digital-latch.html#circuit-digital-latch-SR-crossNAND" class="xref" data-knowl="./knowl/xref/circuit-digital-latch-SR-crossNAND.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.6">Figure 7.6.6</a> is a variation on the latch described above. In contrast to the previous latch, the SR cross-NAND latch tracks which input was most recently LO. 
 <figure class="figure figure-like" id="circuit-digital-latch-SR-crossNAND">
 <div class="sbsgroup">
@@ -525,9 +525,9 @@ Q(t_1) \amp =\overline{R(t_0) + \overline{Q(t_0)}} = Q(t_0)\\
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.2: SR Cross-NAND Latch"><a tabindex="-1" href="#subsec-digital-latch-SR-CrossNAND" title="Copy heading and permalink for Subsection 7.6.2: SR Cross-NAND Latch" aria-label="Copy heading and permalink for Subsection 7.6.2: SR Cross-NAND Latch">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-digital-latch-gated">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gated latches</span>
-</h3>
+</h2>
 <div class="para" id="subsec-digital-latch-gated-2">There are latch applications where it may be beneficial to quickly enable or disable latch input control over the latch outputs. <a href="sec-digital-latch.html#fig-digital-latch-SR-gated" class="xref" data-knowl="./knowl/xref/fig-digital-latch-SR-gated.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.8">Figure 7.6.8</a> shows the circuit and truth table for a <dfn class="terminology">gated</dfn> SR latch. When <span class="process-math">\(E=1\text{,}\)</span> the latch is <dfn class="terminology">enabled</dfn> meaning that the latch outputs are determined by the latch inputs. When <span class="process-math">\(E=0\text{,}\)</span> the inputs are disabled and the latch enters the ‘Hold’ state independent of the values of <span class="process-math">\(S\)</span> and <span class="process-math">\(R\text{.}\)</span> The implementation of the gating functionality shown in <a href="sec-digital-latch.html#circuit-digital-latch-SR-gated" class="xref" data-knowl="./knowl/xref/circuit-digital-latch-SR-gated.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.8(a)">Figure 7.6.8(a)</a> results in a latch with <dfn class="terminology">active high</dfn> inputs. This means that the latch, when enabled, has outputs that respond to inputs that are high. So, the Set state requires <span class="process-math">\(E=1\text{,}\)</span> <span class="process-math">\(S=1\text{,}\)</span> and <span class="process-math">\(R=0\text{.}\)</span> This behavior is in contrast to the un-gated cross-NAND SR latch which has <dfn class="terminology">active low</dfn> inputs. 
 <figure class="figure figure-like" id="fig-digital-latch-SR-gated">
 <div class="sbsgroup">
@@ -752,9 +752,9 @@ Q(t_1) \amp =\overline{R(t_0) + \overline{Q(t_0)}} = Q(t_0)\\
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.3: Gated latches"><a tabindex="-1" href="#subsec-digital-latch-gated" title="Copy heading and permalink for Subsection 7.6.3: Gated latches" aria-label="Copy heading and permalink for Subsection 7.6.3: Gated latches">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-digital-latch-preset-reset">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Preset and Clear</span>
-</h3>
+</h2>
 <div class="para" id="subsec-digital-latch-preset-reset-2">There are applications in which it is beneficial to place a latch into a specific state while overriding all gate and input states. Many latch circuits incorporate <dfn class="terminology">Preset</dfn> and <dfn class="terminology">Clear</dfn> inputs for just this purpose. The modified D latch circuit in <a href="sec-digital-latch.html#fig-digital-latch-D-PRE-CLR" class="xref" data-knowl="./knowl/xref/fig-digital-latch-D-PRE-CLR.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.11">Figure 7.6.11</a> provides an example of this functionality with <em class="emphasis">active low</em> Preset and Clear inputs. 
 <figure class="figure figure-like" id="fig-digital-latch-D-PRE-CLR">
 <div class="sbsgroup">

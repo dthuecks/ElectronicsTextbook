@@ -29,13 +29,13 @@ htmlPresentation: false,
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="og:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="book:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
+<meta name="twitter:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="og:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="book:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
 <meta name="twitter:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta property="og:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.44"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -94,8 +94,8 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="Electronics.html"><span class="title">Electronics: A Guide for Physicists</span> <span class="subtitle">Version 0.1 (In Active Development)</span></a></div>
 <p class="byline">Derek J. Thuecks</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -325,9 +325,9 @@ sagecell.makeSagecell({
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-dc-analysis">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Circuit Analysis Methods</span>
-</h2>
+</h1>
 <section class="introduction" id="sec-dc-analysis-2">
 <div class="para" id="sec-dc-analysis-2-1">In the following sections, we will analyze the DC circuit found in <a href="sec-dc-analysis.html#dc-solve-circuit" class="xref" data-knowl="./knowl/xref/dc-solve-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.1">Figure 2.4.1</a>  using a variety of different methods. Each of these methods can be useful in different circumstances, so these exercises are meant to introduce you to a variety of tools that will remain in your circuit-analysis toolbox for future use. 
 <figure class="figure figure-like" id="dc-solve-circuit"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-solve-circuit-2.svg" role="img" class="contained"></div>
@@ -335,9 +335,9 @@ sagecell.makeSagecell({
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-dc-analysis-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="subsec-dc-analysis-reduction">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analysis: Circuit Reduction</span>
-</h3>
+</h2>
 <div class="para logical" id="subsec-dc-analysis-reduction-2">
 <div class="para">In the method of circuit reduction, we use the rules of series and parallel resistors to find all currents present in the circuit. We will start by drawing the circuit and labeling all currents as in <a href="sec-dc-analysis.html#dc-reduction-circuit" class="xref" data-knowl="./knowl/xref/dc-reduction-circuit.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.2">Figure 2.4.2</a>a. 
 <figure class="figure figure-like" id="dc-reduction-circuit"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/dc-reduction-circuit-2.svg" role="img" class="contained"></div>
@@ -411,9 +411,9 @@ V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}\text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 2.4.1: Analysis: Circuit Reduction"><a tabindex="-1" href="#subsec-dc-analysis-reduction" title="Copy heading and permalink for Subsection 2.4.1: Analysis: Circuit Reduction" aria-label="Copy heading and permalink for Subsection 2.4.1: Analysis: Circuit Reduction">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-dc-analysis-branch">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analysis: Branch Method</span>
-</h3>
+</h2>
 <div class="para logical" id="subsec-dc-analysis-branch-2">
 <div class="para">In the <dfn class="terminology">branch method</dfn>, we perform the following steps:</div>
 <ol class="decimal" id="subsec-dc-analysis-branch-2-2">
@@ -454,9 +454,9 @@ V_B \amp = V_{b-} + I_1 R_4 = 13.85\text{V}\text{.}
 \end{align}
 </div>
 <div class="para">You can now find values for <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> using your favorite method for solving systems of equations. We will illustrate several such methods. 
-<details id="subsec-dc-analysis-branch-2-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="subsec-dc-analysis-branch-2-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving Branch Method Equations - Analytic.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="subsec-dc-analysis-branch-2-10-2-1">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using analytic methods.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-dc-analysis-branch-2-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -519,9 +519,9 @@ V_B \amp = 13.85\text{V}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 2.4.4: Solving Branch Method Equations - Analytic"><a tabindex="-1" href="#subsec-dc-analysis-branch-2-10" title="Copy heading and permalink for Example 2.4.4: Solving Branch Method Equations - Analytic" aria-label="Copy heading and permalink for Example 2.4.4: Solving Branch Method Equations - Analytic">🔗</a></div>
 </article></details> 
-<details id="subsec-dc-analysis-branch-2-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="subsec-dc-analysis-branch-2-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving Branch Method Equations - Python.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Python.<div class="solutions">
 <details id="subsec-dc-analysis-branch-2-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
@@ -568,9 +568,9 @@ print('VA = {0:0.2f} V, VB = {1:0.2f} V'.format(VA, VB))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 2.4.5: Solving Branch Method Equations - Python"><a tabindex="-1" href="#subsec-dc-analysis-branch-2-11" title="Copy heading and permalink for Example 2.4.5: Solving Branch Method Equations - Python" aria-label="Copy heading and permalink for Example 2.4.5: Solving Branch Method Equations - Python">🔗</a></div>
 </article></details> 
-<details id="subsec-dc-analysis-branch-2-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="subsec-dc-analysis-branch-2-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving Branch Method Equations - Sympy.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Python and SymPy.<div class="solutions">
 <details id="subsec-dc-analysis-branch-2-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
@@ -629,9 +629,9 @@ sym.simplify(I)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 2.4.6: Solving Branch Method Equations - Sympy"><a tabindex="-1" href="#subsec-dc-analysis-branch-2-12" title="Copy heading and permalink for Example 2.4.6: Solving Branch Method Equations - Sympy" aria-label="Copy heading and permalink for Example 2.4.6: Solving Branch Method Equations - Sympy">🔗</a></div>
 </article></details> 
-<details id="subsec-dc-analysis-branch-2-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="subsec-dc-analysis-branch-2-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving Branch Method Equations - Gaussian elimination.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="subsec-dc-analysis-branch-2-13-2-1">Solve <a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>-<a href="sec-dc-analysis.html#subsec-dc-analysis-branch-2-6" class="xref" data-knowl="./knowl/xref/eqn-dc-branch3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> for the three unknown currents using Gaussian elimination.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-dc-analysis-branch-2-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -759,9 +759,9 @@ I_1 \amp = I_2 + I_3 = 2.77\text{mA}\text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 2.4.2: Analysis: Branch Method"><a tabindex="-1" href="#subsec-dc-analysis-branch" title="Copy heading and permalink for Subsection 2.4.2: Analysis: Branch Method" aria-label="Copy heading and permalink for Subsection 2.4.2: Analysis: Branch Method">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-dc-analysis-mesh">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analysis: Mesh Method</span>
-</h3>
+</h2>
 <div class="para logical" id="subsec-dc-analysis-mesh-2">
 <div class="para">In the <dfn class="terminology">mesh method</dfn>, we perform the following steps:</div>
 <ol class="decimal" id="subsec-dc-analysis-mesh-2-2">

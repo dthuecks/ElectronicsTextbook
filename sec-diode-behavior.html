@@ -29,13 +29,13 @@ htmlPresentation: false,
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="og:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="book:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
+<meta name="twitter:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="og:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="book:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
 <meta name="twitter:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta property="og:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.44"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -82,8 +82,8 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="Electronics.html"><span class="title">Electronics: A Guide for Physicists</span> <span class="subtitle">Version 0.1 (In Active Development)</span></a></div>
 <p class="byline">Derek J. Thuecks</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -313,9 +313,9 @@ sagecell.makeSagecell({
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-diode-behavior">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diode behavior</span>
-</h2>
+</h1>
 <div class="para" id="sec-diode-behavior-2">When we put p-type and n-type semiconductors together as in <a href="sec-diode-behavior.html#fig-diode-biases" class="xref" data-knowl="./knowl/xref/fig-diode-biases.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.1">Figure 4.2.1</a>, we get a <dfn class="terminology">diode</dfn>. When a voltage difference is applied across the diode, interesting behaviors can be observed. 
 <figure class="figure figure-like" id="fig-diode-biases">
 <div class="sidebyside">
@@ -345,9 +345,9 @@ sagecell.makeSagecell({
 <div class="para" id="sec-diode-behavior-5">When using the behavior shown in <a href="sec-diode-behavior.html#fig-diode-cartoon" class="xref" data-knowl="./knowl/xref/fig-diode-cartoon.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.2">Figure 4.2.2</a> to analyze circuits containing diodes, the voltage drop across the diode will remain <span class="process-math">\(V_F\)</span> as long as the diode is on regardless of the size of the current through the diode. Likewise, a diode that is off will allow no current regardless of the voltage change applied across the diode. Thus, a diode acts much like a unidirectional wire, allowing current to flow in one direction but not the other.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-diode-behavior-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <section class="subsection" id="subsec-forward-voltage">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Origin of the forward turn-on voltage</span>
-</h3>
+</h2>
 <div class="para" id="subsec-forward-voltage-2">We’ve seen that much of the cartoon behavior of a diode shown in <a href="sec-diode-behavior.html#fig-diode-cartoon" class="xref" data-knowl="./knowl/xref/fig-diode-cartoon.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.2">Figure 4.2.2</a> can be understood qualitatively through an examination of <a href="sec-diode-behavior.html#fig-diode-biases" class="xref" data-knowl="./knowl/xref/fig-diode-biases.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.1">Figure 4.2.1</a>, though this examination failed to predict the forward turn-on voltage <span class="process-math">\(V_F\text{.}\)</span> In <a href="sec-diode-behavior.html#fig-diode-cartoon" class="xref" data-knowl="./knowl/xref/fig-diode-cartoon.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.2">Figure 4.2.2</a>, the diode fails to conduct current while <span class="process-math">\(V_D \lt V_F\text{.}\)</span> In order to understand the origins of <span class="process-math">\(V_F\text{,}\)</span> we will examine a more sophisticated treatment of charge carrier motions at the pn-junction.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-forward-voltage-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="subsec-forward-voltage-3">A diode is made by joining p-type and n-type semiconductors together, but the typical reality is that a single semiconductor crystal is grown and the <dfn class="terminology">p-n junction</dfn> refers to the region in the crystal where doping has been changed from one impurity to another. This means that the boundary between the semiconductor types is not as clearly defined as we’re treating it to be. Nonethetless, our phenomenological exploration of diode behavior does not require the level of precision that a more complex junction model would provide, so we will continue treating the pn-junction as a sharp boundary.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-forward-voltage-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -368,9 +368,9 @@ sagecell.makeSagecell({
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 4.2.1: Origin of the forward turn-on voltage"><a tabindex="-1" href="#subsec-forward-voltage" title="Copy heading and permalink for Subsection 4.2.1: Origin of the forward turn-on voltage" aria-label="Copy heading and permalink for Subsection 4.2.1: Origin of the forward turn-on voltage">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-diode-real-behavior">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Behavior of real diodes</span>
-</h3>
+</h2>
 <div class="para logical" id="subsec-diode-real-behavior-2">
 <div class="para">We can also be a bit more precise and realistic in our description of diode behavior. Instead of the behavior described in <a href="sec-diode-behavior.html#fig-diode-cartoon" class="xref" data-knowl="./knowl/xref/fig-diode-cartoon.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2.2">Figure 4.2.2</a>, we can instead relate the current through the diode <span class="process-math">\(I_D\)</span> in the forward direction to the voltage applied across the diode <span class="process-math">\(V_D\text{:}\)</span>
 </div>

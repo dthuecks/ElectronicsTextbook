@@ -29,13 +29,13 @@ htmlPresentation: false,
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="og:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="book:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
+<meta name="twitter:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="og:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="book:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
 <meta name="twitter:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta property="og:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.44"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -70,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="Electronics.html"><span class="title">Electronics: A Guide for Physicists</span> <span class="subtitle">Version 0.1 (In Active Development)</span></a></div>
 <p class="byline">Derek J. Thuecks</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -301,9 +301,9 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-labactivities-opamp">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lab: Operational Amplifiers</span>
-</h2>
+</h1>
 <div class="para logical" id="sec-labactivities-opamp-2">
 <div class="para">
 <em class="alert">Objective:</em> In your lab notebook, write a few sentences stating your objective in conducting this laboratory exercise. Consider the following questions:</div>
@@ -335,7 +335,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec-labactivities-opamp-3">
 <em class="alert">Equipment:</em> Proto-board, function generator, digital oscilloscope, oscilloscope probes, DMM, LM358 op-amp, resistors (1k, 5.1k, 10k), 1 nF capacitor.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-labactivities-opamp-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<section class="paragraphs" id="sec-labactivities-opamp-4"><h3 class="heading"><span class="title">Introduction and theory.</span></h3>
+<section class="paragraphs" id="sec-labactivities-opamp-4"><h2 class="heading"><span class="title">Introduction and theory.</span></h2>
 <div class="para" id="sec-labactivities-opamp-4-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-labactivities-opamp-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <div class="para" id="sec-labactivities-opamp-4-3">Operational amplifiers are employed in a broad spectrum of analog circuits designed to amplify, filter, buffer, sum, integrate, differentiate, and so on. Such circuits require few external discrete components beyond the op amps themselves, and they require very little sophistication on the part of the user. All op amp circuits fall in either the <dfn class="terminology">inverting</dfn> or the <dfn class="terminology">non-inverting</dfn> configuration. An example of an inverting configuration is shown in <a href="sec-labactivities-opamp.html#circuit-labactivities-opamp-inverting-amp" class="xref" data-knowl="./knowl/xref/circuit-labactivities-opamp-inverting-amp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 11.7.1">Figure 11.7.1</a>. 
 <figure class="figure figure-like" id="circuit-labactivities-opamp-inverting-amp"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/circuit-labactivities-opamp-inverting-amp-2.svg" role="img" class="contained"></div>
@@ -348,7 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphs: Introduction and theory"><a tabindex="-1" href="#sec-labactivities-opamp-4" title="Copy heading and permalink for Paragraphs: Introduction and theory" aria-label="Copy heading and permalink for Paragraphs: Introduction and theory">🔗</a></div>
 </section>
-<section class="paragraphs" id="sec-labactivities-opamp-5"><h3 class="heading"><span class="title">Experiment: Inverting amplifier.</span></h3>
+<section class="paragraphs" id="sec-labactivities-opamp-5"><h2 class="heading"><span class="title">Experiment: Inverting amplifier.</span></h2>
 <div class="para" id="sec-labactivities-opamp-5-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-labactivities-opamp-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <div class="para" id="sec-labactivities-opamp-5-3">Construct the inverting amplifier circuit using a general purpose LM358 op amp. The pin diagram for the LM358 (8-pin DIP) is shown in <a href="sec-labactivities-opamp.html#fig-labactivities-opamp-lm358-pins" class="xref" data-knowl="./knowl/xref/fig-labactivities-opamp-lm358-pins.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 11.7.2">Figure 11.7.2</a>. Note that you are given a top-down view of the chip; take careful note of the ‘divot’ location on the chip. On your prototyping board, the op-amp should be placed across the ‘gap’ that exists between neighboring five-hole rows, with op amp pins 1-4 on one side of the gap and pins 5-8 on the other side of the gap. Use pins 1-5 for this experiment, as they contain the two supply voltages as well as the inputs and output for op-amp A. You will not use op-amp B (pins 5-7) today. <em class="alert">You should use <span class="process-math">\(\pm 15\)</span> Volts for <span class="process-math">\(V_{S\pm}\text{.}\)</span></em> 
 <figure class="figure figure-like" id="fig-labactivities-opamp-lm358-pins"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-labactivities-opamp-lm358-pins-2.svg" role="img" class="contained"></div>
@@ -402,7 +402,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphs: Experiment: Inverting amplifier"><a tabindex="-1" href="#sec-labactivities-opamp-5" title="Copy heading and permalink for Paragraphs: Experiment: Inverting amplifier" aria-label="Copy heading and permalink for Paragraphs: Experiment: Inverting amplifier">🔗</a></div>
 </section>
-<section class="paragraphs" id="sec-labactivities-opamp-6"><h3 class="heading"><span class="title">Experiment: Differentiator.</span></h3>
+<section class="paragraphs" id="sec-labactivities-opamp-6"><h2 class="heading"><span class="title">Experiment: Differentiator.</span></h2>
 <div class="para" id="sec-labactivities-opamp-6-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-labactivities-opamp-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <div class="para" id="sec-labactivities-opamp-6-3">Assemble the differentiator circuit shown in <a href="sec-labactivities-opamp.html#circuit-labactivities-opamp-differentiator" class="xref" data-knowl="./knowl/xref/circuit-labactivities-opamp-differentiator.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 11.7.3">Figure 11.7.3</a>. Note the added presence of the 1 k<span class="process-math">\(\Omega\)</span> input resistor; it is present to lessen the noise sensitivity of the differentiator. 
 <figure class="figure figure-like" id="circuit-labactivities-opamp-differentiator"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/circuit-labactivities-opamp-differentiator-2.svg" role="img" class="contained"></div>

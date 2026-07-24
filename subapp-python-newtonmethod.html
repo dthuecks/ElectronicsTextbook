@@ -29,13 +29,13 @@ htmlPresentation: false,
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="og:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="book:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
+<meta name="twitter:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="og:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="book:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
 <meta name="twitter:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta property="og:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.44"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -70,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="Electronics.html"><span class="title">Electronics: A Guide for Physicists</span> <span class="subtitle">Version 0.1 (In Active Development)</span></a></div>
 <p class="byline">Derek J. Thuecks</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -301,10 +301,10 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="subapp-python-newtonmethod">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">B.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Newton’s Method</span>
-</h2>
-<section class="paragraphs" id="subapp-python-newtonmethod-2"><h3 class="heading"><span class="title">FINDING THE ROOT OF ONE NONLINEAR EQUATION.</span></h3>
+</h1>
+<section class="paragraphs" id="subapp-python-newtonmethod-2"><h2 class="heading"><span class="title">FINDING THE ROOT OF ONE NONLINEAR EQUATION.</span></h2>
 <div class="para" id="subapp-python-newtonmethod-2-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subapp-python-newtonmethod-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <div class="para logical" id="subapp-python-newtonmethod-2-3">
 <div class="para">Newton’s method is a computational algorithm that can be used to find the roots of an equation. Let’s illustrate with an example. 
@@ -370,7 +370,7 @@ x_{n}=x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}\text{,}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphs: FINDING THE ROOT OF ONE NONLINEAR EQUATION"><a tabindex="-1" href="#subapp-python-newtonmethod-2" title="Copy heading and permalink for Paragraphs: FINDING THE ROOT OF ONE NONLINEAR EQUATION" aria-label="Copy heading and permalink for Paragraphs: FINDING THE ROOT OF ONE NONLINEAR EQUATION">🔗</a></div>
 </section>
-<section class="paragraphs" id="subapp-python-newtonmethod-3"><h3 class="heading"><span class="title">FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS.</span></h3>
+<section class="paragraphs" id="subapp-python-newtonmethod-3"><h2 class="heading"><span class="title">FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS.</span></h2>
 <div class="para" id="subapp-python-newtonmethod-3-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subapp-python-newtonmethod-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <div class="para logical" id="subapp-python-newtonmethod-3-3">
 <div class="para">Write your equations in the following form:</div>
@@ -421,7 +421,7 @@ f_i(x^*_1,\dots,x^*_N) = f_i(x_1,\dots,x_N) + \sum\limits_j \left(x_j^*-x_j\righ
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphs: FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS"><a tabindex="-1" href="#subapp-python-newtonmethod-3" title="Copy heading and permalink for Paragraphs: FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS" aria-label="Copy heading and permalink for Paragraphs: FINDING THE ROOTS OF A SYSTEM OF NONLINEAR EQUATIONS">🔗</a></div>
 </section>
-<section class="paragraphs" id="subapp-python-newtonmethod-4"><h3 class="heading"><span class="title">Wheatstone Bridge example.</span></h3>
+<section class="paragraphs" id="subapp-python-newtonmethod-4"><h2 class="heading"><span class="title">Wheatstone Bridge example.</span></h2>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphs: Wheatstone Bridge example"><a tabindex="-1" href="#subapp-python-newtonmethod-4" title="Copy heading and permalink for Paragraphs: Wheatstone Bridge example" aria-label="Copy heading and permalink for Paragraphs: Wheatstone Bridge example">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section B.1: Newton’s Method"><a tabindex="-1" href="#subapp-python-newtonmethod" title="Copy heading and permalink for Section B.1: Newton’s Method" aria-label="Copy heading and permalink for Section B.1: Newton’s Method">🔗</a></div>
 </section>

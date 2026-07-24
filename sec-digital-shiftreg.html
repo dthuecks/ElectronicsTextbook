@@ -29,13 +29,13 @@ htmlPresentation: false,
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="og:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
-<meta property="book:title" content="Electronics: A Guide for Physicists (DRAFT -- in development)">
+<meta name="twitter:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="og:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
+<meta property="book:title" content="Electronics: A Guide for Physicists: Version 0.1 (In Active Development)">
 <meta name="twitter:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta property="og:description" content="An introduction to analog and digital electronics for undergraduate physics majors.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.44"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -70,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 </head>
 <body id="electronics.thuecks" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="Electronics.html"><span class="title">Electronics</span> <span class="subtitle">A Guide for Physicists (DRAFT -- in development)</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="Electronics.html"><span class="title">Electronics: A Guide for Physicists</span> <span class="subtitle">Version 0.1 (In Active Development)</span></a></div>
 <p class="byline">Derek J. Thuecks</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -301,15 +301,15 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-digital-shiftreg">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Shift Registers and Counters</span>
-</h2>
+</h1>
 <div class="para" id="sec-digital-shiftreg-2">Having established the behavior of flip-flops, we move on to applications that make use of these circuit elements. In particular, we will examine shift registers and the counters that are based on them.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-digital-shiftreg-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <section class="subsection" id="subsec-digital-shiftreg-shiftreg">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Shift Registers</span>
-</h3>
+</h2>
 <div class="para" id="subsec-digital-shiftreg-shiftreg-2">Let’s examine a circuit that is called a <dfn class="terminology">shift register</dfn>. An example of a shift register circuit is provided in <a href="sec-digital-shiftreg.html#circuit-digital-shiftreg-shiftreg" class="xref" data-knowl="./knowl/xref/circuit-digital-shiftreg-shiftreg.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.8.1">Figure 7.8.1</a> 
 <figure class="figure figure-like" id="circuit-digital-shiftreg-shiftreg"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/circuit-digital-shiftreg-shiftreg-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Shift register circuit constructed using four D flip-flops that are each triggered by the falling edge on the clock signal <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.8.1"><a tabindex="-1" href="#circuit-digital-shiftreg-shiftreg" title="Copy heading and permalink for Figure 7.8.1" aria-label="Copy heading and permalink for Figure 7.8.1">🔗</a></div></figcaption>
@@ -321,9 +321,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.8.1: Shift Registers"><a tabindex="-1" href="#subsec-digital-shiftreg-shiftreg" title="Copy heading and permalink for Subsection 7.8.1: Shift Registers" aria-label="Copy heading and permalink for Subsection 7.8.1: Shift Registers">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-digital-shiftreg-counters">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Counters</span>
-</h3>
+</h2>
 <div class="para" id="subsec-digital-shiftreg-counters-2">We can use the memory functionality demonstrated by flip-flop circuits above to produce a circuit that <em class="emphasis">counts</em>. Let’s first start with the flip-flop configuration that is called a <dfn class="terminology">mod-2 counter</dfn>. This circuit, shown in <a href="sec-digital-shiftreg.html#circuit-digital-shiftreg-counter-mod2" class="xref" data-knowl="./knowl/xref/circuit-digital-shiftreg-counter-mod2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.8.3">Figure 7.8.3</a>, takes a square-wave clock input and produces a square-wave output with half of the clock’s frequency. 
 <figure class="figure figure-like" id="circuit-digital-shiftreg-counter-mod2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/circuit-digital-shiftreg-counter-mod2-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Mod-2 counter circuit.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.8.3"><a tabindex="-1" href="#circuit-digital-shiftreg-counter-mod2" title="Copy heading and permalink for Figure 7.8.3" aria-label="Copy heading and permalink for Figure 7.8.3">🔗</a></div></figcaption>
@@ -345,9 +345,9 @@ eBookConfig.enable_chatcodes =  false;
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Timing diagram for the asynchronous decade counter.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.8.7"><a tabindex="-1" href="#timing-digital-shiftreg-counter-decade" title="Copy heading and permalink for Figure 7.8.7" aria-label="Copy heading and permalink for Figure 7.8.7">🔗</a></div></figcaption>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-digital-shiftreg-counters-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="subsec-digital-shiftreg-counters-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="subsec-digital-shiftreg-counters-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divide-by-5 and Divide-by-100 counters.</span>
-</h4></summary>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="subsec-digital-shiftreg-counters-5-2-1">Assign as homework questions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-digital-shiftreg-counters-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -355,9 +355,9 @@ eBookConfig.enable_chatcodes =  false;
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 7.8.2: Counters"><a tabindex="-1" href="#subsec-digital-shiftreg-counters" title="Copy heading and permalink for Subsection 7.8.2: Counters" aria-label="Copy heading and permalink for Subsection 7.8.2: Counters">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-digital-shiftreg-LED-display">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.8.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Seven-segment LED Display</span>
-</h3>
+</h2>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.8.3: Seven-segment LED Display"><a tabindex="-1" href="#subsec-digital-shiftreg-LED-display" title="Copy heading and permalink for Subsection 7.8.3: Seven-segment LED Display" aria-label="Copy heading and permalink for Subsection 7.8.3: Seven-segment LED Display">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 7.8: Shift Registers and Counters"><a tabindex="-1" href="#sec-digital-shiftreg" title="Copy heading and permalink for Section 7.8: Shift Registers and Counters" aria-label="Copy heading and permalink for Section 7.8: Shift Registers and Counters">🔗</a></div>
 </section>

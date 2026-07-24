@@ -5,8 +5,8 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="Electronics">
-    <title>Electronics</title>
-    <subtitle>A Guide for Physicists (DRAFT -- in development)</subtitle>
+    <title>Electronics: A Guide for Physicists</title>
+    <subtitle>Version 0.1 (In Active Development)</subtitle>
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
