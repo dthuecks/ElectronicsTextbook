@@ -19,6 +19,9 @@
       <url href="https://dthuecks.github.io/ElectronicsTextbook/Electronics.html" visual="dthuecks.github.io/ElectronicsTextbook/Electronics.html">Textbook (Online Edition)</url>
     </website>
     <website>
+      <url href="https://dthuecks.github.io/ElectronicsTextbook/print/main.pdf" visual="dthuecks.github.io/ElectronicsTextbook/print/main.pdf">Textbook (Online PDF Edition)</url>
+    </website>
+    <website>
       <url href="https://github.com/dthuecks/ElectronicsTextbook" visual="github.com/dthuecks/ElectronicsTextbook">Project Source Files on GitHub</url>
     </website>
 

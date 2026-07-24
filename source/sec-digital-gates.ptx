@@ -6,72 +6,104 @@
     <p>
         Digital circuits are built using a variety of <term>gates</term> that accept digital inputs with values of 0 or 1 and produce a digital output based on a specific gate's operation. We characterize the behavior of digital gates using <term>truth tables</term>. <xref ref="fig-digital-symbols-tables"/> shows the digital gates that will be the building blocks for our digital circuits and the truth tables that describe their behaviors.
         <figure xml:id="fig-digital-symbols-tables">
-        <sbsgroup widths="35% 35%" >
+        <sbsgroup widths="30% 30%" >
             <sidebyside>
                 <figure>
-                    <caption>Buffer gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-buffer.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-buffer.ptx" />
+                    <caption>Buffer gate</caption> 
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-buffer.tex" />
+                        </latex-image></image>  
+                    </p>          
+                    <p>
+                        <xi:include href="./tables/tbl-digital-buffer.ptx" />
+                    </p>
                 </figure>
                 <figure>
                     <caption>NOT gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-NOT.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-NOT.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-NOT.tex" />
+                        </latex-image></image> 
+                    </p>
+                    <p>           
+                        <xi:include href="./tables/tbl-digital-NOT.ptx" />
+                    </p>
                 </figure>
             </sidebyside>
 
             <sidebyside>
                 <figure>
                     <caption>AND gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-AND.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-AND.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-AND.tex" />
+                        </latex-image></image>  
+                    </p>
+                    <p>          
+                        <xi:include href="./tables/tbl-digital-AND.ptx" />
+                    </p>
                 </figure>
                 <figure>
                     <caption>NAND gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-NAND.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-NAND.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-NAND.tex" />
+                        </latex-image></image> 
+                    </p>
+                    <p>           
+                        <xi:include href="./tables/tbl-digital-NAND.ptx" />
+                    </p>
                 </figure>
             </sidebyside>
 
             <sidebyside>
                 <figure>
                     <caption>OR gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-OR.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-OR.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-OR.tex" />
+                        </latex-image></image> 
+                    </p>
+                    <p>           
+                        <xi:include href="./tables/tbl-digital-OR.ptx" />
+                    </p>
                 </figure>
                 <figure>
                     <caption>NOR gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-NOR.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-NOR.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-NOR.tex" />
+                        </latex-image></image> 
+                    </p>
+                    <p>           
+                        <xi:include href="./tables/tbl-digital-NOR.ptx" />
+                    </p>
                 </figure>
             </sidebyside>
 
             <sidebyside>
                 <figure>
                     <caption>XOR gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-XOR.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-XOR.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-XOR.tex" />
+                        </latex-image></image> 
+                    </p>
+                    <p>           
+                        <xi:include href="./tables/tbl-digital-XOR.ptx" />
+                    </p>
                 </figure>
                 <figure>
                     <caption>XNOR gate</caption>
-                    <image><latex-image>
-                        <xi:include parse="text" href="./figures/circuit-digital-XNOR.tex" />
-                    </latex-image></image>            
-                    <xi:include href="./tables/tbl-digital-XNOR.ptx" />
+                    <p>
+                        <image><latex-image>
+                            <xi:include parse="text" href="./figures/circuit-digital-XNOR.tex" />
+                        </latex-image></image>
+                    </p>
+                    <p>            
+                        <xi:include href="./tables/tbl-digital-XNOR.ptx" />
+                    </p>
                 </figure>
             </sidebyside>
         </sbsgroup>
