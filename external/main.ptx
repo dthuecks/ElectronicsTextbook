@@ -21,7 +21,7 @@
       <xi:include href="./ch-transistor.ptx" />
       <xi:include href="./ch-opamp.ptx" />
       <xi:include href="./ch-digital.ptx" />
-      <xi:include href="./ch-oscillators.ptx" />
+      <!--<xi:include href="./ch-oscillators.ptx" />-->
     </part>
 
     <part xml:id="part-lab">
